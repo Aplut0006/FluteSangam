@@ -3,7 +3,7 @@ import { UserProfile } from '../types';
 import { auth } from '../lib/firebase';
 import { signOut } from 'firebase/auth';
 import { updateUserProfile, isEmailTaken, isPhoneTaken, isUsernameTaken } from '../lib/db';
-import { Music, LogOut, User, Globe, Edit3, Check, X, ShieldAlert, Sparkles, MapPin, Feather, Phone, Mail, Camera, Upload, MessageSquare, Wind } from 'lucide-react';
+import { Music, LogOut, User, Globe, Edit3, Check, X, ShieldAlert, Sparkles, MapPin, Feather, Phone, Mail, Camera, Upload, MessageSquare, Wind, BookOpen, ChevronDown } from 'lucide-react';
 import { CARTOON_AVATARS } from './AuthModal';
 
 interface NavbarProps {
@@ -11,8 +11,8 @@ interface NavbarProps {
   onOpenAuth: () => void;
   onLogout: () => void;
   onProfileUpdated: (updatedProfile: UserProfile) => void;
-  currentView?: 'community' | 'chats' | 'post-detail' | 'user-profile';
-  onViewChange?: (view: 'community' | 'chats' | 'post-detail' | 'user-profile') => void;
+  currentView?: 'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_basics' | 'learn_alankaras';
+  onViewChange?: (view: 'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_basics' | 'learn_alankaras') => void;
   unreadCount?: number;
 }
 
@@ -44,15 +44,20 @@ export default function Navbar({
   const [errorMsg, setErrorMsg] = useState('');
 
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [showLearnDropdown, setShowLearnDropdown] = useState(false);
+  const learnDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setShowProfileDropdown(false);
       }
+      if (learnDropdownRef.current && !learnDropdownRef.current.contains(event.target as Node)) {
+        setShowLearnDropdown(false);
+      }
     }
 
-    if (showProfileDropdown) {
+    if (showProfileDropdown || showLearnDropdown) {
       document.addEventListener('mousedown', handleClickOutside);
     } else {
       document.removeEventListener('mousedown', handleClickOutside);
@@ -61,7 +66,7 @@ export default function Navbar({
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [showProfileDropdown]);
+  }, [showProfileDropdown, showLearnDropdown]);
 
   const handleLogout = async () => {
     try {
@@ -230,6 +235,54 @@ export default function Navbar({
               </span>
             )}
           </button>
+
+          {/* Learn Flute Dropdown */}
+          <div className="relative" ref={learnDropdownRef}>
+            <button
+              onClick={() => setShowLearnDropdown(!showLearnDropdown)}
+              className={`px-4 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
+                currentView === 'learn_intro' || currentView === 'learn_alankaras'
+                  ? 'bg-bamboo-700 text-white shadow-3xs'
+                  : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
+              }`}
+            >
+              <BookOpen className="w-4 h-4 text-amber-600" />
+              <span>Learn Flute</span>
+              <ChevronDown className="w-3.5 h-3.5 opacity-70" />
+            </button>
+            
+            {showLearnDropdown && (
+              <div className="absolute top-full mt-2 left-0 w-56 bg-white rounded-xl shadow-xl border border-bamboo-100 py-1.5 z-50 overflow-hidden">
+                <button
+                  onClick={() => {
+                    onViewChange?.('learn_intro');
+                    setShowLearnDropdown(false);
+                  }}
+                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 last:border-b-0 cursor-pointer"
+                >
+                  Introduction To Flute/Bansuri
+                </button>
+                <button
+                  onClick={() => {
+                    onViewChange?.('learn_basics');
+                    setShowLearnDropdown(false);
+                  }}
+                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 last:border-b-0 cursor-pointer"
+                >
+                  The Basics
+                </button>
+                <button
+                  onClick={() => {
+                    onViewChange?.('learn_alankaras');
+                    setShowLearnDropdown(false);
+                  }}
+                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition cursor-pointer"
+                >
+                  Alankaras
+                </button>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Global user stats and profile management */}

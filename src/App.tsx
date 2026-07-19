@@ -15,6 +15,9 @@ import PostCard from './components/PostCard';
 import ChatSection from './components/ChatSection';
 import PostDetailView from './components/PostDetailView';
 import UserProfileView from './components/UserProfileView';
+import LearnIntroView from './components/LearnIntroView';
+import LearnBasicsView from './components/LearnBasicsView';
+import LearnAlankarasView from './components/LearnAlankarasView';
 
 // Icons
 import { 
@@ -41,8 +44,8 @@ export default function App() {
   const [shareModalOpen, setShareModalOpen] = useState(false);
   const [activeSharePost, setActiveSharePost] = useState<Post | null>(null);
 
-  // View Management ('community' view with posts vs dedicated 'chats' dashboard vs 'post-detail' page vs 'user-profile' page)
-  const [currentView, setCurrentView] = useState<'community' | 'chats' | 'post-detail' | 'user-profile'>('community');
+  // View Management
+  const [currentView, setCurrentView] = useState<'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_basics' | 'learn_alankaras'>('community');
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
   const [selectedProfileUserId, setSelectedProfileUserId] = useState<string | null>(null);
   const [unreadCount, setUnreadCount] = useState(0);
@@ -58,12 +61,12 @@ export default function App() {
   const [editingPost, setEditingPost] = useState<Post | null>(null);
 
   const handleViewChange = (
-    view: 'community' | 'chats' | 'post-detail' | 'user-profile',
+    view: 'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_basics' | 'learn_alankaras',
     stateExtra: any = {},
     push = true
   ) => {
     setCurrentView(view);
-    if (view === 'community') {
+    if (view === 'community' || view === 'learn_intro' || view === 'learn_basics' || view === 'learn_alankaras') {
       setSelectedPost(null);
       setSelectedProfileUserId(null);
     } else if (view === 'post-detail') {
@@ -429,6 +432,12 @@ export default function App() {
             onUserProfileClick={handleOpenUserProfile}
             onEditPost={handleOpenEditPost}
           />
+        ) : currentView === 'learn_intro' ? (
+          <LearnIntroView />
+        ) : currentView === 'learn_basics' ? (
+          <LearnBasicsView />
+        ) : currentView === 'learn_alankaras' ? (
+          <LearnAlankarasView />
         ) : currentView === 'chats' && currentUser ? (
           <div className="space-y-5">
             <div className="hidden md:flex items-center justify-between bg-white/70 backdrop-blur-md p-4.5 rounded-2xl border border-bamboo-100/60 shadow-3xs">
