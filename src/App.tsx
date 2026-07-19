@@ -611,7 +611,7 @@ export default function App() {
           </div>
 
           {/* RIGHT SIDEBAR ADDITION: Quick Tips & Guidelines (Collapses/displays on mobile selection) */}
-          <div className={`md:col-span-4 space-y-6 ${mobileTab === 'tips' ? 'block' : 'hidden'}`} id="right-sidebar-tips">
+          <div className={`md:col-span-4 space-y-6 ${mobileTab === 'tips' ? 'block' : 'hidden md:block'}`} id="right-sidebar-tips">
             <div className="frosted-panel rounded-2xl p-4 space-y-4 shadow-sm" id="community-tips-card">
               <h3 className="font-display font-bold text-bamboo-800 text-sm flex items-center gap-1.5 border-b border-gray-100 pb-2.5">
                 <HelpCircle className="w-4.5 h-4.5 text-amber-600" />
