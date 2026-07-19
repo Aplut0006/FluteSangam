@@ -3,12 +3,12 @@ import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "gen-lang-client-0699287191",
+  appId: import.meta.env.VITE_FIREBASE_APP_ID || "1:320805562933:web:84662ac3806b63ea031f7c",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "AIzaSyA2N-RGtzr0j7RFL7O7i6c5ioj1UkuajAE",
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "gen-lang-client-0699287191.firebaseapp.com",
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "gen-lang-client-0699287191.firebasestorage.app",
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "320805562933"
 };
 
 // Initialize Firebase
