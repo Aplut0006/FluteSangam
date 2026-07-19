@@ -176,6 +176,19 @@ export default function PostDetailView({
     }
   };
 
+  // Helper to format dates
+  const formatDate = (timestamp: any) => {
+    if (!timestamp) return 'Just now';
+    const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
+    if (isNaN(date.getTime())) return 'Just now';
+    return date.toLocaleString([], {
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  };
+
   // Badge functions
   const getLevelBadge = (level: string) => {
     switch (level) {
@@ -296,6 +309,10 @@ export default function PostDetailView({
                     </button>
                     <span className="text-gray-300 text-xs">•</span>
                     <p className="text-[11px] text-gray-400 font-medium">Bansuri Enthusiast</p>
+                      <span className="text-gray-300 text-xs">•</span>
+                      <p className="text-[11px] text-gray-400 font-medium">
+                        {formatDate(post.createdAt)}
+                      </p>
                   </div>
                 </div>
               </div>
@@ -438,6 +455,9 @@ export default function PostDetailView({
                             >
                               @{comm.authorUsername || comm.authorName.toLowerCase().replace(/[^a-z0-9_]/g, '') || 'sadhaka'}
                             </button>
+                            <span className="text-[10px] text-gray-400">
+                              {formatDate(comm.createdAt)}
+                            </span>
                           </div>
                           
                           {isAuthor && !isEditing && (

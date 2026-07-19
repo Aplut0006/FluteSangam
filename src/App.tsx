@@ -19,6 +19,7 @@ import LearnIntroView from './components/LearnIntroView';
 import LearnBasicsView from './components/LearnBasicsView';
 import LearnAlankarasView from './components/LearnAlankarasView';
 import LearnRaagasView from './components/LearnRaagasView';
+import MembersView from './components/MembersView';
 
 // Icons
 import { 
@@ -46,7 +47,7 @@ export default function App() {
   const [activeSharePost, setActiveSharePost] = useState<Post | null>(null);
 
   // View Management
-  const [currentView, setCurrentView] = useState<'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_basics' | 'learn_alankaras' | 'learn_raagas'>('community');
+  const [currentView, setCurrentView] = useState<'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_basics' | 'learn_alankaras' | 'learn_raagas' | 'community_members'>('community');
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
   const [selectedProfileUserId, setSelectedProfileUserId] = useState<string | null>(null);
   const [unreadCount, setUnreadCount] = useState(0);
@@ -62,12 +63,12 @@ export default function App() {
   const [editingPost, setEditingPost] = useState<Post | null>(null);
 
   const handleViewChange = (
-    view: 'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_basics' | 'learn_alankaras' | 'learn_raagas',
+    view: 'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_basics' | 'learn_alankaras' | 'learn_raagas' | 'community_members',
     stateExtra: any = {},
     push = true
   ) => {
     setCurrentView(view);
-    if (view === 'community' || view === 'learn_intro' || view === 'learn_basics' || view === 'learn_alankaras' || view === 'learn_raagas') {
+    if (view === 'community' || view === 'learn_intro' || view === 'learn_basics' || view === 'learn_alankaras' || view === 'learn_raagas' || view === 'community_members') {
       setSelectedPost(null);
       setSelectedProfileUserId(null);
     } else if (view === 'post-detail') {
@@ -80,7 +81,8 @@ export default function App() {
       const stateObj = { view, ...stateExtra };
       const hash = view === 'post-detail' && stateExtra.postId ? `#post-${stateExtra.postId}` :
                    view === 'user-profile' && stateExtra.userId ? `#user-${stateExtra.userId}` :
-                   view === 'chats' ? '#chats' : '#';
+                   view === 'chats' ? '#chats' : 
+                   view === 'community_members' ? '#members' : '#';
       window.history.pushState(stateObj, '', hash);
     }
   };
@@ -441,6 +443,8 @@ export default function App() {
           <LearnAlankarasView />
         ) : currentView === 'learn_raagas' ? (
           <LearnRaagasView />
+        ) : currentView === 'community_members' ? (
+          <MembersView onUserProfileClick={handleOpenUserProfile} />
         ) : currentView === 'chats' && currentUser ? (
           <div className="space-y-5">
             <div className="hidden md:flex items-center justify-between bg-white/70 backdrop-blur-md p-4.5 rounded-2xl border border-bamboo-100/60 shadow-3xs">
