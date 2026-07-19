@@ -37,6 +37,9 @@ export interface Comment {
   likes?: string[];      // UIDs of users who liked
   dislikes?: string[];   // UIDs of users who disliked
   imageUrl?: string;     // Base64 or external image URL
+  parentId?: string;
+  replyToName?: string;
+  replyToText?: string;
 }
 
 export interface Post {

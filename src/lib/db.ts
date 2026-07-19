@@ -16,7 +16,9 @@ import {
   Timestamp,
   where,
   or,
-  limit
+  limit,
+  writeBatch,
+  collectionGroup
 } from 'firebase/firestore';
 import { db } from './firebase';
 import { Post, Comment, UserProfile } from '../types';
@@ -117,6 +119,56 @@ export async function updateUserProfile(uid: string, updates: Partial<UserProfil
   try {
     const docRef = doc(db, 'users', uid);
     await updateDoc(docRef, cleanUndefined(updates));
+
+    // Also update their posts and comments if name, username, or photo changed
+    if (updates.displayName !== undefined || updates.username !== undefined || updates.photoURL !== undefined) {
+      const postUpdates: any = {};
+      if (updates.displayName !== undefined) postUpdates.authorName = updates.displayName;
+      if (updates.username !== undefined) postUpdates.authorUsername = updates.username;
+      if (updates.photoURL !== undefined) postUpdates.authorPhoto = updates.photoURL;
+
+      const ops: any[] = [];
+      
+      // Update Posts
+      const postsCol = collection(db, 'posts');
+      const postsQ = query(postsCol, where('authorId', '==', uid));
+      const postsSnapshot = await getDocs(postsQ);
+      
+      postsSnapshot.forEach((postDoc) => {
+        ops.push(postDoc.ref);
+      });
+
+      // Update Comments
+      try {
+        const commentsGroup = collectionGroup(db, 'comments');
+        const commentsQ = query(commentsGroup, where('authorId', '==', uid));
+        const commentsSnapshot = await getDocs(commentsQ);
+        
+        commentsSnapshot.forEach((commentDoc) => {
+          ops.push(commentDoc.ref);
+        });
+      } catch (err) {
+        console.warn("collectionGroup query for comments failed, falling back to manual search", err);
+        const allPostsSnapshot = await getDocs(collection(db, 'posts'));
+        for (const postDoc of allPostsSnapshot.docs) {
+          const postCommentsQ = query(collection(db, `posts/${postDoc.id}/comments`), where('authorId', '==', uid));
+          const postCommentsSnap = await getDocs(postCommentsQ);
+          postCommentsSnap.forEach((commentDoc) => {
+            ops.push(commentDoc.ref);
+          });
+        }
+      }
+
+      // Execute in chunks of 500
+      for (let i = 0; i < ops.length; i += 500) {
+        const batch = writeBatch(db);
+        const chunk = ops.slice(i, i + 500);
+        chunk.forEach(ref => {
+          batch.update(ref, postUpdates);
+        });
+        await batch.commit();
+      }
+    }
   } catch (error) {
     console.error("Error updating user profile:", error);
   }
@@ -228,7 +280,10 @@ export function subscribeToComments(postId: string, callback: (comments: Comment
         createdAt: data.createdAt ? data.createdAt.toDate() : new Date(),
         likes: data.likes || [],
         dislikes: data.dislikes || [],
-        imageUrl: data.imageUrl
+        imageUrl: data.imageUrl,
+        parentId: data.parentId,
+        replyToName: data.replyToName,
+        replyToText: data.replyToText
       });
     });
     callback(comments);
@@ -256,7 +311,10 @@ export function subscribeToLatestComments(postId: string, limitCount: number, ca
         createdAt: data.createdAt ? data.createdAt.toDate() : new Date(),
         likes: data.likes || [],
         dislikes: data.dislikes || [],
-        imageUrl: data.imageUrl
+        imageUrl: data.imageUrl,
+        parentId: data.parentId,
+        replyToName: data.replyToName,
+        replyToText: data.replyToText
       });
     });
     // Reverse so they are displayed in ascending (chronological) order

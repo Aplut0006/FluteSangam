@@ -9,7 +9,8 @@ import {
   Sparkles, 
   Video,
   ArrowRight,
-  Edit2
+  Edit2,
+  MessageCircle
 } from 'lucide-react';
 
 interface PostCardProps {
@@ -18,7 +19,7 @@ interface PostCardProps {
   onOpenAuth: () => void;
   onOpenShare: (post: Post) => void;
   onStartChat?: (targetUser: { uid: string; displayName: string; username?: string; photoURL?: string }) => void;
-  onPostClick: (post: Post) => void;
+  onPostClick: (post: Post, focusComment?: boolean) => void;
   onUserProfileClick?: (userId: string) => void;
   onEditPost?: (post: Post) => void;
 }
@@ -287,6 +288,19 @@ export default function PostCard({
                       @{comment.authorUsername || comment.authorName.toLowerCase().replace(/[^a-z0-9_]/g, '') || 'sadhaka'}
                     </button>
                   </div>
+                  {comment.replyToName && (
+                    <div className="text-[9px] text-gray-500 my-0.5 flex flex-col bg-white/50 w-fit max-w-[200px] px-1.5 py-0.5 rounded border border-gray-100 border-l-2 border-l-bamboo-400">
+                      <span className="flex items-center gap-1 font-medium text-bamboo-700">
+                        <MessageCircle className="w-2 h-2" />
+                        Replying to {comment.replyToName}
+                      </span>
+                      {comment.replyToText && (
+                        <span className="truncate italic text-gray-400 pl-3 max-w-[180px]">
+                          "{comment.replyToText}"
+                        </span>
+                      )}
+                    </div>
+                  )}
                   <p className="text-gray-600 text-[11px] leading-tight truncate mt-0.5 break-all">
                     {comment.text}
                   </p>
@@ -312,10 +326,16 @@ export default function PostCard({
           </button>
 
           {/* Comments count */}
-          <span className="flex items-center space-x-1.5 text-gray-500 font-bold hover:text-bamboo-700 transition">
+          <button 
+            onClick={(e) => {
+              e.stopPropagation();
+              onPostClick(post, true);
+            }}
+            className="flex items-center space-x-1.5 text-gray-500 font-bold hover:text-bamboo-700 transition cursor-pointer"
+          >
             <MessageSquare className="w-4.5 h-4.5" />
             <span>{commentsCount}</span>
-          </span>
+          </button>
         </div>
 
         <div className="flex items-center space-x-4">

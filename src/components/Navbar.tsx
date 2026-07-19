@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { UserProfile } from '../types';
 import { auth } from '../lib/firebase';
 import { signOut } from 'firebase/auth';
@@ -42,6 +42,26 @@ export default function Navbar({
   const [loading, setLoading] = useState(false);
   const [successMsg, setSuccessMsg] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
+
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setShowProfileDropdown(false);
+      }
+    }
+
+    if (showProfileDropdown) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showProfileDropdown]);
 
   const handleLogout = async () => {
     try {
@@ -221,7 +241,7 @@ export default function Navbar({
           </div>
 
           {currentUser ? (
-            <div className="relative">
+            <div className="relative" ref={dropdownRef}>
               {/* Signed in avatar button */}
               <button
                 onClick={() => setShowProfileDropdown(!showProfileDropdown)}

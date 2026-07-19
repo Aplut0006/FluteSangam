@@ -37,6 +37,7 @@ interface PostDetailViewProps {
   onStartChat?: (targetUser: { uid: string; displayName: string; username?: string; photoURL?: string }) => void;
   onUserProfileClick?: (userId: string) => void;
   onEditPost?: (post: Post) => void;
+  autoFocusComment?: boolean;
 }
 
 export default function PostDetailView({ 
@@ -47,7 +48,8 @@ export default function PostDetailView({
   onOpenShare, 
   onStartChat,
   onUserProfileClick,
-  onEditPost
+  onEditPost,
+  autoFocusComment = false
 }: PostDetailViewProps) {
   const [post, setPost] = useState<Post>(initialPost);
   const [comments, setComments] = useState<Comment[]>([]);
@@ -55,6 +57,19 @@ export default function PostDetailView({
   const [loadingComment, setLoadingComment] = useState(false);
   const [commentImageUrl, setCommentImageUrl] = useState('');
   const [commentError, setCommentError] = useState('');
+  
+  // Reply and input ref
+  const [replyingTo, setReplyingTo] = useState<{ id: string, name: string, text: string } | null>(null);
+  const commentInputRef = React.useRef<HTMLInputElement>(null);
+
+  // Focus comment input on mount if autoFocusComment is true
+  useEffect(() => {
+    if (autoFocusComment) {
+      setTimeout(() => {
+        commentInputRef.current?.focus();
+      }, 100);
+    }
+  }, [autoFocusComment]);
   
   // Editing state for comments
   const [editingCommentId, setEditingCommentId] = useState<string | null>(null);
@@ -124,10 +139,14 @@ export default function PostDetailView({
         authorUsername: currentUser.username,
         text: commentText.trim(),
         imageUrl: commentImageUrl || undefined,
+        parentId: replyingTo?.id,
+        replyToName: replyingTo?.name,
+        replyToText: replyingTo?.text
       });
       setCommentText('');
       setCommentImageUrl('');
       setCommentError('');
+      setReplyingTo(null);
     } catch (error) {
       console.error("Error posting comment:", error);
     } finally {
@@ -444,6 +463,20 @@ export default function PostDetailView({
                           )}
                         </div>
 
+                        {comm.replyToName && (
+                          <div className="text-[10px] text-gray-500 mb-1 flex flex-col bg-white/50 w-fit max-w-full px-2 py-1 rounded border border-gray-100 border-l-2 border-l-bamboo-400">
+                            <span className="flex items-center gap-1 font-medium text-bamboo-700">
+                              <MessageCircle className="w-2.5 h-2.5" />
+                              Replying to {comm.replyToName}
+                            </span>
+                            {comm.replyToText && (
+                              <span className="truncate italic text-gray-400 pl-3.5">
+                                "{comm.replyToText}"
+                              </span>
+                            )}
+                          </div>
+                        )}
+
                         {isEditing ? (
                           <div className="space-y-1.5 mt-1.5">
                             <textarea
@@ -525,6 +558,23 @@ export default function PostDetailView({
                                 <ThumbsDown className={`w-3 h-3 ${commDisliked ? 'fill-red-500 text-red-500' : ''}`} />
                                 <span>{dislikesCount}</span>
                               </button>
+
+                              <button
+                                onClick={() => {
+                                  if (!currentUser) {
+                                    onOpenAuth();
+                                    return;
+                                  }
+                                  setReplyingTo({ id: comm.id, name: comm.authorName, text: comm.text });
+                                  setTimeout(() => {
+                                    commentInputRef.current?.focus();
+                                  }, 50);
+                                }}
+                                className="flex items-center space-x-1 hover:text-bamboo-700 transition"
+                              >
+                                <MessageCircle className="w-3 h-3" />
+                                <span>Reply</span>
+                              </button>
                             </div>
                           </div>
                         )}
@@ -560,6 +610,23 @@ export default function PostDetailView({
                   <p className="text-[10px] text-red-600">{commentError}</p>
                 )}
 
+                {replyingTo && (
+                  <div className="flex items-center justify-between bg-bamboo-50 px-3 py-2 rounded-lg text-xs text-bamboo-800 border border-bamboo-100">
+                    <div className="flex flex-col gap-0.5 max-w-[85%]">
+                      <span className="flex items-center gap-1.5 font-bold">
+                        <MessageCircle className="w-3.5 h-3.5" />
+                        Replying to {replyingTo.name}
+                      </span>
+                      <span className="text-[10px] text-bamboo-600 truncate italic">
+                        "{replyingTo.text}"
+                      </span>
+                    </div>
+                    <button onClick={() => setReplyingTo(null)} className="text-bamboo-500 hover:text-bamboo-800 transition p-1">
+                      <X className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                )}
+
                 <form 
                   onSubmit={handleCommentSubmit}
                   className="flex items-center space-x-2"
@@ -572,6 +639,7 @@ export default function PostDetailView({
                   />
                   <div className="flex-1 flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-xl border border-gray-200 focus-within:bg-white focus-within:ring-2 focus-within:ring-bamboo-600 focus-within:border-transparent min-w-0 transition">
                     <input
+                      ref={commentInputRef}
                       type="text"
                       placeholder="Discuss bansuri technique, taans, tips..."
                       value={commentText}

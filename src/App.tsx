@@ -415,6 +415,7 @@ export default function App() {
           <PostDetailView
             post={posts.find(p => p.id === selectedPost.id) || selectedPost}
             currentUser={currentUser}
+            autoFocusComment={window.history.state?.focusComment}
             onBack={() => {
               if (window.history.state && window.history.state.view) {
                 window.history.back();
@@ -569,8 +570,8 @@ export default function App() {
                     onOpenShare={handleOpenShare}
                     onStartChat={handleStartChat}
                     onUserProfileClick={handleOpenUserProfile}
-                    onPostClick={(clickedPost) => {
-                      handleViewChange('post-detail', { postId: clickedPost.id, post: clickedPost });
+                    onPostClick={(clickedPost, focusComment) => {
+                      handleViewChange('post-detail', { postId: clickedPost.id, post: clickedPost, focusComment });
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
                     onEditPost={handleOpenEditPost}
