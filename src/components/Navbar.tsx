@@ -3,7 +3,7 @@ import { UserProfile } from '../types';
 import { auth } from '../lib/firebase';
 import { signOut } from 'firebase/auth';
 import { updateUserProfile, isEmailTaken, isPhoneTaken, isUsernameTaken } from '../lib/db';
-import { Music, LogOut, User, Globe, Edit3, Check, X, ShieldAlert, Sparkles, MapPin, Feather, Phone, Mail, Camera, Upload, MessageSquare, Wind, BookOpen, ChevronDown, Users } from 'lucide-react';
+import { Music, LogOut, User, Globe, Edit3, Check, X, ShieldAlert, Sparkles, MapPin, Feather, Phone, Mail, Camera, Upload, MessageSquare, Wind, BookOpen, ChevronDown, Users, Zap } from 'lucide-react';
 import { CARTOON_AVATARS } from './AuthModal';
 
 interface NavbarProps {
@@ -211,6 +211,18 @@ export default function Navbar({
           >
             <Globe className="w-4 h-4 text-amber-600" />
             <span>Sadhana Feed</span>
+          </button>
+          
+          <button
+            onClick={() => onViewChange?.('practice_now')}
+            className={`px-4 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
+              currentView === 'practice_now' 
+                ? 'bg-bamboo-700 text-white shadow-3xs' 
+                : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
+            }`}
+          >
+            <Zap className="w-4 h-4 text-amber-600" />
+            <span>Practice</span>
           </button>
           
           <button

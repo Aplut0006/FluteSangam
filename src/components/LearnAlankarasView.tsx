@@ -1,5 +1,6 @@
 import React from 'react';
 import { Music, Wind, ArrowUpRight, ArrowDownRight, Lightbulb } from 'lucide-react';
+import Metronome from './Metronome';
 
 export default function LearnAlankarasView() {
   const alankars = [
@@ -224,33 +225,38 @@ export default function LearnAlankarasView() {
                       <h3 className="text-xl font-bold text-bamboo-900 m-0">{alankar.title}</h3>
                       <p className="text-sm text-gray-600 mt-2 m-0">{alankar.desc}</p>
                     </div>
-                    <div className="p-6 space-y-4">
-                      {alankar.aroha && alankar.aroha.length > 0 && (
-                        <div>
-                          <div className="flex items-center gap-2 text-amber-700 font-semibold mb-2">
-                            <ArrowUpRight className="w-4 h-4" />
-                            <span>{alankar.arohaTitle || 'Aroha (Ascending)'}</span>
+                    <div className="p-6 space-y-4 flex flex-col md:flex-row gap-6">
+                      <div className="flex-1 space-y-4">
+                        {alankar.aroha && alankar.aroha.length > 0 && (
+                          <div>
+                            <div className="flex items-center gap-2 text-amber-700 font-semibold mb-2">
+                              <ArrowUpRight className="w-4 h-4" />
+                              <span>{alankar.arohaTitle || 'Aroha (Ascending)'}</span>
+                            </div>
+                            <div className="font-mono text-sm sm:text-base text-gray-800 bg-gray-50 p-3 rounded-xl border border-gray-200 overflow-x-auto flex flex-col gap-1">
+                              {alankar.aroha.map((line, i) => (
+                                <div key={i}>{line}</div>
+                              ))}
+                            </div>
                           </div>
-                          <div className="font-mono text-sm sm:text-base text-gray-800 bg-gray-50 p-3 rounded-xl border border-gray-200 overflow-x-auto flex flex-col gap-1">
-                            {alankar.aroha.map((line, i) => (
-                              <div key={i}>{line}</div>
-                            ))}
+                        )}
+                        {alankar.avroha && alankar.avroha.length > 0 && (
+                          <div>
+                            <div className="flex items-center gap-2 text-emerald-700 font-semibold mb-2">
+                              <ArrowDownRight className="w-4 h-4" />
+                              <span>{alankar.avrohaTitle || 'Avroha (Descending)'}</span>
+                            </div>
+                            <div className="font-mono text-sm sm:text-base text-gray-800 bg-gray-50 p-3 rounded-xl border border-gray-200 overflow-x-auto flex flex-col gap-1">
+                              {alankar.avroha.map((line, i) => (
+                                <div key={i}>{line}</div>
+                              ))}
+                            </div>
                           </div>
-                        </div>
-                      )}
-                      {alankar.avroha && alankar.avroha.length > 0 && (
-                        <div>
-                          <div className="flex items-center gap-2 text-emerald-700 font-semibold mb-2">
-                            <ArrowDownRight className="w-4 h-4" />
-                            <span>{alankar.avrohaTitle || 'Avroha (Descending)'}</span>
-                          </div>
-                          <div className="font-mono text-sm sm:text-base text-gray-800 bg-gray-50 p-3 rounded-xl border border-gray-200 overflow-x-auto flex flex-col gap-1">
-                            {alankar.avroha.map((line, i) => (
-                              <div key={i}>{line}</div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
+                        )}
+                      </div>
+                      <div className="w-full md:w-64 shrink-0">
+                        <Metronome />
+                      </div>
                     </div>
                   </div>
                 ))}

@@ -20,6 +20,7 @@ import LearnBasicsView from './components/LearnBasicsView';
 import LearnAlankarasView from './components/LearnAlankarasView';
 import LearnRaagasView from './components/LearnRaagasView';
 import MembersView from './components/MembersView';
+import PracticeNowView from './components/PracticeNowView';
 
 // Icons
 import { 
@@ -47,7 +48,7 @@ export default function App() {
   const [activeSharePost, setActiveSharePost] = useState<Post | null>(null);
 
   // View Management
-  const [currentView, setCurrentView] = useState<'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_basics' | 'learn_alankaras' | 'learn_raagas' | 'community_members'>('community');
+  const [currentView, setCurrentView] = useState<'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_basics' | 'learn_alankaras' | 'learn_raagas' | 'community_members' | 'practice_now'>('community');
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
   const [selectedProfileUserId, setSelectedProfileUserId] = useState<string | null>(null);
   const [unreadCount, setUnreadCount] = useState(0);
@@ -63,12 +64,12 @@ export default function App() {
   const [editingPost, setEditingPost] = useState<Post | null>(null);
 
   const handleViewChange = (
-    view: 'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_basics' | 'learn_alankaras' | 'learn_raagas' | 'community_members',
+    view: 'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_basics' | 'learn_alankaras' | 'learn_raagas' | 'community_members' | 'practice_now',
     stateExtra: any = {},
     push = true
   ) => {
     setCurrentView(view);
-    if (view === 'community' || view === 'learn_intro' || view === 'learn_basics' || view === 'learn_alankaras' || view === 'learn_raagas' || view === 'community_members') {
+    if (view === 'community' || view === 'learn_intro' || view === 'learn_basics' || view === 'learn_alankaras' || view === 'learn_raagas' || view === 'community_members' || view === 'practice_now') {
       setSelectedPost(null);
       setSelectedProfileUserId(null);
     } else if (view === 'post-detail') {
@@ -82,7 +83,8 @@ export default function App() {
       const hash = view === 'post-detail' && stateExtra.postId ? `#post-${stateExtra.postId}` :
                    view === 'user-profile' && stateExtra.userId ? `#user-${stateExtra.userId}` :
                    view === 'chats' ? '#chats' : 
-                   view === 'community_members' ? '#members' : '#';
+                   view === 'community_members' ? '#members' : 
+                   view === 'practice_now' ? '#practice' : '#';
       window.history.pushState(stateObj, '', hash);
     }
   };
@@ -443,6 +445,8 @@ export default function App() {
           <LearnAlankarasView />
         ) : currentView === 'learn_raagas' ? (
           <LearnRaagasView />
+        ) : currentView === 'practice_now' ? (
+          <PracticeNowView />
         ) : currentView === 'community_members' ? (
           <MembersView onUserProfileClick={handleOpenUserProfile} />
         ) : currentView === 'chats' && currentUser ? (
