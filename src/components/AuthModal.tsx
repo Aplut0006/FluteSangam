@@ -8,7 +8,7 @@ import {
 } from 'firebase/auth';
 import { createUserProfile, getUserProfile, generateUniqueUsername } from '../lib/db';
 import { UserProfile } from '../types';
-import { Music, X, ShieldAlert, Sparkles, Check, Chrome, Mail, Camera, Upload } from 'lucide-react';
+import { Music, X, ShieldAlert, Sparkles, Check, Chrome, Mail, Camera, Upload, Wind } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 export const CARTOON_AVATARS = [
@@ -184,6 +184,8 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
       console.error(err);
       if (err.code === 'auth/operation-not-allowed' || (err.message && err.message.includes('operation-not-allowed'))) {
         setError("Email & Password registration is currently disabled in your Firebase project. To fix this, please go to Firebase Console -> Authentication -> Sign-in Method, and enable 'Email/Password'. Alternatively, to continue testing without changing any Firebase settings, click the 'Instantly Join with Demo' button below to bypass this immediately!");
+      } else if (err.code === 'auth/email-already-in-use' || (err.message && err.message.includes('auth/email-already-in-use') || err.message?.includes('email-already-in-use'))) {
+        setError("Email Already taken");
       } else {
         setError(err.message || "An authentication error occurred.");
       }
@@ -287,7 +289,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
           
           <div className="flex items-center space-x-3">
             <div className="p-2.5 bg-white/10 rounded-xl">
-              <Music className="w-6 h-6 text-yellow-300" />
+              <Wind className="w-6 h-6 text-yellow-300" />
             </div>
             <div>
               <h2 className="text-xl font-semibold font-display tracking-wide">

@@ -19,7 +19,7 @@ import UserProfileView from './components/UserProfileView';
 // Icons
 import { 
   Search, Plus, Sparkles, HelpCircle, Compass, 
-  BookOpen, Video, Info, ArrowUpRight, Music, Filter, CheckCircle2, MessageSquare, Bell, X
+  BookOpen, Video, Info, ArrowUpRight, Music, Filter, CheckCircle2, MessageSquare, Bell, X, Wind
 } from 'lucide-react';
 
 export default function App() {
@@ -238,8 +238,22 @@ export default function App() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 relative flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="max-w-2xl space-y-3.5 text-center md:text-left">
               <span className="inline-flex items-center text-[10px] font-bold tracking-widest text-yellow-300 uppercase bg-white/10 px-3 py-1 rounded-full border border-white/10">
-                <Sparkles className="w-3.5 h-3.5 mr-1" />
-                Global Bansuri Mandali
+                <svg 
+                  viewBox="0 0 24 24" 
+                  className="w-3.5 h-3.5 mr-1.5 shrink-0" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2.5" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                >
+                  <line x1="2" y1="18" x2="20" y2="4" />
+                  <circle cx="8" cy="13.3" r="1" fill="currentColor" stroke="none" />
+                  <circle cx="11" cy="11" r="1" fill="currentColor" stroke="none" />
+                  <circle cx="14" cy="8.7" r="1" fill="currentColor" stroke="none" />
+                  <circle cx="17" cy="6.3" r="1" fill="currentColor" stroke="none" />
+                </svg>
+                Where Flutes Meet, Hearts Connect
               </span>
               <h2 className="text-2xl sm:text-3.5xl font-extrabold font-display leading-tight tracking-tight">
                 An Oasis for Indian Flute & Bansuri Sadhakas
@@ -405,7 +419,7 @@ export default function App() {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1 border-t border-gray-100">
                 <div className="flex items-center space-x-1.5 overflow-x-auto scrollbar-none pb-1 sm:pb-0">
                   <Filter className="w-3.5 h-3.5 text-bamboo-700 shrink-0 hidden sm:block" />
-                  {['All', 'Performance', 'Tutorial', 'Raga Discussion', 'Review', 'Question'].map((cat) => {
+                  {['All', 'Question', 'Performance', 'Tutorial', 'Raga Discussion', 'Review'].map((cat) => {
                     const isSelected = activeCategory === cat;
                     return (
                       <button
@@ -420,7 +434,7 @@ export default function App() {
                             : "bg-gray-50 text-gray-500 hover:bg-gray-100 border border-transparent"
                         }`}
                       >
-                        {cat === 'Raga Discussion' ? 'Ragas' : cat}
+                        {cat === 'Raga Discussion' ? 'Ragas' : cat === 'Question' ? 'Questions' : cat}
                       </button>
                     );
                   })}
@@ -545,7 +559,7 @@ export default function App() {
       <footer className="bg-bamboo-800 text-bamboo-200 text-xs border-t border-bamboo-700/50 mt-12 py-8" id="app-footer">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
           <div className="flex items-center justify-center space-x-2 text-white">
-            <Music className="w-5 h-5 text-yellow-300" />
+            <Wind className="w-5 h-5 text-yellow-300" />
             <span className="font-display font-bold text-base tracking-wide">FluteSangam</span>
           </div>
           <p className="text-[11px] text-bamboo-300">

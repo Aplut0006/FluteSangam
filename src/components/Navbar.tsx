@@ -3,7 +3,7 @@ import { UserProfile } from '../types';
 import { auth } from '../lib/firebase';
 import { signOut } from 'firebase/auth';
 import { updateUserProfile, isEmailTaken, isPhoneTaken, isUsernameTaken } from '../lib/db';
-import { Music, LogOut, User, Globe, Edit3, Check, X, ShieldAlert, Sparkles, MapPin, Feather, Phone, Mail, Camera, Upload, MessageSquare } from 'lucide-react';
+import { Music, LogOut, User, Globe, Edit3, Check, X, ShieldAlert, Sparkles, MapPin, Feather, Phone, Mail, Camera, Upload, MessageSquare, Wind } from 'lucide-react';
 import { CARTOON_AVATARS } from './AuthModal';
 
 interface NavbarProps {
@@ -164,14 +164,13 @@ export default function Navbar({
         {/* Brand Logo & Slogan */}
         <div className="flex items-center space-x-3">
           <div className="p-2.5 bg-gradient-to-br from-bamboo-700 to-bamboo-600 rounded-xl text-yellow-300 shadow-xs flex items-center justify-center shrink-0">
-            <Music className="w-5.5 h-5.5" />
+            <Wind className="w-5.5 h-5.5" />
           </div>
           <div>
             <h1 className="text-lg sm:text-xl font-bold font-display tracking-tight text-bamboo-800 flex items-center gap-1">
               FluteSangam
-              <span className="text-[9px] bg-amber-100 text-amber-800 border border-amber-200 px-1.5 py-0.5 rounded-md font-bold tracking-wide uppercase font-sans">Community</span>
             </h1>
-            <p className="text-[10px] text-gray-500 font-medium">Indian Bansuri & Flute Global Mandali</p>
+            <p className="text-[10px] text-gray-500 font-medium">Where Flutes Meet, Hearts Connect</p>
           </div>
         </div>
 

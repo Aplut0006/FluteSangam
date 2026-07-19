@@ -355,14 +355,9 @@ export default function PostDetailView({
             </div>
 
             {/* Comments List Container */}
-            <div className="flex-1 overflow-y-auto space-y-4 pr-1 min-h-[250px] max-h-[400px] lg:max-h-[50vh]">
-              {comments.length === 0 ? (
-                <div className="text-center py-12 space-y-2">
-                  <p className="text-xs text-gray-400 italic">No comments posted yet.</p>
-                  <p className="text-[10px] text-gray-400">Share your technique, ask questions, or congratulate the flutist!</p>
-                </div>
-              ) : (
-                comments.map((comm) => {
+            {comments.length > 0 && (
+              <div className="flex-1 overflow-y-auto space-y-4 pr-1 min-h-[150px] max-h-[400px] lg:max-h-[50vh]">
+                {comments.map((comm) => {
                   const isAuthor = currentUser?.uid === comm.authorId;
                   const isEditing = editingCommentId === comm.id;
                   const likesCount = comm.likes?.length || 0;
@@ -523,9 +518,9 @@ export default function PostDetailView({
                       </div>
                     </div>
                   );
-                })
-              )}
-            </div>
+                })}
+              </div>
+            )}
 
             {/* Comment Composer at bottom */}
             {currentUser ? (
