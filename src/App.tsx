@@ -21,6 +21,7 @@ import LearnAlankarasView from './components/LearnAlankarasView';
 import LearnRaagasView from './components/LearnRaagasView';
 import MembersView from './components/MembersView';
 import ImageModal from './components/ImageModal';
+import MobileBottomNav from './components/MobileBottomNav';
 
 // Icons
 import { 
@@ -366,7 +367,7 @@ export default function App() {
       )}
 
       {/* Main Layout Area */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full" id="main-content-layout">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full pb-20" id="main-content-layout">
 
 
         {currentView === 'user-profile' && selectedProfileUserId ? (
@@ -724,6 +725,12 @@ export default function App() {
         )}
       </AnimatePresence>
       {selectedImageUrl && <ImageModal imageUrl={selectedImageUrl} onClose={() => setSelectedImageUrl(null)} />}
+      <MobileBottomNav
+        onViewChange={handleViewChange}
+        onOpenAuth={() => setAuthModalOpen(true)}
+        currentUser={currentUser}
+        unreadCount={unreadCount}
+      />
     </div>
   );
 }
