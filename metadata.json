@@ -1,0 +1,6 @@
+{
+  "name": "FluteSangam",
+  "description": "A global community for Indian bansuri and flute enthusiasts. Share performances, discuss ragas, learn techniques, review flutes, and connect with other players.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
