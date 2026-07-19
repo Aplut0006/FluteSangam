@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { auth } from '../lib/firebase';
 import { 
   createUserWithEmailAndPassword, 
   signInWithEmailAndPassword,
   GoogleAuthProvider,
-  signInWithPopup,
-  RecaptchaVerifier,
-  signInWithPhoneNumber
+  signInWithPopup
 } from 'firebase/auth';
 import { createUserProfile, getUserProfile, generateUniqueUsername } from '../lib/db';
 import { UserProfile } from '../types';
-import { Music, X, ShieldAlert, Sparkles, Check, Chrome, Phone, Smartphone, Mail, Camera, Upload } from 'lucide-react';
+import { Music, X, ShieldAlert, Sparkles, Check, Chrome, Mail, Camera, Upload } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 export const CARTOON_AVATARS = [
@@ -18,7 +16,12 @@ export const CARTOON_AVATARS = [
   "https://api.dicebear.com/7.x/adventurer/svg?seed=Bella",
   "https://api.dicebear.com/7.x/adventurer/svg?seed=Buddy",
   "https://api.dicebear.com/7.x/adventurer/svg?seed=Milo",
-  "https://api.dicebear.com/7.x/adventurer/svg?seed=Oliver"
+  "https://api.dicebear.com/7.x/adventurer/svg?seed=Oliver",
+  "https://api.dicebear.com/7.x/adventurer/svg?seed=Leo",
+  "https://api.dicebear.com/7.x/adventurer/svg?seed=Chloe",
+  "https://api.dicebear.com/7.x/adventurer/svg?seed=Max",
+  "https://api.dicebear.com/7.x/adventurer/svg?seed=Lily",
+  "https://api.dicebear.com/7.x/adventurer/svg?seed=Zoe"
 ];
 
 interface AuthModalProps {
@@ -29,16 +32,8 @@ interface AuthModalProps {
 
 export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalProps) {
   const [isSignUp, setIsSignUp] = useState(true);
-  const [authMethod, setAuthMethod] = useState<'email' | 'phone'>('email');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  
-  // Phone Auth state
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [verificationCode, setVerificationCode] = useState('');
-  const [confirmationResult, setConfirmationResult] = useState<any>(null);
-  const [otpSent, setOtpSent] = useState(false);
-  const [recaptchaActive, setRecaptchaActive] = useState(false);
 
   // Profile fields (only for sign up)
   const [displayName, setDisplayName] = useState('');
@@ -52,16 +47,6 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [step, setStep] = useState(1); // Step 1: Account credentials, Step 2: Bansuri Profile details
-
-  // Clean up any recaptcha container on close or method change
-  useEffect(() => {
-    if (!isOpen) {
-      setOtpSent(false);
-      setConfirmationResult(null);
-      setVerificationCode('');
-      setPhoneNumber('');
-    }
-  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -78,11 +63,17 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
         user = result.user;
       } catch (popupError: any) {
         console.warn("Popup blocked or iframe restriction:", popupError);
+        if (popupError.code === 'auth/unauthorized-domain') {
+          throw new Error("This domain (e.g. flutesangam.onrender.com) is not authorized in your Firebase Project! To fix this: Go to Firebase Console -> Authentication -> Settings tab -> Authorized Domains, click 'Add domain', and add 'flutesangam.onrender.com'. Then refresh and try again!");
+        }
         if (popupError.code === 'auth/popup-blocked' || popupError.code === 'auth/operation-not-supported-in-this-environment') {
           throw new Error("Google login is constrained by iframe/sandbox restrictions. Please open the app in a new tab (button at top right) to log in with real Google, or use the 'Instantly Join with Demo' option below!");
         }
         if (popupError.code === 'auth/operation-not-allowed') {
           throw new Error("Google sign-in is disabled in your Firebase project. Please enable it in the Firebase Console under Authentication -> Sign-in Method -> Google, then retry!");
+        }
+        if (popupError.code === 'auth/popup-closed-by-user') {
+          throw new Error("The sign-in popup was closed before completing the sign-in. Please try again, or use the 'Instantly Join with Demo' option below!");
         }
         throw popupError;
       }
@@ -117,107 +108,6 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
     }
   };
 
-  const handleSendOtp = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!phoneNumber.trim()) {
-      setError("Please enter your phone number with country code (e.g., +15551234567)");
-      return;
-    }
-    setError('');
-    setLoading(true);
-    try {
-      const formattedPhone = phoneNumber.trim().startsWith('+') ? phoneNumber.trim() : `+${phoneNumber.trim()}`;
-      setPhoneNumber(formattedPhone);
-
-      // Create recaptcha container in DOM dynamically if needed or show error gracefully
-      const container = document.getElementById('recaptcha-container');
-      if (!container) {
-        throw new Error("Recaptcha target element is missing.");
-      }
-
-      if ((window as any).recaptchaVerifier) {
-        try {
-          (window as any).recaptchaVerifier.clear();
-        } catch (ev) {}
-      }
-
-      const verifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
-        size: 'invisible',
-        callback: () => {}
-      });
-      (window as any).recaptchaVerifier = verifier;
-
-      const confirmation = await signInWithPhoneNumber(auth, formattedPhone, verifier);
-      setConfirmationResult(confirmation);
-      setOtpSent(true);
-    } catch (err: any) {
-      console.error("SMS OTP error:", err);
-      if (err.code === 'auth/operation-not-allowed') {
-        setError("Phone Number Sign-In is disabled in your Firebase project. Please enable it in the Firebase Console under Authentication -> Sign-in Method -> Phone. To test immediately without setting up SMS, click the 'Instant Bypass: Simulate OTP Code' button below!");
-      } else {
-        setError(`SMS sending failed: ${err.message || "Iframe environment restriction."} You can instantly try our "Simulate SMS (Sandbox)" option to bypass real carrier charges and test!`);
-      }
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleSimulateSendOtp = () => {
-    if (!phoneNumber.trim()) {
-      setError("Please enter a phone number first (e.g. +91 98765 43210)");
-      return;
-    }
-    setError('');
-    setOtpSent(true);
-    setConfirmationResult('simulated');
-  };
-
-  const handleVerifyOtp = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!verificationCode) {
-      setError("Please enter the 6-digit OTP code.");
-      return;
-    }
-    setError('');
-    setLoading(true);
-
-    try {
-      let userId = '';
-      let userEmail = '';
-
-      if (confirmationResult === 'simulated') {
-        if (verificationCode !== '123456') {
-          throw new Error("Invalid simulated OTP. Please enter '123456' for simulated testing!");
-        }
-        const numericPhone = phoneNumber.replace(/\D/g, '');
-        userId = `phone_user_${numericPhone || Math.floor(Math.random() * 100000)}`;
-        userEmail = `${numericPhone || 'user'}@flutesangam-phone.com`;
-      } else {
-        const result = await confirmationResult.confirm(verificationCode);
-        const user = result.user;
-        userId = user.uid;
-        userEmail = user.phoneNumber || `${user.uid}@flutesangam-phone.com`;
-      }
-
-      // Check if user already has a profile
-      const profile = await getUserProfile(userId);
-      if (profile) {
-        onAuthSuccess(profile);
-        onClose();
-      } else {
-        // Proceed to custom profile customization step 2!
-        (window as any).pendingPhoneUid = userId;
-        (window as any).pendingPhoneEmail = userEmail;
-        setStep(2);
-      }
-    } catch (err: any) {
-      console.error(err);
-      setError(err.message || "Incorrect verification code.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
@@ -234,18 +124,10 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
           return;
         }
 
-        let userId = '';
-        let userEmail = email;
-
-        if ((window as any).pendingPhoneUid) {
-          userId = (window as any).pendingPhoneUid;
-          userEmail = (window as any).pendingPhoneEmail || `${userId}@flutesangam-phone.com`;
-        } else {
-          // Create user in firebase auth
-          const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-          userId = userCredential.user.uid;
-          userEmail = userCredential.user.email || email;
-        }
+        // Create user in firebase auth
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const userId = userCredential.user.uid;
+        const userEmail = userCredential.user.email || email;
 
         if (!profilePhoto) {
           throw new Error("Please select a profile picture: either upload a custom photo or pick one of the 5 default cartoon avatars.");
@@ -263,10 +145,6 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
            bansuriType: bansuriType || "C Natural",
            location: location || "India"
          });
-
-        // Cleanup pending phone data
-        delete (window as any).pendingPhoneUid;
-        delete (window as any).pendingPhoneEmail;
 
         if (profile) {
           onAuthSuccess(profile);
@@ -394,11 +272,11 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
         initial={{ opacity: 0, scale: 0.95, y: 15 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 15 }}
-        className="w-full max-w-md frosted-panel-thick rounded-2xl shadow-2xl overflow-hidden"
+        className="w-full max-w-md bg-white border border-bamboo-100 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh]"
         id="auth-modal-card"
       >
         {/* Header decoration */}
-        <div className="bg-gradient-to-r from-bamboo-700 to-bamboo-600 px-6 py-6 text-white relative">
+        <div className="bg-gradient-to-r from-bamboo-700 to-bamboo-600 px-6 py-6 text-white relative shrink-0">
           <button 
             onClick={onClose}
             className="absolute top-4 right-4 p-1.5 rounded-full hover:bg-white/10 transition"
@@ -423,32 +301,11 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
         </div>
 
         {/* Form Body */}
-        <div className="p-6">
+        <div className="p-6 overflow-y-auto flex-1">
           {error && (
             <div className="mb-4 p-3 bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg flex items-start space-x-2" id="auth-error-banner">
               <ShieldAlert className="w-4 h-4 mt-0.5 shrink-0" />
               <span>{error}</span>
-            </div>
-          )}
-
-          {step === 1 && (
-            <div className="flex rounded-xl bg-gray-100 p-1 mb-5">
-              <button
-                type="button"
-                onClick={() => { setAuthMethod('email'); setError(''); }}
-                className={`flex-1 py-1.5 text-xs font-semibold rounded-lg transition-all flex items-center justify-center gap-1.5 ${authMethod === 'email' ? 'bg-white text-bamboo-800 shadow-sm' : 'text-gray-500 hover:text-gray-800'}`}
-              >
-                <Mail className="w-3.5 h-3.5 text-amber-600" />
-                Email Account
-              </button>
-              <button
-                type="button"
-                onClick={() => { setAuthMethod('phone'); setError(''); }}
-                className={`flex-1 py-1.5 text-xs font-semibold rounded-lg transition-all flex items-center justify-center gap-1.5 ${authMethod === 'phone' ? 'bg-white text-bamboo-800 shadow-sm' : 'text-gray-500 hover:text-gray-800'}`}
-              >
-                <Phone className="w-3.5 h-3.5 text-amber-600" />
-                Phone Number
-              </button>
             </div>
           )}
 
@@ -535,8 +392,8 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
 
                   {/* Cartoon avatar chooser */}
                   <div className="space-y-1.5 pt-1.5 border-t border-gray-100">
-                    <p className="text-[11px] font-semibold text-gray-600">Or choose one of these cartoon avatars:</p>
-                    <div className="flex items-center justify-between gap-2 px-1">
+                    <p className="text-[11px] font-semibold text-gray-600">Or choose one of the 10 default cartoon avatars:</p>
+                    <div className="grid grid-cols-5 gap-2 px-1 justify-items-center">
                       {CARTOON_AVATARS.map((avatarUrl, index) => {
                         const isSelected = profilePhoto === avatarUrl;
                         return (
@@ -554,7 +411,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
                             <img 
                               src={avatarUrl} 
                               alt={`Cartoon ${index + 1}`} 
-                              className="w-10 h-10 rounded-full bg-white"
+                              className="w-9 h-9 rounded-full bg-white"
                               referrerPolicy="no-referrer"
                             />
                             {isSelected && (
@@ -650,7 +507,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
                 </div>
               </div>
             </form>
-          ) : authMethod === 'email' ? (
+          ) : (
             // EMAIL & PASSWORD METHOD
             <form onSubmit={handleAuth} className="space-y-4" id="auth-form-email">
               <div>
@@ -691,87 +548,6 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
                 )}
               </button>
             </form>
-          ) : (
-            // PHONE AUTH METHOD (OTP)
-            <div className="space-y-4 animate-fadeIn">
-              {!otpSent ? (
-                <form onSubmit={handleSendOtp} className="space-y-4">
-                  <div>
-                    <label className="block text-xs font-medium text-gray-700 mb-1">Phone Number (with Country Code)</label>
-                    <div className="relative">
-                      <Smartphone className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
-                      <input
-                        type="tel"
-                        required
-                        value={phoneNumber}
-                        onChange={(e) => setPhoneNumber(e.target.value)}
-                        placeholder="e.g. +919876543210 or +15550199"
-                        className="w-full pl-9 pr-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-bamboo-600 focus:border-transparent"
-                      />
-                    </div>
-                    <p className="text-[11px] text-gray-400 mt-1">Please include country code for international SMS carrier.</p>
-                  </div>
-
-                  <div id="recaptcha-container" className="my-1"></div>
-
-                  <div className="flex flex-col gap-2">
-                    <button
-                      type="submit"
-                      disabled={loading}
-                      className="w-full py-2.5 bg-bamboo-700 text-white hover:bg-bamboo-600 text-sm font-semibold rounded-xl transition flex items-center justify-center space-x-2 shadow-sm"
-                    >
-                      <Phone className="w-4 h-4 shrink-0" />
-                      <span>{loading ? "Sending SMS OTP..." : "Send SMS Verification Code"}</span>
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={handleSimulateSendOtp}
-                      disabled={loading}
-                      className="w-full py-2 bg-amber-50 border border-amber-200 text-amber-800 hover:bg-amber-100/70 text-xs font-semibold rounded-lg transition flex items-center justify-center space-x-2"
-                    >
-                      <Sparkles className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-                      <span>Instant Bypass: Simulate OTP Code</span>
-                    </button>
-                  </div>
-                </form>
-              ) : (
-                <form onSubmit={handleVerifyOtp} className="space-y-4">
-                  <div className="bg-amber-50 border border-amber-100 text-amber-800 p-2.5 rounded-lg text-xs flex items-center justify-between">
-                    <span>Code sent to <strong>{phoneNumber}</strong></span>
-                    <button
-                      type="button"
-                      onClick={() => setOtpSent(false)}
-                      className="text-bamboo-800 font-bold hover:underline"
-                    >
-                      Change
-                    </button>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-medium text-gray-700 mb-1">6-Digit Verification Code</label>
-                    <input
-                      type="text"
-                      required
-                      maxLength={6}
-                      value={verificationCode}
-                      onChange={(e) => setVerificationCode(e.target.value)}
-                      placeholder={confirmationResult === 'simulated' ? "Enter '123456' for simulated OTP" : "Enter 6-digit code"}
-                      className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm text-center tracking-widest font-mono focus:outline-none focus:ring-2 focus:ring-bamboo-600 focus:border-transparent"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full py-2.5 bg-bamboo-700 text-white hover:bg-bamboo-600 text-sm font-semibold rounded-xl transition flex items-center justify-center space-x-2 shadow-sm"
-                  >
-                    <Check className="w-4 h-4 shrink-0" />
-                    <span>{loading ? "Verifying..." : "Verify Code & Setup Profile"}</span>
-                  </button>
-                </form>
-              )}
-            </div>
           )}
 
           {/* GOOGLE SIGN IN BUTTON */}

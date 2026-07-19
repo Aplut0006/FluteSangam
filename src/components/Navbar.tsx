@@ -241,7 +241,7 @@ export default function Navbar({
               {/* Profile dropdown */}
               {showProfileDropdown && (
                 <div 
-                  className="absolute right-0 mt-2.5 w-72 frosted-panel-thick rounded-2xl shadow-xl p-4 space-y-3.5 origin-top-right animate-fadeIn"
+                  className="absolute right-0 mt-2.5 w-72 bg-white border border-bamboo-100/80 rounded-2xl shadow-xl p-4 space-y-3.5 origin-top-right animate-fadeIn"
                   id="user-profile-dropdown"
                 >
                   <div className="flex items-center space-x-3 border-b border-gray-100 pb-3">
@@ -310,8 +310,8 @@ export default function Navbar({
       {/* Edit Profile Dialog Overlay (Absolute modal inside navbar/context for simplicity) */}
       {isEditingProfile && currentUser && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-3xs" id="edit-profile-overlay">
-          <div className="w-full max-w-sm bg-white rounded-2xl shadow-xl border border-bamboo-100 overflow-hidden" id="edit-profile-card">
-            <div className="bg-bamboo-700 px-5 py-4 text-white flex justify-between items-center">
+          <div className="w-full max-w-sm bg-white rounded-2xl shadow-xl border border-bamboo-100 overflow-hidden flex flex-col max-h-[92vh]" id="edit-profile-card">
+            <div className="bg-bamboo-700 px-5 py-4 text-white flex justify-between items-center shrink-0">
               <h3 className="font-display font-semibold text-sm flex items-center gap-1.5">
                 <Feather className="w-4 h-4 text-yellow-300 shrink-0" />
                 Update Musician Profile
@@ -324,7 +324,7 @@ export default function Navbar({
               </button>
             </div>
 
-             <form onSubmit={handleUpdateProfile} className="p-5 space-y-3.5 max-h-[80vh] overflow-y-auto" id="edit-profile-form">
+             <form onSubmit={handleUpdateProfile} className="p-5 space-y-3.5 overflow-y-auto flex-1" id="edit-profile-form">
               {successMsg && (
                 <div className="p-3 bg-green-50 border border-green-200 text-green-700 text-xs rounded-lg flex items-center space-x-1">
                   <Check className="w-4 h-4 shrink-0" />
@@ -395,8 +395,8 @@ export default function Navbar({
                 </div>
 
                 <div className="border-t border-gray-100/80 pt-2 space-y-1">
-                  <span className="block text-[10px] font-semibold text-gray-500">Or pick one of the 5 default cartoon icons:</span>
-                  <div className="flex items-center gap-2 justify-between px-0.5">
+                  <span className="block text-[10px] font-semibold text-gray-500">Or pick one of the 10 default cartoon icons:</span>
+                  <div className="grid grid-cols-5 gap-2 px-0.5 justify-items-center">
                     {CARTOON_AVATARS.map((avatarUrl, index) => {
                       const isSelected = editPhotoURL === avatarUrl;
                       return (

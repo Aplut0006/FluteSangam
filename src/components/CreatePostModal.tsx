@@ -219,36 +219,20 @@ export default function CreatePostModal({ isOpen, onClose, currentUser }: Create
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1">Title / Composition Name</label>
-              <input
-                type="text"
-                required
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                placeholder={
-                  category === 'Performance' ? "e.g. Dhun in Raga Yaman on E Bass" :
-                  category === 'Review' ? "e.g. Punam Flutes E Bass Review" :
-                  "e.g. Tips on cross fingering..."
-                }
-                className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-bamboo-600 focus:border-transparent"
-              />
-            </div>
-
-            <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1">Associated Raga (Optional)</label>
-              <select
-                value={raga}
-                onChange={(e) => setRaga(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-bamboo-600 focus:border-transparent"
-              >
-                <option value="None">None / Not Applicable</option>
-                {POPULAR_RAGAS.map((r) => (
-                  <option key={r.name} value={r.name}>Raga {r.name}</option>
-                ))}
-              </select>
-            </div>
+          <div>
+            <label className="block text-xs font-semibold text-gray-700 mb-1">Title / Composition Name</label>
+            <input
+              type="text"
+              required
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder={
+                category === 'Performance' ? "e.g. Dhun in Raga Yaman on E Bass" :
+                category === 'Review' ? "e.g. Punam Flutes E Bass Review" :
+                "e.g. Tips on cross fingering..."
+              }
+              className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-bamboo-600 focus:border-transparent"
+            />
           </div>
 
           <div>
