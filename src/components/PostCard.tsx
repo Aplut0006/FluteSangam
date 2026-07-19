@@ -22,6 +22,7 @@ interface PostCardProps {
   onPostClick: (post: Post, focusComment?: boolean) => void;
   onUserProfileClick?: (userId: string) => void;
   onEditPost?: (post: Post) => void;
+  onOpenImage?: (imageUrl: string) => void;
 }
 
 export default function PostCard({ 
@@ -32,7 +33,8 @@ export default function PostCard({
   onStartChat,
   onPostClick,
   onUserProfileClick,
-  onEditPost
+  onEditPost,
+  onOpenImage
 }: PostCardProps) {
   const [post, setPost] = useState<Post>(initialPost);
   const [commentsCount, setCommentsCount] = useState(post.commentsCount || 0);
@@ -147,6 +149,7 @@ export default function PostCard({
               alt={post.authorName}
               referrerPolicy="no-referrer"
               className="w-10 h-10 rounded-full object-cover border border-bamboo-100/60 bg-white"
+              loading="lazy"
             />
           </button>
           <div>
@@ -261,6 +264,7 @@ export default function PostCard({
                     alt={comment.authorName}
                     className="w-5 h-5 rounded-full object-cover border border-gray-200"
                     referrerPolicy="no-referrer"
+                    loading="lazy"
                   />
                 </button>
                 <div className="flex-1 min-w-0">

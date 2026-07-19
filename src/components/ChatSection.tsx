@@ -41,6 +41,7 @@ interface ChatSectionProps {
     photoURL?: string;
   } | null;
   onClearInitialTargetUser?: () => void;
+  onOpenImage?: (imageUrl: string) => void;
 }
 
 interface ChatGroup {
@@ -54,7 +55,8 @@ export default function ChatSection({
   currentUser, 
   onProfileUpdated,
   initialTargetUser,
-  onClearInitialTargetUser
+  onClearInitialTargetUser,
+  onOpenImage
 }: ChatSectionProps) {
   const [allMessages, setAllMessages] = useState<DirectMessage[]>([]);
   const [allUsers, setAllUsers] = useState<UserProfile[]>([]);
@@ -203,8 +205,8 @@ export default function ChatSection({
       setErrorMsg("Please select/drop a valid image file.");
       return;
     }
-    if (file.size > 800 * 1024) {
-      setErrorMsg("Image size must be under 800KB.");
+    if (file.size > 5 * 1024 * 1024) {
+      setErrorMsg("Image size must be under 5MB.");
       return;
     }
     setErrorMsg('');
@@ -401,6 +403,7 @@ export default function ChatSection({
                         isUnread ? 'border-yellow-400 ring-2 ring-yellow-200/50' : 'border-gray-200'
                       }`}
                       referrerPolicy="no-referrer"
+                      loading="lazy"
                     />
                     {isUnread && (
                       <span className="absolute -bottom-1.5 -right-1 bg-yellow-500 text-white font-black text-[9px] w-4.5 h-4.5 rounded-full flex items-center justify-center border border-white">
@@ -477,6 +480,7 @@ export default function ChatSection({
                   alt={activeTargetUser?.displayName} 
                   className="w-10 h-10 rounded-full object-cover border border-bamboo-400 bg-white shrink-0 shadow-3xs"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
                 <div className="min-w-0">
                   <h3 className="font-semibold text-sm leading-tight truncate">{activeTargetUser?.displayName}</h3>
@@ -554,6 +558,7 @@ export default function ChatSection({
                         alt={isMe ? "You" : activeTargetUser?.displayName}
                         className="w-7 h-7 rounded-full object-cover border border-gray-100 shadow-3xs shrink-0 mt-0.5 bg-white"
                         referrerPolicy="no-referrer"
+                        loading="lazy"
                       />
 
                       {/* Bubble wrapper */}
@@ -615,12 +620,16 @@ export default function ChatSection({
                                 <p className="text-xs leading-relaxed whitespace-pre-wrap">{msg.text}</p>
                                 
                                 {msg.imageUrl && (
-                                  <div className="mt-2 rounded-lg overflow-hidden max-h-48 border border-black/5 bg-gray-50">
+                                  <div 
+                                    className="mt-2 rounded-lg overflow-hidden max-h-48 border border-black/5 bg-gray-50 cursor-pointer"
+                                    onClick={() => onOpenImage?.(msg.imageUrl!)}
+                                  >
                                     <img 
                                       src={msg.imageUrl} 
                                       alt="Message Attachment" 
                                       className="max-h-48 w-full object-cover"
                                       referrerPolicy="no-referrer"
+                                      loading="lazy"
                                     />
                                   </div>
                                 )}
@@ -685,6 +694,7 @@ export default function ChatSection({
                     alt="Attachment Preview" 
                     className="h-12 w-12 object-cover rounded"
                     referrerPolicy="no-referrer"
+                    loading="lazy"
                   />
                   <div className="text-[10px] text-gray-400 font-semibold pr-4">Image Attachment Included</div>
                   <button

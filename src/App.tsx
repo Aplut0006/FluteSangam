@@ -20,6 +20,7 @@ import LearnBasicsView from './components/LearnBasicsView';
 import LearnAlankarasView from './components/LearnAlankarasView';
 import LearnRaagasView from './components/LearnRaagasView';
 import MembersView from './components/MembersView';
+import ImageModal from './components/ImageModal';
 
 // Icons
 import { 
@@ -61,6 +62,7 @@ export default function App() {
 
   // Post editing state
   const [editingPost, setEditingPost] = useState<Post | null>(null);
+  const [selectedImageUrl, setSelectedImageUrl] = useState<string | null>(null);
 
   const handleViewChange = (
     view: AppView,
@@ -434,6 +436,7 @@ export default function App() {
             onStartChat={handleStartChat}
             onUserProfileClick={handleOpenUserProfile}
             onEditPost={handleOpenEditPost}
+            onOpenImage={(url) => setSelectedImageUrl(url)}
           />
         ) : currentView === 'learn_intro' ? (
           <LearnIntroView />
@@ -471,6 +474,7 @@ export default function App() {
               onProfileUpdated={(updatedProfile) => setCurrentUser(updatedProfile)}
               initialTargetUser={chatTargetUser}
               onClearInitialTargetUser={() => setChatTargetUser(null)}
+              onOpenImage={(url) => setSelectedImageUrl(url)}
             />
           </div>
         ) : (
@@ -591,6 +595,7 @@ export default function App() {
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
                     onEditPost={handleOpenEditPost}
+                    onOpenImage={(url) => setSelectedImageUrl(url)}
                   />
                 ))
               )}
@@ -755,6 +760,7 @@ export default function App() {
           </motion.div>
         )}
       </AnimatePresence>
+      {selectedImageUrl && <ImageModal imageUrl={selectedImageUrl} onClose={() => setSelectedImageUrl(null)} />}
     </div>
   );
 }

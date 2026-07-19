@@ -51,8 +51,8 @@ export default function CreatePostModal({ isOpen, onClose, currentUser, postToEd
       setError("Please select/drop a valid image file.");
       return;
     }
-    if (file.size > 800 * 1024) {
-      setError("Image size is too large (must be under 800KB). Please use a smaller or compressed image.");
+    if (file.size > 5 * 1024 * 1024) {
+      setError("Image size is too large (must be under 5MB). Please use a smaller or compressed image.");
       return;
     }
     const reader = new FileReader();

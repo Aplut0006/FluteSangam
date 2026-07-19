@@ -117,6 +117,11 @@ export async function createUserProfile(uid: string, profile: Omit<UserProfile, 
 
 export async function updateUserProfile(uid: string, updates: Partial<UserProfile>): Promise<void> {
   try {
+    if (updates.phoneNumber) {
+      const taken = await isPhoneTaken(updates.phoneNumber, uid);
+      if (taken) throw new Error("Phone number is already taken by another member.");
+    }
+
     const docRef = doc(db, 'users', uid);
     await updateDoc(docRef, cleanUndefined(updates));
 

@@ -37,6 +37,7 @@ interface PostDetailViewProps {
   onStartChat?: (targetUser: { uid: string; displayName: string; username?: string; photoURL?: string }) => void;
   onUserProfileClick?: (userId: string) => void;
   onEditPost?: (post: Post) => void;
+  onOpenImage?: (imageUrl: string) => void;
   autoFocusComment?: boolean;
 }
 
@@ -49,6 +50,7 @@ export default function PostDetailView({
   onStartChat,
   onUserProfileClick,
   onEditPost,
+  onOpenImage,
   autoFocusComment = false
 }: PostDetailViewProps) {
   const [post, setPost] = useState<Post>(initialPost);
@@ -100,8 +102,8 @@ export default function PostDetailView({
       setCommentError("Only image files are allowed.");
       return;
     }
-    if (file.size > 1.5 * 1024 * 1024) {
-      setCommentError("Image must be smaller than 1.5MB.");
+    if (file.size > 5 * 1024 * 1024) {
+      setCommentError("Image must be smaller than 5MB.");
       return;
     }
     setCommentError("");
@@ -277,6 +279,7 @@ export default function PostDetailView({
                     alt={post.authorName}
                     referrerPolicy="no-referrer"
                     className="w-12 h-12 rounded-full object-cover border-2 border-bamboo-100 bg-white"
+                    loading="lazy"
                   />
                 </button>
                 <div>
@@ -343,12 +346,16 @@ export default function PostDetailView({
 
             {/* High-res Image Attachment */}
             {post.imageUrl && (
-              <div className="rounded-2xl overflow-hidden bg-gray-50 border border-gray-100 max-h-[500px] flex justify-center items-center shadow-3xs">
+              <div 
+                className="rounded-2xl overflow-hidden bg-gray-50 border border-gray-100 max-h-[500px] flex justify-center items-center shadow-3xs cursor-pointer"
+                onClick={() => onOpenImage?.(post.imageUrl!)}
+              >
                 <img
                   src={post.imageUrl}
                   alt={post.title}
                   referrerPolicy="no-referrer"
                   className="max-h-[500px] w-full object-contain"
+                  loading="lazy"
                 />
               </div>
             )}
@@ -430,6 +437,7 @@ export default function PostDetailView({
                           alt={comm.authorName}
                           referrerPolicy="no-referrer"
                           className="w-7 h-7 rounded-full object-cover mt-0.5 border border-bamboo-100"
+                          loading="lazy"
                         />
                       </button>
                       <div className="flex-1 bg-gray-50/75 p-2.5 rounded-xl border border-gray-200/50">
@@ -532,12 +540,16 @@ export default function PostDetailView({
                           <div>
                             <p className="text-gray-600 leading-normal mb-1.5">{comm.text}</p>
                             {comm.imageUrl && (
-                              <div className="mt-2 rounded-lg overflow-hidden border border-gray-100 max-h-40 flex items-center justify-start bg-gray-50/50">
+                              <div 
+                                className="mt-2 rounded-lg overflow-hidden border border-gray-100 max-h-40 flex items-center justify-start bg-gray-50/50 cursor-pointer"
+                                onClick={() => onOpenImage?.(comm.imageUrl!)}
+                              >
                                 <img 
                                   src={comm.imageUrl} 
                                   alt="Comment Attachment" 
                                   className="max-h-40 object-contain rounded-md"
                                   referrerPolicy="no-referrer"
+                                  loading="lazy"
                                 />
                               </div>
                             )}
@@ -615,6 +627,7 @@ export default function PostDetailView({
                       alt="Comment Preview" 
                       className="h-14 w-14 object-cover rounded"
                       referrerPolicy="no-referrer"
+                      loading="lazy"
                     />
                     <button
                       type="button"
@@ -656,6 +669,7 @@ export default function PostDetailView({
                     alt={currentUser.displayName}
                     referrerPolicy="no-referrer"
                     className="w-7 h-7 rounded-full object-cover border border-bamboo-100 shrink-0"
+                    loading="lazy"
                   />
                   <div className="flex-1 flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-xl border border-gray-200 focus-within:bg-white focus-within:ring-2 focus-within:ring-bamboo-600 focus-within:border-transparent min-w-0 transition">
                     <input
