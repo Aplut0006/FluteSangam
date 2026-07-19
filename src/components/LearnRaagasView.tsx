@@ -2,16 +2,13 @@ import React, { useState } from 'react';
 import { BookOpen, Filter, Music, Sun, Moon } from 'lucide-react';
 import { LEARN_RAAGAS } from '../data/learnRaagasData';
 
-type Difficulty = 'Beginner' | 'Intermediate' | 'Advanced' | 'All';
+type Difficulty = 'Beginner' | 'Intermediate' | 'Advanced';
 
 export default function LearnRaagasView() {
-  const [filter, setFilter] = useState<Difficulty>('All');
-
+  const [filter, setFilter] = useState<Difficulty>('Beginner');
   const raagas = LEARN_RAAGAS;
 
-  const filteredRaagas = filter === 'All' 
-    ? raagas 
-    : raagas.filter(r => r.level === filter);
+  const filteredRaagas = raagas.filter(r => r.level === filter);
 
   const getLevelColor = (level: string) => {
     switch (level) {
@@ -106,7 +103,7 @@ export default function LearnRaagasView() {
                 <span>Filter by Difficulty:</span>
               </div>
               <div className="flex flex-wrap gap-2">
-                {(['All', 'Beginner', 'Intermediate', 'Advanced'] as Difficulty[]).map(level => (
+                {(['Beginner', 'Intermediate', 'Advanced'] as Difficulty[]).map(level => (
                   <button
                     key={level}
                     onClick={() => setFilter(level)}
@@ -165,7 +162,7 @@ export default function LearnRaagasView() {
                   </div>
 
                   <p className="text-gray-600 m-0 leading-relaxed text-base">
-                    {raaga.desc}
+                    {raaga.description}
                   </p>
                 </div>
               ))}

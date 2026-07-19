@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { POPULAR_RAGAS } from '../data/ragas';
+import { LEARN_RAAGAS } from '../data/learnRaagasData';
 import { RagaDetail } from '../types';
 import { BookOpen, Music, Sun, Moon, Info, Heart, ArrowRight } from 'lucide-react';
 
@@ -9,7 +9,7 @@ interface RagaGuideProps {
 }
 
 export default function RagaGuide({ onSelectRagaDiscussion, activeRagaFilter }: RagaGuideProps) {
-  const [selectedRaga, setSelectedRaga] = useState<RagaDetail>(POPULAR_RAGAS[0]);
+  const [selectedRaga, setSelectedRaga] = useState<RagaDetail>(LEARN_RAAGAS[0]);
 
   // Helper to determine time icon
   const getTimeIcon = (time: string) => {
@@ -28,25 +28,20 @@ export default function RagaGuide({ onSelectRagaDiscussion, activeRagaFilter }: 
       </div>
 
       <div className="p-4 space-y-4">
-        {/* Horizontal scroll of ragas */}
-        <div className="flex space-x-2 overflow-x-auto pb-2 scrollbar-none" id="raga-tabs-container">
-          {POPULAR_RAGAS.map((raga) => {
-            const isSelected = selectedRaga.name === raga.name;
-            return (
-              <button
-                key={raga.name}
-                onClick={() => setSelectedRaga(raga)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-200 ${
-                  isSelected
-                    ? "bg-bamboo-700 text-white shadow-xs"
-                    : "bg-bamboo-50 text-bamboo-700 hover:bg-bamboo-100"
-                }`}
-              >
-                {raga.name}
-              </button>
-            );
-          })}
-        </div>
+        {/* Dropdown of all ragas */}
+        <select
+          onChange={(e) => {
+            const raga = LEARN_RAAGAS.find(r => r.name === e.target.value);
+            if (raga) setSelectedRaga(raga);
+          }}
+          className="w-full px-4 py-2 bg-bamboo-50 text-bamboo-800 rounded-xl text-xs font-semibold border-none focus:ring-2 focus:ring-bamboo-600"
+        >
+          {LEARN_RAAGAS.map((raga) => (
+            <option key={raga.name} value={raga.name}>
+              {raga.name}
+            </option>
+          ))}
+        </select>
 
         {/* Selected Raga Detail Card */}
         <div className="bg-white/30 backdrop-blur-xs rounded-xl p-4 border border-white/40 space-y-3" id="raga-detail-container">
@@ -61,7 +56,7 @@ export default function RagaGuide({ onSelectRagaDiscussion, activeRagaFilter }: 
                 <span>Prahar: {selectedRaga.time}</span>
               </p>
             </div>
-            
+                
             <button
               onClick={() => onSelectRagaDiscussion(selectedRaga.name)}
               className={`px-2.5 py-1 rounded-lg text-[10px] font-bold tracking-wide uppercase transition ${

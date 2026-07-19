@@ -1,7 +1,7 @@
 export type RaagaDetails = {
   name: string;
   level: 'Beginner' | 'Intermediate' | 'Advanced';
-  desc: string;
+  description: string;
   aaroh: string;
   avroh: string;
   vadi: string;
@@ -15,7 +15,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Bhupali (Bhoop)", 
     level: "Beginner", 
-    desc: "Pentatonic scale skipping Ma and Ni; the definitive entry point for learning structural frameworks.",
+    description: "Pentatonic scale skipping Ma and Ni; the definitive entry point for learning structural frameworks.",
     aaroh: "Sa Re Ga Pa Dha Sa'",
     avroh: "Sa' Dha Pa Ga Re Sa",
     vadi: "Ga",
@@ -27,7 +27,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Yaman", 
     level: "Beginner", 
-    desc: "Evening scale introducing Teevra Ma; the foundation of classical improvisation.",
+    description: "Evening scale introducing Teevra Ma; the foundation of classical improvisation.",
     aaroh: "Ni(lower) Re Ga Ma(tivra) Dha Ni Sa'",
     avroh: "Sa' Ni Dha Pa Ma(tivra) Ga Re Sa",
     vadi: "Ga",
@@ -39,7 +39,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Bilawal", 
     level: "Beginner", 
-    desc: "The natural scale using all Shuddha notes; equivalent to the Western Major scale.",
+    description: "The natural scale using all Shuddha notes; equivalent to the Western Major scale.",
     aaroh: "Sa Re Ga Ma Pa Dha Ni Sa'",
     avroh: "Sa' Ni Dha Pa Ma Ga Re Sa",
     vadi: "Dha",
@@ -51,7 +51,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Durga", 
     level: "Beginner", 
-    desc: "Pentatonic scale skipping Ga and Ni; builds clean, crisp finger transitions.",
+    description: "Pentatonic scale skipping Ga and Ni; builds clean, crisp finger transitions.",
     aaroh: "Sa Re Ma Pa Dha Sa'",
     avroh: "Sa' Dha Pa Ma Re Sa",
     vadi: "Ma",
@@ -63,7 +63,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Alhaiya Bilawal", 
     level: "Beginner", 
-    desc: "A Bilawal derivative introducing a subtle, decorative use of Komal Ni in descent.",
+    description: "A Bilawal derivative introducing a subtle, decorative use of Komal Ni in descent.",
     aaroh: "Sa Ga Re Ga Pa, Dha Ni Sa'",
     avroh: "Sa' Ni Dha Pa, Dha Ni(komal) Dha Pa, Ma Ga Re Sa",
     vadi: "Dha",
@@ -75,7 +75,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Deshkar", 
     level: "Beginner", 
-    desc: "Uses the same notes as Bhupali but shifts melodic emphasis to Dha and Ga to show scale variance.",
+    description: "Uses the same notes as Bhupali but shifts melodic emphasis to Dha and Ga to show scale variance.",
     aaroh: "Sa Re Ga Pa Dha Sa'",
     avroh: "Sa' Dha Pa Ga Re Sa",
     vadi: "Dha",
@@ -87,7 +87,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Brindavani Sarang", 
     level: "Beginner", 
-    desc: "Monsoon scale using both natural and flat Ni; highly rhythmic.",
+    description: "Monsoon scale using both natural and flat Ni; highly rhythmic.",
     aaroh: "Sa Re Ma Pa Ni Sa'",
     avroh: "Sa' Ni(komal) Pa Ma Re Sa",
     vadi: "Re",
@@ -99,7 +99,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Bhairav", 
     level: "Intermediate", 
-    desc: "Morning scale introducing Komal Re and Komal Dha; requires microtonal oscillations.",
+    description: "Morning scale introducing Komal Re and Komal Dha; requires microtonal oscillations.",
     aaroh: "Sa Re(komal) Ga Ma Pa Dha(komal) Ni Sa'",
     avroh: "Sa' Ni Dha(komal) Pa Ma Ga Re(komal) Sa",
     vadi: "Dha",
@@ -111,7 +111,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Kafi", 
     level: "Intermediate", 
-    desc: "Introduces Komal Ga and Komal Ni; the root of folk-classical and semi-classical music.",
+    description: "Introduces Komal Ga and Komal Ni; the root of folk-classical and semi-classical music.",
     aaroh: "Sa Re Ga(komal) Ma Pa Dha Ni(komal) Sa'",
     avroh: "Sa' Ni(komal) Dha Pa Ma Ga(komal) Re Sa",
     vadi: "Pa",
@@ -123,7 +123,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Khamaj", 
     level: "Intermediate", 
-    desc: "Uses natural Ni ascending and flat Ni descending; the foundation for romantic Thumri expressions.",
+    description: "Uses natural Ni ascending and flat Ni descending; the foundation for romantic Thumri expressions.",
     aaroh: "Sa Ga Ma Pa Dha Ni Sa'",
     avroh: "Sa' Ni(komal) Dha Pa Ma Ga Re Sa",
     vadi: "Ga",
@@ -135,7 +135,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Asavari", 
     level: "Intermediate", 
-    desc: "Uses three flat notes: Komal Ga, Dha, and Ni; introduces a serious, melancholic mood.",
+    description: "Uses three flat notes: Komal Ga, Dha, and Ni; introduces a serious, melancholic mood.",
     aaroh: "Sa Re Ma Pa Dha(komal) Sa'",
     avroh: "Sa' Ni(komal) Dha(komal) Pa, Ma Ga(komal) Re Sa",
     vadi: "Dha",
@@ -147,7 +147,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Jaunpuri", 
     level: "Intermediate", 
-    desc: "Structurally similar to Asavari but requires distinct treatment of the upper octave notes.",
+    description: "Structurally similar to Asavari but requires distinct treatment of the upper octave notes.",
     aaroh: "Sa Re Ma Pa Dha(komal) Ni(komal) Sa'",
     avroh: "Sa' Ni(komal) Dha(komal) Pa Ma Ga(komal) Re Sa",
     vadi: "Dha",
@@ -159,7 +159,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Bhairavi", 
     level: "Intermediate", 
-    desc: "Symmetrical scale utilizing all four flat notes; traditionally performed to conclude a concert.",
+    description: "Symmetrical scale utilizing all four flat notes; traditionally performed to conclude a concert.",
     aaroh: "Sa Re(komal) Ga(komal) Ma Pa Dha(komal) Ni(komal) Sa'",
     avroh: "Sa' Ni(komal) Dha(komal) Pa Ma Ga(komal) Re(komal) Sa",
     vadi: "Ma",
@@ -171,7 +171,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Sarang (Shuddha)", 
     level: "Intermediate", 
-    desc: "A foundational midday melody focusing intensely on the interplay of natural notes.",
+    description: "A foundational midday melody focusing intensely on the interplay of natural notes.",
     aaroh: "Sa Re Ma Pa Ni Sa'",
     avroh: "Sa' Ni(komal) Pa Ma Re Sa",
     vadi: "Re",
@@ -183,7 +183,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Bageshree", 
     level: "Intermediate", 
-    desc: "Deeply romantic night melody using Komal Ga and Komal Ni with winding movements.",
+    description: "Deeply romantic night melody using Komal Ga and Komal Ni with winding movements.",
     aaroh: "Sa Ga(komal) Ma Dha Ni(komal) Sa'",
     avroh: "Sa' Ni(komal) Dha Ma Pa Dha Ga(komal) Ma Ga(komal) Re Sa",
     vadi: "Ma",
@@ -195,7 +195,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Des", 
     level: "Intermediate", 
-    desc: "Rainy season scale leaning heavily on graceful transitions and glides between natural and flat notes.",
+    description: "Rainy season scale leaning heavily on graceful transitions and glides between natural and flat notes.",
     aaroh: "Sa Re Ma Pa Ni Sa'",
     avroh: "Sa' Ni(komal) Dha Pa Ma Ga Re Ga Sa",
     vadi: "Re",
@@ -207,7 +207,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Pilu", 
     level: "Intermediate", 
-    desc: "Light classical favorite allowing artistic freedom to blend various altered notes outside its primary scale.",
+    description: "Light classical favorite allowing artistic freedom to blend various altered notes outside its primary scale.",
     aaroh: "Ni(lower) Sa Ga(komal) Ma Pa Ni Sa'",
     avroh: "Sa' Ni(komal) Dha Pa Ma Ga(komal) Re Sa",
     vadi: "Ga",
@@ -219,7 +219,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Kedar", 
     level: "Intermediate", 
-    desc: "Complex night scale using both natural and sharp Ma; requires precise zig-zag finger movements.",
+    description: "Complex night scale using both natural and sharp Ma; requires precise zig-zag finger movements.",
     aaroh: "Sa Ma, Ma Pa Dha Pa, Ni Dha Sa'",
     avroh: "Sa' Ni Dha Pa, Ma(tivra) Pa Dha Pa Ma, Sa Re Sa",
     vadi: "Ma",
@@ -231,7 +231,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Bihag", 
     level: "Intermediate", 
-    desc: "Uses all Shuddha notes with a hidden touch of Teevra Ma; famous for wide octave jumps.",
+    description: "Uses all Shuddha notes with a hidden touch of Teevra Ma; famous for wide octave jumps.",
     aaroh: "Sa Ga Ma Pa Ni Sa'",
     avroh: "Sa' Ni Dha Pa, Ma(tivra) Pa Ga Ma Ga, Re Sa",
     vadi: "Ga",
@@ -243,7 +243,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Hameed", 
     level: "Intermediate", 
-    desc: "A lively evening scale featuring unique, rolling curves between both variants of Ma.",
+    description: "A lively evening scale featuring unique, rolling curves between both variants of Ma.",
     aaroh: "Sa Re Ga Ma Pa, Ma(tivra) Dha Ni Sa'",
     avroh: "Sa' Ni Dha Pa, Ma(tivra) Pa Ga, Ma Re Sa",
     vadi: "Dha",
@@ -255,7 +255,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Shuddha Kalyan", 
     level: "Intermediate", 
-    desc: "Ascends like Bhupali and descends like Yaman; excellent for mental agility.",
+    description: "Ascends like Bhupali and descends like Yaman; excellent for mental agility.",
     aaroh: "Sa Re Ga Pa Dha Sa'",
     avroh: "Sa' Ni Dha Pa, Ma(tivra) Ga, Re Sa",
     vadi: "Ga",
@@ -267,7 +267,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Puriya Dhanashree", 
     level: "Advanced", 
-    desc: "Uses Komal Re, Teevra Ma, and Komal Dha; demands unparalleled air-pressure control.",
+    description: "Uses Komal Re, Teevra Ma, and Komal Dha; demands unparalleled air-pressure control.",
     aaroh: "Ni(lower) Re(komal) Ga Ma(tivra) Pa Dha(komal) Ni Sa'",
     avroh: "Sa' Ni Dha(komal) Pa Ma(tivra) Ga Re(komal) Sa",
     vadi: "Pa",
@@ -279,7 +279,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Todi (Miyan Ki Todi)", 
     level: "Advanced", 
-    desc: "The crown jewel of morning Raags; uses exceptionally narrow, haunting microtonal intervals.",
+    description: "The crown jewel of morning Raags; uses exceptionally narrow, haunting microtonal intervals.",
     aaroh: "Sa Re(komal) Ga(komal) Ma(tivra) Pa Dha(komal) Ni Sa'",
     avroh: "Sa' Ni Dha(komal) Pa Ma(tivra) Ga(komal) Re(komal) Sa",
     vadi: "Dha",
@@ -291,7 +291,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Darbari Kanada", 
     level: "Advanced", 
-    desc: "Deep midnight melody utilizing ultra-slow, heavy oscillations; a massive test of breath capacity.",
+    description: "Deep midnight melody utilizing ultra-slow, heavy oscillations; a massive test of breath capacity.",
     aaroh: "Sa Re Ga(komal) Ma Pa Dha(komal) Ni(komal) Sa'",
     avroh: "Sa' Dha(komal) Ni(komal) Pa, Ma Pa, Ga(komal) Ma Re Sa",
     vadi: "Re",
@@ -303,7 +303,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Malkauns", 
     level: "Advanced", 
-    desc: "A meditative midnight pentatonic scale skipping Re and Pa completely.",
+    description: "A meditative midnight pentatonic scale skipping Re and Pa completely.",
     aaroh: "Sa Ga(komal) Ma Dha(komal) Ni(komal) Sa'",
     avroh: "Sa' Ni(komal) Dha(komal) Ma Ga(komal) Ma Ga(komal) Sa",
     vadi: "Ma",
@@ -315,7 +315,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Multani", 
     level: "Advanced", 
-    desc: "A searing afternoon Raag structurally identical to Todi's notes but handled with a completely different aesthetic weight.",
+    description: "A searing afternoon Raag structurally identical to Todi's notes but handled with a completely different aesthetic weight.",
     aaroh: "Ni(lower) Sa Ga(komal) Ma(tivra) Pa, Ni Sa'",
     avroh: "Sa' Ni Dha(komal) Pa, Ma(tivra) Ga(komal) Re(komal) Sa",
     vadi: "Pa",
@@ -327,7 +327,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Marwa", 
     level: "Advanced", 
-    desc: "Stark sunset melody using only Komal Re and Teevra Ma while omitting the stabilizing note Pa.",
+    description: "Stark sunset melody using only Komal Re and Teevra Ma while omitting the stabilizing note Pa.",
     aaroh: "Ni(lower) Re(komal) Ga Ma(tivra) Dha Ni Sa'",
     avroh: "Sa' Ni Dha Ma(tivra) Ga Re(komal) Sa",
     vadi: "Re",
@@ -339,7 +339,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Puriya", 
     level: "Advanced", 
-    desc: "Uses the same notes as Marwa but focuses entirely on Ga and Ni, creating a floating atmosphere.",
+    description: "Uses the same notes as Marwa but focuses entirely on Ga and Ni, creating a floating atmosphere.",
     aaroh: "Ni(lower) Re(komal) Ga Ma(tivra) Dha Ni Sa'",
     avroh: "Sa' Ni Dha Ma(tivra) Ga Re(komal) Sa",
     vadi: "Ga",
@@ -351,7 +351,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Shri", 
     level: "Advanced", 
-    desc: "Ancient twilight melody utilizing aggressive, dramatic slides from Komal Dha down to Komal Re.",
+    description: "Ancient twilight melody utilizing aggressive, dramatic slides from Komal Dha down to Komal Re.",
     aaroh: "Sa Re(komal) Ma(tivra) Pa, Ni Sa'",
     avroh: "Sa' Ni Dha(komal) Pa, Ma(tivra) Ga Re(komal) Sa",
     vadi: "Re",
@@ -363,7 +363,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Lalit", 
     level: "Advanced", 
-    desc: "Dawn scale utilizing both natural Ma and sharp Ma placed directly next to each other in sequence.",
+    description: "Dawn scale utilizing both natural Ma and sharp Ma placed directly next to each other in sequence.",
     aaroh: "Ni(lower) Re(komal) Ga Ma, Ma(tivra) Ma Ga, Ma(tivra) dHa Ni Sa'",
     avroh: "Sa' Ni Dha(komal) Ma(tivra) Ma Ga, Re(komal) Sa",
     vadi: "Ma",
@@ -375,7 +375,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Ahir Bhairav", 
     level: "Advanced", 
-    desc: "A majestic, highly popular morning blend of Raag Bhairav and Raag Kafi.",
+    description: "A majestic, highly popular morning blend of Raag Bhairav and Raag Kafi.",
     aaroh: "Sa Re(komal) Ga Ma Pa Dha Ni(komal) Sa'",
     avroh: "Sa' Ni(komal) Dha Pa Ma Ga Re(komal) Sa",
     vadi: "Ma",
@@ -387,7 +387,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Yaman Kalyan", 
     level: "Advanced", 
-    desc: "An extension of Yaman that integrates subtle, graceful inclusions of natural Ma inside specific phrases.",
+    description: "An extension of Yaman that integrates subtle, graceful inclusions of natural Ma inside specific phrases.",
     aaroh: "Ni(lower) Re Ga Ma(tivra) Pa Dha Ni Sa'",
     avroh: "Sa' Ni Dha Pa Ma(tivra) Ga, Ma Ga Re Sa",
     vadi: "Ga",
@@ -399,7 +399,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Miyan Malhar", 
     level: "Advanced", 
-    desc: "Tansen's ultimate monsoon creation featuring powerful, thunderous shakes on Komal Ni.",
+    description: "Tansen's ultimate monsoon creation featuring powerful, thunderous shakes on Komal Ni.",
     aaroh: "Sa, Re Ma Pa, Ni(komal) Dha Ni Sa'",
     avroh: "Sa' Ni(komal) Pa, Ma Pa, Ga(komal) Ma Re Sa",
     vadi: "Sa",
@@ -411,7 +411,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Basant", 
     level: "Advanced", 
-    desc: "A spring festival Raag requiring complex, rapid shifts between higher register notes.",
+    description: "A spring festival Raag requiring complex, rapid shifts between higher register notes.",
     aaroh: "Sa Ga Ma(tivra) Dha Ni Sa'",
     avroh: "Sa' Ni Dha Pa, Ma(tivra) Ga, Ma(tivra) Ga Re(komal) Sa",
     vadi: "Sa'",
@@ -423,7 +423,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Paraj", 
     level: "Advanced", 
-    desc: "A close relative of Basant executed with a swift, playful lightness in the upper octave.",
+    description: "A close relative of Basant executed with a swift, playful lightness in the upper octave.",
     aaroh: "Sa Ga Ma(tivra) Pa, Dha Ni Sa'",
     avroh: "Sa' Ni Dha Pa, Ma(tivra) Pa Dha Pa, Ma(tivra) Ga, Ma Ga, Re Sa",
     vadi: "Sa'",
@@ -435,7 +435,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Jog", 
     level: "Advanced", 
-    desc: "Late-night scale utilizing both natural Ga and flat Ga simultaneously to create a bluesy tension.",
+    description: "Late-night scale utilizing both natural Ga and flat Ga simultaneously to create a bluesy tension.",
     aaroh: "Sa Ga Ma Pa Ni Sa'",
     avroh: "Sa' Ni Pa, Ma Ga, Ma Ga(komal) Sa",
     vadi: "Sa",
@@ -447,7 +447,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Rageshree", 
     level: "Advanced", 
-    desc: "A close nocturnal cousin to Bageshree that omits Pa entirely to cultivate a lighter, lyrical mood.",
+    description: "A close nocturnal cousin to Bageshree that omits Pa entirely to cultivate a lighter, lyrical mood.",
     aaroh: "Sa Ga Ma Dha Ni(komal) Sa'",
     avroh: "Sa' Ni(komal) Dha Ma, Ga Re Sa",
     vadi: "Ga",
@@ -459,7 +459,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Gunakri", 
     level: "Advanced", 
-    desc: "A morning pentatonic scale derived from Bhairav focusing deeply on minimalist, haunting patterns.",
+    description: "A morning pentatonic scale derived from Bhairav focusing deeply on minimalist, haunting patterns.",
     aaroh: "Sa Re(komal) Ma Pa Dha(komal) Sa'",
     avroh: "Sa' Dha(komal) Pa Ma Re(komal) Sa",
     vadi: "Sa",
@@ -471,7 +471,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Chhayanat", 
     level: "Advanced", 
-    desc: "A magnificent, sweeping evening Raag filled with complex jumps and heavy glides.",
+    description: "A magnificent, sweeping evening Raag filled with complex jumps and heavy glides.",
     aaroh: "Sa Re Ga Ma Pa, Ni Dha Sa'",
     avroh: "Sa' Ni Dha Pa, Ma(tivra) Pa, Ga Ma Re Sa",
     vadi: "Pa",
@@ -483,7 +483,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Gaud Malhar", 
     level: "Advanced", 
-    desc: "A monsoon variant requiring intricate, winding loops around natural notes to evoke falling rain.",
+    description: "A monsoon variant requiring intricate, winding loops around natural notes to evoke falling rain.",
     aaroh: "Sa Re Ga Ma, Pa Dha Ni Sa'",
     avroh: "Sa' Ni Dha Pa, Ma Ga Re, Sa",
     vadi: "Ma",

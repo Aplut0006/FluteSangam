@@ -63,6 +63,7 @@ export interface Post {
 
 export interface RagaDetail {
   name: string;
+  level?: 'Beginner' | 'Intermediate' | 'Advanced';
   aaroh: string; // ascending notes
   avroh: string; // descending notes
   vadi: string; // principal note

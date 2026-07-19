@@ -296,12 +296,6 @@ export default function Navbar({
 
         {/* Global user stats and profile management */}
         <div className="flex items-center space-x-4">
-          {/* Subtle online stats */}
-          <div className="hidden md:flex items-center space-x-1.5 bg-bamboo-50 px-3 py-1 rounded-full border border-bamboo-100/50">
-            <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-            <span className="text-[10px] font-semibold text-bamboo-700">312 Bansuri Sadhakas online</span>
-          </div>
-
           {currentUser ? (
             <div className="relative" ref={dropdownRef}>
               {/* Signed in avatar button */}
