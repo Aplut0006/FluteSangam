@@ -1,5 +1,5 @@
 import React from 'react';
-import { Compass, BookOpen, MessageSquare, HelpCircle } from 'lucide-react';
+import { Compass, BookOpen, MessageSquare, HelpCircle, Users } from 'lucide-react';
 import { AppView, UserProfile } from '../types';
 
 interface MobileBottomNavProps {
@@ -17,9 +17,9 @@ export default function MobileBottomNav({
 }: MobileBottomNavProps) {
   const tabs: { id: AppView | 'tips', label: string, icon: any }[] = [
     { id: 'community', label: 'Feed', icon: Compass },
+    { id: 'community_members', label: 'Members', icon: Users },
     { id: 'learn_raagas', label: 'Ragas', icon: BookOpen },
     { id: 'chats', label: 'Chats', icon: MessageSquare },
-    { id: 'tips', label: 'Tips', icon: HelpCircle },
   ];
 
   return (
@@ -35,16 +35,13 @@ export default function MobileBottomNav({
                 return;
               }
               if (tab.id === 'tips') {
-                // Assuming tips are part of community for now, or just scroll to section?
-                // The current app doesn't have a 'tips' view, it's just a section in 'community'
-                // For simplicity, let's just go to community
                 onViewChange('community');
                 setTimeout(() => {
                   document.getElementById('right-sidebar-tips')?.scrollIntoView({ behavior: 'smooth' });
                 }, 100);
                 return;
               }
-              onViewChange(tab.id);
+              onViewChange(tab.id as AppView);
             }}
             className="flex flex-col items-center justify-center p-2 text-gray-500 hover:text-bamboo-700 transition-colors"
           >

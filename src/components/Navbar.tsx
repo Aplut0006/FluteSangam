@@ -3,7 +3,7 @@ import { UserProfile, AppView } from '../types';
 import { auth } from '../lib/firebase';
 import { signOut } from 'firebase/auth';
 import { updateUserProfile, isEmailTaken, isPhoneTaken, isUsernameTaken } from '../lib/db';
-import { Music, LogOut, User, Globe, Edit3, Check, X, ShieldAlert, Sparkles, MapPin, Feather, Phone, Mail, Camera, Upload, MessageSquare, Wind, BookOpen, ChevronDown, Users, Zap } from 'lucide-react';
+import { Music, LogOut, User, Globe, Edit3, Check, X, ShieldAlert, Sparkles, MapPin, Feather, Phone, Mail, Camera, Upload, MessageSquare, Wind, BookOpen, ChevronDown, Users, Zap, Menu } from 'lucide-react';
 import { CARTOON_AVATARS } from './AuthModal';
 
 interface NavbarProps {
@@ -26,6 +26,7 @@ export default function Navbar({
   unreadCount = 0
 }: NavbarProps) {
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [isEditingProfile, setIsEditingProfile] = useState(false);
   
   // Editable fields
@@ -46,6 +47,7 @@ export default function Navbar({
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [showLearnDropdown, setShowLearnDropdown] = useState(false);
   const learnDropdownRef = useRef<HTMLDivElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -55,9 +57,12 @@ export default function Navbar({
       if (learnDropdownRef.current && !learnDropdownRef.current.contains(event.target as Node)) {
         setShowLearnDropdown(false);
       }
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+        setShowMobileMenu(false);
+      }
     }
 
-    if (showProfileDropdown || showLearnDropdown) {
+    if (showProfileDropdown || showLearnDropdown || showMobileMenu) {
       document.addEventListener('mousedown', handleClickOutside);
     } else {
       document.removeEventListener('mousedown', handleClickOutside);
@@ -66,7 +71,8 @@ export default function Navbar({
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [showProfileDropdown, showLearnDropdown]);
+  }, [showProfileDropdown, showLearnDropdown, showMobileMenu]);
+
 
   const handleLogout = async () => {
     try {
@@ -305,6 +311,49 @@ export default function Navbar({
             )}
           </div>
         </div>
+
+        {/* Hamburger Menu (Mobile) */}
+        <div className="md:hidden">
+          <button
+            onClick={() => setShowMobileMenu(!showMobileMenu)}
+            className="p-2 text-bamboo-700 hover:bg-bamboo-50 rounded-lg"
+          >
+            <Menu className="w-6 h-6" />
+          </button>
+        </div>
+
+        {/* Mobile Menu Dropdown */}
+        {showMobileMenu && (
+          <div 
+            ref={mobileMenuRef}
+            className="absolute top-16 left-0 right-0 bg-white border-b border-gray-100 shadow-xl p-4 z-50 md:hidden space-y-2"
+          >
+            <button
+              onClick={() => { onViewChange?.('community'); setShowMobileMenu(false); }}
+              className="w-full flex items-center gap-3 px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-bamboo-50 rounded-lg"
+            >
+              <Globe className="w-4 h-4" /> Sadhana Feed
+            </button>
+            <button
+              onClick={() => { onViewChange?.('community_members'); setShowMobileMenu(false); }}
+              className="w-full flex items-center gap-3 px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-bamboo-50 rounded-lg"
+            >
+              <Users className="w-4 h-4" /> Members
+            </button>
+            <button
+              onClick={() => { onViewChange?.('chats'); setShowMobileMenu(false); }}
+              className="w-full flex items-center gap-3 px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-bamboo-50 rounded-lg"
+            >
+              <MessageSquare className="w-4 h-4" /> Sangam Chats
+            </button>
+            <button
+              onClick={() => { onViewChange?.('learn_raagas'); setShowMobileMenu(false); }}
+              className="w-full flex items-center gap-3 px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-bamboo-50 rounded-lg"
+            >
+              <BookOpen className="w-4 h-4" /> Learn Flute
+            </button>
+          </div>
+        )}
 
         {/* Global user stats and profile management */}
         <div className="flex items-center space-x-4">
