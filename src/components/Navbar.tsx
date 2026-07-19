@@ -157,8 +157,9 @@ export default function Navbar({
   };
 
   return (
-    <header className="sticky top-0 z-40 frosted-navbar shadow-3xs" id="app-navbar">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <>
+      <header className="sticky top-0 z-40 frosted-navbar shadow-3xs" id="app-navbar">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand Logo & Slogan */}
         <div className="flex items-center space-x-3">
           <div className="p-2.5 bg-gradient-to-br from-bamboo-700 to-bamboo-600 rounded-xl text-yellow-300 shadow-xs flex items-center justify-center shrink-0">
@@ -306,6 +307,7 @@ export default function Navbar({
           )}
         </div>
       </div>
+    </header>
 
       {/* Edit Profile Dialog Overlay (Absolute modal inside navbar/context for simplicity) */}
       {isEditingProfile && currentUser && (
@@ -552,6 +554,6 @@ export default function Navbar({
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }

@@ -507,10 +507,13 @@ export default function App() {
             <span className="font-display font-bold text-base tracking-wide">FluteSangam</span>
           </div>
           <p className="text-[11px] text-bamboo-300">
-            Connecting flute and bansuri players from around the world. Every breath, a classical raga.
+            WHERE FLUTES MEET, HEARTS CONNECT
           </p>
           <p className="text-[10px] text-bamboo-400">
-            © {new Date().getFullYear()} FluteSangam Mandali. All rights reserved. Made in harmony.
+            © {new Date().getFullYear()} FluteSangam . All rights reserved
+          </p>
+          <p className="text-[10px] text-bamboo-500 mt-2 font-medium">
+            Developed by : Aplut
           </p>
         </div>
       </footer>
