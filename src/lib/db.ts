@@ -15,7 +15,8 @@ import {
   increment,
   Timestamp,
   where,
-  or
+  or,
+  limit
 } from 'firebase/firestore';
 import { db } from './firebase';
 import { Post, Comment, UserProfile } from '../types';
@@ -208,6 +209,7 @@ export function subscribeToComments(postId: string, callback: (comments: Comment
         authorId: data.authorId,
         authorName: data.authorName,
         authorPhoto: data.authorPhoto,
+        authorUsername: data.authorUsername,
         text: data.text,
         createdAt: data.createdAt ? data.createdAt.toDate() : new Date(),
         likes: data.likes || [],
@@ -218,6 +220,35 @@ export function subscribeToComments(postId: string, callback: (comments: Comment
     callback(comments);
   }, (error) => {
     console.error("Error subscribing to comments:", error);
+  });
+}
+
+export function subscribeToLatestComments(postId: string, limitCount: number, callback: (comments: Comment[]) => void) {
+  const commentsCol = collection(db, 'posts', postId, 'comments');
+  const q = query(commentsCol, orderBy('createdAt', 'desc'), limit(limitCount));
+  
+  return onSnapshot(q, (snapshot) => {
+    const comments: Comment[] = [];
+    snapshot.forEach((doc) => {
+      const data = doc.data();
+      comments.push({
+        id: doc.id,
+        postId,
+        authorId: data.authorId,
+        authorName: data.authorName,
+        authorPhoto: data.authorPhoto,
+        authorUsername: data.authorUsername,
+        text: data.text,
+        createdAt: data.createdAt ? data.createdAt.toDate() : new Date(),
+        likes: data.likes || [],
+        dislikes: data.dislikes || [],
+        imageUrl: data.imageUrl
+      });
+    });
+    // Reverse so they are displayed in ascending (chronological) order
+    callback(comments.reverse());
+  }, (error) => {
+    console.error("Error subscribing to latest comments:", error);
   });
 }
 

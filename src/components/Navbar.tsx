@@ -11,8 +11,8 @@ interface NavbarProps {
   onOpenAuth: () => void;
   onLogout: () => void;
   onProfileUpdated: (updatedProfile: UserProfile) => void;
-  currentView?: 'community' | 'chats';
-  onViewChange?: (view: 'community' | 'chats') => void;
+  currentView?: 'community' | 'chats' | 'post-detail' | 'user-profile';
+  onViewChange?: (view: 'community' | 'chats' | 'post-detail' | 'user-profile') => void;
   unreadCount?: number;
 }
 
@@ -56,7 +56,8 @@ export default function Navbar({
   const startEditing = () => {
     if (!currentUser) return;
     setEditName(currentUser.displayName);
-    setEditUsername(currentUser.username || '');
+    const defaultUsername = currentUser.username || currentUser.displayName.toLowerCase().replace(/[^a-z0-9_]/g, '') || 'sadhaka';
+    setEditUsername(defaultUsername);
     setEditBio(currentUser.bio);
     setEditLevel(currentUser.level);
     setEditBansuri(currentUser.bansuriType);

@@ -13,6 +13,8 @@ import CreatePostModal from './components/CreatePostModal';
 import ShareModal from './components/ShareModal';
 import PostCard from './components/PostCard';
 import ChatSection from './components/ChatSection';
+import PostDetailView from './components/PostDetailView';
+import UserProfileView from './components/UserProfileView';
 
 // Icons
 import { 
@@ -39,8 +41,10 @@ export default function App() {
   const [shareModalOpen, setShareModalOpen] = useState(false);
   const [activeSharePost, setActiveSharePost] = useState<Post | null>(null);
 
-  // View Management ('community' view with posts vs dedicated 'chats' dashboard)
-  const [currentView, setCurrentView] = useState<'community' | 'chats'>('community');
+  // View Management ('community' view with posts vs dedicated 'chats' dashboard vs 'post-detail' page vs 'user-profile' page)
+  const [currentView, setCurrentView] = useState<'community' | 'chats' | 'post-detail' | 'user-profile'>('community');
+  const [selectedPost, setSelectedPost] = useState<Post | null>(null);
+  const [selectedProfileUserId, setSelectedProfileUserId] = useState<string | null>(null);
   const [unreadCount, setUnreadCount] = useState(0);
   const [allUsersList, setAllUsersList] = useState<UserProfile[]>([]);
   const [chatTargetUser, setChatTargetUser] = useState<{
@@ -61,6 +65,12 @@ export default function App() {
   } | null>(null);
 
   const notifiedMessageIdsRef = useRef<Set<string>>(new Set());
+
+  const handleOpenUserProfile = (userId: string) => {
+    setSelectedProfileUserId(userId);
+    setCurrentView('user-profile');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const handleStartChat = (targetUser: { uid: string; displayName: string; username?: string; photoURL?: string }) => {
     if (!currentUser) {
@@ -219,48 +229,50 @@ export default function App() {
       />
 
       {/* Hero Welcome Banner */}
-      <section className="bg-gradient-to-br from-bamboo-800 via-bamboo-700 to-bamboo-600 text-white relative overflow-hidden shadow-sm" id="hero-banner">
-        {/* Abstract design vector accents */}
-        <div className="absolute top-0 right-0 w-80 h-80 bg-yellow-400/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
-        <div className="absolute bottom-0 left-0 w-60 h-60 bg-bamboo-600/30 rounded-full blur-2xl -ml-20 -mb-20"></div>
+      {currentView === 'community' && (
+        <section className="bg-gradient-to-br from-bamboo-800 via-bamboo-700 to-bamboo-600 text-white relative overflow-hidden shadow-sm" id="hero-banner">
+          {/* Abstract design vector accents */}
+          <div className="absolute top-0 right-0 w-80 h-80 bg-yellow-400/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
+          <div className="absolute bottom-0 left-0 w-60 h-60 bg-bamboo-600/30 rounded-full blur-2xl -ml-20 -mb-20"></div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 relative flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="max-w-2xl space-y-3.5 text-center md:text-left">
-            <span className="inline-flex items-center text-[10px] font-bold tracking-widest text-yellow-300 uppercase bg-white/10 px-3 py-1 rounded-full border border-white/10">
-              <Sparkles className="w-3.5 h-3.5 mr-1" />
-              Global Bansuri Mandali
-            </span>
-            <h2 className="text-2xl sm:text-3.5xl font-extrabold font-display leading-tight tracking-tight">
-              An Oasis for Indian Flute & Bansuri Sadhakas
-            </h2>
-            <p className="text-xs sm:text-sm text-bamboo-100 leading-relaxed max-w-xl font-medium">
-              Join a warm, supportive community of flute practitioners. Share raw recitals, demystify classical ragas, exchange honest flute reviews, and find expert tips to master your blow.
-            </p>
-          </div>
-
-          {/* Core Call To Action */}
-          <div className="bg-white/10 backdrop-blur-xs p-5 rounded-2xl border border-white/10 w-full md:w-80 shrink-0 shadow-lg space-y-4 text-center md:text-left">
-            <div className="space-y-1">
-              <h4 className="font-semibold text-sm text-yellow-300">Ready to Share Your Sadhana?</h4>
-              <p className="text-[11px] text-bamboo-100 font-medium">Publish your flute practice, reviews, or query today</p>
-            </div>
-            
-            <button
-              onClick={handleOpenCreatePost}
-              className="w-full py-2.5 bg-yellow-500 hover:bg-yellow-400 text-bamboo-900 font-bold text-xs rounded-xl transition shadow-xs tracking-wider uppercase flex items-center justify-center space-x-1.5"
-            >
-              <Plus className="w-4 h-4" />
-              <span>Share Performance</span>
-            </button>
-            
-            {!currentUser && (
-              <p className="text-[10px] text-center text-bamboo-200">
-                Signup is quick and completely free!
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 relative flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="max-w-2xl space-y-3.5 text-center md:text-left">
+              <span className="inline-flex items-center text-[10px] font-bold tracking-widest text-yellow-300 uppercase bg-white/10 px-3 py-1 rounded-full border border-white/10">
+                <Sparkles className="w-3.5 h-3.5 mr-1" />
+                Global Bansuri Mandali
+              </span>
+              <h2 className="text-2xl sm:text-3.5xl font-extrabold font-display leading-tight tracking-tight">
+                An Oasis for Indian Flute & Bansuri Sadhakas
+              </h2>
+              <p className="text-xs sm:text-sm text-bamboo-100 leading-relaxed max-w-xl font-medium">
+                Join a warm, supportive community of flute practitioners. Share raw recitals, demystify classical ragas, exchange honest flute reviews, and find expert tips to master your blow.
               </p>
-            )}
+            </div>
+
+            {/* Core Call To Action */}
+            <div className="bg-white/10 backdrop-blur-xs p-5 rounded-2xl border border-white/10 w-full md:w-80 shrink-0 shadow-lg space-y-4 text-center md:text-left">
+              <div className="space-y-1">
+                <h4 className="font-semibold text-sm text-yellow-300">Ready to Share Your Sadhana?</h4>
+                <p className="text-[11px] text-bamboo-100 font-medium">Publish your flute practice, reviews, or query today</p>
+              </div>
+              
+              <button
+                onClick={handleOpenCreatePost}
+                className="w-full py-2.5 bg-yellow-500 hover:bg-yellow-400 text-bamboo-900 font-bold text-xs rounded-xl transition shadow-xs tracking-wider uppercase flex items-center justify-center space-x-1.5"
+              >
+                <Plus className="w-4 h-4" />
+                <span>Share Performance</span>
+              </button>
+              
+              {!currentUser && (
+                <p className="text-[10px] text-center text-bamboo-200">
+                  Signup is quick and completely free!
+                </p>
+              )}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Main Layout Area */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full" id="main-content-layout">
@@ -300,7 +312,31 @@ export default function App() {
           })}
         </div>
 
-        {currentView === 'chats' && currentUser ? (
+        {currentView === 'user-profile' && selectedProfileUserId ? (
+          <UserProfileView
+            userId={selectedProfileUserId}
+            currentUser={currentUser}
+            onBack={() => {
+              setCurrentView('community');
+              setSelectedProfileUserId(null);
+            }}
+            onStartChat={handleStartChat}
+            onOpenAuth={() => setAuthModalOpen(true)}
+          />
+        ) : currentView === 'post-detail' && selectedPost ? (
+          <PostDetailView
+            post={posts.find(p => p.id === selectedPost.id) || selectedPost}
+            currentUser={currentUser}
+            onBack={() => {
+              setCurrentView('community');
+              setSelectedPost(null);
+            }}
+            onOpenAuth={() => setAuthModalOpen(true)}
+            onOpenShare={handleOpenShare}
+            onStartChat={handleStartChat}
+            onUserProfileClick={handleOpenUserProfile}
+          />
+        ) : currentView === 'chats' && currentUser ? (
           <div className="space-y-5">
             <div className="hidden md:flex items-center justify-between bg-white/70 backdrop-blur-md p-4.5 rounded-2xl border border-bamboo-100/60 shadow-3xs">
               <div>
@@ -440,6 +476,12 @@ export default function App() {
                     onOpenAuth={() => setAuthModalOpen(true)}
                     onOpenShare={handleOpenShare}
                     onStartChat={handleStartChat}
+                    onUserProfileClick={handleOpenUserProfile}
+                    onPostClick={(clickedPost) => {
+                      setSelectedPost(clickedPost);
+                      setCurrentView('post-detail');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
                   />
                 ))
               )}
