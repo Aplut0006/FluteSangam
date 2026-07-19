@@ -231,8 +231,10 @@ export default function LearnAlankarasView() {
                             <ArrowUpRight className="w-4 h-4" />
                             <span>{alankar.arohaTitle || 'Aroha (Ascending)'}</span>
                           </div>
-                          <div className="font-mono text-sm sm:text-base text-gray-800 bg-gray-50 p-3 rounded-xl border border-gray-200 overflow-x-auto whitespace-pre">
-                            {alankar.aroha.join('\n')}
+                          <div className="font-mono text-sm sm:text-base text-gray-800 bg-gray-50 p-3 rounded-xl border border-gray-200 overflow-x-auto flex flex-col gap-1">
+                            {alankar.aroha.map((line, i) => (
+                              <div key={i}>{line}</div>
+                            ))}
                           </div>
                         </div>
                       )}
@@ -242,8 +244,10 @@ export default function LearnAlankarasView() {
                             <ArrowDownRight className="w-4 h-4" />
                             <span>{alankar.avrohaTitle || 'Avroha (Descending)'}</span>
                           </div>
-                          <div className="font-mono text-sm sm:text-base text-gray-800 bg-gray-50 p-3 rounded-xl border border-gray-200 overflow-x-auto whitespace-pre">
-                            {alankar.avroha.join('\n')}
+                          <div className="font-mono text-sm sm:text-base text-gray-800 bg-gray-50 p-3 rounded-xl border border-gray-200 overflow-x-auto flex flex-col gap-1">
+                            {alankar.avroha.map((line, i) => (
+                              <div key={i}>{line}</div>
+                            ))}
                           </div>
                         </div>
                       )}

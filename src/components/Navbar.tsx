@@ -11,8 +11,8 @@ interface NavbarProps {
   onOpenAuth: () => void;
   onLogout: () => void;
   onProfileUpdated: (updatedProfile: UserProfile) => void;
-  currentView?: 'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_basics' | 'learn_alankaras';
-  onViewChange?: (view: 'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_basics' | 'learn_alankaras') => void;
+  currentView?: 'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_basics' | 'learn_alankaras' | 'learn_raagas';
+  onViewChange?: (view: 'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_basics' | 'learn_alankaras' | 'learn_raagas') => void;
   unreadCount?: number;
 }
 
@@ -276,9 +276,18 @@ export default function Navbar({
                     onViewChange?.('learn_alankaras');
                     setShowLearnDropdown(false);
                   }}
-                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition cursor-pointer"
+                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 cursor-pointer"
                 >
                   Alankaras
+                </button>
+                <button
+                  onClick={() => {
+                    onViewChange?.('learn_raagas');
+                    setShowLearnDropdown(false);
+                  }}
+                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition cursor-pointer"
+                >
+                  Raagas
                 </button>
               </div>
             )}
