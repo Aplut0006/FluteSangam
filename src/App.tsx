@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { auth } from './lib/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { seedDatabaseIfEmpty, subscribeToPosts, getUserProfile, subscribeToUnreadMessages, subscribeToAllUsers } from './lib/db';
-import { UserProfile, Post } from './types';
+import { UserProfile, Post, AppView } from './types';
 import { motion, AnimatePresence } from 'motion/react';
 
 // Subcomponents
@@ -48,7 +48,7 @@ export default function App() {
   const [activeSharePost, setActiveSharePost] = useState<Post | null>(null);
 
   // View Management
-  const [currentView, setCurrentView] = useState<'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_basics' | 'learn_alankaras' | 'learn_raagas' | 'community_members' | 'practice_now'>('community');
+  const [currentView, setCurrentView] = useState<AppView>('community');
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
   const [selectedProfileUserId, setSelectedProfileUserId] = useState<string | null>(null);
   const [unreadCount, setUnreadCount] = useState(0);
@@ -64,7 +64,7 @@ export default function App() {
   const [editingPost, setEditingPost] = useState<Post | null>(null);
 
   const handleViewChange = (
-    view: 'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_basics' | 'learn_alankaras' | 'learn_raagas' | 'community_members' | 'practice_now',
+    view: AppView,
     stateExtra: any = {},
     push = true
   ) => {

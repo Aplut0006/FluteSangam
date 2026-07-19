@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { UserProfile } from '../types';
+import { UserProfile, AppView } from '../types';
 import { auth } from '../lib/firebase';
 import { signOut } from 'firebase/auth';
 import { updateUserProfile, isEmailTaken, isPhoneTaken, isUsernameTaken } from '../lib/db';
@@ -11,8 +11,8 @@ interface NavbarProps {
   onOpenAuth: () => void;
   onLogout: () => void;
   onProfileUpdated: (updatedProfile: UserProfile) => void;
-  currentView?: 'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_basics' | 'learn_alankaras' | 'learn_raagas';
-  onViewChange?: (view: 'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_basics' | 'learn_alankaras' | 'learn_raagas') => void;
+  currentView?: AppView;
+  onViewChange?: (view: AppView) => void;
   unreadCount?: number;
 }
 

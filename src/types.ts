@@ -1,3 +1,5 @@
+export type AppView = 'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_basics' | 'learn_alankaras' | 'learn_raagas' | 'community_members' | 'practice_now';
+
 export interface UserProfile {
   uid: string;
   displayName: string;

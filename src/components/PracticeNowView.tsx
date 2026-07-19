@@ -32,7 +32,7 @@ export default function PracticeNowView() {
         }).toDestination();
         tanpuraSynth.current.volume.value = tanpuraVolume;
       }
-      tanpuraSynth.current.triggerAttack([tanpuraPitch, Tone.Frequency(tanpuraPitch).transpose(7)]);
+      tanpuraSynth.current.triggerAttack([tanpuraPitch, Tone.Frequency(tanpuraPitch).transpose(7).toNote()]);
       setTanpuraPlaying(true);
     } else {
       tanpuraSynth.current?.releaseAll();
@@ -57,7 +57,7 @@ export default function PracticeNowView() {
               setTanpuraPitch(e.target.value);
               if (tanpuraPlaying) {
                 tanpuraSynth.current?.releaseAll();
-                tanpuraSynth.current?.triggerAttack([e.target.value, Tone.Frequency(e.target.value).transpose(7)]);
+                tanpuraSynth.current?.triggerAttack([e.target.value, Tone.Frequency(e.target.value).transpose(7).toNote()]);
               }
             }}
             className="w-full p-3 bg-bamboo-50 rounded-xl text-sm"
