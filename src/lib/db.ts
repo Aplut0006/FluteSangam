@@ -163,6 +163,20 @@ export async function addPost(post: Omit<Post, 'id' | 'likes' | 'likeCount' | 'c
   }
 }
 
+// Edit a post
+export async function editPost(
+  postId: string, 
+  updates: Partial<Omit<Post, 'id' | 'likes' | 'likeCount' | 'commentsCount' | 'createdAt'>>
+): Promise<void> {
+  try {
+    const postRef = doc(db, 'posts', postId);
+    await updateDoc(postRef, cleanUndefined(updates));
+  } catch (error) {
+    console.error("Error editing post:", error);
+    throw error;
+  }
+}
+
 // Delete a post
 export async function deletePost(postId: string): Promise<void> {
   try {

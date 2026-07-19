@@ -54,6 +54,68 @@ export default function App() {
     photoURL?: string;
   } | null>(null);
 
+  // Post editing state
+  const [editingPost, setEditingPost] = useState<Post | null>(null);
+
+  const handleViewChange = (
+    view: 'community' | 'chats' | 'post-detail' | 'user-profile',
+    stateExtra: any = {},
+    push = true
+  ) => {
+    setCurrentView(view);
+    if (view === 'community') {
+      setSelectedPost(null);
+      setSelectedProfileUserId(null);
+    } else if (view === 'post-detail') {
+      if (stateExtra.post) setSelectedPost(stateExtra.post);
+    } else if (view === 'user-profile' && stateExtra.userId) {
+      setSelectedProfileUserId(stateExtra.userId);
+    }
+
+    if (push) {
+      const stateObj = { view, ...stateExtra };
+      const hash = view === 'post-detail' && stateExtra.postId ? `#post-${stateExtra.postId}` :
+                   view === 'user-profile' && stateExtra.userId ? `#user-${stateExtra.userId}` :
+                   view === 'chats' ? '#chats' : '#';
+      window.history.pushState(stateObj, '', hash);
+    }
+  };
+
+  useEffect(() => {
+    const handlePopState = (event: PopStateEvent) => {
+      if (event.state && event.state.view) {
+        const { view, postId, userId, post } = event.state;
+        setCurrentView(view);
+        if (view === 'community') {
+          setSelectedPost(null);
+          setSelectedProfileUserId(null);
+        } else if (view === 'post-detail') {
+          if (post) {
+            setSelectedPost(post);
+          } else if (postId) {
+            setSelectedPost({ id: postId } as any);
+          }
+        } else if (view === 'user-profile' && userId) {
+          setSelectedProfileUserId(userId);
+        }
+      } else {
+        setCurrentView('community');
+        setSelectedPost(null);
+        setSelectedProfileUserId(null);
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    if (!window.history.state) {
+      window.history.replaceState({ view: 'community' }, '', '#');
+    }
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, []);
+
   // Incoming floating notification toast
   const [activeNotification, setActiveNotification] = useState<{
     id: string;
@@ -67,8 +129,7 @@ export default function App() {
   const notifiedMessageIdsRef = useRef<Set<string>>(new Set());
 
   const handleOpenUserProfile = (userId: string) => {
-    setSelectedProfileUserId(userId);
-    setCurrentView('user-profile');
+    handleViewChange('user-profile', { userId });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -78,7 +139,7 @@ export default function App() {
       return;
     }
     setChatTargetUser(targetUser);
-    setCurrentView('chats');
+    handleViewChange('chats');
     setMobileTab('chats'); // ensure mobile also transitions seamlessly
   };
 
@@ -202,6 +263,16 @@ export default function App() {
     if (!currentUser) {
       setAuthModalOpen(true);
     } else {
+      setEditingPost(null);
+      setCreatePostModalOpen(true);
+    }
+  };
+
+  const handleOpenEditPost = (post: Post) => {
+    if (!currentUser) {
+      setAuthModalOpen(true);
+    } else {
+      setEditingPost(post);
       setCreatePostModalOpen(true);
     }
   };
@@ -224,7 +295,7 @@ export default function App() {
         onLogout={() => setCurrentUser(null)}
         onProfileUpdated={(updatedProfile) => setCurrentUser(updatedProfile)}
         currentView={currentView}
-        onViewChange={setCurrentView}
+        onViewChange={(view) => handleViewChange(view)}
         unreadCount={unreadCount}
       />
 
@@ -331,8 +402,11 @@ export default function App() {
             userId={selectedProfileUserId}
             currentUser={currentUser}
             onBack={() => {
-              setCurrentView('community');
-              setSelectedProfileUserId(null);
+              if (window.history.state && window.history.state.view) {
+                window.history.back();
+              } else {
+                handleViewChange('community', {}, true);
+              }
             }}
             onStartChat={handleStartChat}
             onOpenAuth={() => setAuthModalOpen(true)}
@@ -342,13 +416,17 @@ export default function App() {
             post={posts.find(p => p.id === selectedPost.id) || selectedPost}
             currentUser={currentUser}
             onBack={() => {
-              setCurrentView('community');
-              setSelectedPost(null);
+              if (window.history.state && window.history.state.view) {
+                window.history.back();
+              } else {
+                handleViewChange('community', {}, true);
+              }
             }}
             onOpenAuth={() => setAuthModalOpen(true)}
             onOpenShare={handleOpenShare}
             onStartChat={handleStartChat}
             onUserProfileClick={handleOpenUserProfile}
+            onEditPost={handleOpenEditPost}
           />
         ) : currentView === 'chats' && currentUser ? (
           <div className="space-y-5">
@@ -492,10 +570,10 @@ export default function App() {
                     onStartChat={handleStartChat}
                     onUserProfileClick={handleOpenUserProfile}
                     onPostClick={(clickedPost) => {
-                      setSelectedPost(clickedPost);
-                      setCurrentView('post-detail');
+                      handleViewChange('post-detail', { postId: clickedPost.id, post: clickedPost });
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
+                    onEditPost={handleOpenEditPost}
                   />
                 ))
               )}
@@ -584,8 +662,12 @@ export default function App() {
       {currentUser && (
         <CreatePostModal
           isOpen={createPostModalOpen}
-          onClose={() => setCreatePostModalOpen(false)}
+          onClose={() => {
+            setCreatePostModalOpen(false);
+            setEditingPost(null);
+          }}
           currentUser={currentUser}
+          postToEdit={editingPost}
         />
       )}
 

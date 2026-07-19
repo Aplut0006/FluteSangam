@@ -8,7 +8,8 @@ import {
   Music, 
   Sparkles, 
   Video,
-  ArrowRight
+  ArrowRight,
+  Edit2
 } from 'lucide-react';
 
 interface PostCardProps {
@@ -19,6 +20,7 @@ interface PostCardProps {
   onStartChat?: (targetUser: { uid: string; displayName: string; username?: string; photoURL?: string }) => void;
   onPostClick: (post: Post) => void;
   onUserProfileClick?: (userId: string) => void;
+  onEditPost?: (post: Post) => void;
 }
 
 export default function PostCard({ 
@@ -28,7 +30,8 @@ export default function PostCard({
   onOpenShare, 
   onStartChat,
   onPostClick,
-  onUserProfileClick
+  onUserProfileClick,
+  onEditPost
 }: PostCardProps) {
   const [post, setPost] = useState<Post>(initialPost);
   const [commentsCount, setCommentsCount] = useState(post.commentsCount || 0);
@@ -315,17 +318,34 @@ export default function PostCard({
           </span>
         </div>
 
-        {/* Share Button */}
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            onOpenShare(post);
-          }}
-          className="flex items-center space-x-1.5 font-semibold text-gray-500 hover:text-bamboo-700 transition"
-        >
-          <Share2 className="w-4 h-4" />
-          <span>Share</span>
-        </button>
+        <div className="flex items-center space-x-4">
+          {/* If current user is post author, show edit option */}
+          {currentUser && currentUser.uid === post.authorId && onEditPost && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                onEditPost(post);
+              }}
+              className="flex items-center space-x-1 font-semibold text-gray-500 hover:text-bamboo-700 transition cursor-pointer"
+              title="Edit Post"
+            >
+              <Edit2 className="w-4 h-4" />
+              <span>Edit</span>
+            </button>
+          )}
+
+          {/* Share Button */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onOpenShare(post);
+            }}
+            className="flex items-center space-x-1.5 font-semibold text-gray-500 hover:text-bamboo-700 transition cursor-pointer"
+          >
+            <Share2 className="w-4 h-4" />
+            <span>Share</span>
+          </button>
+        </div>
       </div>
     </div>
   );

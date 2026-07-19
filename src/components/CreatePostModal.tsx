@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { UserProfile, Post } from '../types';
 import { POPULAR_RAGAS } from '../data/ragas';
-import { addPost } from '../lib/db';
+import { addPost, editPost } from '../lib/db';
 import { X, Sparkles, Music, Youtube, HelpCircle, FileText, Settings, Video, Image as ImageIcon, UploadCloud, Trash2 } from 'lucide-react';
 import { motion } from 'motion/react';
 
@@ -9,9 +9,10 @@ interface CreatePostModalProps {
   isOpen: boolean;
   onClose: () => void;
   currentUser: UserProfile;
+  postToEdit?: Post | null;
 }
 
-export default function CreatePostModal({ isOpen, onClose, currentUser }: CreatePostModalProps) {
+export default function CreatePostModal({ isOpen, onClose, currentUser, postToEdit = null }: CreatePostModalProps) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState<'Performance' | 'Tutorial' | 'Raga Discussion' | 'Review' | 'Question'>('Performance');
@@ -22,6 +23,25 @@ export default function CreatePostModal({ isOpen, onClose, currentUser }: Create
   
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    if (postToEdit) {
+      setTitle(postToEdit.title || '');
+      setDescription(postToEdit.description || '');
+      setCategory(postToEdit.category || 'Performance');
+      setRaga(postToEdit.raga || 'None');
+      setVideoUrl(postToEdit.videoUrl || '');
+      setImageUrl(postToEdit.imageUrl || '');
+    } else {
+      setTitle('');
+      setDescription('');
+      setCategory('Performance');
+      setRaga('None');
+      setVideoUrl('');
+      setImageUrl('');
+    }
+    setError('');
+  }, [postToEdit, isOpen]);
 
   if (!isOpen) return null;
 
@@ -63,7 +83,7 @@ export default function CreatePostModal({ isOpen, onClose, currentUser }: Create
     e.preventDefault();
     e.stopPropagation();
     setDragActive(false);
-
+ 
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
       handleImageFile(e.dataTransfer.files[0]);
     }
@@ -119,31 +139,43 @@ export default function CreatePostModal({ isOpen, onClose, currentUser }: Create
     const formattedVideoUrl = cleanYoutubeUrl(videoUrl);
 
     try {
-      const postId = await addPost({
-        authorId: currentUser.uid,
-        authorName: currentUser.displayName,
-        authorPhoto: currentUser.photoURL,
-        authorLevel: currentUser.level,
-        authorUsername: currentUser.username,
-        title,
-        description,
-        category,
-        raga: raga !== 'None' ? raga : undefined,
-        videoUrl: formattedVideoUrl || undefined,
-        imageUrl: imageUrl || undefined
-      });
-
-      if (postId) {
+      if (postToEdit) {
+        await editPost(postToEdit.id, {
+          title,
+          description,
+          category,
+          raga: raga !== 'None' ? raga : undefined,
+          videoUrl: formattedVideoUrl || undefined,
+          imageUrl: imageUrl || undefined
+        });
         onClose();
-        // Reset form
-        setTitle('');
-        setDescription('');
-        setCategory('Performance');
-        setRaga('None');
-        setVideoUrl('');
-        setImageUrl('');
       } else {
-        throw new Error("Could not upload post. Please try again.");
+        const postId = await addPost({
+          authorId: currentUser.uid,
+          authorName: currentUser.displayName,
+          authorPhoto: currentUser.photoURL,
+          authorLevel: currentUser.level,
+          authorUsername: currentUser.username,
+          title,
+          description,
+          category,
+          raga: raga !== 'None' ? raga : undefined,
+          videoUrl: formattedVideoUrl || undefined,
+          imageUrl: imageUrl || undefined
+        });
+
+        if (postId) {
+          onClose();
+          // Reset form
+          setTitle('');
+          setDescription('');
+          setCategory('Performance');
+          setRaga('None');
+          setVideoUrl('');
+          setImageUrl('');
+        } else {
+          throw new Error("Could not upload post. Please try again.");
+        }
       }
     } catch (err: any) {
       console.error(err);
@@ -170,7 +202,9 @@ export default function CreatePostModal({ isOpen, onClose, currentUser }: Create
         <div className="bg-gradient-to-r from-bamboo-700 to-bamboo-800 px-6 py-4 text-white flex justify-between items-center">
           <div className="flex items-center space-x-2">
             <Sparkles className="w-5 h-5 text-yellow-300" />
-            <h3 className="font-display font-semibold tracking-wide text-base">Share Your Musical Journey</h3>
+            <h3 className="font-display font-semibold tracking-wide text-base">
+              {postToEdit ? "Edit Your Post" : "Share Your Musical Journey"}
+            </h3>
           </div>
           <button 
             onClick={onClose}
@@ -355,7 +389,10 @@ export default function CreatePostModal({ isOpen, onClose, currentUser }: Create
               disabled={loading}
               className="flex-1 py-2.5 bg-bamboo-700 text-white hover:bg-bamboo-600 text-sm font-semibold rounded-xl transition flex items-center justify-center space-x-2 shadow-sm"
             >
-              {loading ? "Publishing to community..." : "Publish Post"}
+              {loading 
+                ? (postToEdit ? "Saving changes..." : "Publishing to community...") 
+                : (postToEdit ? "Save Changes" : "Publish Post")
+              }
             </button>
           </div>
         </form>

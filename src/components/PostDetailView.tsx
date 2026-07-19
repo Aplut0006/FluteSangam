@@ -36,6 +36,7 @@ interface PostDetailViewProps {
   onOpenShare: (post: Post) => void;
   onStartChat?: (targetUser: { uid: string; displayName: string; username?: string; photoURL?: string }) => void;
   onUserProfileClick?: (userId: string) => void;
+  onEditPost?: (post: Post) => void;
 }
 
 export default function PostDetailView({ 
@@ -45,7 +46,8 @@ export default function PostDetailView({
   onOpenAuth, 
   onOpenShare, 
   onStartChat,
-  onUserProfileClick
+  onUserProfileClick,
+  onEditPost
 }: PostDetailViewProps) {
   const [post, setPost] = useState<Post>(initialPost);
   const [comments, setComments] = useState<Comment[]>([]);
@@ -200,13 +202,24 @@ export default function PostDetailView({
         </button>
 
         {isPostAuthor && (
-          <button
-            onClick={() => setShowPostDeleteConfirm(true)}
-            className="inline-flex items-center space-x-1 text-xs font-bold text-red-600 hover:text-red-700 hover:bg-red-50 px-3.5 py-2 rounded-xl transition cursor-pointer"
-          >
-            <Trash2 className="w-4 h-4" />
-            <span>Delete Post</span>
-          </button>
+          <div className="flex items-center space-x-2">
+            {onEditPost && (
+              <button
+                onClick={() => onEditPost(post)}
+                className="inline-flex items-center space-x-1 text-xs font-bold text-bamboo-700 hover:text-bamboo-800 hover:bg-bamboo-50 px-3.5 py-2 rounded-xl transition cursor-pointer"
+              >
+                <Edit2 className="w-4 h-4" />
+                <span>Edit Post</span>
+              </button>
+            )}
+            <button
+              onClick={() => setShowPostDeleteConfirm(true)}
+              className="inline-flex items-center space-x-1 text-xs font-bold text-red-600 hover:text-red-700 hover:bg-red-50 px-3.5 py-2 rounded-xl transition cursor-pointer"
+            >
+              <Trash2 className="w-4 h-4" />
+              <span>Delete Post</span>
+            </button>
+          </div>
         )}
       </div>
 
