@@ -39,7 +39,7 @@ export default function App() {
   const [activeRagaFilter, setActiveRagaFilter] = useState<string | null>(null);
   
   // Active Tab for mobile (Feed vs Raga Sadhana vs Quick Tips vs Chats)
-  const [mobileTab, setMobileTab] = useState<'feed' | 'ragas' | 'chats' | 'tips'>('feed');
+  // const [mobileTab, setMobileTab] = useState<'feed' | 'ragas' | 'chats' | 'tips'>('feed');
 
   // Modals state
   const [authModalOpen, setAuthModalOpen] = useState(false);
@@ -148,7 +148,6 @@ export default function App() {
     }
     setChatTargetUser(targetUser);
     handleViewChange('chats');
-    setMobileTab('chats'); // ensure mobile also transitions seamlessly
   };
 
   // 1. Initial Auth and database seeding
@@ -263,7 +262,6 @@ export default function App() {
     } else {
       setActiveRagaFilter(ragaName);
       setActiveCategory('All'); // Reset category filter to show all discussions for that raga
-      setMobileTab('feed'); // Force mobile view back to feed
     }
   };
 
@@ -369,41 +367,7 @@ export default function App() {
 
       {/* Main Layout Area */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full" id="main-content-layout">
-        {/* Mobile Navigation Tabs */}
-        <div className="flex md:hidden bg-white p-1 rounded-xl border border-bamboo-100/60 mb-5 text-center" id="mobile-navigation-tabs">
-          {[
-            { id: 'feed', label: '🎵 Feed' },
-            { id: 'ragas', label: '📖 Ragas' },
-            { id: 'chats', label: `💬 Chats${unreadCount > 0 ? ` (${unreadCount})` : ''}` },
-            { id: 'tips', label: '💡 Tips' }
-          ].map((tab) => {
-            const isSelected = mobileTab === tab.id;
-            return (
-              <button
-                key={tab.id}
-                onClick={() => {
-                  if (tab.id === 'chats') {
-                    if (!currentUser) {
-                      setAuthModalOpen(true);
-                      return;
-                    }
-                    setCurrentView('chats');
-                  } else {
-                    setCurrentView('community');
-                  }
-                  setMobileTab(tab.id as any);
-                }}
-                className={`flex-1 py-2 text-[11px] font-bold rounded-lg transition-all ${
-                  isSelected 
-                    ? "bg-bamboo-700 text-white shadow-3xs" 
-                    : "text-gray-500 hover:bg-gray-50"
-                }`}
-              >
-                {tab.label}
-              </button>
-            );
-          })}
-        </div>
+
 
         {currentView === 'user-profile' && selectedProfileUserId ? (
           <UserProfileView
@@ -461,7 +425,6 @@ export default function App() {
               <button
                 onClick={() => {
                   setCurrentView('community');
-                  setMobileTab('feed');
                 }}
                 className="px-4 py-2 bg-bamboo-50 hover:bg-bamboo-100 border border-bamboo-100 text-bamboo-700 text-xs font-bold rounded-xl transition cursor-pointer"
               >
@@ -479,8 +442,8 @@ export default function App() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-          {/* LEFT AREA: Search, Filters, and Posts Feed (Collapses/displays based on mobile selection) */}
-          <div className={`md:col-span-8 space-y-5 ${mobileTab === 'feed' ? 'block' : 'hidden md:block'}`} id="left-feed-container">
+          {/* LEFT AREA: Search, Filters, and Posts Feed */}
+          <div className="md:col-span-8 space-y-5 block" id="left-feed-container">
             {/* Search and Filters panel */}
             <div className="frosted-panel rounded-2xl p-4 space-y-4 shadow-sm">
               <div className="flex flex-col sm:flex-row gap-3">
@@ -602,16 +565,16 @@ export default function App() {
             </div>
           </div>
 
-          {/* RIGHT SIDEBAR: Raga Guide (Collapses/displays based on mobile selection) */}
-          <div className={`md:col-span-4 space-y-6 ${mobileTab === 'ragas' ? 'block' : 'hidden md:block'}`} id="right-sidebar-ragaguide">
+          {/* RIGHT SIDEBAR: Raga Guide */}
+          <div className="md:col-span-4 space-y-6 block" id="right-sidebar-ragaguide">
             <RagaGuide 
               onSelectRagaDiscussion={handleSelectRagaDiscussion}
               activeRagaFilter={activeRagaFilter}
             />
           </div>
 
-          {/* RIGHT SIDEBAR ADDITION: Quick Tips & Guidelines (Collapses/displays on mobile selection) */}
-          <div className={`md:col-span-4 space-y-6 ${mobileTab === 'tips' ? 'block' : 'hidden md:block'}`} id="right-sidebar-tips">
+          {/* RIGHT SIDEBAR ADDITION: Quick Tips & Guidelines */}
+          <div className="md:col-span-4 space-y-6 block" id="right-sidebar-tips">
             <div className="frosted-panel rounded-2xl p-4 space-y-4 shadow-sm" id="community-tips-card">
               <h3 className="font-display font-bold text-bamboo-800 text-sm flex items-center gap-1.5 border-b border-gray-100 pb-2.5">
                 <HelpCircle className="w-4.5 h-4.5 text-amber-600" />
