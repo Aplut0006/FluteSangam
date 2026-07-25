@@ -1,9 +1,8 @@
 import express from "express";
 import path from "path";
 import { createServer as createViteServer } from "vite";
-import { fileURLToPath } from 'url';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const __dirname = process.cwd();
 
 async function startServer() {
   const app = express();
@@ -15,6 +14,7 @@ async function startServer() {
   });
 
   app.get("/sitemap.xml", (req, res) => {
+    console.log("Sitemap requested");
     const baseUrl = `${req.protocol}://${req.get('host')}`;
     const paths = [
       '/',
