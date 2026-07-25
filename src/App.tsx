@@ -578,10 +578,15 @@ export default function App() {
       {/* Footer */}
       <footer className="bg-bamboo-800 text-bamboo-200 text-xs border-t border-bamboo-700/50 mt-12 py-8" id="app-footer">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
-          <div className="mt-2 text-[11px] mb-2">
-             <a href="https://www.reddit.com/r/FluteSangam/" target="_blank" rel="noopener noreferrer" className="text-bamboo-200 hover:text-white transition font-semibold flex items-center justify-center gap-1">
-               Join our Reddit Community
-             </a>
+          <div className="mt-4 mb-4">
+            <a
+              href="https://www.reddit.com/r/FluteSangam/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-500 text-white px-6 py-2 rounded-full font-semibold transition-all shadow-md hover:shadow-lg text-sm tracking-wide hover:scale-105"
+            >
+              Join our Reddit Community
+            </a>
           </div>
           <div className="flex items-center justify-center space-x-2 text-white">
             <img src="/flutesangam_without_tagline.png" alt="FluteSangam" className="h-14 w-auto" />
