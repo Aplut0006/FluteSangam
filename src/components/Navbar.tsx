@@ -27,6 +27,7 @@ export default function Navbar({
 }: NavbarProps) {
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [showMobileLearnMenu, setShowMobileLearnMenu] = useState(false);
   const [isEditingProfile, setIsEditingProfile] = useState(false);
   
   // Editable fields
@@ -341,11 +342,40 @@ export default function Navbar({
               <MessageSquare className="w-4 h-4" /> Sangam Chats
             </button>
             <button
-              onClick={() => { onViewChange?.('learn_raagas'); setShowMobileMenu(false); }}
-              className="w-full flex items-center gap-3 px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-bamboo-50 rounded-lg"
+              onClick={() => setShowMobileLearnMenu(!showMobileLearnMenu)}
+              className="w-full flex items-center justify-between gap-3 px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-bamboo-50 rounded-lg"
             >
-              <BookOpen className="w-4 h-4" /> Learn Flute
+              <span className="flex items-center gap-3"><BookOpen className="w-4 h-4" /> Learn Flute</span>
+              <ChevronDown className={`w-4 h-4 transition-transform ${showMobileLearnMenu ? 'rotate-180' : ''}`} />
             </button>
+            {showMobileLearnMenu && (
+              <div className="pl-8 space-y-1">
+                <button
+                  onClick={() => { onViewChange?.('learn_intro'); setShowMobileMenu(false); }}
+                  className="w-full text-left text-sm text-gray-600 hover:text-bamboo-800 py-2"
+                >
+                  Introduction To Flute/Bansuri
+                </button>
+                <button
+                  onClick={() => { onViewChange?.('learn_basics'); setShowMobileMenu(false); }}
+                  className="w-full text-left text-sm text-gray-600 hover:text-bamboo-800 py-2"
+                >
+                  The Basics
+                </button>
+                <button
+                  onClick={() => { onViewChange?.('learn_alankaras'); setShowMobileMenu(false); }}
+                  className="w-full text-left text-sm text-gray-600 hover:text-bamboo-800 py-2"
+                >
+                  Alankaras
+                </button>
+                <button
+                  onClick={() => { onViewChange?.('learn_raagas'); setShowMobileMenu(false); }}
+                  className="w-full text-left text-sm text-gray-600 hover:text-bamboo-800 py-2"
+                >
+                  Raagas
+                </button>
+              </div>
+            )}
           </div>
         )}
 
