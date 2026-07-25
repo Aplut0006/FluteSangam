@@ -8,11 +8,6 @@ async function startServer() {
   const app = express();
   const PORT = 3000;
 
-  // API routes
-  app.get("/api/health", (req, res) => {
-    res.json({ status: "ok" });
-  });
-
   app.get("/sitemap.xml", (req, res) => {
     console.log("Sitemap requested");
     const baseUrl = `${req.protocol}://${req.get('host')}`;
@@ -41,6 +36,15 @@ async function startServer() {
 
     res.header('Content-Type', 'application/xml');
     res.send(sitemap);
+  });
+
+  // API routes
+  app.use((req, res, next) => {
+    console.log(`Request: ${req.method} ${req.url}`);
+    next();
+  });
+  app.get("/api/health", (req, res) => {
+    res.json({ status: "ok" });
   });
 
   // Vite middleware
