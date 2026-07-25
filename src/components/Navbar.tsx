@@ -491,7 +491,7 @@ export default function Navbar({
 
       {/* Edit Profile Dialog Overlay (Absolute modal inside navbar/context for simplicity) */}
       {isEditingProfile && currentUser && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/50 backdrop-blur-3xs" id="edit-profile-overlay">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50 backdrop-blur-3xs" id="edit-profile-overlay">
           <div className="w-full max-w-sm bg-white rounded-2xl shadow-xl border border-bamboo-100 overflow-hidden flex flex-col max-h-[92vh]" id="edit-profile-card">
             <div className="bg-bamboo-700 px-5 py-4 text-white flex justify-between items-center shrink-0">
               <h3 className="font-display font-semibold text-sm flex items-center gap-1.5">
