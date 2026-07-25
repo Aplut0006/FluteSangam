@@ -72,6 +72,7 @@ export default function App() {
     stateExtra: any = {},
     push = true
   ) => {
+    console.log(`handleViewChange called for view: ${view}`);
     if (view === 'community_members' && !currentUser) {
       setAuthModalOpen(true);
       return;
@@ -92,6 +93,7 @@ export default function App() {
                    view === 'user-profile' && stateExtra.userId ? `#user-${stateExtra.userId}` :
                    view === 'chats' ? '#chats' : 
                    view === 'community_members' ? '#members' : '#';
+      console.log(`Pushing state: ${hash}`);
       window.history.pushState(stateObj, '', hash);
     }
   };
