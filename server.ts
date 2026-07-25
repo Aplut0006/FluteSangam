@@ -1,12 +1,17 @@
 import express from "express";
 import path from "path";
+import fs from "fs";
 import { createServer as createViteServer } from "vite";
 
 const __dirname = process.cwd();
+const distPath = path.join(__dirname, 'dist');
+const isProduction = process.env.NODE_ENV === "production" || fs.existsSync(distPath);
 
 async function startServer() {
   const app = express();
   const PORT = 3000;
+
+  console.log(`Starting server. NODE_ENV: ${process.env.NODE_ENV}, isProduction: ${isProduction}`);
 
   app.get("/sitemap.xml", (req, res) => {
     console.log("Sitemap requested");
@@ -48,14 +53,15 @@ async function startServer() {
   });
 
   // Vite middleware
-  if (process.env.NODE_ENV !== "production") {
+  if (!isProduction) {
+    console.log("Running in development mode");
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa",
     });
     app.use(vite.middlewares);
   } else {
-    const distPath = path.join(process.cwd(), 'dist');
+    console.log("Running in production mode");
     app.use(express.static(distPath));
     app.get('*', (req, res) => {
       res.sendFile(path.join(distPath, 'index.html'));
