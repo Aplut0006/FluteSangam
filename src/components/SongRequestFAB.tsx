@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Music, X } from 'lucide-react';
+import { db } from '../lib/firebase';
+import { collection, addDoc } from 'firebase/firestore';
 
-export const SongRequestFAB = ({ isHidden }: { isHidden?: boolean }) => {
+export const SongRequestFAB = ({ isHidden, currentUser }: { isHidden?: boolean, currentUser: any }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({ songName: '', singerName: '', movieName: '' });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
@@ -11,25 +13,21 @@ export const SongRequestFAB = ({ isHidden }: { isHidden?: boolean }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!currentUser) {
+        setErrorMessage("Please sign in to request a song.");
+        setStatus('error');
+        return;
+    }
     setStatus('submitting');
     setErrorMessage(null);
     try {
-      const response = await fetch('/api/request-notation', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+      await addDoc(collection(db, 'songRequests'), {
+        ...formData,
+        userId: currentUser.uid,
+        userEmail: currentUser.email,
+        createdAt: new Date().toISOString(),
+        status: 'pending'
       });
-      
-      const responseText = await response.text();
-      let data;
-      try {
-        data = JSON.parse(responseText);
-      } catch (e) {
-        console.error('Failed to parse response as JSON:', responseText);
-        throw new Error(`Server returned non-JSON response: ${responseText.substring(0, 50)}...`);
-      }
-      
-      if (!response.ok) throw new Error(data.details || data.error || 'Failed');
       setStatus('success');
       setFormData({ songName: '', singerName: '', movieName: '' });
       setTimeout(() => setIsOpen(false), 3000);

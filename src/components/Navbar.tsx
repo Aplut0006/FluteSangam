@@ -266,6 +266,18 @@ export default function Navbar({
               </span>
             )}
           </button>
+          
+          <button
+            onClick={() => onViewChange?.('notation_requests')}
+            className={`px-4 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
+              currentView === 'notation_requests'
+                ? 'bg-bamboo-700 text-white shadow-3xs'
+                : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
+            }`}
+          >
+            <Music className="w-4 h-4 text-amber-600" />
+            <span>Notation Requests</span>
+          </button>
 
           {/* Learn Flute Dropdown */}
           <div className="relative" ref={learnDropdownRef}>

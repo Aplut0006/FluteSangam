@@ -26,6 +26,7 @@ import ImageModal from './components/ImageModal';
 import AboutUsView from './components/AboutUsView';
 import MobileBottomNav from './components/MobileBottomNav';
 import { SongRequestFAB } from './components/SongRequestFAB';
+import { NotationRequestsView } from './components/NotationRequestsView';
 
 // Icons
 import { 
@@ -357,6 +358,8 @@ export default function App() {
           <LearnRaagasView />
         ) : currentView === 'about_us' ? (
           <AboutUsView />
+        ) : currentView === 'notation_requests' ? (
+          <NotationRequestsView />
         ) : currentView === 'community_members' ? (
           currentUser ? (
             <MembersView onUserProfileClick={handleOpenUserProfile} />
@@ -696,7 +699,10 @@ export default function App() {
         currentUser={currentUser}
         unreadCount={unreadCount}
       />
-      <SongRequestFAB isHidden={authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost} />
+      <SongRequestFAB 
+        isHidden={authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost} 
+        currentUser={currentUser}
+      />
     </div>
   );
 }

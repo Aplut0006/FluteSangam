@@ -1,0 +1,23 @@
+{
+  "entities": {
+    "songRequest": {
+      "title": "Song Request",
+      "description": "A request for a song notation",
+      "type": "object",
+      "properties": {
+        "songName": { "type": "string", "description": "Name of the song" },
+        "singerName": { "type": "string", "description": "Name of the singer" },
+        "movieName": { "type": "string", "description": "Name of the movie" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "When requested" },
+        "status": { "type": "string", "description": "Status of the request" }
+      },
+      "required": ["songName", "singerName", "createdAt", "status"]
+    }
+  },
+  "firestore": {
+    "/songRequests/{requestId}": {
+      "schema": "songRequest",
+      "description": "Collection of all song requests"
+    }
+  }
+}
