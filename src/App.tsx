@@ -21,6 +21,7 @@ import LearnAlankarasView from './components/LearnAlankarasView';
 import LearnRaagasView from './components/LearnRaagasView';
 import MembersView from './components/MembersView';
 import ImageModal from './components/ImageModal';
+import AboutUsView from './components/AboutUsView';
 import MobileBottomNav from './components/MobileBottomNav';
 
 // Icons
@@ -400,6 +401,8 @@ export default function App() {
           <LearnAlankarasView />
         ) : currentView === 'learn_raagas' ? (
           <LearnRaagasView />
+        ) : currentView === 'about_us' ? (
+          <AboutUsView />
         ) : currentView === 'community_members' ? (
           currentUser ? (
             <MembersView onUserProfileClick={handleOpenUserProfile} />
