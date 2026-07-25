@@ -194,14 +194,8 @@ export default function Navbar({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand Logo & Slogan */}
         <div className="flex items-center space-x-3">
-          <div className="p-2.5 bg-gradient-to-br from-bamboo-700 to-bamboo-600 rounded-xl text-yellow-300 shadow-xs flex items-center justify-center shrink-0">
-            <Wind className="w-5.5 h-5.5" />
-          </div>
           <div>
-            <h1 className="text-lg sm:text-xl font-bold font-display tracking-tight text-bamboo-800 flex items-center gap-1">
-              FluteSangam
-            </h1>
-            <p className="text-[10px] text-gray-500 font-medium">Where Flute Players Learn & Connect</p>
+            <img src="/assets/flutesangam_logo.png" alt="FluteSangam" className="h-10 w-auto" />
           </div>
         </div>
 

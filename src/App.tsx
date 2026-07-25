@@ -320,22 +320,7 @@ export default function App() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 relative flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="max-w-2xl space-y-3.5 text-center md:text-left">
               <span className="inline-flex items-center text-[10px] font-bold tracking-widest text-yellow-300 uppercase bg-white/10 px-3 py-1 rounded-full border border-white/10">
-                <svg 
-                  viewBox="0 0 24 24" 
-                  className="w-3.5 h-3.5 mr-1.5 shrink-0" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2.5" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                >
-                  <line x1="2" y1="18" x2="20" y2="4" />
-                  <circle cx="8" cy="13.3" r="1" fill="currentColor" stroke="none" />
-                  <circle cx="11" cy="11" r="1" fill="currentColor" stroke="none" />
-                  <circle cx="14" cy="8.7" r="1" fill="currentColor" stroke="none" />
-                  <circle cx="17" cy="6.3" r="1" fill="currentColor" stroke="none" />
-                </svg>
-                Where Flute Players Learn & Connect
+                <img src="/assets/flutesangam_logo.png" alt="FluteSangam" className="w-auto h-6 mr-1.5 shrink-0" />
               </span>
               <h2 className="text-2xl sm:text-3.5xl font-extrabold font-display leading-tight tracking-tight">
                 An Oasis for Indian Flute & Bansuri Sadhakas
@@ -640,12 +625,8 @@ export default function App() {
       <footer className="bg-bamboo-800 text-bamboo-200 text-xs border-t border-bamboo-700/50 mt-12 py-8" id="app-footer">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
           <div className="flex items-center justify-center space-x-2 text-white">
-            <Wind className="w-5 h-5 text-yellow-300" />
-            <span className="font-display font-bold text-base tracking-wide">FluteSangam</span>
+            <img src="/assets/flutesangam_logo.png" alt="FluteSangam" className="h-10 w-auto" />
           </div>
-          <p className="text-[11px] text-bamboo-300">
-            WHERE FLUTE PLAYERS LEARN & CONNECT
-          </p>
           <p className="text-[10px] text-bamboo-400">
             © {new Date().getFullYear()} FluteSangam . All rights reserved
           </p>
