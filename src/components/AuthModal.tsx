@@ -73,7 +73,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
           throw new Error("Google sign-in is disabled in your Firebase project. Please enable it in the Firebase Console under Authentication -> Sign-in Method -> Google, then retry!");
         }
         if (popupError.code === 'auth/popup-closed-by-user') {
-          throw new Error("The sign-in popup was closed before completing the sign-in. Please try again, or use the 'Instantly Join with Demo' option below!");
+          throw new Error("The sign-in popup was closed before completing the sign-in. Please try again.");
         }
         throw popupError;
       }
@@ -183,7 +183,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
     } catch (err: any) {
       console.error(err);
       if (err.code === 'auth/operation-not-allowed' || (err.message && err.message.includes('operation-not-allowed'))) {
-        setError("Email & Password registration is currently disabled in your Firebase project. To fix this, please go to Firebase Console -> Authentication -> Sign-in Method, and enable 'Email/Password'. Alternatively, to continue testing without changing any Firebase settings, click the 'Instantly Join with Demo' button below to bypass this immediately!");
+        setError("Email & Password registration is currently disabled in your Firebase project. To fix this, please go to Firebase Console -> Authentication -> Sign-in Method, and enable 'Email/Password'.");
       } else if (err.code === 'auth/email-already-in-use' || (err.message && err.message.includes('auth/email-already-in-use') || err.message?.includes('email-already-in-use'))) {
         setError("Email Already taken");
       } else {
@@ -194,79 +194,6 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
     }
   };
 
-  const handleDemoLogin = async () => {
-    setError('');
-    setLoading(true);
-    const demoEmail = `bansuri_lover_${Math.floor(Math.random() * 1000)}@flutesangam.com`;
-    const demoPassword = 'password123';
-    
-    try {
-      const userCredential = await createUserWithEmailAndPassword(auth, demoEmail, demoPassword);
-      const user = userCredential.user;
-      
-      const names = ["Anoop", "Meenakshi", "Rohan", "Siddharth", "Kriti"];
-      const locations = ["Varanasi, India", "Pune, India", "California, USA", "London, UK", "New Delhi, India"];
-      const bansuris = ["E Bass", "C Natural Medium", "G Bass", "A Natural Medium"];
-      const levels: ('Beginner' | 'Intermediate' | 'Advanced')[] = ["Beginner", "Intermediate", "Advanced"];
-
-      const name = names[Math.floor(Math.random() * names.length)];
-      const loc = locations[Math.floor(Math.random() * locations.length)];
-      const ban = bansuris[Math.floor(Math.random() * bansuris.length)];
-      const lev = levels[Math.floor(Math.random() * levels.length)];
-      
-      const demoUsername = await generateUniqueUsername(name);
-      const profile = await createUserProfile(user.uid, {
-        displayName: name,
-        username: demoUsername,
-        email: demoEmail,
-        photoURL: CARTOON_AVATARS[Math.floor(Math.random() * CARTOON_AVATARS.length)],
-        bio: `Bansuri learner and enthusiast. Currently playing the ${ban} flute and loving classical music!`,
-        level: lev,
-        bansuriType: ban,
-        location: loc
-      });
-
-      if (profile) {
-        onAuthSuccess(profile);
-        onClose();
-      }
-    } catch (err: any) {
-      console.warn("Firebase Auth demo login failed, falling back to simulated session:", err);
-      // Generate a unique dummy UID that exists in Firestore users
-      const mockUid = `demo_bypass_${Math.floor(Math.random() * 1000000)}`;
-      const names = ["Anoop (Simulated)", "Meenakshi (Simulated)", "Rohan (Simulated)", "Siddharth (Simulated)", "Kriti (Simulated)"];
-      const locations = ["Varanasi, India", "Pune, India", "California, USA", "London, UK", "New Delhi, India"];
-      const bansuris = ["E Bass", "C Natural Medium", "G Bass", "A Natural Medium"];
-      const levels: ('Beginner' | 'Intermediate' | 'Advanced')[] = ["Beginner", "Intermediate", "Advanced"];
-
-      const name = names[Math.floor(Math.random() * names.length)];
-      const loc = locations[Math.floor(Math.random() * locations.length)];
-      const ban = bansuris[Math.floor(Math.random() * bansuris.length)];
-      const lev = levels[Math.floor(Math.random() * levels.length)];
-
-      const demoUsernameSim = await generateUniqueUsername(name);
-      const profile = await createUserProfile(mockUid, {
-        displayName: name,
-        username: demoUsernameSim,
-        email: demoEmail,
-        photoURL: CARTOON_AVATARS[Math.floor(Math.random() * CARTOON_AVATARS.length)],
-        bio: `Bansuri learner and enthusiast. Playing the ${ban} flute. (Simulated Demo Session)`,
-        level: lev,
-        bansuriType: ban,
-        location: loc,
-        phoneNumber: `+9198765${Math.floor(10000 + Math.random() * 90000)}`
-      });
-
-      if (profile) {
-        onAuthSuccess(profile);
-        onClose();
-      } else {
-        setError("Failed to create simulated session.");
-      }
-    } finally {
-      setLoading(false);
-    }
-  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-md" id="auth-modal-overlay">
@@ -584,22 +511,6 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
                 </button>
               </div>
 
-              <div className="relative flex py-2 items-center">
-                <div className="flex-grow border-t border-gray-100"></div>
-                <span className="flex-shrink mx-3 text-gray-400 text-[10px] tracking-widest uppercase">Or Quick Test</span>
-                <div className="flex-grow border-t border-gray-100"></div>
-              </div>
-
-              <button
-                type="button"
-                onClick={handleDemoLogin}
-                disabled={loading}
-                className="w-full py-2 bg-yellow-50 border border-yellow-200 text-yellow-800 hover:bg-yellow-100/70 text-xs font-semibold rounded-lg transition flex items-center justify-center space-x-2"
-                id="demo-login-btn"
-              >
-                <Sparkles className="w-3.5 h-3.5 text-yellow-600 shrink-0" />
-                <span>Instantly Join with Demo Flutist Profile</span>
-              </button>
             </div>
           )}
         </div>
