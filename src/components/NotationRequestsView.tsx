@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { db } from '../lib/firebase';
+import { db, auth } from '../lib/firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 import { 
   collection, 
   onSnapshot, 
@@ -10,7 +11,8 @@ import {
   addDoc, 
   arrayUnion, 
   arrayRemove, 
-  increment 
+  increment,
+  deleteDoc
 } from 'firebase/firestore';
 import { 
   Music, 
@@ -29,7 +31,8 @@ import {
   ExternalLink, 
   FileText,
   Sparkles,
-  ChevronRight
+  ChevronRight,
+  Trash2
 } from 'lucide-react';
 
 interface NotationRequestsViewProps {
@@ -49,6 +52,7 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
   const [loadingNotations, setLoadingNotations] = useState(false);
 
   // Form state for submitting a new notation
+  const [showSubmitForm, setShowSubmitForm] = useState(false);
   const [scale, setScale] = useState('C Medium');
   const [notationText, setNotationText] = useState('');
   const [notes, setNotes] = useState('');
@@ -56,6 +60,59 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
   const [submittingNotation, setSubmittingNotation] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+
+  const [firebaseUser, setFirebaseUser] = useState<any>(auth.currentUser);
+
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, (u) => {
+      setFirebaseUser(u);
+    });
+    return () => unsub();
+  }, []);
+
+  const activeEmail = (currentUser?.email || firebaseUser?.email || auth.currentUser?.email || '').toLowerCase().trim();
+  const activeUid = currentUser?.uid || firebaseUser?.uid || auth.currentUser?.uid || '';
+
+  const isAdmin = activeEmail === 'aplut0006@gmail.com';
+
+  const canDeleteRequest = (reqUserId?: string) => {
+    if (isAdmin) return true;
+    if (!activeUid || !reqUserId) return false;
+    return reqUserId === activeUid;
+  };
+
+  const canDeleteNotation = (authorId?: string) => {
+    if (isAdmin) return true;
+    if (!activeUid || !authorId) return false;
+    return authorId === activeUid;
+  };
+
+  // Handle Delete Request
+  const handleDeleteRequest = async (e: React.MouseEvent, reqId: string) => {
+    e.stopPropagation();
+    if (!confirm('Are you sure you want to delete this notation request?')) return;
+    try {
+      await deleteDoc(doc(db, 'songRequests', reqId));
+      if (selectedRequest?.id === reqId) {
+        setSelectedRequest(null);
+      }
+    } catch (err) {
+      console.error('Error deleting song request:', err);
+      alert('Failed to delete request.');
+    }
+  };
+
+  // Handle Delete Submitted Notation
+  const handleDeleteNotation = async (notationId: string) => {
+    if (!selectedRequest) return;
+    if (!confirm('Are you sure you want to delete this submitted notation?')) return;
+    try {
+      await deleteDoc(doc(db, 'songRequests', selectedRequest.id, 'notations', notationId));
+    } catch (err) {
+      console.error('Error deleting notation:', err);
+      alert('Failed to delete notation.');
+    }
+  };
 
   // Real-time subscription for all requests
   useEffect(() => {
@@ -76,6 +133,7 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
 
   // Real-time subscription for subcollection notations when a request is selected
   useEffect(() => {
+    setShowSubmitForm(false);
     if (!selectedRequest) {
       setNotations([]);
       return;
@@ -170,7 +228,10 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
       setNotes('');
       setVideoUrl('');
       setSubmitSuccess(true);
-      setTimeout(() => setSubmitSuccess(false), 3000);
+      setTimeout(() => {
+        setSubmitSuccess(false);
+        setShowSubmitForm(false);
+      }, 2500);
     } catch (err) {
       console.error('Error submitting notation:', err);
     } finally {
@@ -347,6 +408,17 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
                     <span>{likesCount}</span>
                   </button>
 
+                  {/* Delete button (Admin or Owner) */}
+                  {canDeleteRequest(req.userId) && (
+                    <button
+                      onClick={(e) => handleDeleteRequest(e, req.id)}
+                      title="Delete Request"
+                      className="p-1.5 rounded-full text-gray-400 hover:text-rose-600 hover:bg-rose-50 transition cursor-pointer"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  )}
+
                   {/* Open details arrow */}
                   <div className="flex items-center gap-1 text-xs text-bamboo-700 font-semibold group-hover:translate-x-0.5 transition">
                     <span>View & Reply</span>
@@ -392,17 +464,28 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
 
               <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-bamboo-200">
                 <span>Requested by {selectedRequest.userEmail || 'Community Member'}</span>
-                <button
-                  onClick={(e) => handleLikeRequest(e, selectedRequest.id, selectedRequest.likedBy)}
-                  className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold transition cursor-pointer ${
-                    currentUser && (selectedRequest.likedBy || []).includes(currentUser.uid)
-                      ? 'bg-rose-500 text-white'
-                      : 'bg-white/10 hover:bg-white/20 text-white'
-                  }`}
-                >
-                  <Heart className={`w-3.5 h-3.5 ${currentUser && (selectedRequest.likedBy || []).includes(currentUser.uid) ? 'fill-white' : ''}`} />
-                  <span>{(selectedRequest.likedBy || []).length} Likes</span>
-                </button>
+                <div className="flex items-center gap-2">
+                  {canDeleteRequest(selectedRequest.userId) && (
+                    <button
+                      onClick={(e) => handleDeleteRequest(e, selectedRequest.id)}
+                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-rose-500/20 text-rose-200 hover:bg-rose-500 hover:text-white border border-rose-500/30 transition cursor-pointer"
+                    >
+                      <Trash2 className="w-3.5 h-3.5" />
+                      <span>Delete Request</span>
+                    </button>
+                  )}
+                  <button
+                    onClick={(e) => handleLikeRequest(e, selectedRequest.id, selectedRequest.likedBy)}
+                    className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold transition cursor-pointer ${
+                      currentUser && (selectedRequest.likedBy || []).includes(currentUser.uid)
+                        ? 'bg-rose-500 text-white'
+                        : 'bg-white/10 hover:bg-white/20 text-white'
+                    }`}
+                  >
+                    <Heart className={`w-3.5 h-3.5 ${currentUser && (selectedRequest.likedBy || []).includes(currentUser.uid) ? 'fill-white' : ''}`} />
+                    <span>{(selectedRequest.likedBy || []).length} Likes</span>
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -472,6 +555,15 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
                                 {isCopied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                                 <span>{isCopied ? 'Copied' : 'Copy'}</span>
                               </button>
+                              {canDeleteNotation(not.authorId) && (
+                                <button
+                                  onClick={() => handleDeleteNotation(not.id)}
+                                  title="Delete Notation"
+                                  className="p-1.5 rounded-lg bg-white border border-gray-200 text-gray-400 hover:text-rose-600 hover:bg-rose-50 transition cursor-pointer"
+                                >
+                                  <Trash2 className="w-3.5 h-3.5" />
+                                </button>
+                              )}
                             </div>
                           </div>
 
@@ -520,96 +612,136 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
                 )}
               </div>
 
-              {/* SUBMIT NOTATION FORM */}
+              {/* SUBMIT NOTATION SECTION */}
               <div className="border-t border-gray-100 pt-6">
-                <div className="flex items-center gap-2 mb-3">
-                  <MessageSquarePlus className="w-5 h-5 text-bamboo-800" />
-                  <h3 className="font-bold text-gray-900 text-base">Submit Notation for this Song</h3>
-                </div>
-
-                {submitSuccess && (
-                  <div className="mb-4 p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold rounded-xl flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                    Thank you! Your notation has been published and this request is now set to "Ready to View".
-                  </div>
-                )}
-
-                <form onSubmit={handleSubmitNotation} className="space-y-4 bg-gray-50/80 p-4 md:p-5 rounded-2xl border border-gray-200/80">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-bold text-gray-700 mb-1">
-                        Flute Scale / Key
-                      </label>
-                      <select
-                        value={scale}
-                        onChange={(e) => setScale(e.target.value)}
-                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-xl text-xs font-medium focus:outline-none focus:ring-2 focus:ring-bamboo-500/20 focus:border-bamboo-500"
-                      >
-                        <option value="C Natural Medium">C Natural Medium</option>
-                        <option value="C# Medium">C# Medium</option>
-                        <option value="D Medium">D Medium</option>
-                        <option value="E Medium">E Medium</option>
-                        <option value="E Bass">E Bass</option>
-                        <option value="F Medium">F Medium</option>
-                        <option value="G Natural">G Natural</option>
-                        <option value="A Medium">A Medium</option>
-                        <option value="B Medium">B Medium</option>
-                        <option value="Custom">Other Scale</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-gray-700 mb-1">
-                        Video / Demo Link (Optional)
-                      </label>
-                      <input
-                        type="url"
-                        placeholder="e.g. https://youtube.com/..."
-                        value={videoUrl}
-                        onChange={(e) => setVideoUrl(e.target.value)}
-                        className="w-full px-3 py-2 bg-white border border-gray-300 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-bamboo-500/20 focus:border-bamboo-500"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-gray-700 mb-1">
-                      Swaras / Notation Text <span className="text-rose-500">*</span>
-                    </label>
-                    <textarea
-                      required
-                      rows={5}
-                      placeholder={`Enter the flute swaras here, for example:\nS R G M P D N S'\nS' N D P M G R S\n\n[Chorus]\nP D N S' - S' R' G' M'...`}
-                      value={notationText}
-                      onChange={(e) => setNotationText(e.target.value)}
-                      className="w-full px-3 py-2.5 bg-white border border-gray-300 rounded-xl text-xs font-mono focus:outline-none focus:ring-2 focus:ring-bamboo-500/20 focus:border-bamboo-500"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-gray-700 mb-1">
-                      Performance Tips / Notes (Optional)
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="e.g. Use gentle Meend from P to N in the second line"
-                      value={notes}
-                      onChange={(e) => setNotes(e.target.value)}
-                      className="w-full px-3 py-2 bg-white border border-gray-300 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-bamboo-500/20 focus:border-bamboo-500"
-                    />
-                  </div>
-
-                  <div className="flex justify-end pt-2">
+                {!showSubmitForm ? (
+                  <div className="bg-bamboo-50/50 border border-bamboo-100 rounded-2xl p-6 text-center space-y-3">
+                    <p className="text-xs text-gray-600 font-medium">
+                      Know the flute swaras for this song? Share your notation to help fellow musicians!
+                    </p>
                     <button
-                      type="submit"
-                      disabled={submittingNotation || !notationText.trim()}
-                      className="px-5 py-2.5 bg-bamboo-800 hover:bg-bamboo-900 disabled:opacity-50 text-white text-xs font-bold rounded-xl shadow-xs transition flex items-center gap-2 cursor-pointer"
+                      type="button"
+                      onClick={() => {
+                        if (!currentUser) {
+                          onOpenAuth?.();
+                          return;
+                        }
+                        setShowSubmitForm(true);
+                      }}
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-bamboo-800 hover:bg-bamboo-900 text-white font-bold text-xs rounded-xl shadow-xs hover:shadow-md transition cursor-pointer"
                     >
-                      <Send className="w-3.5 h-3.5" />
-                      <span>{submittingNotation ? 'Submitting...' : 'Post Notation'}</span>
+                      <MessageSquarePlus className="w-4 h-4 text-amber-400" />
+                      <span>Submit your Notation</span>
                     </button>
                   </div>
-                </form>
+                ) : (
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center gap-2">
+                        <MessageSquarePlus className="w-5 h-5 text-bamboo-800" />
+                        <h3 className="font-bold text-gray-900 text-base">Submit Notation for this Song</h3>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setShowSubmitForm(false)}
+                        className="text-xs font-semibold text-gray-500 hover:text-gray-800 px-3 py-1 rounded-lg bg-gray-100 hover:bg-gray-200 transition cursor-pointer"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+
+                    {submitSuccess && (
+                      <div className="mb-4 p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold rounded-xl flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                        Thank you! Your notation has been published and this request is now set to "Ready to View".
+                      </div>
+                    )}
+
+                    <form onSubmit={handleSubmitNotation} className="space-y-4 bg-gray-50/80 p-4 md:p-5 rounded-2xl border border-gray-200/80">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs font-bold text-gray-700 mb-1">
+                            Flute Scale / Key
+                          </label>
+                          <select
+                            value={scale}
+                            onChange={(e) => setScale(e.target.value)}
+                            className="w-full px-3 py-2 bg-white border border-gray-300 rounded-xl text-xs font-medium focus:outline-none focus:ring-2 focus:ring-bamboo-500/20 focus:border-bamboo-500"
+                          >
+                            <option value="C Natural Medium">C Natural Medium</option>
+                            <option value="C# Medium">C# Medium</option>
+                            <option value="D Medium">D Medium</option>
+                            <option value="E Medium">E Medium</option>
+                            <option value="E Bass">E Bass</option>
+                            <option value="F Medium">F Medium</option>
+                            <option value="G Natural">G Natural</option>
+                            <option value="A Medium">A Medium</option>
+                            <option value="B Medium">B Medium</option>
+                            <option value="Custom">Other Scale</option>
+                          </select>
+                        </div>
+
+                        <div>
+                          <label className="block text-xs font-bold text-gray-700 mb-1">
+                            Video / Demo Link (Optional)
+                          </label>
+                          <input
+                            type="url"
+                            placeholder="e.g. https://youtube.com/..."
+                            value={videoUrl}
+                            onChange={(e) => setVideoUrl(e.target.value)}
+                            className="w-full px-3 py-2 bg-white border border-gray-300 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-bamboo-500/20 focus:border-bamboo-500"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-bold text-gray-700 mb-1">
+                          Swaras / Notation Text <span className="text-rose-500">*</span>
+                        </label>
+                        <textarea
+                          required
+                          rows={5}
+                          placeholder={`Enter the flute swaras here, for example:\nS R G M P D N S'\nS' N D P M G R S\n\n[Chorus]\nP D N S' - S' R' G' M'...`}
+                          value={notationText}
+                          onChange={(e) => setNotationText(e.target.value)}
+                          className="w-full px-3 py-2.5 bg-white border border-gray-300 rounded-xl text-xs font-mono focus:outline-none focus:ring-2 focus:ring-bamboo-500/20 focus:border-bamboo-500"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-bold text-gray-700 mb-1">
+                          Performance Tips / Notes (Optional)
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="e.g. Use gentle Meend from P to N in the second line"
+                          value={notes}
+                          onChange={(e) => setNotes(e.target.value)}
+                          className="w-full px-3 py-2 bg-white border border-gray-300 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-bamboo-500/20 focus:border-bamboo-500"
+                        />
+                      </div>
+
+                      <div className="flex justify-end gap-2 pt-2">
+                        <button
+                          type="button"
+                          onClick={() => setShowSubmitForm(false)}
+                          className="px-4 py-2.5 bg-white border border-gray-300 hover:bg-gray-100 text-gray-700 text-xs font-bold rounded-xl transition cursor-pointer"
+                        >
+                          Cancel
+                        </button>
+                        <button
+                          type="submit"
+                          disabled={submittingNotation || !notationText.trim()}
+                          className="px-5 py-2.5 bg-bamboo-800 hover:bg-bamboo-900 disabled:opacity-50 text-white text-xs font-bold rounded-xl shadow-xs transition flex items-center gap-2 cursor-pointer"
+                        >
+                          <Send className="w-3.5 h-3.5" />
+                          <span>{submittingNotation ? 'Submitting...' : 'Post Notation'}</span>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                )}
               </div>
 
             </div>

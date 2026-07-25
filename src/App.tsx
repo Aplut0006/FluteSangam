@@ -132,7 +132,25 @@ export default function App() {
     const unsubscribeAuth = onAuthStateChanged(auth, async (firebaseUser) => {
       if (firebaseUser) {
         const profile = await getUserProfile(firebaseUser.uid);
-        setCurrentUser(profile);
+        if (profile) {
+          setCurrentUser({
+            ...profile,
+            email: profile.email || firebaseUser.email || ''
+          });
+        } else {
+          setCurrentUser({
+            uid: firebaseUser.uid,
+            displayName: firebaseUser.displayName || firebaseUser.email?.split('@')[0] || 'Musician',
+            username: firebaseUser.email?.split('@')[0] || 'musician',
+            email: firebaseUser.email || '',
+            photoURL: firebaseUser.photoURL || '',
+            bio: 'Flute lover',
+            level: 'Beginner',
+            bansuriType: 'C Natural',
+            location: 'India',
+            joinedAt: new Date()
+          });
+        }
       } else {
         setCurrentUser(null);
       }
