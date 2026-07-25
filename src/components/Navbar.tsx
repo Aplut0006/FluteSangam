@@ -195,7 +195,7 @@ export default function Navbar({
         {/* Brand Logo & Slogan */}
         <div className="flex items-center space-x-3">
           <div>
-            <img src="/flutesangam_without_tagline.png" alt="FluteSangam" className="h-10 w-auto" />
+            <img src="/flutesangam_without_tagline.png" alt="FluteSangam" className="h-14 w-auto" />
           </div>
         </div>
 

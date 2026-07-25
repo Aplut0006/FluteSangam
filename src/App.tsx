@@ -625,7 +625,7 @@ export default function App() {
       <footer className="bg-bamboo-800 text-bamboo-200 text-xs border-t border-bamboo-700/50 mt-12 py-8" id="app-footer">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
           <div className="flex items-center justify-center space-x-2 text-white">
-            <img src="/flutesangam_without_tagline.png" alt="FluteSangam" className="h-10 w-auto" />
+            <img src="/flutesangam_without_tagline.png" alt="FluteSangam" className="h-14 w-auto" />
           </div>
           <p className="text-[10px] text-bamboo-400">
             © {new Date().getFullYear()} FluteSangam . All rights reserved
