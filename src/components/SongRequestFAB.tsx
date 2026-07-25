@@ -19,7 +19,16 @@ export const SongRequestFAB = ({ isHidden }: { isHidden?: boolean }) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-      const data = await response.json();
+      
+      const responseText = await response.text();
+      let data;
+      try {
+        data = JSON.parse(responseText);
+      } catch (e) {
+        console.error('Failed to parse response as JSON:', responseText);
+        throw new Error(`Server returned non-JSON response: ${responseText.substring(0, 50)}...`);
+      }
+      
       if (!response.ok) throw new Error(data.details || data.error || 'Failed');
       setStatus('success');
       setFormData({ songName: '', singerName: '', movieName: '' });
