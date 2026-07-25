@@ -325,7 +325,7 @@ export default function App() {
                 Learn, Share & Grow with Flute Players
               </span>
               <h2 className="text-2xl sm:text-3.5xl font-extrabold font-display leading-tight tracking-tight">
-                An Oasis for Indian Flute & Bansuri Sadhakas
+                A Global Community for Flute Players & Enthusiasts
               </h2>
               <p className="text-xs sm:text-sm text-bamboo-100 leading-relaxed max-w-xl font-medium">
                 Join a warm, supportive community of flute practitioners. Share raw recitals, demystify classical ragas, exchange honest flute reviews, and find expert tips to master your blow.

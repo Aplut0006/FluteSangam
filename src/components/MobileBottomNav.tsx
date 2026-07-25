@@ -17,8 +17,8 @@ export default function MobileBottomNav({
 }: MobileBottomNavProps) {
   const tabs: { id: AppView | 'tips', label: string, icon: any }[] = [
     { id: 'community', label: 'Feed', icon: Compass },
-    { id: 'community_members', label: 'Members', icon: Users },
     { id: 'learn_dashboard', label: 'Learn', icon: BookOpen },
+    { id: 'community_members', label: 'Members', icon: Users },
     { id: 'chats', label: 'Chats', icon: MessageSquare },
   ];
 
