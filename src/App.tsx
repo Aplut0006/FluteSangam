@@ -25,6 +25,7 @@ import MembersView from './components/MembersView';
 import ImageModal from './components/ImageModal';
 import AboutUsView from './components/AboutUsView';
 import MobileBottomNav from './components/MobileBottomNav';
+import { SongRequestFAB } from './components/SongRequestFAB';
 
 // Icons
 import { 
@@ -693,6 +694,7 @@ export default function App() {
         currentUser={currentUser}
         unreadCount={unreadCount}
       />
+      <SongRequestFAB />
     </div>
   );
 }
