@@ -335,7 +335,7 @@ export default function App() {
                   <circle cx="14" cy="8.7" r="1" fill="currentColor" stroke="none" />
                   <circle cx="17" cy="6.3" r="1" fill="currentColor" stroke="none" />
                 </svg>
-                Where Flutes Meet, Hearts Connect
+                Where Flute Players Learn & Connect
               </span>
               <h2 className="text-2xl sm:text-3.5xl font-extrabold font-display leading-tight tracking-tight">
                 An Oasis for Indian Flute & Bansuri Sadhakas
@@ -644,7 +644,7 @@ export default function App() {
             <span className="font-display font-bold text-base tracking-wide">FluteSangam</span>
           </div>
           <p className="text-[11px] text-bamboo-300">
-            WHERE FLUTES MEET, HEARTS CONNECT
+            WHERE FLUTE PLAYERS LEARN & CONNECT
           </p>
           <p className="text-[10px] text-bamboo-400">
             © {new Date().getFullYear()} FluteSangam . All rights reserved

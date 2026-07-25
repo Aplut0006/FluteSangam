@@ -201,7 +201,7 @@ export default function Navbar({
             <h1 className="text-lg sm:text-xl font-bold font-display tracking-tight text-bamboo-800 flex items-center gap-1">
               FluteSangam
             </h1>
-            <p className="text-[10px] text-gray-500 font-medium">Where Flutes Meet, Hearts Connect</p>
+            <p className="text-[10px] text-gray-500 font-medium">Where Flute Players Learn & Connect</p>
           </div>
         </div>
 
