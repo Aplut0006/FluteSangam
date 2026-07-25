@@ -5,24 +5,28 @@ export const SongRequestFAB = ({ isHidden }: { isHidden?: boolean }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({ songName: '', singerName: '', movieName: '' });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   if (isHidden) return null;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('submitting');
+    setErrorMessage(null);
     try {
       const response = await fetch('/api/request-notation', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-      if (!response.ok) throw new Error('Failed');
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.details || data.error || 'Failed');
       setStatus('success');
       setFormData({ songName: '', singerName: '', movieName: '' });
       setTimeout(() => setIsOpen(false), 3000);
     } catch (error) {
       setStatus('error');
+      setErrorMessage(error instanceof Error ? error.message : 'Failed to send request');
     }
   };
 
@@ -47,7 +51,7 @@ export const SongRequestFAB = ({ isHidden }: { isHidden?: boolean }) => {
               <p className="text-green-600 font-medium">Song notation requested, you will receive the notations on chat once ready.</p>
             ) : (
               <>
-                {status === 'error' && <p className="text-red-600 mb-4">Failed to send request. Please try again.</p>}
+                {status === 'error' && <p className="text-red-600 mb-4">{errorMessage || 'Failed to send request. Please try again.'}</p>}
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <input
                     required
