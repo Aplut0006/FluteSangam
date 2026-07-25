@@ -15,6 +15,7 @@ import PostCard from './components/PostCard';
 import ChatSection from './components/ChatSection';
 import PostDetailView from './components/PostDetailView';
 import UserProfileView from './components/UserProfileView';
+import LearnDashboard from './components/LearnDashboard';
 import LearnIntroView from './components/LearnIntroView';
 import LearnBasicsView from './components/LearnBasicsView';
 import LearnAlankarasView from './components/LearnAlankarasView';
@@ -393,6 +394,8 @@ export default function App() {
             onEditPost={handleOpenEditPost}
             onOpenImage={(url) => setSelectedImageUrl(url)}
           />
+        ) : currentView === 'learn_dashboard' ? (
+          <LearnDashboard onViewChange={handleViewChange} />
         ) : currentView === 'learn_intro' ? (
           <LearnIntroView />
         ) : currentView === 'learn_basics' ? (

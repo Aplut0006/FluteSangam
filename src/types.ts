@@ -1,4 +1,4 @@
-export type AppView = 'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_basics' | 'learn_alankaras' | 'learn_raagas' | 'community_members' | 'about_us';
+export type AppView = 'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_basics' | 'learn_alankaras' | 'learn_raagas' | 'community_members' | 'about_us' | 'learn_dashboard';
 
 export interface UserProfile {
   uid: string;
