@@ -97,6 +97,10 @@ export default function App() {
                    view === 'community_members' ? '/members' : 
                    view === 'about_us' ? '/about' : 
                    view === 'learn_dashboard' ? '/learn' : 
+                   view === 'learn_intro' ? '/learn_intro' :
+                   view === 'learn_basics' ? '/learn_basics' :
+                   view === 'learn_alankaras' ? '/learn_alankaras' :
+                   view === 'learn_raagas' ? '/learn_raagas' :
                    view === 'community' ? '/' : `/${view}`;
       console.log(`Navigating to: ${path}`);
       navigate(path, { state: stateExtra });
@@ -123,6 +127,12 @@ export default function App() {
       newView = 'learn_dashboard';
     } else if (cleanPath === '/learn_intro') {
       newView = 'learn_intro';
+    } else if (cleanPath === '/learn_basics') {
+      newView = 'learn_basics';
+    } else if (cleanPath === '/learn_alankaras') {
+      newView = 'learn_alankaras';
+    } else if (cleanPath === '/learn_raagas') {
+      newView = 'learn_raagas';
     } else if (cleanPath === '/') {
       newView = 'community';
     } else {
