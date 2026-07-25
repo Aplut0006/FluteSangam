@@ -359,7 +359,7 @@ export default function App() {
         ) : currentView === 'about_us' ? (
           <AboutUsView />
         ) : currentView === 'notation_requests' ? (
-          <NotationRequestsView />
+          <NotationRequestsView currentUser={currentUser} onOpenAuth={() => setAuthModalOpen(true)} />
         ) : currentView === 'community_members' ? (
           currentUser ? (
             <MembersView onUserProfileClick={handleOpenUserProfile} />
