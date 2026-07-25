@@ -3,8 +3,7 @@ import path from "path";
 import fs from "fs";
 import { createServer as createViteServer } from "vite";
 
-const __dirname = process.cwd();
-const distPath = path.join(__dirname, 'dist');
+const distPath = path.join(process.cwd(), 'dist');
 const isProduction = process.env.NODE_ENV === "production" || fs.existsSync(distPath);
 
 async function startServer() {
@@ -14,15 +13,11 @@ async function startServer() {
   console.log(`Starting server. NODE_ENV: ${process.env.NODE_ENV}, isProduction: ${isProduction}`);
 
   // API routes
-  app.use((req, res, next) => {
-    console.log(`Request: ${req.method} ${req.url}`);
-    next();
-  });
   app.get("/api/health", (req, res) => {
     res.json({ status: "ok" });
   });
 
-  // Vite middleware
+  // Vite middleware for development
   if (!isProduction) {
     console.log("Running in development mode");
     const vite = await createViteServer({
@@ -32,15 +27,13 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     console.log("Running in production mode");
-    app.use((req, res, next) => {
-      console.log(`Request: ${req.method} ${req.url}`);
-      next();
-    });
+    
+    // Serve static files
     app.use(express.static(distPath));
+    
+    // SPA fallback
     app.get('*', (req, res) => {
-      const indexPath = path.join(distPath, 'index.html');
-      console.log(`Serving index.html for: ${req.url}, path: ${indexPath}, exists: ${fs.existsSync(indexPath)}`);
-      res.sendFile(indexPath);
+      res.sendFile(path.join(distPath, 'index.html'));
     });
   }
 
