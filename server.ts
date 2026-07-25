@@ -62,8 +62,13 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     console.log("Running in production mode");
+    app.use((req, res, next) => {
+      console.log(`Request: ${req.method} ${req.url}`);
+      next();
+    });
     app.use(express.static(distPath));
     app.get('*', (req, res) => {
+      console.log(`Serving index.html for: ${req.url}`);
       res.sendFile(path.join(distPath, 'index.html'));
     });
   }
