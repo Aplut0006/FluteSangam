@@ -73,6 +73,61 @@ export default function App() {
   const [isNavbarEditingProfile, setIsNavbarEditingProfile] = useState(false);
   const [selectedImageUrl, setSelectedImageUrl] = useState<string | null>(null);
 
+  // Dynamic SEO Title & Meta Description Management
+  useEffect(() => {
+    let title = 'FluteSangam — Indian Flute Learning Community, Bansuri Ragas & Notations';
+    let description = 'Master the Indian Flute (Bansuri & Venu). Practice alankars, learn Hindustani & Carnatic ragas, request song sheet music notations, share audio clips, and connect with a passionate global community of flute players.';
+
+    switch (currentView) {
+      case 'community':
+        title = 'FluteSangam Community — Indian Flute Discussions & Performance Sharing';
+        description = 'Join thousands of flute enthusiasts. Ask questions, share audio recordings, get constructive feedback, and discuss Indian classical flute techniques.';
+        break;
+      case 'learn_dashboard':
+        title = 'Flute Learning Hub — Master Bansuri Ragas, Alankars & Basics | FluteSangam';
+        description = 'Comprehensive step-by-step guides for learning Indian flute. Practice basic posture, alankar exercises, and ragas like Yaman, Bhupali, and Kafi.';
+        break;
+      case 'learn_intro':
+        title = 'Introduction to Indian Flute (Bansuri & Venu) | FluteSangam';
+        description = 'Discover the history, anatomy, scale selection, and fundamentals of the Indian bamboo flute (Bansuri and Venu).';
+        break;
+      case 'learn_basics':
+        title = 'Bansuri Basics — Holding, Blowing & Swara Practice | FluteSangam';
+        description = 'Master sound generation, lip position, finger coverage, and accurate swara production on your Indian flute.';
+        break;
+      case 'learn_alankaras':
+        title = 'Alankar Practice Drills & Finger Speed Patterns | FluteSangam';
+        description = 'Boost your finger speed, pitch accuracy, and breath control with essential alankars and sargam exercises.';
+        break;
+      case 'learn_raagas':
+        title = 'Learn Ragas — Aaroh, Avroh, Pakad & Compositions | FluteSangam';
+        description = 'Explore Hindustani and Carnatic ragas with detailed Aaroh, Avroh, Pakad, time of play, and practice compositions.';
+        break;
+      case 'notation_requests':
+        title = 'Bansuri Notation Requests & Song Sheet Music | FluteSangam';
+        description = 'Request sargam notations for Bollywood, classical, devotional, or regional songs, and browse community notations.';
+        break;
+      case 'about_us':
+        title = 'About FluteSangam — Empowering Flute Players Globally';
+        description = 'Learn about FluteSangam’s mission to connect, educate, and inspire Indian classical flute practitioners worldwide.';
+        break;
+      case 'post-detail':
+        if (selectedPost) {
+          title = `${selectedPost.title} — FluteSangam Community`;
+          description = selectedPost.description ? selectedPost.description.substring(0, 150) + '...' : description;
+        }
+        break;
+      default:
+        break;
+    }
+
+    document.title = title;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', description);
+    }
+  }, [currentView, selectedPost]);
+
   const handleViewChange = (
     view: AppView,
     stateExtra: any = {},
