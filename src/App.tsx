@@ -70,6 +70,10 @@ export default function App() {
     stateExtra: any = {},
     push = true
   ) => {
+    if (view === 'community_members' && !currentUser) {
+      setAuthModalOpen(true);
+      return;
+    }
     setCurrentView(view);
     if (view === 'community' || view === 'learn_intro' || view === 'learn_basics' || view === 'learn_alankaras' || view === 'learn_raagas' || view === 'community_members') {
       setSelectedPost(null);
@@ -412,7 +416,20 @@ export default function App() {
         ) : currentView === 'learn_raagas' ? (
           <LearnRaagasView />
         ) : currentView === 'community_members' ? (
-          <MembersView onUserProfileClick={handleOpenUserProfile} />
+          currentUser ? (
+            <MembersView onUserProfileClick={handleOpenUserProfile} />
+          ) : (
+            <div className="flex flex-col items-center justify-center p-12 text-center">
+              <h3 className="text-xl font-display font-bold text-bamboo-900 mb-2">Members Area</h3>
+              <p className="text-gray-600 mb-6">Please join the community to view all members.</p>
+              <button 
+                onClick={() => setAuthModalOpen(true)} 
+                className="bg-bamboo-700 text-white px-6 py-2.5 rounded-xl font-bold hover:bg-bamboo-800 transition"
+              >
+                Join / Sign In
+              </button>
+            </div>
+          )
         ) : currentView === 'chats' && currentUser ? (
           <div className="space-y-5">
             <div className="hidden md:flex items-center justify-between bg-white/70 backdrop-blur-md p-4.5 rounded-2xl border border-bamboo-100/60 shadow-3xs">
