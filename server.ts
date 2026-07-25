@@ -27,6 +27,8 @@ async function startServer() {
       return res.status(400).json({ error: "Missing required fields" });
     }
     try {
+      console.log('Attempting to send email with host:', process.env.SMTP_HOST);
+      
       const transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST,
         port: Number(process.env.SMTP_PORT),
@@ -36,16 +38,22 @@ async function startServer() {
           pass: process.env.SMTP_PASS,
         },
       });
+
+      // Verify connection
+      await transporter.verify();
+      console.log('SMTP connection verified');
+
       await transporter.sendMail({
         from: process.env.SMTP_USER,
         to: "aplut0006@gmail.com",
         subject: "New Song Notation Request",
         text: `Song: ${songName}\nSinger: ${singerName}\nMovie: ${movieName || 'N/A'}`,
       });
+      console.log('Email sent successfully');
       res.json({ success: true });
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: "Failed to send email" });
+      console.error('Email sending error:', error);
+      res.status(500).json({ error: "Failed to send email", details: error instanceof Error ? error.message : String(error) });
     }
   });
 
