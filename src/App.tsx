@@ -69,6 +69,7 @@ export default function App() {
 
   // Post editing state
   const [editingPost, setEditingPost] = useState<Post | null>(null);
+  const [isNavbarEditingProfile, setIsNavbarEditingProfile] = useState(false);
   const [selectedImageUrl, setSelectedImageUrl] = useState<string | null>(null);
 
   const handleViewChange = (
@@ -271,6 +272,7 @@ export default function App() {
         currentView={currentView}
         onViewChange={(view) => handleViewChange(view)}
         unreadCount={unreadCount}
+        onEditingProfile={setIsNavbarEditingProfile}
       />
 
       {/* Hero Welcome Banner */}
@@ -694,7 +696,7 @@ export default function App() {
         currentUser={currentUser}
         unreadCount={unreadCount}
       />
-      <SongRequestFAB />
+      <SongRequestFAB isHidden={authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost} />
     </div>
   );
 }

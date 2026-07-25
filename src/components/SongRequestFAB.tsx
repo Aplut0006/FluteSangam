@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Music, X } from 'lucide-react';
 
-export const SongRequestFAB = () => {
+export const SongRequestFAB = ({ isHidden }: { isHidden?: boolean }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({ songName: '', singerName: '', movieName: '' });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  if (isHidden) return null;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

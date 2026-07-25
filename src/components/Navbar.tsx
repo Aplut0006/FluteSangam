@@ -14,6 +14,7 @@ interface NavbarProps {
   currentView?: AppView;
   onViewChange?: (view: AppView) => void;
   unreadCount?: number;
+  onEditingProfile?: (isEditing: boolean) => void;
 }
 
 export default function Navbar({ 
@@ -23,12 +24,17 @@ export default function Navbar({
   onProfileUpdated,
   currentView = 'community',
   onViewChange,
-  unreadCount = 0
+  unreadCount = 0,
+  onEditingProfile
 }: NavbarProps) {
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showMobileLearnMenu, setShowMobileLearnMenu] = useState(false);
   const [isEditingProfile, setIsEditingProfile] = useState(false);
+  
+  useEffect(() => {
+    onEditingProfile?.(isEditingProfile);
+  }, [isEditingProfile, onEditingProfile]);
   
   // Editable fields
   const [editName, setEditName] = useState('');
