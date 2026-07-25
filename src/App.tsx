@@ -732,7 +732,7 @@ export default function App() {
         unreadCount={unreadCount}
       />
       <SongRequestFAB 
-        isHidden={authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost} 
+        isHidden={currentView !== 'community' || authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost} 
         currentUser={currentUser}
       />
     </div>
