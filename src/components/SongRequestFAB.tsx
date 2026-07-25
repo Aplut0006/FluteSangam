@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, X } from 'lucide-react';
+import { Music, X } from 'lucide-react';
 
 export const SongRequestFAB = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,9 +28,9 @@ export const SongRequestFAB = () => {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-[90] bg-amber-600 text-white p-4 rounded-full shadow-lg hover:bg-amber-500 transition-all hover:scale-105 flex items-center gap-2"
+        className="fixed bottom-20 md:bottom-6 right-6 z-[90] bg-amber-600 text-white p-4 rounded-full shadow-lg hover:bg-amber-500 transition-all hover:scale-105 flex items-center gap-2"
       >
-        <Mail size={24} />
+        <Music size={24} />
         <span className="hidden sm:inline font-semibold">Request Notation</span>
       </button>
 
@@ -44,34 +44,37 @@ export const SongRequestFAB = () => {
             {status === 'success' ? (
               <p className="text-green-600 font-medium">Song notation requested, you will receive the notations on chat once ready.</p>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <input
-                  required
-                  placeholder="Song Name"
-                  className="w-full p-3 border rounded-lg"
-                  value={formData.songName}
-                  onChange={e => setFormData({ ...formData, songName: e.target.value })}
-                />
-                <input
-                  required
-                  placeholder="Singer Name"
-                  className="w-full p-3 border rounded-lg"
-                  value={formData.singerName}
-                  onChange={e => setFormData({ ...formData, singerName: e.target.value })}
-                />
-                <input
-                  placeholder="Movie Name (optional)"
-                  className="w-full p-3 border rounded-lg"
-                  value={formData.movieName}
-                  onChange={e => setFormData({ ...formData, movieName: e.target.value })}
-                />
-                <button
-                  disabled={status === 'submitting'}
-                  className="w-full bg-amber-600 text-white p-3 rounded-lg font-bold hover:bg-amber-500 disabled:opacity-50"
-                >
-                  {status === 'submitting' ? 'Submitting...' : 'Submit Request'}
-                </button>
-              </form>
+              <>
+                {status === 'error' && <p className="text-red-600 mb-4">Failed to send request. Please try again.</p>}
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <input
+                    required
+                    placeholder="Song Name"
+                    className="w-full p-3 border rounded-lg"
+                    value={formData.songName}
+                    onChange={e => setFormData({ ...formData, songName: e.target.value })}
+                  />
+                  <input
+                    required
+                    placeholder="Singer Name"
+                    className="w-full p-3 border rounded-lg"
+                    value={formData.singerName}
+                    onChange={e => setFormData({ ...formData, singerName: e.target.value })}
+                  />
+                  <input
+                    placeholder="Movie Name (optional)"
+                    className="w-full p-3 border rounded-lg"
+                    value={formData.movieName}
+                    onChange={e => setFormData({ ...formData, movieName: e.target.value })}
+                  />
+                  <button
+                    disabled={status === 'submitting'}
+                    className="w-full bg-amber-600 text-white p-3 rounded-lg font-bold hover:bg-amber-500 disabled:opacity-50"
+                  >
+                    {status === 'submitting' ? 'Submitting...' : 'Submit Request'}
+                  </button>
+                </form>
+              </>
             )}
           </div>
         </div>
