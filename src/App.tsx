@@ -104,6 +104,38 @@ export default function App() {
   };
 
   useEffect(() => {
+    const { pathname } = location;
+
+    let newView: AppView = 'community';
+    if (pathname.startsWith('/post/')) {
+      newView = 'post-detail';
+    } else if (pathname.startsWith('/user/')) {
+      newView = 'user-profile';
+    } else if (pathname === '/chats') {
+      newView = 'chats';
+    } else if (pathname === '/members') {
+      newView = 'community_members';
+    } else if (pathname === '/about') {
+      newView = 'about_us';
+    } else if (pathname === '/learn') {
+      newView = 'learn_dashboard';
+    } else if (pathname === '/') {
+      newView = 'community';
+    } else {
+        // Fallback for unknown paths
+        return;
+    }
+    
+    if (newView !== currentView) {
+      setCurrentView(newView);
+      if (newView !== 'post-detail' && newView !== 'user-profile') {
+        setSelectedPost(null);
+        setSelectedProfileUserId(null);
+      }
+    }
+  }, [location.pathname]);
+
+  useEffect(() => {
     const handlePopState = (event: PopStateEvent) => {
       if (event.state && event.state.view) {
         const { view, postId, userId, post } = event.state;
