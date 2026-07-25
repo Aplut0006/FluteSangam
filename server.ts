@@ -13,36 +13,6 @@ async function startServer() {
 
   console.log(`Starting server. NODE_ENV: ${process.env.NODE_ENV}, isProduction: ${isProduction}`);
 
-  app.get("/sitemap.xml", (req, res) => {
-    console.log("Sitemap requested");
-    const baseUrl = `${req.protocol}://${req.get('host')}`;
-    const paths = [
-      '/',
-      '/community',
-      '/community_members',
-      '/chats',
-      '/learn_dashboard',
-      '/learn_intro',
-      '/learn_basics',
-      '/learn_alankaras',
-      '/learn_raagas',
-      '/about_us'
-    ];
-
-    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  ${paths.map(path => `
-  <url>
-    <loc>${baseUrl}${path}</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>`).join('')}
-</urlset>`;
-
-    res.header('Content-Type', 'application/xml');
-    res.send(sitemap);
-  });
-
   // API routes
   app.use((req, res, next) => {
     console.log(`Request: ${req.method} ${req.url}`);
