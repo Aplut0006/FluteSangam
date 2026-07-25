@@ -75,16 +75,20 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
 
   const isAdmin = activeEmail === 'aplut0006@gmail.com';
 
-  const canDeleteRequest = (reqUserId?: string) => {
+  const canDeleteRequest = (reqUserId?: string, reqUserEmail?: string) => {
     if (isAdmin) return true;
-    if (!activeUid || !reqUserId) return false;
-    return reqUserId === activeUid;
+    if (!activeUid) return false;
+    if (reqUserId && reqUserId === activeUid) return true;
+    if (reqUserEmail && activeEmail && reqUserEmail.toLowerCase().trim() === activeEmail) return true;
+    return false;
   };
 
-  const canDeleteNotation = (authorId?: string) => {
+  const canDeleteNotation = (authorId?: string, authorEmail?: string) => {
     if (isAdmin) return true;
-    if (!activeUid || !authorId) return false;
-    return authorId === activeUid;
+    if (!activeUid) return false;
+    if (authorId && authorId === activeUid) return true;
+    if (authorEmail && activeEmail && authorEmail.toLowerCase().trim() === activeEmail) return true;
+    return false;
   };
 
   // Handle Delete Request
@@ -208,6 +212,7 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
       // Add notation doc
       await addDoc(collection(db, 'songRequests', selectedRequest.id, 'notations'), {
         authorId: currentUser.uid,
+        authorEmail: currentUser.email || '',
         authorName: currentUser.displayName || currentUser.username || 'Flute Sangam Musician',
         authorPhoto: currentUser.photoURL || '',
         scale: scale.trim() || 'C Medium',
@@ -409,7 +414,7 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
                   </button>
 
                   {/* Delete button (Admin or Owner) */}
-                  {canDeleteRequest(req.userId) && (
+                  {canDeleteRequest(req.userId, req.userEmail) && (
                     <button
                       onClick={(e) => handleDeleteRequest(e, req.id)}
                       title="Delete Request"
@@ -463,9 +468,9 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
               </p>
 
               <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-bamboo-200">
-                <span>Requested by {selectedRequest.userEmail || 'Community Member'}</span>
+                <span>Requested by {selectedRequest.userName || selectedRequest.userDisplayName || (selectedRequest.userEmail ? selectedRequest.userEmail.split('@')[0] : 'Community Member')}</span>
                 <div className="flex items-center gap-2">
-                  {canDeleteRequest(selectedRequest.userId) && (
+                  {canDeleteRequest(selectedRequest.userId, selectedRequest.userEmail) && (
                     <button
                       onClick={(e) => handleDeleteRequest(e, selectedRequest.id)}
                       className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-rose-500/20 text-rose-200 hover:bg-rose-500 hover:text-white border border-rose-500/30 transition cursor-pointer"
@@ -555,7 +560,7 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
                                 {isCopied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                                 <span>{isCopied ? 'Copied' : 'Copy'}</span>
                               </button>
-                              {canDeleteNotation(not.authorId) && (
+                              {canDeleteNotation(not.authorId, not.authorEmail) && (
                                 <button
                                   onClick={() => handleDeleteNotation(not.id)}
                                   title="Delete Notation"

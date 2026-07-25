@@ -28,14 +28,20 @@ service cloud.firestore {
       allow read: if true;
       allow create: if true;
       allow update: if true; // For liking requests & updating status when notation added
-      allow delete: if true; // Guarded by UI for admin and owner
+      allow delete: if isAdmin() || (isSignedIn() && (
+        (resource.data.keys().hasAll(['userId']) && resource.data.userId == request.auth.uid) ||
+        (resource.data.keys().hasAll(['userEmail']) && request.auth.token.keys().hasAll(['email']) && resource.data.userEmail.lower() == request.auth.token.email.lower())
+      ));
 
       // Submitted notations subcollection
       match /notations/{notationId} {
         allow read: if true;
         allow create: if true;
         allow update: if true; // For liking individual submitted notations
-        allow delete: if true; // Guarded by UI for admin and owner
+        allow delete: if isAdmin() || (isSignedIn() && (
+          (resource.data.keys().hasAll(['authorId']) && resource.data.authorId == request.auth.uid) ||
+          (resource.data.keys().hasAll(['authorEmail']) && request.auth.token.keys().hasAll(['email']) && resource.data.authorEmail.lower() == request.auth.token.email.lower())
+        ));
       }
     }
 

@@ -21,10 +21,12 @@ export const SongRequestFAB = ({ isHidden, currentUser }: { isHidden?: boolean, 
     setStatus('submitting');
     setErrorMessage(null);
     try {
+      const userName = currentUser.displayName || currentUser.username || (currentUser.email ? currentUser.email.split('@')[0] : 'Flute Musician');
       await addDoc(collection(db, 'songRequests'), {
         ...formData,
         userId: currentUser.uid,
-        userEmail: currentUser.email,
+        userEmail: currentUser.email || '',
+        userName: userName,
         createdAt: new Date().toISOString(),
         status: 'pending'
       });
