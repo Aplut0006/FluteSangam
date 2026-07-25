@@ -14,6 +14,11 @@ async function startServer() {
 
   app.use(express.json());
 
+  app.use((req, res, next) => {
+    console.log(`Request received: ${req.method} ${req.path}`);
+    next();
+  });
+
   console.log(`Starting server. NODE_ENV: ${process.env.NODE_ENV}, isProduction: ${isProduction}`);
 
   // API routes
