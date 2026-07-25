@@ -43,7 +43,7 @@ export const SongRequestFAB = ({ isHidden, currentUser }: { isHidden?: boolean, 
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-20 md:bottom-6 right-5 md:right-6 z-[90] bg-amber-600 text-white p-3.5 md:p-4 rounded-full shadow-lg hover:bg-amber-500 transition-all hover:scale-105 flex items-center gap-2"
+        className="fixed bottom-[100px] md:bottom-6 right-5 md:right-6 z-[90] bg-amber-600 text-white p-3.5 md:p-4 rounded-full shadow-lg hover:bg-amber-500 transition-all hover:scale-105 flex items-center gap-2"
       >
         <Music size={24} />
         <span className="hidden sm:inline font-semibold">Request Notation</span>
