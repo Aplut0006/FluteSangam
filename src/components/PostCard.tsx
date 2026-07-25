@@ -74,7 +74,7 @@ export default function PostCard({
       return;
     }
     try {
-      await toggleLikePost(post.id, currentUser.uid, hasLiked);
+      await toggleLikePost(post.id, currentUser.uid, hasLiked, post.authorId, post.title, { displayName: currentUser.displayName, photoURL: currentUser.photoURL });
     } catch (error) {
       console.error("Error liking post:", error);
     }

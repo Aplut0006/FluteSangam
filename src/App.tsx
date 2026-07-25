@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { auth } from './lib/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
-import { seedDatabaseIfEmpty, subscribeToPosts, getUserProfile, subscribeToUnreadMessages, subscribeToAllUsers } from './lib/db';
+import { seedDatabaseIfEmpty, subscribeToPosts, getUserProfile, subscribeToUnreadMessages, subscribeToAllUsers, getPost } from './lib/db';
 import { UserProfile, Post, AppView } from './types';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -280,6 +280,19 @@ export default function App() {
     setCurrentUser(profile);
   };
 
+  const handleSelectPostById = async (postId: string) => {
+    let targetPost = posts.find(p => p.id === postId);
+    if (!targetPost) {
+      targetPost = (await getPost(postId)) || undefined;
+    }
+    if (targetPost) {
+      handleViewChange('post-detail', { postId: targetPost.id, post: targetPost });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      alert('This post may have been removed or is no longer available.');
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#fdfbf7] via-[#fff4e6] to-[#fdebd0] pb-20 md:pb-0" id="flutesangam-app-container">
       {/* Navbar Component */}
@@ -292,6 +305,7 @@ export default function App() {
         onViewChange={(view) => handleViewChange(view)}
         unreadCount={unreadCount}
         onEditingProfile={setIsNavbarEditingProfile}
+        onSelectPost={handleSelectPostById}
       />
 
       {/* Hero Welcome Banner */}

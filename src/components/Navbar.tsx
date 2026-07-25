@@ -5,6 +5,7 @@ import { signOut } from 'firebase/auth';
 import { updateUserProfile, isEmailTaken, isPhoneTaken, isUsernameTaken } from '../lib/db';
 import { Music, LogOut, User, Globe, Edit3, Check, X, ShieldAlert, Sparkles, MapPin, Feather, Phone, Mail, Camera, Upload, MessageSquare, Wind, BookOpen, ChevronDown, Users, Zap, Menu, Info } from 'lucide-react';
 import { CARTOON_AVATARS } from './AuthModal';
+import NotificationsDropdown from './NotificationsDropdown';
 
 interface NavbarProps {
   currentUser: UserProfile | null;
@@ -15,6 +16,7 @@ interface NavbarProps {
   onViewChange?: (view: AppView) => void;
   unreadCount?: number;
   onEditingProfile?: (isEditing: boolean) => void;
+  onSelectPost?: (postId: string) => void;
 }
 
 export default function Navbar({ 
@@ -25,7 +27,8 @@ export default function Navbar({
   currentView = 'community',
   onViewChange,
   unreadCount = 0,
-  onEditingProfile
+  onEditingProfile,
+  onSelectPost
 }: NavbarProps) {
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -423,10 +426,16 @@ export default function Navbar({
         )}
 
         {/* Global user stats and profile management */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-2 sm:space-x-3">
           {currentUser ? (
-            <div className="relative" ref={dropdownRef}>
-              {/* Signed in avatar button */}
+            <>
+              <NotificationsDropdown 
+                currentUser={currentUser}
+                onSelectPost={(postId) => onSelectPost?.(postId)}
+              />
+
+              <div className="relative" ref={dropdownRef}>
+                {/* Signed in avatar button */}
               <button
                 onClick={() => setShowProfileDropdown(!showProfileDropdown)}
                 className="flex items-center space-x-2 p-1 rounded-xl hover:bg-bamboo-50 border border-transparent hover:border-bamboo-100/60 transition"
@@ -499,6 +508,7 @@ export default function Navbar({
                 </div>
               )}
             </div>
+          </>
           ) : (
             <button
               onClick={onOpenAuth}

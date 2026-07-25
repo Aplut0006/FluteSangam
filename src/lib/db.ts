@@ -21,7 +21,7 @@ import {
   collectionGroup
 } from 'firebase/firestore';
 import { db } from './firebase';
-import { Post, Comment, UserProfile } from '../types';
+import { Post, Comment, UserProfile, AppNotification } from '../types';
 import { INITIAL_COMMUNITY_POSTS, MOCK_COMMENTS } from '../data/mockPosts';
 
 // Seeding function
@@ -245,8 +245,103 @@ export async function deletePost(postId: string): Promise<void> {
   }
 }
 
+// Get a single post
+export async function getPost(postId: string): Promise<Post | null> {
+  try {
+    const postRef = doc(db, 'posts', postId);
+    const snap = await getDoc(postRef);
+    if (snap.exists()) {
+      const data = snap.data();
+      return {
+        ...data,
+        id: snap.id,
+        createdAt: data.createdAt ? data.createdAt.toDate() : new Date()
+      } as Post;
+    }
+    return null;
+  } catch (error) {
+    console.error("Error getting post:", error);
+    return null;
+  }
+}
+
+// Notifications functions
+export async function addNotification(notification: Omit<AppNotification, 'id' | 'createdAt'>): Promise<void> {
+  try {
+    const notifCol = collection(db, 'notifications');
+    await addDoc(notifCol, cleanUndefined({
+      ...notification,
+      read: false,
+      createdAt: Timestamp.now()
+    }));
+  } catch (error) {
+    console.error("Error adding notification:", error);
+  }
+}
+
+export function subscribeToNotifications(userId: string, callback: (notifications: AppNotification[]) => void) {
+  const notifCol = collection(db, 'notifications');
+  const q = query(notifCol, where('recipientId', '==', userId));
+  
+  return onSnapshot(q, (snapshot) => {
+    const notifications: AppNotification[] = [];
+    snapshot.forEach((docSnap) => {
+      const data = docSnap.data();
+      notifications.push({
+        id: docSnap.id,
+        recipientId: data.recipientId,
+        senderId: data.senderId,
+        senderName: data.senderName,
+        senderPhoto: data.senderPhoto,
+        type: data.type,
+        postId: data.postId,
+        postTitle: data.postTitle,
+        commentText: data.commentText,
+        read: data.read || false,
+        createdAt: data.createdAt ? data.createdAt.toDate() : new Date()
+      });
+    });
+    // Sort descending by createdAt
+    notifications.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
+    callback(notifications);
+  }, (error) => {
+    console.error("Error subscribing to notifications:", error);
+  });
+}
+
+export async function markNotificationAsRead(notificationId: string): Promise<void> {
+  try {
+    const notifRef = doc(db, 'notifications', notificationId);
+    await updateDoc(notifRef, { read: true });
+  } catch (error) {
+    console.error("Error marking notification as read:", error);
+  }
+}
+
+export async function markAllNotificationsAsRead(userId: string): Promise<void> {
+  try {
+    const notifCol = collection(db, 'notifications');
+    const q = query(notifCol, where('recipientId', '==', userId), where('read', '==', false));
+    const snapshot = await getDocs(q);
+    const batch = writeBatch(db);
+    snapshot.forEach((docSnap) => {
+      batch.update(docSnap.ref, { read: true });
+    });
+    await batch.commit();
+  } catch (error) {
+    console.error("Error marking all notifications as read:", error);
+  }
+}
+
 // Like or unlike a post
-export async function toggleLikePost(postId: string, userId: string, hasLiked: boolean): Promise<void> {
+export async function toggleLikePost(
+  postId: string, 
+  userId: string, 
+  hasLiked: boolean,
+  postAuthorId?: string,
+  postTitle?: string,
+  senderUser?: { displayName: string; photoURL: string }
+): Promise<void> {
   try {
     const postRef = doc(db, 'posts', postId);
     if (hasLiked) {
@@ -259,6 +354,39 @@ export async function toggleLikePost(postId: string, userId: string, hasLiked: b
         likes: arrayUnion(userId),
         likeCount: increment(1)
       });
+
+      // Send notification to post author if not self
+      let targetAuthorId = postAuthorId;
+      let targetTitle = postTitle;
+
+      if (!targetAuthorId || !targetTitle) {
+        const postSnap = await getDoc(postRef);
+        if (postSnap.exists()) {
+          const data = postSnap.data();
+          targetAuthorId = data.authorId;
+          targetTitle = data.title;
+        }
+      }
+
+      if (targetAuthorId && targetAuthorId !== userId) {
+        let senderName = senderUser?.displayName;
+        let senderPhoto = senderUser?.photoURL;
+        if (!senderName) {
+          const uProfile = await getUserProfile(userId);
+          senderName = uProfile?.displayName || 'A fellow flutist';
+          senderPhoto = uProfile?.photoURL || '';
+        }
+        await addNotification({
+          recipientId: targetAuthorId,
+          senderId: userId,
+          senderName: senderName || 'A fellow flutist',
+          senderPhoto: senderPhoto || '',
+          type: 'like',
+          postId,
+          postTitle: targetTitle || 'your post',
+          read: false
+        });
+      }
     }
   } catch (error) {
     console.error("Error toggling like:", error);
@@ -329,7 +457,12 @@ export function subscribeToLatestComments(postId: string, limitCount: number, ca
   });
 }
 
-export async function addComment(postId: string, comment: Omit<Comment, 'id' | 'createdAt'>): Promise<void> {
+export async function addComment(
+  postId: string, 
+  comment: Omit<Comment, 'id' | 'createdAt'>,
+  postAuthorId?: string,
+  postTitle?: string
+): Promise<void> {
   try {
     // Add comment to posts/{postId}/comments
     const commentsCol = collection(db, 'posts', postId, 'comments');
@@ -345,6 +478,33 @@ export async function addComment(postId: string, comment: Omit<Comment, 'id' | '
     await updateDoc(postRef, {
       commentsCount: increment(1)
     });
+
+    // Send notification to post author if not self
+    let targetAuthorId = postAuthorId;
+    let targetTitle = postTitle;
+
+    if (!targetAuthorId || !targetTitle) {
+      const postSnap = await getDoc(postRef);
+      if (postSnap.exists()) {
+        const data = postSnap.data();
+        targetAuthorId = data.authorId;
+        targetTitle = data.title;
+      }
+    }
+
+    if (targetAuthorId && targetAuthorId !== comment.authorId) {
+      await addNotification({
+        recipientId: targetAuthorId,
+        senderId: comment.authorId,
+        senderName: comment.authorName || 'A fellow flutist',
+        senderPhoto: comment.authorPhoto || '',
+        type: 'comment',
+        postId,
+        postTitle: targetTitle || 'your post',
+        commentText: comment.text ? comment.text.substring(0, 80) : 'left an attachment',
+        read: false
+      });
+    }
   } catch (error) {
     console.error("Error adding comment:", error);
   }

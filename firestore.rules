@@ -65,5 +65,11 @@ service cloud.firestore {
         allow delete: if isSignedIn() && resource.data.authorId == request.auth.uid;
       }
     }
+
+    // Notifications collection
+    match /notifications/{notificationId} {
+      allow read, create: if isSignedIn();
+      allow update, delete: if isSignedIn() && resource.data.recipientId == request.auth.uid;
+    }
   }
 }

@@ -1,3 +1,17 @@
+export interface AppNotification {
+  id: string;
+  recipientId: string; // post author's uid
+  senderId: string;    // liker or commenter's uid
+  senderName: string;
+  senderPhoto?: string;
+  type: 'like' | 'comment';
+  postId: string;
+  postTitle: string;
+  commentText?: string;
+  read: boolean;
+  createdAt: any;
+}
+
 export type AppView = 'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_basics' | 'learn_alankaras' | 'learn_raagas' | 'community_members' | 'about_us' | 'learn_dashboard' | 'notation_requests';
 
 export interface UserProfile {

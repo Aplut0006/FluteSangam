@@ -144,7 +144,7 @@ export default function PostDetailView({
         parentId: replyingTo?.id,
         replyToName: replyingTo?.name,
         replyToText: replyingTo?.text
-      });
+      }, post.authorId, post.title);
       setCommentText('');
       setCommentImageUrl('');
       setCommentError('');
@@ -163,7 +163,7 @@ export default function PostDetailView({
     }
     try {
       const isLikedAlready = post.likes.includes(currentUser.uid);
-      await toggleLikePost(post.id, currentUser.uid, isLikedAlready);
+      await toggleLikePost(post.id, currentUser.uid, isLikedAlready, post.authorId, post.title, { displayName: currentUser.displayName, photoURL: currentUser.photoURL });
     } catch (error) {
       console.error("Error liking post:", error);
     }
