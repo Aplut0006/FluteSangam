@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { auth } from './lib/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { seedDatabaseIfEmpty, subscribeToPosts, getUserProfile, subscribeToUnreadMessages, subscribeToAllUsers } from './lib/db';
@@ -32,6 +33,8 @@ import {
 } from 'lucide-react';
 
 export default function App() {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [currentUser, setCurrentUser] = useState<UserProfile | null>(null);
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
@@ -88,13 +91,15 @@ export default function App() {
     }
 
     if (push) {
-      const stateObj = { view, ...stateExtra };
-      const hash = view === 'post-detail' && stateExtra.postId ? `#post-${stateExtra.postId}` :
-                   view === 'user-profile' && stateExtra.userId ? `#user-${stateExtra.userId}` :
-                   view === 'chats' ? '#chats' : 
-                   view === 'community_members' ? '#members' : '#';
-      console.log(`Pushing state: ${hash}`);
-      window.history.pushState(stateObj, '', hash);
+      const path = view === 'post-detail' && stateExtra.postId ? `/post/${stateExtra.postId}` :
+                   view === 'user-profile' && stateExtra.userId ? `/user/${stateExtra.userId}` :
+                   view === 'chats' ? '/chats' : 
+                   view === 'community_members' ? '/members' : 
+                   view === 'about_us' ? '/about' : 
+                   view === 'learn_dashboard' ? '/learn' : 
+                   view === 'community' ? '/' : `/${view}`;
+      console.log(`Navigating to: ${path}`);
+      navigate(path, { state: stateExtra });
     }
   };
 
