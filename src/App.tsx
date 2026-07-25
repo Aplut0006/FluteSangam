@@ -325,13 +325,7 @@ export default function App() {
           <UserProfileView
             userId={selectedProfileUserId}
             currentUser={currentUser}
-            onBack={() => {
-              if (window.history.state && window.history.state.view) {
-                window.history.back();
-              } else {
-                handleViewChange('community', {}, true);
-              }
-            }}
+            onBack={() => handleViewChange('community', {}, true)}
             onStartChat={handleStartChat}
             onOpenAuth={() => setAuthModalOpen(true)}
           />
@@ -340,13 +334,7 @@ export default function App() {
             post={posts.find(p => p.id === selectedPost.id) || selectedPost}
             currentUser={currentUser}
             autoFocusComment={window.history.state?.focusComment}
-            onBack={() => {
-              if (window.history.state && window.history.state.view) {
-                window.history.back();
-              } else {
-                handleViewChange('community', {}, true);
-              }
-            }}
+            onBack={() => handleViewChange('community', {}, true)}
             onOpenAuth={() => setAuthModalOpen(true)}
             onOpenShare={handleOpenShare}
             onStartChat={handleStartChat}
@@ -590,6 +578,11 @@ export default function App() {
       {/* Footer */}
       <footer className="bg-bamboo-800 text-bamboo-200 text-xs border-t border-bamboo-700/50 mt-12 py-8" id="app-footer">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
+          <div className="mt-2 text-[11px] mb-2">
+             <a href="https://www.reddit.com/r/FluteSangam/" target="_blank" rel="noopener noreferrer" className="text-bamboo-200 hover:text-white transition font-semibold flex items-center justify-center gap-1">
+               Join our Reddit Community
+             </a>
+          </div>
           <div className="flex items-center justify-center space-x-2 text-white">
             <img src="/flutesangam_without_tagline.png" alt="FluteSangam" className="h-14 w-auto" />
           </div>
