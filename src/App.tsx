@@ -119,6 +119,8 @@ export default function App() {
       newView = 'about_us';
     } else if (pathname === '/learn') {
       newView = 'learn_dashboard';
+    } else if (pathname === '/learn_intro') {
+      newView = 'learn_intro';
     } else if (pathname === '/') {
       newView = 'community';
     } else {
