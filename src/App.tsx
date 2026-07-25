@@ -105,28 +105,32 @@ export default function App() {
 
   useEffect(() => {
     const { pathname } = location;
+    const cleanPath = pathname.endsWith('/') && pathname.length > 1 ? pathname.slice(0, -1) : pathname;
+    console.log(`Pathname changed to: ${pathname}, clean: ${cleanPath}`);
 
     let newView: AppView = 'community';
-    if (pathname.startsWith('/post/')) {
+    if (cleanPath.startsWith('/post/')) {
       newView = 'post-detail';
-    } else if (pathname.startsWith('/user/')) {
+    } else if (cleanPath.startsWith('/user/')) {
       newView = 'user-profile';
-    } else if (pathname === '/chats') {
+    } else if (cleanPath === '/chats') {
       newView = 'chats';
-    } else if (pathname === '/members') {
+    } else if (cleanPath === '/members') {
       newView = 'community_members';
-    } else if (pathname === '/about') {
+    } else if (cleanPath === '/about') {
       newView = 'about_us';
-    } else if (pathname === '/learn') {
+    } else if (cleanPath === '/learn') {
       newView = 'learn_dashboard';
-    } else if (pathname === '/learn_intro') {
+    } else if (cleanPath === '/learn_intro') {
       newView = 'learn_intro';
-    } else if (pathname === '/') {
+    } else if (cleanPath === '/') {
       newView = 'community';
     } else {
         // Fallback for unknown paths
+        console.log(`Unknown path: ${cleanPath}`);
         return;
     }
+    console.log(`Setting newView to: ${newView}`);
     
     if (newView !== currentView) {
       setCurrentView(newView);

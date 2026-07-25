@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { UserProfile, AppView } from '../types';
 import { auth } from '../lib/firebase';
 import { signOut } from 'firebase/auth';
@@ -202,8 +203,8 @@ export default function Navbar({
 
         {/* Desktop View Selector */}
         <div className="hidden md:flex items-center space-x-1 bg-bamboo-50 p-1 rounded-xl border border-bamboo-100/50">
-          <button
-            onClick={() => onViewChange?.('community')}
+          <Link
+            to="/community"
             className={`px-4 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
               currentView === 'community' 
                 ? 'bg-bamboo-700 text-white shadow-3xs' 
@@ -212,10 +213,10 @@ export default function Navbar({
           >
             <Globe className="w-4 h-4 text-amber-600" />
             <span>Sadhana Feed</span>
-          </button>
+          </Link>
           
-          <button
-            onClick={() => onViewChange?.('community_members')}
+          <Link
+            to="/members"
             className={`px-4 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
               currentView === 'community_members' 
                 ? 'bg-bamboo-700 text-white shadow-3xs' 
@@ -224,10 +225,10 @@ export default function Navbar({
           >
             <Users className="w-4 h-4 text-amber-600" />
             <span>Members</span>
-          </button>
+          </Link>
           
-          <button
-            onClick={() => onViewChange?.('about_us')}
+          <Link
+            to="/about"
             className={`px-4 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
               currentView === 'about_us' 
                 ? 'bg-bamboo-700 text-white shadow-3xs' 
@@ -236,16 +237,10 @@ export default function Navbar({
           >
             <Info className="w-4 h-4 text-amber-600" />
             <span>About Us</span>
-          </button>
+          </Link>
           
-          <button
-            onClick={() => {
-              if (!currentUser) {
-                onOpenAuth();
-              } else {
-                onViewChange?.('chats');
-              }
-            }}
+          <Link
+            to="/chats"
             className={`px-4 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 relative cursor-pointer ${
               currentView === 'chats' 
                 ? 'bg-bamboo-700 text-white shadow-3xs' 
@@ -259,7 +254,7 @@ export default function Navbar({
                 {unreadCount}
               </span>
             )}
-          </button>
+          </Link>
 
           {/* Learn Flute Dropdown */}
           <div className="relative" ref={learnDropdownRef}>
