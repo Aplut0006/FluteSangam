@@ -379,6 +379,12 @@ export default function Navbar({
               <MessageSquare className="w-4 h-4" /> Sangam Chats
             </button>
             <button
+              onClick={() => { onViewChange?.('notation_requests'); setShowMobileMenu(false); }}
+              className="w-full flex items-center gap-3 px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-bamboo-50 rounded-lg"
+            >
+              <Music className="w-4 h-4 text-amber-600" /> Notation Requests
+            </button>
+            <button
               onClick={() => setShowMobileLearnMenu(!showMobileLearnMenu)}
               className="w-full flex items-center justify-between gap-3 px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-bamboo-50 rounded-lg"
             >
