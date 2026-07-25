@@ -38,8 +38,9 @@ async function startServer() {
     });
     app.use(express.static(distPath));
     app.get('*', (req, res) => {
-      console.log(`Serving index.html for: ${req.url}`);
-      res.sendFile(path.join(distPath, 'index.html'));
+      const indexPath = path.join(distPath, 'index.html');
+      console.log(`Serving index.html for: ${req.url}, path: ${indexPath}, exists: ${fs.existsSync(indexPath)}`);
+      res.sendFile(indexPath);
     });
   }
 
