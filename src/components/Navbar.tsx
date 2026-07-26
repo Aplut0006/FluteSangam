@@ -324,21 +324,21 @@ export default function Navbar({
                 </button>
                 <button
                   onClick={() => {
-                    onViewChange?.('learn_basics');
-                    setShowLearnDropdown(false);
-                  }}
-                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 cursor-pointer"
-                >
-                  The Basics
-                </button>
-                <button
-                  onClick={() => {
                     onViewChange?.('learn_choose_flute');
                     setShowLearnDropdown(false);
                   }}
                   className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 cursor-pointer"
                 >
                   Choose the Right Flute (Bansuri)
+                </button>
+                <button
+                  onClick={() => {
+                    onViewChange?.('learn_basics');
+                    setShowLearnDropdown(false);
+                  }}
+                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 cursor-pointer"
+                >
+                  The Basics
                 </button>
                 <button
                   onClick={() => {
@@ -426,16 +426,16 @@ export default function Navbar({
                   Introduction To Flute/Bansuri
                 </button>
                 <button
-                  onClick={() => { onViewChange?.('learn_basics'); setShowMobileMenu(false); }}
-                  className="w-full text-left text-sm text-gray-600 hover:text-bamboo-800 py-2"
-                >
-                  The Basics
-                </button>
-                <button
                   onClick={() => { onViewChange?.('learn_choose_flute'); setShowMobileMenu(false); }}
                   className="w-full text-left text-sm text-gray-600 hover:text-bamboo-800 py-2"
                 >
                   Choose the Right Flute (Bansuri)
+                </button>
+                <button
+                  onClick={() => { onViewChange?.('learn_basics'); setShowMobileMenu(false); }}
+                  className="w-full text-left text-sm text-gray-600 hover:text-bamboo-800 py-2"
+                >
+                  The Basics
                 </button>
                 <button
                   onClick={() => { onViewChange?.('learn_alankaras'); setShowMobileMenu(false); }}

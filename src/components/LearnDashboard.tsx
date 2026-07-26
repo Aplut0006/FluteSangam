@@ -10,8 +10,8 @@ interface LearnDashboardProps {
 export default function LearnDashboard({ onViewChange }: LearnDashboardProps) {
   const options = [
     { id: 'learn_intro', label: 'Introduction', icon: Wind, color: 'text-bamboo-600', desc: 'Origins, legacy & bansuri fundamentals' },
-    { id: 'learn_basics', label: 'The Basics', icon: BookOpen, color: 'text-amber-600', desc: 'Embouchure, posture & finger grip' },
     { id: 'learn_choose_flute', label: 'Choose the Right Flute', icon: ShoppingBag, color: 'text-emerald-600', desc: 'Scale guide for children, teens & adults' },
+    { id: 'learn_basics', label: 'The Basics', icon: BookOpen, color: 'text-amber-600', desc: 'Embouchure, posture & finger grip' },
     { id: 'learn_alankaras', label: 'Alankaras', icon: Feather, color: 'text-rose-600', desc: 'Essential daily warmups & exercises' },
     { id: 'learn_raagas', label: 'Ragas', icon: Music, color: 'text-bamboo-800', desc: 'Classical Hindustani & Carnatic guides' },
   ];
