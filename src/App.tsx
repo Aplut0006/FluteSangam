@@ -908,7 +908,7 @@ export default function App() {
             </a>
           </div>
           <div className="flex items-center justify-center space-x-2 text-white">
-            <img src="/flutesangam_without_tagline.png" alt="FluteSangam" className="h-14 w-auto" />
+            <img src="/flutesangam_without_tagline.png" alt="FluteSangam" className="h-18 sm:h-20 w-auto object-contain drop-shadow-md" />
           </div>
           <div className="flex items-center justify-center gap-4 text-[11px] pt-1">
             <button

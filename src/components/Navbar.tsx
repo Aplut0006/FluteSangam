@@ -211,9 +211,9 @@ export default function Navbar({
           <img 
             src="/flutesangam_without_tagline.png" 
             alt="FluteSangam" 
-            className="h-9 sm:h-10.5 w-auto transition-transform group-hover:scale-105 shrink-0 object-contain" 
+            className="h-11 sm:h-12.5 w-auto transition-transform group-hover:scale-105 shrink-0 object-contain" 
           />
-          <span className="font-display font-extrabold text-lg sm:text-xl xl:text-2xl tracking-tight text-bamboo-950 group-hover:text-bamboo-800 transition-colors whitespace-nowrap">
+          <span className="font-display font-extrabold text-xl sm:text-2xl tracking-tight text-bamboo-950 group-hover:text-bamboo-800 transition-colors whitespace-nowrap">
             Flute<span className="text-amber-700">Sangam</span>
           </span>
         </button>
