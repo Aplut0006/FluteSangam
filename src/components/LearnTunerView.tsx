@@ -88,13 +88,20 @@ export default function LearnTunerView({ onViewChange }: LearnTunerViewProps) {
   const [isPlayingReference, setIsPlayingReference] = useState<boolean>(false);
   const [referenceFreq, setReferenceFreq] = useState<number>(440); // Standard A = 440 Hz
   
-  // Audio API Refs
+  // Audio API & Dynamic State Refs
   const audioCtxRef = useRef<AudioContext | null>(null);
   const analyserRef = useRef<AnalyserNode | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const animFrameRef = useRef<number | null>(null);
   const refOscillatorRef = useRef<OscillatorNode | null>(null);
   const refGainRef = useRef<GainNode | null>(null);
+
+  const isListeningRef = useRef<boolean>(false);
+  const selectedScaleKeyRef = useRef<string>(selectedScaleKey);
+
+  useEffect(() => {
+    selectedScaleKeyRef.current = selectedScaleKey;
+  }, [selectedScaleKey]);
 
   // Pitch calculation helper
   const getNoteFromFreq = useCallback((freq: number) => {
@@ -119,58 +126,65 @@ export default function LearnTunerView({ onViewChange }: LearnTunerViewProps) {
     return matchedSwara ? matchedSwara.name : '--';
   }, []);
 
-  // Auto-correlation Pitch Detection Algorithm
+  // Robust Auto-correlation Pitch Detection Algorithm
   const autoCorrelate = (buffer: Float32Array, sampleRate: number) => {
-    // Calculate RMS (Signal volume)
-    let sum = 0;
-    for (let i = 0; i < buffer.length; i++) {
-      sum += buffer[i] * buffer[i];
+    const SIZE = buffer.length;
+    let sumSq = 0;
+    for (let i = 0; i < SIZE; i++) {
+      const val = buffer[i];
+      sumSq += val * val;
     }
-    const rms = Math.sqrt(sum / buffer.length);
-    
-    // Threshold for silence/noise
-    if (rms < 0.012) {
+    const rms = Math.sqrt(sumSq / SIZE);
+
+    // RMS Noise Floor Gate (0.005 is responsive to voice/humming/flute)
+    if (rms < 0.005) {
       return { freq: -1, clarity: 0 };
     }
 
-    // Auto-correlation algorithm
-    let r1 = 0, r2 = buffer.length - 1, thres = 0.2;
-    for (let i = 0; i < buffer.length / 2; i++) {
-      if (Math.abs(buffer[i]) < thres) { r1 = i; break; }
-    }
-    for (let i = 1; i < buffer.length / 2; i++) {
-      if (Math.abs(buffer[buffer.length - i]) < thres) { r2 = buffer.length - i; break; }
-    }
-
-    const buf = buffer.slice(r1, r2);
-    const bufSize = buf.length;
-    const c = new Float32Array(bufSize);
-
-    for (let i = 0; i < bufSize; i++) {
-      for (let j = 0; j < bufSize - i; j++) {
-        c[i] = c[i] + buf[j] * buf[j + i];
+    // Normalized Autocorrelation
+    const c = new Float32Array(SIZE);
+    for (let i = 0; i < SIZE / 2; i++) {
+      let sum = 0;
+      for (let j = 0; j < SIZE - i; j++) {
+        sum += buffer[j] * buffer[j + i];
       }
+      c[i] = sum;
     }
 
+    // Find first local minimum (first valley)
     let d = 0;
-    while (c[d] > c[d + 1]) d++;
+    while (d < SIZE / 2 - 1 && c[d] > c[d + 1]) {
+      d++;
+    }
 
-    let maxval = -1, maxpos = -1;
-    for (let i = d; i < bufSize; i++) {
-      if (c[i] > maxval) {
-        maxval = c[i];
-        maxpos = i;
+    // Find highest peak after first valley
+    let maxValue = -1;
+    let maxIndex = -1;
+    for (let i = d; i < SIZE / 2; i++) {
+      if (c[i] > maxValue) {
+        maxValue = c[i];
+        maxIndex = i;
       }
     }
 
-    let T0 = maxpos;
-    const x1 = c[T0 - 1], x2 = c[T0], x3 = c[T0 + 1];
+    if (maxIndex <= 0 || c[0] <= 0) {
+      return { freq: -1, clarity: 0 };
+    }
+
+    // Parabolic interpolation around peak
+    let T0 = maxIndex;
+    const x1 = c[T0 - 1] || 0;
+    const x2 = c[T0];
+    const x3 = c[T0 + 1] || 0;
+
     const a = (x1 + x3 - 2 * x2) / 2;
     const b = (x3 - x1) / 2;
-    if (a) T0 = T0 - b / (2 * a);
+    if (a !== 0) {
+      T0 = T0 - b / (2 * a);
+    }
 
     const pitchFreq = sampleRate / T0;
-    const signalClarity = maxval / c[0];
+    const signalClarity = maxValue / c[0];
 
     return { freq: pitchFreq, clarity: signalClarity };
   };
@@ -183,34 +197,41 @@ export default function LearnTunerView({ onViewChange }: LearnTunerViewProps) {
         audio: {
           echoCancellation: false,
           noiseSuppression: false,
-          autoGainControl: false,
+          autoGainControl: true,
         }
       });
       
       streamRef.current = stream;
       const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
       const audioCtx = new AudioCtx();
+      if (audioCtx.state === 'suspended') {
+        await audioCtx.resume();
+      }
       audioCtxRef.current = audioCtx;
 
       const source = audioCtx.createMediaStreamSource(stream);
       const analyser = audioCtx.createAnalyser();
       analyser.fftSize = 2048;
+      analyser.smoothingTimeConstant = 0.8;
       analyserRef.current = analyser;
 
       source.connect(analyser);
+
+      isListeningRef.current = true;
       setIsListening(true);
 
       const buffer = new Float32Array(analyser.fftSize);
 
       const processAudio = () => {
-        if (!analyserRef.current || !isListening) return;
+        if (!analyserRef.current || !isListeningRef.current) return;
         analyserRef.current.getFloatTimeDomainData(buffer);
 
         const { freq, clarity: c } = autoCorrelate(buffer, audioCtx.sampleRate);
 
-        // Flute range approx 130 Hz - 2500 Hz
-        if (freq > 130 && freq < 2500 && c > 0.85) {
-          setFrequency(Math.round(freq * 10) / 10);
+        // Responsive Pitch range (80 Hz to 2800 Hz) covering vocal humming, singing, and all Bansuri scales
+        if (freq > 80 && freq < 2800 && c > 0.5) {
+          const roundedFreq = Math.round(freq * 10) / 10;
+          setFrequency(roundedFreq);
           setClarity(Math.round(c * 100));
 
           const noteData = getNoteFromFreq(freq);
@@ -219,28 +240,32 @@ export default function LearnTunerView({ onViewChange }: LearnTunerViewProps) {
           setCents(noteData.cents);
 
           // Exponential smoothing for the needle
-          setSmoothedCents(prev => prev + (noteData.cents - prev) * 0.22);
+          setSmoothedCents(prev => prev + (noteData.cents - prev) * 0.25);
 
-          const swara = getSwaraForNote(noteData.name, selectedScaleKey);
+          const swara = getSwaraForNote(noteData.name, selectedScaleKeyRef.current);
           setDetectedSwara(swara);
         } else {
-          // Fade smoothed cents back to zero gently when silent
-          setSmoothedCents(prev => prev * 0.85);
+          // Fade smoothed cents back to center when silent
+          setSmoothedCents(prev => prev * 0.82);
         }
 
-        animFrameRef.current = requestAnimationFrame(processAudio);
+        if (isListeningRef.current) {
+          animFrameRef.current = requestAnimationFrame(processAudio);
+        }
       };
 
       animFrameRef.current = requestAnimationFrame(processAudio);
     } catch (err) {
       console.error('Microphone error:', err);
       setAudioPermissionError('Microphone access was denied or not available. Please allow audio permission in your browser to use the tuner.');
+      isListeningRef.current = false;
       setIsListening(false);
     }
   };
 
   // Stop Mic Listening
   const stopListening = () => {
+    isListeningRef.current = false;
     if (animFrameRef.current) {
       cancelAnimationFrame(animFrameRef.current);
     }
