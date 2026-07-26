@@ -25,6 +25,7 @@ import LearnRaagasView from './components/LearnRaagasView';
 import MembersView from './components/MembersView';
 import ImageModal from './components/ImageModal';
 import AboutUsView from './components/AboutUsView';
+import ContactUsView from './components/ContactUsView';
 import MobileBottomNav from './components/MobileBottomNav';
 import { SongRequestFAB } from './components/SongRequestFAB';
 import { NotationRequestsView } from './components/NotationRequestsView';
@@ -121,6 +122,10 @@ export default function App() {
       case 'about_us':
         title = 'About Us | FluteSangam';
         description = 'Learn about FluteSangam’s mission to preserve and promote Indian bamboo flute heritage through community and education.';
+        break;
+      case 'contact_us':
+        title = 'Contact Us | FluteSangam';
+        description = 'Get in touch with FluteSangam. Reach out for support, feedback, song sargam requests, or community inquiries.';
         break;
       case 'privacy_policy':
         title = 'Privacy Policy | FluteSangam';
@@ -653,6 +658,8 @@ export default function App() {
           <LearnRaagasView />
         ) : currentView === 'about_us' ? (
           <AboutUsView />
+        ) : currentView === 'contact_us' ? (
+          <ContactUsView onBackToCommunity={() => handleViewChange('community')} />
         ) : currentView === 'privacy_policy' ? (
           <PrivacyPolicyView onBackToCommunity={() => handleViewChange('community')} />
         ) : currentView === 'terms_of_service' ? (
@@ -945,6 +952,14 @@ export default function App() {
               id="footer-about-us-btn"
             >
               About Us
+            </button>
+            <span className="text-bamboo-600">•</span>
+            <button
+              onClick={() => handleViewChange('contact_us')}
+              className="text-amber-400 hover:text-amber-300 underline font-medium transition cursor-pointer"
+              id="footer-contact-us-btn"
+            >
+              Contact Us
             </button>
           </div>
           <p className="text-[10px] text-bamboo-300/80 max-w-xl mx-auto leading-relaxed pt-1">

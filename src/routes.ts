@@ -9,6 +9,7 @@ export const VIEW_URLS: Record<string, string> = {
   'learn_raagas': '/learn/raagas',
   'community_members': '/members',
   'about_us': '/about',
+  'contact_us': '/contact',
   'learn_dashboard': '/learn',
   'notation_requests': '/notations',
   'privacy_policy': '/privacy-policy',
