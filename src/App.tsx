@@ -135,11 +135,21 @@ export default function App() {
     const path = location.pathname;
     
     if (path.startsWith('/post/')) {
-        const postId = path.split('/')[2];
-        if (currentView !== 'post-detail' || selectedPost?.id !== postId) {
-            // Need to fetch post here if not already loaded, but for now just navigate
-            // This is a bit complex, let's just handle simple routes first
+      const postId = path.split('/')[2];
+      if (postId && (currentView !== 'post-detail' || selectedPost?.id !== postId)) {
+        const foundPost = posts.find(p => p.id === postId);
+        if (foundPost) {
+          handleViewChange('post-detail', { postId, post: foundPost }, false);
+        } else {
+          getPost(postId).then((fetchedPost) => {
+            if (fetchedPost) {
+              handleViewChange('post-detail', { postId, post: fetchedPost }, false);
+            } else {
+              handleViewChange('community', {}, false);
+            }
+          });
         }
+      }
     } else if (path.startsWith('/profile/')) {
         const userId = path.split('/')[2];
         if (currentView !== 'user-profile' || selectedProfileUserId !== userId) {
@@ -151,7 +161,7 @@ export default function App() {
             handleViewChange(view, {}, false);
         }
     }
-  }, [location.pathname]);
+  }, [location.pathname, posts]);
 
   const handleViewChange = (
     view: AppView,
@@ -159,7 +169,7 @@ export default function App() {
     push = true
   ) => {
     console.log(`handleViewChange called for view: ${view}`);
-    if ((view === 'community_members' || view === 'post-detail') && !currentUser) {
+    if (view === 'community_members' && !currentUser) {
       setAuthModalOpen(true);
       return;
     }
@@ -647,10 +657,6 @@ export default function App() {
                     onStartChat={handleStartChat}
                     onUserProfileClick={handleOpenUserProfile}
                     onPostClick={(clickedPost, focusComment) => {
-                      if (!currentUser) {
-                        setAuthModalOpen(true);
-                        return;
-                      }
                       handleViewChange('post-detail', { postId: clickedPost.id, post: clickedPost, focusComment });
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}

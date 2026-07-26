@@ -15,8 +15,8 @@ export default function ShareModal({ isOpen, onClose, post }: ShareModalProps) {
   if (!isOpen || !post) return null;
 
   // Derive the share text
+  const shareUrl = `${window.location.origin}/post/${post.id}`;
   const shareTitle = `Check out this post on FluteSangam: "${post.title}" by ${post.authorName}!`;
-  const shareUrl = window.location.href;
   const fullShareText = `${shareTitle} Join the global bansuri & flute community: ${shareUrl}`;
 
   const copyToClipboard = async () => {
