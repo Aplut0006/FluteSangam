@@ -480,7 +480,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#fdfbf7] via-[#fff4e6] to-[#fdebd0] pb-20 md:pb-0" id="flutesangam-app-container">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#fdfbf7] via-[#fff4e6] to-[#fdebd0] pb-24 md:pb-0" id="flutesangam-app-container">
       {/* Navbar Component */}
       <Navbar 
         currentUser={currentUser} 

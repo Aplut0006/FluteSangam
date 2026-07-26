@@ -51,9 +51,14 @@ export default function MobileBottomNav({
 
   return (
     <div 
-      className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white/95 backdrop-blur-xl border-t border-bamboo-200/80 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]"
+      className="fixed bottom-0 inset-x-0 z-[999] md:hidden bg-white/98 border-t border-bamboo-200/80 shadow-[0_-4px_25px_rgba(0,0,0,0.1)] transition-transform duration-200 ease-out"
       style={{
-        paddingBottom: 'max(0.5rem, env(safe-area-inset-bottom, 0px))'
+        paddingBottom: 'max(0.5rem, env(safe-area-inset-bottom, 0px))',
+        WebkitTransform: 'translateZ(0)',
+        transform: 'translateZ(0)',
+        WebkitBackfaceVisibility: 'hidden',
+        backfaceVisibility: 'hidden',
+        willChange: 'transform'
       }}
     >
       <nav 
