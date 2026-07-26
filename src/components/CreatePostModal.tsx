@@ -15,7 +15,7 @@ interface CreatePostModalProps {
 export default function CreatePostModal({ isOpen, onClose, currentUser, postToEdit = null }: CreatePostModalProps) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [category, setCategory] = useState<'Performance' | 'Tutorial' | 'Raga Discussion' | 'Review' | 'Question'>('Performance');
+  const [category, setCategory] = useState<'Performance' | 'Tutorial' | 'Raga Discussion' | 'Review' | 'Question'>('Question');
   const [raga, setRaga] = useState('None');
   const [videoUrl, setVideoUrl] = useState('');
   const [imageUrl, setImageUrl] = useState('');
@@ -28,14 +28,14 @@ export default function CreatePostModal({ isOpen, onClose, currentUser, postToEd
     if (postToEdit) {
       setTitle(postToEdit.title || '');
       setDescription(postToEdit.description || '');
-      setCategory(postToEdit.category || 'Performance');
+      setCategory(postToEdit.category || 'Question');
       setRaga(postToEdit.raga || 'None');
       setVideoUrl(postToEdit.videoUrl || '');
       setImageUrl(postToEdit.imageUrl || '');
     } else {
       setTitle('');
       setDescription('');
-      setCategory('Performance');
+      setCategory('Question');
       setRaga('None');
       setVideoUrl('');
       setImageUrl('');
@@ -88,13 +88,6 @@ export default function CreatePostModal({ isOpen, onClose, currentUser, postToEd
       handleImageFile(e.dataTransfer.files[0]);
     }
   };
-
-  // List of high quality default youtube links for easy demo seeding if the user wants!
-  const demoVideoSuggestions = [
-    { name: "Hariprasad Chaurasia (Raga Yaman)", url: "https://www.youtube.com/embed/5U9N5Xor9tY" },
-    { name: "Pravin Godkhindi (Raga Bhimpalasi)", url: "https://www.youtube.com/embed/zH3F8rR_Zrs" },
-    { name: "Deep Classical Bansuri Sadhana", url: "https://www.youtube.com/embed/7o0ZJz6bQd4" }
-  ];
 
   // Quick Youtube clean url parser to get proper embed links
   const cleanYoutubeUrl = (url: string) => {
@@ -169,7 +162,7 @@ export default function CreatePostModal({ isOpen, onClose, currentUser, postToEd
           // Reset form
           setTitle('');
           setDescription('');
-          setCategory('Performance');
+          setCategory('Question');
           setRaga('None');
           setVideoUrl('');
           setImageUrl('');
@@ -183,10 +176,6 @@ export default function CreatePostModal({ isOpen, onClose, currentUser, postToEd
     } finally {
       setLoading(false);
     }
-  };
-
-  const handleApplyDemoVideo = (url: string) => {
-    setVideoUrl(url);
   };
 
   return (
@@ -226,11 +215,11 @@ export default function CreatePostModal({ isOpen, onClose, currentUser, postToEd
             <label className="block text-xs font-semibold text-gray-700 mb-1">Post Category</label>
             <div className="grid grid-cols-5 gap-1.5 bg-gray-50 p-1 rounded-xl border border-gray-200/60" id="category-selector-container">
               {[
+                { value: 'Question', label: 'Ask', icon: HelpCircle },
                 { value: 'Performance', label: 'Play', icon: Music },
                 { value: 'Tutorial', label: 'Learn', icon: Video },
                 { value: 'Raga Discussion', label: 'Raga', icon: Settings },
-                { value: 'Review', label: 'Review', icon: FileText },
-                { value: 'Question', label: 'Ask', icon: HelpCircle }
+                { value: 'Review', label: 'Review', icon: FileText }
               ].map((cat) => {
                 const Icon = cat.icon;
                 const isSelected = category === cat.value;
@@ -353,25 +342,6 @@ export default function CreatePostModal({ isOpen, onClose, currentUser, postToEd
                   placeholder="e.g. https://www.youtube.com/watch?v=5U9N5Xor9tY"
                   className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-bamboo-600 focus:border-transparent"
                 />
-              </div>
-
-              {/* Suggestions panel to quickly test video embeddings */}
-              <div className="bg-amber-50/50 rounded-xl p-3 border border-amber-100/50">
-                <span className="text-[10px] font-bold text-amber-800 uppercase tracking-wider block mb-1.5">
-                  ✨ Instant Demo suggestions (click to prefill)
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {demoVideoSuggestions.map((video) => (
-                    <button
-                      key={video.name}
-                      type="button"
-                      onClick={() => handleApplyDemoVideo(video.url)}
-                      className="px-2 py-1 text-[10px] font-semibold bg-white hover:bg-amber-100 text-amber-900 border border-amber-200 rounded-lg transition"
-                    >
-                      {video.name}
-                    </button>
-                  ))}
-                </div>
               </div>
             </div>
           )}

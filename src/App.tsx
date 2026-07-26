@@ -497,44 +497,6 @@ export default function App() {
                 <p className="text-xs sm:text-sm text-bamboo-100 leading-relaxed font-normal">
                   <strong>FluteSangam</strong> is an online educational and social community platform built specifically for practitioners, students, and teachers of the Indian bamboo flute (Bansuri & Venu). Our platform enables flutists to learn classical ragas & alankaras, share audio practice recordings, request song sargam notations, and connect with fellow musicians worldwide.
                 </p>
-                
-                {/* Application Purpose & Google Sign-In Transparency Card */}
-                <div className="pt-2">
-                  <div className="bg-black/30 backdrop-blur-md border border-amber-300/40 p-4 rounded-2xl text-[11px] sm:text-xs text-amber-100 space-y-2 text-left shadow-lg">
-                    <div className="flex items-center gap-2 text-amber-300 font-bold text-xs uppercase tracking-wide">
-                      <ShieldCheck className="w-4.5 h-4.5 text-amber-300 shrink-0" />
-                      <span>About FluteSangam & Account Authentication</span>
-                    </div>
-                    <p className="leading-relaxed text-bamboo-100/90">
-                      <strong>App Purpose:</strong> FluteSangam is an educational sanctuary designed to simplify flute learning, provide sargam sheet music notations, host student audio recitals, and foster global music collaboration.
-                    </p>
-                    <p className="leading-relaxed text-bamboo-100/90 pt-0.5 border-t border-white/10">
-                      <strong>Google Sign-In Notice:</strong> We use Google Sign-In and email to securely authenticate users. When you log in with Google, we collect your name, email address, and profile photo solely to create your account, display your identity on your published posts and comments, and personalize your experience.
-                    </p>
-                    <div className="flex items-center gap-3 pt-1 text-[11px] font-semibold text-amber-300">
-                      <button 
-                        onClick={() => handleViewChange('privacy_policy')} 
-                        className="hover:underline text-amber-300 hover:text-white transition cursor-pointer"
-                      >
-                        Privacy Policy
-                      </button>
-                      <span>•</span>
-                      <button 
-                        onClick={() => handleViewChange('terms_of_service')} 
-                        className="hover:underline text-amber-300 hover:text-white transition cursor-pointer"
-                      >
-                        Terms of Service
-                      </button>
-                      <span>•</span>
-                      <button 
-                        onClick={() => handleViewChange('about_us')} 
-                        className="hover:underline text-amber-300 hover:text-white transition cursor-pointer"
-                      >
-                        About Us
-                      </button>
-                    </div>
-                  </div>
-                </div>
               </div>
 
               {/* Core Call To Action */}
@@ -573,7 +535,7 @@ export default function App() {
             {/* 4 Community Purpose Pillars */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 pt-4 border-t border-white/10">
               <div 
-                onClick={() => handleViewChange('community')}
+                onClick={handleOpenCreatePost}
                 className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-3 sm:p-3.5 transition cursor-pointer space-y-1"
               >
                 <div className="flex items-center gap-2 text-amber-300 font-bold text-xs sm:text-sm">
@@ -754,62 +716,6 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           {/* LEFT AREA: Search, Filters, and Posts Feed */}
           <div className="md:col-span-8 space-y-5 block" id="left-feed-container">
-            {/* Community Purpose & Welcome Card */}
-            <div className="bg-gradient-to-r from-amber-500/10 via-bamboo-500/10 to-amber-500/10 border border-amber-200/80 rounded-2xl p-4 sm:p-5 space-y-3 shadow-3xs" id="community-welcome-card">
-              <div className="flex items-start justify-between gap-3">
-                <div className="flex items-center gap-2.5">
-                  <div className="p-2 bg-amber-500/20 text-amber-800 rounded-xl shrink-0">
-                    <Wind className="w-5 h-5 text-amber-700" />
-                  </div>
-                  <div>
-                    <h3 className="text-sm sm:text-base font-bold text-bamboo-950 font-display">
-                      About FluteSangam Community
-                    </h3>
-                    <p className="text-[11px] text-gray-600">
-                      The premier social network & learning hub for Indian bamboo flute (Bansuri & Venu) players
-                    </p>
-                  </div>
-                </div>
-                <span className="text-[10px] font-bold text-amber-900 bg-amber-100 px-2.5 py-1 rounded-full border border-amber-300 uppercase shrink-0 hidden sm:inline-block">
-                  Community Purpose
-                </span>
-              </div>
-              
-              <div className="space-y-2 text-xs text-gray-700 leading-relaxed">
-                <p>
-                  <strong>App Purpose:</strong> FluteSangam brings together students, performers, and gurus to practice <strong>sadhana</strong>, demystify classical ragas, exchange song sheet music notations (sargam), upload audio recitals, and support each other's musical growth in a respectful, welcoming space.
-                </p>
-                <div className="bg-amber-500/10 border border-amber-300/80 rounded-xl p-2.5 text-[11px] text-amber-950 flex items-center gap-2 font-medium">
-                  <ShieldCheck className="w-4 h-4 text-amber-700 shrink-0" />
-                  <span>We use email and Google Sign-In to authenticate users and securely log them into our platform.</span>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-2 pt-1 text-[11px]">
-                <button 
-                  onClick={() => handleViewChange('learn_dashboard')}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white hover:bg-amber-50 border border-amber-200/80 text-bamboo-800 font-bold rounded-xl transition cursor-pointer shadow-3xs"
-                >
-                  <BookOpen className="w-3.5 h-3.5 text-amber-600" />
-                  <span>Learning Hub</span>
-                </button>
-                <button 
-                  onClick={() => handleViewChange('notation_requests')}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white hover:bg-amber-50 border border-amber-200/80 text-bamboo-800 font-bold rounded-xl transition cursor-pointer shadow-3xs"
-                >
-                  <Music className="w-3.5 h-3.5 text-amber-600" />
-                  <span>Song Notations</span>
-                </button>
-                <button 
-                  onClick={() => handleViewChange('about_us')}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white hover:bg-amber-50 border border-amber-200/80 text-bamboo-800 font-bold rounded-xl transition cursor-pointer shadow-3xs"
-                >
-                  <Info className="w-3.5 h-3.5 text-amber-600" />
-                  <span>About & Mission</span>
-                </button>
-              </div>
-            </div>
-
             {/* Search and Filters panel */}
             <div className="frosted-panel rounded-2xl p-4 space-y-4 shadow-sm">
               <div className="flex flex-col sm:flex-row gap-3">
@@ -1023,13 +929,14 @@ export default function App() {
             <span className="text-bamboo-600">•</span>
             <button
               onClick={() => handleViewChange('about_us')}
-              className="text-bamboo-300 hover:text-white transition cursor-pointer"
+              className="text-amber-400 hover:text-amber-300 underline font-medium transition cursor-pointer"
+              id="footer-about-us-btn"
             >
               About Us
             </button>
           </div>
           <p className="text-[10px] text-bamboo-300/80 max-w-xl mx-auto leading-relaxed pt-1">
-            FluteSangam is an educational & social portal for Indian bamboo flute (Bansuri) enthusiasts. We use Google Sign-In to securely authenticate members, create user profiles, and allow flutists to post recitals, comments, and song notation requests.
+            FluteSangam is an educational & social portal for Indian bamboo flute (Bansuri) enthusiasts. We use email and Google Sign-In to securely authenticate members, create user profiles, and allow flutists to post recitals, comments, and song notation requests.
           </p>
           <p className="text-[10px] text-bamboo-400">
             © {new Date().getFullYear()} FluteSangam . All rights reserved

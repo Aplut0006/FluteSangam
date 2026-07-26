@@ -494,7 +494,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
               </button>
 
               <p className="text-[10px] text-gray-500 text-center leading-normal px-2">
-                FluteSangam uses Google Sign-In to authenticate users, create member accounts, and securely allow flutists to post recitals, comments, and song notation requests. We access your basic Google profile details (name, email, photo) solely for account creation and community identification.
+                FluteSangam uses email and Google Sign-In to authenticate users, create member accounts, and securely allow flutists to post recitals, comments, and song notation requests. We access your basic profile details (name, email, photo) solely for account creation and community identification.
               </p>
             </div>
           )}

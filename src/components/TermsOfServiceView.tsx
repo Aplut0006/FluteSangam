@@ -65,7 +65,7 @@ export const TermsOfServiceView: React.FC<TermsOfServiceViewProps> = ({ onBackTo
             </div>
             <div className="bg-white/80 border border-amber-300/80 rounded-xl p-3 text-xs text-amber-950 font-medium space-y-1">
               <p><strong>App Purpose:</strong> FluteSangam is an educational and social platform dedicated to Indian bamboo flute learning, audio recital sharing, and sheet music/sargam requests.</p>
-              <p><strong>Google Sign-In Authentication:</strong> We use Google Sign-In to securely authenticate users, create member accounts, and attribute published posts, comments, and notation requests to their profile.</p>
+              <p><strong>Account Authentication:</strong> We use email and Google Sign-In to securely authenticate users, create member accounts, and attribute published posts, comments, and notation requests to their profile.</p>
             </div>
           </div>
 
