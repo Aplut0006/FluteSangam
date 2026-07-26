@@ -48,6 +48,9 @@ ${urls.map(u => `  <url>
 </urlset>`;
 
     res.header('Content-Type', 'application/xml');
+    res.header('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0');
+    res.header('Pragma', 'no-cache');
+    res.header('Expires', '0');
     res.send(xml);
   });
 
