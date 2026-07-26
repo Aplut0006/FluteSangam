@@ -83,7 +83,7 @@ export default function App() {
 
     switch (currentView) {
       case 'community':
-        title = 'Community Feed | FluteSangam';
+        title = 'FluteSangam | Indian Flute & Bansuri Community';
         description = 'Explore posts, audio recitals, questions, and discussions shared by bansuri and flute enthusiasts worldwide.';
         break;
       case 'chats':
@@ -908,7 +908,14 @@ export default function App() {
             </a>
           </div>
           <div className="flex items-center justify-center space-x-2 text-white">
-            <img src="/flutesangam_without_tagline.png" alt="FluteSangam" className="h-18 sm:h-20 w-auto object-contain drop-shadow-md" />
+            <button
+              onClick={() => handleViewChange('community')}
+              className="cursor-pointer group flex items-center justify-center gap-2 focus:outline-none"
+              title="Go to Home / Landing"
+              id="footer-brand-logo-btn"
+            >
+              <img src="/flutesangam_without_tagline.png" alt="FluteSangam" className="h-18 sm:h-20 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform" />
+            </button>
           </div>
           <div className="flex items-center justify-center gap-4 text-[11px] pt-1">
             <button

@@ -204,9 +204,14 @@ export default function Navbar({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand Logo & Name */}
         <button 
-          onClick={() => onViewChange?.('community')}
+          onClick={() => {
+            onViewChange?.('community');
+            setShowMobileMenu(false);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
           className="flex items-center gap-2 sm:gap-2.5 group focus:outline-none cursor-pointer shrink-0"
           id="navbar-brand-logo-btn"
+          title="Go to Home / Landing"
         >
           <img 
             src="/flutesangam_without_tagline.png" 
