@@ -23,6 +23,13 @@ export const SongRequestFAB: React.FC<SongRequestFABProps> = ({ isHidden, curren
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [wasAuthPrompted, setWasAuthPrompted] = useState(false);
 
+  // If user signs in while modal is open after being prompted
+  useEffect(() => {
+    if (currentUser && wasAuthPrompted && status === 'idle' && formData.songName.trim()) {
+      setWasAuthPrompted(false);
+    }
+  }, [currentUser, wasAuthPrompted, formData.songName, status]);
+
   if (isHidden) return null;
 
   const handleFabClick = () => {
@@ -47,13 +54,6 @@ export const SongRequestFAB: React.FC<SongRequestFABProps> = ({ isHidden, curren
       });
     }
   };
-
-  // If user signs in while modal is open after being prompted
-  useEffect(() => {
-    if (currentUser && wasAuthPrompted && status === 'idle' && formData.songName.trim()) {
-      setWasAuthPrompted(false);
-    }
-  }, [currentUser, wasAuthPrompted, formData.songName, status]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

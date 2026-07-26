@@ -34,7 +34,7 @@ import TermsOfServiceView from './components/TermsOfServiceView';
 // Icons
 import { 
   Search, Plus, Sparkles, HelpCircle, Compass, 
-  BookOpen, Video, Info, ArrowUpRight, Music, Filter, CheckCircle2, MessageSquare, Bell, X, Wind, ShieldCheck
+  BookOpen, Video, Info, ArrowUpRight, Music, Filter, CheckCircle2, MessageSquare, Bell, X, Wind, ShieldCheck, User, Users
 } from 'lucide-react';
 
 export default function App() {
@@ -206,9 +206,10 @@ export default function App() {
             handleViewChange('terms_of_service', {}, false);
         }
     } else {
-        const view = Object.keys(VIEW_URLS).find(v => VIEW_URLS[v as AppView] === path) as AppView;
-        if (view && currentView !== view) {
-            handleViewChange(view, {}, false);
+        const matchingView = Object.keys(VIEW_URLS).find(v => VIEW_URLS[v as AppView] === path) as AppView;
+        const targetView = matchingView || (path === '/' ? 'community' : null);
+        if (targetView && currentView !== targetView) {
+            handleViewChange(targetView, {}, false);
         }
     }
   }, [location.pathname, posts]);
@@ -219,10 +220,6 @@ export default function App() {
     push = true
   ) => {
     console.log(`handleViewChange called for view: ${view}`);
-    if (view === 'community_members' && !currentUser) {
-      setAuthModalOpen(true);
-      return;
-    }
     
     // Navigate URL
     if (push) {
@@ -231,6 +228,8 @@ export default function App() {
         url = `/post/${stateExtra.postId}`;
       } else if (view === 'user-profile' && stateExtra.userId) {
         url = `/profile/${stateExtra.userId}`;
+      } else if (view === 'user-profile' && !stateExtra.userId && currentUser) {
+        url = `/profile/${currentUser.uid}`;
       }
       if (url && location.pathname !== url) {
         navigate(url);
@@ -239,13 +238,28 @@ export default function App() {
 
     setCurrentView(view);
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    if (view === 'community' || view === 'learn_intro' || view === 'learn_basics' || view === 'learn_alankaras' || view === 'learn_raagas' || view === 'community_members') {
+
+    if (
+      view === 'community' || 
+      view === 'learn_intro' || 
+      view === 'learn_basics' || 
+      view === 'learn_alankaras' || 
+      view === 'learn_raagas' || 
+      view === 'community_members' ||
+      view === 'about_us' ||
+      view === 'notation_requests' ||
+      view === 'learn_dashboard'
+    ) {
       setSelectedPost(null);
       setSelectedProfileUserId(null);
     } else if (view === 'post-detail') {
       if (stateExtra.post) setSelectedPost(stateExtra.post);
-    } else if (view === 'user-profile' && stateExtra.userId) {
-      setSelectedProfileUserId(stateExtra.userId);
+    } else if (view === 'user-profile') {
+      if (stateExtra.userId) {
+        setSelectedProfileUserId(stateExtra.userId);
+      } else if (currentUser) {
+        setSelectedProfileUserId(currentUser.uid);
+      }
     }
   };
 
@@ -588,27 +602,48 @@ export default function App() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full pb-20" id="main-content-layout">
 
 
-        {currentView === 'user-profile' && selectedProfileUserId ? (
-          <UserProfileView
-            userId={selectedProfileUserId}
-            currentUser={currentUser}
-            onBack={() => handleViewChange('community', {}, true)}
-            onStartChat={handleStartChat}
-            onOpenAuth={() => setAuthModalOpen(true)}
-          />
-        ) : currentView === 'post-detail' && selectedPost ? (
-          <PostDetailView
-            post={posts.find(p => p.id === selectedPost.id) || selectedPost}
-            currentUser={currentUser}
-            autoFocusComment={window.history.state?.focusComment}
-            onBack={() => handleViewChange('community', {}, true)}
-            onOpenAuth={() => setAuthModalOpen(true)}
-            onOpenShare={handleOpenShare}
-            onStartChat={handleStartChat}
-            onUserProfileClick={handleOpenUserProfile}
-            onEditPost={handleOpenEditPost}
-            onOpenImage={(url) => setSelectedImageUrl(url)}
-          />
+        {currentView === 'user-profile' ? (
+          (selectedProfileUserId || currentUser) ? (
+            <UserProfileView
+              userId={selectedProfileUserId || currentUser!.uid}
+              currentUser={currentUser}
+              onBack={() => handleViewChange('community', {}, true)}
+              onStartChat={handleStartChat}
+              onOpenAuth={() => setAuthModalOpen(true)}
+            />
+          ) : (
+            <div className="flex flex-col items-center justify-center p-12 text-center bg-white rounded-3xl border border-bamboo-100 shadow-sm max-w-lg mx-auto space-y-3 my-8">
+              <User className="w-12 h-12 text-amber-600 mb-1" />
+              <h3 className="text-xl font-display font-bold text-bamboo-900">Musician Profile</h3>
+              <p className="text-xs text-gray-600 max-w-xs mx-auto">Please sign in to view your profile and contributions.</p>
+              <button 
+                onClick={() => setAuthModalOpen(true)} 
+                className="bg-bamboo-700 text-white px-6 py-2.5 rounded-xl text-xs font-bold hover:bg-bamboo-800 transition shadow-sm cursor-pointer"
+              >
+                Join / Sign In
+              </button>
+            </div>
+          )
+        ) : currentView === 'post-detail' ? (
+          selectedPost ? (
+            <PostDetailView
+              post={posts.find(p => p.id === selectedPost.id) || selectedPost}
+              currentUser={currentUser}
+              autoFocusComment={window.history.state?.focusComment}
+              onBack={() => handleViewChange('community', {}, true)}
+              onOpenAuth={() => setAuthModalOpen(true)}
+              onOpenShare={handleOpenShare}
+              onStartChat={handleStartChat}
+              onUserProfileClick={handleOpenUserProfile}
+              onEditPost={handleOpenEditPost}
+              onOpenImage={(url) => setSelectedImageUrl(url)}
+            />
+          ) : (
+            <div className="frosted-panel rounded-2xl p-12 text-center my-8 bg-white border border-bamboo-100 shadow-xs">
+              <div className="w-10 h-10 border-4 border-bamboo-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+              <p className="text-sm font-semibold text-gray-500">Loading post details...</p>
+            </div>
+          )
         ) : currentView === 'learn_dashboard' ? (
           <LearnDashboard onViewChange={handleViewChange} />
         ) : currentView === 'learn_intro' ? (
@@ -631,45 +666,60 @@ export default function App() {
           currentUser ? (
             <MembersView onUserProfileClick={handleOpenUserProfile} />
           ) : (
-            <div className="flex flex-col items-center justify-center p-12 text-center">
-              <h3 className="text-xl font-display font-bold text-bamboo-900 mb-2">Members Area</h3>
-              <p className="text-gray-600 mb-6">Please join the community to view all members.</p>
+            <div className="flex flex-col items-center justify-center p-12 text-center bg-white rounded-3xl border border-bamboo-100 shadow-sm max-w-lg mx-auto space-y-3 my-8">
+              <Users className="w-12 h-12 text-amber-600 mb-1" />
+              <h3 className="text-xl font-display font-bold text-bamboo-900">Members Directory</h3>
+              <p className="text-xs text-gray-600 max-w-xs mx-auto">Please join the community to view all members and connect with fellow flutists.</p>
               <button 
                 onClick={() => setAuthModalOpen(true)} 
-                className="bg-bamboo-700 text-white px-6 py-2.5 rounded-xl font-bold hover:bg-bamboo-800 transition"
+                className="bg-bamboo-700 text-white px-6 py-2.5 rounded-xl text-xs font-bold hover:bg-bamboo-800 transition shadow-sm cursor-pointer"
               >
                 Join / Sign In
               </button>
             </div>
           )
-        ) : currentView === 'chats' && currentUser ? (
-          <div className="space-y-5">
-            <div className="hidden md:flex items-center justify-between bg-white/70 backdrop-blur-md p-4.5 rounded-2xl border border-bamboo-100/60 shadow-3xs">
-              <div>
-                <h2 className="text-sm font-bold text-bamboo-900 font-display flex items-center gap-1.5">
-                  <MessageSquare className="w-5 h-5 text-amber-600 animate-pulse" />
-                  Sadhaka Conversation Sangam
-                </h2>
-                <p className="text-[11px] text-gray-500 font-medium">Request composition keys, raw feedback reviews, or discuss bansuri blowing styles with fellow learners.</p>
+        ) : currentView === 'chats' ? (
+          currentUser ? (
+            <div className="space-y-5">
+              <div className="hidden md:flex items-center justify-between bg-white/70 backdrop-blur-md p-4.5 rounded-2xl border border-bamboo-100/60 shadow-3xs">
+                <div>
+                  <h2 className="text-sm font-bold text-bamboo-900 font-display flex items-center gap-1.5">
+                    <MessageSquare className="w-5 h-5 text-amber-600 animate-pulse" />
+                    Sadhaka Conversation Sangam
+                  </h2>
+                  <p className="text-[11px] text-gray-500 font-medium">Request composition keys, raw feedback reviews, or discuss bansuri blowing styles with fellow learners.</p>
+                </div>
+                <button
+                  onClick={() => {
+                    handleViewChange('community');
+                  }}
+                  className="px-4 py-2 bg-bamboo-50 hover:bg-bamboo-100 border border-bamboo-100 text-bamboo-700 text-xs font-bold rounded-xl transition cursor-pointer"
+                >
+                  Back to Feed
+                </button>
               </div>
-              <button
-                onClick={() => {
-                  setCurrentView('community');
-                }}
-                className="px-4 py-2 bg-bamboo-50 hover:bg-bamboo-100 border border-bamboo-100 text-bamboo-700 text-xs font-bold rounded-xl transition cursor-pointer"
+              
+              <ChatSection
+                currentUser={currentUser}
+                onProfileUpdated={(updatedProfile) => setCurrentUser(updatedProfile)}
+                initialTargetUser={chatTargetUser}
+                onClearInitialTargetUser={() => setChatTargetUser(null)}
+                onOpenImage={(url) => setSelectedImageUrl(url)}
+              />
+            </div>
+          ) : (
+            <div className="flex flex-col items-center justify-center p-12 text-center bg-white rounded-3xl border border-bamboo-100 shadow-sm max-w-lg mx-auto space-y-3 my-8">
+              <MessageSquare className="w-12 h-12 text-amber-600 mb-1" />
+              <h3 className="text-xl font-display font-bold text-bamboo-900">Sangam Direct Messages</h3>
+              <p className="text-xs text-gray-600 max-w-xs mx-auto">Please sign in to chat directly with fellow flutists and gurus.</p>
+              <button 
+                onClick={() => setAuthModalOpen(true)} 
+                className="bg-bamboo-700 text-white px-6 py-2.5 rounded-xl text-xs font-bold hover:bg-bamboo-800 transition shadow-sm cursor-pointer"
               >
-                Back to Feed
+                Join / Sign In
               </button>
             </div>
-            
-            <ChatSection
-              currentUser={currentUser}
-              onProfileUpdated={(updatedProfile) => setCurrentUser(updatedProfile)}
-              initialTargetUser={chatTargetUser}
-              onClearInitialTargetUser={() => setChatTargetUser(null)}
-              onOpenImage={(url) => setSelectedImageUrl(url)}
-            />
-          </div>
+          )
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           {/* LEFT AREA: Search, Filters, and Posts Feed */}
