@@ -465,44 +465,112 @@ export default function App() {
 
       {/* Hero Welcome Banner */}
       {currentView === 'community' && (
-        <section className="bg-gradient-to-br from-bamboo-800 via-bamboo-700 to-bamboo-600 text-white relative overflow-hidden shadow-sm" id="hero-banner">
+        <section className="bg-gradient-to-br from-bamboo-900 via-bamboo-800 to-amber-900 text-white relative overflow-hidden shadow-md" id="hero-banner">
           {/* Abstract design vector accents */}
-          <div className="absolute top-0 right-0 w-80 h-80 bg-yellow-400/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
-          <div className="absolute bottom-0 left-0 w-60 h-60 bg-bamboo-600/30 rounded-full blur-2xl -ml-20 -mb-20"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-bamboo-600/30 rounded-full blur-2xl -ml-20 -mb-20 pointer-events-none"></div>
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 relative flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="max-w-2xl space-y-3.5 text-center md:text-left">
-              <span className="inline-flex items-center text-[10px] font-bold tracking-widest text-yellow-300 uppercase bg-white/10 px-3 py-1 rounded-full border border-white/10">
-                Learn, Share & Grow with Flute Players
-              </span>
-              <h2 className="text-2xl sm:text-3.5xl font-extrabold font-display leading-tight tracking-tight">
-                A Global Community for Flute Players & Enthusiasts
-              </h2>
-              <p className="text-xs sm:text-sm text-bamboo-100 leading-relaxed max-w-xl font-medium">
-                Join a warm, supportive community of flute practitioners. Share raw recitals, demystify classical ragas, exchange honest flute reviews, and find expert tips to master your blow.
-              </p>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 relative space-y-8">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="max-w-2xl space-y-3.5 text-center md:text-left">
+                <div className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold tracking-widest text-amber-300 uppercase bg-amber-400/10 px-3.5 py-1.5 rounded-full border border-amber-300/20 backdrop-blur-md">
+                  <Wind className="w-3.5 h-3.5 text-amber-300" />
+                  <span>The Social & Learning Community for Flute Players</span>
+                </div>
+                <h1 className="text-2xl sm:text-4xl font-extrabold font-display leading-tight tracking-tight text-white">
+                  Welcome to FluteSangam — Where Flutists Learn, Share & Grow
+                </h1>
+                <p className="text-xs sm:text-sm text-bamboo-100 leading-relaxed font-normal">
+                  <strong>FluteSangam</strong> is an online community platform built specifically for practitioners, students, and teachers of the Indian bamboo flute (Bansuri & Venu). Connect with fellow musicians, share audio practice recordings, learn classical ragas, and request song sheet music notations.
+                </p>
+              </div>
+
+              {/* Core Call To Action */}
+              <div className="bg-white/10 backdrop-blur-md p-5 rounded-2xl border border-white/15 w-full md:w-80 shrink-0 shadow-xl space-y-3.5 text-center md:text-left">
+                <div className="space-y-1">
+                  <h4 className="font-bold text-sm text-amber-300 flex items-center justify-center md:justify-start gap-1.5">
+                    <Sparkles className="w-4 h-4 text-amber-300" />
+                    Join Our Flute Sangam
+                  </h4>
+                  <p className="text-[11px] text-bamboo-100 font-medium leading-normal">
+                    Share your daily practice (sadhana), ask a query, or exchange flute reviews
+                  </p>
+                </div>
+                
+                <button
+                  onClick={handleOpenCreatePost}
+                  className="w-full py-2.5 bg-amber-400 hover:bg-amber-300 text-bamboo-950 font-extrabold text-xs rounded-xl transition shadow-md tracking-wider uppercase flex items-center justify-center space-x-1.5 cursor-pointer"
+                  id="hero-share-performance-btn"
+                >
+                  <Plus className="w-4 h-4 stroke-[3]" />
+                  <span>Share Your Recital</span>
+                </button>
+                
+                {!currentUser ? (
+                  <p className="text-[10px] text-center text-bamboo-200">
+                    Free signup for all flute enthusiasts & lovers!
+                  </p>
+                ) : (
+                  <p className="text-[10px] text-center text-amber-200 font-medium">
+                    Welcome back, {currentUser.displayName}!
+                  </p>
+                )}
+              </div>
             </div>
 
-            {/* Core Call To Action */}
-            <div className="bg-white/10 backdrop-blur-xs p-5 rounded-2xl border border-white/10 w-full md:w-80 shrink-0 shadow-lg space-y-4 text-center md:text-left">
-              <div className="space-y-1">
-                <h4 className="font-semibold text-sm text-yellow-300">Ready to Share Your Sadhana?</h4>
-                <p className="text-[11px] text-bamboo-100 font-medium">Publish your flute practice, reviews, or query today</p>
-              </div>
-              
-              <button
-                onClick={handleOpenCreatePost}
-                className="w-full py-2.5 bg-yellow-500 hover:bg-yellow-400 text-bamboo-900 font-bold text-xs rounded-xl transition shadow-xs tracking-wider uppercase flex items-center justify-center space-x-1.5"
+            {/* 4 Community Purpose Pillars */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 pt-4 border-t border-white/10">
+              <div 
+                onClick={() => handleViewChange('community')}
+                className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-3 sm:p-3.5 transition cursor-pointer space-y-1"
               >
-                <Plus className="w-4 h-4" />
-                <span>Share Performance</span>
-              </button>
-              
-              {!currentUser && (
-                <p className="text-[10px] text-center text-bamboo-200">
-                  Signup is quick and completely free!
+                <div className="flex items-center gap-2 text-amber-300 font-bold text-xs sm:text-sm">
+                  <Music className="w-4 h-4 shrink-0" />
+                  <span>Audio Recitals</span>
+                </div>
+                <p className="text-[11px] text-bamboo-100/90 leading-tight">
+                  Share raw practice recordings & get peer feedback
                 </p>
-              )}
+              </div>
+
+              <div 
+                onClick={() => handleViewChange('notation_requests')}
+                className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-3 sm:p-3.5 transition cursor-pointer space-y-1"
+              >
+                <div className="flex items-center gap-2 text-amber-300 font-bold text-xs sm:text-sm">
+                  <BookOpen className="w-4 h-4 shrink-0" />
+                  <span>Sargam Notations</span>
+                </div>
+                <p className="text-[11px] text-bamboo-100/90 leading-tight">
+                  Request and share song sheet music & notes
+                </p>
+              </div>
+
+              <div 
+                onClick={() => handleViewChange('learn_dashboard')}
+                className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-3 sm:p-3.5 transition cursor-pointer space-y-1"
+              >
+                <div className="flex items-center gap-2 text-amber-300 font-bold text-xs sm:text-sm">
+                  <Compass className="w-4 h-4 shrink-0" />
+                  <span>Raga & Alankars</span>
+                </div>
+                <p className="text-[11px] text-bamboo-100/90 leading-tight">
+                  Master classical scales, drills & pakad notes
+                </p>
+              </div>
+
+              <div 
+                onClick={() => handleViewChange('community_members')}
+                className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-3 sm:p-3.5 transition cursor-pointer space-y-1"
+              >
+                <div className="flex items-center gap-2 text-amber-300 font-bold text-xs sm:text-sm">
+                  <MessageSquare className="w-4 h-4 shrink-0" />
+                  <span>Flutist Sangam</span>
+                </div>
+                <p className="text-[11px] text-bamboo-100/90 leading-tight">
+                  Connect by flute key (C#, G Base) & chat
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -598,6 +666,54 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           {/* LEFT AREA: Search, Filters, and Posts Feed */}
           <div className="md:col-span-8 space-y-5 block" id="left-feed-container">
+            {/* Community Purpose & Welcome Card */}
+            <div className="bg-gradient-to-r from-amber-500/10 via-bamboo-500/10 to-amber-500/10 border border-amber-200/80 rounded-2xl p-4 sm:p-5 space-y-3 shadow-3xs" id="community-welcome-card">
+              <div className="flex items-start justify-between gap-3">
+                <div className="flex items-center gap-2.5">
+                  <div className="p-2 bg-amber-500/20 text-amber-800 rounded-xl shrink-0">
+                    <Wind className="w-5 h-5 text-amber-700" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm sm:text-base font-bold text-bamboo-950 font-display">
+                      About FluteSangam Community
+                    </h3>
+                    <p className="text-[11px] text-gray-600">
+                      The premier social network & learning hub for Indian bamboo flute (Bansuri & Venu) players
+                    </p>
+                  </div>
+                </div>
+                <span className="text-[10px] font-bold text-amber-900 bg-amber-100 px-2.5 py-1 rounded-full border border-amber-300 uppercase shrink-0 hidden sm:inline-block">
+                  Community Mission
+                </span>
+              </div>
+              <p className="text-xs text-gray-700 leading-relaxed">
+                FluteSangam brings together students, performers, and gurus to practice <strong>sadhana</strong>, demystify classical ragas, exchange song sheet music notations (sargam), and support each other's musical growth in a respectful, welcoming space.
+              </p>
+              <div className="flex flex-wrap items-center gap-2 pt-1 text-[11px]">
+                <button 
+                  onClick={() => handleViewChange('learn_dashboard')}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white hover:bg-amber-50 border border-amber-200/80 text-bamboo-800 font-bold rounded-xl transition cursor-pointer shadow-3xs"
+                >
+                  <BookOpen className="w-3.5 h-3.5 text-amber-600" />
+                  <span>Learning Hub</span>
+                </button>
+                <button 
+                  onClick={() => handleViewChange('notation_requests')}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white hover:bg-amber-50 border border-amber-200/80 text-bamboo-800 font-bold rounded-xl transition cursor-pointer shadow-3xs"
+                >
+                  <Music className="w-3.5 h-3.5 text-amber-600" />
+                  <span>Song Notations</span>
+                </button>
+                <button 
+                  onClick={() => handleViewChange('about_us')}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white hover:bg-amber-50 border border-amber-200/80 text-bamboo-800 font-bold rounded-xl transition cursor-pointer shadow-3xs"
+                >
+                  <Info className="w-3.5 h-3.5 text-amber-600" />
+                  <span>About & Mission</span>
+                </button>
+              </div>
+            </div>
+
             {/* Search and Filters panel */}
             <div className="frosted-panel rounded-2xl p-4 space-y-4 shadow-sm">
               <div className="flex flex-col sm:flex-row gap-3">
