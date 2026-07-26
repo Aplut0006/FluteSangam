@@ -63,8 +63,9 @@ export const PrivacyPolicyView: React.FC<PrivacyPolicyViewProps> = ({ onBackToCo
                 At <strong>FluteSangam</strong>, your trust is paramount. We are dedicated to protecting the privacy of our global community of flute learners, gurus, and artists. We <strong>never sell or rent</strong> your personal data.
               </p>
             </div>
-            <div className="bg-white/80 border border-amber-300/80 rounded-xl p-2.5 text-xs text-amber-950 font-medium">
-              We use email and Google Sign-In to authenticate users and securely log them into our platform.
+            <div className="bg-white/80 border border-amber-300/80 rounded-xl p-3 text-xs text-amber-950 font-medium space-y-1">
+              <p><strong>App Purpose:</strong> FluteSangam is an educational and community platform for Indian bamboo flute (Bansuri & Venu) enthusiasts to learn classical ragas, share audio recitals, and request song notations.</p>
+              <p><strong>Google Sign-In Authentication:</strong> FluteSangam uses Google Sign-In to authenticate users, verify user identity, create member profiles, and securely allow flutists to post recitals, comments, and notation requests.</p>
             </div>
           </div>
 

@@ -495,14 +495,44 @@ export default function App() {
                   Welcome to FluteSangam — Where Flutists Learn, Share & Grow
                 </h1>
                 <p className="text-xs sm:text-sm text-bamboo-100 leading-relaxed font-normal">
-                  <strong>FluteSangam</strong> is an online community platform built specifically for practitioners, students, and teachers of the Indian bamboo flute (Bansuri & Venu). Connect with fellow musicians, share audio practice recordings, learn classical ragas, and request song sheet music notations.
+                  <strong>FluteSangam</strong> is an online educational and social community platform built specifically for practitioners, students, and teachers of the Indian bamboo flute (Bansuri & Venu). Our platform enables flutists to learn classical ragas & alankaras, share audio practice recordings, request song sargam notations, and connect with fellow musicians worldwide.
                 </p>
                 
-                {/* Google Sign-In Purpose Notice */}
-                <div className="pt-1">
-                  <div className="inline-flex items-center gap-2 bg-black/20 backdrop-blur-sm border border-amber-300/30 px-3 py-1.5 rounded-xl text-[11px] text-amber-200">
-                    <ShieldCheck className="w-4 h-4 text-amber-300 shrink-0" />
-                    <span>We use email and Google Sign-In to authenticate users and securely log them into our platform.</span>
+                {/* Application Purpose & Google Sign-In Transparency Card */}
+                <div className="pt-2">
+                  <div className="bg-black/30 backdrop-blur-md border border-amber-300/40 p-4 rounded-2xl text-[11px] sm:text-xs text-amber-100 space-y-2 text-left shadow-lg">
+                    <div className="flex items-center gap-2 text-amber-300 font-bold text-xs uppercase tracking-wide">
+                      <ShieldCheck className="w-4.5 h-4.5 text-amber-300 shrink-0" />
+                      <span>About FluteSangam & Account Authentication</span>
+                    </div>
+                    <p className="leading-relaxed text-bamboo-100/90">
+                      <strong>App Purpose:</strong> FluteSangam is an educational sanctuary designed to simplify flute learning, provide sargam sheet music notations, host student audio recitals, and foster global music collaboration.
+                    </p>
+                    <p className="leading-relaxed text-bamboo-100/90 pt-0.5 border-t border-white/10">
+                      <strong>Google Sign-In Notice:</strong> We use Google Sign-In and email to securely authenticate users. When you log in with Google, we collect your name, email address, and profile photo solely to create your account, display your identity on your published posts and comments, and personalize your experience.
+                    </p>
+                    <div className="flex items-center gap-3 pt-1 text-[11px] font-semibold text-amber-300">
+                      <button 
+                        onClick={() => handleViewChange('privacy_policy')} 
+                        className="hover:underline text-amber-300 hover:text-white transition cursor-pointer"
+                      >
+                        Privacy Policy
+                      </button>
+                      <span>•</span>
+                      <button 
+                        onClick={() => handleViewChange('terms_of_service')} 
+                        className="hover:underline text-amber-300 hover:text-white transition cursor-pointer"
+                      >
+                        Terms of Service
+                      </button>
+                      <span>•</span>
+                      <button 
+                        onClick={() => handleViewChange('about_us')} 
+                        className="hover:underline text-amber-300 hover:text-white transition cursor-pointer"
+                      >
+                        About Us
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -998,6 +1028,9 @@ export default function App() {
               About Us
             </button>
           </div>
+          <p className="text-[10px] text-bamboo-300/80 max-w-xl mx-auto leading-relaxed pt-1">
+            FluteSangam is an educational & social portal for Indian bamboo flute (Bansuri) enthusiasts. We use Google Sign-In to securely authenticate members, create user profiles, and allow flutists to post recitals, comments, and song notation requests.
+          </p>
           <p className="text-[10px] text-bamboo-400">
             © {new Date().getFullYear()} FluteSangam . All rights reserved
           </p>
