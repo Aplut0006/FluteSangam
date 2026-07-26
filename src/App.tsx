@@ -1071,6 +1071,7 @@ export default function App() {
       </AnimatePresence>
       {selectedImageUrl && <ImageModal imageUrl={selectedImageUrl} onClose={() => setSelectedImageUrl(null)} />}
       <MobileBottomNav
+        currentView={currentView}
         onViewChange={handleViewChange}
         onOpenAuth={() => setAuthModalOpen(true)}
         currentUser={currentUser}
