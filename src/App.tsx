@@ -28,6 +28,8 @@ import AboutUsView from './components/AboutUsView';
 import MobileBottomNav from './components/MobileBottomNav';
 import { SongRequestFAB } from './components/SongRequestFAB';
 import { NotationRequestsView } from './components/NotationRequestsView';
+import PrivacyPolicyView from './components/PrivacyPolicyView';
+import TermsOfServiceView from './components/TermsOfServiceView';
 
 // Icons
 import { 
@@ -120,6 +122,14 @@ export default function App() {
         title = 'About FluteSangam — Empowering Flute Players Worldwide';
         description = 'Learn about FluteSangam’s mission to preserve and promote Indian bamboo flute heritage through community and education.';
         break;
+      case 'privacy_policy':
+        title = 'Privacy Policy — FluteSangam';
+        description = 'Read the official Privacy Policy for FluteSangam. Learn how we collect, protect, and respect your personal information.';
+        break;
+      case 'terms_of_service':
+        title = 'Terms of Service — FluteSangam';
+        description = 'Read the official Terms of Service for FluteSangam. Guidelines, rules, and commitments for our global bansuri & flute community.';
+        break;
       case 'post-detail':
         if (selectedPost) {
           title = `${selectedPost.title} — FluteSangam Post`;
@@ -187,6 +197,14 @@ export default function App() {
         if (currentView !== 'user-profile' || selectedProfileUserId !== userId) {
             handleViewChange('user-profile', { userId }, false);
         }
+    } else if (path === '/privacy' || path === '/privacy-policy') {
+        if (currentView !== 'privacy_policy') {
+            handleViewChange('privacy_policy', {}, false);
+        }
+    } else if (path === '/terms' || path === '/terms-of-service') {
+        if (currentView !== 'terms_of_service') {
+            handleViewChange('terms_of_service', {}, false);
+        }
     } else {
         const view = Object.keys(VIEW_URLS).find(v => VIEW_URLS[v as AppView] === path) as AppView;
         if (view && currentView !== view) {
@@ -220,6 +238,7 @@ export default function App() {
     }
 
     setCurrentView(view);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     if (view === 'community' || view === 'learn_intro' || view === 'learn_basics' || view === 'learn_alankaras' || view === 'learn_raagas' || view === 'community_members') {
       setSelectedPost(null);
       setSelectedProfileUserId(null);
@@ -526,6 +545,10 @@ export default function App() {
           <LearnRaagasView />
         ) : currentView === 'about_us' ? (
           <AboutUsView />
+        ) : currentView === 'privacy_policy' ? (
+          <PrivacyPolicyView onBackToCommunity={() => handleViewChange('community')} />
+        ) : currentView === 'terms_of_service' ? (
+          <TermsOfServiceView onBackToCommunity={() => handleViewChange('community')} />
         ) : currentView === 'notation_requests' ? (
           <NotationRequestsView currentUser={currentUser} onOpenAuth={() => setAuthModalOpen(true)} />
         ) : currentView === 'community_members' ? (
@@ -754,7 +777,7 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-bamboo-800 text-bamboo-200 text-xs border-t border-bamboo-700/50 mt-12 py-8" id="app-footer">
+      <footer className="bg-bamboo-800 text-bamboo-200 text-xs border-t border-bamboo-700/50 mt-12 py-8 pb-20 md:pb-8" id="app-footer">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
           <div className="mt-4 mb-4">
             <a
@@ -768,6 +791,30 @@ export default function App() {
           </div>
           <div className="flex items-center justify-center space-x-2 text-white">
             <img src="/flutesangam_without_tagline.png" alt="FluteSangam" className="h-14 w-auto" />
+          </div>
+          <div className="flex items-center justify-center gap-4 text-[11px] pt-1">
+            <button
+              onClick={() => handleViewChange('privacy_policy')}
+              className="text-amber-400 hover:text-amber-300 underline font-medium transition cursor-pointer"
+              id="footer-privacy-policy-btn"
+            >
+              Privacy Policy
+            </button>
+            <span className="text-bamboo-600">•</span>
+            <button
+              onClick={() => handleViewChange('terms_of_service')}
+              className="text-amber-400 hover:text-amber-300 underline font-medium transition cursor-pointer"
+              id="footer-terms-of-service-btn"
+            >
+              Terms of Service
+            </button>
+            <span className="text-bamboo-600">•</span>
+            <button
+              onClick={() => handleViewChange('about_us')}
+              className="text-bamboo-300 hover:text-white transition cursor-pointer"
+            >
+              About Us
+            </button>
           </div>
           <p className="text-[10px] text-bamboo-400">
             © {new Date().getFullYear()} FluteSangam . All rights reserved

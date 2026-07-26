@@ -11,4 +11,6 @@ export const VIEW_URLS: Record<string, string> = {
   'about_us': '/about',
   'learn_dashboard': '/learn',
   'notation_requests': '/notations',
+  'privacy_policy': '/privacy-policy',
+  'terms_of_service': '/terms-of-service',
 };
