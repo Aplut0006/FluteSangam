@@ -56,11 +56,16 @@ export const PrivacyPolicyView: React.FC<PrivacyPolicyViewProps> = ({ onBackToCo
         {/* Policy Content */}
         <div className="p-6 sm:p-10 space-y-8 text-gray-700 leading-relaxed">
           {/* Key Commitment Callout */}
-          <div className="bg-amber-50/80 border border-amber-200/80 rounded-2xl p-4 sm:p-5 flex items-start gap-3.5 text-amber-900 shadow-3xs">
-            <Lock className="w-6 h-6 text-amber-700 shrink-0 mt-0.5" />
-            <p className="text-xs sm:text-sm leading-relaxed">
-              At <strong>FluteSangam</strong>, your trust is paramount. We are dedicated to protecting the privacy of our global community of flute learners, gurus, and artists. We <strong>never sell or rent</strong> your personal data.
-            </p>
+          <div className="bg-amber-50/80 border border-amber-200/80 rounded-2xl p-4 sm:p-5 space-y-2 text-amber-900 shadow-3xs">
+            <div className="flex items-start gap-3.5">
+              <Lock className="w-6 h-6 text-amber-700 shrink-0 mt-0.5" />
+              <p className="text-xs sm:text-sm leading-relaxed">
+                At <strong>FluteSangam</strong>, your trust is paramount. We are dedicated to protecting the privacy of our global community of flute learners, gurus, and artists. We <strong>never sell or rent</strong> your personal data.
+              </p>
+            </div>
+            <div className="bg-white/80 border border-amber-300/80 rounded-xl p-2.5 text-xs text-amber-950 font-medium">
+              We use email and Google Sign-In to authenticate users and securely log them into our platform.
+            </div>
           </div>
 
           {/* Section 1 */}

@@ -34,7 +34,7 @@ import TermsOfServiceView from './components/TermsOfServiceView';
 // Icons
 import { 
   Search, Plus, Sparkles, HelpCircle, Compass, 
-  BookOpen, Video, Info, ArrowUpRight, Music, Filter, CheckCircle2, MessageSquare, Bell, X, Wind
+  BookOpen, Video, Info, ArrowUpRight, Music, Filter, CheckCircle2, MessageSquare, Bell, X, Wind, ShieldCheck
 } from 'lucide-react';
 
 export default function App() {
@@ -483,6 +483,14 @@ export default function App() {
                 <p className="text-xs sm:text-sm text-bamboo-100 leading-relaxed font-normal">
                   <strong>FluteSangam</strong> is an online community platform built specifically for practitioners, students, and teachers of the Indian bamboo flute (Bansuri & Venu). Connect with fellow musicians, share audio practice recordings, learn classical ragas, and request song sheet music notations.
                 </p>
+                
+                {/* Google Sign-In Purpose Notice */}
+                <div className="pt-1">
+                  <div className="inline-flex items-center gap-2 bg-black/20 backdrop-blur-sm border border-amber-300/30 px-3 py-1.5 rounded-xl text-[11px] text-amber-200">
+                    <ShieldCheck className="w-4 h-4 text-amber-300 shrink-0" />
+                    <span>We use email and Google Sign-In to authenticate users and securely log them into our platform.</span>
+                  </div>
+                </div>
               </div>
 
               {/* Core Call To Action */}
@@ -552,7 +560,7 @@ export default function App() {
               >
                 <div className="flex items-center gap-2 text-amber-300 font-bold text-xs sm:text-sm">
                   <Compass className="w-4 h-4 shrink-0" />
-                  <span>Raga & Alankars</span>
+                  <span>Start Learning Now</span>
                 </div>
                 <p className="text-[11px] text-bamboo-100/90 leading-tight">
                   Master classical scales, drills & pakad notes
@@ -560,15 +568,15 @@ export default function App() {
               </div>
 
               <div 
-                onClick={() => handleViewChange('community_members')}
+                onClick={() => handleViewChange('learn_raagas')}
                 className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-3 sm:p-3.5 transition cursor-pointer space-y-1"
               >
                 <div className="flex items-center gap-2 text-amber-300 font-bold text-xs sm:text-sm">
-                  <MessageSquare className="w-4 h-4 shrink-0" />
-                  <span>Flutist Sangam</span>
+                  <Sparkles className="w-4 h-4 shrink-0" />
+                  <span>Raaga Sadhana</span>
                 </div>
                 <p className="text-[11px] text-bamboo-100/90 leading-tight">
-                  Connect by flute key (C#, G Base) & chat
+                  Explore classical raagas, aroha-avaroha & swaras
                 </p>
               </div>
             </div>
@@ -683,12 +691,20 @@ export default function App() {
                   </div>
                 </div>
                 <span className="text-[10px] font-bold text-amber-900 bg-amber-100 px-2.5 py-1 rounded-full border border-amber-300 uppercase shrink-0 hidden sm:inline-block">
-                  Community Mission
+                  Community Purpose
                 </span>
               </div>
-              <p className="text-xs text-gray-700 leading-relaxed">
-                FluteSangam brings together students, performers, and gurus to practice <strong>sadhana</strong>, demystify classical ragas, exchange song sheet music notations (sargam), and support each other's musical growth in a respectful, welcoming space.
-              </p>
+              
+              <div className="space-y-2 text-xs text-gray-700 leading-relaxed">
+                <p>
+                  <strong>App Purpose:</strong> FluteSangam brings together students, performers, and gurus to practice <strong>sadhana</strong>, demystify classical ragas, exchange song sheet music notations (sargam), upload audio recitals, and support each other's musical growth in a respectful, welcoming space.
+                </p>
+                <div className="bg-amber-500/10 border border-amber-300/80 rounded-xl p-2.5 text-[11px] text-amber-950 flex items-center gap-2 font-medium">
+                  <ShieldCheck className="w-4 h-4 text-amber-700 shrink-0" />
+                  <span>We use email and Google Sign-In to authenticate users and securely log them into our platform.</span>
+                </div>
+              </div>
+
               <div className="flex flex-wrap items-center gap-2 pt-1 text-[11px]">
                 <button 
                   onClick={() => handleViewChange('learn_dashboard')}

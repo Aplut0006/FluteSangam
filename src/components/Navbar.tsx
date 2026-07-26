@@ -202,48 +202,57 @@ export default function Navbar({
     <>
       <header className="sticky top-0 z-40 frosted-navbar shadow-3xs" id="app-navbar">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        {/* Brand Logo & Slogan */}
-        <div className="flex items-center space-x-3">
-          <div>
-            <img src="/flutesangam_without_tagline.png" alt="FluteSangam" className="h-14 w-auto" />
-          </div>
-        </div>
+        {/* Brand Logo & Name */}
+        <button 
+          onClick={() => onViewChange?.('community')}
+          className="flex items-center gap-2 sm:gap-2.5 group focus:outline-none cursor-pointer shrink-0"
+          id="navbar-brand-logo-btn"
+        >
+          <img 
+            src="/flutesangam_without_tagline.png" 
+            alt="FluteSangam" 
+            className="h-9 sm:h-10.5 w-auto transition-transform group-hover:scale-105 shrink-0 object-contain" 
+          />
+          <span className="font-display font-extrabold text-lg sm:text-xl xl:text-2xl tracking-tight text-bamboo-950 group-hover:text-bamboo-800 transition-colors whitespace-nowrap">
+            Flute<span className="text-amber-700">Sangam</span>
+          </span>
+        </button>
 
         {/* Desktop View Selector */}
-        <div className="hidden md:flex items-center space-x-1 bg-bamboo-50 p-1 rounded-xl border border-bamboo-100/50">
+        <div className="hidden lg:flex items-center space-x-0.5 xl:space-x-1 bg-bamboo-50/80 p-1 rounded-xl border border-bamboo-100/50 shrink-0">
           <button
             onClick={() => onViewChange?.('community')}
-            className={`px-4 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
+            className={`px-2.5 xl:px-3.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
               currentView === 'community' 
                 ? 'bg-bamboo-700 text-white shadow-3xs' 
                 : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
             }`}
           >
-            <Globe className="w-4 h-4 text-amber-600" />
+            <Globe className="w-3.5 h-3.5 text-amber-600" />
             <span>Sadhana Feed</span>
           </button>
           
           <button
             onClick={() => onViewChange?.('community_members')}
-            className={`px-4 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
+            className={`px-2.5 xl:px-3.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
               currentView === 'community_members' 
                 ? 'bg-bamboo-700 text-white shadow-3xs' 
                 : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
             }`}
           >
-            <Users className="w-4 h-4 text-amber-600" />
+            <Users className="w-3.5 h-3.5 text-amber-600" />
             <span>Members</span>
           </button>
           
           <button
             onClick={() => onViewChange?.('about_us')}
-            className={`px-4 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
+            className={`px-2.5 xl:px-3.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
               currentView === 'about_us' 
                 ? 'bg-bamboo-700 text-white shadow-3xs' 
                 : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
             }`}
           >
-            <Info className="w-4 h-4 text-amber-600" />
+            <Info className="w-3.5 h-3.5 text-amber-600" />
             <span>About Us</span>
           </button>
           
@@ -255,13 +264,13 @@ export default function Navbar({
                 onViewChange?.('chats');
               }
             }}
-            className={`px-4 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 relative cursor-pointer ${
+            className={`px-2.5 xl:px-3.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 relative cursor-pointer whitespace-nowrap ${
               currentView === 'chats' 
                 ? 'bg-bamboo-700 text-white shadow-3xs' 
                 : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
             }`}
           >
-            <MessageSquare className="w-4 h-4 text-amber-600" />
+            <MessageSquare className="w-3.5 h-3.5 text-amber-600" />
             <span>Sangam Chats</span>
             {unreadCount > 0 && (
               <span className="absolute -top-1.5 -right-1 bg-yellow-500 text-white text-[9px] font-black h-4.5 min-w-4.5 px-1 rounded-full flex items-center justify-center border border-white animate-bounce shadow-xs">
@@ -272,13 +281,13 @@ export default function Navbar({
           
           <button
             onClick={() => onViewChange?.('notation_requests')}
-            className={`px-4 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
+            className={`px-2.5 xl:px-3.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
               currentView === 'notation_requests'
                 ? 'bg-bamboo-700 text-white shadow-3xs'
                 : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
             }`}
           >
-            <Music className="w-4 h-4 text-amber-600" />
+            <Music className="w-3.5 h-3.5 text-amber-600" />
             <span>Notation Requests</span>
           </button>
 
@@ -286,13 +295,13 @@ export default function Navbar({
           <div className="relative" ref={learnDropdownRef}>
             <button
               onClick={() => setShowLearnDropdown(!showLearnDropdown)}
-              className={`px-4 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
-                currentView === 'learn_intro' || currentView === 'learn_alankaras'
+              className={`px-2.5 xl:px-3.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
+                currentView === 'learn_intro' || currentView === 'learn_alankaras' || currentView === 'learn_basics' || currentView === 'learn_raagas'
                   ? 'bg-bamboo-700 text-white shadow-3xs'
                   : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
               }`}
             >
-              <BookOpen className="w-4 h-4 text-amber-600" />
+              <BookOpen className="w-3.5 h-3.5 text-amber-600" />
               <span>Learn Flute</span>
               <ChevronDown className="w-3.5 h-3.5 opacity-70" />
             </button>
@@ -340,8 +349,8 @@ export default function Navbar({
           </div>
         </div>
 
-        {/* Hamburger Menu (Mobile) */}
-        <div className="md:hidden">
+        {/* Hamburger Menu (Mobile & Tablet < lg) */}
+        <div className="lg:hidden">
           <button
             onClick={() => setShowMobileMenu(!showMobileMenu)}
             className="p-2 text-bamboo-700 hover:bg-bamboo-50 rounded-lg"
@@ -354,7 +363,7 @@ export default function Navbar({
         {showMobileMenu && (
           <div 
             ref={mobileMenuRef}
-            className="absolute top-16 left-0 right-0 bg-white border-b border-gray-100 shadow-xl p-4 z-50 md:hidden space-y-2"
+            className="absolute top-16 left-0 right-0 bg-white border-b border-gray-100 shadow-xl p-4 z-50 lg:hidden space-y-2"
           >
             <button
               onClick={() => { onViewChange?.('community'); setShowMobileMenu(false); }}

@@ -481,16 +481,21 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
 
           {/* GOOGLE SIGN IN BUTTON */}
           {step === 1 && (
-            <div className="space-y-4 pt-3 border-t border-gray-100/60 mt-4">
+            <div className="space-y-2.5 pt-3 border-t border-gray-100/60 mt-4">
               <button
                 type="button"
                 onClick={handleGoogleSignIn}
                 disabled={loading}
-                className="w-full py-2.5 bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 text-sm font-semibold rounded-xl transition flex items-center justify-center space-x-2 shadow-xs"
+                className="w-full py-2.5 bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 text-sm font-semibold rounded-xl transition flex items-center justify-center space-x-2 shadow-xs cursor-pointer"
+                id="google-login-btn"
               >
                 <Chrome className="w-4.5 h-4.5 text-red-500 shrink-0" />
                 <span>Continue with Google</span>
               </button>
+
+              <p className="text-[10px] text-gray-500 text-center leading-normal px-2">
+                We use email and Google Sign-In to authenticate users and securely log them into our platform.
+              </p>
             </div>
           )}
 
