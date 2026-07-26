@@ -301,7 +301,7 @@ export default function Navbar({
             <button
               onClick={() => setShowLearnDropdown(!showLearnDropdown)}
               className={`px-2.5 xl:px-3.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
-                currentView === 'learn_intro' || currentView === 'learn_alankaras' || currentView === 'learn_basics' || currentView === 'learn_raagas'
+                currentView === 'learn_intro' || currentView === 'learn_basics' || currentView === 'learn_choose_flute' || currentView === 'learn_alankaras' || currentView === 'learn_raagas'
                   ? 'bg-bamboo-700 text-white shadow-3xs'
                   : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
               }`}
@@ -312,13 +312,13 @@ export default function Navbar({
             </button>
             
             {showLearnDropdown && (
-              <div className="absolute top-full mt-2 left-0 w-56 bg-white rounded-xl shadow-xl border border-bamboo-100 py-1.5 z-50 overflow-hidden">
+              <div className="absolute top-full mt-2 left-0 w-60 bg-white rounded-xl shadow-xl border border-bamboo-100 py-1.5 z-50 overflow-hidden">
                 <button
                   onClick={() => {
                     onViewChange?.('learn_intro');
                     setShowLearnDropdown(false);
                   }}
-                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 last:border-b-0 cursor-pointer"
+                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 cursor-pointer"
                 >
                   Introduction To Flute/Bansuri
                 </button>
@@ -327,9 +327,18 @@ export default function Navbar({
                     onViewChange?.('learn_basics');
                     setShowLearnDropdown(false);
                   }}
-                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 last:border-b-0 cursor-pointer"
+                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 cursor-pointer"
                 >
                   The Basics
+                </button>
+                <button
+                  onClick={() => {
+                    onViewChange?.('learn_choose_flute');
+                    setShowLearnDropdown(false);
+                  }}
+                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 cursor-pointer"
+                >
+                  Choose the Right Flute (Bansuri)
                 </button>
                 <button
                   onClick={() => {
@@ -421,6 +430,12 @@ export default function Navbar({
                   className="w-full text-left text-sm text-gray-600 hover:text-bamboo-800 py-2"
                 >
                   The Basics
+                </button>
+                <button
+                  onClick={() => { onViewChange?.('learn_choose_flute'); setShowMobileMenu(false); }}
+                  className="w-full text-left text-sm text-gray-600 hover:text-bamboo-800 py-2"
+                >
+                  Choose the Right Flute (Bansuri)
                 </button>
                 <button
                   onClick={() => { onViewChange?.('learn_alankaras'); setShowMobileMenu(false); }}

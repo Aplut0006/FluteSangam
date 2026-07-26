@@ -20,6 +20,7 @@ import UserProfileView from './components/UserProfileView';
 import LearnDashboard from './components/LearnDashboard';
 import LearnIntroView from './components/LearnIntroView';
 import LearnBasicsView from './components/LearnBasicsView';
+import LearnChooseFluteView from './components/LearnChooseFluteView';
 import LearnAlankarasView from './components/LearnAlankarasView';
 import LearnRaagasView from './components/LearnRaagasView';
 import MembersView from './components/MembersView';
@@ -102,6 +103,10 @@ export default function App() {
       case 'learn_basics':
         title = 'Bansuri Basics | FluteSangam';
         description = 'Master sound generation, blowing technique, finger positioning, and accurate swara production on your flute.';
+        break;
+      case 'learn_choose_flute':
+        title = 'Choose the Right Flute (Bansuri) | FluteSangam';
+        description = 'Comprehensive guide on choosing the right flute scale (C Middle, A Base, G Base) for children, teens, and adults.';
         break;
       case 'learn_alankaras':
         title = 'Alankar Lessons | FluteSangam';
@@ -253,10 +258,12 @@ export default function App() {
       view === 'community' || 
       view === 'learn_intro' || 
       view === 'learn_basics' || 
+      view === 'learn_choose_flute' || 
       view === 'learn_alankaras' || 
       view === 'learn_raagas' || 
       view === 'community_members' ||
       view === 'about_us' ||
+      view === 'contact_us' ||
       view === 'notation_requests' ||
       view === 'learn_dashboard'
     ) {
@@ -652,6 +659,8 @@ export default function App() {
           <LearnIntroView />
         ) : currentView === 'learn_basics' ? (
           <LearnBasicsView />
+        ) : currentView === 'learn_choose_flute' ? (
+          <LearnChooseFluteView onViewChange={handleViewChange} />
         ) : currentView === 'learn_alankaras' ? (
           <LearnAlankarasView />
         ) : currentView === 'learn_raagas' ? (
