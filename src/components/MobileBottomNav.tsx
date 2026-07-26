@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Compass, BookOpen, FileText, Users, MessageSquare } from 'lucide-react';
+import { Compass, BookOpen, Users, MessageSquare } from 'lucide-react';
 import { AppView, UserProfile } from '../types';
 
 interface MobileBottomNavProps {
@@ -36,12 +36,6 @@ export default function MobileBottomNav({
       isActive: currentView === 'learn_dashboard' || currentView.startsWith('learn_')
     },
     { 
-      id: 'notation_requests' as AppView, 
-      label: 'Notations', 
-      icon: FileText,
-      isActive: currentView === 'notation_requests'
-    },
-    { 
       id: 'community_members' as AppView, 
       label: 'Members', 
       icon: Users,
@@ -56,13 +50,18 @@ export default function MobileBottomNav({
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden px-3 pb-3 pt-1 pointer-events-none">
+    <div 
+      className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white/95 backdrop-blur-xl border-t border-bamboo-200/80 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]"
+      style={{
+        paddingBottom: 'max(0.5rem, env(safe-area-inset-bottom, 0px))'
+      }}
+    >
       <nav 
-        className="max-w-md mx-auto pointer-events-auto bg-white/90 backdrop-blur-xl border border-bamboo-200/80 rounded-2xl shadow-2xl p-1.5 flex items-center justify-between relative overflow-hidden"
+        className="max-w-md mx-auto px-3 pt-2 pb-1 flex items-center justify-around relative"
         id="mobile-bottom-nav-container"
       >
         {/* Subtle top bamboo gradient accent line */}
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500/50 to-transparent" />
 
         {tabs.map((tab) => {
           const Icon = tab.icon;
@@ -78,17 +77,17 @@ export default function MobileBottomNav({
                 }
                 onViewChange(tab.id);
               }}
-              className={`relative flex-1 flex flex-col items-center justify-center py-1.5 px-1 rounded-xl transition-colors cursor-pointer select-none ${
+              className={`relative flex-1 flex flex-col items-center justify-center py-1.5 px-2 rounded-xl transition-all cursor-pointer select-none ${
                 active ? 'text-bamboo-900 font-bold' : 'text-gray-500 hover:text-bamboo-700'
               }`}
               id={`mobile-nav-tab-${tab.id}`}
             >
-              {/* Active Animated Background Pill */}
+              {/* Active Animated Pill */}
               {active && (
                 <motion.div
                   layoutId="mobileNavActivePill"
-                  className="absolute inset-0 bg-gradient-to-b from-bamboo-100/90 to-amber-100/70 border border-amber-300/60 rounded-xl shadow-2xs -z-0"
-                  transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                  className="absolute inset-x-1.5 inset-y-0.5 bg-gradient-to-b from-bamboo-100/90 to-amber-100/70 border border-amber-300/60 rounded-xl shadow-2xs -z-0"
+                  transition={{ type: 'spring', stiffness: 450, damping: 32 }}
                 />
               )}
 
@@ -96,12 +95,12 @@ export default function MobileBottomNav({
               <motion.div 
                 className="relative z-10 flex items-center justify-center"
                 animate={{
-                  scale: active ? 1.15 : 1,
+                  scale: active ? 1.12 : 1,
                   y: active ? -1 : 0
                 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 25 }}
               >
-                <Icon className={`w-5 h-5 transition-colors ${active ? 'text-bamboo-800 stroke-[2.25]' : 'stroke-[1.75]'}`} />
+                <Icon className={`w-5 h-5 transition-colors ${active ? 'text-bamboo-850 stroke-[2.25]' : 'stroke-[1.75]'}`} />
                 
                 {/* Unread badge for chats */}
                 {tab.id === 'chats' && unreadCount > 0 && (
@@ -127,7 +126,7 @@ export default function MobileBottomNav({
                 <motion.div
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="absolute top-1 w-1 h-1 rounded-full bg-amber-600"
+                  className="absolute top-0.5 w-1 h-1 rounded-full bg-amber-600"
                 />
               )}
             </button>

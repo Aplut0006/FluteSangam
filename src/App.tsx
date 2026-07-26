@@ -608,7 +608,7 @@ export default function App() {
       )}
 
       {/* Main Layout Area */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full pb-20" id="main-content-layout">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full pb-24 md:pb-8" id="main-content-layout">
 
 
         {currentView === 'user-profile' ? (
