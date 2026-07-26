@@ -128,6 +128,44 @@ export default function App() {
     }
   }, [currentView, selectedPost]);
 
+  const VIEW_URLS: Record<AppView, string> = {
+    'community': '/community',
+    'chats': '/chats',
+    'post-detail': '/post',
+    'user-profile': '/profile',
+    'learn_intro': '/learn/intro',
+    'learn_basics': '/learn/basics',
+    'learn_alankaras': '/learn/alankaras',
+    'learn_raagas': '/learn/raagas',
+    'community_members': '/members',
+    'about_us': '/about',
+    'learn_dashboard': '/learn',
+    'notation_requests': '/notations',
+  };
+
+  // Sync URL with view
+  useEffect(() => {
+    const path = location.pathname;
+    
+    if (path.startsWith('/post/')) {
+        const postId = path.split('/')[2];
+        if (currentView !== 'post-detail' || selectedPost?.id !== postId) {
+            // Need to fetch post here if not already loaded, but for now just navigate
+            // This is a bit complex, let's just handle simple routes first
+        }
+    } else if (path.startsWith('/profile/')) {
+        const userId = path.split('/')[2];
+        if (currentView !== 'user-profile' || selectedProfileUserId !== userId) {
+            handleViewChange('user-profile', { userId }, false);
+        }
+    } else {
+        const view = Object.keys(VIEW_URLS).find(v => VIEW_URLS[v as AppView] === path) as AppView;
+        if (view && currentView !== view) {
+            handleViewChange(view, {}, false);
+        }
+    }
+  }, [location.pathname]);
+
   const handleViewChange = (
     view: AppView,
     stateExtra: any = {},
@@ -138,6 +176,20 @@ export default function App() {
       setAuthModalOpen(true);
       return;
     }
+    
+    // Navigate URL
+    if (push) {
+      let url = VIEW_URLS[view];
+      if (view === 'post-detail' && stateExtra.postId) {
+        url = `/post/${stateExtra.postId}`;
+      } else if (view === 'user-profile' && stateExtra.userId) {
+        url = `/profile/${stateExtra.userId}`;
+      }
+      if (url && location.pathname !== url) {
+        navigate(url);
+      }
+    }
+
     setCurrentView(view);
     if (view === 'community' || view === 'learn_intro' || view === 'learn_basics' || view === 'learn_alankaras' || view === 'learn_raagas' || view === 'community_members') {
       setSelectedPost(null);
