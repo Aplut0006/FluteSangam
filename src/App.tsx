@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { auth } from './lib/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { seedDatabaseIfEmpty, subscribeToPosts, getUserProfile, subscribeToUnreadMessages, subscribeToAllUsers, getPost } from './lib/db';
+import { VIEW_URLS } from './routes';
 import { UserProfile, Post, AppView } from './types';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -128,20 +129,6 @@ export default function App() {
     }
   }, [currentView, selectedPost]);
 
-  const VIEW_URLS: Record<AppView, string> = {
-    'community': '/community',
-    'chats': '/chats',
-    'post-detail': '/post',
-    'user-profile': '/profile',
-    'learn_intro': '/learn/intro',
-    'learn_basics': '/learn/basics',
-    'learn_alankaras': '/learn/alankaras',
-    'learn_raagas': '/learn/raagas',
-    'community_members': '/members',
-    'about_us': '/about',
-    'learn_dashboard': '/learn',
-    'notation_requests': '/notations',
-  };
 
   // Sync URL with view
   useEffect(() => {

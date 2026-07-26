@@ -1,23 +1,18 @@
 import fs from 'fs';
 import path from 'path';
+import { VIEW_URLS } from '../src/routes';
 
-const routes = [
-  '/',
-  '/learn',
-  '/learn/ragas',
-  '/learn/alankars',
-  '/notations',
-  '/about',
-];
-
-const baseUrl = 'https://flutesangam.com'; // Replace with actual domain if known, or handle dynamically
+const baseUrl = 'https://flutesangam.com';
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${routes.map(route => `  <url>
-    <loc>${baseUrl}${route}</loc>
+${Object.values(VIEW_URLS)
+  .filter(path => !path.startsWith('/post') && !path.startsWith('/profile') && !path.startsWith('/chats'))
+  .map(route => `  <url>
+    <loc>${baseUrl}${route === '/community' ? '' : route}</loc>
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
     <changefreq>daily</changefreq>
-    <priority>1.0</priority>
+    <priority>0.8</priority>
   </url>`).join('\n')}
 </urlset>`;
 
