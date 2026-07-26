@@ -159,7 +159,7 @@ export default function App() {
     push = true
   ) => {
     console.log(`handleViewChange called for view: ${view}`);
-    if ((view === 'community_members' || view === 'notation_requests') && !currentUser) {
+    if (view === 'community_members' && !currentUser) {
       setAuthModalOpen(true);
       return;
     }
