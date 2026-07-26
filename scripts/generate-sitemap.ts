@@ -3,6 +3,11 @@ import path from 'path';
 
 const routes = [
   '/',
+  '/learn',
+  '/learn/ragas',
+  '/learn/alankars',
+  '/notations',
+  '/about',
 ];
 
 const baseUrl = 'https://flutesangam.com'; // Replace with actual domain if known, or handle dynamically
