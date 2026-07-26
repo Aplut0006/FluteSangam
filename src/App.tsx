@@ -205,6 +205,11 @@ export default function App() {
         if (currentView !== 'terms_of_service') {
             handleViewChange('terms_of_service', {}, false);
         }
+    } else if (path === '/community') {
+        if (currentView !== 'community') {
+            handleViewChange('community', {}, false);
+        }
+        navigate('/', { replace: true });
     } else {
         const matchingView = Object.keys(VIEW_URLS).find(v => VIEW_URLS[v as AppView] === path) as AppView;
         const targetView = matchingView || (path === '/' ? 'community' : null);
