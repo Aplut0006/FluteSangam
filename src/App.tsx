@@ -489,7 +489,7 @@ export default function App() {
               <div className="max-w-2xl space-y-3.5 text-center md:text-left">
                 <div className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold tracking-widest text-amber-300 uppercase bg-amber-400/10 px-3.5 py-1.5 rounded-full border border-amber-300/20 backdrop-blur-md">
                   <Wind className="w-3.5 h-3.5 text-amber-300" />
-                  <span>The Social & Learning Community for Flute Players</span>
+                  <span>Learn, Practice & Connect with Flute Players Worldwide</span>
                 </div>
                 <h1 className="text-2xl sm:text-4xl font-extrabold font-display leading-tight tracking-tight text-white">
                   Welcome to FluteSangam — Where Flutists Learn, Share & Grow
