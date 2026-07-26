@@ -32,7 +32,8 @@ import {
   FileText,
   Sparkles,
   ChevronRight,
-  Trash2
+  Trash2,
+  Wind
 } from 'lucide-react';
 
 interface NotationRequestsViewProps {
@@ -375,7 +376,7 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
                     </h3>
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-y-1 gap-x-4 text-xs text-gray-600">
+                  <div className="flex flex-wrap items-center gap-y-1.5 gap-x-3 text-xs text-gray-600">
                     <span className="flex items-center gap-1">
                       <User className="w-3.5 h-3.5 text-gray-400" />
                       <span className="font-medium text-gray-700">{req.singerName}</span>
@@ -393,6 +394,29 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
                       </span>
                     )}
                   </div>
+
+                  {/* Format & Scale Tags */}
+                  <div className="flex flex-wrap items-center gap-1.5 pt-1">
+                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-amber-100/80 text-amber-900 border border-amber-200/70">
+                      <FileText className="w-3 h-3 text-amber-700" />
+                      Format: <span className="font-bold">{req.notationType || req.preferredFormat || 'Sargam (Indian)'}</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-bamboo-100/80 text-bamboo-900 border border-bamboo-200/70">
+                      <Wind className="w-3 h-3 text-bamboo-700" />
+                      Scale: <span className="font-bold">{req.fluteKey || req.scale || 'Any Flute Key'}</span>
+                    </span>
+                  </div>
+
+                  {/* Additional Notes / Specific Part preview if present */}
+                  {(req.notes || req.additionalNotes) && (
+                    <div className="text-xs text-amber-900 bg-amber-50/90 border border-amber-200/70 rounded-xl p-2.5 flex items-start gap-2 mt-1">
+                      <Sparkles className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
+                      <div className="leading-relaxed">
+                        <strong className="font-semibold text-amber-950">Notes / Scale / Specific Part: </strong>
+                        <span className="text-gray-700">{req.notes || req.additionalNotes}</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Right Actions */}
@@ -505,8 +529,48 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
             </div>
 
             {/* Modal Body Scrollable */}
-            <div className="p-6 overflow-y-auto space-y-8 flex-1">
+            <div className="p-6 overflow-y-auto space-y-6 flex-1">
               
+              {/* REQUEST SPECIFICATIONS & NOTES */}
+              <div className="bg-gradient-to-br from-amber-50/90 via-amber-50/40 to-bamboo-50/50 border border-amber-200/80 rounded-2xl p-4.5 space-y-3 shadow-2xs">
+                <div className="flex items-center justify-between pb-2.5 border-b border-amber-200/60">
+                  <h3 className="font-bold text-amber-950 text-sm flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-amber-600" />
+                    Request Details & Specifications
+                  </h3>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                  <div className="bg-white/90 p-3 rounded-xl border border-amber-200/60 shadow-2xs">
+                    <span className="text-gray-500 block text-[10px] uppercase font-bold tracking-wider">Notation Format</span>
+                    <span className="font-bold text-amber-950 text-xs sm:text-sm mt-0.5 flex items-center gap-1.5">
+                      <FileText className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                      {selectedRequest.notationType || selectedRequest.preferredFormat || 'Sargam (Indian)'}
+                    </span>
+                  </div>
+
+                  <div className="bg-white/90 p-3 rounded-xl border border-amber-200/60 shadow-2xs">
+                    <span className="text-gray-500 block text-[10px] uppercase font-bold tracking-wider">Flute Scale / Key</span>
+                    <span className="font-bold text-bamboo-950 text-xs sm:text-sm mt-0.5 flex items-center gap-1.5">
+                      <Wind className="w-3.5 h-3.5 text-bamboo-600 shrink-0" />
+                      {selectedRequest.fluteKey || selectedRequest.scale || 'Any Flute Key'}
+                    </span>
+                  </div>
+                </div>
+
+                {(selectedRequest.notes || selectedRequest.additionalNotes) && (
+                  <div className="bg-white/95 p-3.5 rounded-xl border border-amber-200/80 text-xs text-amber-950 space-y-1 shadow-2xs">
+                    <span className="text-amber-900 font-bold block text-[11px] flex items-center gap-1.5">
+                      <FileText className="w-3.5 h-3.5 text-amber-600" />
+                      Additional Notes / Scale / Specific Part:
+                    </span>
+                    <p className="text-gray-800 whitespace-pre-wrap leading-relaxed pl-1 sm:pl-5 text-xs font-medium">
+                      {selectedRequest.notes || selectedRequest.additionalNotes}
+                    </p>
+                  </div>
+                )}
+              </div>
+
               {/* SUBMITTED NOTATIONS SECTION */}
               <div>
                 <div className="flex items-center justify-between mb-4">

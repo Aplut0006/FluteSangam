@@ -240,7 +240,7 @@ export const SongRequestFAB: React.FC<SongRequestFABProps> = ({ isHidden, curren
                     <input
                       required
                       type="text"
-                      placeholder="e.g. Kesariya, Lag Ja Gale, Shiv Tandav Stotram"
+                      placeholder="e.g. Tera Fitoor, Jab koi baat bigad jaye, O Saathi Re"
                       className="w-full px-3.5 py-2.5 bg-gray-50 border border-gray-200 focus:bg-white focus:border-amber-600 focus:ring-2 focus:ring-amber-500/20 rounded-xl text-xs sm:text-sm transition text-gray-800 placeholder-gray-400 font-medium outline-none"
                       value={formData.songName}
                       onChange={e => setFormData({ ...formData, songName: e.target.value })}
@@ -259,7 +259,7 @@ export const SongRequestFAB: React.FC<SongRequestFABProps> = ({ isHidden, curren
                     <input
                       required
                       type="text"
-                      placeholder="e.g. Arijit Singh, Lata Mangeshkar, Pt. Hariprasad Chaurasia"
+                      placeholder="e.g. Kishore Kumar, Lata Mangeshkar, Arijit Singh"
                       className="w-full px-3.5 py-2.5 bg-gray-50 border border-gray-200 focus:bg-white focus:border-amber-600 focus:ring-2 focus:ring-amber-500/20 rounded-xl text-xs sm:text-sm transition text-gray-800 placeholder-gray-400 font-medium outline-none"
                       value={formData.singerName}
                       onChange={e => setFormData({ ...formData, singerName: e.target.value })}
@@ -275,7 +275,7 @@ export const SongRequestFAB: React.FC<SongRequestFABProps> = ({ isHidden, curren
                       </label>
                       <input
                         type="text"
-                        placeholder="e.g. Brahmastra, Woh Kaun Thi"
+                        placeholder="e.g. Aashiqui 2, Kati Patang"
                         className="w-full px-3.5 py-2.5 bg-gray-50 border border-gray-200 focus:bg-white focus:border-amber-600 focus:ring-2 focus:ring-amber-500/20 rounded-xl text-xs sm:text-sm transition text-gray-800 placeholder-gray-400 font-medium outline-none"
                         value={formData.movieName}
                         onChange={e => setFormData({ ...formData, movieName: e.target.value })}
