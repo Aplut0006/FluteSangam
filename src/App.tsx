@@ -159,7 +159,7 @@ export default function App() {
     push = true
   ) => {
     console.log(`handleViewChange called for view: ${view}`);
-    if (view === 'community_members' && !currentUser) {
+    if ((view === 'community_members' || view === 'post-detail') && !currentUser) {
       setAuthModalOpen(true);
       return;
     }
@@ -557,13 +557,15 @@ export default function App() {
                 </div>
 
                 {/* Create post trigger for desktop */}
-                <button
-                  onClick={handleOpenCreatePost}
-                  className="py-2 px-4 bg-bamboo-700 hover:bg-bamboo-600 text-white text-xs font-bold rounded-xl transition flex items-center justify-center space-x-1.5 shadow-3xs shrink-0"
-                >
-                  <Plus className="w-4 h-4" />
-                  <span>New Post</span>
-                </button>
+                {currentUser && (
+                  <button
+                    onClick={handleOpenCreatePost}
+                    className="py-2 px-4 bg-bamboo-700 hover:bg-bamboo-600 text-white text-xs font-bold rounded-xl transition flex items-center justify-center space-x-1.5 shadow-3xs shrink-0"
+                  >
+                    <Plus className="w-4 h-4" />
+                    <span>New Post</span>
+                  </button>
+                )}
               </div>
 
               {/* Filtering bar */}
@@ -625,12 +627,14 @@ export default function App() {
                   <p className="text-xs text-gray-500 max-w-sm mx-auto leading-relaxed">
                     We couldn't find any posts matching your search criteria. Be the first to share a recital, ask a question, or discuss this raga!
                   </p>
-                  <button
-                    onClick={handleOpenCreatePost}
-                    className="px-4 py-2 bg-bamboo-700 text-white text-xs font-bold rounded-xl hover:bg-bamboo-600 transition"
-                  >
-                    Share First Post
-                  </button>
+                  {currentUser && (
+                    <button
+                      onClick={handleOpenCreatePost}
+                      className="px-4 py-2 bg-bamboo-700 text-white text-xs font-bold rounded-xl hover:bg-bamboo-600 transition"
+                    >
+                      Share First Post
+                    </button>
+                  )}
                 </div>
               ) : (
                 filteredPosts.map((post) => (
@@ -643,6 +647,10 @@ export default function App() {
                     onStartChat={handleStartChat}
                     onUserProfileClick={handleOpenUserProfile}
                     onPostClick={(clickedPost, focusComment) => {
+                      if (!currentUser) {
+                        setAuthModalOpen(true);
+                        return;
+                      }
                       handleViewChange('post-detail', { postId: clickedPost.id, post: clickedPost, focusComment });
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
@@ -824,10 +832,12 @@ export default function App() {
         onOpenAuth={() => setAuthModalOpen(true)}
         currentUser={currentUser}
         unreadCount={unreadCount}
+        isHidden={authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost || !!selectedImageUrl}
       />
       <SongRequestFAB 
         isHidden={currentView !== 'community' || authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost} 
         currentUser={currentUser}
+        onOpenAuth={() => setAuthModalOpen(true)}
       />
     </div>
   );

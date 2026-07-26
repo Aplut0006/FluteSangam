@@ -85,7 +85,7 @@ export default function NotificationsDropdown({ currentUser, onSelectPost }: Not
 
       {isOpen && (
         <div 
-          className="absolute right-0 mt-2.5 w-80 sm:w-96 bg-white border border-bamboo-100 rounded-2xl shadow-2xl overflow-hidden z-50 origin-top-right animate-fadeIn"
+          className="fixed top-16 inset-x-3 sm:absolute sm:top-auto sm:inset-x-auto sm:right-0 sm:w-96 sm:mt-2.5 bg-white border border-bamboo-100 rounded-2xl shadow-2xl overflow-hidden z-[100] origin-top-right animate-fadeIn"
           id="notifications-popover"
         >
           {/* Header */}
@@ -115,7 +115,7 @@ export default function NotificationsDropdown({ currentUser, onSelectPost }: Not
               )}
               <button
                 onClick={() => setIsOpen(false)}
-                className="text-bamboo-200 hover:text-white p-1 rounded-lg transition"
+                className="text-bamboo-200 hover:text-white p-1 rounded-lg transition cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -123,7 +123,7 @@ export default function NotificationsDropdown({ currentUser, onSelectPost }: Not
           </div>
 
           {/* List of notifications */}
-          <div className="max-h-96 overflow-y-auto divide-y divide-gray-100/80">
+          <div className="max-h-[65vh] sm:max-h-96 overflow-y-auto divide-y divide-gray-100/80">
             {notifications.length === 0 ? (
               <div className="p-8 text-center space-y-2">
                 <div className="w-10 h-10 bg-bamboo-50 rounded-full flex items-center justify-center text-bamboo-600 mx-auto">

@@ -7,14 +7,18 @@ interface MobileBottomNavProps {
   onOpenAuth: () => void;
   currentUser: UserProfile | null;
   unreadCount: number;
+  isHidden?: boolean;
 }
 
 export default function MobileBottomNav({ 
   onViewChange, 
   onOpenAuth, 
   currentUser,
-  unreadCount 
+  unreadCount,
+  isHidden 
 }: MobileBottomNavProps) {
+  if (isHidden) return null;
+
   const tabs: { id: AppView | 'tips', label: string, icon: any }[] = [
     { id: 'community', label: 'Feed', icon: Compass },
     { id: 'learn_dashboard', label: 'Learn', icon: BookOpen },

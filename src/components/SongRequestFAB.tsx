@@ -3,13 +3,21 @@ import { Music, X } from 'lucide-react';
 import { db } from '../lib/firebase';
 import { collection, addDoc } from 'firebase/firestore';
 
-export const SongRequestFAB = ({ isHidden, currentUser }: { isHidden?: boolean, currentUser: any }) => {
+export const SongRequestFAB = ({ isHidden, currentUser, onOpenAuth }: { isHidden?: boolean, currentUser: any, onOpenAuth?: () => void }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({ songName: '', singerName: '', movieName: '' });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   if (isHidden) return null;
+
+  const handleFabClick = () => {
+    if (!currentUser) {
+      onOpenAuth?.();
+      return;
+    }
+    setIsOpen(true);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,7 +50,7 @@ export const SongRequestFAB = ({ isHidden, currentUser }: { isHidden?: boolean, 
   return (
     <>
       <button
-        onClick={() => setIsOpen(true)}
+        onClick={handleFabClick}
         className="fixed bottom-[100px] md:bottom-6 right-5 md:right-6 z-[90] bg-amber-600 text-white p-3.5 md:p-4 rounded-full shadow-lg hover:bg-amber-500 transition-all hover:scale-105 flex items-center gap-2"
       >
         <Music size={24} />
