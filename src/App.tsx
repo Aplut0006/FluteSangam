@@ -81,53 +81,85 @@ export default function App() {
 
     switch (currentView) {
       case 'community':
-        title = 'FluteSangam Community — Indian Flute Discussions & Performance Sharing';
-        description = 'Join thousands of flute enthusiasts. Ask questions, share audio recordings, get constructive feedback, and discuss Indian classical flute techniques.';
+        title = 'FluteSangam Feed — Community Discussions & Audio Recordings';
+        description = 'Explore posts, audio recitals, questions, and discussions shared by bansuri and flute enthusiasts worldwide.';
+        break;
+      case 'chats':
+        title = 'Direct Messages & Community Chat — FluteSangam';
+        description = 'Chat directly with fellow flutists, ask for guidance, collaborate on ragas, and stay connected in real-time.';
         break;
       case 'learn_dashboard':
-        title = 'Flute Learning Hub — Master Bansuri Ragas, Alankars & Basics | FluteSangam';
-        description = 'Comprehensive step-by-step guides for learning Indian flute. Practice basic posture, alankar exercises, and ragas like Yaman, Bhupali, and Kafi.';
+        title = 'Flute Learning Hub — Bansuri Ragas, Alankars & Lessons | FluteSangam';
+        description = 'Comprehensive step-by-step guides for learning Indian flute. Practice posture, alankar drills, and ragas like Yaman, Bhupali, and Kafi.';
         break;
       case 'learn_intro':
         title = 'Introduction to Indian Flute (Bansuri & Venu) | FluteSangam';
-        description = 'Discover the history, anatomy, scale selection, and fundamentals of the Indian bamboo flute (Bansuri and Venu).';
+        description = 'Discover the origin, anatomy, scale selection, and essential fundamentals of the Indian bamboo flute.';
         break;
       case 'learn_basics':
         title = 'Bansuri Basics — Holding, Blowing & Swara Practice | FluteSangam';
-        description = 'Master sound generation, lip position, finger coverage, and accurate swara production on your Indian flute.';
+        description = 'Master sound generation, blowing technique, finger positioning, and accurate swara production on your flute.';
         break;
       case 'learn_alankaras':
-        title = 'Alankar Practice Drills & Finger Speed Patterns | FluteSangam';
-        description = 'Boost your finger speed, pitch accuracy, and breath control with essential alankars and sargam exercises.';
+        title = 'Alankar Drills & Speed Patterns | FluteSangam';
+        description = 'Improve your finger agility, pitch control, and tempo stability with guided alankar exercises and sargam drills.';
         break;
       case 'learn_raagas':
         title = 'Learn Ragas — Aaroh, Avroh, Pakad & Compositions | FluteSangam';
-        description = 'Explore Hindustani and Carnatic ragas with detailed Aaroh, Avroh, Pakad, time of play, and practice compositions.';
+        description = 'Master Hindustani and Carnatic ragas with detailed scale structure, key phrases (Pakad), timing, and practice compositions.';
         break;
       case 'notation_requests':
-        title = 'Bansuri Notation Requests & Song Sheet Music | FluteSangam';
-        description = 'Request sargam notations for Bollywood, classical, devotional, or regional songs, and browse community notations.';
+        title = 'Bansuri Song Notations & Sargam Requests | FluteSangam';
+        description = 'Request sargam notations for Bollywood, devotional, folk, or classical songs, and explore community-contributed sheet music.';
+        break;
+      case 'community_members':
+        title = 'Community Flutists & Guru Directory — FluteSangam';
+        description = 'Discover and connect with Indian flute players, bansuri teachers, and fellow learners across the globe.';
         break;
       case 'about_us':
-        title = 'About FluteSangam — Empowering Flute Players Globally';
-        description = 'Learn about FluteSangam’s mission to connect, educate, and inspire Indian classical flute practitioners worldwide.';
+        title = 'About FluteSangam — Empowering Flute Players Worldwide';
+        description = 'Learn about FluteSangam’s mission to preserve and promote Indian bamboo flute heritage through community and education.';
         break;
       case 'post-detail':
         if (selectedPost) {
-          title = `${selectedPost.title} — FluteSangam Community`;
-          description = selectedPost.description ? selectedPost.description.substring(0, 150) + '...' : description;
+          title = `${selectedPost.title} — FluteSangam Post`;
+          description = selectedPost.description 
+            ? selectedPost.description.substring(0, 155) + (selectedPost.description.length > 155 ? '...' : '') 
+            : `Read and discuss "${selectedPost.title}" by ${selectedPost.authorName} on FluteSangam.`;
+        } else {
+          title = 'Post Details — FluteSangam Community';
+          description = 'View post details, audio recordings, song discussions, and community replies on FluteSangam.';
         }
+        break;
+      case 'user-profile':
+        title = selectedProfileUserId ? 'Flutist Profile — FluteSangam Community' : 'My Profile — FluteSangam';
+        description = 'View member profile, bansuri preferences, level, bio, and community contributions on FluteSangam.';
         break;
       default:
         break;
     }
 
+    // Set Document Title
     document.title = title;
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute('content', description);
-    }
-  }, [currentView, selectedPost]);
+
+    // Helper to safely set or create meta tags
+    const setMeta = (selector: string, attrName: string, attrVal: string, contentVal: string) => {
+      let tag = document.querySelector(selector);
+      if (!tag) {
+        tag = document.createElement('meta');
+        tag.setAttribute(attrName, attrVal);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute('content', contentVal);
+    };
+
+    setMeta('meta[name="description"]', 'name', 'description', description);
+    setMeta('meta[name="title"]', 'name', 'title', title);
+    setMeta('meta[property="og:title"]', 'property', 'og:title', title);
+    setMeta('meta[property="og:description"]', 'property', 'og:description', description);
+    setMeta('meta[name="twitter:title"]', 'name', 'twitter:title', title);
+    setMeta('meta[name="twitter:description"]', 'name', 'twitter:description', description);
+  }, [currentView, selectedPost, selectedProfileUserId]);
 
 
   // Sync URL with view
