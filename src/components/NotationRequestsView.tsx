@@ -92,6 +92,16 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
     return false;
   };
 
+  const isRequesterOfSelectedRequest = () => {
+    if (!selectedRequest) return false;
+    const reqUserId = selectedRequest.userId || selectedRequest.userUid || selectedRequest.requestedBy;
+    const reqUserEmail = selectedRequest.userEmail || selectedRequest.requestedByEmail || selectedRequest.email;
+    
+    if (activeUid && reqUserId && reqUserId === activeUid) return true;
+    if (activeEmail && reqUserEmail && reqUserEmail.toLowerCase().trim() === activeEmail) return true;
+    return false;
+  };
+
   // Handle Delete Request
   const handleDeleteRequest = async (e: React.MouseEvent, reqId: string) => {
     e.stopPropagation();
@@ -207,6 +217,11 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
       return;
     }
     if (!selectedRequest || !notationText.trim()) return;
+
+    if (isRequesterOfSelectedRequest()) {
+      alert('As the creator of this notation request, you cannot submit a notation for your own request.');
+      return;
+    }
 
     setSubmittingNotation(true);
     try {
@@ -693,7 +708,17 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
 
               {/* SUBMIT NOTATION SECTION */}
               <div className="border-t border-gray-100 pt-6">
-                {!showSubmitForm ? (
+                {isRequesterOfSelectedRequest() ? (
+                  <div className="bg-amber-50/80 border border-amber-200/90 rounded-2xl p-5 text-center space-y-2">
+                    <div className="inline-flex items-center gap-1.5 text-amber-900 font-bold text-xs bg-amber-100/90 px-3 py-1 rounded-full border border-amber-300/60">
+                      <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                      <span>You Requested This Notation</span>
+                    </div>
+                    <p className="text-xs text-amber-900 font-medium max-w-md mx-auto leading-relaxed">
+                      You are the creator of this notation request. Other community flutists and musicians will share their swaras for you here!
+                    </p>
+                  </div>
+                ) : !showSubmitForm ? (
                   <div className="bg-bamboo-50/50 border border-bamboo-100 rounded-2xl p-6 text-center space-y-3">
                     <p className="text-xs text-gray-600 font-medium">
                       Know the flute swaras for this song? Share your notation to help fellow musicians!
