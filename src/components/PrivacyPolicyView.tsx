@@ -64,7 +64,8 @@ export const PrivacyPolicyView: React.FC<PrivacyPolicyViewProps> = ({ onBackToCo
               </p>
             </div>
             <div className="bg-white/80 border border-amber-300/80 rounded-xl p-3 text-xs text-amber-950 font-medium space-y-1">
-              <p><strong>App Purpose:</strong> FluteSangam is an educational and community platform for Indian bamboo flute (Bansuri & Venu) enthusiasts to learn classical ragas, share audio recitals, and request song notations.</p>
+              <p><strong>App Purpose:</strong> FluteSangam is an educational and community platform for Indian bamboo flute (Bansuri & Venu) enthusiasts to learn classical ragas, share audio recitals, check pitch with our real-time Flute Tuner, and request song notations.</p>
+              <p><strong>Microphone & Audio Privacy:</strong> FluteSangam requests microphone permission solely for real-time pitch detection in the Flute Tuner tool. Microphone audio is processed entirely in your local browser using the Web Audio API and is <strong>never recorded, stored, or transmitted</strong> to any external server.</p>
               <p><strong>Authentication Notice:</strong> FluteSangam uses email and Google Sign-In to authenticate users, verify user identity, create member profiles, and securely allow flutists to post recitals, comments, and notation requests.</p>
             </div>
           </div>
@@ -79,6 +80,7 @@ export const PrivacyPolicyView: React.FC<PrivacyPolicyViewProps> = ({ onBackToCo
               To deliver an interactive and personalized learning community, we collect necessary account and interaction details:
             </p>
             <ul className="list-disc list-inside space-y-1.5 text-xs sm:text-sm text-gray-600 pl-2">
+              <li><strong>Microphone & Live Audio Stream:</strong> When using interactive tools like the <em>Bansuri Flute Tuner</em>, we request temporary microphone access. Audio streams are analyzed locally in your browser memory for pitch/frequency calculation (A=440 Hz) and are immediately discarded without saving or recording.</li>
               <li><strong>Account Information:</strong> Display name, email address, unique username, profile picture, bio, location, and flute proficiency level when creating your profile.</li>
               <li><strong>User Content:</strong> Audio/video recordings, discussion posts, song notation requests, comments, and post likes created in the community.</li>
               <li><strong>Direct Messages:</strong> Private chat communications and shared media exchanged directly with fellow community members.</li>

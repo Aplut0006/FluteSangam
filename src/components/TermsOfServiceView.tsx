@@ -64,7 +64,8 @@ export const TermsOfServiceView: React.FC<TermsOfServiceViewProps> = ({ onBackTo
               </p>
             </div>
             <div className="bg-white/80 border border-amber-300/80 rounded-xl p-3 text-xs text-amber-950 font-medium space-y-1">
-              <p><strong>App Purpose:</strong> FluteSangam is an educational and social platform dedicated to Indian bamboo flute learning, audio recital sharing, and sheet music/sargam requests.</p>
+              <p><strong>App Purpose:</strong> FluteSangam is an educational and social platform dedicated to Indian bamboo flute learning, audio recital sharing, sheet music/sargam requests, and interactive flute tuning.</p>
+              <p><strong>Microphone Permission:</strong> By enabling the Flute Tuner, you grant temporary permission for the app to access your device microphone for real-time pitch detection. No audio from the tuner is recorded, stored, or transmitted.</p>
               <p><strong>Account Authentication:</strong> We use email and Google Sign-In to securely authenticate users, create member accounts, and attribute published posts, comments, and notation requests to their profile.</p>
             </div>
           </div>
@@ -89,14 +90,15 @@ export const TermsOfServiceView: React.FC<TermsOfServiceViewProps> = ({ onBackTo
           <section className="space-y-3">
             <div className="flex items-center gap-2.5 text-bamboo-900 font-display font-bold text-lg sm:text-xl border-b border-bamboo-100 pb-2">
               <Music className="w-5 h-5 text-bamboo-600 shrink-0" />
-              <h2>2. Audio Recordings & User Submissions</h2>
+              <h2>2. Audio Features, Microphone Access & User Submissions</h2>
             </div>
             <p className="text-xs sm:text-sm text-gray-600">
-              When sharing audio recordings, song notation requests, or discussions:
+              When utilizing audio tools, sharing recitals, song notation requests, or community discussions:
             </p>
             <ul className="list-disc list-inside space-y-1.5 text-xs sm:text-sm text-gray-600 pl-2">
-              <li><strong>Ownership:</strong> You retain ownership of your original musical recordings and sargam notations shared on FluteSangam.</li>
-              <li><strong>Community License:</strong> By posting, you grant FluteSangam a non-exclusive license to display your public posts to other members in the community feed.</li>
+              <li><strong>Microphone Permission & Processing:</strong> Using interactive tools such as the <em>Flute Tuner</em> requires browser microphone access. You may grant or revoke microphone permissions at any time via your browser settings. Tuner audio is processed strictly in-memory on your device for frequency detection and is never saved, transmitted, or recorded.</li>
+              <li><strong>User Content Ownership:</strong> You retain ownership of your original musical recordings and sargam notations shared on FluteSangam.</li>
+              <li><strong>Community License:</strong> By posting public recitals or comments, you grant FluteSangam a non-exclusive license to display your content to other members in the community feed.</li>
               <li><strong>Copyright Respect:</strong> Only upload audio clips, covers, or notations that do not infringe on third-party copyrights or intellectual property.</li>
             </ul>
           </section>

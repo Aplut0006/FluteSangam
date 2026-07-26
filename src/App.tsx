@@ -21,6 +21,7 @@ import LearnDashboard from './components/LearnDashboard';
 import LearnIntroView from './components/LearnIntroView';
 import LearnBasicsView from './components/LearnBasicsView';
 import LearnChooseFluteView from './components/LearnChooseFluteView';
+import LearnTunerView from './components/LearnTunerView';
 import LearnAlankarasView from './components/LearnAlankarasView';
 import LearnRaagasView from './components/LearnRaagasView';
 import MembersView from './components/MembersView';
@@ -661,6 +662,8 @@ export default function App() {
           <LearnBasicsView />
         ) : currentView === 'learn_choose_flute' ? (
           <LearnChooseFluteView onViewChange={handleViewChange} />
+        ) : currentView === 'learn_tuner' ? (
+          <LearnTunerView onViewChange={handleViewChange} />
         ) : currentView === 'learn_alankaras' ? (
           <LearnAlankarasView />
         ) : currentView === 'learn_raagas' ? (

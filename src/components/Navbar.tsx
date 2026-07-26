@@ -301,7 +301,7 @@ export default function Navbar({
             <button
               onClick={() => setShowLearnDropdown(!showLearnDropdown)}
               className={`px-2.5 xl:px-3.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
-                currentView === 'learn_intro' || currentView === 'learn_basics' || currentView === 'learn_choose_flute' || currentView === 'learn_alankaras' || currentView === 'learn_raagas'
+                currentView === 'learn_intro' || currentView === 'learn_basics' || currentView === 'learn_choose_flute' || currentView === 'learn_tuner' || currentView === 'learn_alankaras' || currentView === 'learn_raagas'
                   ? 'bg-bamboo-700 text-white shadow-3xs'
                   : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
               }`}
@@ -330,6 +330,16 @@ export default function Navbar({
                   className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 cursor-pointer"
                 >
                   Choose the Right Flute (Bansuri)
+                </button>
+                <button
+                  onClick={() => {
+                    onViewChange?.('learn_tuner');
+                    setShowLearnDropdown(false);
+                  }}
+                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-amber-800 bg-amber-50/50 hover:bg-amber-100/80 transition border-b border-bamboo-50 cursor-pointer flex items-center justify-between"
+                >
+                  <span>Flute Tuner &amp; Scales</span>
+                  <span className="text-[9px] bg-amber-200 text-amber-900 font-bold px-1.5 py-0.5 rounded-full">440Hz</span>
                 </button>
                 <button
                   onClick={() => {
@@ -430,6 +440,13 @@ export default function Navbar({
                   className="w-full text-left text-sm text-gray-600 hover:text-bamboo-800 py-2"
                 >
                   Choose the Right Flute (Bansuri)
+                </button>
+                <button
+                  onClick={() => { onViewChange?.('learn_tuner'); setShowMobileMenu(false); }}
+                  className="w-full text-left text-sm text-amber-800 font-bold hover:text-bamboo-900 py-2 flex items-center justify-between"
+                >
+                  <span>Flute Tuner &amp; Scales</span>
+                  <span className="text-[10px] bg-amber-100 text-amber-900 px-2 py-0.5 rounded-full">440Hz</span>
                 </button>
                 <button
                   onClick={() => { onViewChange?.('learn_basics'); setShowMobileMenu(false); }}
