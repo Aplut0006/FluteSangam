@@ -25,35 +25,6 @@ async function startServer() {
     res.json({ status: "ok" });
   });
 
-  app.get('/sitemap.xml', (req, res) => {
-    const urls = [
-      { loc: 'https://flutesangam.com/', priority: '1.0', freq: 'daily' },
-      { loc: 'https://flutesangam.com/learn', priority: '0.9', freq: 'weekly' },
-      { loc: 'https://flutesangam.com/learn/ragas', priority: '0.9', freq: 'weekly' },
-      { loc: 'https://flutesangam.com/learn/alankars', priority: '0.9', freq: 'weekly' },
-      { loc: 'https://flutesangam.com/notations', priority: '0.9', freq: 'daily' },
-      { loc: 'https://flutesangam.com/about', priority: '0.7', freq: 'monthly' },
-    ];
-
-    const lastmod = new Date().toISOString().split('T')[0];
-
-    const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map(u => `  <url>
-    <loc>${u.loc}</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>${u.freq}</changefreq>
-    <priority>${u.priority}</priority>
-  </url>`).join('\n')}
-</urlset>`;
-
-    res.header('Content-Type', 'application/xml');
-    res.header('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0');
-    res.header('Pragma', 'no-cache');
-    res.header('Expires', '0');
-    res.send(xml);
-  });
-
   // Vite middleware for development
   if (!isProduction) {
     console.log("Running in development mode");
