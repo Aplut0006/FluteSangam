@@ -246,6 +246,10 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
 
   // Copy Notation Swaras
   const handleCopyNotation = (text: string, id: string) => {
+    if (!currentUser) {
+      onOpenAuth?.();
+      return;
+    }
     navigator.clipboard.writeText(text);
     setCopiedId(id);
     setTimeout(() => setCopiedId(null), 2000);
@@ -354,7 +358,13 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
             return (
               <div 
                 key={req.id} 
-                onClick={() => setSelectedRequest(req)}
+                onClick={() => {
+                    if (!currentUser) {
+                      onOpenAuth?.();
+                      return;
+                    }
+                    setSelectedRequest(req);
+                  }}
                 className="bg-white border border-gray-100 hover:border-bamboo-300 rounded-2xl p-5 shadow-xs hover:shadow-md transition-all duration-200 cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-4 group"
               >
                 <div className="space-y-2 flex-1">
