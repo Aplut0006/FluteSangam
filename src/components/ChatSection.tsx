@@ -84,6 +84,7 @@ export default function ChatSection({
   const [deletingMsgId, setDeletingMsgId] = useState<string | null>(null);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
   const listEndRef = useRef<HTMLDivElement>(null);
 
   const isBlocked = activeTargetUser ? (currentUser.blockedUsers?.includes(activeTargetUser.uid) || false) : false;
@@ -132,9 +133,11 @@ export default function ChatSection({
     }
   }, [initialTargetUser, currentUser.uid]);
 
-  // 5. Scroll to bottom of message stream
+  // 5. Scroll to bottom of message stream inside the chat box container only (prevents window scrolling)
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
+    }
   }, [activeChatId, allMessages.length, chatImageUrl]);
 
   // 6. Group messages into conversational threads
@@ -510,6 +513,7 @@ export default function ChatSection({
 
             {/* Messages Body */}
             <div 
+              ref={messagesContainerRef}
               className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50/50 relative"
               id="active-chat-message-stream"
             >

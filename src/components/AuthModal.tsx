@@ -124,27 +124,37 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
           return;
         }
 
+        // Strict Step 2 Validations BEFORE creating account in Firebase Auth
+        if (!displayName || !displayName.trim()) {
+          throw new Error("Please fill in your Name before signing up.");
+        }
+        if (!location || !location.trim()) {
+          throw new Error("Please fill in your Location before signing up.");
+        }
+        if (!profilePhoto || !profilePhoto.trim()) {
+          throw new Error("Please select a profile picture: either upload a custom photo or choose one of the cartoon avatars.");
+        }
+
+        // If bio is blank or whitespace, default to "N/A"
+        const finalBio = bio && bio.trim() ? bio.trim() : "N/A";
+
         // Create user in firebase auth
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         const userId = userCredential.user.uid;
         const userEmail = userCredential.user.email || email;
 
-        if (!profilePhoto) {
-          throw new Error("Please select a profile picture: either upload a custom photo or pick one of the 5 default cartoon avatars.");
-        }
-
-         // Create profile in firestore
-         const uniqueUsername = await generateUniqueUsername(displayName || "sadhaka");
-         const profile = await createUserProfile(userId, {
-           displayName: displayName || "Sadhaka",
-           username: uniqueUsername,
-           email: userEmail,
-           photoURL: profilePhoto,
-           bio: bio || "Love playing classical bansuri.",
-           level,
-           bansuriType: bansuriType || "C Natural",
-           location: location || "India"
-         });
+        // Create profile in firestore
+        const uniqueUsername = await generateUniqueUsername(displayName.trim());
+        const profile = await createUserProfile(userId, {
+          displayName: displayName.trim(),
+          username: uniqueUsername,
+          email: userEmail,
+          photoURL: profilePhoto,
+          bio: finalBio,
+          level,
+          bansuriType: bansuriType || "C Natural",
+          location: location.trim()
+        });
 
         if (profile) {
           onAuthSuccess(profile);
@@ -251,7 +261,9 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
 
                 {/* Profile Picture Section */}
                 <div className="space-y-3 p-3 bg-gray-50/50 rounded-xl border border-gray-100" id="signup-avatar-selector-section">
-                  <label className="block text-xs font-semibold text-gray-700">Profile Picture Selection</label>
+                  <label className="block text-xs font-semibold text-gray-700">
+                    Profile Picture Selection <span className="text-red-500">*</span>
+                  </label>
                   
                   {/* Current Selected Avatar Preview */}
                   <div className="flex items-center space-x-4">
@@ -273,7 +285,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
                       <p className="text-[11px] font-medium text-gray-500 leading-normal">
                         {profilePhoto 
                           ? (photoType === 'custom' ? "Custom uploaded image" : "Cartoon avatar selected") 
-                          : "No profile picture selected yet."}
+                          : "No profile picture selected yet. (Required)"}
                       </p>
                       
                       {/* Upload Button */}
@@ -356,7 +368,9 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-gray-700 mb-1">Full Name / Display Name</label>
+                  <label className="block text-xs font-medium text-gray-700 mb-1">
+                    Full Name / Display Name <span className="text-red-500">*</span>
+                  </label>
                   <input
                     type="text"
                     required
@@ -396,7 +410,9 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-gray-700 mb-1">Your Location</label>
+                  <label className="block text-xs font-medium text-gray-700 mb-1">
+                    Your Location <span className="text-red-500">*</span>
+                  </label>
                   <input
                     type="text"
                     required
@@ -408,12 +424,14 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-gray-700 mb-1">Short Bio</label>
+                  <label className="block text-xs font-medium text-gray-700 mb-1">
+                    Short Bio <span className="text-gray-400 font-normal">(Optional - defaults to N/A)</span>
+                  </label>
                   <textarea
                     rows={3}
                     value={bio}
                     onChange={(e) => setBio(e.target.value)}
-                    placeholder="Tell other flute enthusiasts about your journey, favorite ragas, or learning goals..."
+                    placeholder="Tell other flute enthusiasts about your journey, or leave blank for N/A..."
                     className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-bamboo-600 focus:border-transparent resize-none"
                   />
                 </div>
