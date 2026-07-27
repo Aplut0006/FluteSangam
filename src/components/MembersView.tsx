@@ -57,7 +57,7 @@ export default function MembersView({
               <span>Sadhaka Community Directory</span>
             </span>
             <h2 className="text-2xl sm:text-3xl font-display font-bold text-bamboo-950">
-              Authentication Required
+              Sign In Required
             </h2>
             <p className="text-xs sm:text-sm text-gray-600 max-w-md mx-auto leading-relaxed">
               Please sign in or create an account to view community members, explore flutist profiles, and connect with fellow learners worldwide.

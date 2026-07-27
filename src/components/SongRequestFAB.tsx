@@ -201,7 +201,7 @@ export const SongRequestFAB: React.FC<SongRequestFABProps> = ({ isHidden, curren
                       <ShieldAlert className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
                       <div className="space-y-1">
                         <p className="font-bold text-amber-900">
-                          {wasAuthPrompted ? "Authentication Required to Submit" : "Sign in required upon submission"}
+                          {wasAuthPrompted ? "Sign In Required to Submit" : "Sign in required upon submission"}
                         </p>
                         <p className="text-[11px] text-amber-800/90 leading-relaxed">
                           You can fill in your song details now! When you click submit, you will be prompted to sign in with your email or Google account so we can link the request to your profile.

@@ -67,7 +67,7 @@ export default function UserProfileView({
             <Lock className="w-7 h-7" />
           </div>
           <div className="space-y-2">
-            <h3 className="text-xl font-bold font-display text-bamboo-950">Authentication Required</h3>
+            <h3 className="text-xl font-bold font-display text-bamboo-950">Sign In Required</h3>
             <p className="text-xs sm:text-sm text-gray-600 max-w-sm mx-auto">
               Please sign in or create an account to view community member profiles.
             </p>
