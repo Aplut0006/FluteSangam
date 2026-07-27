@@ -1,5 +1,5 @@
 import React from 'react';
-import { Music, Wind, ArrowUpRight, ArrowDownRight, Lightbulb } from 'lucide-react';
+import { Music, Wind, ArrowUpRight, ArrowDownRight, Lightbulb, Calendar, Clock, CheckCircle2 } from 'lucide-react';
 import Metronome from './Metronome';
 
 export default function LearnAlankarasView() {
@@ -176,18 +176,43 @@ export default function LearnAlankarasView() {
   ];
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-6">
+    <div className="w-full max-w-4xl mx-auto space-y-6" itemScope itemType="https://schema.org/TechArticle">
       <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-bamboo-100 overflow-hidden relative">
         <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
 
         <div className="relative z-10">
-          <div className="flex items-center gap-4 mb-8">
-            <div className="w-14 h-14 bg-gradient-to-br from-amber-100 to-orange-100 rounded-2xl flex items-center justify-center shadow-inner">
-              <Music className="w-7 h-7 text-amber-700" />
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 bg-gradient-to-br from-amber-100 to-orange-100 rounded-2xl flex items-center justify-center shadow-inner">
+                <Music className="w-7 h-7 text-amber-700" />
+              </div>
+              <h1 className="text-3xl md:text-4xl font-bold font-display text-bamboo-900 tracking-tight" itemProp="headline">
+                Basic Alankaras
+              </h1>
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold font-display text-bamboo-900 tracking-tight">
-              Basic Alankaras
-            </h1>
+
+            {/* Explicit Freshness Signals & Timestamps */}
+            <div className="flex flex-wrap items-center gap-2.5 text-xs text-gray-600 bg-amber-50/80 border border-amber-200/60 rounded-2xl px-3.5 py-2 shrink-0">
+              <div className="flex items-center gap-1.5">
+                <Calendar className="w-3.5 h-3.5 text-amber-600" />
+                <span className="text-gray-500">Published:</span>
+                <time itemProp="datePublished" dateTime="2024-01-15T00:00:00Z" className="font-semibold text-gray-900">
+                  Jan 15, 2024
+                </time>
+              </div>
+              <span className="text-gray-300">•</span>
+              <div className="flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5 text-amber-600" />
+                <span className="text-gray-500">Updated:</span>
+                <time itemProp="dateModified" dateTime="2026-07-27T10:00:00Z" className="font-semibold text-gray-900">
+                  Jul 27, 2026
+                </time>
+              </div>
+              <span className="text-gray-300">•</span>
+              <span className="inline-flex items-center gap-1 bg-amber-100 text-amber-900 font-bold px-2 py-0.5 rounded-md text-[10px] tracking-wide uppercase">
+                <CheckCircle2 className="w-3 h-3 text-amber-700" /> Verified
+              </span>
+            </div>
           </div>
 
           <div className="prose prose-bamboo prose-lg max-w-none text-gray-700 space-y-10">

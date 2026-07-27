@@ -116,6 +116,18 @@ export default function PostCard({
     }
   };
 
+  const formatDate = (timestamp: any) => {
+    if (!timestamp) return 'Just now';
+    const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
+    if (isNaN(date.getTime())) return 'Just now';
+    return date.toLocaleString([], {
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  };
+
   const isLongDescription = post.description.length > 150 || post.description.split('\n').length > 3;
 
   const getTruncatedText = () => {
@@ -178,7 +190,7 @@ export default function PostCard({
               </span>
             </div>
             
-            <div className="flex items-center space-x-1 mt-1">
+            <div className="flex items-center space-x-1.5 mt-1 text-[11px] text-gray-400">
               <button
                 onClick={(e) => {
                   e.stopPropagation();
@@ -186,10 +198,25 @@ export default function PostCard({
                     onUserProfileClick(post.authorId);
                   }
                 }}
-                className="text-[11px] text-bamboo-700 font-mono font-medium hover:text-bamboo-800 hover:underline cursor-pointer text-left"
+                className="text-bamboo-700 font-mono font-medium hover:text-bamboo-800 hover:underline cursor-pointer text-left"
               >
                 @{post.authorUsername || post.authorName.toLowerCase().replace(/[^a-z0-9_]/g, '')}
               </button>
+              <span>•</span>
+              <time
+                itemProp="datePublished"
+                dateTime={post.createdAt?.toDate ? post.createdAt.toDate().toISOString() : (post.createdAt ? new Date(post.createdAt).toISOString() : new Date().toISOString())}
+                className="font-medium text-gray-500"
+              >
+                {formatDate(post.createdAt)}
+              </time>
+              {post.updatedAt && (
+                <time
+                  itemProp="dateModified"
+                  dateTime={post.updatedAt?.toDate ? post.updatedAt.toDate().toISOString() : new Date(post.updatedAt).toISOString()}
+                  className="hidden"
+                />
+              )}
             </div>
           </div>
         </div>

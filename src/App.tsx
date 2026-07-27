@@ -173,6 +173,25 @@ export default function App() {
     // Set Document Title
     document.title = title;
 
+    // Determine Freshness Timestamps for current view
+    let pubDate = '2024-01-15T00:00:00Z';
+    let modDate = '2026-07-27T10:00:00Z';
+
+    if (currentView === 'post-detail' && selectedPost) {
+      if (selectedPost.createdAt) {
+        pubDate = selectedPost.createdAt.toDate
+          ? selectedPost.createdAt.toDate().toISOString()
+          : new Date(selectedPost.createdAt).toISOString();
+      }
+      if (selectedPost.updatedAt) {
+        modDate = selectedPost.updatedAt.toDate
+          ? selectedPost.updatedAt.toDate().toISOString()
+          : new Date(selectedPost.updatedAt).toISOString();
+      } else {
+        modDate = pubDate;
+      }
+    }
+
     // Helper to safely set or create meta tags
     const setMeta = (selector: string, attrName: string, attrVal: string, contentVal: string) => {
       let tag = document.querySelector(selector);
@@ -190,6 +209,56 @@ export default function App() {
     setMeta('meta[property="og:description"]', 'property', 'og:description', description);
     setMeta('meta[name="twitter:title"]', 'name', 'twitter:title', title);
     setMeta('meta[name="twitter:description"]', 'name', 'twitter:description', description);
+    
+    // Explicit Freshness Meta Tags
+    setMeta('meta[name="article:published_time"]', 'name', 'article:published_time', pubDate);
+    setMeta('meta[name="article:modified_time"]', 'name', 'article:modified_time', modDate);
+    setMeta('meta[property="og:updated_time"]', 'property', 'og:updated_time', modDate);
+
+    // Dynamic JSON-LD Structured Data for Content Freshness
+    let jsonLdScript = document.getElementById('dynamic-jsonld') as HTMLScriptElement | null;
+    if (!jsonLdScript) {
+      jsonLdScript = document.createElement('script');
+      jsonLdScript.id = 'dynamic-jsonld';
+      jsonLdScript.type = 'application/ld+json';
+      document.head.appendChild(jsonLdScript);
+    }
+
+    let schemaData: any = {
+      '@context': 'https://schema.org',
+      'inLanguage': 'en',
+      'datePublished': pubDate,
+      'dateModified': modDate,
+      'publisher': {
+        '@type': 'EducationalOrganization',
+        'name': 'FluteSangam',
+        'logo': 'https://flutesangam.com/flutesangam_logo.png'
+      }
+    };
+
+    if (currentView === 'post-detail' && selectedPost) {
+      schemaData['@type'] = 'DiscussionForumPosting';
+      schemaData['@id'] = `https://flutesangam.com/post/${selectedPost.id}#posting`;
+      schemaData['headline'] = title;
+      schemaData['description'] = description;
+      schemaData['author'] = {
+        '@type': 'Person',
+        'name': selectedPost.authorName
+      };
+    } else if (currentView.startsWith('learn_')) {
+      schemaData['@type'] = 'TechArticle';
+      schemaData['@id'] = `https://flutesangam.com/learn#${currentView}`;
+      schemaData['headline'] = title;
+      schemaData['description'] = description;
+      schemaData['dependencies'] = 'Indian Bamboo Flute (Bansuri), Sargam Notes';
+    } else {
+      schemaData['@type'] = 'WebPage';
+      schemaData['@id'] = `https://flutesangam.com/#${currentView}`;
+      schemaData['headline'] = title;
+      schemaData['description'] = description;
+    }
+
+    jsonLdScript.textContent = JSON.stringify(schemaData);
   }, [currentView, selectedPost, selectedProfileUserId]);
 
 

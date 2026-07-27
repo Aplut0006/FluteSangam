@@ -77,6 +77,7 @@ export interface Post {
   likeCount: number;
   commentsCount: number;
   createdAt: any;
+  updatedAt?: any;
   imageUrl?: string;     // Base64 or external image URL
 }
 

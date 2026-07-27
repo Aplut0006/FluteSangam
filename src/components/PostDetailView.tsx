@@ -192,6 +192,16 @@ export default function PostDetailView({
     });
   };
 
+  const getIsoString = (timestamp: any) => {
+    if (!timestamp) return new Date().toISOString();
+    const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
+    if (isNaN(date.getTime())) return new Date().toISOString();
+    return date.toISOString();
+  };
+
+  const publishedIso = getIsoString(post.createdAt);
+  const modifiedIso = post.updatedAt ? getIsoString(post.updatedAt) : publishedIso;
+
   // Badge functions
   const getLevelBadge = (level: string) => {
     switch (level) {
@@ -267,7 +277,7 @@ export default function PostDetailView({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* LEFT COLUMN: Main Post Card details */}
         <div className="lg:col-span-8 space-y-6">
-          <div className="frosted-panel rounded-2xl overflow-hidden shadow-sm p-6 space-y-5 bg-white border border-bamboo-100/50">
+          <div className="frosted-panel rounded-2xl overflow-hidden shadow-sm p-6 space-y-5 bg-white border border-bamboo-100/50" itemScope itemType="https://schema.org/DiscussionForumPosting">
             {/* Header with Author and Tags */}
             <div className="flex items-center justify-between flex-wrap gap-3">
               <div className="flex items-center space-x-3.5">
@@ -297,6 +307,7 @@ export default function PostDetailView({
                         }
                       }}
                       className="font-extrabold text-gray-950 text-sm md:text-base leading-none transition-colors text-left hover:text-bamboo-700 hover:underline cursor-pointer"
+                      itemProp="author"
                     >
                       {post.authorName}
                     </button>
@@ -305,23 +316,31 @@ export default function PostDetailView({
                     </span>
                   </div>
                   
-                  <div className="flex items-center space-x-1.5 mt-1.5">
+                  <div className="flex items-center space-x-1.5 mt-1.5 flex-wrap text-[11px]">
                     <button
                       onClick={() => {
                         if (onUserProfileClick) {
                           onUserProfileClick(post.authorId);
                         }
                       }}
-                      className="text-[11px] text-bamboo-700 font-mono font-medium hover:text-bamboo-800 hover:underline cursor-pointer"
+                      className="text-bamboo-700 font-mono font-medium hover:text-bamboo-800 hover:underline cursor-pointer"
                     >
                       @{post.authorUsername || post.authorName.toLowerCase().replace(/[^a-z0-9_]/g, '') || 'sadhaka'}
                     </button>
-                    <span className="text-gray-300 text-xs">•</span>
-                    <p className="text-[11px] text-gray-400 font-medium">Bansuri Enthusiast</p>
-                      <span className="text-gray-300 text-xs">•</span>
-                      <p className="text-[11px] text-gray-400 font-medium">
-                        {formatDate(post.createdAt)}
-                      </p>
+                    <span className="text-gray-300">•</span>
+                    <span className="text-gray-400 font-medium">Published:</span>
+                    <time itemProp="datePublished" dateTime={publishedIso} className="text-gray-600 font-semibold">
+                      {formatDate(post.createdAt)}
+                    </time>
+                    {post.updatedAt && (
+                      <>
+                        <span className="text-gray-300">•</span>
+                        <span className="text-gray-400 font-medium">Updated:</span>
+                        <time itemProp="dateModified" dateTime={modifiedIso} className="text-gray-600 font-semibold">
+                          {formatDate(post.updatedAt)}
+                        </time>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>

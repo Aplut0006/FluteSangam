@@ -1,21 +1,46 @@
 import React from 'react';
-import { Wind, Feather, Music, Heart, BookOpen } from 'lucide-react';
+import { Wind, Feather, Music, Heart, BookOpen, Calendar, Clock, CheckCircle2 } from 'lucide-react';
 
 export default function LearnIntroView() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+    <div className="max-w-4xl mx-auto px-4 py-8 animate-in fade-in slide-in-from-bottom-4 duration-500" itemScope itemType="https://schema.org/TechArticle">
       <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-bamboo-100 overflow-hidden relative">
         {/* Abstract Background Element */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
 
         <div className="relative z-10">
-          <div className="flex items-center gap-4 mb-8">
-            <div className="w-14 h-14 bg-gradient-to-br from-bamboo-100 to-amber-100 rounded-2xl flex items-center justify-center shadow-inner">
-              <Wind className="w-7 h-7 text-bamboo-700" />
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 bg-gradient-to-br from-bamboo-100 to-amber-100 rounded-2xl flex items-center justify-center shadow-inner">
+                <Wind className="w-7 h-7 text-bamboo-700" />
+              </div>
+              <h1 className="text-3xl md:text-4xl font-bold font-display text-bamboo-900 tracking-tight" itemProp="headline">
+                Introduction to Flute/Bansuri
+              </h1>
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold font-display text-bamboo-900 tracking-tight">
-              Introduction to Flute/Bansuri
-            </h1>
+
+            {/* Explicit Freshness Signals & Timestamps */}
+            <div className="flex flex-wrap items-center gap-2.5 text-xs text-gray-600 bg-amber-50/80 border border-amber-200/60 rounded-2xl px-3.5 py-2 shrink-0">
+              <div className="flex items-center gap-1.5">
+                <Calendar className="w-3.5 h-3.5 text-amber-600" />
+                <span className="text-gray-500">Published:</span>
+                <time itemProp="datePublished" dateTime="2024-01-15T00:00:00Z" className="font-semibold text-gray-900">
+                  Jan 15, 2024
+                </time>
+              </div>
+              <span className="text-gray-300">•</span>
+              <div className="flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5 text-amber-600" />
+                <span className="text-gray-500">Updated:</span>
+                <time itemProp="dateModified" dateTime="2026-07-27T10:00:00Z" className="font-semibold text-gray-900">
+                  Jul 27, 2026
+                </time>
+              </div>
+              <span className="text-gray-300">•</span>
+              <span className="inline-flex items-center gap-1 bg-amber-100 text-amber-900 font-bold px-2 py-0.5 rounded-md text-[10px] tracking-wide uppercase">
+                <CheckCircle2 className="w-3 h-3 text-amber-700" /> Verified
+              </span>
+            </div>
           </div>
 
           <div className="prose prose-bamboo prose-lg max-w-none text-gray-700 space-y-10">

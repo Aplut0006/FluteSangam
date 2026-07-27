@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ShoppingBag, ArrowLeft, CheckCircle2, AlertTriangle, Lightbulb, Sparkles, User, Users, Baby, Music, Store, Check, ArrowRight, Radio, BookOpen } from 'lucide-react';
+import { ShoppingBag, ArrowLeft, CheckCircle2, AlertTriangle, Lightbulb, Sparkles, User, Users, Baby, Music, Store, Check, ArrowRight, Radio, BookOpen, Calendar, Clock } from 'lucide-react';
 import { AppView } from '../types';
 
 interface LearnChooseFluteViewProps {
@@ -39,23 +39,48 @@ export default function LearnChooseFluteView({ onBackToLearn, onViewChange }: Le
         </div>
       </div>
 
-      <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-bamboo-100 overflow-hidden relative">
+      <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-bamboo-100 overflow-hidden relative" itemScope itemType="https://schema.org/TechArticle">
         {/* Decorative background blur */}
         <div className="absolute top-0 right-0 w-72 h-72 bg-amber-500/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
 
         <div className="relative z-10">
           {/* Header Title */}
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-amber-100 to-bamboo-100 rounded-2xl flex items-center justify-center shadow-inner shrink-0 border border-amber-200/50">
-              <ShoppingBag className="w-6 h-6 sm:w-7 sm:h-7 text-amber-800" />
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-amber-100 to-bamboo-100 rounded-2xl flex items-center justify-center shadow-inner shrink-0 border border-amber-200/50">
+                <ShoppingBag className="w-6 h-6 sm:w-7 sm:h-7 text-amber-800" />
+              </div>
+              <div>
+                <h1 className="text-2xl sm:text-4xl font-bold font-display text-bamboo-900 tracking-tight" itemProp="headline">
+                  Choose the Right Flute (Bansuri)
+                </h1>
+                <p className="text-xs sm:text-sm text-gray-500 mt-1">
+                  A complete scale selection guide tailored for children, teenagers, and adults
+                </p>
+              </div>
             </div>
-            <div>
-              <h1 className="text-2xl sm:text-4xl font-bold font-display text-bamboo-900 tracking-tight">
-                Choose the Right Flute (Bansuri)
-              </h1>
-              <p className="text-xs sm:text-sm text-gray-500 mt-1">
-                A complete scale selection guide tailored for children, teenagers, and adults
-              </p>
+
+            {/* Explicit Freshness Signals & Timestamps */}
+            <div className="flex flex-wrap items-center gap-2.5 text-xs text-gray-600 bg-amber-50/80 border border-amber-200/60 rounded-2xl px-3.5 py-2 shrink-0">
+              <div className="flex items-center gap-1.5">
+                <Calendar className="w-3.5 h-3.5 text-amber-600" />
+                <span className="text-gray-500">Published:</span>
+                <time itemProp="datePublished" dateTime="2024-01-15T00:00:00Z" className="font-semibold text-gray-900">
+                  Jan 15, 2024
+                </time>
+              </div>
+              <span className="text-gray-300">•</span>
+              <div className="flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5 text-amber-600" />
+                <span className="text-gray-500">Updated:</span>
+                <time itemProp="dateModified" dateTime="2026-07-27T10:00:00Z" className="font-semibold text-gray-900">
+                  Jul 27, 2026
+                </time>
+              </div>
+              <span className="text-gray-300">•</span>
+              <span className="inline-flex items-center gap-1 bg-amber-100 text-amber-900 font-bold px-2 py-0.5 rounded-md text-[10px] tracking-wide uppercase">
+                <CheckCircle2 className="w-3 h-3 text-amber-700" /> Verified
+              </span>
             </div>
           </div>
 
