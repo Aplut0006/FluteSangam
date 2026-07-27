@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { auth } from './lib/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
-import { seedDatabaseIfEmpty, subscribeToPosts, getUserProfile, subscribeToUnreadMessages, subscribeToAllUsers, getPost } from './lib/db';
+import { seedDatabaseIfEmpty, subscribeToPosts, getUserProfile, subscribeToUnreadMessages, subscribeToAllUsers, getPost, createUserProfile, generateUniqueUsername } from './lib/db';
 import { VIEW_URLS } from './routes';
 import { UserProfile, Post, AppView } from './types';
 import { motion, AnimatePresence } from 'motion/react';
@@ -325,18 +325,37 @@ export default function App() {
             email: profile.email || firebaseUser.email || ''
           });
         } else {
-          setCurrentUser({
-            uid: firebaseUser.uid,
-            displayName: firebaseUser.displayName || firebaseUser.email?.split('@')[0] || 'Musician',
-            username: firebaseUser.email?.split('@')[0] || 'musician',
+          // User authenticated via Firebase Auth but profile document is missing in Firestore /users collection.
+          // Create and persist their profile in Firestore so they appear in Members/Flutist directory!
+          const defaultName = firebaseUser.displayName || firebaseUser.email?.split('@')[0] || 'Musician';
+          const generatedUsername = await generateUniqueUsername(defaultName);
+          const newProfile = await createUserProfile(firebaseUser.uid, {
+            displayName: defaultName,
+            username: generatedUsername,
             email: firebaseUser.email || '',
-            photoURL: firebaseUser.photoURL || '',
-            bio: 'Flute lover',
+            photoURL: firebaseUser.photoURL || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150',
+            bio: 'Bansuri Sadhaka & Indian classical music enthusiast.',
             level: 'Beginner',
             bansuriType: 'C Natural',
-            location: 'India',
-            joinedAt: new Date()
+            location: 'India'
           });
+
+          if (newProfile) {
+            setCurrentUser(newProfile);
+          } else {
+            setCurrentUser({
+              uid: firebaseUser.uid,
+              displayName: defaultName,
+              username: generatedUsername,
+              email: firebaseUser.email || '',
+              photoURL: firebaseUser.photoURL || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150',
+              bio: 'Flute lover',
+              level: 'Beginner',
+              bansuriType: 'C Natural',
+              location: 'India',
+              joinedAt: new Date()
+            });
+          }
         }
       } else {
         setCurrentUser(null);
@@ -679,21 +698,12 @@ export default function App() {
         ) : currentView === 'notation_requests' ? (
           <NotationRequestsView currentUser={currentUser} onOpenAuth={() => setAuthModalOpen(true)} />
         ) : currentView === 'community_members' ? (
-          currentUser ? (
-            <MembersView onUserProfileClick={handleOpenUserProfile} />
-          ) : (
-            <div className="flex flex-col items-center justify-center p-12 text-center bg-white rounded-3xl border border-bamboo-100 shadow-sm max-w-lg mx-auto space-y-3 my-8">
-              <Users className="w-12 h-12 text-amber-600 mb-1" />
-              <h3 className="text-xl font-display font-bold text-bamboo-900">Members Directory</h3>
-              <p className="text-xs text-gray-600 max-w-xs mx-auto">Please join the community to view all members and connect with fellow flutists.</p>
-              <button 
-                onClick={() => setAuthModalOpen(true)} 
-                className="bg-bamboo-700 text-white px-6 py-2.5 rounded-xl text-xs font-bold hover:bg-bamboo-800 transition shadow-sm cursor-pointer"
-              >
-                Join / Sign In
-              </button>
-            </div>
-          )
+          <MembersView 
+            currentUser={currentUser} 
+            onUserProfileClick={handleOpenUserProfile} 
+            onStartChat={handleStartChat}
+            onOpenAuth={() => setAuthModalOpen(true)}
+          />
         ) : currentView === 'chats' ? (
           currentUser ? (
             <div className="space-y-5">

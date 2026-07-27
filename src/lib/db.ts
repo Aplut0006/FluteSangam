@@ -22,54 +22,187 @@ import {
 } from 'firebase/firestore';
 import { db } from './firebase';
 import { Post, Comment, UserProfile, AppNotification } from '../types';
-import { INITIAL_COMMUNITY_POSTS, MOCK_COMMENTS } from '../data/mockPosts';
+import { INITIAL_COMMUNITY_POSTS, MOCK_COMMENTS, INITIAL_MOCK_USERS } from '../data/mockPosts';
 
-// Seeding function
-export async function seedDatabaseIfEmpty() {
+// Seeding and user synchronization function
+export async function syncMissingUsersToFirestore(): Promise<void> {
   try {
-    const postsCol = collection(db, 'posts');
-    const q = query(postsCol);
-    const snapshot = await getDocs(q);
-    
-    if (snapshot.empty) {
-      console.log("Firestore database is empty. Seeding initial posts...");
-      
-      const ids = [
-        "morning-meditation",
-        "essential-breath-tips",
-        "shakur-c-natural-review",
-        "six-to-seven-hole-question",
-        "bhimpalasi-deep-dive"
-      ];
-      
-      for (let i = 0; i < INITIAL_COMMUNITY_POSTS.length; i++) {
-        const mockPost = INITIAL_COMMUNITY_POSTS[i];
-        const docId = ids[i];
-        
-        // Create the post document
-        const postRef = doc(db, 'posts', docId);
-        await setDoc(postRef, {
-          ...mockPost,
-          id: docId,
-          createdAt: Timestamp.now()
-        });
-        
-        // Seed comments for this post if they exist
-        const comments = MOCK_COMMENTS[docId] || [];
-        const commentsColRef = collection(db, 'posts', docId, 'comments');
-        
-        for (let j = 0; j < comments.length; j++) {
-          const comment = comments[j];
-          await addDoc(commentsColRef, {
-            ...comment,
-            createdAt: Timestamp.now()
+    // 1. Get all existing user IDs from Firestore
+    const usersCol = collection(db, 'users');
+    const existingUsersSnap = await getDocs(usersCol);
+    const existingUids = new Set<string>();
+    existingUsersSnap.forEach((docSnap) => existingUids.add(docSnap.id));
+
+    // 2. Sync INITIAL_MOCK_USERS into Firestore
+    for (const mockUser of INITIAL_MOCK_USERS) {
+      try {
+        const userRef = doc(db, 'users', mockUser.uid);
+        const userSnap = await getDoc(userRef);
+        if (!userSnap.exists() || userSnap.data()?.bio === 'Flute lover' || userSnap.data()?.displayName === 'Aarav Gupta' || userSnap.data()?.displayName === 'Priya Nair' || userSnap.data()?.displayName === 'Rohan Kulkarni') {
+          const uniqueUsername = await generateUniqueUsername(mockUser.username || mockUser.displayName);
+          const userDoc = cleanUndefined({
+            ...mockUser,
+            username: uniqueUsername,
+            joinedAt: Timestamp.fromDate(new Date(mockUser.joinedAt))
           });
+          await setDoc(userRef, userDoc, { merge: true });
+          existingUids.add(mockUser.uid);
+          console.log(`Synced/updated member profile ${mockUser.displayName} (@${uniqueUsername}) in Firestore!`);
+        }
+      } catch (e) {
+        console.warn(`Failed syncing mock member ${mockUser.uid}:`, e);
+      }
+    }
+
+    // 3. Scan posts for author profiles missing in /users
+    try {
+      const postsCol = collection(db, 'posts');
+      const postsSnap = await getDocs(postsCol);
+      for (const postDoc of postsSnap.docs) {
+        const p = postDoc.data();
+        const authorId = p.authorId || p.userId;
+        if (authorId && !existingUids.has(authorId)) {
+          try {
+            const baseName = p.authorUsername || p.authorName || 'flute_sadhaka';
+            const uniqueUsername = await generateUniqueUsername(baseName);
+            const newUserDoc = cleanUndefined({
+              uid: authorId,
+              displayName: p.authorName || 'Flute Sadhaka',
+              username: uniqueUsername,
+              email: `${uniqueUsername}@flutesangam.org`,
+              photoURL: p.authorPhoto || p.authorAvatar || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150',
+              bio: 'Classical Bansuri Sadhaka & Community Member',
+              level: p.authorLevel || 'Intermediate',
+              bansuriType: p.authorBansuriType || 'C Natural',
+              location: p.authorLocation || 'India',
+              joinedAt: p.createdAt || Timestamp.now()
+            });
+            await setDoc(doc(db, 'users', authorId), newUserDoc);
+            existingUids.add(authorId);
+            console.log(`Auto-created missing user profile for post author ${authorId} (@${uniqueUsername}) in Firestore!`);
+          } catch (e) {
+            console.warn(`Failed auto-creating user for post author ${authorId}:`, e);
+          }
         }
       }
-      console.log("Database seeded successfully!");
+    } catch (e) {
+      console.warn("Failed scanning posts for missing user profiles:", e);
+    }
+
+    // 4. Scan direct messages for sender/receiver missing in /users
+    try {
+      const dmCol = collection(db, 'direct_messages');
+      const dmSnap = await getDocs(dmCol);
+      for (const dmDoc of dmSnap.docs) {
+        const dm = dmDoc.data();
+        const senderId = dm.senderId;
+        const receiverId = dm.receiverId;
+
+        if (senderId && !existingUids.has(senderId)) {
+          try {
+            const baseName = dm.senderName || 'flutist';
+            const uniqueUsername = await generateUniqueUsername(baseName);
+            await setDoc(doc(db, 'users', senderId), cleanUndefined({
+              uid: senderId,
+              displayName: dm.senderName || 'Flute Sadhaka',
+              username: uniqueUsername,
+              photoURL: dm.senderPhoto || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150',
+              bio: 'Bansuri Sadhaka & Community Member',
+              level: 'Intermediate',
+              bansuriType: 'C Natural',
+              location: 'India',
+              joinedAt: Timestamp.now()
+            }));
+            existingUids.add(senderId);
+            console.log(`Auto-created user profile for DM sender ${senderId} (@${uniqueUsername}) in Firestore!`);
+          } catch (e) {
+            console.warn(`Failed auto-creating user for DM sender ${senderId}:`, e);
+          }
+        }
+
+        if (receiverId && !existingUids.has(receiverId)) {
+          try {
+            const baseName = dm.receiverName || 'flutist';
+            const uniqueUsername = await generateUniqueUsername(baseName);
+            await setDoc(doc(db, 'users', receiverId), cleanUndefined({
+              uid: receiverId,
+              displayName: dm.receiverName || 'Flute Sadhaka',
+              username: uniqueUsername,
+              photoURL: dm.receiverPhoto || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150',
+              bio: 'Bansuri Sadhaka & Community Member',
+              level: 'Intermediate',
+              bansuriType: 'C Natural',
+              location: 'India',
+              joinedAt: Timestamp.now()
+            }));
+            existingUids.add(receiverId);
+            console.log(`Auto-created user profile for DM receiver ${receiverId} (@${uniqueUsername}) in Firestore!`);
+          } catch (e) {
+            console.warn(`Failed auto-creating user for DM receiver ${receiverId}:`, e);
+          }
+        }
+      }
+    } catch (e) {
+      console.warn("Failed scanning direct_messages for missing user profiles:", e);
     }
   } catch (error) {
-    console.error("Error seeding database: ", error);
+    console.error("Error in syncMissingUsersToFirestore:", error);
+  }
+}
+
+export async function seedDatabaseIfEmpty() {
+  try {
+    // 1. Sync missing members into Firestore
+    await syncMissingUsersToFirestore();
+
+    // 2. Seed posts if empty
+    try {
+      const postsCol = collection(db, 'posts');
+      const q = query(postsCol);
+      const snapshot = await getDocs(q);
+      
+      if (snapshot.empty) {
+        console.log("Firestore database is empty. Seeding initial posts...");
+        
+        const ids = [
+          "morning-meditation",
+          "essential-breath-tips",
+          "shakur-c-natural-review",
+          "six-to-seven-hole-question",
+          "bhimpalasi-deep-dive"
+        ];
+        
+        for (let i = 0; i < INITIAL_COMMUNITY_POSTS.length; i++) {
+          const mockPost = INITIAL_COMMUNITY_POSTS[i];
+          const docId = ids[i];
+          
+          // Create the post document
+          const postRef = doc(db, 'posts', docId);
+          await setDoc(postRef, {
+            ...mockPost,
+            id: docId,
+            createdAt: Timestamp.now()
+          });
+          
+          // Seed comments for this post if they exist
+          const comments = MOCK_COMMENTS[docId] || [];
+          const commentsColRef = collection(db, 'posts', docId, 'comments');
+          
+          for (let j = 0; j < comments.length; j++) {
+            const comment = comments[j];
+            await addDoc(commentsColRef, {
+              ...comment,
+              createdAt: Timestamp.now()
+            });
+          }
+        }
+        console.log("Database seeded successfully!");
+      }
+    } catch (postErr) {
+      console.warn("Could not check/seed posts collection:", postErr);
+    }
+  } catch (error) {
+    console.warn("Database seeding notice:", error);
   }
 }
 
@@ -92,9 +225,14 @@ export async function getUserProfile(uid: string): Promise<UserProfile | null> {
     if (docSnap.exists()) {
       return docSnap.data() as UserProfile;
     }
+    // Fallback if system user is not yet in firestore
+    const mockMatch = INITIAL_MOCK_USERS.find(u => u.uid === uid);
+    if (mockMatch) return mockMatch;
     return null;
   } catch (error) {
     console.error("Error getting user profile:", error);
+    const mockMatch = INITIAL_MOCK_USERS.find(u => u.uid === uid);
+    if (mockMatch) return mockMatch;
     return null;
   }
 }
@@ -757,17 +895,33 @@ export function subscribeToUnreadMessages(userId: string, callback: (messages: a
 // Subscribe to all user profiles in the database
 export function subscribeToAllUsers(callback: (users: UserProfile[]) => void) {
   const usersCol = collection(db, 'users');
+  
+  // Trigger background sync for any missing members from posts, DMs, or initial data
+  syncMissingUsersToFirestore().catch(err => {
+    console.warn("Background sync of missing users encountered error:", err);
+  });
+
   return onSnapshot(usersCol, (snapshot) => {
     const users: UserProfile[] = [];
-    snapshot.forEach((doc) => {
+    snapshot.forEach((docSnap) => {
       users.push({
-        ...doc.data(),
-        uid: doc.id
+        ...docSnap.data(),
+        uid: docSnap.id
       } as UserProfile);
     });
+
+    // Ensure all initial mock users exist in list if not present in Firestore snapshot
+    const existingUids = new Set(users.map(u => u.uid));
+    INITIAL_MOCK_USERS.forEach((mockUser) => {
+      if (!existingUids.has(mockUser.uid)) {
+        users.push(mockUser);
+      }
+    });
+
     callback(users);
   }, (error) => {
     console.error("Error subscribing to all users:", error);
+    callback(INITIAL_MOCK_USERS);
   });
 }
 

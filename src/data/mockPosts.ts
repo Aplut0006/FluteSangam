@@ -1,4 +1,103 @@
-import { Post, Comment } from '../types';
+import { Post, Comment, UserProfile } from '../types';
+
+export const INITIAL_MOCK_USERS: UserProfile[] = [
+  {
+    uid: "system_hariprasad",
+    displayName: "Hariprasad K.",
+    username: "hariprasad_bansuri",
+    email: "hariprasad@flutesangam.org",
+    photoURL: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150",
+    bio: "Classical Bansuri exponent & guru. Performing Raga Bhairav, Yaman & Malkauns.",
+    level: "Guru",
+    bansuriType: "E Bass",
+    location: "Varanasi, India",
+    joinedAt: new Date("2024-01-15")
+  },
+  {
+    uid: "system_ananya",
+    displayName: "Ananya Sharma",
+    username: "ananya_flute",
+    email: "ananya@flutesangam.org",
+    photoURL: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150",
+    bio: "Passionate Bansuri player focusing on diaphragmatic breath control & light classical melodies.",
+    level: "Advanced",
+    bansuriType: "E Bass",
+    location: "New Delhi, India",
+    joinedAt: new Date("2024-02-10")
+  },
+  {
+    uid: "system_rahul",
+    displayName: "Rahul Verma",
+    username: "rahul_flutes",
+    email: "rahul@flutesangam.org",
+    photoURL: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150",
+    bio: "Flute enthusiast and gear reviewer testing C Natural medium & G Natural bass flutes.",
+    level: "Intermediate",
+    bansuriType: "C Natural",
+    location: "Mumbai, India",
+    joinedAt: new Date("2024-03-05")
+  },
+  {
+    uid: "system_vikram",
+    displayName: "Vikram Sen",
+    username: "vikram_beginner",
+    email: "vikram@flutesangam.org",
+    photoURL: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150",
+    bio: "Learning bansuri fundamentals, finger transition from 6-hole to 7-hole flutes.",
+    level: "Beginner",
+    bansuriType: "A Natural",
+    location: "Bengaluru, India",
+    joinedAt: new Date("2024-03-20")
+  },
+  {
+    uid: "system_meera",
+    displayName: "Meera Iyer",
+    username: "meera_ragas",
+    email: "meera@flutesangam.org",
+    photoURL: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150",
+    bio: "Carnatic & Hindustani bamboo flute musician exploring afternoon & evening ragas.",
+    level: "Advanced",
+    bansuriType: "G Bass",
+    location: "Chennai, India",
+    joinedAt: new Date("2024-04-01")
+  },
+  {
+    uid: "QiYijIRmpBMwLLAJ11M6ybELRU43",
+    displayName: "Lalitha Siriki",
+    username: "lalithasiriki",
+    email: "lalithasiriki7@gmail.com",
+    photoURL: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150",
+    bio: "N/A",
+    level: "N/A",
+    bansuriType: "N/A",
+    location: "N/A",
+    joinedAt: new Date("2024-02-15")
+  },
+  {
+    uid: "If9vdMd4x7cO23ATq7a4vrbX1SK2",
+    displayName: "Kalyan Paul",
+    username: "kalyanpaul",
+    email: "paulkalyan3@gmail.com",
+    photoURL: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150",
+    bio: "N/A",
+    level: "N/A",
+    bansuriType: "N/A",
+    location: "N/A",
+    joinedAt: new Date("2024-03-01")
+  },
+  {
+    uid: "Fu1khm6v9bbA4Jq6O10ctiXCoVG2",
+    displayName: "Basagouda",
+    username: "basagouda",
+    email: "basagoudavk18@gmail.com",
+    photoURL: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150",
+    bio: "N/A",
+    level: "N/A",
+    bansuriType: "N/A",
+    location: "N/A",
+    joinedAt: new Date("2024-03-12")
+  }
+];
 
 export const INITIAL_COMMUNITY_POSTS: Omit<Post, 'id' | 'createdAt'>[] = [
   {

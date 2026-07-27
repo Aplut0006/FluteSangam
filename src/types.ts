@@ -21,7 +21,7 @@ export interface UserProfile {
   email: string;
   photoURL: string;
   bio: string;
-  level: 'Beginner' | 'Intermediate' | 'Advanced' | 'Guru';
+  level: 'Beginner' | 'Intermediate' | 'Advanced' | 'Guru' | 'N/A' | string;
   bansuriType: string; // e.g. "E Bass", "G Medium", "C Natural"
   location: string;
   joinedAt: any; // Firebase Timestamp or ISO String

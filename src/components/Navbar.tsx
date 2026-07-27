@@ -43,7 +43,7 @@ export default function Navbar({
   const [editName, setEditName] = useState('');
   const [editUsername, setEditUsername] = useState('');
   const [editBio, setEditBio] = useState('');
-  const [editLevel, setEditLevel] = useState<'Beginner' | 'Intermediate' | 'Advanced' | 'Guru'>('Beginner');
+  const [editLevel, setEditLevel] = useState<string>('Beginner');
   const [editBansuri, setEditBansuri] = useState('');
   const [editLocation, setEditLocation] = useState('');
   const [editEmail, setEditEmail] = useState('');
