@@ -145,7 +145,7 @@ export default function PostCard({
             title={`View @${post.authorUsername || post.authorName.toLowerCase().replace(/[^a-z0-9_]/g, '')} profile`}
           >
             <img
-              src={post.authorPhoto || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150"}
+              src={post.authorPhoto || "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix"}
               alt={post.authorName}
               referrerPolicy="no-referrer"
               className="w-10 h-10 rounded-full object-cover border border-bamboo-100/60 bg-white"
@@ -260,7 +260,7 @@ export default function PostCard({
                   className="shrink-0 transition-opacity hover:opacity-85"
                 >
                   <img
-                    src={comment.authorPhoto || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150"}
+                    src={comment.authorPhoto || "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix"}
                     alt={comment.authorName}
                     className="w-5 h-5 rounded-full object-cover border border-gray-200"
                     referrerPolicy="no-referrer"

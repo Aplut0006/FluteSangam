@@ -89,7 +89,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
           displayName: name,
           username: uniqueUsername,
           email: user.email || `${user.uid}@flutesangam-google.com`,
-          photoURL: user.photoURL || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150",
+          photoURL: user.photoURL || CARTOON_AVATARS[0],
           bio: "Joined FluteSangam via Google Sign-In.",
           level: "Beginner",
           bansuriType: "C Natural",
@@ -192,7 +192,13 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
       }
     } catch (err: any) {
       console.error(err);
-      if (err.code === 'auth/operation-not-allowed' || (err.message && err.message.includes('operation-not-allowed'))) {
+      if (!isSignUp) {
+        if (err.code === 'auth/operation-not-allowed' || (err.message && err.message.includes('operation-not-allowed'))) {
+          setError("Email & Password registration is currently disabled in your Firebase project. To fix this, please go to Firebase Console -> Authentication -> Sign-in Method, and enable 'Email/Password'.");
+        } else {
+          setError("Invalid username or password");
+        }
+      } else if (err.code === 'auth/operation-not-allowed' || (err.message && err.message.includes('operation-not-allowed'))) {
         setError("Email & Password registration is currently disabled in your Firebase project. To fix this, please go to Firebase Console -> Authentication -> Sign-in Method, and enable 'Email/Password'.");
       } else if (err.code === 'auth/email-already-in-use' || (err.message && err.message.includes('auth/email-already-in-use') || err.message?.includes('email-already-in-use'))) {
         setError("Email Already taken");

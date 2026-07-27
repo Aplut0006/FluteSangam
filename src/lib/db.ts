@@ -22,7 +22,7 @@ import {
 } from 'firebase/firestore';
 import { db } from './firebase';
 import { Post, Comment, UserProfile, AppNotification } from '../types';
-import { INITIAL_COMMUNITY_POSTS, MOCK_COMMENTS, INITIAL_MOCK_USERS } from '../data/mockPosts';
+import { INITIAL_COMMUNITY_POSTS, MOCK_COMMENTS, INITIAL_MOCK_USERS, CARTOON_AVATARS } from '../data/mockPosts';
 
 // Seeding and user synchronization function
 export async function syncMissingUsersToFirestore(): Promise<void> {
@@ -70,7 +70,7 @@ export async function syncMissingUsersToFirestore(): Promise<void> {
               displayName: p.authorName || 'Flute Sadhaka',
               username: uniqueUsername,
               email: `${uniqueUsername}@flutesangam.org`,
-              photoURL: p.authorPhoto || p.authorAvatar || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150',
+              photoURL: p.authorPhoto || p.authorAvatar || CARTOON_AVATARS[0],
               bio: 'Classical Bansuri Sadhaka & Community Member',
               level: p.authorLevel || 'Intermediate',
               bansuriType: p.authorBansuriType || 'C Natural',
@@ -106,7 +106,7 @@ export async function syncMissingUsersToFirestore(): Promise<void> {
               uid: senderId,
               displayName: dm.senderName || 'Flute Sadhaka',
               username: uniqueUsername,
-              photoURL: dm.senderPhoto || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150',
+              photoURL: dm.senderPhoto || CARTOON_AVATARS[1],
               bio: 'Bansuri Sadhaka & Community Member',
               level: 'Intermediate',
               bansuriType: 'C Natural',
@@ -128,7 +128,7 @@ export async function syncMissingUsersToFirestore(): Promise<void> {
               uid: receiverId,
               displayName: dm.receiverName || 'Flute Sadhaka',
               username: uniqueUsername,
-              photoURL: dm.receiverPhoto || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150',
+              photoURL: dm.receiverPhoto || CARTOON_AVATARS[2],
               bio: 'Bansuri Sadhaka & Community Member',
               level: 'Intermediate',
               bansuriType: 'C Natural',

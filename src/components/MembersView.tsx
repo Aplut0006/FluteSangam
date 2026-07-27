@@ -214,7 +214,7 @@ export default function MembersView({
                     <div className="flex items-center gap-3 min-w-0">
                       <div className="relative shrink-0">
                         <img
-                          src={user.photoURL || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150"}
+                          src={user.photoURL || "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix"}
                           alt={user.displayName}
                           referrerPolicy="no-referrer"
                           className="w-12 h-12 rounded-full object-cover border-2 border-bamboo-200 group-hover:border-bamboo-500 transition"

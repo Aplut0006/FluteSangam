@@ -333,7 +333,7 @@ export default function App() {
             displayName: defaultName,
             username: generatedUsername,
             email: firebaseUser.email || '',
-            photoURL: firebaseUser.photoURL || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150',
+            photoURL: firebaseUser.photoURL || 'https://api.dicebear.com/7.x/adventurer/svg?seed=Felix',
             bio: 'Bansuri Sadhaka & Indian classical music enthusiast.',
             level: 'Beginner',
             bansuriType: 'C Natural',
@@ -348,7 +348,7 @@ export default function App() {
               displayName: defaultName,
               username: generatedUsername,
               email: firebaseUser.email || '',
-              photoURL: firebaseUser.photoURL || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150',
+              photoURL: firebaseUser.photoURL || 'https://api.dicebear.com/7.x/adventurer/svg?seed=Felix',
               bio: 'Flute lover',
               level: 'Beginner',
               bansuriType: 'C Natural',
@@ -405,7 +405,7 @@ export default function App() {
         // Look up sender's name and photo
         const sender = allUsersList.find(u => u.uid === newUnread.senderId);
         const senderName = sender?.displayName || "Fellow Flutist";
-        const senderPhoto = sender?.photoURL || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150";
+        const senderPhoto = sender?.photoURL || "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix";
 
         // Show toast
         setActiveNotification({

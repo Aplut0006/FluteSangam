@@ -166,7 +166,7 @@ export default function ChatSection({
         uid: otherUserId,
         displayName: "Flute Sadhaka",
         username: "sadhaka",
-        photoURL: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150"
+        photoURL: "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix"
       };
 
       // Unread messages count for this current user receiver
@@ -400,7 +400,7 @@ export default function ChatSection({
                   {/* Avatar */}
                   <div className="relative shrink-0">
                     <img
-                      src={group.otherUser.photoURL || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150"}
+                      src={group.otherUser.photoURL || "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix"}
                       alt={group.otherUser.displayName}
                       className={`w-10 h-10 rounded-full object-cover bg-white border ${
                         isUnread ? 'border-yellow-400 ring-2 ring-yellow-200/50' : 'border-gray-200'
@@ -479,7 +479,7 @@ export default function ChatSection({
                 </button>
 
                 <img 
-                  src={activeTargetUser?.photoURL || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150"} 
+                  src={activeTargetUser?.photoURL || "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix"} 
                   alt={activeTargetUser?.displayName} 
                   className="w-10 h-10 rounded-full object-cover border border-bamboo-400 bg-white shrink-0 shadow-3xs"
                   referrerPolicy="no-referrer"
@@ -558,7 +558,7 @@ export default function ChatSection({
                     >
                       {/* Avatar for stream */}
                       <img
-                        src={isMe ? currentUser.photoURL : (activeTargetUser?.photoURL || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150")}
+                        src={isMe ? currentUser.photoURL : (activeTargetUser?.photoURL || "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix")}
                         alt={isMe ? "You" : activeTargetUser?.displayName}
                         className="w-7 h-7 rounded-full object-cover border border-gray-100 shadow-3xs shrink-0 mt-0.5 bg-white"
                         referrerPolicy="no-referrer"

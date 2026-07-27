@@ -275,7 +275,7 @@ export default function PostDetailView({
                   title={`View profile of @${post.authorUsername || post.authorName.toLowerCase().replace(/[^a-z0-9_]/g, '') || 'sadhaka'}`}
                 >
                   <img
-                    src={post.authorPhoto || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150"}
+                    src={post.authorPhoto || "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix"}
                     alt={post.authorName}
                     referrerPolicy="no-referrer"
                     className="w-12 h-12 rounded-full object-cover border-2 border-bamboo-100 bg-white"
@@ -433,7 +433,7 @@ export default function PostDetailView({
                         title={`View profile of @${comm.authorUsername || comm.authorName.toLowerCase().replace(/[^a-z0-9_]/g, '') || 'sadhaka'}`}
                       >
                         <img
-                          src={comm.authorPhoto || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150"}
+                          src={comm.authorPhoto || "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix"}
                           alt={comm.authorName}
                           referrerPolicy="no-referrer"
                           className="w-7 h-7 rounded-full object-cover mt-0.5 border border-bamboo-100"

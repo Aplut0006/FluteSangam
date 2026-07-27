@@ -118,7 +118,7 @@ export default function UserProfileView({
         <div className="md:col-span-4 space-y-6">
           <div className="frosted-panel rounded-2xl p-6 text-center bg-white border border-bamboo-100/50 shadow-sm space-y-4 flex flex-col items-center">
             <img
-              src={profile.photoURL || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200"}
+              src={profile.photoURL || "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix"}
               alt={profile.displayName}
               referrerPolicy="no-referrer"
               className="w-28 h-28 rounded-full object-cover border-4 border-bamboo-100 bg-white shadow-xs"

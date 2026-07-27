@@ -145,7 +145,7 @@ export default function NotificationsDropdown({ currentUser, onSelectPost }: Not
                 >
                   <div className="relative shrink-0 mt-0.5">
                     <img
-                      src={item.senderPhoto || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150"}
+                      src={item.senderPhoto || "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix"}
                       alt={item.senderName}
                       className="w-9 h-9 rounded-full object-cover border border-gray-200"
                       referrerPolicy="no-referrer"
