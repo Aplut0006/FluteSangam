@@ -174,7 +174,11 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
         throw popupError;
       }
 
-      const profile = await getUserProfile(user.uid);
+      let profile = await getUserProfile(user.uid);
+      if (!profile && user.email) {
+        profile = await getUserProfileByEmail(user.email);
+      }
+
       if (profile && (profile.isDeleted || profile.status === 'deleted')) {
         await signOut(auth);
         throw new Error("Invalid username or password");

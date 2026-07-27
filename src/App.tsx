@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { auth } from './lib/firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { seedDatabaseIfEmpty, subscribeToPosts, getUserProfile, subscribeToUnreadMessages, subscribeToAllUsers, getPost, createUserProfile, generateUniqueUsername, markUserAsDeletedInFirestore } from './lib/db';
+import { seedDatabaseIfEmpty, subscribeToPosts, getUserProfile, getUserProfileByEmail, subscribeToUnreadMessages, subscribeToAllUsers, getPost, createUserProfile, generateUniqueUsername, markUserAsDeletedInFirestore } from './lib/db';
 import { VIEW_URLS } from './routes';
 import { UserProfile, Post, AppView } from './types';
 import { motion, AnimatePresence } from 'motion/react';
@@ -328,12 +328,18 @@ export default function App() {
         }
 
         let profile = await getUserProfile(firebaseUser.uid);
+        if (!profile && firebaseUser.email) {
+          profile = await getUserProfileByEmail(firebaseUser.email);
+        }
 
         // If profile is not found immediately, retry to give AuthModal time to save custom user profile
         if (!profile) {
           for (let attempt = 0; attempt < 2; attempt++) {
             await new Promise(r => setTimeout(r, 600));
             profile = await getUserProfile(firebaseUser.uid);
+            if (!profile && firebaseUser.email) {
+              profile = await getUserProfileByEmail(firebaseUser.email);
+            }
             if (profile) break;
           }
         }

@@ -250,18 +250,13 @@ export async function getUserProfile(uid: string): Promise<UserProfile | null> {
       return docSnap.data() as UserProfile;
     }
 
-    // Fallback: Check if current auth user or email has a profile registered under another UID (e.g. Google vs Email/Password)
+    // Fallback: Check if current auth user's email already has a profile in Firestore (e.g. Google vs Email/Password)
     const currentUserEmail = auth.currentUser?.email;
     if (currentUserEmail) {
       const profileByEmail = await getUserProfileByEmail(currentUserEmail);
       if (profileByEmail) {
-        // Automatically sync & link profile to this UID
-        const syncedProfile: UserProfile = {
-          ...profileByEmail,
-          uid
-        };
-        await setDoc(docRef, cleanUndefined(syncedProfile), { merge: true });
-        return syncedProfile;
+        // Return the existing profile directly without creating a second document in Firestore!
+        return profileByEmail;
       }
     }
 
@@ -279,56 +274,45 @@ export async function getUserProfile(uid: string): Promise<UserProfile | null> {
 
 export async function createUserProfile(uid: string, profile: Omit<UserProfile, 'uid' | 'joinedAt'>): Promise<UserProfile | null> {
   try {
+    // 1. Check if profile already exists by email under any UID to avoid extra duplicate user documents in Firestore
+    if (profile.email) {
+      const existingByEmail = await getUserProfileByEmail(profile.email);
+      if (existingByEmail) {
+        // Update the single existing profile document in Firestore
+        const existingDocRef = doc(db, 'users', existingByEmail.uid);
+        const mergedByEmail: UserProfile = {
+          ...existingByEmail,
+          displayName: (profile.displayName && profile.displayName !== 'Musician') ? profile.displayName : existingByEmail.displayName,
+          photoURL: (profile.photoURL && !profile.photoURL.includes('dicebear')) ? profile.photoURL : existingByEmail.photoURL,
+          bio: (profile.bio && profile.bio !== 'Bansuri Sadhaka & Indian classical music enthusiast.') ? profile.bio : existingByEmail.bio,
+        };
+        await setDoc(existingDocRef, cleanUndefined(mergedByEmail), { merge: true });
+        return mergedByEmail;
+      }
+    }
+
+    // 2. Check if document exists for this exact UID
     const docRef = doc(db, 'users', uid);
     const existingSnap = await getDoc(docRef);
     if (existingSnap.exists()) {
       const existingData = existingSnap.data() as UserProfile;
-      // If profile already exists and incoming attempt is generic fallback, return existing profile
-      if (existingData.displayName && existingData.displayName !== 'Musician' && profile.displayName === 'Musician') {
-        return existingData;
-      }
-      // Merge existing profile data prioritizing non-empty custom user values
       const mergedProfile: UserProfile = {
         ...profile,
         ...existingData,
-        displayName: (profile.displayName && profile.displayName !== 'Musician') ? profile.displayName : (existingData.displayName || profile.displayName),
-        photoURL: (profile.photoURL && !profile.photoURL.includes('dicebear')) ? profile.photoURL : (existingData.photoURL || profile.photoURL),
-        level: (profile.level && profile.level !== 'Beginner') ? profile.level : (existingData.level || profile.level),
-        bansuriType: profile.bansuriType || existingData.bansuriType || 'C Natural',
-        location: (profile.location && profile.location !== 'India') ? profile.location : (existingData.location || profile.location),
-        bio: (profile.bio && profile.bio !== 'Flute lover' && profile.bio !== 'Bansuri Sadhaka & Indian classical music enthusiast.') ? profile.bio : (existingData.bio || profile.bio),
-        uid,
+        uid: existingData.uid || uid,
         joinedAt: existingData.joinedAt || Timestamp.now()
       };
       await setDoc(docRef, cleanUndefined(mergedProfile), { merge: true });
       return mergedProfile;
     }
 
-    // Check if profile exists by email under another UID (e.g., created via Google Sign-In or Email auth)
-    if (profile.email) {
-      const existingByEmail = await getUserProfileByEmail(profile.email);
-      if (existingByEmail) {
-        const mergedByEmail: UserProfile = {
-          ...existingByEmail,
-          ...profile,
-          displayName: existingByEmail.displayName || profile.displayName,
-          photoURL: existingByEmail.photoURL || profile.photoURL,
-          username: existingByEmail.username || profile.username,
-          bio: existingByEmail.bio || profile.bio,
-          uid,
-          joinedAt: existingByEmail.joinedAt || Timestamp.now()
-        };
-        await setDoc(docRef, cleanUndefined(mergedByEmail), { merge: true });
-        return mergedByEmail;
-      }
-    }
-
+    // 3. Create brand new single profile
     const completeProfile: UserProfile = {
       ...profile,
       uid,
       joinedAt: Timestamp.now()
     };
-    await setDoc(docRef, cleanUndefined(completeProfile), { merge: true });
+    await setDoc(docRef, cleanUndefined(completeProfile));
     return completeProfile;
   } catch (error) {
     console.error("Error creating user profile:", error);
