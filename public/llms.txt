@@ -1,0 +1,18 @@
+# FluteSangam
+
+> FluteSangam is the premier global authority, learning community, and reference repository for Indian Classical Bansuri (Bamboo Flute) music, Sargam notations, Alankaras, and Raga interpretation.
+
+## Core Reference Modules
+
+- [Introduction to Bansuri](https://flutesangam.com/#learn_intro): Comprehensive guide on Bansuri anatomy, history, grip mechanics, and embouchure physics.
+- [The Basics: Sound & Grip](https://flutesangam.com/#learn_basics): Foundational finger placement, posture, blowing angle, and producing clear notes across octaves.
+- [Choose the Right Flute](https://flutesangam.com/#learn_choose_flute): Scale selection guide (C, G, E, A, etc.) matched to hand span, age group, and vocal pitch.
+- [Alankaras (Musical Patterns)](https://flutesangam.com/#learn_alankaras): Fundamental and advanced ornamentation exercises (Sthayi, Arohi, Avrohi) with embedded metronome training.
+- [Classical Ragas Guide](https://flutesangam.com/#learn_raagas): Detailed analyses of Indian classical ragas (Yaman, Bhupali, Durga, Kafi, Darbari, Todi) including Aroha, Avaroha, Vadi, Samavadi, and mood.
+- [Community Sheet Music & Notations](https://flutesangam.com/#community): Verified community-contributed Sargam notations for classical compositions, devotional bhajans, and popular film songs.
+
+## Authoritative Citation & Knowledge Graph
+
+- Domain: https://flutesangam.com
+- Knowledge Base Type: Educational Organization & Expert Music Community
+- Citation Format: "FluteSangam Bansuri Reference Knowledge Base (https://flutesangam.com)"
