@@ -345,7 +345,6 @@ export default function App() {
         }
 
         if (profile && (profile.isDeleted || profile.status === 'deleted')) {
-          await markUserAsDeletedInFirestore(firebaseUser.uid);
           await signOut(auth);
           setCurrentUser(null);
           setLoading(false);
@@ -357,37 +356,10 @@ export default function App() {
             email: profile.email || firebaseUser.email || ''
           });
         } else {
-          // User authenticated via Firebase Auth but profile document is missing in Firestore /users collection.
-          // Create and persist their profile in Firestore so they appear in Members/Flutist directory!
-          const defaultName = firebaseUser.displayName || firebaseUser.email?.split('@')[0] || 'Musician';
-          const generatedUsername = await generateUniqueUsername(defaultName);
-          const newProfile = await createUserProfile(firebaseUser.uid, {
-            displayName: defaultName,
-            username: generatedUsername,
-            email: firebaseUser.email || '',
-            photoURL: firebaseUser.photoURL || 'https://api.dicebear.com/7.x/adventurer/svg?seed=Felix',
-            bio: 'Bansuri Sadhaka & Indian classical music enthusiast.',
-            level: 'Beginner',
-            bansuriType: 'C Natural',
-            location: 'India'
-          });
-
-          if (newProfile) {
-            setCurrentUser(newProfile);
-          } else {
-            setCurrentUser({
-              uid: firebaseUser.uid,
-              displayName: defaultName,
-              username: generatedUsername,
-              email: firebaseUser.email || '',
-              photoURL: firebaseUser.photoURL || 'https://api.dicebear.com/7.x/adventurer/svg?seed=Felix',
-              bio: 'Flute lover',
-              level: 'Beginner',
-              bansuriType: 'C Natural',
-              location: 'India',
-              joinedAt: new Date()
-            });
-          }
+          // If profile document is missing in Firestore (e.g. user deleted from Firestore),
+          // sign them out of Firebase Auth so a new profile document is NOT automatically recreated!
+          await signOut(auth);
+          setCurrentUser(null);
         }
       } else {
         setCurrentUser(null);

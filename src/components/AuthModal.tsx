@@ -187,7 +187,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
         onAuthSuccess(profile);
         onClose();
       } else {
-        const name = user.displayName || user.email?.split('@')[0] || "Flute Sadhaka";
+        const name = user.displayName || user.email?.split('@')[0] || "Musician";
         const uniqueUsername = await generateUniqueUsername(name);
         const newProfile = await createUserProfile(user.uid, {
           displayName: name,
