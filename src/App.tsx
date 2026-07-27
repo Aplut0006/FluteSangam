@@ -81,80 +81,93 @@ export default function App() {
 
   // Dynamic SEO Title & Meta Description Management
   useEffect(() => {
-    let title = 'FluteSangam | Indian Flute & Bansuri Community';
-    let description = 'Master the Indian Flute (Bansuri & Venu). Practice alankars, learn Hindustani & Carnatic ragas, request song sheet music notations, share audio clips, and connect with a passionate global community of flute players.';
+    let title = 'FluteSangam | Indian Flute & Bansuri Learning Community';
+    let description = 'Master the Indian Flute (Bansuri & Venu) with step-by-step alankars, raga lessons, sargam song sheet music notations, and a global community of flutists.';
 
     switch (currentView) {
       case 'community':
-        title = 'FluteSangam | Indian Flute & Bansuri Community';
-        description = 'Explore posts, audio recitals, questions, and discussions shared by bansuri and flute enthusiasts worldwide.';
+        title = 'FluteSangam | Indian Flute & Bansuri Learning Community';
+        description = 'Explore community posts, audio recitals, questions, and discussions shared by bansuri and Indian flute enthusiasts from all around the world.';
         break;
       case 'chats':
-        title = 'Direct Messages | FluteSangam';
-        description = 'Chat directly with fellow flutists, ask for guidance, collaborate on ragas, and stay connected in real-time.';
+        title = 'Direct Messages & Chat | FluteSangam Bansuri Community';
+        description = 'Chat directly with fellow flutists, ask questions, exchange guidance, collaborate on ragas, and stay connected with the global bansuri community.';
         break;
       case 'learn_dashboard':
-        title = 'Flute Learning Hub | FluteSangam';
+        title = 'Flute Learning Hub & Lessons | FluteSangam Bansuri';
         description = 'Comprehensive step-by-step guides for learning Indian flute. Practice posture, alankar drills, and ragas like Yaman, Bhupali, and Kafi.';
         break;
       case 'learn_intro':
-        title = 'Introduction to Bansuri | FluteSangam';
-        description = 'Discover the origin, anatomy, scale selection, and essential fundamentals of the Indian bamboo flute.';
+        title = 'Introduction to Bansuri | FluteSangam Learning Hub';
+        description = 'Discover the origin, anatomy, scale selection, maintenance, and essential playing fundamentals of the Indian bamboo flute (Bansuri & Venu).';
         break;
       case 'learn_basics':
-        title = 'Bansuri Basics | FluteSangam';
-        description = 'Master sound generation, blowing technique, finger positioning, and accurate swara production on your flute.';
+        title = 'Bansuri Basics & Blowing Techniques | FluteSangam';
+        description = 'Master sound generation, blowing technique, finger positioning, half-hole techniques, and accurate swara production on your bamboo flute.';
         break;
       case 'learn_choose_flute':
-        title = 'Choose the Right Flute (Bansuri) | FluteSangam';
-        description = 'Comprehensive guide on choosing the right flute scale (C Middle, A Base, G Base) for children, teens, and adults.';
+        title = 'How to Choose the Right Flute (Bansuri) | FluteSangam';
+        description = 'Comprehensive buyer guide on choosing the right flute scale (C Middle, A Base, G Base) for beginner, intermediate, and advanced flutists.';
         break;
       case 'learn_alankaras':
-        title = 'Alankar Lessons | FluteSangam';
-        description = 'Improve your finger agility, pitch control, and tempo stability with guided alankar exercises and sargam drills.';
+        title = 'Alankar Exercises & Sargam Drills | FluteSangam Hub';
+        description = 'Improve your finger agility, pitch control, blow discipline, and tempo stability with guided alankar exercises and sargam drills on bansuri.';
         break;
       case 'learn_raagas':
-        title = 'Learn Ragas | FluteSangam';
-        description = 'Master Hindustani and Carnatic ragas with detailed scale structure, key phrases (Pakad), timing, and practice compositions.';
+        title = 'Learn Ragas, Swaras & Sargam | FluteSangam Lessons';
+        description = 'Master Hindustani and Carnatic ragas on bansuri with detailed scale structures, key phrases (Pakad), time of day, and practice compositions.';
         break;
       case 'notation_requests':
-        title = 'Song Notation Requests | FluteSangam';
-        description = 'Request sargam notations for Bollywood, devotional, folk, or classical songs, and explore community-contributed sheet music.';
+        title = 'Song Notation Requests & Sargam Music | FluteSangam';
+        description = 'Request sargam notations for Bollywood, devotional, folk, or classical songs, and explore community-contributed Indian flute sheet music.';
         break;
       case 'community_members':
-        title = 'Flutist Directory | FluteSangam';
-        description = 'Discover and connect with Indian flute players, bansuri teachers, and fellow learners across the globe.';
+        title = 'Flutist Directory & Member Profiles | FluteSangam';
+        description = 'Discover and connect with Indian flute players, bansuri teachers, performers, and fellow learners across our global flutist community directory.';
         break;
       case 'about_us':
-        title = 'About Us | FluteSangam';
-        description = 'Learn about FluteSangam’s mission to preserve and promote Indian bamboo flute heritage through community and education.';
+        title = 'About Us - Indian Bamboo Flute Community | FluteSangam';
+        description = 'Learn about FluteSangam’s mission to preserve and promote Indian bamboo flute heritage through accessible online education and community.';
         break;
       case 'contact_us':
-        title = 'Contact Us | FluteSangam';
-        description = 'Get in touch with FluteSangam. Reach out for support, feedback, song sargam requests, or community inquiries.';
+        title = 'Contact Us & Support | FluteSangam Flute Community';
+        description = 'Get in touch with the FluteSangam team. Reach out for platform support, feedback, sargam notation requests, or community partnership inquiries.';
         break;
       case 'privacy_policy':
-        title = 'Privacy Policy | FluteSangam';
-        description = 'Read the official Privacy Policy for FluteSangam. Learn how we collect, protect, and respect your personal information.';
+        title = 'Official Privacy Policy | FluteSangam Flute Community';
+        description = 'Read the official Privacy Policy for FluteSangam. Learn how we collect, store, protect, and respect your personal information and user data.';
         break;
       case 'terms_of_service':
-        title = 'Terms of Service | FluteSangam';
-        description = 'Read the official Terms of Service for FluteSangam. Guidelines, rules, and commitments for our global bansuri & flute community.';
+        title = 'Terms of Service & Rules | FluteSangam Flute Community';
+        description = 'Read the official Terms of Service for FluteSangam. Guidelines, platform rules, and commitments for our global bansuri & flute community.';
         break;
       case 'post-detail':
         if (selectedPost) {
-          title = `${selectedPost.title} | FluteSangam`;
-          description = selectedPost.description 
-            ? selectedPost.description.substring(0, 155) + (selectedPost.description.length > 155 ? '...' : '') 
-            : `Read and discuss "${selectedPost.title}" by ${selectedPost.authorName} on FluteSangam.`;
+          let pTitle = `${selectedPost.title} | FluteSangam Community`;
+          if (pTitle.length < 50) {
+            pTitle = `${selectedPost.title} - Indian Flute & Bansuri | FluteSangam`;
+          }
+          if (pTitle.length > 60) {
+            pTitle = pTitle.substring(0, 57) + '...';
+          }
+          title = pTitle;
+
+          let rawDesc = selectedPost.description ? selectedPost.description.replace(/\s+/g, ' ').trim() : '';
+          if (rawDesc.length < 120) {
+            rawDesc = `Read and discuss "${selectedPost.title}" by ${selectedPost.authorName} on FluteSangam. Join the active discussion with fellow bansuri flutists.`;
+          }
+          if (rawDesc.length > 160) {
+            rawDesc = rawDesc.substring(0, 157) + '...';
+          }
+          description = rawDesc;
         } else {
-          title = 'Post Details | FluteSangam';
-          description = 'View post details, audio recordings, song discussions, and community replies on FluteSangam.';
+          title = 'Post Details & Discussions | FluteSangam Community';
+          description = 'View community post details, audio recordings, raga performance feedback, song discussions, and member replies on FluteSangam.';
         }
         break;
       case 'user-profile':
-        title = selectedProfileUserId ? 'Flutist Profile | FluteSangam' : 'My Profile | FluteSangam';
-        description = 'View member profile, bansuri preferences, level, bio, and community contributions on FluteSangam.';
+        title = 'Flutist Member Profile | FluteSangam Flute Community';
+        description = 'View flutist member profile, bansuri scale preferences, skill level, bio, audio recordings, and community contributions on FluteSangam.';
         break;
       default:
         break;
