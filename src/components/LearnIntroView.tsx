@@ -3,7 +3,7 @@ import { Wind, Feather, Music, Heart, BookOpen, Calendar, Clock, CheckCircle2 } 
 
 export default function LearnIntroView() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8 animate-in fade-in slide-in-from-bottom-4 duration-500" itemScope itemType="https://schema.org/TechArticle">
+    <div className="max-w-4xl mx-auto px-4 py-8 animate-in fade-in slide-in-from-bottom-4 duration-500" itemScope itemType="https://schema.org/LearningResource">
       <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-bamboo-100 overflow-hidden relative">
         {/* Abstract Background Element */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>

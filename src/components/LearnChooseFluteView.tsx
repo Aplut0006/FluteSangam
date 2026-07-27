@@ -39,7 +39,7 @@ export default function LearnChooseFluteView({ onBackToLearn, onViewChange }: Le
         </div>
       </div>
 
-      <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-bamboo-100 overflow-hidden relative" itemScope itemType="https://schema.org/TechArticle">
+      <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-bamboo-100 overflow-hidden relative" itemScope itemType="https://schema.org/LearningResource">
         {/* Decorative background blur */}
         <div className="absolute top-0 right-0 w-72 h-72 bg-amber-500/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
 

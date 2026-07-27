@@ -3,7 +3,7 @@ import { Wind, Volume2, UserCheck, Move, Play, Music, Calendar, Clock, CheckCirc
 
 export default function LearnBasicsView() {
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-6" itemScope itemType="https://schema.org/TechArticle">
+    <div className="w-full max-w-4xl mx-auto space-y-6" itemScope itemType="https://schema.org/LearningResource">
       <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-bamboo-100 overflow-hidden relative">
         {/* Abstract Background Element */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>

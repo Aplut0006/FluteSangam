@@ -215,7 +215,7 @@ export default function App() {
     setMeta('meta[name="article:modified_time"]', 'name', 'article:modified_time', modDate);
     setMeta('meta[property="og:updated_time"]', 'property', 'og:updated_time', modDate);
 
-    // Dynamic JSON-LD Structured Data for Content Freshness
+    // Dynamic JSON-LD Structured Data Graph for AI SEO & LLM Optimization
     let jsonLdScript = document.getElementById('dynamic-jsonld') as HTMLScriptElement | null;
     if (!jsonLdScript) {
       jsonLdScript = document.createElement('script');
@@ -224,41 +224,108 @@ export default function App() {
       document.head.appendChild(jsonLdScript);
     }
 
-    let schemaData: any = {
+    const organizationSchema = {
+      '@type': 'Organization',
+      '@id': 'https://flutesangam.com/#organization',
+      'name': 'FluteSangam',
+      'url': 'https://flutesangam.com/',
+      'logo': 'https://flutesangam.com/flutesangam_logo.png'
+    };
+
+    let breadcrumbItems = [
+      { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://flutesangam.com/' }
+    ];
+
+    if (currentView === 'community') {
+      breadcrumbItems.push({ '@type': 'ListItem', 'position': 2, 'name': 'Community', 'item': 'https://flutesangam.com/community' });
+    } else if (currentView === 'post-detail' && selectedPost) {
+      breadcrumbItems.push({ '@type': 'ListItem', 'position': 2, 'name': 'Community', 'item': 'https://flutesangam.com/community' });
+      breadcrumbItems.push({ '@type': 'ListItem', 'position': 3, 'name': selectedPost.title, 'item': `https://flutesangam.com/post/${selectedPost.id}` });
+    } else if (currentView.startsWith('learn_')) {
+      breadcrumbItems.push({ '@type': 'ListItem', 'position': 2, 'name': 'Learn', 'item': 'https://flutesangam.com/learn' });
+      breadcrumbItems.push({ '@type': 'ListItem', 'position': 3, 'name': title, 'item': `https://flutesangam.com/learn#${currentView}` });
+    } else if (currentView === 'learn_tuner') {
+      breadcrumbItems.push({ '@type': 'ListItem', 'position': 2, 'name': 'Bansuri Tuner', 'item': 'https://flutesangam.com/tuner' });
+    }
+
+    const breadcrumbSchema = {
+      '@type': 'BreadcrumbList',
+      'itemListElement': breadcrumbItems
+    };
+
+    let primarySchema: any = {
       '@context': 'https://schema.org',
       'inLanguage': 'en',
       'datePublished': pubDate,
       'dateModified': modDate,
-      'publisher': {
-        '@type': 'EducationalOrganization',
-        'name': 'FluteSangam',
-        'logo': 'https://flutesangam.com/flutesangam_logo.png'
-      }
     };
 
     if (currentView === 'post-detail' && selectedPost) {
-      schemaData['@type'] = 'DiscussionForumPosting';
-      schemaData['@id'] = `https://flutesangam.com/post/${selectedPost.id}#posting`;
-      schemaData['headline'] = title;
-      schemaData['description'] = description;
-      schemaData['author'] = {
+      primarySchema['@type'] = 'DiscussionForumPosting';
+      primarySchema['@id'] = `https://flutesangam.com/post/${selectedPost.id}#posting`;
+      primarySchema['headline'] = title;
+      primarySchema['description'] = description;
+      primarySchema['author'] = {
         '@type': 'Person',
         'name': selectedPost.authorName
       };
+      if (selectedPost.imageUrl) {
+        primarySchema['image'] = selectedPost.imageUrl;
+      }
     } else if (currentView.startsWith('learn_')) {
-      schemaData['@type'] = 'TechArticle';
-      schemaData['@id'] = `https://flutesangam.com/learn#${currentView}`;
-      schemaData['headline'] = title;
-      schemaData['description'] = description;
-      schemaData['dependencies'] = 'Indian Bamboo Flute (Bansuri), Sargam Notes';
+      primarySchema['@type'] = ['LearningResource', 'HowTo', 'Course'];
+      primarySchema['@id'] = `https://flutesangam.com/learn#${currentView}`;
+      primarySchema['name'] = title;
+      primarySchema['headline'] = title;
+      primarySchema['description'] = description;
+      primarySchema['educationalLevel'] = 'Beginner to Advanced';
+      primarySchema['learningResourceType'] = 'Music Lesson & Sargam Guide';
+      primarySchema['provider'] = { '@id': 'https://flutesangam.com/#organization' };
+      
+      primarySchema['step'] = [
+        {
+          '@type': 'HowToStep',
+          'name': 'Posture & Breathing',
+          'text': 'Maintain correct spine posture and diaphragmatic breath control before blowing into the Bansuri.'
+        },
+        {
+          '@type': 'HowToStep',
+          'name': 'Finger Placement',
+          'text': 'Cover tone holes using the pads of your fingers for airtight seals.'
+        },
+        {
+          '@type': 'HowToStep',
+          'name': 'Practice Alankaras',
+          'text': 'Practice Sa-Re-Ga-Ma patterns consistently with a metronome to build tone stability.'
+        }
+      ];
+
+      primarySchema['video'] = {
+        '@type': 'VideoObject',
+        'name': `${title} - Video Demonstration`,
+        'description': `Visual and audio demonstration of ${title} on Indian Bamboo Flute (Bansuri).`,
+        'thumbnailUrl': 'https://flutesangam.com/flutesangam_logo.png',
+        'uploadDate': pubDate,
+        'contentUrl': 'https://flutesangam.com/learn',
+        'embedUrl': 'https://flutesangam.com/learn'
+      };
     } else {
-      schemaData['@type'] = 'WebPage';
-      schemaData['@id'] = `https://flutesangam.com/#${currentView}`;
-      schemaData['headline'] = title;
-      schemaData['description'] = description;
+      primarySchema['@type'] = 'WebPage';
+      primarySchema['@id'] = `https://flutesangam.com/#${currentView}`;
+      primarySchema['headline'] = title;
+      primarySchema['description'] = description;
     }
 
-    jsonLdScript.textContent = JSON.stringify(schemaData);
+    const graphData = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        organizationSchema,
+        breadcrumbSchema,
+        primarySchema
+      ]
+    };
+
+    jsonLdScript.textContent = JSON.stringify(graphData);
   }, [currentView, selectedPost, selectedProfileUserId]);
 
 
