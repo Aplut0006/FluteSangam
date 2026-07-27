@@ -20,7 +20,8 @@ import {
   writeBatch,
   collectionGroup
 } from 'firebase/firestore';
-import { db } from './firebase';
+import { db, auth } from './firebase';
+import { deleteUser } from 'firebase/auth';
 import { Post, Comment, UserProfile, AppNotification } from '../types';
 import { INITIAL_COMMUNITY_POSTS, MOCK_COMMENTS, INITIAL_MOCK_USERS, CARTOON_AVATARS } from '../data/mockPosts';
 
@@ -240,12 +241,36 @@ export async function getUserProfile(uid: string): Promise<UserProfile | null> {
 export async function createUserProfile(uid: string, profile: Omit<UserProfile, 'uid' | 'joinedAt'>): Promise<UserProfile | null> {
   try {
     const docRef = doc(db, 'users', uid);
+    const existingSnap = await getDoc(docRef);
+    if (existingSnap.exists()) {
+      const existingData = existingSnap.data() as UserProfile;
+      // If profile already exists and incoming attempt is generic fallback, return existing profile
+      if (existingData.displayName && existingData.displayName !== 'Musician' && profile.displayName === 'Musician') {
+        return existingData;
+      }
+      // Merge existing profile data prioritizing non-empty custom user values
+      const mergedProfile: UserProfile = {
+        ...profile,
+        ...existingData,
+        displayName: (profile.displayName && profile.displayName !== 'Musician') ? profile.displayName : (existingData.displayName || profile.displayName),
+        photoURL: (profile.photoURL && !profile.photoURL.includes('dicebear')) ? profile.photoURL : (existingData.photoURL || profile.photoURL),
+        level: (profile.level && profile.level !== 'Beginner') ? profile.level : (existingData.level || profile.level),
+        bansuriType: profile.bansuriType || existingData.bansuriType || 'C Natural',
+        location: (profile.location && profile.location !== 'India') ? profile.location : (existingData.location || profile.location),
+        bio: (profile.bio && profile.bio !== 'Flute lover' && profile.bio !== 'Bansuri Sadhaka & Indian classical music enthusiast.') ? profile.bio : (existingData.bio || profile.bio),
+        uid,
+        joinedAt: existingData.joinedAt || Timestamp.now()
+      };
+      await setDoc(docRef, cleanUndefined(mergedProfile), { merge: true });
+      return mergedProfile;
+    }
+
     const completeProfile: UserProfile = {
       ...profile,
       uid,
       joinedAt: Timestamp.now()
     };
-    await setDoc(docRef, cleanUndefined(completeProfile));
+    await setDoc(docRef, cleanUndefined(completeProfile), { merge: true });
     return completeProfile;
   } catch (error) {
     console.error("Error creating user profile:", error);
@@ -314,6 +339,37 @@ export async function updateUserProfile(uid: string, updates: Partial<UserProfil
     }
   } catch (error) {
     console.error("Error updating user profile:", error);
+  }
+}
+
+export async function markUserAsDeletedInFirestore(uid: string): Promise<void> {
+  try {
+    const docRef = doc(db, 'users', uid);
+    await setDoc(docRef, {
+      isDeleted: true,
+      status: 'deleted',
+      deletedAt: Timestamp.now()
+    }, { merge: true });
+    console.log(`User ${uid} successfully marked as deleted in Firestore!`);
+  } catch (error) {
+    console.error("Error marking user as deleted in Firestore:", error);
+  }
+}
+
+export async function deleteUserAccount(uid: string): Promise<void> {
+  // 1. Mark user profile in Firestore as deleted
+  await markUserAsDeletedInFirestore(uid);
+
+  // 2. Remove user account from Firebase Authentication
+  const currentUser = auth.currentUser;
+  if (currentUser && currentUser.uid === uid) {
+    try {
+      await deleteUser(currentUser);
+      console.log(`User ${uid} deleted from Firebase Authentication.`);
+    } catch (authErr) {
+      console.warn("Firebase Auth deleteUser error:", authErr);
+      throw authErr;
+    }
   }
 }
 

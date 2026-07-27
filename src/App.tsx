@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { auth } from './lib/firebase';
-import { onAuthStateChanged } from 'firebase/auth';
-import { seedDatabaseIfEmpty, subscribeToPosts, getUserProfile, subscribeToUnreadMessages, subscribeToAllUsers, getPost, createUserProfile, generateUniqueUsername } from './lib/db';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { seedDatabaseIfEmpty, subscribeToPosts, getUserProfile, subscribeToUnreadMessages, subscribeToAllUsers, getPost, createUserProfile, generateUniqueUsername, markUserAsDeletedInFirestore } from './lib/db';
 import { VIEW_URLS } from './routes';
 import { UserProfile, Post, AppView } from './types';
 import { motion, AnimatePresence } from 'motion/react';
@@ -318,7 +318,24 @@ export default function App() {
     // Listen for auth state changes
     const unsubscribeAuth = onAuthStateChanged(auth, async (firebaseUser) => {
       if (firebaseUser) {
-        const profile = await getUserProfile(firebaseUser.uid);
+        let profile = await getUserProfile(firebaseUser.uid);
+
+        // If profile is not found immediately, retry to give AuthModal time to save custom user profile
+        if (!profile) {
+          for (let attempt = 0; attempt < 2; attempt++) {
+            await new Promise(r => setTimeout(r, 600));
+            profile = await getUserProfile(firebaseUser.uid);
+            if (profile) break;
+          }
+        }
+
+        if (profile && (profile.isDeleted || profile.status === 'deleted')) {
+          await markUserAsDeletedInFirestore(firebaseUser.uid);
+          await signOut(auth);
+          setCurrentUser(null);
+          setLoading(false);
+          return;
+        }
         if (profile) {
           setCurrentUser({
             ...profile,

@@ -4,7 +4,8 @@ import {
   createUserWithEmailAndPassword, 
   signInWithEmailAndPassword,
   GoogleAuthProvider,
-  signInWithPopup
+  signInWithPopup,
+  signOut
 } from 'firebase/auth';
 import { createUserProfile, getUserProfile, generateUniqueUsername } from '../lib/db';
 import { UserProfile } from '../types';
@@ -79,6 +80,10 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
       }
 
       const profile = await getUserProfile(user.uid);
+      if (profile && (profile.isDeleted || profile.status === 'deleted')) {
+        await signOut(auth);
+        throw new Error("Invalid username or password");
+      }
       if (profile) {
         onAuthSuccess(profile);
         onClose();
@@ -168,6 +173,10 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
         const user = userCredential.user;
         
         const profile = await getUserProfile(user.uid);
+        if (profile && (profile.isDeleted || profile.status === 'deleted')) {
+          await signOut(auth);
+          throw new Error("Invalid username or password");
+        }
         if (profile) {
           onAuthSuccess(profile);
           onClose();

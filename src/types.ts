@@ -27,6 +27,9 @@ export interface UserProfile {
   joinedAt: any; // Firebase Timestamp or ISO String
   phoneNumber?: string;
   blockedUsers?: string[]; // UIDs of users this user has blocked
+  isDeleted?: boolean;
+  status?: string;
+  deletedAt?: any;
 }
 
 export interface DirectMessage {

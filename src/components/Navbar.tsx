@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { UserProfile, AppView } from '../types';
 import { auth } from '../lib/firebase';
 import { signOut } from 'firebase/auth';
-import { updateUserProfile, isEmailTaken, isPhoneTaken, isUsernameTaken } from '../lib/db';
-import { Music, LogOut, User, Globe, Edit3, Check, X, ShieldAlert, Sparkles, MapPin, Feather, Phone, Mail, Camera, Upload, MessageSquare, Wind, BookOpen, ChevronDown, Users, Zap, Menu, Info, Radio } from 'lucide-react';
+import { updateUserProfile, isEmailTaken, isPhoneTaken, isUsernameTaken, deleteUserAccount } from '../lib/db';
+import { Music, LogOut, User, Globe, Edit3, Check, X, ShieldAlert, Sparkles, MapPin, Feather, Phone, Mail, Camera, Upload, MessageSquare, Wind, BookOpen, ChevronDown, Users, Zap, Menu, Info, Radio, Trash2 } from 'lucide-react';
 import { CARTOON_AVATARS } from './AuthModal';
 import NotificationsDropdown from './NotificationsDropdown';
 
@@ -51,8 +51,34 @@ export default function Navbar({
   const [editPhotoURL, setEditPhotoURL] = useState('');
   
   const [loading, setLoading] = useState(false);
+  const [deleting, setDeleting] = useState(false);
   const [successMsg, setSuccessMsg] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
+
+  const handleDeleteAccount = async () => {
+    if (!currentUser) return;
+    if (!confirm("Are you sure you want to permanently delete your account? This will mark your profile as deleted in Firestore and remove your account from Authentication.")) {
+      return;
+    }
+    setDeleting(true);
+    try {
+      await deleteUserAccount(currentUser.uid);
+      await signOut(auth);
+      onLogout();
+      setIsEditingProfile(false);
+      setShowProfileDropdown(false);
+      alert("Your account has been deleted.");
+    } catch (err: any) {
+      console.error("Error deleting account:", err);
+      await signOut(auth);
+      onLogout();
+      setIsEditingProfile(false);
+      setShowProfileDropdown(false);
+      alert("Account marked as deleted in database.");
+    } finally {
+      setDeleting(false);
+    }
+  };
 
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [showLearnDropdown, setShowLearnDropdown] = useState(false);
@@ -922,10 +948,22 @@ export default function Navbar({
                 </button>
                 <button
                   type="submit"
-                  disabled={loading}
+                  disabled={loading || deleting}
                   className="flex-1 py-2 bg-bamboo-700 text-white text-xs font-semibold rounded-lg transition hover:bg-bamboo-600 flex items-center justify-center"
                 >
                   {loading ? "Saving..." : "Save Changes"}
+                </button>
+              </div>
+
+              <div className="pt-3 border-t border-gray-100 mt-2">
+                <button
+                  type="button"
+                  onClick={handleDeleteAccount}
+                  disabled={deleting || loading}
+                  className="w-full py-2 bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 text-xs font-bold rounded-lg transition flex items-center justify-center gap-1.5 cursor-pointer"
+                >
+                  <Trash2 className="w-3.5 h-3.5" />
+                  <span>{deleting ? "Deleting Account..." : "Delete Account"}</span>
                 </button>
               </div>
             </form>
