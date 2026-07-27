@@ -11,6 +11,22 @@ export default defineConfig(() => {
         '@': path.resolve(__dirname, '.'),
       },
     },
+    build: {
+      target: 'esnext',
+      minify: true,
+      cssMinify: true,
+      sourcemap: false,
+      chunkSizeWarningLimit: 1000,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor: ['react', 'react-dom', 'react-router-dom'],
+            ui: ['motion', 'lucide-react'],
+            audio: ['tone']
+          }
+        }
+      }
+    },
     server: {
       allowedHosts: [
       'flutesangam.onrender.com'
