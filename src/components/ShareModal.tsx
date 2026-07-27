@@ -36,12 +36,12 @@ export default function ShareModal({ isOpen, onClose, post }: ShareModalProps) {
   const emailUrl = `mailto:?subject=${encodeURIComponent(`FluteSangam: ${post.title}`)}&body=${encodeURIComponent(fullShareText)}`;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-md" id="share-modal-overlay">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 pb-24 sm:p-4 bg-black/40 backdrop-blur-md" id="share-modal-overlay">
       <motion.div 
         initial={{ opacity: 0, scale: 0.95, y: 10 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 10 }}
-        className="w-full max-w-sm frosted-panel-thick rounded-2xl shadow-2xl overflow-hidden"
+        className="w-full max-w-sm frosted-panel-thick rounded-2xl shadow-2xl overflow-hidden my-auto max-h-[calc(100dvh-6.5rem)] sm:max-h-[90vh] flex flex-col"
         id="share-modal-card"
       >
         {/* Header */}

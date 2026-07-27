@@ -129,11 +129,11 @@ export const SongRequestFAB: React.FC<SongRequestFABProps> = ({ isHidden, curren
 
       {/* Modal Dialog */}
       {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-fade-in overflow-y-auto">
-          <div className="bg-white rounded-3xl w-full max-w-lg shadow-2xl border border-bamboo-100 overflow-hidden relative my-auto">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 pb-24 sm:p-4 bg-black/60 backdrop-blur-md animate-fade-in overflow-y-auto">
+          <div className="bg-white rounded-3xl w-full max-w-lg shadow-2xl border border-bamboo-100 overflow-hidden relative my-auto max-h-[calc(100dvh-6.5rem)] sm:max-h-[90vh] flex flex-col">
             
             {/* Header Banner */}
-            <div className="bg-gradient-to-r from-bamboo-900 via-bamboo-800 to-amber-900 text-white p-5 sm:p-6 relative">
+            <div className="bg-gradient-to-r from-bamboo-900 via-bamboo-800 to-amber-900 text-white p-5 sm:p-6 relative shrink-0">
               <button 
                 onClick={handleClose} 
                 className="absolute top-4 right-4 text-bamboo-200 hover:text-white bg-black/20 hover:bg-black/40 p-2 rounded-full transition cursor-pointer"
@@ -162,7 +162,7 @@ export const SongRequestFAB: React.FC<SongRequestFABProps> = ({ isHidden, curren
             </div>
 
             {/* Modal Content */}
-            <div className="p-5 sm:p-6 space-y-5">
+            <div className="p-5 sm:p-6 space-y-5 overflow-y-auto flex-1">
               {status === 'success' ? (
                 <div className="py-6 text-center space-y-4">
                   <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-inner">

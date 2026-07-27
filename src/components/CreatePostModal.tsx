@@ -179,12 +179,12 @@ export default function CreatePostModal({ isOpen, onClose, currentUser, postToEd
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 bg-black/40 backdrop-blur-md" id="create-post-overlay">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 pb-24 sm:p-4 bg-black/40 backdrop-blur-md" id="create-post-overlay">
       <motion.div 
         initial={{ opacity: 0, scale: 0.95, y: 15 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 15 }}
-        className="w-full max-w-lg frosted-panel-thick rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+        className="w-full max-w-lg frosted-panel-thick rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[calc(100dvh-6.5rem)] sm:max-h-[90vh] my-auto"
         id="create-post-card"
       >
         {/* Header */}

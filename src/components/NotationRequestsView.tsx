@@ -487,8 +487,8 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
 
       {/* DETAIL MODAL FOR NOTATION REQUEST */}
       {selectedRequest && (
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] flex flex-col shadow-2xl border border-gray-100 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+        <div className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 pb-24 sm:p-4 overflow-y-auto">
+          <div className="bg-white rounded-3xl max-w-2xl w-full max-h-[calc(100dvh-6.5rem)] sm:max-h-[90vh] flex flex-col shadow-2xl border border-gray-100 overflow-hidden my-auto animate-in fade-in zoom-in-95 duration-200">
             
             {/* Modal Header */}
             <div className="p-6 bg-gradient-to-r from-bamboo-800 to-bamboo-900 text-white relative shrink-0">
