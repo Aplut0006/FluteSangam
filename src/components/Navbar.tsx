@@ -57,7 +57,7 @@ export default function Navbar({
 
   const handleDeleteAccount = async () => {
     if (!currentUser) return;
-    if (!confirm("Are you sure you want to permanently delete your account? This will mark your profile as deleted in Firestore and remove your account from Authentication.")) {
+    if (!confirm("Are you sure you want to delete your account?")) {
       return;
     }
     setDeleting(true);

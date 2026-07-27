@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Post, Comment, UserProfile } from '../types';
+import { auth } from '../lib/firebase';
 import { 
   toggleLikePost, 
   subscribeToComments, 
@@ -220,8 +221,11 @@ export default function PostDetailView({
     }
   };
 
+  const userEmail = (currentUser?.email || auth.currentUser?.email || '').toLowerCase().trim();
+  const isAdmin = userEmail === 'aplut0006@gmail.com';
   const hasLiked = currentUser ? post.likes.includes(currentUser.uid) : false;
   const isPostAuthor = currentUser?.uid === post.authorId;
+  const canDeletePost = isPostAuthor || isAdmin;
 
   return (
     <div className="space-y-6" id="post-detail-page-view">
@@ -235,9 +239,9 @@ export default function PostDetailView({
           <span>Back to Feed</span>
         </button>
 
-        {isPostAuthor && (
+        {(canDeletePost || (isPostAuthor && onEditPost)) && (
           <div className="flex items-center space-x-2">
-            {onEditPost && (
+            {isPostAuthor && onEditPost && (
               <button
                 onClick={() => onEditPost(post)}
                 className="inline-flex items-center space-x-1 text-xs font-bold text-bamboo-700 hover:text-bamboo-800 hover:bg-bamboo-50 px-3.5 py-2 rounded-xl transition cursor-pointer"
@@ -246,13 +250,15 @@ export default function PostDetailView({
                 <span>Edit Post</span>
               </button>
             )}
-            <button
-              onClick={() => setShowPostDeleteConfirm(true)}
-              className="inline-flex items-center space-x-1 text-xs font-bold text-red-600 hover:text-red-700 hover:bg-red-50 px-3.5 py-2 rounded-xl transition cursor-pointer"
-            >
-              <Trash2 className="w-4 h-4" />
-              <span>Delete Post</span>
-            </button>
+            {canDeletePost && (
+              <button
+                onClick={() => setShowPostDeleteConfirm(true)}
+                className="inline-flex items-center space-x-1 text-xs font-bold text-red-600 hover:text-red-700 hover:bg-red-50 px-3.5 py-2 rounded-xl transition cursor-pointer"
+              >
+                <Trash2 className="w-4 h-4" />
+                <span>Delete Post</span>
+              </button>
+            )}
           </div>
         )}
       </div>
@@ -415,6 +421,7 @@ export default function PostDetailView({
               <div className="flex-1 overflow-y-auto space-y-4 pr-1 min-h-[150px] max-h-[400px] lg:max-h-[50vh]">
                 {comments.map((comm) => {
                   const isAuthor = currentUser?.uid === comm.authorId;
+                  const canDeleteComm = isAuthor || isAdmin;
                   const isEditing = editingCommentId === comm.id;
                   const likesCount = comm.likes?.length || 0;
                   const dislikesCount = comm.dislikes?.length || 0;
@@ -468,25 +475,29 @@ export default function PostDetailView({
                             </span>
                           </div>
                           
-                          {isAuthor && !isEditing && (
+                          {(isAuthor || canDeleteComm) && !isEditing && (
                             <div className="flex items-center space-x-1.5 opacity-0 group-hover/comm:opacity-100 transition duration-150">
-                              <button
-                                onClick={() => {
-                                  setEditingCommentId(comm.id);
-                                  setEditingText(comm.text);
-                                }}
-                                className="text-gray-400 hover:text-bamboo-700 transition p-0.5"
-                                title="Edit Comment"
-                              >
-                                <Edit2 className="w-3 h-3" />
-                              </button>
-                              <button
-                                onClick={() => setCommentToDelete(comm.id)}
-                                className="text-gray-400 hover:text-red-600 transition p-0.5"
-                                title="Delete Comment"
-                              >
-                                <Trash2 className="w-3 h-3" />
-                              </button>
+                              {isAuthor && (
+                                <button
+                                  onClick={() => {
+                                    setEditingCommentId(comm.id);
+                                    setEditingText(comm.text);
+                                  }}
+                                  className="text-gray-400 hover:text-bamboo-700 transition p-0.5"
+                                  title="Edit Comment"
+                                >
+                                  <Edit2 className="w-3 h-3" />
+                                </button>
+                              )}
+                              {canDeleteComm && (
+                                <button
+                                  onClick={() => setCommentToDelete(comm.id)}
+                                  className="text-gray-400 hover:text-red-600 transition p-0.5"
+                                  title="Delete Comment"
+                                >
+                                  <Trash2 className="w-3 h-3" />
+                                </button>
+                              )}
                             </div>
                           )}
                         </div>

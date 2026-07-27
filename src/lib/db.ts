@@ -219,6 +219,29 @@ function cleanUndefined<T extends Record<string, any>>(obj: T): T {
 }
 
 // User Profile management
+export async function getUserProfileByEmail(email: string): Promise<UserProfile | null> {
+  if (!email || !email.trim()) return null;
+  const cleanEmail = email.trim().toLowerCase();
+  try {
+    const usersCol = collection(db, 'users');
+    const q = query(usersCol, where('email', '==', cleanEmail));
+    const snap = await getDocs(q);
+    if (!snap.empty) {
+      return snap.docs[0].data() as UserProfile;
+    }
+    // Fallback: search with original casing
+    const snapExact = await getDocs(query(usersCol, where('email', '==', email.trim())));
+    if (!snapExact.empty) {
+      return snapExact.docs[0].data() as UserProfile;
+    }
+    const mockMatch = INITIAL_MOCK_USERS.find(u => u.email.toLowerCase() === cleanEmail);
+    if (mockMatch) return mockMatch;
+  } catch (error) {
+    console.warn("Error looking up profile by email:", error);
+  }
+  return null;
+}
+
 export async function getUserProfile(uid: string): Promise<UserProfile | null> {
   try {
     const docRef = doc(db, 'users', uid);
@@ -226,6 +249,22 @@ export async function getUserProfile(uid: string): Promise<UserProfile | null> {
     if (docSnap.exists()) {
       return docSnap.data() as UserProfile;
     }
+
+    // Fallback: Check if current auth user or email has a profile registered under another UID (e.g. Google vs Email/Password)
+    const currentUserEmail = auth.currentUser?.email;
+    if (currentUserEmail) {
+      const profileByEmail = await getUserProfileByEmail(currentUserEmail);
+      if (profileByEmail) {
+        // Automatically sync & link profile to this UID
+        const syncedProfile: UserProfile = {
+          ...profileByEmail,
+          uid
+        };
+        await setDoc(docRef, cleanUndefined(syncedProfile), { merge: true });
+        return syncedProfile;
+      }
+    }
+
     // Fallback if system user is not yet in firestore
     const mockMatch = INITIAL_MOCK_USERS.find(u => u.uid === uid);
     if (mockMatch) return mockMatch;
@@ -263,6 +302,25 @@ export async function createUserProfile(uid: string, profile: Omit<UserProfile, 
       };
       await setDoc(docRef, cleanUndefined(mergedProfile), { merge: true });
       return mergedProfile;
+    }
+
+    // Check if profile exists by email under another UID (e.g., created via Google Sign-In or Email auth)
+    if (profile.email) {
+      const existingByEmail = await getUserProfileByEmail(profile.email);
+      if (existingByEmail) {
+        const mergedByEmail: UserProfile = {
+          ...existingByEmail,
+          ...profile,
+          displayName: existingByEmail.displayName || profile.displayName,
+          photoURL: existingByEmail.photoURL || profile.photoURL,
+          username: existingByEmail.username || profile.username,
+          bio: existingByEmail.bio || profile.bio,
+          uid,
+          joinedAt: existingByEmail.joinedAt || Timestamp.now()
+        };
+        await setDoc(docRef, cleanUndefined(mergedByEmail), { merge: true });
+        return mergedByEmail;
+      }
     }
 
     const completeProfile: UserProfile = {

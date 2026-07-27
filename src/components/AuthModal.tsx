@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { auth } from '../lib/firebase';
 import { 
   createUserWithEmailAndPassword, 
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
-  signOut
+  signOut,
+  sendEmailVerification,
+  sendPasswordResetEmail,
+  fetchSignInMethodsForEmail
 } from 'firebase/auth';
-import { createUserProfile, getUserProfile, generateUniqueUsername } from '../lib/db';
+import { createUserProfile, getUserProfile, getUserProfileByEmail, generateUniqueUsername } from '../lib/db';
 import { UserProfile } from '../types';
-import { Music, X, ShieldAlert, Sparkles, Check, Chrome, Mail, Camera, Upload, Wind } from 'lucide-react';
+import { Music, X, ShieldAlert, Sparkles, Check, Chrome, Mail, Camera, Upload, Wind, KeyRound, CheckCircle2, MailCheck, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 export const CARTOON_AVATARS = [
@@ -36,6 +39,17 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  // Forgot Password state
+  const [isForgotPassword, setIsForgotPassword] = useState(false);
+  const [resetEmail, setResetEmail] = useState('');
+  const [resetSent, setResetSent] = useState(false);
+
+  // Email verification state
+  const [verificationSent, setVerificationSent] = useState(false);
+  const [createdProfile, setCreatedProfile] = useState<UserProfile | null>(null);
+  const [resendLoading, setResendLoading] = useState(false);
+  const [resendMsg, setResendMsg] = useState('');
+
   // Profile fields (only for sign up)
   const [displayName, setDisplayName] = useState('');
   const [bio, setBio] = useState('');
@@ -49,7 +63,88 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
   const [loading, setLoading] = useState(false);
   const [step, setStep] = useState(1); // Step 1: Account credentials, Step 2: Bansuri Profile details
 
+  const resetForm = () => {
+    setEmail('');
+    setPassword('');
+    setIsForgotPassword(false);
+    setResetEmail('');
+    setResetSent(false);
+    setVerificationSent(false);
+    setCreatedProfile(null);
+    setResendLoading(false);
+    setResendMsg('');
+    setDisplayName('');
+    setBio('');
+    setLevel('Beginner');
+    setBansuriType('E Bass');
+    setLocation('');
+    setProfilePhoto('');
+    setPhotoType('none');
+    setError('');
+    setLoading(false);
+    setStep(1);
+  };
+
+  const handleClose = () => {
+    resetForm();
+    onClose();
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      resetForm();
+    }
+  }, [isOpen]);
+
   if (!isOpen) return null;
+
+  const handleForgotPassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!resetEmail || !resetEmail.trim()) {
+      setError("Please enter your email address.");
+      return;
+    }
+    setError('');
+    setLoading(true);
+    try {
+      await sendPasswordResetEmail(auth, resetEmail.trim());
+      setResetSent(true);
+    } catch (err: any) {
+      console.error(err);
+      if (err.code === 'auth/user-not-found' || err.message?.includes('user-not-found')) {
+        setError("No account found with this email address.");
+      } else if (err.code === 'auth/invalid-email' || err.message?.includes('invalid-email')) {
+        setError("Please enter a valid email address.");
+      } else {
+        setError(err.message || "Failed to send password reset email.");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleResendVerification = async () => {
+    setResendLoading(true);
+    setResendMsg('');
+    try {
+      if (auth.currentUser) {
+        await sendEmailVerification(auth.currentUser);
+        setResendMsg("Verification email resent! Please check your inbox and spam folder.");
+      } else if (email && password) {
+        const credential = await signInWithEmailAndPassword(auth, email.trim(), password);
+        await sendEmailVerification(credential.user);
+        await signOut(auth);
+        setResendMsg("Verification email resent! Please check your inbox and spam folder.");
+      } else {
+        setResendMsg("Please enter your email and password on the Sign In screen to resend the verification email.");
+      }
+    } catch (err: any) {
+      console.error(err);
+      setResendMsg("Could not resend email: " + (err.message || "Please check your email and password."));
+    } finally {
+      setResendLoading(false);
+    }
+  };
 
   const handleGoogleSignIn = async () => {
     setError('');
@@ -113,6 +208,12 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
     }
   };
 
+  const COMMON_BREACHED_PASSWORDS = [
+    '123456', '12345678', 'password', 'password123', 'admin123', 'flute123',
+    '123456789', '12345', 'qwerty', '1234567', 'dragon', 'p@ssword', 'letmein',
+    'welcome', '1234567890', 'abc12345'
+  ];
+
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
@@ -121,9 +222,28 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
     try {
       if (isSignUp) {
         if (step === 1) {
-          if (!email || !password || password.length < 6) {
-            throw new Error("Please enter a valid email and a password of at least 6 characters.");
+          if (!email || !email.trim() || !password || password.length < 8) {
+            throw new Error("Please enter a valid email address and a password of at least 8 characters.");
           }
+          if (COMMON_BREACHED_PASSWORDS.includes(password.trim().toLowerCase())) {
+            throw new Error("This password is known to be in data leaks. Please choose a unique password (e.g., FluteSadhaka#2026).");
+          }
+
+          // Check if an account already exists with this email address (via Google or Email auth)
+          const existingProf = await getUserProfileByEmail(email.trim());
+          if (existingProf) {
+            throw new Error("An account with this email address already exists. Please sign in instead, or use 'Forgot password?' to set a password for email login.");
+          }
+
+          try {
+            const methods = await fetchSignInMethodsForEmail(auth, email.trim());
+            if (methods && methods.length > 0) {
+              throw new Error("An account with this email address already exists. Please sign in instead, or use 'Forgot password?' to set a password for email login.");
+            }
+          } catch (fErr: any) {
+            if (fErr.message?.includes("already exists")) throw fErr;
+          }
+
           setStep(2);
           setLoading(false);
           return;
@@ -144,9 +264,17 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
         const finalBio = bio && bio.trim() ? bio.trim() : "N/A";
 
         // Create user in firebase auth
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        const userId = userCredential.user.uid;
-        const userEmail = userCredential.user.email || email;
+        const userCredential = await createUserWithEmailAndPassword(auth, email.trim(), password);
+        const user = userCredential.user;
+        const userId = user.uid;
+        const userEmail = user.email || email.trim();
+
+        // Send Email Verification
+        try {
+          await sendEmailVerification(user);
+        } catch (vErr) {
+          console.warn("Error sending email verification link:", vErr);
+        }
 
         // Create profile in firestore
         const uniqueUsername = await generateUniqueUsername(displayName.trim());
@@ -162,15 +290,32 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
         });
 
         if (profile) {
-          onAuthSuccess(profile);
-          onClose();
+          setCreatedProfile(profile);
+          setVerificationSent(true);
+          await signOut(auth); // User must verify email before logging in
         } else {
           throw new Error("Failed to create profile in database.");
         }
       } else {
         // Sign in
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const userCredential = await signInWithEmailAndPassword(auth, email.trim(), password);
         const user = userCredential.user;
+
+        // Reload user to get latest emailVerified status
+        await user.reload();
+
+        if (!user.emailVerified) {
+          try {
+            await sendEmailVerification(user);
+          } catch (vErr) {
+            console.warn("Error sending verification email during sign in attempt:", vErr);
+          }
+          setVerificationSent(true);
+          setResendMsg("Verification required: We've emailed a verification link to " + (user.email || email.trim()) + ". Please verify your email before logging in.");
+          await signOut(auth);
+          setLoading(false);
+          return;
+        }
         
         const profile = await getUserProfile(user.uid);
         if (profile && (profile.isDeleted || profile.status === 'deleted')) {
@@ -201,16 +346,24 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
       }
     } catch (err: any) {
       console.error(err);
-      if (!isSignUp) {
+      if (err.code === 'auth/email-already-in-use' || (err.message && err.message.includes('email-already-in-use')) || (err.message && err.message.includes('already exists'))) {
+        setError("An account with this email address already exists. Please sign in instead, or click 'Forgot password?' if you signed up with Google.");
+      } else if (!isSignUp) {
         if (err.code === 'auth/operation-not-allowed' || (err.message && err.message.includes('operation-not-allowed'))) {
           setError("Email & Password registration is currently disabled in your Firebase project. To fix this, please go to Firebase Console -> Authentication -> Sign-in Method, and enable 'Email/Password'.");
         } else {
-          setError("Invalid username or password");
+          // Check if profile exists by email to guide user
+          const existingProf = email ? await getUserProfileByEmail(email.trim()) : null;
+          if (existingProf) {
+            setError("Incorrect password. If you originally signed up with Google, click 'Forgot password?' below to set an email password, or sign in with Google.");
+          } else {
+            setError("Invalid username or password");
+          }
         }
       } else if (err.code === 'auth/operation-not-allowed' || (err.message && err.message.includes('operation-not-allowed'))) {
         setError("Email & Password registration is currently disabled in your Firebase project. To fix this, please go to Firebase Console -> Authentication -> Sign-in Method, and enable 'Email/Password'.");
-      } else if (err.code === 'auth/email-already-in-use' || (err.message && err.message.includes('auth/email-already-in-use') || err.message?.includes('email-already-in-use'))) {
-        setError("Email Already taken");
+      } else if (err.code === 'auth/invalid-email' || err.message?.includes('invalid-email')) {
+        setError("Please enter a valid email address.");
       } else {
         setError(err.message || "An authentication error occurred.");
       }
@@ -232,7 +385,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
         {/* Header decoration */}
         <div className="bg-gradient-to-r from-bamboo-700 to-bamboo-600 px-6 py-6 text-white relative shrink-0">
           <button 
-            onClick={onClose}
+            onClick={handleClose}
             className="absolute top-4 right-4 p-1.5 rounded-full hover:bg-white/10 transition"
             id="auth-modal-close"
           >
@@ -245,10 +398,22 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
             </div>
             <div>
               <h2 className="text-xl font-semibold font-display tracking-wide">
-                {isSignUp ? "Join FluteSangam" : "Welcome Back"}
+                {verificationSent 
+                  ? "Verify Your Email"
+                  : isForgotPassword 
+                  ? "Reset Password"
+                  : isSignUp 
+                  ? "Join FluteSangam" 
+                  : "Welcome Back"}
               </h2>
               <p className="text-xs text-bamboo-100 mt-1">
-                {isSignUp ? "Connect with flute and bansuri players worldwide" : "Sign in to share your musical journey"}
+                {verificationSent 
+                  ? "Check your inbox to verify your account"
+                  : isForgotPassword 
+                  ? "Send password reset link to your email"
+                  : isSignUp 
+                  ? "Connect with flute and bansuri players worldwide" 
+                  : "Sign in to share your musical journey"}
               </p>
             </div>
           </div>
@@ -263,7 +428,132 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
             </div>
           )}
 
-          {isSignUp && step === 2 ? (
+          {verificationSent ? (
+            <div className="space-y-4 text-center py-2 animate-fadeIn" id="verification-sent-screen">
+              <div className="mx-auto w-16 h-16 bg-bamboo-50 rounded-full flex items-center justify-center text-bamboo-700 shadow-inner">
+                <MailCheck className="w-8 h-8" />
+              </div>
+              <div>
+                <h3 className="text-base font-bold text-gray-900">Email Verification Sent!</h3>
+                <p className="text-xs text-gray-600 leading-relaxed mt-1">
+                  We've sent a verification email link to <strong className="text-bamboo-800">{email}</strong>. Please check your inbox (and spam folder) to verify your account.
+                </p>
+              </div>
+
+              {resendMsg && (
+                <div className="p-2.5 bg-bamboo-50 border border-bamboo-200 text-bamboo-800 text-xs rounded-lg">
+                  {resendMsg}
+                </div>
+              )}
+
+              <div className="pt-2 space-y-2">
+                <button
+                  type="button"
+                  onClick={handleResendVerification}
+                  disabled={resendLoading}
+                  className="w-full py-2.5 bg-bamboo-50 hover:bg-bamboo-100 text-bamboo-700 border border-bamboo-200 text-xs font-bold rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer"
+                >
+                  <Mail className="w-4 h-4" />
+                  <span>{resendLoading ? "Resending..." : "Resend Verification Email"}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setVerificationSent(false);
+                    setStep(1);
+                    setResendMsg('');
+                    setError('');
+                  }}
+                  className="w-full py-2.5 border border-gray-200 text-gray-600 hover:bg-gray-50 text-xs font-medium rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  <span>Change Email / Go Back</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (createdProfile) {
+                      onAuthSuccess(createdProfile);
+                    }
+                    handleClose();
+                  }}
+                  className="w-full py-2.5 bg-bamboo-700 hover:bg-bamboo-600 text-white text-xs font-semibold rounded-xl transition shadow-sm cursor-pointer"
+                >
+                  Continue to App
+                </button>
+              </div>
+            </div>
+          ) : isForgotPassword ? (
+            <div className="space-y-4 animate-fadeIn" id="forgot-password-screen">
+              {resetSent ? (
+                <div className="space-y-4 text-center py-2">
+                  <div className="mx-auto w-14 h-14 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-600 shadow-inner">
+                    <CheckCircle2 className="w-7 h-7" />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-bold text-gray-900">Reset Link Sent</h3>
+                    <p className="text-xs text-gray-600 leading-relaxed mt-1">
+                      We've emailed a password reset link to <strong className="text-gray-900">{resetEmail}</strong>. Please check your inbox and follow the instructions to reset your password.
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsForgotPassword(false);
+                      setResetSent(false);
+                      setError('');
+                    }}
+                    className="w-full py-2.5 bg-bamboo-700 text-white hover:bg-bamboo-600 text-xs font-semibold rounded-xl transition shadow-sm flex items-center justify-center gap-1.5 cursor-pointer"
+                  >
+                    <ArrowLeft className="w-4 h-4" />
+                    <span>Back to Sign In</span>
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleForgotPassword} className="space-y-4" id="forgot-password-form">
+                  <div className="text-center pb-1">
+                    <div className="mx-auto w-12 h-12 bg-bamboo-50 rounded-full flex items-center justify-center text-bamboo-700 mb-2">
+                      <KeyRound className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-sm font-bold text-gray-900">Reset Your Password</h3>
+                    <p className="text-xs text-gray-500 mt-1">Enter your registered email address to receive a password reset link.</p>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-medium text-gray-700 mb-1">Email Address</label>
+                    <input
+                      type="email"
+                      required
+                      value={resetEmail}
+                      onChange={(e) => setResetEmail(e.target.value)}
+                      placeholder="you@example.com"
+                      className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-bamboo-600 focus:border-transparent"
+                    />
+                  </div>
+
+                  <div className="flex space-x-2 pt-1">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsForgotPassword(false);
+                        setError('');
+                      }}
+                      className="w-1/3 py-2.5 border border-gray-200 text-gray-600 hover:bg-gray-50 text-xs font-medium rounded-xl transition cursor-pointer"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="flex-1 py-2.5 bg-bamboo-700 text-white hover:bg-bamboo-600 text-xs font-semibold rounded-xl transition shadow-sm flex items-center justify-center space-x-2 cursor-pointer"
+                    >
+                      {loading ? "Sending Link..." : "Send Reset Link"}
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
+          ) : isSignUp && step === 2 ? (
             <form onSubmit={handleAuth} className="space-y-4 animate-fadeIn" id="auth-form-step2">
               {/* STEP 2: Profile Details */}
               <div className="space-y-4">
@@ -308,7 +598,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
                         <button
                           type="button"
                           onClick={() => document.getElementById('signup-photo-upload')?.click()}
-                          className="px-2.5 py-1 bg-white hover:bg-gray-50 border border-gray-200 rounded-lg text-[11px] font-bold text-gray-700 transition flex items-center gap-1 shadow-3xs"
+                          className="px-2.5 py-1 bg-white hover:bg-gray-50 border border-gray-200 rounded-lg text-[11px] font-bold text-gray-700 transition flex items-center gap-1 shadow-3xs cursor-pointer"
                         >
                           <Upload className="w-3 h-3 text-bamboo-700" />
                           Upload Photo
@@ -337,7 +627,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
                               setProfilePhoto('');
                               setPhotoType('none');
                             }}
-                            className="text-[10px] text-red-600 hover:underline font-semibold"
+                            className="text-[10px] text-red-600 hover:underline font-semibold cursor-pointer"
                           >
                             Reset
                           </button>
@@ -360,7 +650,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
                               setProfilePhoto(avatarUrl);
                               setPhotoType('cartoon');
                             }}
-                            className={`relative rounded-full p-0.5 border-2 transition-all hover:scale-105 ${
+                            className={`relative rounded-full p-0.5 border-2 transition-all hover:scale-105 cursor-pointer ${
                               isSelected ? 'border-bamboo-600 scale-105 bg-bamboo-50' : 'border-transparent hover:border-gray-200'
                             }`}
                           >
@@ -455,14 +745,14 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
                   <button
                     type="button"
                     onClick={() => setStep(1)}
-                    className="w-1/3 py-2.5 border border-gray-200 text-gray-600 hover:bg-gray-50 text-sm font-medium rounded-xl transition"
+                    className="w-1/3 py-2.5 border border-gray-200 text-gray-600 hover:bg-gray-50 text-sm font-medium rounded-xl transition cursor-pointer"
                   >
                     Back
                   </button>
                   <button
                     type="submit"
                     disabled={loading}
-                    className="flex-1 py-2.5 bg-bamboo-700 text-white hover:bg-bamboo-600 text-sm font-semibold rounded-xl transition flex items-center justify-center space-x-2 shadow-sm"
+                    className="flex-1 py-2.5 bg-bamboo-700 text-white hover:bg-bamboo-600 text-sm font-semibold rounded-xl transition flex items-center justify-center space-x-2 shadow-sm cursor-pointer"
                   >
                     {loading ? "Creating Sangam Account..." : "Create Account & Enter"}
                   </button>
@@ -476,6 +766,8 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
                 <label className="block text-xs font-medium text-gray-700 mb-1">Email Address</label>
                 <input
                   type="email"
+                  name="email"
+                  autoComplete="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -485,21 +777,45 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-700 mb-1">Password</label>
+                <div className="flex items-center justify-between mb-1">
+                  <label className="block text-xs font-medium text-gray-700">Password</label>
+                  {!isSignUp && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsForgotPassword(true);
+                        setError('');
+                        setResetSent(false);
+                        setResetEmail(email);
+                      }}
+                      className="text-[11px] font-semibold text-bamboo-700 hover:underline cursor-pointer"
+                      id="forgot-password-link"
+                    >
+                      Forgot Password?
+                    </button>
+                  )}
+                </div>
                 <input
                   type="password"
+                  name={isSignUp ? "new-password" : "password"}
+                  autoComplete={isSignUp ? "new-password" : "current-password"}
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="At least 6 characters"
+                  placeholder={isSignUp ? "At least 8 characters (e.g. FluteSadhaka#2026)" : "Enter your password"}
                   className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-bamboo-600 focus:border-transparent"
                 />
+                {isSignUp && (
+                  <p className="text-[11px] text-gray-500 mt-1">
+                    Must be at least 8 characters. Choose a unique password to protect your account.
+                  </p>
+                )}
               </div>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-2.5 bg-bamboo-700 text-white hover:bg-bamboo-600 text-sm font-semibold rounded-xl transition flex items-center justify-center space-x-2 shadow-sm"
+                className="w-full py-2.5 bg-bamboo-700 text-white hover:bg-bamboo-600 text-sm font-semibold rounded-xl transition flex items-center justify-center space-x-2 shadow-sm cursor-pointer"
               >
                 {loading ? (
                   "Processing..."
@@ -512,9 +828,9 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
             </form>
           )}
 
-          {/* GOOGLE SIGN IN BUTTON */}
-          {step === 1 && (
-            <div className="space-y-2.5 pt-3 border-t border-gray-100/60 mt-4">
+          {/* GOOGLE SIGN IN BUTTON & TOGGLE MODE */}
+          {!verificationSent && !isForgotPassword && step === 1 && (
+            <div className="space-y-3 pt-3 border-t border-gray-100/60 mt-4">
               <button
                 type="button"
                 onClick={handleGoogleSignIn}
@@ -526,29 +842,24 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
                 <span>Continue with Google</span>
               </button>
 
-              <p className="text-[10px] text-gray-500 text-center leading-normal px-2">
-                FluteSangam uses email and Google Sign-In to authenticate users, create member accounts, and securely allow flutists to post recitals, comments, and song notation requests. We access your basic profile details (name, email, photo) solely for account creation and community identification.
-              </p>
-            </div>
-          )}
-
-          {/* Toggle auth mode or run demo */}
-          {step === 1 && (
-            <div className="mt-6 space-y-4 border-t border-gray-100 pt-5">
-              <div className="text-center text-xs text-gray-500">
+              <div className="text-center text-xs text-gray-600 pt-1">
                 {isSignUp ? "Already a member of the Sangam?" : "New to the Flute Community?"}{" "}
                 <button
+                  type="button"
                   onClick={() => {
                     setIsSignUp(!isSignUp);
                     setError('');
                   }}
-                  className="text-bamboo-700 hover:underline font-semibold"
+                  className="text-bamboo-700 hover:underline font-bold cursor-pointer"
                   id="toggle-auth-mode"
                 >
                   {isSignUp ? "Sign In" : "Sign Up"}
                 </button>
               </div>
 
+              <p className="text-[10px] text-gray-500 text-center leading-normal px-2 pt-2 border-t border-gray-100/60">
+                FluteSangam uses email and Google Sign-In to authenticate users, create member accounts, and securely allow flutists to post recitals, comments, and song notation requests. We access your basic profile details (name, email, photo) solely for account creation and community identification.
+              </p>
             </div>
           )}
         </div>

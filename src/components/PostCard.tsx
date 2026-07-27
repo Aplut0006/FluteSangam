@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Post, Comment, UserProfile } from '../types';
-import { toggleLikePost, subscribeToComments, subscribeToLatestComments } from '../lib/db';
+import { toggleLikePost, subscribeToComments, subscribeToLatestComments, deletePost } from '../lib/db';
+import { auth } from '../lib/firebase';
 import { 
   Heart, 
   MessageSquare, 
@@ -10,6 +11,7 @@ import {
   Video,
   ArrowRight,
   Edit2,
+  Trash2,
   MessageCircle
 } from 'lucide-react';
 
@@ -22,6 +24,7 @@ interface PostCardProps {
   onPostClick: (post: Post, focusComment?: boolean) => void;
   onUserProfileClick?: (userId: string) => void;
   onEditPost?: (post: Post) => void;
+  onDeletePost?: (postId: string) => void;
   onOpenImage?: (imageUrl: string) => void;
 }
 
@@ -34,11 +37,16 @@ export default function PostCard({
   onPostClick,
   onUserProfileClick,
   onEditPost,
+  onDeletePost,
   onOpenImage
 }: PostCardProps) {
   const [post, setPost] = useState<Post>(initialPost);
   const [commentsCount, setCommentsCount] = useState(post.commentsCount || 0);
   const [latestComments, setLatestComments] = useState<Comment[]>([]);
+
+  const userEmail = (currentUser?.email || auth.currentUser?.email || '').toLowerCase().trim();
+  const isAdmin = userEmail === 'aplut0006@gmail.com';
+  const canDeletePost = isAdmin || (!!currentUser && currentUser.uid === post.authorId);
 
   // Sync state if initialPost changes
   useEffect(() => {
@@ -342,7 +350,7 @@ export default function PostCard({
           </button>
         </div>
 
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-3">
           {/* If current user is post author, show edit option */}
           {currentUser && currentUser.uid === post.authorId && onEditPost && (
             <button
@@ -355,6 +363,29 @@ export default function PostCard({
             >
               <Edit2 className="w-4 h-4" />
               <span>Edit</span>
+            </button>
+          )}
+
+          {/* If current user is author or admin, show delete option */}
+          {canDeletePost && (
+            <button
+              onClick={async (e) => {
+                e.stopPropagation();
+                if (window.confirm("Are you sure you want to delete this post?")) {
+                  try {
+                    await deletePost(post.id);
+                    if (onDeletePost) onDeletePost(post.id);
+                  } catch (err) {
+                    console.error("Failed to delete post:", err);
+                    alert("Failed to delete post. Please try again.");
+                  }
+                }
+              }}
+              className="flex items-center space-x-1 font-semibold text-gray-500 hover:text-red-600 transition cursor-pointer"
+              title="Delete Post"
+            >
+              <Trash2 className="w-4 h-4" />
+              <span>Delete</span>
             </button>
           )}
 

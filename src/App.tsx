@@ -318,6 +318,15 @@ export default function App() {
     // Listen for auth state changes
     const unsubscribeAuth = onAuthStateChanged(auth, async (firebaseUser) => {
       if (firebaseUser) {
+        // Enforce email verification check for password provider logins
+        const isPasswordProvider = firebaseUser.providerData.some(p => p.providerId === 'password') || (!firebaseUser.providerData.length && !firebaseUser.emailVerified);
+        if (isPasswordProvider && !firebaseUser.emailVerified) {
+          await signOut(auth);
+          setCurrentUser(null);
+          setLoading(false);
+          return;
+        }
+
         let profile = await getUserProfile(firebaseUser.uid);
 
         // If profile is not found immediately, retry to give AuthModal time to save custom user profile
