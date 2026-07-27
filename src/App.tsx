@@ -549,7 +549,7 @@ export default function App() {
                   Welcome to FluteSangam — Where Flutists Learn, Share & Grow
                 </h1>
                 <p className="text-xs sm:text-sm text-bamboo-100 leading-relaxed font-normal">
-                  <strong>FluteSangam</strong> is an online educational and social community platform built specifically for practitioners, students, and teachers of the Indian bamboo flute (Bansuri & Venu). Our platform enables flutists to learn classical ragas & alankaras, share audio practice recordings, request song sargam notations, and connect with fellow musicians worldwide.
+                  <strong>FluteSangam</strong> is an online educational and social community platform built specifically for practitioners, students, and teachers of the Indian bamboo flute (Bansuri). Our platform enables flutists to learn classical ragas & alankaras, share audio practice recordings, request song sargam notations, and connect with fellow musicians worldwide.
                 </p>
               </div>
 

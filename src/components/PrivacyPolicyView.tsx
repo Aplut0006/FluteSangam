@@ -64,7 +64,7 @@ export const PrivacyPolicyView: React.FC<PrivacyPolicyViewProps> = ({ onBackToCo
               </p>
             </div>
             <div className="bg-white/80 border border-amber-300/80 rounded-xl p-3 text-xs text-amber-950 font-medium space-y-1">
-              <p><strong>App Purpose:</strong> FluteSangam is an educational and community platform for Indian bamboo flute (Bansuri & Venu) enthusiasts to learn classical ragas, share audio recitals, check pitch with our real-time Flute Tuner, and request song notations.</p>
+              <p><strong>App Purpose:</strong> FluteSangam is an educational and community platform for Indian bamboo flute (Bansuri) enthusiasts to learn classical ragas, share audio recitals, check pitch with our real-time Flute Tuner, and request song notations.</p>
               <p><strong>Microphone & Audio Privacy:</strong> FluteSangam requests microphone permission solely for real-time pitch detection in the Flute Tuner tool. Microphone audio is processed entirely in your local browser using the Web Audio API and is <strong>never recorded, stored, or transmitted</strong> to any external server.</p>
               <p><strong>Authentication Notice:</strong> FluteSangam uses email and Google Sign-In to authenticate users, verify user identity, create member profiles, and securely allow flutists to post recitals, comments, and notation requests.</p>
             </div>

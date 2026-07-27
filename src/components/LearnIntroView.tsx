@@ -60,7 +60,7 @@ export default function LearnIntroView() {
                   </p>
                   <ul className="text-sm text-gray-600 mt-3 space-y-2 pl-4 list-disc marker:text-bamboo-400">
                     <li><strong className="text-bamboo-800">The Divine Connection:</strong> In Hindu mythology, the bansuri is the divine instrument of Lord Krishna. His flute playing was said to be so mesmerizing that it enchanted animals, calmed flowing rivers, and captivated the gopis (cowherd maidens) of Vrindavan.</li>
-                    <li><strong className="text-bamboo-800">Ancient Texts:</strong> The flute is explicitly mentioned in the Vedas (texts dating back over 3,000 years) under names like Venu, Nadi, or Tunava. It is also heavily detailed in Bharata Muni’s Natya Shastra (around 200 BCE–200 CE), the foundational treatise on Indian performing arts.</li>
+                    <li><strong className="text-bamboo-800">Ancient Texts:</strong> The flute is explicitly mentioned in the Vedas (texts dating back over 3,000 years) under names like Nadi or Tunava. It is also heavily detailed in Bharata Muni’s Natya Shastra (around 200 BCE–200 CE), the foundational treatise on Indian performing arts.</li>
                   </ul>
                 </div>
               </div>
@@ -100,7 +100,7 @@ export default function LearnIntroView() {
                   <div className="w-2 h-2 mt-2.5 rounded-full bg-amber-500 shrink-0"></div>
                   <div>
                     <h4 className="font-bold text-gray-900">In South India (Carnatic Music)</h4>
-                    <p className="text-gray-600 mt-1">The key transition was led by pioneers like Sarabha Sastri and later T.R. Mahalingam (Flute Mali), who popularized the smaller, 8-holed South Indian cross-flute (often called the Venu or Pullanguzhal).</p>
+                    <p className="text-gray-600 mt-1">The key transition was led by pioneers like Sarabha Sastri and later T.R. Mahalingam (Flute Mali), who popularized the smaller, 8-holed South Indian cross-flute (often called the Pullanguzhal or Carnatic flute).</p>
                   </div>
                 </div>
               </div>
@@ -129,7 +129,7 @@ export default function LearnIntroView() {
                     <tr className="bg-bamboo-100/50">
                       <th className="p-4 font-bold text-bamboo-900 border-b border-bamboo-200 rounded-tl-xl">Feature</th>
                       <th className="p-4 font-bold text-bamboo-900 border-b border-bamboo-200">Hindustani Bansuri (North India)</th>
-                      <th className="p-4 font-bold text-bamboo-900 border-b border-bamboo-200 rounded-tr-xl">Carnatic Venu (South India)</th>
+                      <th className="p-4 font-bold text-bamboo-900 border-b border-bamboo-200 rounded-tr-xl">Carnatic Flute (South India)</th>
                     </tr>
                   </thead>
                   <tbody className="text-sm">
