@@ -100,7 +100,7 @@ export default function MembersView({
       case 'Intermediate':
         return 'bg-sky-100 text-sky-800 border-sky-300/80';
       default:
-        return 'bg-emerald-100 text-emerald-800 border-emerald-300/80';
+        return 'bg-bamboo-100 text-bamboo-800 border-bamboo-300/80';
     }
   };
 
@@ -257,7 +257,6 @@ export default function MembersView({
                           referrerPolicy="no-referrer"
                           className="w-12 h-12 rounded-full object-cover border-2 border-bamboo-200 group-hover:border-bamboo-500 transition"
                         />
-                        <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-emerald-500 border-2 border-white rounded-full" title="Active Community Sadhaka" />
                       </div>
                       <div className="min-w-0">
                         <div className="flex items-center gap-1.5">
