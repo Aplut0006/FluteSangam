@@ -164,8 +164,8 @@ export default function ChatSection({
 
       const otherUser = foundProfile || {
         uid: otherUserId,
-        displayName: "Flute Sadhaka",
-        username: "sadhaka",
+        displayName: "Flutist",
+        username: "flutist",
         photoURL: "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix"
       };
 

@@ -872,33 +872,23 @@ export function subscribeToUnreadMessages(userId: string, callback: (messages: a
 // Subscribe to all user profiles in the database
 export function subscribeToAllUsers(callback: (users: UserProfile[]) => void) {
   const usersCol = collection(db, 'users');
-  
-  // Trigger background sync for any missing members from posts, DMs, or initial data
-  syncMissingUsersToFirestore().catch(err => {
-    console.warn("Background sync of missing users encountered error:", err);
-  });
 
   return onSnapshot(usersCol, (snapshot) => {
     const users: UserProfile[] = [];
     snapshot.forEach((docSnap) => {
-      users.push({
-        ...docSnap.data(),
-        uid: docSnap.id
-      } as UserProfile);
-    });
-
-    // Ensure all initial mock users exist in list if not present in Firestore snapshot
-    const existingUids = new Set(users.map(u => u.uid));
-    INITIAL_MOCK_USERS.forEach((mockUser) => {
-      if (!existingUids.has(mockUser.uid)) {
-        users.push(mockUser);
+      const data = docSnap.data() as UserProfile;
+      if (!data.isDeleted && data.status !== 'deleted') {
+        users.push({
+          ...data,
+          uid: docSnap.id
+        });
       }
     });
 
     callback(users);
   }, (error) => {
     console.error("Error subscribing to all users:", error);
-    callback(INITIAL_MOCK_USERS);
+    callback([]);
   });
 }
 
