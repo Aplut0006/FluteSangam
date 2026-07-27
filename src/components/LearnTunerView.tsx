@@ -405,10 +405,10 @@ export default function LearnTunerView({ onViewChange }: LearnTunerViewProps) {
         {/* Top Control Bar: Microphone Toggle & Scale Selector */}
         <div className="relative z-10 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-8 bg-white/90 backdrop-blur-md p-4 rounded-2xl border border-bamboo-100 shadow-3xs">
           
-          {/* Mic Button */}
+          {/* Mic Button with fixed min width to prevent header shift */}
           <button
             onClick={isListening ? stopListening : startListening}
-            className={`flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-bold text-xs sm:text-sm transition-all shadow-md cursor-pointer select-none active:scale-95 ${
+            className={`flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-bold text-xs sm:text-sm transition-all shadow-md cursor-pointer select-none active:scale-95 w-full md:w-64 shrink-0 ${
               isListening 
                 ? 'bg-gradient-to-r from-red-500 to-rose-600 text-white hover:from-red-600 hover:to-rose-700 ring-4 ring-red-100' 
                 : 'bg-gradient-to-r from-bamboo-800 to-amber-700 text-white hover:from-bamboo-900 hover:to-amber-800 ring-4 ring-bamboo-100'
@@ -416,21 +416,21 @@ export default function LearnTunerView({ onViewChange }: LearnTunerViewProps) {
           >
             {isListening ? (
               <>
-                <MicOff className="w-5 h-5 animate-pulse" />
-                <span>Stop Tuner</span>
+                <MicOff className="w-5 h-5 animate-pulse shrink-0" />
+                <span className="whitespace-nowrap">Stop Tuner</span>
               </>
             ) : (
               <>
-                <Mic className="w-5 h-5" />
-                <span>Start Listening (Enable Mic)</span>
+                <Mic className="w-5 h-5 shrink-0" />
+                <span className="whitespace-nowrap">Start Listening (Enable Mic)</span>
               </>
             )}
           </button>
 
           {/* Scale Key Selector Dropdown */}
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-bold text-bamboo-900 whitespace-nowrap flex items-center gap-1">
-              <Sliders className="w-3.5 h-3.5 text-amber-600" />
+          <div className="flex items-center gap-2.5 justify-end">
+            <span className="text-xs font-bold text-bamboo-900 whitespace-nowrap flex items-center gap-1 shrink-0">
+              <Sliders className="w-3.5 h-3.5 text-amber-600 shrink-0" />
               <span>Bansuri Scale Key:</span>
             </span>
             <select
@@ -568,11 +568,11 @@ export default function LearnTunerView({ onViewChange }: LearnTunerViewProps) {
           </div>
 
           {/* DIGITAL TUNER READOUT CARD */}
-          <div className="mt-4 flex flex-col items-center text-center space-y-2">
+          <div className="mt-4 flex flex-col items-center text-center space-y-3 w-full">
             
-            {/* Note & Octave Display */}
-            <div className="flex items-baseline gap-2">
-              <span className={`text-5xl sm:text-6xl font-display font-extrabold tracking-tight transition-colors ${
+            {/* Note & Octave Display with fixed height and width to prevent shaking */}
+            <div className="flex items-baseline justify-center h-16 w-44 mx-auto relative">
+              <span className={`text-5xl sm:text-6xl font-display font-extrabold tracking-tight transition-colors tabular-nums min-w-[3.5rem] text-center ${
                 isInTune 
                   ? 'text-emerald-600' 
                   : isSlightlyOff 
@@ -583,51 +583,64 @@ export default function LearnTunerView({ onViewChange }: LearnTunerViewProps) {
               }`}>
                 {noteName}
               </span>
-              {octave !== null && (
-                <span className="text-xl sm:text-2xl font-bold text-gray-500 font-mono">
-                  {octave}
-                </span>
-              )}
+              <span className="text-xl sm:text-2xl font-bold text-gray-500 font-mono w-6 text-left pl-1">
+                {octave !== null ? octave : ''}
+              </span>
             </div>
 
-            {/* In-Tune Status Badge */}
-            <AnimatePresence mode="wait">
-              {isInTune ? (
-                <motion.div 
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0.8, opacity: 0 }}
-                  className="flex items-center gap-1.5 bg-emerald-100 text-emerald-800 border border-emerald-300 px-4 py-1.5 rounded-full text-xs font-extrabold shadow-2xs"
-                >
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 animate-bounce" />
-                  <span>PERFECTLY IN TUNE! (±{Math.abs(cents)} cents)</span>
-                </motion.div>
-              ) : isListening && frequency ? (
-                <div className={`text-xs font-bold px-3.5 py-1 rounded-full border ${
-                  cents < 0 ? 'bg-amber-50 text-amber-800 border-amber-200' : 'bg-rose-50 text-rose-800 border-rose-200'
-                }`}>
-                  {cents < 0 ? `FLAT (${cents} cents)` : `SHARP (+${cents} cents)`}
-                </div>
-              ) : (
-                <div className="text-xs font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-                  {isListening ? 'Listening for flute sound...' : 'Press "Start Listening" above'}
-                </div>
-              )}
-            </AnimatePresence>
+            {/* In-Tune Status Badge Container - Fixed Height to prevent vertical jitter */}
+            <div className="h-9 flex items-center justify-center my-0.5">
+              <AnimatePresence mode="wait">
+                {isInTune ? (
+                  <motion.div 
+                    key="in-tune"
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.9, opacity: 0 }}
+                    className="flex items-center gap-1.5 bg-emerald-100 text-emerald-800 border border-emerald-300 px-4 py-1.5 rounded-full text-xs font-extrabold shadow-2xs whitespace-nowrap"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 animate-bounce shrink-0" />
+                    <span>PERFECTLY IN TUNE! (±{Math.abs(cents)} cents)</span>
+                  </motion.div>
+                ) : isListening && frequency ? (
+                  <motion.div 
+                    key="off-tune"
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.9, opacity: 0 }}
+                    className={`text-xs font-bold px-4 py-1.5 rounded-full border whitespace-nowrap ${
+                      cents < 0 ? 'bg-amber-50 text-amber-800 border-amber-200' : 'bg-rose-50 text-rose-800 border-rose-200'
+                    }`}
+                  >
+                    {cents < 0 ? `FLAT (${cents} cents)` : `SHARP (+${cents} cents)`}
+                  </motion.div>
+                ) : (
+                  <motion.div 
+                    key="idle"
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.9, opacity: 0 }}
+                    className="text-xs font-medium text-gray-500 bg-gray-100/90 border border-gray-200 px-4 py-1.5 rounded-full whitespace-nowrap"
+                  >
+                    {isListening ? 'Listening for flute sound...' : 'Press "Start Listening" above'}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
-            {/* Real-Time Hz & Indian Swara Readout */}
-            <div className="grid grid-cols-2 gap-3 pt-3 w-full max-w-xs">
+            {/* Real-Time Hz & Indian Swara Readout Boxes with fixed dimensions */}
+            <div className="grid grid-cols-2 gap-3 pt-2 w-full max-w-xs mx-auto">
               
               {/* Hz Box */}
-              <div className="bg-white/80 p-3 rounded-2xl border border-bamboo-100 shadow-3xs flex flex-col items-center">
+              <div className="bg-white/90 p-3.5 rounded-2xl border border-bamboo-100 shadow-3xs flex flex-col items-center justify-center min-h-[4.25rem]">
                 <span className="text-[10px] uppercase font-bold text-gray-500 tracking-wider">Frequency</span>
-                <span className="text-base sm:text-lg font-mono font-bold text-bamboo-900">
+                <span className="text-base sm:text-lg font-mono font-bold text-bamboo-900 tabular-nums">
                   {frequency ? `${frequency} Hz` : '-- Hz'}
                 </span>
               </div>
 
               {/* Swara Box */}
-              <div className="bg-white/80 p-3 rounded-2xl border border-bamboo-100 shadow-3xs flex flex-col items-center">
+              <div className="bg-white/90 p-3.5 rounded-2xl border border-bamboo-100 shadow-3xs flex flex-col items-center justify-center min-h-[4.25rem]">
                 <span className="text-[10px] uppercase font-bold text-gray-500 tracking-wider">Indian Swara</span>
                 <span className="text-base sm:text-lg font-bold text-amber-800 font-display">
                   {detectedSwara !== '--' ? `${detectedSwara}` : '--'}
