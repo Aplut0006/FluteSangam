@@ -3,7 +3,7 @@ import { UserProfile, AppView } from '../types';
 import { auth } from '../lib/firebase';
 import { signOut } from 'firebase/auth';
 import { updateUserProfile, isEmailTaken, isPhoneTaken, isUsernameTaken } from '../lib/db';
-import { Music, LogOut, User, Globe, Edit3, Check, X, ShieldAlert, Sparkles, MapPin, Feather, Phone, Mail, Camera, Upload, MessageSquare, Wind, BookOpen, ChevronDown, Users, Zap, Menu, Info } from 'lucide-react';
+import { Music, LogOut, User, Globe, Edit3, Check, X, ShieldAlert, Sparkles, MapPin, Feather, Phone, Mail, Camera, Upload, MessageSquare, Wind, BookOpen, ChevronDown, Users, Zap, Menu, Info, Radio } from 'lucide-react';
 import { CARTOON_AVATARS } from './AuthModal';
 import NotificationsDropdown from './NotificationsDropdown';
 
@@ -57,6 +57,8 @@ export default function Navbar({
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [showLearnDropdown, setShowLearnDropdown] = useState(false);
   const learnDropdownRef = useRef<HTMLDivElement>(null);
+  const [showMoreDropdown, setShowMoreDropdown] = useState(false);
+  const moreDropdownRef = useRef<HTMLDivElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -67,12 +69,15 @@ export default function Navbar({
       if (learnDropdownRef.current && !learnDropdownRef.current.contains(event.target as Node)) {
         setShowLearnDropdown(false);
       }
+      if (moreDropdownRef.current && !moreDropdownRef.current.contains(event.target as Node)) {
+        setShowMoreDropdown(false);
+      }
       if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
         setShowMobileMenu(false);
       }
     }
 
-    if (showProfileDropdown || showLearnDropdown || showMobileMenu) {
+    if (showProfileDropdown || showLearnDropdown || showMoreDropdown || showMobileMenu) {
       document.addEventListener('mousedown', handleClickOutside);
     } else {
       document.removeEventListener('mousedown', handleClickOutside);
@@ -81,7 +86,7 @@ export default function Navbar({
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [showProfileDropdown, showLearnDropdown, showMobileMenu]);
+  }, [showProfileDropdown, showLearnDropdown, showMoreDropdown, showMobileMenu]);
 
 
   const handleLogout = async () => {
@@ -224,10 +229,12 @@ export default function Navbar({
         </button>
 
         {/* Desktop View Selector */}
-        <div className="hidden lg:flex items-center space-x-0.5 xl:space-x-1 bg-bamboo-50/80 p-1 rounded-xl border border-bamboo-100/50 shrink-0">
+        <div className="hidden lg:flex items-center space-x-1 bg-bamboo-50/80 p-1 rounded-xl border border-bamboo-100/50 shrink-0">
+          
+          {/* 1. Sadhana Feed */}
           <button
             onClick={() => onViewChange?.('community')}
-            className={`px-2.5 xl:px-3.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
               currentView === 'community' 
                 ? 'bg-bamboo-700 text-white shadow-3xs' 
                 : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
@@ -236,72 +243,27 @@ export default function Navbar({
             <Globe className="w-3.5 h-3.5 text-amber-600" />
             <span>Sadhana Feed</span>
           </button>
-          
-          <button
-            onClick={() => onViewChange?.('community_members')}
-            className={`px-2.5 xl:px-3.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
-              currentView === 'community_members' 
-                ? 'bg-bamboo-700 text-white shadow-3xs' 
-                : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
-            }`}
-          >
-            <Users className="w-3.5 h-3.5 text-amber-600" />
-            <span>Members</span>
-          </button>
-          
-          <button
-            onClick={() => onViewChange?.('about_us')}
-            className={`px-2.5 xl:px-3.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
-              currentView === 'about_us' 
-                ? 'bg-bamboo-700 text-white shadow-3xs' 
-                : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
-            }`}
-          >
-            <Info className="w-3.5 h-3.5 text-amber-600" />
-            <span>About Us</span>
-          </button>
-          
-          <button
-            onClick={() => {
-              if (!currentUser) {
-                onOpenAuth();
-              } else {
-                onViewChange?.('chats');
-              }
-            }}
-            className={`px-2.5 xl:px-3.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 relative cursor-pointer whitespace-nowrap ${
-              currentView === 'chats' 
-                ? 'bg-bamboo-700 text-white shadow-3xs' 
-                : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
-            }`}
-          >
-            <MessageSquare className="w-3.5 h-3.5 text-amber-600" />
-            <span>Sangam Chats</span>
-            {unreadCount > 0 && (
-              <span className="absolute -top-1.5 -right-1 bg-yellow-500 text-white text-[9px] font-black h-4.5 min-w-4.5 px-1 rounded-full flex items-center justify-center border border-white animate-bounce shadow-xs">
-                {unreadCount}
-              </span>
-            )}
-          </button>
-          
-          <button
-            onClick={() => onViewChange?.('notation_requests')}
-            className={`px-2.5 xl:px-3.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
-              currentView === 'notation_requests'
-                ? 'bg-bamboo-700 text-white shadow-3xs'
-                : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
-            }`}
-          >
-            <Music className="w-3.5 h-3.5 text-amber-600" />
-            <span>Notation Requests</span>
-          </button>
 
-          {/* Learn Flute Dropdown */}
+          {/* 2. Standalone Flute Tuner Button */}
+          <button
+            onClick={() => onViewChange?.('learn_tuner')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
+              currentView === 'learn_tuner'
+                ? 'bg-gradient-to-r from-amber-600 to-amber-700 text-white shadow-3xs'
+                : 'text-amber-900 bg-amber-100/70 hover:bg-amber-200/80 border border-amber-300/60'
+            }`}
+          >
+            <Radio className="w-3.5 h-3.5 text-amber-700 animate-pulse" />
+            <span>Flute Tuner</span>
+            <span className="text-[9px] bg-amber-900/20 text-amber-950 font-black px-1.5 py-0.5 rounded-full">440Hz</span>
+          </button>
+          
+          {/* 3. Learn Flute Dropdown */}
           <div className="relative" ref={learnDropdownRef}>
             <button
               onClick={() => setShowLearnDropdown(!showLearnDropdown)}
-              className={`px-2.5 xl:px-3.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
-                currentView === 'learn_intro' || currentView === 'learn_basics' || currentView === 'learn_choose_flute' || currentView === 'learn_tuner' || currentView === 'learn_alankaras' || currentView === 'learn_raagas'
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
+                currentView === 'learn_intro' || currentView === 'learn_basics' || currentView === 'learn_choose_flute' || currentView === 'learn_alankaras' || currentView === 'learn_raagas' || currentView === 'learn_dashboard'
                   ? 'bg-bamboo-700 text-white shadow-3xs'
                   : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
               }`}
@@ -313,6 +275,16 @@ export default function Navbar({
             
             {showLearnDropdown && (
               <div className="absolute top-full mt-2 left-0 w-60 bg-white rounded-xl shadow-xl border border-bamboo-100 py-1.5 z-50 overflow-hidden">
+                <button
+                  onClick={() => {
+                    onViewChange?.('learn_dashboard');
+                    setShowLearnDropdown(false);
+                  }}
+                  className="w-full text-left px-4 py-2.5 text-xs font-bold text-bamboo-900 bg-bamboo-50/60 hover:bg-bamboo-100/70 transition border-b border-bamboo-100 cursor-pointer flex items-center justify-between"
+                >
+                  <span>All Lessons Overview</span>
+                  <BookOpen className="w-3.5 h-3.5 text-amber-600" />
+                </button>
                 <button
                   onClick={() => {
                     onViewChange?.('learn_intro');
@@ -329,17 +301,7 @@ export default function Navbar({
                   }}
                   className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 cursor-pointer"
                 >
-                  Choose the Right Flute (Bansuri)
-                </button>
-                <button
-                  onClick={() => {
-                    onViewChange?.('learn_tuner');
-                    setShowLearnDropdown(false);
-                  }}
-                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-amber-800 bg-amber-50/50 hover:bg-amber-100/80 transition border-b border-bamboo-50 cursor-pointer flex items-center justify-between"
-                >
-                  <span>Flute Tuner &amp; Scales</span>
-                  <span className="text-[9px] bg-amber-200 text-amber-900 font-bold px-1.5 py-0.5 rounded-full">440Hz</span>
+                  Choose the Right Flute
                 </button>
                 <button
                   onClick={() => {
@@ -348,7 +310,7 @@ export default function Navbar({
                   }}
                   className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 cursor-pointer"
                 >
-                  The Basics
+                  The Basics &amp; Fingering
                 </button>
                 <button
                   onClick={() => {
@@ -357,7 +319,7 @@ export default function Navbar({
                   }}
                   className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 cursor-pointer"
                 >
-                  Alankaras
+                  Alankaras Practice
                 </button>
                 <button
                   onClick={() => {
@@ -366,108 +328,264 @@ export default function Navbar({
                   }}
                   className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition cursor-pointer"
                 >
-                  Raagas
+                  Classical Raagas
                 </button>
               </div>
             )}
           </div>
+
+          {/* 4. Sangam Chats */}
+          <button
+            onClick={() => {
+              if (!currentUser) {
+                onOpenAuth();
+              } else {
+                onViewChange?.('chats');
+              }
+            }}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 relative cursor-pointer whitespace-nowrap ${
+              currentView === 'chats' 
+                ? 'bg-bamboo-700 text-white shadow-3xs' 
+                : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
+            }`}
+          >
+            <MessageSquare className="w-3.5 h-3.5 text-amber-600" />
+            <span>Chats</span>
+            {unreadCount > 0 && (
+              <span className="absolute -top-1.5 -right-1 bg-yellow-500 text-white text-[9px] font-black h-4.5 min-w-4.5 px-1 rounded-full flex items-center justify-center border border-white animate-bounce shadow-xs">
+                {unreadCount}
+              </span>
+            )}
+          </button>
+          
+          {/* 5. Notation Requests */}
+          <button
+            onClick={() => onViewChange?.('notation_requests')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
+              currentView === 'notation_requests'
+                ? 'bg-bamboo-700 text-white shadow-3xs'
+                : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
+            }`}
+          >
+            <Music className="w-3.5 h-3.5 text-amber-600" />
+            <span>Notations</span>
+          </button>
+
+          {/* 6. More Dropdown (Members & About Us) */}
+          <div className="relative" ref={moreDropdownRef}>
+            <button
+              onClick={() => setShowMoreDropdown(!showMoreDropdown)}
+              className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1 cursor-pointer whitespace-nowrap ${
+                currentView === 'community_members' || currentView === 'about_us'
+                  ? 'bg-bamboo-700 text-white shadow-3xs'
+                  : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
+              }`}
+            >
+              <span>More</span>
+              <ChevronDown className="w-3.5 h-3.5 opacity-70" />
+            </button>
+
+            {showMoreDropdown && (
+              <div className="absolute top-full mt-2 right-0 w-48 bg-white rounded-xl shadow-xl border border-bamboo-100 py-1.5 z-50 overflow-hidden">
+                <button
+                  onClick={() => {
+                    onViewChange?.('community_members');
+                    setShowMoreDropdown(false);
+                  }}
+                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 flex items-center gap-2 cursor-pointer"
+                >
+                  <Users className="w-3.5 h-3.5 text-amber-600" />
+                  <span>Flutists Directory</span>
+                </button>
+                <button
+                  onClick={() => {
+                    onViewChange?.('about_us');
+                    setShowMoreDropdown(false);
+                  }}
+                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition flex items-center gap-2 cursor-pointer"
+                >
+                  <Info className="w-3.5 h-3.5 text-amber-600" />
+                  <span>About FluteSangam</span>
+                </button>
+              </div>
+            )}
+          </div>
+
         </div>
 
-        {/* Hamburger Menu (Mobile & Tablet < lg) */}
+        {/* Hamburger Menu Button (Mobile & Tablet < lg) */}
         <div className="lg:hidden">
           <button
             onClick={() => setShowMobileMenu(!showMobileMenu)}
-            className="p-2 text-bamboo-700 hover:bg-bamboo-50 rounded-lg"
+            className="p-2 text-bamboo-800 hover:bg-bamboo-50 rounded-xl transition cursor-pointer"
+            aria-label="Toggle navigation menu"
           >
             <Menu className="w-6 h-6" />
           </button>
         </div>
 
-        {/* Mobile Menu Dropdown */}
+        {/* Mobile Menu Overlay Drawer (Optimized for Smartphones) */}
         {showMobileMenu && (
           <div 
             ref={mobileMenuRef}
-            className="absolute top-16 left-0 right-0 bg-white border-b border-gray-100 shadow-xl p-4 z-50 lg:hidden space-y-2"
+            className="absolute top-16 left-2 right-2 sm:left-4 sm:right-4 bg-white/98 backdrop-blur-xl border border-bamboo-200/90 shadow-2xl rounded-2xl p-4 z-50 lg:hidden max-h-[82vh] overflow-y-auto space-y-4 text-left"
           >
-            <button
-              onClick={() => { onViewChange?.('community'); setShowMobileMenu(false); }}
-              className="w-full flex items-center gap-3 px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-bamboo-50 rounded-lg"
-            >
-              <Globe className="w-4 h-4" /> Sadhana Feed
-            </button>
-            <button
-              onClick={() => { onViewChange?.('community_members'); setShowMobileMenu(false); }}
-              className="w-full flex items-center gap-3 px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-bamboo-50 rounded-lg"
-            >
-              <Users className="w-4 h-4" /> Members
-            </button>
-            <button
-              onClick={() => { onViewChange?.('about_us'); setShowMobileMenu(false); }}
-              className="w-full flex items-center gap-3 px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-bamboo-50 rounded-lg"
-            >
-              <Info className="w-4 h-4" /> About Us
-            </button>
+            {/* Quick Practice Tool Card */}
+            <div>
+              <span className="text-[10px] font-black uppercase tracking-wider text-amber-800/80 px-1 mb-1.5 block">
+                Practice Tool
+              </span>
+              <button
+                onClick={() => { onViewChange?.('learn_tuner'); setShowMobileMenu(false); }}
+                className="w-full flex items-center justify-between p-3.5 bg-gradient-to-r from-amber-500/10 via-amber-100/40 to-bamboo-100/40 border border-amber-300/80 rounded-xl hover:bg-amber-100/70 transition group cursor-pointer"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-amber-500 text-white flex items-center justify-center shadow-2xs group-hover:scale-105 transition">
+                    <Radio className="w-5 h-5 animate-pulse" />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-xs font-extrabold text-bamboo-950 flex items-center gap-1.5">
+                      <span>Flute Tuner &amp; Scales</span>
+                      <span className="text-[9px] bg-amber-200 text-amber-950 font-bold px-1.5 py-0.2 rounded-full">A=440Hz</span>
+                    </div>
+                    <div className="text-[11px] text-gray-600">Interactive live frequency scale tuner</div>
+                  </div>
+                </div>
+              </button>
+            </div>
 
-            <button
-              onClick={() => { onViewChange?.('chats'); setShowMobileMenu(false); }}
-              className="w-full flex items-center gap-3 px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-bamboo-50 rounded-lg"
-            >
-              <MessageSquare className="w-4 h-4" /> Sangam Chats
-            </button>
-            <button
-              onClick={() => { onViewChange?.('notation_requests'); setShowMobileMenu(false); }}
-              className="w-full flex items-center gap-3 px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-bamboo-50 rounded-lg"
-            >
-              <Music className="w-4 h-4 text-amber-600" /> Notation Requests
-            </button>
-            <button
-              onClick={() => setShowMobileLearnMenu(!showMobileLearnMenu)}
-              className="w-full flex items-center justify-between gap-3 px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-bamboo-50 rounded-lg"
-            >
-              <span className="flex items-center gap-3"><BookOpen className="w-4 h-4" /> Learn Flute</span>
-              <ChevronDown className={`w-4 h-4 transition-transform ${showMobileLearnMenu ? 'rotate-180' : ''}`} />
-            </button>
-            {showMobileLearnMenu && (
-              <div className="pl-8 space-y-1">
+            {/* Community Section */}
+            <div>
+              <span className="text-[10px] font-black uppercase tracking-wider text-gray-600 px-1 mb-1.5 block">
+                Community
+              </span>
+              <div className="grid grid-cols-2 gap-2">
                 <button
-                  onClick={() => { onViewChange?.('learn_intro'); setShowMobileMenu(false); }}
-                  className="w-full text-left text-sm text-gray-600 hover:text-bamboo-800 py-2"
+                  onClick={() => { onViewChange?.('community'); setShowMobileMenu(false); }}
+                  className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
+                    currentView === 'community'
+                      ? 'bg-bamboo-700 text-white border-bamboo-800'
+                      : 'bg-bamboo-50/60 text-gray-700 border-bamboo-100 hover:bg-bamboo-100/60'
+                  }`}
                 >
-                  Introduction To Flute/Bansuri
+                  <Globe className="w-4 h-4 text-amber-600 shrink-0" />
+                  <span>Sadhana Feed</span>
                 </button>
+
                 <button
-                  onClick={() => { onViewChange?.('learn_choose_flute'); setShowMobileMenu(false); }}
-                  className="w-full text-left text-sm text-gray-600 hover:text-bamboo-800 py-2"
+                  onClick={() => { 
+                    if (!currentUser) onOpenAuth();
+                    else onViewChange?.('chats'); 
+                    setShowMobileMenu(false); 
+                  }}
+                  className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left relative cursor-pointer ${
+                    currentView === 'chats'
+                      ? 'bg-bamboo-700 text-white border-bamboo-800'
+                      : 'bg-bamboo-50/60 text-gray-700 border-bamboo-100 hover:bg-bamboo-100/60'
+                  }`}
                 >
-                  Choose the Right Flute (Bansuri)
+                  <MessageSquare className="w-4 h-4 text-amber-600 shrink-0" />
+                  <span>Sangam Chats</span>
+                  {unreadCount > 0 && (
+                    <span className="ml-auto bg-amber-500 text-white text-[9px] font-black px-1.5 py-0.5 rounded-full">
+                      {unreadCount}
+                    </span>
+                  )}
                 </button>
+
                 <button
-                  onClick={() => { onViewChange?.('learn_tuner'); setShowMobileMenu(false); }}
-                  className="w-full text-left text-sm text-amber-800 font-bold hover:text-bamboo-900 py-2 flex items-center justify-between"
+                  onClick={() => { onViewChange?.('notation_requests'); setShowMobileMenu(false); }}
+                  className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
+                    currentView === 'notation_requests'
+                      ? 'bg-bamboo-700 text-white border-bamboo-800'
+                      : 'bg-bamboo-50/60 text-gray-700 border-bamboo-100 hover:bg-bamboo-100/60'
+                  }`}
                 >
-                  <span>Flute Tuner &amp; Scales</span>
-                  <span className="text-[10px] bg-amber-100 text-amber-900 px-2 py-0.5 rounded-full">440Hz</span>
+                  <Music className="w-4 h-4 text-amber-600 shrink-0" />
+                  <span>Notations</span>
                 </button>
+
                 <button
-                  onClick={() => { onViewChange?.('learn_basics'); setShowMobileMenu(false); }}
-                  className="w-full text-left text-sm text-gray-600 hover:text-bamboo-800 py-2"
+                  onClick={() => { onViewChange?.('community_members'); setShowMobileMenu(false); }}
+                  className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
+                    currentView === 'community_members'
+                      ? 'bg-bamboo-700 text-white border-bamboo-800'
+                      : 'bg-bamboo-50/60 text-gray-700 border-bamboo-100 hover:bg-bamboo-100/60'
+                  }`}
                 >
-                  The Basics
-                </button>
-                <button
-                  onClick={() => { onViewChange?.('learn_alankaras'); setShowMobileMenu(false); }}
-                  className="w-full text-left text-sm text-gray-600 hover:text-bamboo-800 py-2"
-                >
-                  Alankaras
-                </button>
-                <button
-                  onClick={() => { onViewChange?.('learn_raagas'); setShowMobileMenu(false); }}
-                  className="w-full text-left text-sm text-gray-600 hover:text-bamboo-800 py-2"
-                >
-                  Raagas
+                  <Users className="w-4 h-4 text-amber-600 shrink-0" />
+                  <span>Flutists</span>
                 </button>
               </div>
-            )}
+            </div>
+
+            {/* Learn Flute Section */}
+            <div>
+              <button
+                onClick={() => setShowMobileLearnMenu(!showMobileLearnMenu)}
+                className="w-full flex items-center justify-between p-3 bg-bamboo-50/80 border border-bamboo-100 rounded-xl text-xs font-bold text-bamboo-950 hover:bg-bamboo-100/80 transition cursor-pointer"
+              >
+                <span className="flex items-center gap-2">
+                  <BookOpen className="w-4 h-4 text-amber-600" />
+                  <span>Learn Bansuri Lessons</span>
+                </span>
+                <ChevronDown className={`w-4 h-4 text-bamboo-700 transition-transform ${showMobileLearnMenu ? 'rotate-180' : ''}`} />
+              </button>
+
+              {showMobileLearnMenu && (
+                <div className="mt-2 pl-3 pr-1 py-1 space-y-1 bg-white border border-bamboo-100 rounded-xl text-left">
+                  <button
+                    onClick={() => { onViewChange?.('learn_dashboard'); setShowMobileMenu(false); }}
+                    className="w-full text-left text-xs font-bold text-bamboo-900 hover:text-amber-700 py-2 border-b border-bamboo-50 cursor-pointer"
+                  >
+                    📚 All Lessons Dashboard
+                  </button>
+                  <button
+                    onClick={() => { onViewChange?.('learn_intro'); setShowMobileMenu(false); }}
+                    className="w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
+                  >
+                    1. Introduction to Bansuri
+                  </button>
+                  <button
+                    onClick={() => { onViewChange?.('learn_choose_flute'); setShowMobileMenu(false); }}
+                    className="w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
+                  >
+                    2. Choose the Right Flute
+                  </button>
+                  <button
+                    onClick={() => { onViewChange?.('learn_basics'); setShowMobileMenu(false); }}
+                    className="w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
+                  >
+                    3. The Basics &amp; Blowing
+                  </button>
+                  <button
+                    onClick={() => { onViewChange?.('learn_alankaras'); setShowMobileMenu(false); }}
+                    className="w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
+                  >
+                    4. Alankaras Practice
+                  </button>
+                  <button
+                    onClick={() => { onViewChange?.('learn_raagas'); setShowMobileMenu(false); }}
+                    className="w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 cursor-pointer"
+                  >
+                    5. Indian Classical Raagas
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* About Section */}
+            <div className="pt-1 border-t border-bamboo-100">
+              <button
+                onClick={() => { onViewChange?.('about_us'); setShowMobileMenu(false); }}
+                className="w-full flex items-center justify-between p-2.5 text-xs font-semibold text-gray-600 hover:text-bamboo-900 transition cursor-pointer"
+              >
+                <span className="flex items-center gap-2">
+                  <Info className="w-4 h-4 text-amber-600" />
+                  <span>About FluteSangam</span>
+                </span>
+              </button>
+            </div>
           </div>
         )}
 

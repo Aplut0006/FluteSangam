@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Compass, BookOpen, Users, MessageSquare } from 'lucide-react';
+import { Compass, BookOpen, Users, Radio } from 'lucide-react';
 import { AppView, UserProfile } from '../types';
 
 interface MobileBottomNavProps {
@@ -33,19 +33,19 @@ export default function MobileBottomNav({
       id: 'learn_dashboard' as AppView, 
       label: 'Learn', 
       icon: BookOpen,
-      isActive: currentView === 'learn_dashboard' || currentView.startsWith('learn_')
+      isActive: currentView === 'learn_dashboard' || (currentView.startsWith('learn_') && currentView !== 'learn_tuner')
+    },
+    { 
+      id: 'learn_tuner' as AppView, 
+      label: 'Tuner', 
+      icon: Radio,
+      isActive: currentView === 'learn_tuner'
     },
     { 
       id: 'community_members' as AppView, 
       label: 'Members', 
       icon: Users,
       isActive: currentView === 'community_members'
-    },
-    { 
-      id: 'chats' as AppView, 
-      label: 'Chats', 
-      icon: MessageSquare,
-      isActive: currentView === 'chats'
     },
   ];
 
@@ -76,10 +76,6 @@ export default function MobileBottomNav({
             <button
               key={tab.id}
               onClick={() => {
-                if (tab.id === 'chats' && !currentUser) {
-                  onOpenAuth();
-                  return;
-                }
                 onViewChange(tab.id);
               }}
               className={`relative flex-1 flex flex-col items-center justify-center py-1.5 px-2 rounded-xl transition-all cursor-pointer select-none ${
@@ -106,17 +102,6 @@ export default function MobileBottomNav({
                 transition={{ type: 'spring', stiffness: 400, damping: 25 }}
               >
                 <Icon className={`w-5 h-5 transition-colors ${active ? 'text-bamboo-850 stroke-[2.25]' : 'stroke-[1.75]'}`} />
-                
-                {/* Unread badge for chats */}
-                {tab.id === 'chats' && unreadCount > 0 && (
-                  <motion.span 
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    className="absolute -top-1.5 -right-2 bg-gradient-to-r from-red-500 to-rose-600 text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center shadow-xs border border-white"
-                  >
-                    {unreadCount > 9 ? '9+' : unreadCount}
-                  </motion.span>
-                )}
               </motion.div>
 
               {/* Label */}
