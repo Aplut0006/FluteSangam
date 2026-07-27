@@ -81,65 +81,65 @@ export default function App() {
 
   // Dynamic SEO Title & Meta Description Management
   useEffect(() => {
-    let title = 'FluteSangam | Indian Flute & Bansuri Learning Community';
-    let description = 'Master the Indian Flute (Bansuri & Venu) with step-by-step alankars, raga lessons, sargam song sheet music notations, and a global community of flutists.';
+    let title = 'FluteSangam | Indian Flute & Bansuri Sargam Learning Community';
+    let description = 'FluteSangam is the premier Indian flute and bansuri sargam learning community. Explore step-by-step lessons, alankars, ragas, and song sheet music notations.';
 
     switch (currentView) {
       case 'community':
-        title = 'FluteSangam | Indian Flute & Bansuri Learning Community';
-        description = 'Explore community posts, audio recitals, questions, and discussions shared by bansuri and Indian flute enthusiasts from all around the world.';
+        title = 'FluteSangam | Indian Flute & Bansuri Sargam Learning Community';
+        description = 'FluteSangam is the premier Indian flute and bansuri sargam learning community. Explore community posts, audio recitals, questions, and discussions.';
         break;
       case 'chats':
         title = 'Direct Messages & Chat | FluteSangam Bansuri Community';
-        description = 'Chat directly with fellow flutists, ask questions, exchange guidance, collaborate on ragas, and stay connected with the global bansuri community.';
+        description = 'FluteSangam Direct Messages & Chat: Connect with Indian flute and bansuri flutists, ask questions, exchange guidance, and collaborate on ragas.';
         break;
       case 'learn_dashboard':
         title = 'Flute Learning Hub & Lessons | FluteSangam Bansuri';
-        description = 'Comprehensive step-by-step guides for learning Indian flute. Practice posture, alankar drills, and ragas like Yaman, Bhupali, and Kafi.';
+        description = 'FluteSangam Flute Learning Hub & Lessons: Learn Indian flute and bansuri step-by-step with posture, alankar drills, and Hindustani & Carnatic ragas.';
         break;
       case 'learn_intro':
         title = 'Introduction to Bansuri | FluteSangam Learning Hub';
-        description = 'Discover the origin, anatomy, scale selection, maintenance, and essential playing fundamentals of the Indian bamboo flute (Bansuri & Venu).';
+        description = 'FluteSangam Introduction to Bansuri: Discover the origin, anatomy, scale selection, maintenance, and essential playing fundamentals of Indian bamboo flute.';
         break;
       case 'learn_basics':
         title = 'Bansuri Basics & Blowing Techniques | FluteSangam';
-        description = 'Master sound generation, blowing technique, finger positioning, half-hole techniques, and accurate swara production on your bamboo flute.';
+        description = 'FluteSangam Bansuri Basics & Blowing Techniques: Master sound generation, blowing posture, finger positioning, and accurate swara production on bamboo flute.';
         break;
       case 'learn_choose_flute':
         title = 'How to Choose the Right Flute (Bansuri) | FluteSangam';
-        description = 'Comprehensive buyer guide on choosing the right flute scale (C Middle, A Base, G Base) for beginner, intermediate, and advanced flutists.';
+        description = 'FluteSangam guide on How to Choose the Right Flute (Bansuri): Learn how to select C Middle, A Base, or G Base flutes for beginner and advanced players.';
         break;
       case 'learn_alankaras':
         title = 'Alankar Exercises & Sargam Drills | FluteSangam Hub';
-        description = 'Improve your finger agility, pitch control, blow discipline, and tempo stability with guided alankar exercises and sargam drills on bansuri.';
+        description = 'FluteSangam Alankar Exercises & Sargam Drills: Practice finger agility, pitch accuracy, tempo stability, and daily sargam exercises on Indian bamboo flute.';
         break;
       case 'learn_raagas':
         title = 'Learn Ragas, Swaras & Sargam | FluteSangam Lessons';
-        description = 'Master Hindustani and Carnatic ragas on bansuri with detailed scale structures, key phrases (Pakad), time of day, and practice compositions.';
+        description = 'FluteSangam Learn Ragas, Swaras & Sargam: Master Hindustani and Carnatic ragas on bansuri with detailed scale structures, key phrases (Pakad), and compositions.';
         break;
       case 'notation_requests':
         title = 'Song Notation Requests & Sargam Music | FluteSangam';
-        description = 'Request sargam notations for Bollywood, devotional, folk, or classical songs, and explore community-contributed Indian flute sheet music.';
+        description = 'FluteSangam Song Notation Requests & Sargam Music: Request sargam sheet music for Bollywood, devotional, folk, or classical songs for Indian bamboo flute.';
         break;
       case 'community_members':
         title = 'Flutist Directory & Member Profiles | FluteSangam';
-        description = 'Discover and connect with Indian flute players, bansuri teachers, performers, and fellow learners across our global flutist community directory.';
+        description = 'FluteSangam Flutist Directory & Member Profiles: Connect with Indian flute players, bansuri teachers, performers, and fellow learners in our global community.';
         break;
       case 'about_us':
         title = 'About Us - Indian Bamboo Flute Community | FluteSangam';
-        description = 'Learn about FluteSangam’s mission to preserve and promote Indian bamboo flute heritage through accessible online education and community.';
+        description = 'FluteSangam About Us: Learn about our mission to preserve and promote Indian bamboo flute (bansuri) heritage through accessible education and community.';
         break;
       case 'contact_us':
         title = 'Contact Us & Support | FluteSangam Flute Community';
-        description = 'Get in touch with the FluteSangam team. Reach out for platform support, feedback, sargam notation requests, or community partnership inquiries.';
+        description = 'FluteSangam Contact Us & Support: Reach out to our team for platform support, feedback, song sargam notation requests, or community partnership inquiries.';
         break;
       case 'privacy_policy':
         title = 'Official Privacy Policy | FluteSangam Flute Community';
-        description = 'Read the official Privacy Policy for FluteSangam. Learn how we collect, store, protect, and respect your personal information and user data.';
+        description = 'FluteSangam Official Privacy Policy: Learn how we collect, store, protect, and respect your personal information and user data on our bansuri community.';
         break;
       case 'terms_of_service':
         title = 'Terms of Service & Rules | FluteSangam Flute Community';
-        description = 'Read the official Terms of Service for FluteSangam. Guidelines, platform rules, and commitments for our global bansuri & flute community.';
+        description = 'FluteSangam Terms of Service & Rules: Read official guidelines, platform rules, and commitments for our global Indian flute and bansuri learning community.';
         break;
       case 'post-detail':
         if (selectedPost) {
@@ -154,7 +154,7 @@ export default function App() {
 
           let rawDesc = selectedPost.description ? selectedPost.description.replace(/\s+/g, ' ').trim() : '';
           if (rawDesc.length < 120) {
-            rawDesc = `Read and discuss "${selectedPost.title}" by ${selectedPost.authorName} on FluteSangam. Join the active discussion with fellow bansuri flutists.`;
+            rawDesc = `FluteSangam post on "${selectedPost.title}" by ${selectedPost.authorName}: Read discussions, audio recitals, and sargam notes from our Indian flute community.`;
           }
           if (rawDesc.length > 160) {
             rawDesc = rawDesc.substring(0, 157) + '...';
@@ -162,12 +162,12 @@ export default function App() {
           description = rawDesc;
         } else {
           title = 'Post Details & Discussions | FluteSangam Community';
-          description = 'View community post details, audio recordings, raga performance feedback, song discussions, and member replies on FluteSangam.';
+          description = 'FluteSangam Post Details & Discussions: View community post details, audio recordings, raga performance feedback, song discussions, and member replies.';
         }
         break;
       case 'user-profile':
         title = 'Flutist Member Profile | FluteSangam Flute Community';
-        description = 'View flutist member profile, bansuri scale preferences, skill level, bio, audio recordings, and community contributions on FluteSangam.';
+        description = 'FluteSangam Flutist Member Profile: View flutist profile, bansuri scale preferences, skill level, bio, audio recordings, and community contributions.';
         break;
       default:
         break;
@@ -946,70 +946,162 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-bamboo-800 text-bamboo-200 text-xs border-t border-bamboo-700/50 mt-12 py-8 pb-20 md:pb-8" id="app-footer">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
-          <div className="mt-4 mb-4">
+      <footer className="bg-bamboo-800 text-bamboo-200 text-xs border-t border-bamboo-700/50 mt-12 py-10 pb-20 md:pb-10" id="app-footer">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 border-b border-bamboo-700/60 pb-6">
+            <a
+              href="/"
+              onClick={(e) => { e.preventDefault(); handleViewChange('community'); }}
+              className="cursor-pointer group flex items-center gap-3 focus:outline-none"
+              title="FluteSangam - Home"
+              id="footer-brand-logo-btn"
+            >
+              <img src="/flutesangam_without_tagline.png" alt="FluteSangam Logo" className="h-16 sm:h-20 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform" />
+              <div>
+                <span className="text-xl sm:text-2xl font-display font-extrabold text-white tracking-tight block">
+                  Flute<span className="text-amber-400">Sangam</span>
+                </span>
+                <span className="text-[11px] text-bamboo-300 block font-sans">
+                  Indian Flute &amp; Bansuri Learning Community
+                </span>
+              </div>
+            </a>
+
             <a
               href="https://www.reddit.com/r/FluteSangam/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-500 text-white px-6 py-2 rounded-full font-semibold transition-all shadow-md hover:shadow-lg text-sm tracking-wide hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-500 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg text-sm tracking-wide hover:scale-105"
             >
-              Join our Community on Reddit
+              Join Our Community on Reddit
             </a>
           </div>
-          <div className="flex items-center justify-center space-x-2 text-white">
-            <button
-              onClick={() => handleViewChange('community')}
-              className="cursor-pointer group flex items-center justify-center gap-2 focus:outline-none"
-              title="Go to Home / Landing"
-              id="footer-brand-logo-btn"
-            >
-              <img src="/flutesangam_without_tagline.png" alt="FluteSangam" className="h-18 sm:h-20 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform" />
-            </button>
+
+          {/* Internal Links Sitemap Grid for SEO */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-[11px] pt-2">
+            
+            <div className="space-y-2">
+              <h3 className="font-display font-bold text-amber-300 uppercase tracking-wider text-[11px]">
+                Flute Learning
+              </h3>
+              <ul className="space-y-1.5 text-bamboo-200">
+                <li>
+                  <a href="/learn" onClick={(e) => { e.preventDefault(); handleViewChange('learn_dashboard'); }} className="hover:text-amber-300 transition">
+                    Learning Hub Overview
+                  </a>
+                </li>
+                <li>
+                  <a href="/learn/intro" onClick={(e) => { e.preventDefault(); handleViewChange('learn_intro'); }} className="hover:text-amber-300 transition">
+                    Introduction to Bansuri
+                  </a>
+                </li>
+                <li>
+                  <a href="/learn/choose-flute" onClick={(e) => { e.preventDefault(); handleViewChange('learn_choose_flute'); }} className="hover:text-amber-300 transition">
+                    Choose Right Flute
+                  </a>
+                </li>
+                <li>
+                  <a href="/learn/basics" onClick={(e) => { e.preventDefault(); handleViewChange('learn_basics'); }} className="hover:text-amber-300 transition">
+                    Bansuri Basics &amp; Fingering
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="font-display font-bold text-amber-300 uppercase tracking-wider text-[11px]">
+                Practice Tools
+              </h3>
+              <ul className="space-y-1.5 text-bamboo-200">
+                <li>
+                  <a href="/learn/alankaras" onClick={(e) => { e.preventDefault(); handleViewChange('learn_alankaras'); }} className="hover:text-amber-300 transition">
+                    Alankar Sargam Drills
+                  </a>
+                </li>
+                <li>
+                  <a href="/learn/raagas" onClick={(e) => { e.preventDefault(); handleViewChange('learn_raagas'); }} className="hover:text-amber-300 transition">
+                    Classical Raagas Lessons
+                  </a>
+                </li>
+                <li>
+                  <a href="/tuner" onClick={(e) => { e.preventDefault(); handleViewChange('learn_tuner'); }} className="hover:text-amber-300 transition">
+                    Online Flute Tuner (440Hz)
+                  </a>
+                </li>
+                <li>
+                  <a href="/notations" onClick={(e) => { e.preventDefault(); handleViewChange('notation_requests'); }} className="hover:text-amber-300 transition">
+                    Song Notation Requests
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="font-display font-bold text-amber-300 uppercase tracking-wider text-[11px]">
+                Community
+              </h3>
+              <ul className="space-y-1.5 text-bamboo-200">
+                <li>
+                  <a href="/" onClick={(e) => { e.preventDefault(); handleViewChange('community'); }} className="hover:text-amber-300 transition">
+                    Sadhana Feed &amp; Posts
+                  </a>
+                </li>
+                <li>
+                  <a href="/members" onClick={(e) => { e.preventDefault(); handleViewChange('community_members'); }} className="hover:text-amber-300 transition">
+                    Flutists Directory
+                  </a>
+                </li>
+                <li>
+                  <a href="/chats" onClick={(e) => { e.preventDefault(); handleViewChange('chats'); }} className="hover:text-amber-300 transition">
+                    Direct Messages &amp; Chat
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="font-display font-bold text-amber-300 uppercase tracking-wider text-[11px]">
+                Legal &amp; Support
+              </h3>
+              <ul className="space-y-1.5 text-bamboo-200">
+                <li>
+                  <a href="/about" onClick={(e) => { e.preventDefault(); handleViewChange('about_us'); }} className="hover:text-amber-300 transition">
+                    About FluteSangam
+                  </a>
+                </li>
+                <li>
+                  <a href="/contact" onClick={(e) => { e.preventDefault(); handleViewChange('contact_us'); }} className="hover:text-amber-300 transition">
+                    Contact Us &amp; Support
+                  </a>
+                </li>
+                <li>
+                  <a href="/privacy-policy" onClick={(e) => { e.preventDefault(); handleViewChange('privacy_policy'); }} className="hover:text-amber-300 transition">
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a href="/terms-of-service" onClick={(e) => { e.preventDefault(); handleViewChange('terms_of_service'); }} className="hover:text-amber-300 transition">
+                    Terms of Service
+                  </a>
+                </li>
+              </ul>
+            </div>
+
           </div>
-          <div className="flex items-center justify-center gap-4 text-[11px] pt-1">
-            <button
-              onClick={() => handleViewChange('privacy_policy')}
-              className="text-amber-400 hover:text-amber-300 underline font-medium transition cursor-pointer"
-              id="footer-privacy-policy-btn"
-            >
-              Privacy Policy
-            </button>
-            <span className="text-bamboo-600">•</span>
-            <button
-              onClick={() => handleViewChange('terms_of_service')}
-              className="text-amber-400 hover:text-amber-300 underline font-medium transition cursor-pointer"
-              id="footer-terms-of-service-btn"
-            >
-              Terms of Service
-            </button>
-            <span className="text-bamboo-600">•</span>
-            <button
-              onClick={() => handleViewChange('about_us')}
-              className="text-amber-400 hover:text-amber-300 underline font-medium transition cursor-pointer"
-              id="footer-about-us-btn"
-            >
-              About Us
-            </button>
-            <span className="text-bamboo-600">•</span>
-            <button
-              onClick={() => handleViewChange('contact_us')}
-              className="text-amber-400 hover:text-amber-300 underline font-medium transition cursor-pointer"
-              id="footer-contact-us-btn"
-            >
-              Contact Us
-            </button>
+
+          <div className="pt-6 border-t border-bamboo-700/60 text-center space-y-2">
+            <p className="text-[10px] text-bamboo-300/80 max-w-xl mx-auto leading-relaxed">
+              FluteSangam is an educational &amp; social portal for Indian bamboo flute (Bansuri) enthusiasts. We use email and Google Sign-In to securely authenticate members, create user profiles, and allow flutists to post recitals, comments, and song notation requests.
+            </p>
+            <p className="text-[10px] text-bamboo-400">
+              © {new Date().getFullYear()} FluteSangam. All rights reserved.
+            </p>
+            <p className="text-[10px] text-bamboo-500 font-medium">
+              Developed by: Aplut
+            </p>
           </div>
-          <p className="text-[10px] text-bamboo-300/80 max-w-xl mx-auto leading-relaxed pt-1">
-            FluteSangam is an educational & social portal for Indian bamboo flute (Bansuri) enthusiasts. We use email and Google Sign-In to securely authenticate members, create user profiles, and allow flutists to post recitals, comments, and song notation requests.
-          </p>
-          <p className="text-[10px] text-bamboo-400">
-            © {new Date().getFullYear()} FluteSangam . All rights reserved
-          </p>
-          <p className="text-[10px] text-bamboo-500 mt-2 font-medium">
-            Developed by : Aplut
-          </p>
+
         </div>
       </footer>
 

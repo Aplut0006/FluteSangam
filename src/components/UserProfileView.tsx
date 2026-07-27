@@ -161,9 +161,9 @@ export default function UserProfileView({
             />
             
             <div className="space-y-1">
-              <h2 className="font-display font-extrabold text-gray-900 text-lg leading-tight">
+              <h1 className="font-display font-extrabold text-gray-900 text-lg leading-tight">
                 {profile.displayName}
-              </h2>
+              </h1>
               <p className="text-sm font-mono text-bamboo-700 font-bold">
                 @{profile.username}
               </p>

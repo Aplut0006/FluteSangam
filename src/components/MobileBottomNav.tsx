@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Compass, BookOpen, Users, Radio } from 'lucide-react';
 import { AppView, UserProfile } from '../types';
+import { VIEW_URLS } from '../routes';
 
 interface MobileBottomNavProps {
   currentView: AppView;
@@ -73,9 +74,11 @@ export default function MobileBottomNav({
           const active = tab.isActive;
 
           return (
-            <button
+            <a
               key={tab.id}
-              onClick={() => {
+              href={VIEW_URLS[tab.id] || '/'}
+              onClick={(e) => {
+                e.preventDefault();
                 onViewChange(tab.id);
               }}
               className={`relative flex-1 flex flex-col items-center justify-center py-1.5 px-2 rounded-xl transition-all cursor-pointer select-none ${
@@ -119,7 +122,7 @@ export default function MobileBottomNav({
                   className="absolute top-0.5 w-1 h-1 rounded-full bg-amber-600"
                 />
               )}
-            </button>
+            </a>
           );
         })}
       </nav>

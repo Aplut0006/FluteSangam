@@ -332,10 +332,10 @@ export default function ChatSection({
         {/* Sidebar Header */}
         <div className="p-4 border-b border-gray-100 bg-white/50 shrink-0">
           <div className="flex items-center justify-between mb-3.5">
-            <h3 className="font-display font-bold text-bamboo-800 text-sm flex items-center gap-1.5">
+            <h1 className="font-display font-bold text-bamboo-800 text-sm flex items-center gap-1.5">
               <MessageSquare className="w-4.5 h-4.5 text-amber-600" />
               Direct Conversations
-            </h3>
+            </h1>
             <span className="text-[10px] bg-bamboo-50 text-bamboo-700 font-bold px-2 py-0.5 rounded-full border border-bamboo-100/40">
               {chatGroups.length} Active
             </span>

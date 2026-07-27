@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { UserProfile, AppView } from '../types';
+import { VIEW_URLS } from '../routes';
 import { auth } from '../lib/firebase';
 import { signOut } from 'firebase/auth';
 import { updateUserProfile, isEmailTaken, isPhoneTaken, isUsernameTaken, deleteUserAccount } from '../lib/db';
@@ -234,8 +235,10 @@ export default function Navbar({
       <header className="sticky top-0 z-40 frosted-navbar shadow-3xs" id="app-navbar">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand Logo & Name */}
-        <button 
-          onClick={() => {
+        <a 
+          href={VIEW_URLS['community'] || '/'}
+          onClick={(e) => {
+            e.preventDefault();
             onViewChange?.('community');
             setShowMobileMenu(false);
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -252,14 +255,15 @@ export default function Navbar({
           <span className="font-display font-extrabold text-xl sm:text-2xl tracking-tight text-bamboo-950 group-hover:text-bamboo-800 transition-colors whitespace-nowrap">
             Flute<span className="text-amber-700">Sangam</span>
           </span>
-        </button>
+        </a>
 
         {/* Desktop View Selector */}
         <div className="hidden lg:flex items-center space-x-1 bg-bamboo-50/80 p-1 rounded-xl border border-bamboo-100/50 shrink-0">
           
           {/* 1. Sadhana Feed */}
-          <button
-            onClick={() => onViewChange?.('community')}
+          <a
+            href={VIEW_URLS['community'] || '/'}
+            onClick={(e) => { e.preventDefault(); onViewChange?.('community'); }}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
               currentView === 'community' 
                 ? 'bg-bamboo-700 text-white shadow-3xs' 
@@ -268,11 +272,12 @@ export default function Navbar({
           >
             <Globe className="w-3.5 h-3.5 text-amber-600" />
             <span>Sadhana Feed</span>
-          </button>
+          </a>
 
           {/* 2. Standalone Flute Tuner Button */}
-          <button
-            onClick={() => onViewChange?.('learn_tuner')}
+          <a
+            href={VIEW_URLS['learn_tuner'] || '/tuner'}
+            onClick={(e) => { e.preventDefault(); onViewChange?.('learn_tuner'); }}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
               currentView === 'learn_tuner'
                 ? 'bg-gradient-to-r from-amber-600 to-amber-700 text-white shadow-3xs'
@@ -282,7 +287,7 @@ export default function Navbar({
             <Radio className="w-3.5 h-3.5 text-amber-700 animate-pulse" />
             <span>Flute Tuner</span>
             <span className="text-[9px] bg-amber-900/20 text-amber-950 font-black px-1.5 py-0.5 rounded-full">440Hz</span>
-          </button>
+          </a>
           
           {/* 3. Learn Flute Dropdown */}
           <div className="relative" ref={learnDropdownRef}>
@@ -301,8 +306,10 @@ export default function Navbar({
             
             {showLearnDropdown && (
               <div className="absolute top-full mt-2 left-0 w-60 bg-white rounded-xl shadow-xl border border-bamboo-100 py-1.5 z-50 overflow-hidden">
-                <button
-                  onClick={() => {
+                <a
+                  href={VIEW_URLS['learn_dashboard'] || '/learn'}
+                  onClick={(e) => {
+                    e.preventDefault();
                     onViewChange?.('learn_dashboard');
                     setShowLearnDropdown(false);
                   }}
@@ -310,59 +317,71 @@ export default function Navbar({
                 >
                   <span>All Lessons Overview</span>
                   <BookOpen className="w-3.5 h-3.5 text-amber-600" />
-                </button>
-                <button
-                  onClick={() => {
+                </a>
+                <a
+                  href={VIEW_URLS['learn_intro'] || '/learn/intro'}
+                  onClick={(e) => {
+                    e.preventDefault();
                     onViewChange?.('learn_intro');
                     setShowLearnDropdown(false);
                   }}
-                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 cursor-pointer"
+                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 cursor-pointer block"
                 >
                   Introduction To Flute/Bansuri
-                </button>
-                <button
-                  onClick={() => {
+                </a>
+                <a
+                  href={VIEW_URLS['learn_choose_flute'] || '/learn/choose-flute'}
+                  onClick={(e) => {
+                    e.preventDefault();
                     onViewChange?.('learn_choose_flute');
                     setShowLearnDropdown(false);
                   }}
-                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 cursor-pointer"
+                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 cursor-pointer block"
                 >
                   Choose the Right Flute
-                </button>
-                <button
-                  onClick={() => {
+                </a>
+                <a
+                  href={VIEW_URLS['learn_basics'] || '/learn/basics'}
+                  onClick={(e) => {
+                    e.preventDefault();
                     onViewChange?.('learn_basics');
                     setShowLearnDropdown(false);
                   }}
-                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 cursor-pointer"
+                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 cursor-pointer block"
                 >
                   The Basics &amp; Fingering
-                </button>
-                <button
-                  onClick={() => {
+                </a>
+                <a
+                  href={VIEW_URLS['learn_alankaras'] || '/learn/alankaras'}
+                  onClick={(e) => {
+                    e.preventDefault();
                     onViewChange?.('learn_alankaras');
                     setShowLearnDropdown(false);
                   }}
-                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 cursor-pointer"
+                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 cursor-pointer block"
                 >
                   Alankaras Practice
-                </button>
-                <button
-                  onClick={() => {
+                </a>
+                <a
+                  href={VIEW_URLS['learn_raagas'] || '/learn/raagas'}
+                  onClick={(e) => {
+                    e.preventDefault();
                     onViewChange?.('learn_raagas');
                     setShowLearnDropdown(false);
                   }}
-                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition cursor-pointer"
+                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition cursor-pointer block"
                 >
                   Classical Raagas
-                </button>
+                </a>
               </div>
             )}
           </div>
 
           {/* 4. Sangam Chats */}
-          <button
-            onClick={() => {
+          <a
+            href={VIEW_URLS['chats'] || '/chats'}
+            onClick={(e) => {
+              e.preventDefault();
               if (!currentUser) {
                 onOpenAuth();
               } else {
@@ -382,11 +401,12 @@ export default function Navbar({
                 {unreadCount}
               </span>
             )}
-          </button>
+          </a>
           
           {/* 5. Notation Requests */}
-          <button
-            onClick={() => onViewChange?.('notation_requests')}
+          <a
+            href={VIEW_URLS['notation_requests'] || '/notations'}
+            onClick={(e) => { e.preventDefault(); onViewChange?.('notation_requests'); }}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
               currentView === 'notation_requests'
                 ? 'bg-bamboo-700 text-white shadow-3xs'
@@ -395,7 +415,7 @@ export default function Navbar({
           >
             <Music className="w-3.5 h-3.5 text-amber-600" />
             <span>Notations</span>
-          </button>
+          </a>
 
           {/* 6. More Dropdown (Members & About Us) */}
           <div className="relative" ref={moreDropdownRef}>
@@ -413,8 +433,10 @@ export default function Navbar({
 
             {showMoreDropdown && (
               <div className="absolute top-full mt-2 right-0 w-48 bg-white rounded-xl shadow-xl border border-bamboo-100 py-1.5 z-50 overflow-hidden">
-                <button
-                  onClick={() => {
+                <a
+                  href={VIEW_URLS['community_members'] || '/members'}
+                  onClick={(e) => {
+                    e.preventDefault();
                     onViewChange?.('community_members');
                     setShowMoreDropdown(false);
                   }}
@@ -422,9 +444,11 @@ export default function Navbar({
                 >
                   <Users className="w-3.5 h-3.5 text-amber-600" />
                   <span>Flutists Directory</span>
-                </button>
-                <button
-                  onClick={() => {
+                </a>
+                <a
+                  href={VIEW_URLS['about_us'] || '/about'}
+                  onClick={(e) => {
+                    e.preventDefault();
                     onViewChange?.('about_us');
                     setShowMoreDropdown(false);
                   }}
@@ -432,7 +456,7 @@ export default function Navbar({
                 >
                   <Info className="w-3.5 h-3.5 text-amber-600" />
                   <span>About FluteSangam</span>
-                </button>
+                </a>
               </div>
             )}
           </div>
