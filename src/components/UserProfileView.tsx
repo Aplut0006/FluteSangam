@@ -10,7 +10,9 @@ import {
   Award, 
   Mail, 
   Phone,
-  Sparkles
+  Sparkles,
+  Lock,
+  UserCheck
 } from 'lucide-react';
 
 interface UserProfileViewProps {
@@ -43,10 +45,44 @@ export default function UserProfileView({
         setLoading(false);
       }
     }
-    if (userId) {
+    if (userId && currentUser) {
       loadProfile();
+    } else {
+      setLoading(false);
     }
-  }, [userId]);
+  }, [userId, currentUser]);
+
+  if (!currentUser) {
+    return (
+      <div className="space-y-4 max-w-2xl mx-auto py-8 px-4">
+        <button
+          onClick={onBack}
+          className="inline-flex items-center space-x-2 text-xs font-bold text-bamboo-800 hover:text-bamboo-900 bg-white border border-bamboo-200 px-4 py-2.5 rounded-xl transition cursor-pointer shadow-3xs"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          <span>Back</span>
+        </button>
+        <div className="bg-white rounded-3xl border border-bamboo-200 p-8 sm:p-10 text-center space-y-5 shadow-xs">
+          <div className="w-14 h-14 bg-amber-50 text-amber-700 rounded-full flex items-center justify-center mx-auto border border-amber-200">
+            <Lock className="w-7 h-7" />
+          </div>
+          <div className="space-y-2">
+            <h3 className="text-xl font-bold font-display text-bamboo-950">Authentication Required</h3>
+            <p className="text-xs sm:text-sm text-gray-600 max-w-sm mx-auto">
+              Please sign in or create an account to view community member profiles.
+            </p>
+          </div>
+          <button
+            onClick={onOpenAuth}
+            className="px-6 py-2.5 bg-bamboo-800 hover:bg-bamboo-900 text-white font-bold rounded-xl text-xs sm:text-sm transition shadow-xs cursor-pointer inline-flex items-center gap-2"
+          >
+            <UserCheck className="w-4 h-4" />
+            <span>Sign In / Register</span>
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   const getLevelBadge = (level: string) => {
     switch (level) {

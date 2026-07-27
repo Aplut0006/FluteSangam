@@ -11,7 +11,8 @@ import {
   UserCheck, 
   Sparkles,
   Filter,
-  X
+  X,
+  Lock
 } from 'lucide-react';
 
 interface MembersViewProps {
@@ -33,11 +34,48 @@ export default function MembersView({
   const [selectedScale, setSelectedScale] = useState<string>('All');
 
   useEffect(() => {
+    if (!currentUser) {
+      setUsers([]);
+      return;
+    }
     const unsubscribe = subscribeToAllUsers((loadedUsers) => {
       setUsers(loadedUsers);
     });
     return () => unsubscribe();
-  }, []);
+  }, [currentUser]);
+
+  if (!currentUser) {
+    return (
+      <div className="max-w-2xl mx-auto py-12 px-4 text-center">
+        <div className="bg-white rounded-3xl border border-bamboo-200/80 p-8 sm:p-12 shadow-sm space-y-6">
+          <div className="w-16 h-16 bg-amber-50 text-amber-800 rounded-full flex items-center justify-center mx-auto border border-amber-200 shadow-3xs">
+            <Lock className="w-8 h-8 text-amber-700" />
+          </div>
+          <div className="space-y-2">
+            <span className="inline-flex items-center gap-1.5 text-[11px] uppercase font-bold tracking-widest bg-amber-100/70 text-amber-900 px-3 py-1 rounded-full border border-amber-300/60">
+              <Users className="w-3.5 h-3.5 text-amber-700" />
+              <span>Sadhaka Community Directory</span>
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-display font-bold text-bamboo-950">
+              Authentication Required
+            </h2>
+            <p className="text-xs sm:text-sm text-gray-600 max-w-md mx-auto leading-relaxed">
+              Please sign in or create an account to view community members, explore flutist profiles, and connect with fellow learners worldwide.
+            </p>
+          </div>
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <button
+              onClick={onOpenAuth}
+              className="w-full sm:w-auto px-6 py-3 bg-bamboo-800 hover:bg-bamboo-900 text-white font-bold rounded-xl text-xs sm:text-sm transition shadow-sm cursor-pointer flex items-center justify-center gap-2"
+            >
+              <UserCheck className="w-4 h-4" />
+              <span>Sign In / Create Account</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   // Filter users based on search, level, and scale
   const filteredUsers = users.filter(user => {
