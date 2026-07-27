@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ShoppingBag, ArrowLeft, CheckCircle2, AlertTriangle, Lightbulb, Sparkles, User, Users, Baby, Music, Store, Check, ArrowRight, Radio } from 'lucide-react';
+import { ShoppingBag, ArrowLeft, CheckCircle2, AlertTriangle, Lightbulb, Sparkles, User, Users, Baby, Music, Store, Check, ArrowRight, Radio, BookOpen } from 'lucide-react';
 import { AppView } from '../types';
 
 interface LearnChooseFluteViewProps {
@@ -260,27 +260,27 @@ export default function LearnChooseFluteView({ onBackToLearn, onViewChange }: Le
               </div>
             </section>
 
-            {/* Next Lesson: Flute Tuner Banner */}
+            {/* Next Lesson: The Basics */}
             {onViewChange && (
-              <section className="bg-gradient-to-r from-amber-500/20 via-amber-100/40 to-bamboo-100/40 border border-amber-300/80 rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6">
+              <section className="bg-gradient-to-r from-bamboo-100/60 via-amber-50/40 to-bamboo-50/60 border border-bamboo-200/80 rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6">
                 <div className="space-y-1.5 text-center sm:text-left">
-                  <span className="inline-flex items-center gap-1.5 text-[10px] uppercase font-extrabold tracking-wider bg-amber-200/80 text-amber-950 px-3 py-1 rounded-full border border-amber-300/60">
-                    <Radio className="w-3.5 h-3.5 text-amber-700 animate-pulse" />
+                  <span className="inline-flex items-center gap-1.5 text-[10px] uppercase font-extrabold tracking-wider bg-bamboo-200/80 text-bamboo-950 px-3 py-1 rounded-full border border-bamboo-300/60">
+                    <BookOpen className="w-3.5 h-3.5 text-bamboo-700" />
                     <span>Next Lesson Module</span>
                   </span>
                   <h3 className="text-xl font-display font-bold text-bamboo-950">
-                    Flute Tuner &amp; Frequency Scale Guide
+                    The Basics &amp; Blowing Technique
                   </h3>
                   <p className="text-xs text-gray-600 max-w-lg">
-                    Check your flute&apos;s scale frequency in real-time with our interactive speedometer tuner calibrated to <strong>A = 440 Hz</strong> standard reference!
+                    Master embouchure, posture, finger positions, and warm sound production on your flute!
                   </p>
                 </div>
 
                 <button
-                  onClick={() => onViewChange('learn_tuner')}
-                  className="w-full sm:w-auto shrink-0 bg-gradient-to-r from-bamboo-800 to-amber-800 text-white font-bold text-xs px-6 py-3.5 rounded-2xl shadow-md hover:from-bamboo-900 hover:to-amber-900 transition flex items-center justify-center gap-2 cursor-pointer select-none active:scale-95"
+                  onClick={() => onViewChange('learn_basics')}
+                  className="w-full sm:w-auto shrink-0 bg-bamboo-800 text-white font-bold text-xs px-6 py-3.5 rounded-2xl shadow-md hover:bg-bamboo-900 transition flex items-center justify-center gap-2 cursor-pointer select-none active:scale-95"
                 >
-                  <span>Open Flute Tuner</span>
+                  <span>Next: The Basics</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </section>

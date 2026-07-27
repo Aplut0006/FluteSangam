@@ -352,22 +352,20 @@ export default function LearnTunerView({ onViewChange }: LearnTunerViewProps) {
       className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-10 space-y-8"
       id="learn-flute-tuner-container"
     >
-      {/* Top Header & Breadcrumb Navigation */}
+      {/* Top Header & Navigation */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-bamboo-200/80 pb-5">
         <div>
           <div className="flex items-center flex-wrap gap-1.5 sm:gap-2 text-xs font-semibold text-bamboo-700 mb-1">
-            <span className="cursor-pointer hover:underline" onClick={() => onViewChange?.('learn_dashboard')}>Learn Flute</span>
+            <span className="cursor-pointer hover:underline" onClick={() => onViewChange?.('community')}>Home</span>
             <span>/</span>
-            <span className="cursor-pointer hover:underline" onClick={() => onViewChange?.('learn_choose_flute')}>Choose Flute</span>
-            <span>/</span>
-            <span className="text-amber-700 font-bold">Flute Tuner & Scale Guide</span>
+            <span className="text-amber-700 font-bold">Bansuri Flute Tuner</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-display font-bold text-bamboo-950 flex items-center gap-2.5">
             <Radio className="w-7 h-7 text-amber-600 animate-pulse" />
             Bansuri Precision Tuner
           </h1>
           <p className="text-xs sm:text-sm text-gray-600 mt-1 max-w-xl">
-            Real-time audio pitch detection with <strong>A = 440 Hz</strong> standard reference &amp; Indian Swara mapping for all Bansuri scales.
+            Standalone real-time audio pitch detection with <strong>A = 440 Hz</strong> reference &amp; Indian Swara mapping for all Bansuri keys.
           </p>
         </div>
 
@@ -375,20 +373,10 @@ export default function LearnTunerView({ onViewChange }: LearnTunerViewProps) {
         <div className="flex items-center gap-2 self-stretch sm:self-auto">
           {onViewChange && (
             <button
-              onClick={() => onViewChange('learn_choose_flute')}
+              onClick={() => onViewChange('community')}
               className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-3.5 py-2 bg-white border border-bamboo-200 rounded-xl text-xs font-bold text-bamboo-900 hover:bg-bamboo-50 transition cursor-pointer shadow-3xs"
             >
-              <ArrowLeft className="w-3.5 h-3.5" />
-              <span>Prev: Choose Flute</span>
-            </button>
-          )}
-          {onViewChange && (
-            <button
-              onClick={() => onViewChange('learn_basics')}
-              className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-4 py-2 bg-bamboo-800 text-white rounded-xl text-xs font-bold hover:bg-bamboo-900 transition cursor-pointer shadow-sm"
-            >
-              <span>Next: The Basics</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              Back to Feed
             </button>
           )}
         </div>
