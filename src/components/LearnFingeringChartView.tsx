@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Volume2, RotateCcw, Info, Music, ChevronRight, BookOpen, CheckCircle2, ArrowLeft, Radio, Wind, Sparkles } from 'lucide-react';
+import { Volume2, RotateCcw, Info, Music, ChevronRight, BookOpen, CheckCircle2, ArrowLeft, Radio, Wind, CircleDot } from 'lucide-react';
 import { AppView } from '../types';
 
 interface LearnFingeringChartViewProps {
@@ -391,63 +391,63 @@ export default function LearnFingeringChartView({ onViewChange }: LearnFingering
   return (
     <div className="w-full max-w-5xl mx-auto space-y-6" itemScope itemType="https://schema.org/LearningResource">
       {/* Top Header & Breadcrumb */}
-      <div className="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-bamboo-100 relative overflow-hidden">
+      <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-xs border border-bamboo-100 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
 
-        <div className="relative z-10 space-y-4">
-          <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="relative z-10 space-y-3 sm:space-y-4">
+          <div className="flex flex-wrap items-center justify-between gap-2">
             <button
               onClick={() => onViewChange?.('learn_basics')}
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-bamboo-700 hover:text-bamboo-900 bg-bamboo-50 hover:bg-bamboo-100 px-3.5 py-1.5 rounded-xl transition cursor-pointer border border-bamboo-200/50"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-bamboo-700 hover:text-bamboo-900 bg-bamboo-50 hover:bg-bamboo-100 px-3 py-1.5 rounded-xl transition cursor-pointer border border-bamboo-200/50"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Back to The Basics</span>
             </button>
 
-            <span className="inline-flex items-center gap-1 bg-amber-100 text-amber-900 font-extrabold text-[11px] px-3 py-1 rounded-full uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-              Interactive Lesson
+            <span className="inline-flex items-center gap-1.5 bg-amber-100 text-amber-900 font-extrabold text-[10px] sm:text-[11px] px-2.5 py-1 rounded-full uppercase tracking-wider">
+              <CircleDot className="w-3.5 h-3.5 text-amber-700" />
+              Interactive Chart
             </span>
           </div>
 
           <div>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold font-display text-bamboo-950 tracking-tight" itemProp="headline">
+            <h1 className="text-xl sm:text-3xl md:text-4xl font-bold font-display text-bamboo-950 tracking-tight" itemProp="headline">
               Interactive Bansuri Fingering Chart
             </h1>
-            <p className="text-xs sm:text-sm text-gray-600 mt-1 font-medium max-w-2xl">
-              Choose your Flute Scale and click any note (Sa, Re, Ga, Ma, Pa, Dha, Ni) to see the exact Hindustani finger hole closures and listen to the real bamboo sound tone.
+            <p className="text-xs sm:text-sm text-gray-600 mt-1 font-medium max-w-2xl leading-relaxed">
+              Choose your Flute Scale and tap any note (Sa, Re, Ga, Ma, Pa, Dha, Ni) to see the exact Hindustani finger hole closures and listen to the real bamboo sound tone.
             </p>
           </div>
         </div>
       </div>
 
       {/* 1. STEP 1: Select Flute Scale */}
-      <div className="bg-white rounded-3xl p-6 shadow-sm border border-bamboo-100 space-y-4">
+      <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-xs border border-bamboo-100 space-y-3 sm:space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-bamboo-100 pb-3">
           <div className="flex items-center gap-2">
-            <Radio className="w-5 h-5 text-amber-600" />
-            <h2 className="text-lg font-bold text-bamboo-900">1. Select Your Flute Scale (Key)</h2>
+            <Radio className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600" />
+            <h2 className="text-base sm:text-lg font-bold text-bamboo-900">1. Select Your Flute Scale (Key)</h2>
           </div>
-          <span className="text-xs font-bold text-emerald-800 bg-emerald-50 px-3 py-1 rounded-lg border border-emerald-200/60">
+          <span className="text-[11px] sm:text-xs font-bold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200/60 self-start sm:self-auto">
             Selected Scale: <strong>{currentScale.name}</strong> ({currentScale.freq.toFixed(1)} Hz Sa)
           </span>
         </div>
 
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-1.5 sm:gap-2">
           {FLUTE_SCALES.map((sc) => {
             const isSelected = selectedScale === sc.key;
             return (
               <button
                 key={sc.key}
                 onClick={() => setSelectedScale(sc.key)}
-                className={`p-3 rounded-2xl text-center transition flex flex-col items-center justify-center cursor-pointer border ${
+                className={`p-2.5 sm:p-3 rounded-xl sm:rounded-2xl text-center transition flex flex-col items-center justify-center cursor-pointer border ${
                   isSelected
-                    ? 'bg-bamboo-800 text-white border-bamboo-900 shadow-sm ring-2 ring-amber-400'
+                    ? 'bg-bamboo-800 text-white border-bamboo-900 shadow-xs ring-2 ring-amber-400'
                     : 'bg-bamboo-50/50 hover:bg-amber-50 text-gray-800 border-bamboo-100/80 hover:border-amber-300'
                 }`}
               >
-                <span className="text-sm font-extrabold">{sc.key}</span>
-                <span className={`text-[10px] mt-0.5 ${isSelected ? 'text-amber-200' : 'text-gray-500'}`}>
+                <span className="text-xs sm:text-sm font-extrabold">{sc.key}</span>
+                <span className={`text-[9px] sm:text-[10px] mt-0.5 ${isSelected ? 'text-amber-200' : 'text-gray-500'}`}>
                   {sc.tag}
                 </span>
               </button>
@@ -457,45 +457,45 @@ export default function LearnFingeringChartView({ onViewChange }: LearnFingering
       </div>
 
       {/* 2. STEP 2: Select Swara Note */}
-      <div className="bg-white rounded-3xl p-6 shadow-sm border border-bamboo-100 space-y-4">
+      <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-xs border border-bamboo-100 space-y-3 sm:space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-bamboo-100 pb-3">
           <div className="flex items-center gap-2">
-            <Music className="w-5 h-5 text-amber-600" />
-            <h2 className="text-lg font-bold text-bamboo-900">2. Choose Note (Swara)</h2>
+            <Music className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600" />
+            <h2 className="text-base sm:text-lg font-bold text-bamboo-900">2. Choose Note (Swara)</h2>
           </div>
           <div className="flex items-center gap-2 text-xs">
-            <label className="flex items-center gap-1.5 cursor-pointer text-gray-600 font-medium select-none">
+            <label className="flex items-center gap-1.5 cursor-pointer text-gray-600 font-medium select-none text-[11px] sm:text-xs">
               <input
                 type="checkbox"
                 checked={autoPlayOnSelect}
                 onChange={(e) => setAutoPlayOnSelect(e.target.checked)}
-                className="w-4 h-4 accent-amber-600 rounded cursor-pointer"
+                className="w-3.5 h-3.5 sm:w-4 sm:h-4 accent-amber-600 rounded cursor-pointer"
               />
-              <span>Auto-play note sound on click</span>
+              <span>Auto-play sound on tap</span>
             </label>
           </div>
         </div>
 
         {/* Primary 7 Shuddha Swaras */}
         <div>
-          <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider block mb-2">
+          <span className="text-[10px] sm:text-[11px] font-bold text-gray-500 uppercase tracking-wider block mb-2">
             Primary Shuddha Swaras (Pure Notes)
           </span>
-          <div className="grid grid-cols-7 gap-2">
+          <div className="grid grid-cols-7 gap-1 sm:gap-2">
             {primarySwaras.map((s) => {
               const isSelected = selectedSwaraId === s.id;
               return (
                 <button
                   key={s.id}
                   onClick={() => setSelectedSwaraId(s.id)}
-                  className={`py-3 px-1 sm:px-3 rounded-2xl text-center transition flex flex-col items-center justify-center cursor-pointer border ${
+                  className={`py-2.5 px-0.5 sm:px-3 rounded-xl sm:rounded-2xl text-center transition flex flex-col items-center justify-center cursor-pointer border ${
                     isSelected
-                      ? 'bg-amber-500 text-white font-extrabold border-amber-600 shadow-md ring-2 ring-amber-300 scale-105'
+                      ? 'bg-amber-500 text-white font-extrabold border-amber-600 shadow-md ring-2 ring-amber-300 scale-102 sm:scale-105'
                       : 'bg-emerald-50/70 hover:bg-emerald-100/80 text-emerald-950 font-bold border-emerald-200/80'
                   }`}
                 >
-                  <span className="text-base sm:text-xl font-display">{s.label}</span>
-                  <span className={`text-[9px] uppercase tracking-tighter ${isSelected ? 'text-amber-100' : 'text-emerald-700'}`}>
+                  <span className="text-sm sm:text-xl font-display font-bold leading-tight">{s.label}</span>
+                  <span className={`text-[8px] sm:text-[9px] uppercase tracking-tighter mt-0.5 hidden xs:inline ${isSelected ? 'text-amber-100' : 'text-emerald-700'}`}>
                     Shuddha
                   </span>
                 </button>
@@ -505,18 +505,18 @@ export default function LearnFingeringChartView({ onViewChange }: LearnFingering
         </div>
 
         {/* Komal & Teevra Swaras */}
-        <div className="pt-2">
-          <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider block mb-2">
+        <div className="pt-1">
+          <span className="text-[10px] sm:text-[11px] font-bold text-gray-500 uppercase tracking-wider block mb-2">
             Komal &amp; Teevra Swaras (Flat &amp; Sharp Notes)
           </span>
-          <div className="flex flex-wrap gap-2">
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-1.5 sm:gap-2">
             {komalTeevraSwaras.map((s) => {
               const isSelected = selectedSwaraId === s.id;
               return (
                 <button
                   key={s.id}
                   onClick={() => setSelectedSwaraId(s.id)}
-                  className={`px-3.5 py-2 rounded-xl text-xs font-bold transition cursor-pointer border ${
+                  className={`px-2.5 sm:px-3.5 py-2 rounded-xl text-[11px] sm:text-xs font-bold transition cursor-pointer border text-center ${
                     isSelected
                       ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
                       : 'bg-gray-50 hover:bg-amber-50 text-gray-700 border-gray-200 hover:border-amber-300'
@@ -531,22 +531,22 @@ export default function LearnFingeringChartView({ onViewChange }: LearnFingering
       </div>
 
       {/* 3. VISUAL BANSURI FLUTE & FINGERING DISPLAY */}
-      <div className="bg-gradient-to-br from-amber-950 via-bamboo-950 to-stone-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl space-y-6 border border-amber-800/40 relative overflow-hidden">
+      <div className="bg-gradient-to-br from-amber-950 via-bamboo-950 to-stone-900 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 text-white shadow-xl space-y-4 sm:space-y-6 border border-amber-800/40 relative overflow-hidden">
         {/* Subtle bamboo grain background glow */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(245,158,11,0.1),transparent)] pointer-events-none"></div>
 
-        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-amber-800/50 pb-4">
+        <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-amber-800/50 pb-4">
           <div>
-            <div className="flex items-center gap-2">
-              <h3 className="text-2xl sm:text-3xl font-display font-bold text-amber-300">
+            <div className="flex items-center gap-2 flex-wrap">
+              <h3 className="text-xl sm:text-3xl font-display font-bold text-amber-300">
                 {currentSwara.fullName}
               </h3>
-              <span className="text-xs bg-amber-400/20 text-amber-200 border border-amber-400/30 px-2.5 py-0.5 rounded-md font-semibold">
+              <span className="text-[10px] sm:text-xs bg-amber-400/20 text-amber-200 border border-amber-400/30 px-2.5 py-0.5 rounded-md font-semibold">
                 {currentSwara.westernInterval}
               </span>
             </div>
             <p className="text-xs sm:text-sm text-amber-100/80 mt-1 font-medium">
-              Flute Key: <strong className="text-white">{currentScale.name}</strong> • Sound Frequency: <strong className="text-amber-300">{calculatedFrequency.toFixed(1)} Hz</strong>
+              Flute Key: <strong className="text-white">{currentScale.name}</strong> • Pitch: <strong className="text-amber-300">{calculatedFrequency.toFixed(1)} Hz</strong>
             </p>
           </div>
 
@@ -554,35 +554,32 @@ export default function LearnFingeringChartView({ onViewChange }: LearnFingering
           <button
             onClick={handlePlaySound}
             disabled={isPlayingSound}
-            className={`px-5 py-3 rounded-2xl font-extrabold text-xs sm:text-sm transition flex items-center justify-center gap-2.5 shadow-lg cursor-pointer shrink-0 ${
+            className={`w-full sm:w-auto px-5 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl font-extrabold text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-lg cursor-pointer shrink-0 ${
               isPlayingSound
                 ? 'bg-amber-400 text-bamboo-950 scale-98 ring-4 ring-amber-300/50'
                 : 'bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-bamboo-950 hover:shadow-amber-500/20'
             }`}
           >
-            <Volume2 className={`w-5 h-5 ${isPlayingSound ? 'animate-bounce' : ''}`} />
-            <span>{isPlayingSound ? 'Playing Note...' : 'Repeat Sound 🔊'}</span>
+            <Volume2 className={`w-4 h-4 sm:w-5 sm:h-5 ${isPlayingSound ? 'animate-bounce' : ''}`} />
+            <span>{isPlayingSound ? 'Playing Note...' : 'Play Flute Tone 🔊'}</span>
           </button>
         </div>
 
         {/* VISUAL BANSURI FLUTE GRAPHIC */}
-        <div className="relative z-10 py-6 my-2 bg-stone-950/80 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-amber-500/30 shadow-2xl overflow-hidden">
+        <div className="relative z-10 py-4 sm:py-6 bg-stone-950/90 backdrop-blur-md rounded-2xl p-3 sm:p-6 border border-amber-500/30 shadow-2xl overflow-hidden">
           
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-2 mb-6">
-            <span className="text-[11px] uppercase tracking-widest text-amber-300 font-bold bg-amber-950/90 px-3 py-1 rounded-full border border-amber-700/60 shadow-xs">
-              Handcrafted Indian Bamboo Bansuri (6-Hole Hindustani Style)
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-4">
+            <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-amber-300 font-bold bg-amber-950/90 px-2.5 py-1 rounded-full border border-amber-700/60 shadow-xs">
+              Handcrafted Bamboo Bansuri (6-Hole Hindustani)
             </span>
-            <div className="flex items-center gap-2 text-xs">
-              <span className="text-amber-200/80 font-medium">Bansuri View:</span>
-              <span className="text-amber-400 font-bold bg-amber-900/60 px-2 py-0.5 rounded border border-amber-700/40">
-                Natural Bamboo &amp; Finger Pads
-              </span>
-            </div>
+            <span className="text-[10px] text-amber-400/80 font-medium sm:hidden">
+              Swipe left/right to view full flute →
+            </span>
           </div>
 
-          {/* REALISTIC SVG BANSURI FLUTE */}
-          <div className="relative w-full max-w-4xl mx-auto my-6 overflow-x-auto pb-4">
-            <svg viewBox="0 0 850 160" className="w-full h-auto min-w-[700px] drop-shadow-2xl select-none">
+          {/* REALISTIC SVG BANSURI FLUTE CONTAINER */}
+          <div className="relative w-full overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-amber-700">
+            <svg viewBox="0 0 850 160" className="w-full h-auto min-w-[580px] sm:min-w-0 drop-shadow-2xl select-none">
               <defs>
                 {/* Bamboo Tube Cylinder Radial/Linear Gradients */}
                 <linearGradient id="bambooBody" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -652,39 +649,28 @@ export default function LearnFingeringChartView({ onViewChange }: LearnFingering
                 <rect x="38" y="56" width="4" height="48" rx="2" fill="#78350f" opacity="0.6" />
 
                 {/* NATURAL BAMBOO NODES (Joint Rings / Nadi) */}
-                {/* Node 1 - Near Cork */}
                 <rect x="90" y="52" width="10" height="56" rx="4" fill="url(#bambooNode)" stroke="#451a03" strokeWidth="1" />
-                {/* Node 2 - Middle Section */}
                 <rect x="380" y="52" width="10" height="56" rx="4" fill="url(#bambooNode)" stroke="#451a03" strokeWidth="1" />
-                {/* Node 3 - Right End Section */}
                 <rect x="760" y="52" width="10" height="56" rx="4" fill="url(#bambooNode)" stroke="#451a03" strokeWidth="1" />
 
                 {/* TRADITIONAL SILK THREAD BINDINGS (Resham Dhaga) */}
-                {/* Binding 1 - Left Head */}
                 <rect x="60" y="54" width="18" height="52" fill="url(#threadBinding)" />
                 <rect x="66" y="54" width="6" height="52" fill="url(#goldThread)" />
 
-                {/* Binding 2 - Between Blow hole & Finger hole 1 */}
                 <rect x="180" y="54" width="14" height="52" fill="url(#threadBinding)" />
                 <rect x="184" y="54" width="4" height="52" fill="url(#goldThread)" />
 
-                {/* Binding 3 - Middle Hand Divider */}
                 <rect x="420" y="54" width="14" height="52" fill="url(#threadBinding)" />
                 <rect x="424" y="54" width="4" height="52" fill="url(#goldThread)" />
 
-                {/* Binding 4 - Tail End */}
                 <rect x="730" y="54" width="18" height="52" fill="url(#threadBinding)" />
                 <rect x="736" y="54" width="6" height="52" fill="url(#goldThread)" />
 
                 {/* EMBOUCHURE BLOW HOLE (Mukha Randhra) */}
                 <g>
-                  {/* Burnt Rim */}
                   <ellipse cx="135" cy="80" rx="14" ry="12" fill="none" stroke="#451a03" strokeWidth="3" />
-                  {/* Dark Interior Hole */}
                   <ellipse cx="135" cy="80" rx="12" ry="10" fill="url(#burnedHole)" />
-                  {/* Lip Position Indicator */}
                   <path d="M 121 80 A 14 12 0 0 0 149 80" fill="none" stroke="#fef3c7" strokeWidth="1.5" strokeDasharray="2,2" opacity="0.6" />
-                  {/* Sound Wave Animation pulse if playing */}
                   {isPlayingSound && (
                     <circle cx="135" cy="80" r="16" fill="none" stroke="#f59e0b" strokeWidth="2" opacity="0.8">
                       <animate attributeName="r" values="10;22;10" dur="0.8s" repeatCount="indefinite" />
@@ -695,16 +681,13 @@ export default function LearnFingeringChartView({ onViewChange }: LearnFingering
                 </g>
 
                 {/* 6 FINGER TONE HOLES & FINGER PADS */}
-                {/* Positions along flute: Hole 1=240, Hole 2=300, Hole 3=360, Hole 4=480, Hole 5=550, Hole 6=620 */}
                 {currentSwara.holes.map((holeState, idx) => {
                   const holeX = idx < 3 ? 240 + idx * 60 : 480 + (idx - 3) * 70;
                   const holeNum = idx + 1;
                   const fingerName = idx === 0 ? 'L-Index' : idx === 1 ? 'L-Middle' : idx === 2 ? 'L-Ring' : idx === 3 ? 'R-Index' : idx === 4 ? 'R-Middle' : 'R-Ring';
-                  const handGroup = idx < 3 ? 'Left Hand' : 'Right Hand';
 
                   return (
                     <g key={idx}>
-                      {/* Top Finger Label */}
                       <text x={holeX} y="25" textAnchor="middle" fill="#fef3c7" fontSize="11" fontWeight="bold">
                         {fingerName}
                       </text>
@@ -712,17 +695,12 @@ export default function LearnFingeringChartView({ onViewChange }: LearnFingering
                         #{holeNum}
                       </text>
 
-                      {/* Burnt Wood Hole Rim */}
                       <circle cx={holeX} cy="80" r="14" fill="#451a03" />
-                      
-                      {/* Dark Interior Hole Cavity */}
                       <circle cx={holeX} cy="80" r="11" fill="url(#burnedHole)" stroke="#27272a" strokeWidth="1" />
 
                       {/* HOLE STATE OVERLAYS */}
-                      {/* 1 = CLOSED (Finger Pad Covering Hole completely) */}
                       {holeState === 1 && (
                         <g>
-                          {/* Pressed Finger Pad */}
                           <circle cx={holeX} cy="80" r="13" fill="url(#fingerPad)" stroke="#fde047" strokeWidth="2.5" />
                           <circle cx={holeX} cy="80" r="6" fill="#fef3c7" opacity="0.4" />
                           <text x={holeX} y="84" textAnchor="middle" fill="#ffffff" fontSize="10" fontWeight="900">
@@ -731,10 +709,8 @@ export default function LearnFingeringChartView({ onViewChange }: LearnFingering
                         </g>
                       )}
 
-                      {/* 0.5 = HALF CLOSED (Finger covering 50% of hole) */}
                       {holeState === 0.5 && (
                         <g>
-                          {/* Half Finger Pad Overlay */}
                           <path d={`M ${holeX} ${80 - 13} A 13 13 0 0 1 ${holeX} ${80 + 13} Z`} fill="url(#fingerPad)" stroke="#fde047" strokeWidth="2" />
                           <text x={holeX - 2} y="84" textAnchor="middle" fill="#ffffff" fontSize="9" fontWeight="900">
                             ½
@@ -742,10 +718,8 @@ export default function LearnFingeringChartView({ onViewChange }: LearnFingering
                         </g>
                       )}
 
-                      {/* 0 = OPEN (Finger Lifted above hole) */}
                       {holeState === 0 && (
                         <g>
-                          {/* Lifted Ghost Finger Pad */}
                           <circle cx={holeX} cy="80" r="12" fill="none" stroke="#fbbf24" strokeWidth="1.5" strokeDasharray="3,2" opacity="0.5" />
                           <text x={holeX} y="83" textAnchor="middle" fill="#fbbf24" fontSize="9" opacity="0.6">
                             ○
@@ -753,7 +727,6 @@ export default function LearnFingeringChartView({ onViewChange }: LearnFingering
                         </g>
                       )}
 
-                      {/* Bottom Status Text */}
                       <rect 
                         x={holeX - 22} 
                         y="112" 
@@ -774,24 +747,63 @@ export default function LearnFingeringChartView({ onViewChange }: LearnFingering
             </svg>
           </div>
 
+          {/* SMARTPHONE 6-HOLE QUICK SUMMARY GRID */}
+          <div className="mt-4 pt-3 border-t border-amber-900/50">
+            <span className="text-[10px] font-bold text-amber-400 uppercase tracking-wider block mb-2 text-center sm:text-left">
+              Finger Position Breakdown ({currentSwara.swara})
+            </span>
+            <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+              {currentSwara.holes.map((state, idx) => {
+                const holeNum = idx + 1;
+                const fingerLabel = idx === 0 ? 'L-Index' : idx === 1 ? 'L-Middle' : idx === 2 ? 'L-Ring' : idx === 3 ? 'R-Index' : idx === 4 ? 'R-Middle' : 'R-Ring';
+                const handName = idx < 3 ? 'Left' : 'Right';
+
+                return (
+                  <div 
+                    key={idx}
+                    className={`p-2 rounded-xl border flex flex-col items-center justify-center text-center ${
+                      state === 1
+                        ? 'bg-emerald-950/80 border-emerald-500/50 text-emerald-200'
+                        : state === 0.5
+                        ? 'bg-amber-950/80 border-amber-500/50 text-amber-200'
+                        : 'bg-stone-900/80 border-stone-700/60 text-stone-300'
+                    }`}
+                  >
+                    <span className="text-[9px] text-amber-400/80 font-bold uppercase">{handName} #{holeNum}</span>
+                    <span className="text-[11px] font-extrabold my-0.5">{fingerLabel}</span>
+                    <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded uppercase mt-0.5 ${
+                      state === 1 
+                        ? 'bg-emerald-800/80 text-emerald-100' 
+                        : state === 0.5 
+                        ? 'bg-amber-800/80 text-amber-100' 
+                        : 'bg-stone-800 text-stone-400'
+                    }`}>
+                      {state === 1 ? '● Closed' : state === 0.5 ? '◐ Half' : '○ Open'}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
           {/* Hands Legend Guides */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto pt-2 text-xs">
-            <div className="bg-amber-950/70 border border-amber-700/50 rounded-xl p-3 flex items-start gap-3">
-              <div className="w-7 h-7 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 flex items-center justify-center font-bold shrink-0">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto pt-3 text-xs">
+            <div className="bg-amber-950/70 border border-amber-700/50 rounded-xl p-3 flex items-start gap-2.5">
+              <div className="w-6 h-6 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 flex items-center justify-center font-bold text-xs shrink-0">
                 L
               </div>
               <div>
-                <span className="font-bold text-amber-300 block">Left Hand (Top 3 Holes)</span>
+                <span className="font-bold text-amber-300 block text-xs">Left Hand (Top 3 Holes)</span>
                 <span className="text-[11px] text-amber-100/80 leading-snug block mt-0.5">{currentSwara.leftHandGuide}</span>
               </div>
             </div>
 
-            <div className="bg-amber-950/70 border border-amber-700/50 rounded-xl p-3 flex items-start gap-3">
-              <div className="w-7 h-7 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 flex items-center justify-center font-bold shrink-0">
+            <div className="bg-amber-950/70 border border-amber-700/50 rounded-xl p-3 flex items-start gap-2.5">
+              <div className="w-6 h-6 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 flex items-center justify-center font-bold text-xs shrink-0">
                 R
               </div>
               <div>
-                <span className="font-bold text-amber-300 block">Right Hand (Bottom 3 Holes)</span>
+                <span className="font-bold text-amber-300 block text-xs">Right Hand (Bottom 3 Holes)</span>
                 <span className="text-[11px] text-amber-100/80 leading-snug block mt-0.5">{currentSwara.rightHandGuide}</span>
               </div>
             </div>
@@ -800,8 +812,8 @@ export default function LearnFingeringChartView({ onViewChange }: LearnFingering
         </div>
 
         {/* Note Explanation & Pro Tip */}
-        <div className="grid md:grid-cols-2 gap-4 relative z-10 pt-2">
-          <div className="bg-amber-900/30 border border-amber-700/50 rounded-2xl p-4 space-y-1.5">
+        <div className="grid md:grid-cols-2 gap-3 sm:gap-4 relative z-10 pt-1">
+          <div className="bg-amber-900/30 border border-amber-700/50 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 space-y-1">
             <h4 className="text-xs font-bold uppercase tracking-wider text-amber-300 flex items-center gap-1.5">
               <Info className="w-4 h-4 text-amber-400" />
               Fingering Description
@@ -811,7 +823,7 @@ export default function LearnFingeringChartView({ onViewChange }: LearnFingering
             </p>
           </div>
 
-          <div className="bg-amber-900/30 border border-amber-700/50 rounded-2xl p-4 space-y-1.5">
+          <div className="bg-amber-900/30 border border-amber-700/50 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 space-y-1">
             <h4 className="text-xs font-bold uppercase tracking-wider text-amber-300 flex items-center gap-1.5">
               <Wind className="w-4 h-4 text-amber-400" />
               Guru's Riyaz Tip
@@ -825,24 +837,24 @@ export default function LearnFingeringChartView({ onViewChange }: LearnFingering
       </div>
 
       {/* 4. QUICK REFERENCE SUMMARY TABLE */}
-      <div className="bg-white rounded-3xl p-6 shadow-sm border border-bamboo-100 space-y-4">
-        <div className="flex items-center justify-between border-b border-bamboo-100 pb-3">
+      <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-xs border border-bamboo-100 space-y-3 sm:space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-bamboo-100 pb-3">
           <div className="flex items-center gap-2">
-            <BookOpen className="w-5 h-5 text-bamboo-700" />
-            <h3 className="text-lg font-bold text-bamboo-900">Shuddha Swara Quick Reference Summary</h3>
+            <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 text-bamboo-700" />
+            <h3 className="text-base sm:text-lg font-bold text-bamboo-900">Shuddha Swara Quick Reference Summary</h3>
           </div>
-          <span className="text-xs text-gray-500 font-medium hidden sm:inline">6-Hole Hindustani Convention</span>
+          <span className="text-[11px] sm:text-xs text-gray-500 font-medium">6-Hole Hindustani Convention</span>
         </div>
 
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs">
+        <div className="overflow-x-auto rounded-xl border border-bamboo-100">
+          <table className="w-full text-left text-xs min-w-[500px]">
             <thead>
               <tr className="bg-bamboo-50 text-bamboo-950 font-bold border-b border-bamboo-100">
-                <th className="p-3 rounded-l-xl">Swara</th>
-                <th className="p-3">Full Name</th>
-                <th className="p-3">Interval</th>
-                <th className="p-3">Holes (Top to Bottom)</th>
-                <th className="p-3 rounded-r-xl text-center">Action</th>
+                <th className="p-2.5 sm:p-3">Swara</th>
+                <th className="p-2.5 sm:p-3">Full Name</th>
+                <th className="p-2.5 sm:p-3">Interval</th>
+                <th className="p-2.5 sm:p-3">Holes (Top to Bottom)</th>
+                <th className="p-2.5 sm:p-3 text-center">Action</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100 text-gray-700">
@@ -857,24 +869,24 @@ export default function LearnFingeringChartView({ onViewChange }: LearnFingering
                     className={`hover:bg-amber-50/50 transition cursor-pointer ${isCurrent ? 'bg-amber-100/60 font-semibold' : ''}`}
                     onClick={() => setSelectedSwaraId(p.id)}
                   >
-                    <td className="p-3 font-extrabold text-bamboo-900 text-sm">{sData.swara}</td>
-                    <td className="p-3 font-medium">{sData.fullName}</td>
-                    <td className="p-3 text-gray-500">{sData.westernInterval}</td>
-                    <td className="p-3 font-mono text-xs">
+                    <td className="p-2.5 sm:p-3 font-extrabold text-bamboo-900 text-xs sm:text-sm">{sData.swara}</td>
+                    <td className="p-2.5 sm:p-3 font-medium text-xs">{sData.fullName}</td>
+                    <td className="p-2.5 sm:p-3 text-gray-500 text-[11px]">{sData.westernInterval}</td>
+                    <td className="p-2.5 sm:p-3 font-mono text-xs">
                       {sData.holes.map((h, i) => (
-                        <span key={i} className={`mr-1.5 ${h === 1 ? 'text-amber-800 font-bold' : h === 0.5 ? 'text-amber-600 font-bold' : 'text-gray-300'}`}>
+                        <span key={i} className={`mr-1 ${h === 1 ? 'text-amber-800 font-bold' : h === 0.5 ? 'text-amber-600 font-bold' : 'text-gray-300'}`}>
                           {h === 1 ? '●' : h === 0.5 ? '◐' : '○'}
                         </span>
                       ))}
                     </td>
-                    <td className="p-3 text-center">
+                    <td className="p-2.5 sm:p-3 text-center">
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
                           setSelectedSwaraId(p.id);
                           handlePlaySound();
                         }}
-                        className="px-2.5 py-1 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-lg text-[10px] transition cursor-pointer inline-flex items-center gap-1 shadow-2xs"
+                        className="px-2 py-1 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-lg text-[10px] transition cursor-pointer inline-flex items-center gap-1 shadow-2xs"
                       >
                         <Volume2 className="w-3 h-3" />
                         <span>Play</span>
