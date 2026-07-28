@@ -717,12 +717,14 @@ export default function Navbar({
                 className="flex items-center space-x-2 p-1 rounded-xl hover:bg-bamboo-50 border border-transparent hover:border-bamboo-100/60 transition"
                 id="user-profile-dropdown-trigger"
               >
-                <img
-                  src={currentUser.photoURL}
-                  alt={currentUser.displayName}
-                  referrerPolicy="no-referrer"
-                  className="w-8 h-8 rounded-full object-cover border border-bamboo-600"
-                />
+                <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 border border-bamboo-600 bg-amber-100 flex items-center justify-center">
+                  <img
+                    src={currentUser.photoURL}
+                    alt={currentUser.displayName}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover rounded-full"
+                  />
+                </div>
                 <span className="hidden sm:inline text-xs font-semibold text-gray-700 truncate max-w-[100px]">
                   {currentUser.displayName}
                 </span>
@@ -735,12 +737,14 @@ export default function Navbar({
                   id="user-profile-dropdown"
                 >
                   <div className="flex items-center space-x-3 border-b border-gray-100 pb-3">
-                    <img
-                      src={currentUser.photoURL}
-                      alt={currentUser.displayName}
-                      referrerPolicy="no-referrer"
-                      className="w-12 h-12 rounded-full object-cover border border-bamboo-600"
-                    />
+                    <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 border border-bamboo-600 bg-amber-100 flex items-center justify-center">
+                      <img
+                        src={currentUser.photoURL}
+                        alt={currentUser.displayName}
+                        referrerPolicy="no-referrer"
+                        className="w-full h-full object-cover rounded-full"
+                      />
+                    </div>
                     <div>
                       <h4 className="font-bold text-sm text-gray-800 flex items-center gap-1">
                         {currentUser.displayName}

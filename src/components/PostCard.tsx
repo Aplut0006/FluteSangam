@@ -164,13 +164,15 @@ export default function PostCard({
             className="shrink-0 transition-opacity hover:opacity-85 cursor-pointer"
             title={`View @${post.authorUsername || post.authorName.toLowerCase().replace(/[^a-z0-9_]/g, '')} profile`}
           >
-            <img
-              src={post.authorPhoto || "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix"}
-              alt={post.authorName}
-              referrerPolicy="no-referrer"
-              className="w-10 h-10 rounded-full object-cover border border-bamboo-100/60 bg-white"
-              loading="lazy"
-            />
+            <div className="w-10 h-10 rounded-full overflow-hidden shrink-0 border border-bamboo-100/60 bg-white flex items-center justify-center">
+              <img
+                src={post.authorPhoto || "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix"}
+                alt={post.authorName}
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover rounded-full"
+                loading="lazy"
+              />
+            </div>
           </button>
           <div>
             <div className="flex items-center space-x-1.5 flex-wrap">
