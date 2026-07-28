@@ -727,7 +727,7 @@ export default function App() {
       )}
 
       {/* Main Layout Area */}
-      <main className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-6 flex-1 w-full pb-24 md:pb-8" id="main-content-layout">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 sm:pt-6 flex-1 w-full pb-24 md:pb-12" id="main-content-layout">
 
 
         {currentView === 'user-profile' ? (
@@ -853,31 +853,6 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           {/* LEFT AREA: Search, Filters, and Posts Feed */}
           <div className="md:col-span-8 space-y-4 block" id="left-feed-container">
-            {/* Sadhana Feed Top Banner - Directly touching Website Header */}
-            <div className="bg-white/95 backdrop-blur-md rounded-2xl p-3.5 sm:p-4 border border-bamboo-100/90 shadow-2xs flex items-center justify-between gap-3">
-              <div className="flex items-center gap-2.5">
-                <div className="p-2 bg-amber-100/90 text-amber-800 rounded-xl shrink-0">
-                  <Globe className="w-4.5 h-4.5 text-amber-700" />
-                </div>
-                <div>
-                  <h1 className="text-sm sm:text-base font-bold font-display text-bamboo-950 flex items-center gap-2 leading-none">
-                    <span>Sadhana Feed</span>
-                    <span className="text-[9px] sm:text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Live Feed</span>
-                  </h1>
-                  <p className="text-[11px] text-gray-500 font-medium mt-1 line-clamp-1">Practice recitals, ragas, reviews &amp; discussions from flutists worldwide</p>
-                </div>
-              </div>
-              {currentUser && (
-                <button
-                  onClick={handleOpenCreatePost}
-                  className="py-1.5 px-3 bg-bamboo-700 hover:bg-bamboo-800 text-white text-xs font-bold rounded-xl transition flex items-center space-x-1 shadow-2xs shrink-0 cursor-pointer"
-                >
-                  <Plus className="w-3.5 h-3.5" />
-                  <span className="hidden sm:inline">New Post</span>
-                </button>
-              )}
-            </div>
-
             {/* Search and Filters panel */}
             <div className="frosted-panel rounded-2xl p-4 space-y-4 shadow-sm">
               <div className="flex flex-col sm:flex-row gap-3">

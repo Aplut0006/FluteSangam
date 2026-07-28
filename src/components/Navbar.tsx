@@ -233,7 +233,7 @@ export default function Navbar({
   return (
     <>
       <header className="sticky top-0 z-40 frosted-navbar shadow-3xs" id="app-navbar">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-13 sm:h-15 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-4 lg:gap-8">
         {/* Brand Logo & Name */}
         <a 
           href={VIEW_URLS['community'] || '/'}
@@ -243,16 +243,16 @@ export default function Navbar({
             setShowMobileMenu(false);
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
-          className="flex items-center gap-2 sm:gap-2.5 group focus:outline-none cursor-pointer shrink-0"
+          className="flex items-center gap-2 sm:gap-2.5 group focus:outline-none cursor-pointer shrink-0 mr-2 sm:mr-4 lg:mr-8"
           id="navbar-brand-logo-btn"
           title="Go to Home / Landing"
         >
           <img 
             src="/flutesangam_without_tagline.png" 
             alt="FluteSangam" 
-            className="h-8.5 sm:h-11 w-auto transition-transform group-hover:scale-105 shrink-0 object-contain" 
+            className="h-9 sm:h-11 w-auto transition-transform group-hover:scale-105 shrink-0 object-contain" 
           />
-          <span className="font-display font-extrabold text-lg sm:text-2xl tracking-tight text-bamboo-950 group-hover:text-bamboo-800 transition-colors whitespace-nowrap">
+          <span className="font-display font-extrabold text-xl sm:text-2xl tracking-tight text-bamboo-950 group-hover:text-bamboo-800 transition-colors whitespace-nowrap">
             Flute<span className="text-amber-700">Sangam</span>
           </span>
         </a>
