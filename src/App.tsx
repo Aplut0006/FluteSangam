@@ -215,6 +215,14 @@ export default function App() {
     setMeta('meta[name="article:modified_time"]', 'name', 'article:modified_time', modDate);
     setMeta('meta[property="og:updated_time"]', 'property', 'og:updated_time', modDate);
 
+    // Track dynamic view navigation in Google Analytics
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('config', 'G-X3ZN371N8X', {
+        page_title: title,
+        page_path: '/' + currentView,
+      });
+    }
+
     // Dynamic JSON-LD Structured Data Graph for AI SEO & LLM Optimization
     let jsonLdScript = document.getElementById('dynamic-jsonld') as HTMLScriptElement | null;
     if (!jsonLdScript) {
