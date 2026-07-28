@@ -5,6 +5,7 @@ import {
   ArrowUpRight, ArrowDownRight, BookmarkCheck, Trash2, Wind, Binary, Cpu, ChevronDown
 } from 'lucide-react';
 import * as Tone from 'tone';
+import { UserProfile } from '../types';
 
 export interface AlankarPattern {
   id: string;
@@ -402,7 +403,16 @@ function generateProceduralAlankar(
   };
 }
 
-export default function AlankarGeneratorView() {
+export interface AlankarGeneratorViewProps {
+  currentUser?: UserProfile | null;
+}
+
+export default function AlankarGeneratorView({ currentUser }: AlankarGeneratorViewProps) {
+  // Is user authenticated
+  const isUserSignedIn = Boolean(currentUser?.uid);
+  const userId = currentUser ? currentUser.uid : '';
+  const userStorageKey = userId ? `flutesangam_saved_alankars_${userId}` : '';
+
   // Filters & State
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>('Beginner');
   const [selectedScale, setSelectedScale] = useState<string>('C Middle');
@@ -429,17 +439,25 @@ export default function AlankarGeneratorView() {
   // Toast feedback
   const [toastMessage, setToastMessage] = useState<string>('');
 
-  // Load saved alankars from localStorage
+  // Load saved alankars from localStorage exclusively for authenticated user
   useEffect(() => {
+    if (!isUserSignedIn || !userStorageKey) {
+      setSavedAlankars([]);
+      setActiveTab('generator');
+      return;
+    }
     try {
-      const saved = localStorage.getItem('flutesangam_saved_alankars');
+      const saved = localStorage.getItem(userStorageKey);
       if (saved) {
         setSavedAlankars(JSON.parse(saved));
+      } else {
+        setSavedAlankars([]);
       }
     } catch (e) {
       console.error('Error reading saved alankars', e);
+      setSavedAlankars([]);
     }
-  }, []);
+  }, [isUserSignedIn, userStorageKey]);
 
   // Cleanup audio
   useEffect(() => {
@@ -449,9 +467,9 @@ export default function AlankarGeneratorView() {
     };
   }, []);
 
-  // Initial generator on mount
+  // Initial generator on mount (silent, no toast)
   useEffect(() => {
-    handleGenerate(1);
+    handleGenerate(1, undefined, undefined, false);
   }, []);
 
   const showToast = (msg: string) => {
@@ -500,7 +518,7 @@ export default function AlankarGeneratorView() {
   };
 
   // Generator Action: Procedural Generation
-  const handleGenerate = (count: number = 1, forceDifficulty?: string, forcePattern?: string) => {
+  const handleGenerate = (count: number = 1, forceDifficulty?: string, forcePattern?: string, isUserClick: boolean = true) => {
     const targetDiff = (forceDifficulty || selectedDifficulty) as any;
     const targetPattern = forcePattern || selectedPatternType;
 
@@ -537,6 +555,14 @@ export default function AlankarGeneratorView() {
     }
 
     setGeneratedAlankars(newList);
+
+    if (isUserClick) {
+      if (count > 1) {
+        showToast(`Generated ${count} new Alankars!`);
+      } else {
+        showToast('Generated 1 new Alankar!');
+      }
+    }
   };
 
   // Generator Action: Random Practice Session (3 procedural levels)
@@ -552,6 +578,7 @@ export default function AlankarGeneratorView() {
     a.title = `Mastery Level: ${a.title}`;
 
     setGeneratedAlankars([b, i, a]);
+    showToast('Generated 15-Minute Riyaz Session (3 Levels)!');
   };
 
   // Reset Filters
@@ -560,12 +587,16 @@ export default function AlankarGeneratorView() {
     setSelectedScale('C Middle');
     setSelectedPatternType('All Patterns');
     setBpm(60);
-    handleGenerate(1, 'Beginner', 'All Patterns');
+    handleGenerate(1, 'Beginner', 'All Patterns', false);
     showToast('Reset generator parameters!');
   };
 
   // Save / Bookmark Alankar
   const toggleSaveAlankar = (item: AlankarPattern) => {
+    if (!isUserSignedIn) {
+      showToast('Please sign in to save Alankars');
+      return;
+    }
     const exists = savedAlankars.some(s => s.id === item.id || (s.mathSeed === item.mathSeed && s.scale === item.scale));
     let updated: AlankarPattern[];
     if (exists) {
@@ -576,10 +607,43 @@ export default function AlankarGeneratorView() {
       showToast('Saved to your Alankar collection!');
     }
     setSavedAlankars(updated);
-    try {
-      localStorage.setItem('flutesangam_saved_alankars', JSON.stringify(updated));
-    } catch (e) {
-      console.error('Failed to update localStorage', e);
+    if (userStorageKey) {
+      try {
+        localStorage.setItem(userStorageKey, JSON.stringify(updated));
+      } catch (e) {
+        console.error('Failed to update localStorage', e);
+      }
+    }
+  };
+
+  // Explicit Delete single saved Alankar
+  const deleteSingleSavedAlankar = (item: AlankarPattern) => {
+    if (!isUserSignedIn) return;
+    const updated = savedAlankars.filter(s => s.id !== item.id && s.mathSeed !== item.mathSeed);
+    setSavedAlankars(updated);
+    if (userStorageKey) {
+      try {
+        localStorage.setItem(userStorageKey, JSON.stringify(updated));
+      } catch (e) {
+        console.error('Failed to update localStorage', e);
+      }
+    }
+    showToast('Deleted Alankar from saved collection');
+  };
+
+  // Clear all saved alankars for current user
+  const handleClearAllSaved = () => {
+    if (!isUserSignedIn) return;
+    if (window.confirm("Are you sure you want to clear all your saved alankars?")) {
+      setSavedAlankars([]);
+      if (userStorageKey) {
+        try {
+          localStorage.removeItem(userStorageKey);
+        } catch (e) {
+          console.error('Failed to clear saved alankars', e);
+        }
+      }
+      showToast('Cleared all saved alankars!');
     }
   };
 
@@ -749,35 +813,37 @@ Learn & practice on https://flutesangam.com`;
             </div>
 
             {/* Badges / Tabs selector */}
-            <div className="flex items-center gap-2 bg-bamboo-50 p-1.5 rounded-2xl border border-bamboo-100 shrink-0 self-start md:self-auto">
-              <button
-                onClick={() => setActiveTab('generator')}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
-                  activeTab === 'generator'
-                    ? 'bg-bamboo-800 text-white shadow-xs'
-                    : 'text-gray-600 hover:text-bamboo-900'
-                }`}
-              >
-                <Sliders className="w-3.5 h-3.5 text-amber-400" />
-                <span>Generator</span>
-              </button>
-              <button
-                onClick={() => setActiveTab('saved')}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
-                  activeTab === 'saved'
-                    ? 'bg-bamboo-800 text-white shadow-xs'
-                    : 'text-gray-600 hover:text-bamboo-900'
-                }`}
-              >
-                <Bookmark className="w-3.5 h-3.5 text-amber-400" />
-                <span>Saved ({savedAlankars.length})</span>
-              </button>
-            </div>
+            {isUserSignedIn && (
+              <div className="flex items-center gap-2 bg-bamboo-50 p-1.5 rounded-2xl border border-bamboo-100 shrink-0 self-start md:self-auto">
+                <button
+                  onClick={() => setActiveTab('generator')}
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
+                    activeTab === 'generator'
+                      ? 'bg-bamboo-800 text-white shadow-xs'
+                      : 'text-gray-600 hover:text-bamboo-900'
+                  }`}
+                >
+                  <Sliders className="w-3.5 h-3.5 text-amber-400" />
+                  <span>Generator</span>
+                </button>
+                <button
+                  onClick={() => setActiveTab('saved')}
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
+                    activeTab === 'saved'
+                      ? 'bg-bamboo-800 text-white shadow-xs'
+                      : 'text-gray-600 hover:text-bamboo-900'
+                  }`}
+                >
+                  <Bookmark className="w-3.5 h-3.5 text-amber-400" />
+                  <span>Saved ({savedAlankars.length})</span>
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
 
-      {activeTab === 'saved' ? (
+      {activeTab === 'saved' && isUserSignedIn ? (
         /* Saved Collection View */
         <div className="space-y-6">
           <div className="flex items-center justify-between">
@@ -785,16 +851,10 @@ Learn & practice on https://flutesangam.com`;
               <Bookmark className="w-5 h-5 text-amber-600" />
               <span>Your Saved Alankars ({savedAlankars.length})</span>
             </h2>
-            {savedAlankars.length > 0 && (
+            {isUserSignedIn && savedAlankars.length > 0 && (
               <button
-                onClick={() => {
-                  if (confirm("Are you sure you want to clear all saved alankars?")) {
-                    setSavedAlankars([]);
-                    localStorage.removeItem('flutesangam_saved_alankars');
-                    showToast('Cleared saved collection');
-                  }
-                }}
-                className="text-xs text-red-600 hover:text-red-700 font-semibold flex items-center gap-1 px-3 py-1.5 bg-red-50 hover:bg-red-100 rounded-lg transition"
+                onClick={handleClearAllSaved}
+                className="text-xs text-red-600 hover:text-red-700 font-semibold flex items-center gap-1 px-3 py-1.5 bg-red-50 hover:bg-red-100 rounded-lg transition cursor-pointer"
               >
                 <Trash2 className="w-3.5 h-3.5" />
                 <span>Clear All</span>
@@ -802,7 +862,15 @@ Learn & practice on https://flutesangam.com`;
             )}
           </div>
 
-          {savedAlankars.length === 0 ? (
+          {!isUserSignedIn ? (
+            <div className="bg-white rounded-2xl p-12 text-center border border-bamboo-100 shadow-3xs space-y-3">
+              <Bookmark className="w-10 h-10 text-bamboo-300 mx-auto" />
+              <h3 className="font-bold text-gray-800 text-sm">Sign in to view saved Alankars</h3>
+              <p className="text-xs text-gray-500 max-w-sm mx-auto">
+                Please sign in to bookmark Alankars and access your personal saved collection across practice sessions.
+              </p>
+            </div>
+          ) : savedAlankars.length === 0 ? (
             <div className="bg-white rounded-2xl p-12 text-center border border-bamboo-100 shadow-3xs space-y-3">
               <Bookmark className="w-10 h-10 text-bamboo-300 mx-auto" />
               <h3 className="font-bold text-gray-700 text-sm">No Saved Alankars Yet</h3>
@@ -811,7 +879,7 @@ Learn & practice on https://flutesangam.com`;
               </p>
               <button
                 onClick={() => setActiveTab('generator')}
-                className="px-4 py-2 bg-bamboo-700 hover:bg-bamboo-800 text-white text-xs font-bold rounded-xl transition mt-2 inline-flex items-center gap-1.5"
+                className="px-4 py-2 bg-bamboo-700 hover:bg-bamboo-800 text-white text-xs font-bold rounded-xl transition mt-2 inline-flex items-center gap-1.5 cursor-pointer"
               >
                 <Sparkles className="w-3.5 h-3.5 text-amber-300" />
                 <span>Calculate New Alankars</span>
@@ -824,7 +892,9 @@ Learn & practice on https://flutesangam.com`;
                   key={item.id || index}
                   item={{ ...item, number: index + 1 }}
                   isSaved={true}
+                  showSaveOption={true}
                   onSave={toggleSaveAlankar}
+                  onDeleteSaved={deleteSingleSavedAlankar}
                   onCopy={handleCopySargam}
                   onDownloadPdf={handleDownloadPdf}
                   onShare={handleShare}
@@ -1089,6 +1159,7 @@ Learn & practice on https://flutesangam.com`;
                     key={item.id || index}
                     item={item}
                     isSaved={isSaved}
+                    showSaveOption={isUserSignedIn}
                     onSave={toggleSaveAlankar}
                     onCopy={handleCopySargam}
                     onDownloadPdf={handleDownloadPdf}
@@ -1131,7 +1202,9 @@ Learn & practice on https://flutesangam.com`;
 interface AlankarCardProps {
   item: AlankarPattern;
   isSaved: boolean;
+  showSaveOption?: boolean;
   onSave: (item: AlankarPattern) => void;
+  onDeleteSaved?: (item: AlankarPattern) => void;
   onCopy: (item: AlankarPattern) => void;
   onDownloadPdf: (item: AlankarPattern) => void;
   onShare: (item: AlankarPattern) => void;
@@ -1141,7 +1214,9 @@ interface AlankarCardProps {
 function AlankarCard({
   item,
   isSaved,
+  showSaveOption = true,
   onSave,
+  onDeleteSaved,
   onCopy,
   onDownloadPdf,
   onShare,
@@ -1255,19 +1330,31 @@ function AlankarCard({
             <span>Download PDF</span>
           </button>
 
-          <button
-            type="button"
-            onClick={() => onSave(item)}
-            className={`px-2.5 py-1.5 text-[11px] font-bold rounded-lg transition flex items-center gap-1 cursor-pointer ${
-              isSaved
-                ? 'bg-amber-100 text-amber-900 border border-amber-300'
-                : 'bg-bamboo-50 hover:bg-bamboo-100 text-bamboo-800'
-            }`}
-            title="Save to My Alankars"
-          >
-            {isSaved ? <BookmarkCheck className="w-3.5 h-3.5 text-amber-700 fill-amber-500" /> : <Bookmark className="w-3.5 h-3.5" />}
-            <span>{isSaved ? 'Saved' : 'Save'}</span>
-          </button>
+          {onDeleteSaved ? (
+            <button
+              type="button"
+              onClick={() => onDeleteSaved(item)}
+              className="px-2.5 py-1.5 bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 text-[11px] font-bold rounded-lg transition flex items-center gap-1 cursor-pointer"
+              title="Delete this saved Alankar"
+            >
+              <Trash2 className="w-3.5 h-3.5" />
+              <span>Delete</span>
+            </button>
+          ) : showSaveOption ? (
+            <button
+              type="button"
+              onClick={() => onSave(item)}
+              className={`px-2.5 py-1.5 text-[11px] font-bold rounded-lg transition flex items-center gap-1 cursor-pointer ${
+                isSaved
+                  ? 'bg-amber-100 text-amber-900 border border-amber-300'
+                  : 'bg-bamboo-50 hover:bg-bamboo-100 text-bamboo-800'
+              }`}
+              title="Save to My Alankars"
+            >
+              {isSaved ? <BookmarkCheck className="w-3.5 h-3.5 text-amber-700 fill-amber-500" /> : <Bookmark className="w-3.5 h-3.5" />}
+              <span>{isSaved ? 'Saved' : 'Save'}</span>
+            </button>
+          ) : null}
         </div>
 
         <div className="flex items-center gap-1">

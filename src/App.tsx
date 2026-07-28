@@ -849,7 +849,7 @@ export default function App() {
         ) : currentView === 'learn_alankaras' ? (
           <LearnAlankarasView />
         ) : currentView === 'alankar_generator' ? (
-          <AlankarGeneratorView />
+          <AlankarGeneratorView currentUser={currentUser} />
         ) : currentView === 'learn_raagas' ? (
           <LearnRaagasView />
         ) : currentView === 'about_us' ? (

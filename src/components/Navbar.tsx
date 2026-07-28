@@ -4,7 +4,7 @@ import { VIEW_URLS } from '../routes';
 import { auth } from '../lib/firebase';
 import { signOut } from 'firebase/auth';
 import { updateUserProfile, isEmailTaken, isPhoneTaken, isUsernameTaken, deleteUserAccount } from '../lib/db';
-import { Music, LogOut, User, Globe, Edit3, Check, X, ShieldAlert, Sparkles, MapPin, Feather, Phone, Mail, Camera, Upload, MessageSquare, Wind, BookOpen, ChevronDown, Users, Zap, Menu, Info, Radio, Trash2 } from 'lucide-react';
+import { Music, LogOut, User, Globe, Edit3, Check, X, ShieldAlert, Sparkles, MapPin, Feather, Phone, Mail, Camera, Upload, MessageSquare, Wind, BookOpen, ChevronDown, Users, Zap, Menu, Info, Radio, Trash2, Sliders } from 'lucide-react';
 import { CARTOON_AVATARS } from './AuthModal';
 import NotificationsDropdown from './NotificationsDropdown';
 
@@ -377,16 +377,17 @@ export default function Navbar({
             )}
           </div>
 
-          {/* 4. Standalone Alankar Generator Button (outside Learn Flute, without icon) */}
+          {/* 4. Standalone Alankar Generator Button */}
           <a
             href={VIEW_URLS['alankar_generator'] || '/alankar-generator'}
             onClick={(e) => { e.preventDefault(); onViewChange?.('alankar_generator'); }}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer whitespace-nowrap ${
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
               currentView === 'alankar_generator'
                 ? 'bg-amber-600 text-white shadow-xs'
                 : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
             }`}
           >
+            <Sliders className={`w-3.5 h-3.5 ${currentView === 'alankar_generator' ? 'text-white' : 'text-amber-600'}`} />
             <span>Alankar Generator</span>
           </a>
 
@@ -525,9 +526,16 @@ export default function Navbar({
                       : 'bg-amber-50/70 border-amber-200/80 hover:bg-amber-100/80'
                   }`}
                 >
-                  <div className="text-left">
-                    <div className={`text-xs font-extrabold ${currentView === 'alankar_generator' ? 'text-white' : 'text-bamboo-950'}`}>Alankar Generator</div>
-                    <div className={`text-[11px] ${currentView === 'alankar_generator' ? 'text-amber-100' : 'text-gray-600'}`}>Procedural sargam exercise synthesizer</div>
+                  <div className="flex items-center gap-3">
+                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center shadow-2xs group-hover:scale-105 transition ${
+                      currentView === 'alankar_generator' ? 'bg-white/20 text-white' : 'bg-amber-500 text-white'
+                    }`}>
+                      <Sliders className="w-5 h-5" />
+                    </div>
+                    <div className="text-left">
+                      <div className={`text-xs font-extrabold ${currentView === 'alankar_generator' ? 'text-white' : 'text-bamboo-950'}`}>Alankar Generator</div>
+                      <div className={`text-[11px] ${currentView === 'alankar_generator' ? 'text-amber-100' : 'text-gray-600'}`}>Procedural sargam exercise synthesizer</div>
+                    </div>
                   </div>
                 </button>
               </div>
