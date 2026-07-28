@@ -7,6 +7,7 @@ export const VIEW_URLS: Record<string, string> = {
   'learn_choose_flute': '/learn/choose-flute',
   'learn_tuner': '/tuner',
   'learn_basics': '/learn/basics',
+  'learn_fingering_chart': '/learn/fingering-chart',
   'learn_alankaras': '/learn/alankaras',
   'alankar_generator': '/alankar-generator',
   'learn_raagas': '/learn/raagas',

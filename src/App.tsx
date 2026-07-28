@@ -20,6 +20,7 @@ import UserProfileView from './components/UserProfileView';
 import LearnDashboard from './components/LearnDashboard';
 import LearnIntroView from './components/LearnIntroView';
 import LearnBasicsView from './components/LearnBasicsView';
+import LearnFingeringChartView from './components/LearnFingeringChartView';
 import LearnChooseFluteView from './components/LearnChooseFluteView';
 import LearnTunerView from './components/LearnTunerView';
 import LearnAlankarasView from './components/LearnAlankarasView';
@@ -841,7 +842,9 @@ export default function App() {
         ) : currentView === 'learn_intro' ? (
           <LearnIntroView />
         ) : currentView === 'learn_basics' ? (
-          <LearnBasicsView />
+          <LearnBasicsView onViewChange={handleViewChange} />
+        ) : currentView === 'learn_fingering_chart' ? (
+          <LearnFingeringChartView onViewChange={handleViewChange} />
         ) : currentView === 'learn_choose_flute' ? (
           <LearnChooseFluteView onViewChange={handleViewChange} />
         ) : currentView === 'learn_tuner' ? (

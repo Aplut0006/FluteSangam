@@ -1,7 +1,12 @@
 import React from 'react';
-import { Wind, Volume2, UserCheck, Move, Play, Music, Calendar, Clock, CheckCircle2 } from 'lucide-react';
+import { Wind, Volume2, UserCheck, Move, Play, Music, Calendar, Clock, CheckCircle2, Sparkles, ChevronRight } from 'lucide-react';
+import { AppView } from '../types';
 
-export default function LearnBasicsView() {
+interface LearnBasicsViewProps {
+  onViewChange?: (view: AppView) => void;
+}
+
+export default function LearnBasicsView({ onViewChange }: LearnBasicsViewProps) {
   return (
     <div className="w-full max-w-4xl mx-auto space-y-6" itemScope itemType="https://schema.org/LearningResource">
       <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-bamboo-100 overflow-hidden relative">
@@ -190,6 +195,34 @@ export default function LearnBasicsView() {
                 </p>
               </div>
             </section>
+
+            {/* Next Step: Interactive Fingering Chart CTA */}
+            {onViewChange && (
+              <section className="pt-4">
+                <div className="bg-gradient-to-r from-amber-500 via-amber-600 to-bamboo-800 rounded-3xl p-6 sm:p-8 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-6 border border-amber-400/40">
+                  <div className="space-y-1 text-center sm:text-left">
+                    <div className="inline-flex items-center gap-1.5 bg-amber-300/20 text-amber-200 text-xs font-extrabold px-3 py-1 rounded-full border border-amber-300/30 uppercase tracking-wider">
+                      <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                      Next Step In Learning
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-bold font-display text-white mt-2">
+                      Interactive Bansuri Fingering Chart
+                    </h3>
+                    <p className="text-xs sm:text-sm text-amber-100/90 max-w-md font-medium">
+                      Select your flute key and tap Sa, Re, Ga, Ma, Pa, Dha, Ni to see closed finger holes & hear authentic audio tones!
+                    </p>
+                  </div>
+
+                  <button
+                    onClick={() => onViewChange('learn_fingering_chart')}
+                    className="px-6 py-3 bg-white hover:bg-amber-50 text-bamboo-950 font-extrabold text-xs sm:text-sm rounded-2xl transition shadow-md cursor-pointer flex items-center gap-2 shrink-0 group"
+                  >
+                    <span>Open Fingering Chart</span>
+                    <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-amber-600" />
+                  </button>
+                </div>
+              </section>
+            )}
             
           </div>
         </div>

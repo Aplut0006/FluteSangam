@@ -349,7 +349,18 @@ export default function Navbar({
                   }}
                   className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 cursor-pointer block"
                 >
-                  The Basics &amp; Fingering
+                  The Basics &amp; Blowing
+                </a>
+                <a
+                  href={VIEW_URLS['learn_fingering_chart'] || '/learn/fingering-chart'}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onViewChange?.('learn_fingering_chart');
+                    setShowLearnDropdown(false);
+                  }}
+                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 cursor-pointer block"
+                >
+                  Interactive Fingering Chart
                 </a>
                 <a
                   href={VIEW_URLS['learn_alankaras'] || '/learn/alankaras'}
@@ -644,6 +655,12 @@ export default function Navbar({
                     className="w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
                   >
                     3. The Basics &amp; Blowing
+                  </button>
+                  <button
+                    onClick={() => { onViewChange?.('learn_fingering_chart'); setShowMobileMenu(false); }}
+                    className="w-full text-left text-xs font-bold text-amber-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
+                  >
+                    ✨ Interactive Fingering Chart
                   </button>
                   <button
                     onClick={() => { onViewChange?.('learn_alankaras'); setShowMobileMenu(false); }}
