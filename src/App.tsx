@@ -678,30 +678,30 @@ export default function App() {
         onSelectPost={handleSelectPostById}
       />
 
-      {/* Hero Welcome Banner - Desktop only to preserve mobile vertical space */}
+      {/* Hero Welcome Banner */}
       {currentView === 'community' && (
-        <section className="hidden md:block bg-gradient-to-br from-bamboo-900 via-bamboo-800 to-amber-900 text-white relative overflow-hidden shadow-xs" id="hero-banner">
+        <section className="block bg-gradient-to-br from-bamboo-900 via-bamboo-800 to-amber-900 text-white relative overflow-hidden shadow-xs" id="hero-banner">
           {/* Abstract design vector accents */}
           <div className="absolute top-0 right-0 w-80 h-80 bg-amber-400/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-bamboo-600/30 rounded-full blur-2xl -ml-20 -mb-20 pointer-events-none"></div>
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 relative space-y-4">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-              <div className="max-w-2xl space-y-2 text-center md:text-left">
-                <div className="inline-flex items-center gap-2 text-[10px] font-bold tracking-widest text-amber-300 uppercase bg-amber-400/10 px-3 py-1 rounded-full border border-amber-300/20 backdrop-blur-md">
+          <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 py-3.5 sm:py-5 relative space-y-3 sm:space-y-4">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
+              <div className="max-w-2xl space-y-1.5 sm:space-y-2 text-center md:text-left">
+                <div className="inline-flex items-center gap-1.5 text-[9px] sm:text-[10px] font-bold tracking-widest text-amber-300 uppercase bg-amber-400/10 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-amber-300/20 backdrop-blur-md">
                   <Wind className="w-3 h-3 text-amber-300" />
                   <span>Learn, Practice &amp; Connect with Flute Players Worldwide</span>
                 </div>
-                <h1 className="text-xl sm:text-2xl font-extrabold font-display leading-tight tracking-tight text-white">
+                <h1 className="text-base sm:text-xl md:text-2xl font-extrabold font-display leading-tight tracking-tight text-white">
                   Welcome to FluteSangam — Where Flutists Learn, Share &amp; Grow
                 </h1>
-                <p className="text-xs text-bamboo-100 leading-relaxed font-normal">
+                <p className="text-[11px] sm:text-xs text-bamboo-100 leading-relaxed font-normal">
                   <strong>FluteSangam</strong> is an online educational and social community platform built specifically for practitioners, students, and teachers of the Indian bamboo flute (Bansuri).
                 </p>
               </div>
 
               {/* Core Call To Action */}
-              <div className="bg-white/10 backdrop-blur-md p-3.5 rounded-2xl border border-white/15 w-full md:w-72 shrink-0 shadow-md space-y-2 text-center md:text-left">
+              <div className="bg-white/10 backdrop-blur-md p-3 sm:p-3.5 rounded-2xl border border-white/15 w-full md:w-72 shrink-0 shadow-md space-y-2 text-center md:text-left">
                 <div className="space-y-0.5">
                   <h4 className="font-bold text-xs text-amber-300 flex items-center justify-center md:justify-start gap-1.5">
                     <Sparkles className="w-3.5 h-3.5 text-amber-300" />
@@ -714,7 +714,7 @@ export default function App() {
                 
                 <button
                   onClick={handleOpenCreatePost}
-                  className="w-full py-2 bg-amber-400 hover:bg-amber-300 text-bamboo-950 font-extrabold text-[11px] rounded-xl transition shadow-xs tracking-wider uppercase flex items-center justify-center space-x-1 cursor-pointer"
+                  className="w-full py-1.5 sm:py-2 bg-amber-400 hover:bg-amber-300 text-bamboo-950 font-extrabold text-[11px] rounded-xl transition shadow-xs tracking-wider uppercase flex items-center justify-center space-x-1 cursor-pointer"
                   id="hero-share-performance-btn"
                 >
                   <Plus className="w-3.5 h-3.5 stroke-[3]" />
