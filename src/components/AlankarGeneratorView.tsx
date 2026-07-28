@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { 
   Music, Sparkles, RefreshCw, Play, Pause, Copy, Download, Bookmark, 
   Share2, RotateCcw, Zap, Sliders, Check, Layers, Shuffle, 
-  ArrowUpRight, ArrowDownRight, BookmarkCheck, Trash2, Wind, Binary, Cpu
+  ArrowUpRight, ArrowDownRight, BookmarkCheck, Trash2, Wind, Binary, Cpu, ChevronDown
 } from 'lucide-react';
 import * as Tone from 'tone';
 
@@ -417,8 +417,14 @@ export default function AlankarGeneratorView() {
   // Metronome audio state
   const [isPlayingMetronome, setIsPlayingMetronome] = useState<boolean>(false);
   const [activeBeat, setActiveBeat] = useState<number>(0);
+  const [beatsPerMeasure, setBeatsPerMeasure] = useState<number>(4);
+  const beatsPerMeasureRef = useRef<number>(4);
   const clickSynth = useRef<Tone.Synth | null>(null);
   const loopRef = useRef<Tone.Loop | null>(null);
+
+  useEffect(() => {
+    beatsPerMeasureRef.current = beatsPerMeasure;
+  }, [beatsPerMeasure]);
 
   // Toast feedback
   const [toastMessage, setToastMessage] = useState<string>('');
@@ -467,10 +473,11 @@ export default function AlankarGeneratorView() {
       Tone.Transport.bpm.value = bpm;
       let beat = 0;
       loopRef.current = new Tone.Loop((time) => {
+        const totalBeats = beatsPerMeasureRef.current || 4;
         const isAccent = beat === 0;
         clickSynth.current?.triggerAttackRelease(isAccent ? "C6" : "C5", "16n", time);
-        beat = (beat + 1) % 4;
         setActiveBeat(beat);
+        beat = (beat + 1) % totalBeats;
       }, "4n").start(0);
 
       Tone.Transport.start();
@@ -913,18 +920,21 @@ Learn & practice on https://flutesangam.com`;
               </div>
             </div>
 
-            {/* Tempo Slider (Metronome Controls) */}
-            <div className="bg-amber-50/50 p-4 sm:p-5 rounded-2xl border border-amber-200/80 space-y-3">
-              <div className="flex items-center justify-between">
+            {/* Tempo Slider & Beat Controls */}
+            <div className="bg-amber-50/50 p-4 sm:p-5 rounded-2xl border border-amber-200/80 space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div className="flex items-center gap-2">
                   <Zap className="w-4 h-4 text-amber-600" />
                   <span className="text-xs font-bold text-bamboo-900">
-                    Metronome Tempo Slider
+                    Metronome &amp; Beat Division
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-sm font-extrabold text-amber-900 bg-amber-100 px-2.5 py-0.5 rounded-lg border border-amber-300/80">
+                  <span className="font-mono text-xs font-extrabold text-amber-900 bg-amber-100 px-2.5 py-1 rounded-lg border border-amber-300/80">
                     {bpm} BPM
+                  </span>
+                  <span className="font-mono text-xs font-extrabold text-bamboo-900 bg-amber-100 px-2.5 py-1 rounded-lg border border-amber-300/80">
+                    {beatsPerMeasure} {beatsPerMeasure === 1 ? 'Beat' : 'Beats'}
                   </span>
                   <button
                     type="button"
@@ -941,6 +951,7 @@ Learn & practice on https://flutesangam.com`;
                 </div>
               </div>
 
+              {/* Tempo Slider */}
               <div className="flex items-center gap-4">
                 <span className="text-[10px] font-bold text-gray-500">40 BPM</span>
                 <input
@@ -954,20 +965,78 @@ Learn & practice on https://flutesangam.com`;
                 <span className="text-[10px] font-bold text-gray-500">240 BPM</span>
               </div>
 
-              {/* Beats pulse indicators */}
-              <div className="flex items-center justify-center gap-2 pt-1">
-                {[0, 1, 2, 3].map((b) => (
-                  <div
-                    key={b}
-                    className={`w-3 h-3 rounded-full transition-all duration-100 ${
-                      isPlayingMetronome && activeBeat === b
-                        ? b === 0
-                          ? 'bg-amber-500 scale-125 shadow-sm'
-                          : 'bg-amber-400 scale-110'
-                        : 'bg-bamboo-200'
-                    }`}
-                  />
-                ))}
+              {/* Beats Count Dropdown Selector */}
+              <div className="space-y-1.5 pt-1">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <label htmlFor="metronome-beats-select" className="text-xs font-extrabold text-bamboo-950 flex items-center gap-1.5">
+                    <span>Metronome Beats (Measure):</span>
+                  </label>
+                  {isPlayingMetronome && (
+                    <span className="text-[11px] font-black text-amber-700 animate-pulse">
+                      Playing: Beat {activeBeat + 1} of {beatsPerMeasure}
+                    </span>
+                  )}
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <div className="relative flex-1">
+                    <select
+                      id="metronome-beats-select"
+                      value={beatsPerMeasure}
+                      onChange={(e) => setBeatsPerMeasure(Number(e.target.value))}
+                      className="w-full bg-white text-bamboo-950 font-bold text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-amber-300 shadow-2xs focus:outline-hidden focus:ring-2 focus:ring-amber-500 cursor-pointer appearance-none pr-9"
+                    >
+                      <option value={1}>1 Beat (Single Click Pulse)</option>
+                      <option value={2}>2 Beats (2/4 Dual Rhythm)</option>
+                      <option value={3}>3 Beats (3/4 - Dadra / Waltz)</option>
+                      <option value={4}>4 Beats (4/4 Standard - Keherwa)</option>
+                      <option value={5}>5 Beats (5/4 - Jhaptal 5-beat variation)</option>
+                      <option value={6}>6 Beats (6/8 - Dadra Taal)</option>
+                      <option value={7}>7 Beats (7/8 - Rupak Taal)</option>
+                      <option value={8}>8 Beats (8/4 - Keherwa 8-beat cycle)</option>
+                      <option value={9}>9 Beats (9/8 - Matta Taal)</option>
+                      <option value={10}>10 Beats (10/4 - Jhaptal)</option>
+                      <option value={11}>11 Beats (11/8 - Rudra Taal)</option>
+                      <option value={12}>12 Beats (12/4 - Ektaal / Chautaal)</option>
+                      <option value={14}>14 Beats (14/4 - Dhamar Taal)</option>
+                      <option value={16}>16 Beats (16/4 - Teentaal)</option>
+                    </select>
+                    <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-amber-700">
+                      <ChevronDown className="w-4 h-4" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Live Numbered Beats Visualizer */}
+              <div className="pt-2 border-t border-amber-200/60">
+                <span className="text-[10px] font-bold text-amber-800 uppercase tracking-wider block mb-2 text-center">
+                  Live Beat Pulse Counter
+                </span>
+                <div className="flex flex-wrap items-center justify-center gap-2">
+                  {Array.from({ length: beatsPerMeasure }, (_, i) => i).map((b) => {
+                    const isCurrent = isPlayingMetronome && activeBeat === b;
+                    const isFirstBeat = b === 0;
+                    return (
+                      <button
+                        key={b}
+                        type="button"
+                        onClick={() => setActiveBeat(b)}
+                        className={`min-w-8 h-8 px-2 rounded-xl text-xs font-black transition-all flex items-center justify-center border cursor-pointer ${
+                          isCurrent
+                            ? isFirstBeat
+                              ? 'bg-amber-600 text-white border-amber-700 scale-110 ring-2 ring-amber-300 shadow-sm'
+                              : 'bg-amber-500 text-white border-amber-600 scale-105 shadow-2xs'
+                            : isFirstBeat
+                            ? 'bg-amber-100 text-amber-900 border-amber-300 font-extrabold'
+                            : 'bg-white text-gray-700 border-amber-200/80'
+                        }`}
+                      >
+                        <span>{b + 1}</span>
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
             </div>
 
