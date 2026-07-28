@@ -537,11 +537,6 @@ export default function AlankarGeneratorView() {
     }
 
     setGeneratedAlankars(newList);
-    if (count > 1) {
-      showToast(`Procedurally calculated ${count} unique, non-duplicate Alankars!`);
-    } else {
-      showToast('Generated 1 new unique Alankar!');
-    }
   };
 
   // Generator Action: Random Practice Session (3 procedural levels)
@@ -557,7 +552,6 @@ export default function AlankarGeneratorView() {
     a.title = `Mastery Level: ${a.title}`;
 
     setGeneratedAlankars([b, i, a]);
-    showToast('Created 15-Minute Procedural Riyaz Session (3 Unique Levels)!');
   };
 
   // Reset Filters
@@ -849,13 +843,9 @@ Learn & practice on https://flutesangam.com`;
               <div className="flex items-center gap-2">
                 <Sliders className="w-5 h-5 text-amber-600" />
                 <h2 className="font-bold text-base text-bamboo-950 font-display">
-                  Procedural Vector Options &amp; Controls
+                  Choose your Alankar Practice Setup
                 </h2>
               </div>
-              <span className="text-[11px] font-bold text-amber-800 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200/80 flex items-center gap-1">
-                <Cpu className="w-3 h-3 text-amber-700" />
-                Math Synthesizer Active
-              </span>
             </div>
 
             {/* Filter Grids */}
