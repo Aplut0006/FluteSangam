@@ -23,6 +23,7 @@ import LearnBasicsView from './components/LearnBasicsView';
 import LearnChooseFluteView from './components/LearnChooseFluteView';
 import LearnTunerView from './components/LearnTunerView';
 import LearnAlankarasView from './components/LearnAlankarasView';
+import AlankarGeneratorView from './components/AlankarGeneratorView';
 import LearnRaagasView from './components/LearnRaagasView';
 import MembersView from './components/MembersView';
 import ImageModal from './components/ImageModal';
@@ -112,6 +113,10 @@ export default function App() {
       case 'learn_alankaras':
         title = 'Alankar Exercises & Sargam | FluteSangam';
         description = 'FluteSangam Alankar Exercises & Sargam Drills: Practice finger agility, pitch accuracy, tempo stability, and daily sargam exercises on Indian bamboo flute.';
+        break;
+      case 'alankar_generator':
+        title = 'Interactive Alankar Generator & Practice Engine | FluteSangam';
+        description = 'FluteSangam Alankar Generator: Create custom sargam patterns for Indian bamboo flute (Bansuri). Filter by scale, difficulty, pattern type, tempo metronome, and practice daily.';
         break;
       case 'learn_raagas':
         title = 'Learn Ragas & Sargam | FluteSangam Lessons';
@@ -843,6 +848,8 @@ export default function App() {
           <LearnTunerView onViewChange={handleViewChange} />
         ) : currentView === 'learn_alankaras' ? (
           <LearnAlankarasView />
+        ) : currentView === 'alankar_generator' ? (
+          <AlankarGeneratorView />
         ) : currentView === 'learn_raagas' ? (
           <LearnRaagasView />
         ) : currentView === 'about_us' ? (
@@ -1158,6 +1165,11 @@ export default function App() {
                 <li>
                   <a href="/learn/alankaras" onClick={(e) => { e.preventDefault(); handleViewChange('learn_alankaras'); }} className="hover:text-amber-300 transition">
                     Alankar Sargam Drills
+                  </a>
+                </li>
+                <li>
+                  <a href="/alankar-generator" onClick={(e) => { e.preventDefault(); handleViewChange('alankar_generator'); }} className="hover:text-amber-300 transition font-bold text-amber-300">
+                    Alankar Generator Engine
                   </a>
                 </li>
                 <li>

@@ -266,11 +266,11 @@ export default function Navbar({
             onClick={(e) => { e.preventDefault(); onViewChange?.('community'); }}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
               currentView === 'community' 
-                ? 'bg-bamboo-700 text-white shadow-3xs' 
+                ? 'bg-amber-600 text-white shadow-xs' 
                 : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
             }`}
           >
-            <Globe className="w-3.5 h-3.5 text-amber-600" />
+            <Globe className={`w-3.5 h-3.5 ${currentView === 'community' ? 'text-white' : 'text-amber-600'}`} />
             <span>Sadhana Feed</span>
           </a>
 
@@ -280,7 +280,7 @@ export default function Navbar({
             onClick={(e) => { e.preventDefault(); onViewChange?.('learn_tuner'); }}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
               currentView === 'learn_tuner'
-                ? 'bg-gradient-to-r from-amber-600 to-amber-700 text-white shadow-3xs'
+                ? 'bg-gradient-to-r from-amber-600 to-amber-700 text-white shadow-xs'
                 : 'text-amber-900 bg-amber-100/70 hover:bg-amber-200/80 border border-amber-300/60'
             }`}
           >
@@ -295,11 +295,11 @@ export default function Navbar({
               onClick={() => setShowLearnDropdown(!showLearnDropdown)}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
                 currentView === 'learn_intro' || currentView === 'learn_basics' || currentView === 'learn_choose_flute' || currentView === 'learn_alankaras' || currentView === 'learn_raagas' || currentView === 'learn_dashboard'
-                  ? 'bg-bamboo-700 text-white shadow-3xs'
+                  ? 'bg-amber-600 text-white shadow-xs'
                   : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
               }`}
             >
-              <BookOpen className="w-3.5 h-3.5 text-amber-600" />
+              <BookOpen className={`w-3.5 h-3.5 ${currentView?.startsWith('learn_') ? 'text-white' : 'text-amber-600'}`} />
               <span>Learn Flute</span>
               <ChevronDown className="w-3.5 h-3.5 opacity-70" />
             </button>
@@ -377,6 +377,19 @@ export default function Navbar({
             )}
           </div>
 
+          {/* 4. Standalone Alankar Generator Button (outside Learn Flute, without icon) */}
+          <a
+            href={VIEW_URLS['alankar_generator'] || '/alankar-generator'}
+            onClick={(e) => { e.preventDefault(); onViewChange?.('alankar_generator'); }}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer whitespace-nowrap ${
+              currentView === 'alankar_generator'
+                ? 'bg-amber-600 text-white shadow-xs'
+                : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
+            }`}
+          >
+            <span>Alankar Generator</span>
+          </a>
+
           {/* 4. Sangam Chats */}
           <a
             href={VIEW_URLS['chats'] || '/chats'}
@@ -390,11 +403,11 @@ export default function Navbar({
             }}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 relative cursor-pointer whitespace-nowrap ${
               currentView === 'chats' 
-                ? 'bg-bamboo-700 text-white shadow-3xs' 
+                ? 'bg-amber-600 text-white shadow-xs' 
                 : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
             }`}
           >
-            <MessageSquare className="w-3.5 h-3.5 text-amber-600" />
+            <MessageSquare className={`w-3.5 h-3.5 ${currentView === 'chats' ? 'text-white' : 'text-amber-600'}`} />
             <span>Chats</span>
             {unreadCount > 0 && (
               <span className="absolute -top-1.5 -right-1 bg-yellow-500 text-white text-[9px] font-black h-4.5 min-w-4.5 px-1 rounded-full flex items-center justify-center border border-white animate-bounce shadow-xs">
@@ -409,11 +422,11 @@ export default function Navbar({
             onClick={(e) => { e.preventDefault(); onViewChange?.('notation_requests'); }}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
               currentView === 'notation_requests'
-                ? 'bg-bamboo-700 text-white shadow-3xs'
+                ? 'bg-amber-600 text-white shadow-xs'
                 : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
             }`}
           >
-            <Music className="w-3.5 h-3.5 text-amber-600" />
+            <Music className={`w-3.5 h-3.5 ${currentView === 'notation_requests' ? 'text-white' : 'text-amber-600'}`} />
             <span>Notations</span>
           </a>
 
@@ -480,28 +493,44 @@ export default function Navbar({
             ref={mobileMenuRef}
             className="absolute top-16 left-2 right-2 sm:left-4 sm:right-4 bg-white/98 backdrop-blur-xl border border-bamboo-200/90 shadow-2xl rounded-2xl p-4 z-50 lg:hidden max-h-[82vh] overflow-y-auto space-y-4 text-left"
           >
-            {/* Quick Practice Tool Card */}
+            {/* Quick Practice Tools */}
             <div>
               <span className="text-[10px] font-black uppercase tracking-wider text-amber-800/80 px-1 mb-1.5 block">
-                Practice Tool
+                Practice Tools
               </span>
-              <button
-                onClick={() => { onViewChange?.('learn_tuner'); setShowMobileMenu(false); }}
-                className="w-full flex items-center justify-between p-3.5 bg-gradient-to-r from-amber-500/10 via-amber-100/40 to-bamboo-100/40 border border-amber-300/80 rounded-xl hover:bg-amber-100/70 transition group cursor-pointer"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-amber-500 text-white flex items-center justify-center shadow-2xs group-hover:scale-105 transition">
-                    <Radio className="w-5 h-5 animate-pulse" />
-                  </div>
-                  <div className="text-left">
-                    <div className="text-xs font-extrabold text-bamboo-950 flex items-center gap-1.5">
-                      <span>Flute Tuner &amp; Scales</span>
-                      <span className="text-[9px] bg-amber-200 text-amber-950 font-bold px-1.5 py-0.2 rounded-full">A=440Hz</span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <button
+                  onClick={() => { onViewChange?.('learn_tuner'); setShowMobileMenu(false); }}
+                  className="w-full flex items-center justify-between p-3.5 bg-gradient-to-r from-amber-500/10 via-amber-100/40 to-bamboo-100/40 border border-amber-300/80 rounded-xl hover:bg-amber-100/70 transition group cursor-pointer"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-xl bg-amber-500 text-white flex items-center justify-center shadow-2xs group-hover:scale-105 transition">
+                      <Radio className="w-5 h-5 animate-pulse" />
                     </div>
-                    <div className="text-[11px] text-gray-600">Interactive live frequency scale tuner</div>
+                    <div className="text-left">
+                      <div className="text-xs font-extrabold text-bamboo-950 flex items-center gap-1.5">
+                        <span>Flute Tuner &amp; Scales</span>
+                        <span className="text-[9px] bg-amber-200 text-amber-950 font-bold px-1.5 py-0.2 rounded-full">A=440Hz</span>
+                      </div>
+                      <div className="text-[11px] text-gray-600">Interactive live frequency scale tuner</div>
+                    </div>
                   </div>
-                </div>
-              </button>
+                </button>
+
+                <button
+                  onClick={() => { onViewChange?.('alankar_generator'); setShowMobileMenu(false); }}
+                  className={`w-full flex items-center justify-between p-3.5 border rounded-xl transition cursor-pointer text-left ${
+                    currentView === 'alankar_generator'
+                      ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
+                      : 'bg-amber-50/70 border-amber-200/80 hover:bg-amber-100/80'
+                  }`}
+                >
+                  <div className="text-left">
+                    <div className={`text-xs font-extrabold ${currentView === 'alankar_generator' ? 'text-white' : 'text-bamboo-950'}`}>Alankar Generator</div>
+                    <div className={`text-[11px] ${currentView === 'alankar_generator' ? 'text-amber-100' : 'text-gray-600'}`}>Procedural sargam exercise synthesizer</div>
+                  </div>
+                </button>
+              </div>
             </div>
 
             {/* Community Section */}
@@ -514,11 +543,11 @@ export default function Navbar({
                   onClick={() => { onViewChange?.('community'); setShowMobileMenu(false); }}
                   className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
                     currentView === 'community'
-                      ? 'bg-bamboo-700 text-white border-bamboo-800'
+                      ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
                       : 'bg-bamboo-50/60 text-gray-700 border-bamboo-100 hover:bg-bamboo-100/60'
                   }`}
                 >
-                  <Globe className="w-4 h-4 text-amber-600 shrink-0" />
+                  <Globe className={`w-4 h-4 shrink-0 ${currentView === 'community' ? 'text-white' : 'text-amber-600'}`} />
                   <span>Sadhana Feed</span>
                 </button>
 
@@ -530,14 +559,14 @@ export default function Navbar({
                   }}
                   className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left relative cursor-pointer ${
                     currentView === 'chats'
-                      ? 'bg-bamboo-700 text-white border-bamboo-800'
+                      ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
                       : 'bg-bamboo-50/60 text-gray-700 border-bamboo-100 hover:bg-bamboo-100/60'
                   }`}
                 >
-                  <MessageSquare className="w-4 h-4 text-amber-600 shrink-0" />
+                  <MessageSquare className={`w-4 h-4 shrink-0 ${currentView === 'chats' ? 'text-white' : 'text-amber-600'}`} />
                   <span>Sangam Chats</span>
                   {unreadCount > 0 && (
-                    <span className="ml-auto bg-amber-500 text-white text-[9px] font-black px-1.5 py-0.5 rounded-full">
+                    <span className="ml-auto bg-yellow-400 text-amber-950 text-[9px] font-black px-1.5 py-0.5 rounded-full">
                       {unreadCount}
                     </span>
                   )}
@@ -547,11 +576,11 @@ export default function Navbar({
                   onClick={() => { onViewChange?.('notation_requests'); setShowMobileMenu(false); }}
                   className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
                     currentView === 'notation_requests'
-                      ? 'bg-bamboo-700 text-white border-bamboo-800'
+                      ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
                       : 'bg-bamboo-50/60 text-gray-700 border-bamboo-100 hover:bg-bamboo-100/60'
                   }`}
                 >
-                  <Music className="w-4 h-4 text-amber-600 shrink-0" />
+                  <Music className={`w-4 h-4 shrink-0 ${currentView === 'notation_requests' ? 'text-white' : 'text-amber-600'}`} />
                   <span>Notations</span>
                 </button>
 
@@ -559,11 +588,11 @@ export default function Navbar({
                   onClick={() => { onViewChange?.('community_members'); setShowMobileMenu(false); }}
                   className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
                     currentView === 'community_members'
-                      ? 'bg-bamboo-700 text-white border-bamboo-800'
+                      ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
                       : 'bg-bamboo-50/60 text-gray-700 border-bamboo-100 hover:bg-bamboo-100/60'
                   }`}
                 >
-                  <Users className="w-4 h-4 text-amber-600 shrink-0" />
+                  <Users className={`w-4 h-4 shrink-0 ${currentView === 'community_members' ? 'text-white' : 'text-amber-600'}`} />
                   <span>Flutists</span>
                 </button>
               </div>

@@ -8,6 +8,7 @@ export const VIEW_URLS: Record<string, string> = {
   'learn_tuner': '/tuner',
   'learn_basics': '/learn/basics',
   'learn_alankaras': '/learn/alankaras',
+  'alankar_generator': '/alankar-generator',
   'learn_raagas': '/learn/raagas',
   'community_members': '/members',
   'about_us': '/about',

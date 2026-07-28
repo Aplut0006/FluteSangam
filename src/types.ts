@@ -12,7 +12,7 @@ export interface AppNotification {
   createdAt: any;
 }
 
-export type AppView = 'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_choose_flute' | 'learn_tuner' | 'learn_basics' | 'learn_alankaras' | 'learn_raagas' | 'community_members' | 'about_us' | 'contact_us' | 'learn_dashboard' | 'notation_requests' | 'privacy_policy' | 'terms_of_service';
+export type AppView = 'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_choose_flute' | 'learn_tuner' | 'learn_basics' | 'learn_alankaras' | 'learn_raagas' | 'alankar_generator' | 'community_members' | 'about_us' | 'contact_us' | 'learn_dashboard' | 'notation_requests' | 'privacy_policy' | 'terms_of_service';
 
 export interface UserProfile {
   uid: string;
