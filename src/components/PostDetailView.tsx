@@ -290,13 +290,15 @@ export default function PostDetailView({
                   className="text-left shrink-0 transition-opacity hover:opacity-85 cursor-pointer"
                   title={`View profile of @${post.authorUsername || post.authorName.toLowerCase().replace(/[^a-z0-9_]/g, '') || 'sadhaka'}`}
                 >
-                  <img
-                    src={post.authorPhoto || "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix"}
-                    alt={post.authorName}
-                    referrerPolicy="no-referrer"
-                    className="w-12 h-12 rounded-full object-cover border-2 border-bamboo-100 bg-white"
-                    loading="lazy"
-                  />
+                  <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 border-2 border-bamboo-100 bg-white flex items-center justify-center">
+                    <img
+                      src={post.authorPhoto || "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix"}
+                      alt={post.authorName}
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover rounded-full"
+                      loading="lazy"
+                    />
+                  </div>
                 </button>
                 <div>
                   <div className="flex items-center space-x-2 flex-wrap">
@@ -458,13 +460,15 @@ export default function PostDetailView({
                         className="shrink-0 transition-opacity hover:opacity-85 cursor-pointer"
                         title={`View profile of @${comm.authorUsername || comm.authorName.toLowerCase().replace(/[^a-z0-9_]/g, '') || 'sadhaka'}`}
                       >
-                        <img
-                          src={comm.authorPhoto || "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix"}
-                          alt={comm.authorName}
-                          referrerPolicy="no-referrer"
-                          className="w-7 h-7 rounded-full object-cover mt-0.5 border border-bamboo-100"
-                          loading="lazy"
-                        />
+                        <div className="w-7 h-7 rounded-full overflow-hidden shrink-0 mt-0.5 border border-bamboo-100 bg-white flex items-center justify-center">
+                          <img
+                            src={comm.authorPhoto || "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix"}
+                            alt={comm.authorName}
+                            referrerPolicy="no-referrer"
+                            className="w-full h-full object-cover rounded-full"
+                            loading="lazy"
+                          />
+                        </div>
                       </button>
                       <div className="flex-1 bg-gray-50/75 p-2.5 rounded-xl border border-gray-200/50">
                         <div className="flex justify-between items-center mb-1">

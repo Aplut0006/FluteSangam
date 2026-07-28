@@ -399,15 +399,17 @@ export default function ChatSection({
 
                   {/* Avatar */}
                   <div className="relative shrink-0">
-                    <img
-                      src={group.otherUser.photoURL || "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix"}
-                      alt={group.otherUser.displayName}
-                      className={`w-10 h-10 rounded-full object-cover bg-white border ${
-                        isUnread ? 'border-yellow-400 ring-2 ring-yellow-200/50' : 'border-gray-200'
-                      }`}
-                      referrerPolicy="no-referrer"
-                      loading="lazy"
-                    />
+                    <div className="w-10 h-10 rounded-full overflow-hidden shrink-0 border bg-white flex items-center justify-center">
+                      <img
+                        src={group.otherUser.photoURL || "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix"}
+                        alt={group.otherUser.displayName}
+                        className={`w-full h-full object-cover rounded-full ${
+                          isUnread ? 'border-yellow-400' : ''
+                        }`}
+                        referrerPolicy="no-referrer"
+                        loading="lazy"
+                      />
+                    </div>
                     {isUnread && (
                       <span className="absolute -bottom-1.5 -right-1 bg-yellow-500 text-white font-black text-[9px] w-4.5 h-4.5 rounded-full flex items-center justify-center border border-white">
                         {group.unreadCount}
@@ -478,13 +480,15 @@ export default function ChatSection({
                   <ChevronLeft className="w-5 h-5" />
                 </button>
 
-                <img 
-                  src={activeTargetUser?.photoURL || "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix"} 
-                  alt={activeTargetUser?.displayName} 
-                  className="w-10 h-10 rounded-full object-cover border border-bamboo-400 bg-white shrink-0 shadow-3xs"
-                  referrerPolicy="no-referrer"
-                  loading="lazy"
-                />
+                <div className="w-10 h-10 rounded-full overflow-hidden shrink-0 border border-bamboo-400 bg-white shadow-3xs flex items-center justify-center">
+                  <img 
+                    src={activeTargetUser?.photoURL || "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix"} 
+                    alt={activeTargetUser?.displayName} 
+                    className="w-full h-full object-cover rounded-full"
+                    referrerPolicy="no-referrer"
+                    loading="lazy"
+                  />
+                </div>
                 <div className="min-w-0">
                   <h3 className="font-semibold text-sm leading-tight truncate">{activeTargetUser?.displayName}</h3>
                   <p className="text-[11px] text-bamboo-200 font-mono leading-none mt-0.5">
@@ -557,13 +561,15 @@ export default function ChatSection({
                       className={`flex items-start gap-2.5 max-w-[85%] group/msg ${isMe ? 'ml-auto flex-row-reverse' : 'mr-auto'}`}
                     >
                       {/* Avatar for stream */}
-                      <img
-                        src={isMe ? currentUser.photoURL : (activeTargetUser?.photoURL || "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix")}
-                        alt={isMe ? "You" : activeTargetUser?.displayName}
-                        className="w-7 h-7 rounded-full object-cover border border-gray-100 shadow-3xs shrink-0 mt-0.5 bg-white"
-                        referrerPolicy="no-referrer"
-                        loading="lazy"
-                      />
+                      <div className="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-gray-100 shadow-3xs mt-0.5 bg-white flex items-center justify-center">
+                        <img
+                          src={isMe ? currentUser.photoURL : (activeTargetUser?.photoURL || "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix")}
+                          alt={isMe ? "You" : activeTargetUser?.displayName}
+                          className="w-full h-full object-cover rounded-full"
+                          referrerPolicy="no-referrer"
+                          loading="lazy"
+                        />
+                      </div>
 
                       {/* Bubble wrapper */}
                       <div className="relative">

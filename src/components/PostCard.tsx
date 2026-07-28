@@ -296,13 +296,15 @@ export default function PostCard({
                   }}
                   className="shrink-0 transition-opacity hover:opacity-85"
                 >
-                  <img
-                    src={comment.authorPhoto || "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix"}
-                    alt={comment.authorName}
-                    className="w-5 h-5 rounded-full object-cover border border-gray-200"
-                    referrerPolicy="no-referrer"
-                    loading="lazy"
-                  />
+                  <div className="w-5 h-5 rounded-full overflow-hidden shrink-0 border border-gray-200 bg-white flex items-center justify-center">
+                    <img
+                      src={comment.authorPhoto || "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix"}
+                      alt={comment.authorName}
+                      className="w-full h-full object-cover rounded-full"
+                      referrerPolicy="no-referrer"
+                      loading="lazy"
+                    />
+                  </div>
                 </button>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-baseline space-x-1.5 flex-wrap">
