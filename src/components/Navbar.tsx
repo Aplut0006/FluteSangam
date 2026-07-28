@@ -798,7 +798,7 @@ export default function Navbar({
               <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-yellow-300 shrink-0" />
               <span className="flex flex-col text-center leading-tight">
                 <span>Join</span>
-                <span>Sangam</span>
+                <span>The Sangam</span>
               </span>
             </button>
           )}
