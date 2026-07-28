@@ -1103,7 +1103,7 @@ export default function App() {
                 <span className="text-xl sm:text-2xl font-display font-extrabold text-white tracking-tight block">
                   Flute<span className="text-amber-400">Sangam</span>
                 </span>
-                <span className="text-[11px] text-bamboo-300 block font-sans">
+                <span className="text-xs text-bamboo-300 block font-sans">
                   Indian Flute &amp; Bansuri Learning Community
                 </span>
               </div>
@@ -1120,10 +1120,10 @@ export default function App() {
           </div>
 
           {/* Internal Links Sitemap Grid for SEO */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-[11px] pt-2">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-xs pt-2">
             
             <div className="space-y-2">
-              <h3 className="font-display font-bold text-amber-300 uppercase tracking-wider text-[11px]">
+              <h3 className="font-display font-bold text-amber-300 uppercase tracking-wider text-xs">
                 Flute Learning
               </h3>
               <ul className="space-y-1.5 text-bamboo-200">
@@ -1151,7 +1151,7 @@ export default function App() {
             </div>
 
             <div className="space-y-2">
-              <h3 className="font-display font-bold text-amber-300 uppercase tracking-wider text-[11px]">
+              <h3 className="font-display font-bold text-amber-300 uppercase tracking-wider text-xs">
                 Practice Tools
               </h3>
               <ul className="space-y-1.5 text-bamboo-200">
@@ -1179,7 +1179,7 @@ export default function App() {
             </div>
 
             <div className="space-y-2">
-              <h3 className="font-display font-bold text-amber-300 uppercase tracking-wider text-[11px]">
+              <h3 className="font-display font-bold text-amber-300 uppercase tracking-wider text-xs">
                 Community
               </h3>
               <ul className="space-y-1.5 text-bamboo-200">
@@ -1202,7 +1202,7 @@ export default function App() {
             </div>
 
             <div className="space-y-2">
-              <h3 className="font-display font-bold text-amber-300 uppercase tracking-wider text-[11px]">
+              <h3 className="font-display font-bold text-amber-300 uppercase tracking-wider text-xs">
                 Legal &amp; Support
               </h3>
               <ul className="space-y-1.5 text-bamboo-200">
@@ -1232,14 +1232,17 @@ export default function App() {
           </div>
 
           <div className="pt-6 border-t border-bamboo-700/60 text-center space-y-2">
-            <p className="text-[10px] text-bamboo-300/80 max-w-xl mx-auto leading-relaxed">
-              FluteSangam is an educational &amp; social portal for Indian bamboo flute (Bansuri) enthusiasts. We use email and Google Sign-In to securely authenticate members, create user profiles, and allow flutists to post recitals, comments, and song notation requests.
+            <p className="text-xs text-bamboo-300/80 max-w-xl mx-auto leading-relaxed">
+              FluteSangam is a free learning platform for Indian Bansuri and flute players. Learn step-by-step with beginner guides, alankars, ragas, fingering charts, practice routines, and connect with flute learners worldwide
             </p>
-            <p className="text-[10px] text-bamboo-400">
+            <p className="text-[11px] font-medium text-amber-300/90 tracking-wide">
+              Free learning resources • Community driven • Made for Flute enthusiasts worldwide
+            </p>
+            <p className="text-[11px] text-bamboo-400">
               © {new Date().getFullYear()} FluteSangam. All rights reserved.
             </p>
-            <p className="text-[10px] text-bamboo-500 font-medium">
-              Developed by: Aplut
+            <p className="text-[11px] text-bamboo-500 font-medium">
+              Designed &amp; Developed by Aplut
             </p>
           </div>
 
