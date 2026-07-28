@@ -6,6 +6,12 @@ import {
 } from 'lucide-react';
 import * as Tone from 'tone';
 import { UserProfile } from '../types';
+import { 
+  subscribeToSavedAlankars, 
+  saveAlankarToFirestore, 
+  deleteSavedAlankarFromFirestore, 
+  clearAllSavedAlankarsFromFirestore 
+} from '../lib/db';
 
 export interface AlankarPattern {
   id: string;
@@ -439,25 +445,44 @@ export default function AlankarGeneratorView({ currentUser }: AlankarGeneratorVi
   // Toast feedback
   const [toastMessage, setToastMessage] = useState<string>('');
 
-  // Load saved alankars from localStorage exclusively for authenticated user
+  // Subscribe to real-time Firestore saved alankars for authenticated user with legacy localStorage auto-migration
   useEffect(() => {
-    if (!isUserSignedIn || !userStorageKey) {
+    if (!isUserSignedIn || !userId) {
       setSavedAlankars([]);
       setActiveTab('generator');
       return;
     }
-    try {
-      const saved = localStorage.getItem(userStorageKey);
-      if (saved) {
-        setSavedAlankars(JSON.parse(saved));
-      } else {
-        setSavedAlankars([]);
+
+    const unsubscribe = subscribeToSavedAlankars(userId, (firestoreList) => {
+      setSavedAlankars(firestoreList);
+
+      // Automatic one-time migration of any legacy saved items in localStorage to Firestore
+      if (userStorageKey) {
+        try {
+          const localSaved = localStorage.getItem(userStorageKey);
+          if (localSaved) {
+            const parsedLocal: AlankarPattern[] = JSON.parse(localSaved);
+            if (Array.isArray(parsedLocal) && parsedLocal.length > 0) {
+              parsedLocal.forEach(item => {
+                const alreadyInFirestore = firestoreList.some(
+                  f => f.id === item.id || (f.mathSeed === item.mathSeed && f.scale === item.scale)
+                );
+                if (!alreadyInFirestore) {
+                  saveAlankarToFirestore(userId, item).catch(err => console.error('Migration error:', err));
+                }
+              });
+              // Clear local cache once migrated
+              localStorage.removeItem(userStorageKey);
+            }
+          }
+        } catch (err) {
+          console.error("Local storage migration error:", err);
+        }
       }
-    } catch (e) {
-      console.error('Error reading saved alankars', e);
-      setSavedAlankars([]);
-    }
-  }, [isUserSignedIn, userStorageKey]);
+    });
+
+    return () => unsubscribe();
+  }, [isUserSignedIn, userId, userStorageKey]);
 
   // Cleanup audio
   useEffect(() => {
@@ -591,59 +616,51 @@ export default function AlankarGeneratorView({ currentUser }: AlankarGeneratorVi
     showToast('Reset generator parameters!');
   };
 
-  // Save / Bookmark Alankar
-  const toggleSaveAlankar = (item: AlankarPattern) => {
-    if (!isUserSignedIn) {
+  // Save / Bookmark Alankar in Firestore
+  const toggleSaveAlankar = async (item: AlankarPattern) => {
+    if (!isUserSignedIn || !userId) {
       showToast('Please sign in to save Alankars');
       return;
     }
-    const exists = savedAlankars.some(s => s.id === item.id || (s.mathSeed === item.mathSeed && s.scale === item.scale));
-    let updated: AlankarPattern[];
-    if (exists) {
-      updated = savedAlankars.filter(s => s.id !== item.id && s.mathSeed !== item.mathSeed);
-      showToast('Removed from saved collection');
+    const existing = savedAlankars.find(s => s.id === item.id || (s.mathSeed === item.mathSeed && s.scale === item.scale));
+    if (existing) {
+      try {
+        await deleteSavedAlankarFromFirestore(userId, existing.id || item.id, item.mathSeed);
+        showToast('Removed from saved collection');
+      } catch (e) {
+        showToast('Failed to remove saved Alankar');
+      }
     } else {
-      updated = [item, ...savedAlankars];
-      showToast('Saved to your Alankar collection!');
-    }
-    setSavedAlankars(updated);
-    if (userStorageKey) {
       try {
-        localStorage.setItem(userStorageKey, JSON.stringify(updated));
+        await saveAlankarToFirestore(userId, item);
+        showToast('Saved to your Alankar collection!');
       } catch (e) {
-        console.error('Failed to update localStorage', e);
+        showToast('Failed to save Alankar');
       }
     }
   };
 
-  // Explicit Delete single saved Alankar
-  const deleteSingleSavedAlankar = (item: AlankarPattern) => {
-    if (!isUserSignedIn) return;
-    const updated = savedAlankars.filter(s => s.id !== item.id && s.mathSeed !== item.mathSeed);
-    setSavedAlankars(updated);
-    if (userStorageKey) {
-      try {
-        localStorage.setItem(userStorageKey, JSON.stringify(updated));
-      } catch (e) {
-        console.error('Failed to update localStorage', e);
-      }
+  // Explicit Delete single saved Alankar from Firestore
+  const deleteSingleSavedAlankar = async (item: AlankarPattern) => {
+    if (!isUserSignedIn || !userId) return;
+    try {
+      await deleteSavedAlankarFromFirestore(userId, item.id, item.mathSeed);
+      showToast('Deleted Alankar from saved collection');
+    } catch (e) {
+      showToast('Failed to delete saved Alankar');
     }
-    showToast('Deleted Alankar from saved collection');
   };
 
-  // Clear all saved alankars for current user
-  const handleClearAllSaved = () => {
-    if (!isUserSignedIn) return;
+  // Clear all saved alankars for current user from Firestore
+  const handleClearAllSaved = async () => {
+    if (!isUserSignedIn || !userId) return;
     if (window.confirm("Are you sure you want to clear all your saved alankars?")) {
-      setSavedAlankars([]);
-      if (userStorageKey) {
-        try {
-          localStorage.removeItem(userStorageKey);
-        } catch (e) {
-          console.error('Failed to clear saved alankars', e);
-        }
+      try {
+        await clearAllSavedAlankarsFromFirestore(userId);
+        showToast('Cleared all saved alankars!');
+      } catch (e) {
+        showToast('Failed to clear saved alankars');
       }
-      showToast('Cleared all saved alankars!');
     }
   };
 

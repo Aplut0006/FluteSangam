@@ -984,3 +984,85 @@ export async function getUserByUsername(username: string): Promise<UserProfile |
 export function getDirectChatId(uid1: string, uid2: string): string {
   return [uid1, uid2].sort().join('_');
 }
+
+// Saved Alankars Firestore Management (Cross-device sync)
+export function subscribeToSavedAlankars(userId: string, callback: (alankars: any[]) => void) {
+  if (!userId) {
+    callback([]);
+    return () => {};
+  }
+  const colRef = collection(db, 'users', userId, 'saved_alankars');
+
+  return onSnapshot(colRef, (snapshot) => {
+    const list: any[] = [];
+    snapshot.forEach((docSnap) => {
+      const data = docSnap.data();
+      list.push({
+        ...data,
+        id: docSnap.id,
+      });
+    });
+    // Sort descending by savedAt if present or date
+    list.sort((a, b) => {
+      const timeA = a.savedAt?.toMillis ? a.savedAt.toMillis() : (a.savedAt ? new Date(a.savedAt).getTime() : 0);
+      const timeB = b.savedAt?.toMillis ? b.savedAt.toMillis() : (b.savedAt ? new Date(b.savedAt).getTime() : 0);
+      return timeB - timeA;
+    });
+    callback(list);
+  }, (error) => {
+    console.error("Error subscribing to saved alankars:", error);
+    callback([]);
+  });
+}
+
+export async function saveAlankarToFirestore(userId: string, alankar: any): Promise<void> {
+  if (!userId || !alankar) return;
+  try {
+    const docId = alankar.id || `alankar_${alankar.mathSeed || Date.now()}`;
+    const docRef = doc(db, 'users', userId, 'saved_alankars', docId);
+    await setDoc(docRef, cleanUndefined({
+      ...alankar,
+      id: docId,
+      savedAt: Timestamp.now()
+    }), { merge: true });
+  } catch (error) {
+    console.error("Error saving alankar to Firestore:", error);
+    throw error;
+  }
+}
+
+export async function deleteSavedAlankarFromFirestore(userId: string, alankarId: string, mathSeed?: number): Promise<void> {
+  if (!userId) return;
+  try {
+    const docRef = doc(db, 'users', userId, 'saved_alankars', alankarId);
+    await deleteDoc(docRef);
+
+    if (mathSeed) {
+      const colRef = collection(db, 'users', userId, 'saved_alankars');
+      const q = query(colRef, where('mathSeed', '==', mathSeed));
+      const snap = await getDocs(q);
+      snap.forEach((d) => {
+        deleteDoc(d.ref).catch(() => {});
+      });
+    }
+  } catch (error) {
+    console.error("Error deleting saved alankar from Firestore:", error);
+    throw error;
+  }
+}
+
+export async function clearAllSavedAlankarsFromFirestore(userId: string): Promise<void> {
+  if (!userId) return;
+  try {
+    const colRef = collection(db, 'users', userId, 'saved_alankars');
+    const snap = await getDocs(colRef);
+    const batch = writeBatch(db);
+    snap.forEach((docSnap) => {
+      batch.delete(docSnap.ref);
+    });
+    await batch.commit();
+  } catch (error) {
+    console.error("Error clearing all saved alankars from Firestore:", error);
+    throw error;
+  }
+}

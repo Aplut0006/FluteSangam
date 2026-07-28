@@ -21,6 +21,11 @@ service cloud.firestore {
       allow read: if true;
       allow create, update: if true;
       allow delete: if false;
+
+      // Saved Alankars subcollection for cross-device persistence
+      match /saved_alankars/{alankarId} {
+        allow read, write: if true;
+      }
     }
 
     // Song requests collection
