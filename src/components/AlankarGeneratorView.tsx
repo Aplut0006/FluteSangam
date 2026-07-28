@@ -152,8 +152,8 @@ function generateProceduralAlankar(
         repeatPattern = Array.from({ length: len }, (_, i) => (i % 2 === 0 ? r1 : r2));
       }
 
-      customTitle = `Jod Repeat Vector (${repeatPattern ? repeatPattern.join('x-') + 'x' : repeatCount + 'x'} Swara)`;
-      desc = `Procedurally calculated note repetition for finger articulation and throat control.`;
+      customTitle = `Jod / Repeat Swara Pattern`;
+      desc = `Note repetition exercise for finger articulation and throat control.`;
     } else if (isLinear) {
       const lenOptions = difficulty === 'Beginner' ? [2, 3, 4] : difficulty === 'Intermediate' ? [4, 5, 6] : [5, 6, 7, 8];
       const len = lenOptions[Math.floor(Math.random() * lenOptions.length)];
@@ -176,8 +176,8 @@ function generateProceduralAlankar(
         }
       }
 
-      customTitle = `Procedural ${len}-Swara Step Sequence (Stride ${stride})`;
-      desc = `Mathematical straight step sequence of ${len} consecutive notes for even tone production.`;
+      customTitle = `${len}-Swara Step Sequence`;
+      desc = `Straight step sequence of ${len} consecutive notes for smooth tone production.`;
     } else if (isTriplet) {
       // Dynamic 3-note offsets [0, x, y]
       const xChoices = [-2, -1, 1, 2, 3, 4, 5];
@@ -191,8 +191,8 @@ function generateProceduralAlankar(
         offsets = [0, x, y];
       }
       stride = (difficulty === 'Advanced' && Math.random() > 0.5) ? 2 : 1;
-      customTitle = `Procedural Triplet Vector [${offsets.join(', ')}]`;
-      desc = `3-beat rhythmic grouping generated mathematically to sharpen 3/4 rhythm tracking.`;
+      customTitle = `3-Swara Triplet Pattern`;
+      desc = `3-beat rhythmic grouping to sharpen rhythm tracking and tempo.`;
     } else if (isQuadruplet) {
       // Dynamic 4-note offsets [0, x, y, z]
       const xChoices = [-2, -1, 1, 2, 3, 4, 5];
@@ -209,8 +209,8 @@ function generateProceduralAlankar(
       }
 
       stride = (difficulty === 'Advanced' && Math.random() > 0.5) ? (Math.random() > 0.5 ? 2 : 3) : 1;
-      customTitle = `Procedural Quadruplet Vector [${offsets.join(', ')}]`;
-      desc = `4-note structural permutation calculated for rapid dexterity across scale transitions.`;
+      customTitle = `4-Swara Quadruplet Pattern`;
+      desc = `4-note pattern for rapid dexterity across scale transitions.`;
     } else if (isSkip) {
       const leapStep = difficulty === 'Beginner' ? Math.floor(Math.random() * 2) + 2 : difficulty === 'Intermediate' ? Math.floor(Math.random() * 2) + 3 : Math.floor(Math.random() * 3) + 3;
       const skipStructureType = Math.floor(Math.random() * 8);
@@ -227,8 +227,8 @@ function generateProceduralAlankar(
         default: offsets = [0, leapStep, 1, leapStep + 1]; break;
       }
       stride = (difficulty === 'Advanced' && Math.random() > 0.5) ? 2 : 1;
-      customTitle = `Procedural Leap Vector (Gap ${leapStep})`;
-      desc = `Math-calculated interval jump exercise to build independent finger lifting and sealing.`;
+      customTitle = `Skip Note Alankar`;
+      desc = `Interval jump exercise to build independent finger lifting and sealing.`;
     } else if (isZigzag) {
       const len = 3 + Math.floor(Math.random() * 4);
       offsets = [0];
@@ -242,8 +242,8 @@ function generateProceduralAlankar(
         dir = -dir;
       }
       stride = (difficulty === 'Advanced' && Math.random() > 0.5) ? 2 : 1;
-      customTitle = `Procedural Vakra Loop [${offsets.join(', ')}]`;
-      desc = `Directional zigzag loop formula calculated to train non-linear classical phrasing.`;
+      customTitle = `Vakra / Zigzag Loop`;
+      desc = `Directional zigzag loop to train non-linear classical phrasing.`;
     } else if (isGamak) {
       const len = 2 + Math.floor(Math.random() * 3);
       offsets = [0];
@@ -253,14 +253,14 @@ function generateProceduralAlankar(
       const ornaments: ('grace' | 'meend' | 'krintan' | 'kampit')[] = ['grace', 'meend', 'krintan', 'kampit'];
       ornamentType = ornaments[Math.floor(Math.random() * ornaments.length)];
       const names = { grace: 'Sparsh Grace', meend: 'Meend Glide', krintan: 'Krintan Touch', kampit: 'Kampit Oscillation' };
-      customTitle = `Procedural ${names[ornamentType]} Ornamentation`;
-      desc = `Embellished sargam computed with expressive classical riyaz embellishments.`;
+      customTitle = `${names[ornamentType]} Ornamentation`;
+      desc = `Embellished sargam with expressive classical riyaz embellishments.`;
     } else if (isComplex) {
       if (Math.random() > 0.7) {
         isPyramid = true;
         const pyMax = 7;
-        customTitle = `Procedural Pyramid Expansion Formula (L1..L${pyMax})`;
-        desc = `Progressive recursive expansion formula building breath endurance and octave agility.`;
+        customTitle = `Pyramid Alankar Pattern`;
+        desc = `Progressive expansion building breath endurance and octave agility.`;
       } else {
         const len = 5 + Math.floor(Math.random() * 3);
         offsets = [0];
@@ -269,8 +269,8 @@ function generateProceduralAlankar(
           offsets.push(Math.max(-2, offsets[i - 1] + delta));
         }
         stride = (difficulty === 'Advanced' && Math.random() > 0.5) ? 2 : 1;
-        customTitle = `Procedural Combination [${offsets.join(', ')}]`;
-        desc = `Advanced multi-swara permutation vector synthesized for high-tempo mastery.`;
+        customTitle = `Complex Sargam Combination`;
+        desc = `Advanced multi-swara permutation for high-tempo mastery.`;
       }
     }
 
@@ -361,7 +361,7 @@ function generateProceduralAlankar(
     return {
       id: `procedural-${seed}-${Date.now()}-${number}-${Math.random().toString(36).substring(2, 6)}`,
       number,
-      title: customTitle || `Procedural Pattern #${seed.toString().slice(-4)}`,
+      title: customTitle || `Alankar Pattern #${seed.toString().slice(-4)}`,
       difficulty,
       patternType: targetPatternType,
       scale,
@@ -391,7 +391,7 @@ function generateProceduralAlankar(
   return {
     id: `procedural-${seed}-${Date.now()}-${number}-${Math.random().toString(36).substring(2, 6)}`,
     number,
-    title: `Procedural ${difficulty} Vector #${seed.toString().slice(-4)}`,
+    title: `${difficulty} Alankar #${seed.toString().slice(-4)}`,
     difficulty,
     patternType: patternTypeFilter,
     scale,
@@ -799,16 +799,11 @@ Learn & practice on https://flutesangam.com`;
         <div className="relative z-10 space-y-4">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <div className="flex items-center gap-2">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold font-display text-bamboo-950 tracking-tight" itemProp="headline">
-                  Alankar Generator
-                </h1>
-                <span className="text-[10px] font-black uppercase tracking-wider bg-amber-100 text-amber-900 border border-amber-300 px-2.5 py-0.5 rounded-full">
-                  Procedural Engine
-                </span>
-              </div>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold font-display text-bamboo-950 tracking-tight" itemProp="headline">
+                Alankar Generator
+              </h1>
               <p className="text-xs sm:text-sm text-gray-600 mt-1 font-medium">
-                Math-based algorithmic sargam vector synthesizer generating unique, mathematically valid Alankar patterns for Indian bamboo flute.
+                Generate custom Sargam practice patterns to improve your flute finger movement, rhythm, and speed.
               </p>
             </div>
 
@@ -1144,7 +1139,7 @@ Learn & practice on https://flutesangam.com`;
             <div className="flex items-center justify-between">
               <h2 className="text-xl font-bold font-display text-bamboo-950 flex items-center gap-2">
                 <Music className="w-5 h-5 text-amber-600" />
-                <span>Procedurally Synthesized Alankars ({generatedAlankars.length})</span>
+                <span>Created Alankars ({generatedAlankars.length})</span>
               </h2>
               <span className="text-xs text-gray-500 font-medium">
                 Flute Key: <strong className="text-bamboo-900">{selectedScale}</strong>

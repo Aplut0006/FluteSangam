@@ -534,7 +534,7 @@ export default function Navbar({
                     </div>
                     <div className="text-left">
                       <div className={`text-xs font-extrabold ${currentView === 'alankar_generator' ? 'text-white' : 'text-bamboo-950'}`}>Alankar Generator</div>
-                      <div className={`text-[11px] ${currentView === 'alankar_generator' ? 'text-amber-100' : 'text-gray-600'}`}>Procedural sargam exercise synthesizer</div>
+                      <div className={`text-[11px] ${currentView === 'alankar_generator' ? 'text-amber-100' : 'text-gray-600'}`}>Create your own Alankars</div>
                     </div>
                   </div>
                 </button>
