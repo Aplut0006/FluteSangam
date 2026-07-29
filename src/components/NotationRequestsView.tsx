@@ -33,8 +33,10 @@ import {
   Sparkles,
   ChevronRight,
   Trash2,
-  Wind
+  Wind,
+  Plus
 } from 'lucide-react';
+import { SongRequestModal } from './SongRequestFAB';
 
 interface NotationRequestsViewProps {
   currentUser?: any;
@@ -46,6 +48,7 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
   const [filter, setFilter] = useState<'all' | 'pending' | 'ready'>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(true);
+  const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
 
   // Modal / Detail state
   const [selectedRequest, setSelectedRequest] = useState<any | null>(null);
@@ -285,8 +288,8 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
   return (
     <div className="max-w-4xl mx-auto p-4 md:p-8">
       {/* Header Banner */}
-      <div className="bg-gradient-to-r from-bamboo-800 to-bamboo-900 text-white rounded-3xl p-6 md:p-8 mb-8 shadow-lg relative overflow-hidden">
-        <div className="relative z-10">
+      <div className="bg-gradient-to-r from-bamboo-800 to-bamboo-900 text-white rounded-3xl p-6 md:p-8 mb-8 shadow-lg relative overflow-hidden flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+        <div className="relative z-10 flex-1">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-semibold mb-3 border border-amber-500/30">
             <Music className="w-3.5 h-3.5" />
             <span>Community Flute Notations</span>
@@ -296,8 +299,24 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
             Browse requests, submit swaras/notations for songs requested by fellow flutists, and view notations shared by the community.
           </p>
         </div>
+        <div className="relative z-10 shrink-0">
+          <button
+            onClick={() => setIsRequestModalOpen(true)}
+            className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-2xl shadow-lg hover:shadow-xl transition flex items-center gap-2.5 cursor-pointer border border-amber-300/30 group"
+          >
+            <Plus className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:rotate-90" />
+            <span>Request Song Notation</span>
+          </button>
+        </div>
         <Music className="absolute -right-6 -bottom-6 w-48 h-48 text-white/5 pointer-events-none" />
       </div>
+
+      <SongRequestModal 
+        isOpen={isRequestModalOpen} 
+        onClose={() => setIsRequestModalOpen(false)} 
+        currentUser={currentUser} 
+        onOpenAuth={onOpenAuth} 
+      />
 
       {/* Controls Bar */}
       <div className="flex flex-col sm:flex-row gap-4 justify-between items-stretch sm:items-center mb-6">

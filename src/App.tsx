@@ -31,7 +31,7 @@ import ImageModal from './components/ImageModal';
 import AboutUsView from './components/AboutUsView';
 import ContactUsView from './components/ContactUsView';
 import MobileBottomNav from './components/MobileBottomNav';
-import { SongRequestFAB } from './components/SongRequestFAB';
+import { FluteSangamChatbot } from './components/FluteSangamChatbot';
 import { NotationRequestsView } from './components/NotationRequestsView';
 import PrivacyPolicyView from './components/PrivacyPolicyView';
 import TermsOfServiceView from './components/TermsOfServiceView';
@@ -1302,10 +1302,9 @@ export default function App() {
         unreadCount={unreadCount}
         isHidden={authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost || !!selectedImageUrl}
       />
-      <SongRequestFAB 
-        isHidden={currentView !== 'community' || authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost} 
-        currentUser={currentUser}
-        onOpenAuth={() => setAuthModalOpen(true)}
+      <FluteSangamChatbot 
+        onViewChange={handleViewChange}
+        isHidden={authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost}
       />
     </div>
   );
