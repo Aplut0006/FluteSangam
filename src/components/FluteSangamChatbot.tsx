@@ -74,7 +74,7 @@ export const FluteSangamChatbot: React.FC<FluteSangamChatbotProps> = ({ onViewCh
         {
           id: 'welcome-msg',
           sender: 'bot',
-          text: '👋 Welcome to FluteSangam Assistant! Ask anything about learning the Indian Bansuri, flute selection, practice, techniques, raagas, or tap any category below to explore questions.',
+          text: 'Welcome to FluteSangam Assistant! Ask anything about learning the Indian Bansuri, flute selection, practice, techniques, raagas, or tap any category below to explore questions',
           timestamp: now
         }
       ]);
@@ -176,7 +176,7 @@ export const FluteSangamChatbot: React.FC<FluteSangamChatbotProps> = ({ onViewCh
       {
         id: `welcome-${Date.now()}`,
         sender: 'bot',
-        text: '👋 Welcome to FluteSangam Assistant! Ask anything about learning the Indian Bansuri, flute selection, practice, techniques, raagas, or tap any category below to explore questions.',
+        text: 'Welcome to FluteSangam Assistant! Ask anything about learning the Indian Bansuri, flute selection, practice, techniques, raagas, or tap any category below to explore questions',
         timestamp: now
       }
     ]);
