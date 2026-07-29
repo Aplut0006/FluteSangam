@@ -88,15 +88,6 @@ export const FluteSangamChatbot: React.FC<FluteSangamChatbotProps> = ({ onViewCh
     }
   }, [messages, isOpen]);
 
-  // Focus input when opened
-  useEffect(() => {
-    if (isOpen) {
-      setTimeout(() => {
-        inputRef.current?.focus();
-      }, 200);
-    }
-  }, [isOpen]);
-
   if (isHidden) return null;
 
   const getCategoryIcon = (iconName: string) => {
