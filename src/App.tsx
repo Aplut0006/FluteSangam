@@ -704,7 +704,7 @@ export default function App() {
                   Welcome to FluteSangam — Where Flutists Learn, Share &amp; Grow
                 </h1>
                 <p className="text-[11px] sm:text-xs text-bamboo-100 leading-relaxed font-normal">
-                  <strong>FluteSangam</strong> is an online educational and social community platform built specifically for practitioners, students, and teachers of the Indian bamboo flute (Bansuri).
+                  <strong>FluteSangam</strong> is an online learning and community platform dedicated to the Indian bamboo flute (Bansuri), where beginners, students, teachers, and enthusiasts can explore step-by-step learning guides, alankars, raagas, practice resources, flute tools, and connect with fellow flute players worldwide.
                 </p>
               </div>
 
