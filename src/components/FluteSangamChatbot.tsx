@@ -32,12 +32,39 @@ interface FluteSangamChatbotProps {
 }
 
 export const FluteSangamChatbot: React.FC<FluteSangamChatbotProps> = ({ onViewChange, isHidden }) => {
+  if (isHidden) return null;
+
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string>('Beginner');
   const [inputValue, setInputValue] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const chatbotWindowRef = useRef<HTMLDivElement>(null);
+
+  // Close when clicking outside the chatbot window
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isOpen &&
+        chatbotWindowRef.current &&
+        !chatbotWindowRef.current.contains(event.target as Node)
+      ) {
+        const triggerBtn = document.getElementById('flute-chatbot-trigger-btn');
+        if (triggerBtn && triggerBtn.contains(event.target as Node)) {
+          return;
+        }
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
 
   // Initialize welcome message
   useEffect(() => {
@@ -199,7 +226,7 @@ export const FluteSangamChatbot: React.FC<FluteSangamChatbotProps> = ({ onViewCh
         <button
           onClick={() => setIsOpen(true)}
           id="flute-chatbot-trigger-btn"
-          className="fixed bottom-[76px] md:bottom-6 right-5 md:right-6 z-[90] bg-gradient-to-r from-bamboo-800 via-bamboo-900 to-amber-950 hover:from-bamboo-700 hover:to-bamboo-900 text-white px-4 py-3 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 flex items-center gap-2.5 border border-amber-400/50 group cursor-pointer"
+          className="fixed bottom-[calc(5.25rem+env(safe-area-inset-bottom,0px))] md:bottom-6 right-4 md:right-6 z-[1001] bg-gradient-to-r from-bamboo-800 via-bamboo-900 to-amber-950 hover:from-bamboo-700 hover:to-bamboo-900 text-white px-4 py-3 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 flex items-center gap-2.5 border border-amber-400/50 group cursor-pointer"
           title="Ask FluteSangam Assistant"
         >
           <div className="relative flex items-center justify-center shrink-0">
@@ -215,15 +242,26 @@ export const FluteSangamChatbot: React.FC<FluteSangamChatbotProps> = ({ onViewCh
       {/* Chat Window Dialog - positioned cleanly above mobile bottom nav */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            transition={{ type: "spring", stiffness: 350, damping: 25 }}
-            className="fixed bottom-[74px] right-3 sm:bottom-6 sm:right-6 z-[1000] w-[calc(100vw-1.5rem)] sm:w-[420px] h-[540px] max-h-[calc(100dvh-5.5rem)] bg-white rounded-3xl shadow-2xl border border-bamboo-200 flex flex-col overflow-hidden font-sans"
-          >
-            {/* Header Banner */}
-            <div className="bg-gradient-to-r from-bamboo-900 via-bamboo-800 to-amber-950 text-white px-4 py-3.5 flex items-center justify-between shrink-0 shadow-sm border-b border-white/10">
+          <>
+            {/* Click-outside Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 z-[1000] bg-black/20 backdrop-blur-[1px] md:bg-black/5 transition-opacity"
+            />
+
+            <motion.div
+              ref={chatbotWindowRef}
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ type: "spring", stiffness: 350, damping: 25 }}
+              className="fixed bottom-[calc(4.75rem+env(safe-area-inset-bottom,0px))] right-2 sm:right-6 md:bottom-6 z-[1001] w-[calc(100vw-1rem)] max-w-[390px] sm:w-[400px] h-[440px] sm:h-[500px] max-h-[calc(100dvh-6rem)] bg-white rounded-3xl shadow-2xl border border-bamboo-200 flex flex-col overflow-hidden font-sans"
+            >
+              {/* Header Banner */}
+              <div className="bg-gradient-to-r from-bamboo-900 via-bamboo-800 to-amber-950 text-white px-3.5 py-2.5 sm:px-4 sm:py-3 flex items-center justify-between shrink-0 shadow-sm border-b border-white/10">
               <div className="flex items-center gap-2.5">
                 <div className="relative p-2 bg-amber-500/20 border border-amber-400/30 rounded-2xl text-amber-300 shrink-0">
                   <Bot className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -404,8 +442,9 @@ export const FluteSangamChatbot: React.FC<FluteSangamChatbotProps> = ({ onViewCh
               </button>
             </form>
           </motion.div>
-        )}
-      </AnimatePresence>
+        </>
+      )}
+    </AnimatePresence>
     </>
   );
 };
