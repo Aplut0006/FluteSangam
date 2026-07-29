@@ -29,6 +29,24 @@ body {
   background-attachment: fixed;
   color: #1a0f0a;
   font-family: var(--font-sans);
+  touch-action: manipulation;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Prevent auto-zoom when focusing form inputs on mobile smartphones */
+@media screen and (max-width: 768px) {
+  input[type="text"],
+  input[type="search"],
+  input[type="number"],
+  input[type="email"],
+  input[type="password"],
+  input[type="tel"],
+  input[type="url"],
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
 }
 
 /* Glassmorphism custom components */

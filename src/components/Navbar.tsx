@@ -87,6 +87,7 @@ export default function Navbar({
   const [showMoreDropdown, setShowMoreDropdown] = useState(false);
   const moreDropdownRef = useRef<HTMLDivElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const mobileMenuBtnRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -99,7 +100,11 @@ export default function Navbar({
       if (moreDropdownRef.current && !moreDropdownRef.current.contains(event.target as Node)) {
         setShowMoreDropdown(false);
       }
-      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+      if (
+        mobileMenuRef.current && 
+        !mobileMenuRef.current.contains(event.target as Node) &&
+        (!mobileMenuBtnRef.current || !mobileMenuBtnRef.current.contains(event.target as Node))
+      ) {
         setShowMobileMenu(false);
       }
     }
@@ -495,11 +500,12 @@ export default function Navbar({
         {/* Hamburger Menu Button (Mobile & Tablet < lg) */}
         <div className="lg:hidden">
           <button
-            onClick={() => setShowMobileMenu(!showMobileMenu)}
-            className="p-2 text-bamboo-800 hover:bg-bamboo-50 rounded-xl transition cursor-pointer"
+            ref={mobileMenuBtnRef}
+            onClick={() => setShowMobileMenu(prev => !prev)}
+            className="p-2 text-bamboo-800 hover:bg-bamboo-50 rounded-xl transition cursor-pointer flex items-center justify-center"
             aria-label="Toggle navigation menu"
           >
-            <Menu className="w-6 h-6" />
+            <Menu className="w-6 h-6 text-bamboo-800" />
           </button>
         </div>
 

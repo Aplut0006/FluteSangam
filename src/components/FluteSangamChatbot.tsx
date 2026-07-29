@@ -249,7 +249,7 @@ export const FluteSangamChatbot: React.FC<FluteSangamChatbotProps> = ({ onViewCh
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: "spring", stiffness: 350, damping: 25 }}
-              className="fixed bottom-[calc(4.75rem+env(safe-area-inset-bottom,0px))] right-2 sm:right-6 md:bottom-6 z-[1001] w-[calc(100vw-1rem)] max-w-[390px] sm:w-[400px] h-[440px] sm:h-[500px] max-h-[calc(100dvh-6rem)] bg-white rounded-3xl shadow-2xl border border-bamboo-200 flex flex-col overflow-hidden font-sans"
+              className="fixed bottom-[calc(4.5rem+env(safe-area-inset-bottom,0px))] left-2 right-2 sm:left-auto sm:right-6 md:bottom-6 z-[1001] w-[calc(100vw-1rem)] sm:w-[420px] max-w-[500px] h-[78dvh] min-h-[480px] max-h-[calc(100dvh-5.25rem)] sm:h-[540px] sm:max-h-[620px] bg-white rounded-3xl shadow-2xl border border-bamboo-200 flex flex-col overflow-hidden font-sans"
             >
               {/* Header Banner */}
               <div className="bg-gradient-to-r from-bamboo-900 via-bamboo-800 to-amber-950 text-white px-3.5 py-2.5 sm:px-4 sm:py-3 flex items-center justify-between shrink-0 shadow-sm border-b border-white/10">
