@@ -243,22 +243,22 @@ export default function Navbar({
             setShowMobileMenu(false);
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
-          className="flex items-center gap-1.5 sm:gap-2.5 group focus:outline-none cursor-pointer min-w-0 mr-1 sm:mr-4 lg:mr-8"
+          className="flex items-center gap-2 sm:gap-2.5 group focus:outline-none cursor-pointer shrink-0 mr-2 sm:mr-4 lg:mr-6"
           id="navbar-brand-logo-btn"
-          title="Go to Home / Landing"
+          title="FluteSangam - Go to Home"
         >
           <img 
             src="/flutesangam_without_tagline.png" 
-            alt="FluteSangam" 
-            className="h-8 sm:h-11 w-auto transition-transform group-hover:scale-105 shrink-0 object-contain" 
+            alt="FluteSangam Logo" 
+            className="h-8 sm:h-9 lg:h-10 w-auto transition-transform group-hover:scale-105 shrink-0 object-contain drop-shadow-2xs" 
           />
-          <span className="font-display font-extrabold text-lg sm:text-2xl tracking-tight text-bamboo-950 group-hover:text-bamboo-800 transition-colors truncate">
+          <span className="font-display font-extrabold text-lg sm:text-xl lg:text-2xl tracking-tight text-bamboo-950 group-hover:text-bamboo-800 transition-colors whitespace-nowrap">
             Flute<span className="text-amber-700">Sangam</span>
           </span>
         </a>
 
         {/* Desktop View Selector */}
-        <div className="hidden lg:flex items-center space-x-1 bg-bamboo-50/80 p-1 rounded-xl border border-bamboo-100/50 shrink-0">
+        <div className="hidden lg:flex items-center space-x-0.5 xl:space-x-1 bg-bamboo-50/80 p-1 rounded-xl border border-bamboo-100/50 shrink-0">
           
           {/* 1. Sadhana Feed */}
           <a
