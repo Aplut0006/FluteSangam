@@ -14,6 +14,8 @@ export type ChatCategoryType =
   | 'Music Theory'
   | 'Performance'
   | 'Common Problems'
+  | 'Troubleshooting'
+  | 'Recording & Audio'
   | 'Community'
   | 'General FAQ';
 
@@ -48,6 +50,8 @@ export const CHATBOT_CATEGORIES: ChatCategory[] = [
   { id: 'Music Theory', name: '🎼 Theory', icon: 'BookOpen' },
   { id: 'Performance', name: '🎤 Performance', icon: 'Award' },
   { id: 'Common Problems', name: '❓ Problems', icon: 'AlertCircle' },
+  { id: 'Troubleshooting', name: '🛠️ Troubleshooting', icon: 'Wrench' },
+  { id: 'Recording & Audio', name: '🎙️ Recording & Audio', icon: 'Mic' },
   { id: 'Community', name: '🌐 Community', icon: 'Users' },
   { id: 'General FAQ', name: '💡 FAQ Specials', icon: 'HelpCircle' }
 ];
@@ -3007,7 +3011,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'bol_can_play_bansuri',
     question: 'Can I play Bollywood songs on the Bansuri?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: 'Absolutely! The Bansuri is one of the most expressive instruments for playing Bollywood songs, ghazals, and popular film melodies due to its organic warmth and vocal-like fluid bending (Meend).',
     keywords: ['play bollywood on bansuri', 'bollywood film songs flute', 'can i play hindi songs'],
     relatedIds: ['sng_bollywood', 'bol_which_scale_best']
@@ -3015,7 +3019,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'bol_best_for_beginners',
     question: 'Which Bollywood songs are best for beginners?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: 'Top beginner-friendly melodies include:\n• *Pee Loon* (*Once Upon a Time in Mumbaai*)\n• *Zara Zara* (*Rehnaa Hai Terre Dil Mein*)\n• *Hai Apna Dil To Aawara*\n• *Lag Ja Gale*\n• *Yeh Shaam Mastani*\n• *Tujhe Dekha To Yeh Jaana Sanam*.',
     keywords: ['best beginner bollywood songs', 'easy hindi songs flute', 'starter bollywood melodies'],
     relatedIds: ['sng_bollywood', 'bol_easiest_beginners']
@@ -3023,7 +3027,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'bol_how_long_to_play',
     question: 'How long does it take to play Bollywood songs?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: 'With daily 20–30 minute practice, most students can play simple Bollywood tunes within 2 to 3 months once basic note production and finger movements become clean.',
     keywords: ['how long to play bollywood songs', 'timeline for film songs'],
     relatedIds: ['beg_how_long', 'bol_best_for_beginners']
@@ -3031,7 +3035,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'bol_classical_before_bollywood',
     question: 'Should I learn classical music before playing Bollywood songs?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: 'You do not need deep classical theory to start simple songs, but practicing basic Alankars (scales) alongside simple Bollywood songs accelerates your progress and improves finger speed tremendously.',
     keywords: ['classical before bollywood', 'learn raaga before song', 'theory required for songs'],
     relatedIds: ['icm_bollywood_without_classical', 'sng_bollywood']
@@ -3039,7 +3043,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'bol_which_scale_best',
     question: 'Which flute scale is best for Bollywood songs?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: 'An **E Medium** or **C Natural** flute is ideal for learning light/Bollywood songs. For deep, rich tones, a **G Natural Base** flute is extremely popular among professionals.',
     keywords: ['best flute scale for bollywood', 'which scale for hindi songs'],
     relatedIds: ['fl_g_natural_scale', 'fl_c_natural_scale']
@@ -3047,7 +3051,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'bol_g_natural_flute',
     question: 'Can I play Bollywood songs on a G Natural flute?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: 'Yes! The G Natural (Medium or Base) flute is the benchmark scale used by professional artists like Pt. Hariprasad Chaurasia for iconic Bollywood studio recordings.',
     keywords: ['g natural flute bollywood', 'play songs on g natural'],
     relatedIds: ['fl_g_natural_scale', 'bol_which_scale_best']
@@ -3055,7 +3059,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'bol_c_natural_flute',
     question: 'Can I play Bollywood songs on a C Natural flute?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: 'Yes! C Natural Medium flutes have comfortable hole spacing for beginners and produce crisp, sweet tones that fit Bollywood melodies perfectly.',
     keywords: ['c natural flute bollywood', 'play songs on c natural'],
     relatedIds: ['fl_c_natural_scale', 'bol_which_scale_best']
@@ -3063,7 +3067,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'bol_base_flute_suitable',
     question: 'Is a base flute suitable for Bollywood songs?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: 'Base flutes (E Base, D Base, C Base) produce deep, soothing, romantic tones perfect for slow emotional Bollywood ballads, though fast energetic tracks are easier on medium flutes.',
     keywords: ['base flute for bollywood', 'playing songs on bass bansuri'],
     relatedIds: ['fl_base_flute_vs_medium', 'bol_g_natural_flute']
@@ -3071,7 +3075,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'bol_play_by_ear',
     question: 'Can I play Bollywood songs by ear?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: 'Yes! Playing by ear develops naturally as you practice match-the-pitch exercises: listen to a short phrase, hum it, find the starting note on your flute, and map the melody note-by-note.',
     keywords: ['play by ear bollywood', 'play songs without notation', 'ear training flute'],
     relatedIds: ['ear_how_to_train', 'sng_bollywood']
@@ -3079,7 +3083,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'bol_learn_faster',
     question: 'How do I learn Bollywood songs faster?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: '1. Listen to the original track 5 times.\n2. Break the song into 4-bar chunks (Mukhda & Antara).\n3. Sing the Swaras aloud before playing.\n4. Practice slowly with a metronome.',
     keywords: ['learn bollywood songs faster', 'fast song learning tips'],
     relatedIds: ['sng_learn_by_ear', 'bol_best_for_beginners']
@@ -3091,7 +3095,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'sng_how_to_start',
     question: 'How do I start learning a new Bollywood song?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: 'Identify the Mukhda (chorus) first. Find its root/key note (Sa), write or memorize the Swara notation for the first phrase, and play it very slowly until finger transitions are smooth.',
     keywords: ['start learning new song', 'how to learn song step by step'],
     relatedIds: ['bol_learn_faster', 'sng_identify_first_note']
@@ -3099,7 +3103,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'sng_listen_first',
     question: 'Should I listen to the original recording first?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: 'Yes! Listening repeatedly fixes the vocal inflections, rhythm, breath points, and emotional dynamics in your mind before your fingers touch the holes.',
     keywords: ['listen to recording first', 'listening before playing'],
     relatedIds: ['sng_how_to_start', 'sng_improve_listening']
@@ -3107,7 +3111,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'sng_identify_first_note',
     question: 'How do I identify the first note of a song?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: 'Hum the very first syllable of the song, sustain it, and check which note on your flute matches that exact pitch using a tuner app or Tanpura.',
     keywords: ['find first note of song', 'identify starting note'],
     relatedIds: ['ear_how_to_train', 'bol_play_by_ear']
@@ -3115,7 +3119,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'sng_improve_listening',
     question: 'How can I improve my listening skills?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: 'Practice active listening: close your eyes and focus on micro-ornaments (glides, grace notes, pauses). Try singing back short 3-note phrases immediately after hearing them.',
     keywords: ['improve listening skills', 'ear training for flute', 'active listening'],
     relatedIds: ['ear_how_to_train', 'sng_listen_first']
@@ -3123,7 +3127,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'sng_memorize_song',
     question: 'How do I memorize a song on the flute?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: 'Memorize phrase by phrase rather than the full song at once. Connect Swaras to vocal words (*Mukhda*, *Antara 1*, *Antara 2*) to reinforce mental muscle memory.',
     keywords: ['memorize song flute', 'remember flute notations'],
     relatedIds: ['sng_divide_sections', 'bol_learn_faster']
@@ -3131,7 +3135,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'sng_practice_slowly',
     question: 'Should I practice a song slowly first?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: 'Always! Practicing at half-tempo allows your fingers to execute clean hole coverage and subtle glides (Meend) without stumbling.',
     keywords: ['practice slowly first', 'slow practice benefits'],
     relatedIds: ['prac_slow_practice', 'bol_learn_faster']
@@ -3139,7 +3143,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'sng_divide_sections',
     question: 'How do I divide a song into sections for practice?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: 'Divide the song logically into 3 main parts: Mukhda (refrain), Antara (verse), and Sanchari/Bridge (instrumental interlude). Master each part independently before stitching them together.',
     keywords: ['divide song sections', 'mukhda antara bridge practice'],
     relatedIds: ['sng_how_to_start', 'sng_memorize_song']
@@ -3147,7 +3151,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'sng_how_many_beginners',
     question: 'How many songs should beginners learn in their first month?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: 'Focus on mastering 2 to 3 simple songs completely (with correct rhythm, pitch, and clean tone) rather than half-learning 10 songs.',
     keywords: ['how many songs beginner learn', 'song count first month'],
     relatedIds: ['bol_best_for_beginners', 'sng_practice_frequency']
@@ -3155,7 +3159,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'sng_practice_frequency',
     question: 'How often should I practice the same song?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: 'Practice the target song daily for 15–20 minutes after completing your basic long-blowing and scale warm-ups.',
     keywords: ['how often practice same song', 'daily song practice'],
     relatedIds: ['prac_daily_routine', 'sng_making_mistakes']
@@ -3163,7 +3167,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'sng_making_mistakes',
     question: 'What should I do if I keep making mistakes in a song?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: 'Isolate the exact 2-bar phrase where you stumble. Slow down to 50% speed and loop that small section 10 times until it feels smooth.',
     keywords: ['making mistakes in song', 'fix stumbling phrase'],
     relatedIds: ['sng_practice_slowly', 'prob_wrong_notes']
@@ -3343,7 +3347,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'sng_easiest_beginners',
     question: 'Which Bollywood songs are easiest for absolute beginners?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: '1. *Hai Apna Dil To Aawara*\n2. *Pee Loon*\n3. *Lag Ja Gale*\n4. *Zara Zara*\n5. *Tujhe Dekha To Yeh Jaana Sanam*\n6. *Chhookar Mere Manko*.',
     keywords: ['easiest bollywood songs', 'absolute beginner songs flute'],
     relatedIds: ['bol_best_for_beginners', 'sng_suitable_intermediate']
@@ -3351,7 +3355,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'sng_suitable_intermediate',
     question: 'Which songs are suitable for intermediate players?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: '1. *Tere Bina Zindagi Se*\n2. *Dil Deewana* (*Maine Pyar Kiya*)\n3. *Kesariya* (*Brahmastra*)\n4. *Kal Ho Naa Ho*\n5. *Tum Hi Ho* (*Aashiqui 2*).',
     keywords: ['intermediate bollywood songs flute', 'medium difficulty songs'],
     relatedIds: ['sng_easiest_beginners', 'sng_suitable_advanced']
@@ -3359,7 +3363,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'sng_suitable_advanced',
     question: 'Which songs are suitable for advanced players?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: '1. *Ghar More Pardesiya* (*Kalank*)\n2. *Albela Sajan Aayo Re*\n3. *Mohe Rang Do Laal*\n4. *Madhuban Mein Radhika Nache Re*\n5. *Mere Dholna* (*Bhool Bhulaiyaa*).',
     keywords: ['advanced bollywood songs flute', 'fast classical film songs'],
     relatedIds: ['sng_suitable_intermediate', 'sng_require_fast_fingering']
@@ -3367,7 +3371,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'sng_require_meend',
     question: 'Which songs require expressive Meend glides?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: '• *Lag Ja Gale*\n• *Tere Bina Zindagi Se*\n• *Chupke Chupke Raat Din*\n• *Satyam Shivam Sundaram*\n• *Aaye Ho Meri Zindagi Mein*.',
     keywords: ['songs require meend', 'meend rich songs flute'],
     relatedIds: ['tech_meend_in_bollywood', 'tech_meend']
@@ -3375,7 +3379,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'sng_require_fast_fingering',
     question: 'Which songs require fast fingering and agility?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: '• *Ghar More Pardesiya*\n• *Dil Cheez Kya Hai*\n• *Pinga* (*Bajirao Mastani*)\n• *Dola Re Dola*\n• *Madhuban Mein Radhika*.',
     keywords: ['songs fast fingering', 'fast speed songs flute'],
     relatedIds: ['sng_suitable_advanced', 'fing_increase_speed']
@@ -3383,7 +3387,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'sng_good_breath_control',
     question: 'Which songs are good for practicing breath control?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: 'Slow sustained tracks like *Yeh Kahan Aa Gaye Hum*, *Roz Roz Aankhon Tale*, and *Kahiin To Hoga* force you to sustain long phrases cleanly.',
     keywords: ['songs for breath control', 'long phrase songs'],
     relatedIds: ['br_breath_control', 'sng_require_meend']
@@ -3391,7 +3395,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'sng_improve_finger_speed',
     question: 'Which songs help improve finger speed?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: 'Folk and semi-classical tracks like *Jiya Jale*, *Silsila Ye Yeena Ka*, and *Senorita* present crisp rhythmic staccato phrases ideal for finger agility.',
     keywords: ['songs improve finger speed', 'finger speed building songs'],
     relatedIds: ['sng_require_fast_fingering', 'fing_increase_speed']
@@ -3399,7 +3403,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'sng_help_expression',
     question: 'Which songs help develop deep musical expression?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: '*Tujhse Naraz Nahin Zindagi*, *Aina Mujhse Meri Pehli Mohabbat*, and *Mai Ri* allow endless freedom for micro-glides and emotional dynamics.',
     keywords: ['songs help expression', 'expressive songs bansuri'],
     relatedIds: ['tech_make_expressive', 'tech_emotional_melodies']
@@ -3407,7 +3411,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'sng_ideal_stage',
     question: 'Which songs are ideal for stage performance?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: 'Crowd pleasers like *Kesariya*, *Lag Ja Gale*, *Yeh Shaam Mastani*, *Pee Loon*, and *Sujalam Sufalam (Vande Mataram)* never fail to move an audience.',
     keywords: ['stage performance songs', 'flute concert songs'],
     relatedIds: ['perf_prepare_live', 'sng_easiest_beginners']
@@ -3415,7 +3419,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'sng_best_daily_practice',
     question: 'Which songs are best for daily practice routines?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: '*Lag Ja Gale* (for Meend), *Hai Apna Dil To Aawara* (for rhythm), and *Pee Loon* (for middle/upper register balance).',
     keywords: ['best songs daily practice', 'routine practice songs'],
     relatedIds: ['prac_daily_routine', 'sng_easiest_beginners']
@@ -3511,7 +3515,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'rec_beautiful_flute_songs',
     question: 'Which Bollywood songs sound beautiful on the flute?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: '• *Zara Zara* (*RHTDM*)\n• *Lag Ja Gale* (*Woh Kaun Thi*)\n• *Yeh Shaam Mastani*\n• *Chupke Chupke Raat Din*\n• *Tere Bina Zindagi Se*\n• *Moh Moh Ke Dhaage*.',
     keywords: ['beautiful bollywood flute songs', 'most soothing film songs flute'],
     relatedIds: ['sng_easiest_beginners', 'rec_romantic_bansuri']
@@ -3519,7 +3523,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'rec_romantic_bansuri',
     question: 'Which romantic songs are suitable for Bansuri?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: '• *Pee Loon* (*OUATIM*)\n• *Kesariya* (*Brahmastra*)\n• *Tum Hi Ho*\n• *Pehla Nasha*\n• *Tujhe Dekha To Yeh Jaana Sanam*\n• *Raataan Lambiyan*.',
     keywords: ['romantic songs bansuri', 'love songs flute'],
     relatedIds: ['rec_beautiful_flute_songs', 'sng_require_meend']
@@ -3527,7 +3531,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'rec_devotional_film_songs',
     question: 'Which devotional film songs are easy to play?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: '• *Itni Shakti Hame Dena Data*\n• *O Palanhare* (*Lagaan*)\n• *Yashomati Maiya Se Bole Nandlala*\n• *Achyutam Keshavam*\n• *Badi Der Bhai Nandlala*.',
     keywords: ['devotional film songs flute', 'bhajan film songs flute'],
     relatedIds: ['rg_list_devotional', 'sng_easiest_beginners']
@@ -3535,7 +3539,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'rec_patriotic_songs',
     question: 'Which patriotic songs can be played on flute?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: '• *Vande Mataram* (*Sujalam Sufalam*)\n• *Ae Watan* (*Raazi*)\n• *Kar Chale Hum Fida*\n• *Aye Mere Watan Ke Logo*\n• *Teri Mitti* (*Kesari*).',
     keywords: ['patriotic songs flute', 'national songs bansuri', 'vande mataram flute'],
     relatedIds: ['rg_desh_overview', 'sng_ideal_stage']
@@ -3543,7 +3547,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'rec_old_bollywood_beginner',
     question: 'Which old classic Bollywood songs are beginner-friendly?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: '• *Hai Apna Dil To Aawara*\n• *Chhookar Mere Manko*\n• *Yeh Shaam Mastani*\n• *Lag Ja Gale*\n• *Ek Pyar Ka Nagma Hai*.',
     keywords: ['old bollywood beginner songs', 'retro hindi songs flute'],
     relatedIds: ['sng_easiest_beginners', 'rec_beautiful_flute_songs']
@@ -3551,7 +3555,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'rec_modern_bollywood_flute',
     question: 'Which modern Bollywood songs work well on flute?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: '• *Kesariya* (*Brahmastra*)\n• *Apna Bana Le* (*Bhediya*)\n• *Raataan Lambiyan* (*Shershaah*)\n• *Shayad* (*Love Aaj Kal*)\n• *Gehraiyaan Title Track*.',
     keywords: ['modern bollywood songs flute', 'new hindi songs bansuri'],
     relatedIds: ['rec_romantic_bansuri', 'sng_suitable_intermediate']
@@ -3559,7 +3563,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'rec_solo_flute_songs',
     question: 'Which songs are suitable for solo flute without backing tracks?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: '*Lag Ja Gale*, *Moh Moh Ke Dhaage*, *Chupke Chupke Raat Din*, and *Roz Roz Aankhon Tale* sound rich and complete even played completely solo.',
     keywords: ['solo flute songs', 'unaccompanied flute melodies'],
     relatedIds: ['prac_without_accompaniment', 'rec_beautiful_flute_songs']
@@ -3567,7 +3571,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'rec_concert_performed_songs',
     question: 'Which songs are commonly performed at flute concerts?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: '*Vaishnav Jan To*, *Vande Mataram*, *Krishna Nee Begane Baro*, *Lag Ja Gale*, and *Dhun in Raag Mishra Kafi*.',
     keywords: ['concert performed flute songs', 'famous performance pieces'],
     relatedIds: ['sng_ideal_stage', 'perf_prepare_live']
@@ -3575,7 +3579,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'rec_wedding_songs',
     question: 'Which songs are suitable for wedding performances?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: '• *Din Shagna Da*\n• *Madhanya*\n• *Mangalyam / Tere Ore*\n• *Khabar Nahi* / *Kudmayee*\n• *Dulhe Ka Sehra*.',
     keywords: ['wedding songs flute', 'shaadi flute performance'],
     relatedIds: ['rec_romantic_bansuri', 'sng_ideal_stage']
@@ -3907,7 +3911,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'rec_complete_beginners_guide',
     question: 'Which Bollywood songs are recommended for complete beginners?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: 'Start with 3 iconic, forgiving melodies:\n1. *Hai Apna Dil To Aawara* (simple major notes)\n2. *Pee Loon* (smooth pentatonic flow)\n3. *Lag Ja Gale* (slow expressive tempo).',
     keywords: ['songs complete beginners', 'first bollywood songs to learn'],
     relatedIds: ['sng_easiest_beginners', 'bol_best_for_beginners']
@@ -3915,7 +3919,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'rec_g_natural_easy_songs',
     question: 'Which Bollywood songs are easy to play on G Natural flute?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: '• *Zara Zara*\n• *Yeh Shaam Mastani*\n• *Lag Ja Gale*\n• *Chhookar Mere Manko*\n• *Pee Loon*.',
     keywords: ['easy g natural songs', 'g natural flute song list'],
     relatedIds: ['bol_g_natural_flute', 'rec_beautiful_flute_songs']
@@ -3923,7 +3927,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'rec_breath_control_songs',
     question: 'Which Bollywood songs help improve breath control stamina?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: 'Slow legato tracks like *Yeh Kahan Aa Gaye Hum*, *Roz Roz Aankhon Tale*, and *Chupke Chupke Raat Din* build deep diaphragm endurance.',
     keywords: ['breath control songs', 'stamina building songs'],
     relatedIds: ['sng_good_breath_control', 'br_breath_control']
@@ -3931,7 +3935,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'rec_middle_octave_songs',
     question: 'Which Bollywood songs use mostly middle octave notes?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: '• *Lag Ja Gale*\n• *Hai Apna Dil To Aawara*\n• *Ek Pyar Ka Nagma Hai*\n• *Aaye Ho Meri Zindagi Mein*.',
     keywords: ['middle octave songs', 'madhya saptak bollywood songs'],
     relatedIds: ['sap_middle_octave', 'sng_easiest_beginners']
@@ -3939,7 +3943,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'rec_upper_octave_songs',
     question: 'Which Bollywood songs include upper octave practice?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: '• *Kesariya* (Antara goes to Taar Sa/Re)\n• *Kal Ho Naa Ho*\n• *Tum Hi Ho*\n• *Ghar More Pardesiya*.',
     keywords: ['upper octave songs', 'taar saptak songs flute'],
     relatedIds: ['sap_upper_difficult', 'ns_upper_octave']
@@ -3947,7 +3951,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'rec_classical_inspired_film_songs',
     question: 'Which Bollywood songs are inspired by Indian classical Raagas?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: '• *Ehsan Tera Hoga Mujh Par* (Raag Yaman)\n• *Pee Loon* (Raag Bhupali)\n• *Vande Mataram* (Raag Desh)\n• *Radha Na Bole* (Raag Bageshri)\n• *Laga Chunari Mein Daag* (Raag Bhairavi).',
     keywords: ['classical inspired film songs', 'raaga based bollywood songs'],
     relatedIds: ['cc_yaman_songs', 'cc_bhupali_songs', 'cc_bhairavi_songs']
@@ -3955,7 +3959,7 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'rec_flute_competition_songs',
     question: 'Which Bollywood songs are ideal for flute competitions?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: 'Showcase pieces that combine slow soulful Alap-style intros with fast technical passages, like *Ghar More Pardesiya*, *Albela Sajan*, or *Mohe Rang Do Laal*.',
     keywords: ['flute competition songs', 'contest performance songs'],
     relatedIds: ['sng_suitable_advanced', 'sng_ideal_stage']
@@ -3963,10 +3967,1342 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
   {
     id: 'rec_live_event_requested_songs',
     question: 'Which Bollywood songs are most requested at live events?',
-    category: 'Songs & Melody',
+    category: 'Songs',
     answer: '1. *Kesariya*\n2. *Lag Ja Gale*\n3. *Pee Loon*\n4. *Zara Zara*\n5. *Tujhe Dekha To Yeh Jaana Sanam*\n6. *Sujalam Sufalam (Vande Mataram)*.',
     keywords: ['live event requested songs', 'popular request songs flute'],
     relatedIds: ['sng_ideal_stage', 'rec_romantic_bansuri']
+  },
+
+  // ==========================================
+  // 🪈 C NATURAL (MIDDLE) SCALE
+  // ==========================================
+  {
+    id: 'sc_c_nat_bollywood',
+    question: 'Which Bollywood songs are best for C Natural flute?',
+    category: 'Notes & Scales',
+    answer: 'C Natural Middle flutes have comfortable hole spacing and a sweet, clear tone. Excellent songs for C Natural include:\n• *Pee Loon*\n• *Lag Ja Gale*\n• *Hai Apna Dil To Aawara*\n• *Chhookar Mere Manko*\n• *Tujhe Dekha To Yeh Jaana Sanam*.',
+    keywords: ['c natural bollywood songs', 'c natural flute hindi songs', 'c natural middle songs'],
+    relatedIds: ['fl_c_natural_scale', 'sng_easiest_beginners']
+  },
+  {
+    id: 'sc_c_nat_devotional',
+    question: 'Which devotional songs are best for C Natural flute?',
+    category: 'Notes & Scales',
+    answer: '• *Itni Shakti Hame Dena Data*\n• *Yashomati Maiya Se Bole Nandlala*\n• *Achyutam Keshavam*\n• *O Palanhare* (*Lagaan*)\n• *Badi Der Bhai Nandlala*.',
+    keywords: ['c natural devotional songs', 'c natural bhajan flute'],
+    relatedIds: ['rec_devotional_film_songs', 'rg_list_devotional']
+  },
+  {
+    id: 'sc_c_nat_classical_raagas',
+    question: 'Which classical Raagas are suitable for C Natural flute?',
+    category: 'Notes & Scales',
+    answer: 'C Natural is very versatile for light and classical Raagas like **Raag Bhupali**, **Raag Yaman**, **Raag Durga**, **Raag Kafi**, and **Raag Desh**.',
+    keywords: ['c natural classical raagas', 'raagas on c natural flute'],
+    relatedIds: ['rg_list_beginner', 'thaat_bilawal_ragas']
+  },
+  {
+    id: 'sc_c_nat_beginner_songs',
+    question: 'Which beginner songs can I play on C Natural flute?',
+    category: 'Notes & Scales',
+    answer: 'Ideal beginner starters on C Natural:\n1. *Hai Apna Dil To Aawara*\n2. *Pee Loon*\n3. *Lag Ja Gale*\n4. *Zara Zara*.',
+    keywords: ['c natural beginner songs', 'easy c natural flute songs'],
+    relatedIds: ['sc_c_nat_bollywood', 'bol_c_natural_flute']
+  },
+  {
+    id: 'sc_c_nat_patriotic_songs',
+    question: 'Which patriotic songs sound good on C Natural flute?',
+    category: 'Notes & Scales',
+    answer: '• *Vande Mataram* (*Sujalam Sufalam*)\n• *Ae Watan* (*Raazi*)\n• *Aye Mere Watan Ke Logo*\n• *Kar Chale Hum Fida*.',
+    keywords: ['c natural patriotic songs', 'c natural vande mataram'],
+    relatedIds: ['rec_patriotic_songs', 'rg_desh_overview']
+  },
+  {
+    id: 'sc_c_nat_romantic_songs',
+    question: 'Which romantic songs suit C Natural flute?',
+    category: 'Notes & Scales',
+    answer: '• *Pee Loon*\n• *Kesariya*\n• *Tum Hi Ho*\n• *Zara Zara*\n• *Pehla Nasha*.',
+    keywords: ['c natural romantic songs', 'romantic songs c natural flute'],
+    relatedIds: ['rec_romantic_bansuri', 'sc_c_nat_bollywood']
+  },
+  {
+    id: 'sc_c_nat_finger_speed',
+    question: 'Which songs improve finger speed on C Natural flute?',
+    category: 'Notes & Scales',
+    answer: 'Fast folk and classical-based tunes like *Jiya Jale*, *Senorita*, and *Silsila Ye Yeena Ka* build crisp finger agility on C Natural.',
+    keywords: ['c natural finger speed songs', 'fast songs c natural flute'],
+    relatedIds: ['sng_improve_finger_speed', 'fing_increase_speed']
+  },
+  {
+    id: 'sc_c_nat_breath_control',
+    question: 'Which songs improve breath control on C Natural flute?',
+    category: 'Notes & Scales',
+    answer: 'Sustained legato songs like *Yeh Kahan Aa Gaye Hum* and *Roz Roz Aankhon Tale* require long steady airflow on C Natural.',
+    keywords: ['c natural breath control songs', 'long note songs c natural'],
+    relatedIds: ['rec_breath_control_songs', 'br_breath_control']
+  },
+  {
+    id: 'sc_c_nat_middle_octave',
+    question: 'Which songs use mostly the middle octave on C Natural flute?',
+    category: 'Notes & Scales',
+    answer: '*Lag Ja Gale*, *Hai Apna Dil To Aawara*, and *Chhookar Mere Manko* stay comfortably within Madhya Saptak on C Natural.',
+    keywords: ['c natural middle octave songs', 'madhya saptak c natural'],
+    relatedIds: ['rec_middle_octave_songs', 'sap_middle_octave']
+  },
+  {
+    id: 'sc_c_nat_most_bollywood',
+    question: 'Can I play most Bollywood songs on C Natural flute?',
+    category: 'Notes & Scales',
+    answer: 'Yes! Once you know relative Swara fingerings (`S R G M P D N`), you can play 95%+ of Bollywood songs on C Natural by transposing the key.',
+    keywords: ['play most bollywood songs c natural', 'can i play any hindi song c natural'],
+    relatedIds: ['play_transpose_song', 'bol_c_natural_flute']
+  },
+
+  // ==========================================
+  // 🪈 C SHARP (MIDDLE) SCALE
+  // ==========================================
+  {
+    id: 'sc_csharp_bollywood',
+    question: 'Which Bollywood songs are best for C Sharp flute?',
+    category: 'Notes & Scales',
+    answer: 'C Sharp Medium is a crisp, bright scale widely used in studio recordings:\n• *Kal Ho Naa Ho*\n• *Tere Bina Zindagi Se*\n• *Dil Deewana*\n• *Zara Zara*\n• *Moh Moh Ke Dhaage*.',
+    keywords: ['c sharp bollywood songs', 'c sharp middle flute songs', 'c sharp hindi songs'],
+    relatedIds: ['sc_c_nat_bollywood', 'sng_suitable_intermediate']
+  },
+  {
+    id: 'sc_csharp_devotional',
+    question: 'Which devotional songs are suitable for C Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '• *Achyutam Keshavam*\n• *O Palanhare*\n• *Vaishnav Jan To*\n• *Mahi Ve / Divine Chants*.',
+    keywords: ['c sharp devotional songs', 'c sharp bhajan flute'],
+    relatedIds: ['rec_devotional_film_songs', 'rg_list_devotional']
+  },
+  {
+    id: 'sc_csharp_raagas',
+    question: 'Which Raagas sound best on C Sharp flute?',
+    category: 'Notes & Scales',
+    answer: 'C Sharp highlights expressive micro-tones in **Raag Bageshri**, **Raag Yaman**, **Raag Bhimpalasi**, **Raag Kirwani**, and **Raag Desh**.',
+    keywords: ['c sharp raagas', 'best raagas c sharp flute'],
+    relatedIds: ['rg_list_popular_concert', 'rg_bageshri_overview']
+  },
+  {
+    id: 'sc_csharp_beginner',
+    question: 'Which beginner songs are recommended for C Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '• *Lag Ja Gale*\n• *Hai Apna Dil To Aawara*\n• *Pee Loon*\n• *Tujhe Dekha To Yeh Jaana Sanam*.',
+    keywords: ['c sharp beginner songs', 'easy c sharp flute songs'],
+    relatedIds: ['sng_easiest_beginners', 'sc_csharp_bollywood']
+  },
+  {
+    id: 'sc_csharp_upper_octave',
+    question: 'Which songs improve upper octave playing on C Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '*Kesariya* (Antara high notes), *Kal Ho Naa Ho*, and *Tum Hi Ho* train crisp Taar Saptak blowing on C Sharp.',
+    keywords: ['c sharp upper octave songs', 'taar saptak c sharp flute'],
+    relatedIds: ['rec_upper_octave_songs', 'ns_upper_octave']
+  },
+  {
+    id: 'sc_csharp_easiest',
+    question: 'Which songs are easiest on C Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '*Pee Loon* and *Hai Apna Dil To Aawara* are the most forgiving starting songs on C Sharp.',
+    keywords: ['c sharp easiest songs', 'simple c sharp flute songs'],
+    relatedIds: ['sc_csharp_beginner', 'sng_easiest_beginners']
+  },
+  {
+    id: 'sc_csharp_classical_perform',
+    question: 'Can I perform classical music on C Sharp flute?',
+    category: 'Notes & Scales',
+    answer: 'Yes! C Sharp is a popular pitch among classical vocalists and instrumentalists due to its brilliant resonance and clear pitch projection.',
+    keywords: ['perform classical music c sharp flute', 'c sharp classical bansuri'],
+    relatedIds: ['icm_hindustani_music', 'sc_csharp_raagas']
+  },
+  {
+    id: 'sc_csharp_emotional',
+    question: 'Which emotional melodies sound beautiful on C Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '• *Tere Bina Zindagi Se*\n• *Tujhse Naraz Nahin Zindagi*\n• *Chupke Chupke Raat Din*\n• *Moh Moh Ke Dhaage*.',
+    keywords: ['c sharp emotional melodies', 'c sharp soulful flute songs'],
+    relatedIds: ['tech_emotional_melodies', 'sng_help_expression']
+  },
+  {
+    id: 'sc_csharp_stage',
+    question: 'Which songs are ideal for stage performances on C Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '*Kal Ho Naa Ho*, *Kesariya*, *Lag Ja Gale*, and *Dil Cheez Kya Hai* work fantastically on C Sharp for live shows.',
+    keywords: ['c sharp stage performance songs', 'c sharp concert flute songs'],
+    relatedIds: ['sng_ideal_stage', 'perf_prepare_live']
+  },
+  {
+    id: 'sc_csharp_techniques',
+    question: 'Which flute techniques can I practice using C Sharp flute?',
+    category: 'Notes & Scales',
+    answer: 'C Sharp Medium is ideal for practicing **Meend** (glides), **Kan Swaras** (touch notes), **Khatka**, and rapid **Alankar scale drills**.',
+    keywords: ['c sharp flute techniques', 'practice techniques c sharp'],
+    relatedIds: ['tech_meend', 'tech_kan_swar', 'al_what_are_alankars']
+  },
+
+  // ==========================================
+  // 🪈 D NATURAL (MIDDLE) SCALE
+  // ==========================================
+  {
+    id: 'sc_d_nat_bollywood',
+    question: 'Which Bollywood songs are best for D Natural flute?',
+    category: 'Notes & Scales',
+    answer: 'D Natural Medium produces a bright, happy tone:\n• *Pee Loon*\n• *Yeh Shaam Mastani*\n• *Chhookar Mere Manko*\n• *Tujhe Dekha To Yeh Jaana Sanam*\n• *Pehla Nasha*.',
+    keywords: ['d natural bollywood songs', 'd natural middle flute songs'],
+    relatedIds: ['sc_c_nat_bollywood', 'sng_easiest_beginners']
+  },
+  {
+    id: 'sc_d_nat_devotional',
+    question: 'Which devotional songs can I play on D Natural flute?',
+    category: 'Notes & Scales',
+    answer: '• *Itni Shakti Hame Dena Data*\n• *Yashomati Maiya Se Bole Nandlala*\n• *Achyutam Keshavam*\n• *Aisi Lagi Lagan*.',
+    keywords: ['d natural devotional songs', 'd natural bhajan'],
+    relatedIds: ['rec_devotional_film_songs', 'rg_list_devotional']
+  },
+  {
+    id: 'sc_d_nat_classical',
+    question: 'Which classical compositions suit D Natural flute?',
+    category: 'Notes & Scales',
+    answer: 'D Natural is excellent for light classical compositions, Bandishes in **Raag Bhupali**, **Raag Durga**, **Raag Desh**, and **Raag Khamaj**.',
+    keywords: ['d natural classical compositions', 'd natural raaga bandish'],
+    relatedIds: ['rg_list_beginner', 'thaat_bilawal_ragas']
+  },
+  {
+    id: 'sc_d_nat_beginner',
+    question: 'Which beginner songs are easy on D Natural flute?',
+    category: 'Notes & Scales',
+    answer: '• *Hai Apna Dil To Aawara*\n• *Pee Loon*\n• *Lag Ja Gale*\n• *Zara Zara*.',
+    keywords: ['d natural beginner songs', 'easy d natural songs'],
+    relatedIds: ['sng_easiest_beginners', 'sc_d_nat_bollywood']
+  },
+  {
+    id: 'sc_d_nat_breath_control',
+    question: 'Which songs improve breath control on D Natural flute?',
+    category: 'Notes & Scales',
+    answer: '*Yeh Kahan Aa Gaye Hum* and *Roz Roz Aankhon Tale* help develop steady air velocity on D Natural.',
+    keywords: ['d natural breath control songs', 'breath stamina d natural'],
+    relatedIds: ['rec_breath_control_songs', 'br_breath_control']
+  },
+  {
+    id: 'sc_d_nat_children',
+    question: 'Which songs are suitable for children using D Natural flute?',
+    category: 'Notes & Scales',
+    answer: 'D Natural Medium has smaller finger hole distances, making it great for young learners playing *Lakdi Ki Kathi*, *Twinkle Twinkle*, and *Nani Teri Marni*.',
+    keywords: ['d natural children songs', 'kids songs d natural flute'],
+    relatedIds: ['beg_child_flute', 'sc_d_nat_beginner']
+  },
+  {
+    id: 'sc_d_nat_raagas',
+    question: 'Which Raagas sound beautiful on D Natural flute?',
+    category: 'Notes & Scales',
+    answer: '• **Raag Bhupali**\n• **Raag Durga**\n• **Raag Yaman**\n• **Raag Hamsadhwani**.',
+    keywords: ['d natural raagas', 'raagas on d natural flute'],
+    relatedIds: ['rg_bhupali', 'rg_durga_overview']
+  },
+  {
+    id: 'sc_d_nat_concerts',
+    question: 'Which songs are ideal for concerts on D Natural flute?',
+    category: 'Notes & Scales',
+    answer: '*Pee Loon*, *Yeh Shaam Mastani*, *Vande Mataram*, and *Kesariya* sound vibrant for live solo sets on D Natural.',
+    keywords: ['d natural concert songs', 'stage performance d natural'],
+    relatedIds: ['sng_ideal_stage', 'rec_concert_performed_songs']
+  },
+  {
+    id: 'sc_d_nat_high_pitched',
+    question: 'Can I play high-pitched melodies on D Natural flute?',
+    category: 'Notes & Scales',
+    answer: 'Yes! D Natural Medium responds easily in the upper octave (Taar Saptak) with minimal breath strain.',
+    keywords: ['high pitched melodies d natural', 'taar saptak d natural'],
+    relatedIds: ['sap_upper_difficult', 'ns_upper_octave']
+  },
+  {
+    id: 'sc_d_nat_fingering',
+    question: 'Which songs help improve fingering on D Natural flute?',
+    category: 'Notes & Scales',
+    answer: '*Jiya Jale*, *Senorita*, and rapid Alankar drills build fast, crisp finger dexterity on D Natural.',
+    keywords: ['d natural improve fingering', 'finger drills d natural'],
+    relatedIds: ['sng_improve_finger_speed', 'fing_increase_speed']
+  },
+
+  // ==========================================
+  // 🪈 D SHARP (MIDDLE) SCALE
+  // ==========================================
+  {
+    id: 'sc_dsharp_bollywood',
+    question: 'Which Bollywood songs are best for D Sharp flute?',
+    category: 'Notes & Scales',
+    answer: 'D Sharp Medium offers a sweet, melodic pitch:\n• *Zara Zara*\n• *Lag Ja Gale*\n• *Pee Loon*\n• *Moh Moh Ke Dhaage*\n• *Aaye Ho Meri Zindagi Mein*.',
+    keywords: ['d sharp bollywood songs', 'd sharp middle flute songs'],
+    relatedIds: ['sc_csharp_bollywood', 'sng_easiest_beginners']
+  },
+  {
+    id: 'sc_dsharp_romantic',
+    question: 'Which romantic songs sound best on D Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '• *Pee Loon*\n• *Kesariya*\n• *Zara Zara*\n• *Tum Hi Ho*\n• *Raataan Lambiyan*.',
+    keywords: ['d sharp romantic songs', 'romantic flute songs d sharp'],
+    relatedIds: ['rec_romantic_bansuri', 'sc_dsharp_bollywood']
+  },
+  {
+    id: 'sc_dsharp_devotional',
+    question: 'Which devotional songs suit D Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '• *Itni Shakti Hame Dena Data*\n• *O Palanhare*\n• *Achyutam Keshavam*\n• *Yashomati Maiya*.',
+    keywords: ['d sharp devotional songs', 'd sharp bhajan flute'],
+    relatedIds: ['rec_devotional_film_songs', 'rg_list_devotional']
+  },
+  {
+    id: 'sc_dsharp_raagas',
+    question: 'Which classical Raagas are commonly played on D Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '**Raag Bhupali**, **Raag Yaman**, **Raag Desh**, and **Raag Bageshri** sound delightfully sweet on D Sharp.',
+    keywords: ['d sharp classical raagas', 'd sharp raaga list'],
+    relatedIds: ['rg_list_beginner', 'thaat_kalyan_ragas']
+  },
+  {
+    id: 'sc_dsharp_beginner',
+    question: 'Which beginner songs can I learn first on D Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '1. *Hai Apna Dil To Aawara*\n2. *Pee Loon*\n3. *Lag Ja Gale*\n4. *Zara Zara*.',
+    keywords: ['d sharp beginner songs', 'easy d sharp songs'],
+    relatedIds: ['sng_easiest_beginners', 'sc_dsharp_bollywood']
+  },
+  {
+    id: 'sc_dsharp_upper_octave',
+    question: 'Which songs improve upper octave control on D Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '*Kesariya* and *Kal Ho Naa Ho* challenge upper register pitch control on D Sharp Medium.',
+    keywords: ['d sharp upper octave control', 'taar saptak d sharp'],
+    relatedIds: ['rec_upper_octave_songs', 'ns_upper_octave']
+  },
+  {
+    id: 'sc_dsharp_expression',
+    question: 'Which songs improve expression on D Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '*Tujhse Naraz Nahin Zindagi* and *Tere Bina Zindagi Se* encourage expressive Meend and Kan Swara touches.',
+    keywords: ['d sharp improve expression', 'expressive songs d sharp'],
+    relatedIds: ['sng_help_expression', 'tech_make_expressive']
+  },
+  {
+    id: 'sc_dsharp_solo',
+    question: 'Which songs are suitable for solo performances on D Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '*Lag Ja Gale* and *Moh Moh Ke Dhaage* fill the room with rich solo acoustic resonance on D Sharp.',
+    keywords: ['d sharp solo performance', 'unaccompanied d sharp flute'],
+    relatedIds: ['rec_solo_flute_songs', 'prac_without_accompaniment']
+  },
+  {
+    id: 'sc_dsharp_easiest',
+    question: 'Which songs are easiest on D Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '*Hai Apna Dil To Aawara* and *Pee Loon* are the most straightforward songs on D Sharp.',
+    keywords: ['d sharp easiest songs', 'simple d sharp flute songs'],
+    relatedIds: ['sc_dsharp_beginner', 'sng_easiest_beginners']
+  },
+  {
+    id: 'sc_dsharp_film_songs',
+    question: 'Can I play film songs on D Sharp flute?',
+    category: 'Notes & Scales',
+    answer: 'Yes! D Sharp Medium is comfortable for both children and adults to play all light Bollywood tracks.',
+    keywords: ['play film songs d sharp', 'hindi songs d sharp flute'],
+    relatedIds: ['sc_dsharp_bollywood', 'bol_can_play_bansuri']
+  },
+
+  // ==========================================
+  // 🪈 E NATURAL (MIDDLE) SCALE
+  // ==========================================
+  {
+    id: 'sc_e_nat_bollywood',
+    question: 'Which Bollywood songs are best for E Natural flute?',
+    category: 'Notes & Scales',
+    answer: 'E Natural Medium is the universally recommended scale for beginners:\n• *Pee Loon*\n• *Lag Ja Gale*\n• *Hai Apna Dil To Aawara*\n• *Chhookar Mere Manko*\n• *Tujhe Dekha To Yeh Jaana Sanam*.',
+    keywords: ['e natural bollywood songs', 'e natural middle flute songs', 'e medium songs'],
+    relatedIds: ['fl_e_natural_scale', 'bol_best_for_beginners']
+  },
+  {
+    id: 'sc_e_nat_devotional',
+    question: 'Which devotional songs sound best on E Natural flute?',
+    category: 'Notes & Scales',
+    answer: '• *Itni Shakti Hame Dena Data*\n• *Yashomati Maiya Se Bole Nandlala*\n• *Achyutam Keshavam*\n• *O Palanhare*.',
+    keywords: ['e natural devotional songs', 'e natural bhajan flute'],
+    relatedIds: ['rec_devotional_film_songs', 'rg_list_devotional']
+  },
+  {
+    id: 'sc_e_nat_raagas',
+    question: 'Which Raagas are suitable for E Natural flute?',
+    category: 'Notes & Scales',
+    answer: 'E Natural Medium is perfect for learning **Raag Bhupali**, **Raag Yaman**, **Raag Durga**, **Raag Kafi**, **Raag Desh**, and **Raag Bilawal**.',
+    keywords: ['e natural raagas', 'raagas on e natural flute'],
+    relatedIds: ['rg_list_beginner', 'fl_e_natural_scale']
+  },
+  {
+    id: 'sc_e_nat_beginner',
+    question: 'Which beginner songs are recommended for E Natural flute?',
+    category: 'Notes & Scales',
+    answer: 'Start with:\n1. *Hai Apna Dil To Aawara*\n2. *Pee Loon*\n3. *Lag Ja Gale*\n4. *Zara Zara*.',
+    keywords: ['e natural beginner songs', 'easy e natural flute songs'],
+    relatedIds: ['sng_easiest_beginners', 'bol_best_for_beginners']
+  },
+  {
+    id: 'sc_e_nat_finger_coordination',
+    question: 'Which songs improve finger coordination on E Natural flute?',
+    category: 'Notes & Scales',
+    answer: '*Jiya Jale*, *Senorita*, and *Silsila Ye Yeena Ka* challenge fast, balanced finger transitions on E Natural.',
+    keywords: ['e natural finger coordination', 'finger agility e natural'],
+    relatedIds: ['sng_improve_finger_speed', 'fing_increase_speed']
+  },
+  {
+    id: 'sc_e_nat_rhythm',
+    question: 'Which songs improve rhythm on E Natural flute?',
+    category: 'Notes & Scales',
+    answer: '*Hai Apna Dil To Aawara* and *Tujhe Dekha To Yeh Jaana Sanam* build strict 8-beat (Kaherva Taal) timing on E Natural.',
+    keywords: ['e natural improve rhythm', 'rhythmic songs e natural'],
+    relatedIds: ['prob_improve_timing', 'th_laya']
+  },
+  {
+    id: 'sc_e_nat_breath_control',
+    question: 'Which songs help with breath control on E Natural flute?',
+    category: 'Notes & Scales',
+    answer: '*Yeh Kahan Aa Gaye Hum* and *Roz Roz Aankhon Tale* require long steady breathing passages on E Natural.',
+    keywords: ['e natural breath control songs', 'breath stamina e natural'],
+    relatedIds: ['rec_breath_control_songs', 'br_breath_control']
+  },
+  {
+    id: 'sc_e_nat_performed',
+    question: 'Which songs are commonly performed on E Natural flute?',
+    category: 'Notes & Scales',
+    answer: '*Lag Ja Gale*, *Pee Loon*, *Kesariya*, and *Vande Mataram* are performance favorites on E Natural Medium.',
+    keywords: ['e natural performed songs', 'e natural stage songs'],
+    relatedIds: ['sng_ideal_stage', 'rec_beautiful_flute_songs']
+  },
+  {
+    id: 'sc_e_nat_emotional',
+    question: 'Which emotional melodies suit E Natural flute?',
+    category: 'Notes & Scales',
+    answer: '• *Tere Bina Zindagi Se*\n• *Tujhse Naraz Nahin Zindagi*\n• *Chupke Chupke Raat Din*\n• *Moh Moh Ke Dhaage*.',
+    keywords: ['e natural emotional melodies', 'e natural soulful songs'],
+    relatedIds: ['tech_emotional_melodies', 'sng_help_expression']
+  },
+  {
+    id: 'sc_e_nat_easiest_practice',
+    question: 'Which songs are easiest for practice on E Natural flute?',
+    category: 'Notes & Scales',
+    answer: '*Hai Apna Dil To Aawara* (simple major notes) and *Pee Loon* (smooth 5-note pattern) are the absolute easiest for daily practice on E Natural.',
+    keywords: ['e natural easiest practice', 'simple practice songs e natural'],
+    relatedIds: ['sc_e_nat_beginner', 'sng_best_daily_practice']
+  },
+
+  // ==========================================
+  // 🪈 F NATURAL (MIDDLE) SCALE
+  // ==========================================
+  {
+    id: 'sc_f_nat_bollywood',
+    question: 'Which Bollywood songs are best for F Natural flute?',
+    category: 'Notes & Scales',
+    answer: 'F Natural Medium has a bright, energetic tone:\n• *Pee Loon*\n• *Zara Zara*\n• *Lag Ja Gale*\n• *Yeh Shaam Mastani*\n• *Chhookar Mere Manko*.',
+    keywords: ['f natural bollywood songs', 'f natural middle flute songs'],
+    relatedIds: ['sc_c_nat_bollywood', 'sng_easiest_beginners']
+  },
+  {
+    id: 'sc_f_nat_devotional',
+    question: 'Which devotional songs suit F Natural flute?',
+    category: 'Notes & Scales',
+    answer: '• *Itni Shakti Hame Dena Data*\n• *Yashomati Maiya Se Bole Nandlala*\n• *Achyutam Keshavam*\n• *O Palanhare*.',
+    keywords: ['f natural devotional songs', 'f natural bhajan flute'],
+    relatedIds: ['rec_devotional_film_songs', 'rg_list_devotional']
+  },
+  {
+    id: 'sc_f_nat_romantic',
+    question: 'Which romantic songs sound beautiful on F Natural flute?',
+    category: 'Notes & Scales',
+    answer: '• *Pee Loon*\n• *Kesariya*\n• *Tum Hi Ho*\n• *Zara Zara*\n• *Pehla Nasha*.',
+    keywords: ['f natural romantic songs', 'romantic songs f natural flute'],
+    relatedIds: ['rec_romantic_bansuri', 'sc_f_nat_bollywood']
+  },
+  {
+    id: 'sc_f_nat_beginner',
+    question: 'Which beginner songs can I play on F Natural flute?',
+    category: 'Notes & Scales',
+    answer: '• *Hai Apna Dil To Aawara*\n• *Pee Loon*\n• *Lag Ja Gale*\n• *Zara Zara*.',
+    keywords: ['f natural beginner songs', 'easy f natural songs'],
+    relatedIds: ['sng_easiest_beginners', 'sc_f_nat_bollywood']
+  },
+  {
+    id: 'sc_f_nat_raagas',
+    question: 'Which Raagas sound best on F Natural flute?',
+    category: 'Notes & Scales',
+    answer: '**Raag Bhupali**, **Raag Yaman**, **Raag Durga**, **Raag Kafi**, and **Raag Desh** sound clear and resonant on F Natural.',
+    keywords: ['f natural raagas', 'raagas on f natural flute'],
+    relatedIds: ['rg_list_beginner', 'thaat_bilawal_ragas']
+  },
+  {
+    id: 'sc_f_nat_upper_octave',
+    question: 'Which songs improve upper octave practice on F Natural flute?',
+    category: 'Notes & Scales',
+    answer: '*Kesariya* and *Kal Ho Naa Ho* help refine Taar Saptak blowing stability on F Natural.',
+    keywords: ['f natural upper octave practice', 'taar saptak f natural'],
+    relatedIds: ['rec_upper_octave_songs', 'ns_upper_octave']
+  },
+  {
+    id: 'sc_f_nat_long_notes',
+    question: 'Which songs improve long notes on F Natural flute?',
+    category: 'Notes & Scales',
+    answer: '*Yeh Kahan Aa Gaye Hum* and *Roz Roz Aankhon Tale* require long sustained breathing passages on F Natural.',
+    keywords: ['f natural long notes songs', 'long notes practice f natural'],
+    relatedIds: ['rec_breath_control_songs', 'br_long_blowing']
+  },
+  {
+    id: 'sc_f_nat_live_perf',
+    question: 'Which songs are suitable for live performances on F Natural flute?',
+    category: 'Notes & Scales',
+    answer: '*Kal Ho Naa Ho*, *Kesariya*, *Lag Ja Gale*, and *Vande Mataram* shine during live solo sets on F Natural.',
+    keywords: ['f natural live performance songs', 'f natural stage songs'],
+    relatedIds: ['sng_ideal_stage', 'perf_prepare_live']
+  },
+  {
+    id: 'sc_f_nat_techniques',
+    question: 'Which flute techniques can I practice on F Natural flute?',
+    category: 'Notes & Scales',
+    answer: 'F Natural Medium is ideal for practicing **Meend**, **Kan Swaras**, **Khatka**, and rapid **Alankar drills**.',
+    keywords: ['f natural flute techniques', 'techniques f natural flute'],
+    relatedIds: ['tech_meend', 'tech_kan_swar', 'al_what_are_alankars']
+  },
+  {
+    id: 'sc_f_nat_classical',
+    question: 'Can I play classical music on F Natural flute?',
+    category: 'Notes & Scales',
+    answer: 'Yes! F Natural Medium is lightweight, easy to finger, and provides clear pitch projection for Hindustani classical compositions.',
+    keywords: ['classical music f natural flute', 'f natural classical bansuri'],
+    relatedIds: ['icm_hindustani_music', 'sc_f_nat_raagas']
+  },
+
+  // ==========================================
+  // 🪈 F SHARP (MIDDLE) SCALE
+  // ==========================================
+  {
+    id: 'sc_fsharp_bollywood',
+    question: 'Which Bollywood songs are best for F Sharp flute?',
+    category: 'Notes & Scales',
+    answer: 'F Sharp Medium is a favorite among professional recording artists:\n• *Zara Zara*\n• *Lag Ja Gale*\n• *Tere Bina Zindagi Se*\n• *Kal Ho Naa Ho*\n• *Moh Moh Ke Dhaage*.',
+    keywords: ['f sharp bollywood songs', 'f sharp middle flute songs', 'f sharp hindi songs'],
+    relatedIds: ['sc_csharp_bollywood', 'sng_easiest_beginners']
+  },
+  {
+    id: 'sc_fsharp_devotional',
+    question: 'Which devotional songs are recommended for F Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '• *Achyutam Keshavam*\n• *O Palanhare*\n• *Itni Shakti Hame Dena Data*\n• *Vaishnav Jan To*.',
+    keywords: ['f sharp devotional songs', 'f sharp bhajan flute'],
+    relatedIds: ['rec_devotional_film_songs', 'rg_list_devotional']
+  },
+  {
+    id: 'sc_fsharp_beginner',
+    question: 'Which beginner songs are easiest on F Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '• *Hai Apna Dil To Aawara*\n• *Pee Loon*\n• *Lag Ja Gale*\n• *Zara Zara*.',
+    keywords: ['f sharp beginner songs', 'easy f sharp songs'],
+    relatedIds: ['sng_easiest_beginners', 'sc_fsharp_bollywood']
+  },
+  {
+    id: 'sc_fsharp_raagas',
+    question: 'Which Raagas sound beautiful on F Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '**Raag Yaman**, **Raag Bageshri**, **Raag Bhimpalasi**, **Raag Kirwani**, and **Raag Desh** sound extraordinarily sweet on F Sharp.',
+    keywords: ['f sharp raagas', 'raagas on f sharp flute'],
+    relatedIds: ['rg_list_popular_concert', 'rg_yaman']
+  },
+  {
+    id: 'sc_fsharp_breath_control',
+    question: 'Which songs improve breath control on F Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '*Yeh Kahan Aa Gaye Hum* and *Roz Roz Aankhon Tale* help build steady air support on F Sharp.',
+    keywords: ['f sharp breath control songs', 'breath stamina f sharp'],
+    relatedIds: ['rec_breath_control_songs', 'br_breath_control']
+  },
+  {
+    id: 'sc_fsharp_speed',
+    question: 'Which songs improve speed on F Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '*Jiya Jale*, *Senorita*, and fast Alankar scale patterns build crisp finger speed on F Sharp.',
+    keywords: ['f sharp improve speed', 'fast songs f sharp flute'],
+    relatedIds: ['sng_improve_finger_speed', 'fing_increase_speed']
+  },
+  {
+    id: 'sc_fsharp_expression',
+    question: 'Which songs help develop expression on F Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '*Tujhse Naraz Nahin Zindagi* and *Tere Bina Zindagi Se* encourage deep vocal glides and emotional expression.',
+    keywords: ['f sharp develop expression', 'expressive songs f sharp'],
+    relatedIds: ['sng_help_expression', 'tech_make_expressive']
+  },
+  {
+    id: 'sc_fsharp_stage',
+    question: 'Which songs are ideal for stage performances on F Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '*Kal Ho Naa Ho*, *Kesariya*, *Lag Ja Gale*, and *Dil Cheez Kya Hai* work fantastically on F Sharp.',
+    keywords: ['f sharp stage performance songs', 'f sharp concert songs'],
+    relatedIds: ['sng_ideal_stage', 'perf_prepare_live']
+  },
+  {
+    id: 'sc_fsharp_classical',
+    question: 'Can I play classical compositions on F Sharp flute?',
+    category: 'Notes & Scales',
+    answer: 'Yes! F Sharp Medium is widely used in Indian classical music for vocal accompaniment and solo studio recordings.',
+    keywords: ['classical compositions f sharp flute', 'f sharp classical bansuri'],
+    relatedIds: ['icm_hindustani_music', 'sc_fsharp_raagas']
+  },
+  {
+    id: 'sc_fsharp_regular_practice',
+    question: 'Which songs are best for regular practice on F Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '*Lag Ja Gale* (for Meend), *Hai Apna Dil To Aawara* (for rhythm), and *Pee Loon* (for finger flow) on F Sharp.',
+    keywords: ['f sharp regular practice songs', 'daily practice f sharp'],
+    relatedIds: ['sng_best_daily_practice', 'prac_daily_routine']
+  },
+
+  // ==========================================
+  // 🪈 G NATURAL (BASE) SCALE
+  // ==========================================
+  {
+    id: 'sc_g_base_bollywood',
+    question: 'Which Bollywood songs are best for G Natural flute?',
+    category: 'Notes & Scales',
+    answer: 'G Natural Base is the benchmark scale used in iconic Bollywood recordings (Pt. Hariprasad Chaurasia style):\n• *Zara Zara*\n• *Lag Ja Gale*\n• *Yeh Shaam Mastani*\n• *Chhookar Mere Manko*\n• *Pee Loon*\n• *Tere Bina Zindagi Se*.',
+    keywords: ['g natural bollywood songs', 'g natural base flute songs', 'g base hindi songs'],
+    relatedIds: ['fl_g_natural_scale', 'bol_g_natural_flute']
+  },
+  {
+    id: 'sc_g_base_devotional',
+    question: 'Which devotional songs are suitable for G Natural flute?',
+    category: 'Notes & Scales',
+    answer: '• *Itni Shakti Hame Dena Data*\n• *Yashomati Maiya Se Bole Nandlala*\n• *Achyutam Keshavam*\n• *O Palanhare* (*Lagaan*).',
+    keywords: ['g natural devotional songs', 'g base bhajan flute'],
+    relatedIds: ['rec_devotional_film_songs', 'rg_list_devotional']
+  },
+  {
+    id: 'sc_g_base_romantic',
+    question: 'Which romantic melodies sound beautiful on G Natural flute?',
+    category: 'Notes & Scales',
+    answer: '• *Pee Loon*\n• *Kesariya*\n• *Tum Hi Ho*\n• *Zara Zara*\n• *Pehla Nasha*.',
+    keywords: ['g natural romantic melodies', 'g base romantic songs'],
+    relatedIds: ['rec_romantic_bansuri', 'sc_g_base_bollywood']
+  },
+  {
+    id: 'sc_g_base_beginner',
+    question: 'Which beginner songs should I learn first on G Natural flute?',
+    category: 'Notes & Scales',
+    answer: '1. *Hai Apna Dil To Aawara*\n2. *Pee Loon*\n3. *Lag Ja Gale*\n4. *Zara Zara*.',
+    keywords: ['g natural beginner songs', 'g base easy songs'],
+    relatedIds: ['rec_g_natural_easy_songs', 'sng_easiest_beginners']
+  },
+  {
+    id: 'sc_g_base_raagas',
+    question: 'Which classical Raagas sound best on G Natural flute?',
+    category: 'Notes & Scales',
+    answer: '**Raag Yaman**, **Raag Bhupali**, **Raag Bageshri**, **Raag Darbari Kanada**, **Raag Bhimpalasi**, and **Raag Desh** sound majestic on G Natural Base.',
+    keywords: ['g natural classical raagas', 'g base raagas'],
+    relatedIds: ['rg_list_popular_concert', 'fl_g_natural_scale']
+  },
+  {
+    id: 'sc_g_base_breath_control',
+    question: 'Which songs improve breath control on G Natural flute?',
+    category: 'Notes & Scales',
+    answer: '*Yeh Kahan Aa Gaye Hum* and *Roz Roz Aankhon Tale* build deep diaphragm breath control on G Natural Base.',
+    keywords: ['g natural breath control songs', 'g base breath stamina'],
+    relatedIds: ['rec_breath_control_songs', 'br_breath_control']
+  },
+  {
+    id: 'sc_g_base_finger_speed',
+    question: 'Which songs improve finger speed on G Natural flute?',
+    category: 'Notes & Scales',
+    answer: '*Jiya Jale*, *Senorita*, and fast Alankar drills build finger agility on G Natural Base.',
+    keywords: ['g natural finger speed songs', 'g base finger agility'],
+    relatedIds: ['sng_improve_finger_speed', 'fing_increase_speed']
+  },
+  {
+    id: 'sc_g_base_competitions',
+    question: 'Which songs are suitable for competitions on G Natural flute?',
+    category: 'Notes & Scales',
+    answer: '*Ghar More Pardesiya*, *Albela Sajan Aayo Re*, and *Mohe Rang Do Laal* show off full technical mastery on G Natural Base.',
+    keywords: ['g natural competition songs', 'g base contest performance'],
+    relatedIds: ['rec_flute_competition_songs', 'sng_suitable_advanced']
+  },
+  {
+    id: 'sc_g_base_middle_octave',
+    question: 'Which songs use mostly the middle octave on G Natural flute?',
+    category: 'Notes & Scales',
+    answer: '*Lag Ja Gale*, *Hai Apna Dil To Aawara*, and *Chhookar Mere Manko* stay comfortably in Madhya Saptak on G Natural.',
+    keywords: ['g natural middle octave songs', 'g base madhya saptak'],
+    relatedIds: ['rec_middle_octave_songs', 'sap_middle_octave']
+  },
+  {
+    id: 'sc_g_base_almost_all_bollywood',
+    question: 'Can I play almost all Bollywood songs on G Natural flute?',
+    category: 'Notes & Scales',
+    answer: 'Yes! G Natural Base is the standard professional flute choice for studio recording and live stage performances across the Bollywood industry.',
+    keywords: ['play all bollywood songs g natural', 'g base standard bollywood flute'],
+    relatedIds: ['bol_g_natural_flute', 'sc_g_base_bollywood']
+  },
+
+  // ==========================================
+  // 🪈 G SHARP (BASE) SCALE
+  // ==========================================
+  {
+    id: 'sc_gsharp_base_bollywood',
+    question: 'Which Bollywood songs are best for G Sharp flute?',
+    category: 'Notes & Scales',
+    answer: 'G Sharp Base offers a deep, soothing tone:\n• *Zara Zara*\n• *Lag Ja Gale*\n• *Tere Bina Zindagi Se*\n• *Pee Loon*\n• *Moh Moh Ke Dhaage*.',
+    keywords: ['g sharp bollywood songs', 'g sharp base flute songs'],
+    relatedIds: ['sc_g_base_bollywood', 'sng_easiest_beginners']
+  },
+  {
+    id: 'sc_gsharp_base_devotional',
+    question: 'Which devotional songs suit G Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '• *Itni Shakti Hame Dena Data*\n• *O Palanhare*\n• *Achyutam Keshavam*\n• *Yashomati Maiya*.',
+    keywords: ['g sharp devotional songs', 'g sharp bhajan flute'],
+    relatedIds: ['rec_devotional_film_songs', 'rg_list_devotional']
+  },
+  {
+    id: 'sc_gsharp_base_raagas',
+    question: 'Which Raagas are recommended for G Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '**Raag Bageshri**, **Raag Yaman**, **Raag Bhimpalasi**, **Raag Desh**, and **Raag Kirwani** sound exceptionally warm on G Sharp Base.',
+    keywords: ['g sharp raagas', 'raagas on g sharp base flute'],
+    relatedIds: ['rg_list_popular_concert', 'rg_bageshri_overview']
+  },
+  {
+    id: 'sc_gsharp_base_expression',
+    question: 'Which songs improve expression on G Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '*Tujhse Naraz Nahin Zindagi* and *Tere Bina Zindagi Se* encourage deep, expressive vocal glides on G Sharp Base.',
+    keywords: ['g sharp improve expression', 'expressive songs g sharp base'],
+    relatedIds: ['sng_help_expression', 'tech_make_expressive']
+  },
+  {
+    id: 'sc_gsharp_base_breath',
+    question: 'Which songs improve breath control on G Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '*Yeh Kahan Aa Gaye Hum* and *Roz Roz Aankhon Tale* build deep diaphragm breath control on G Sharp Base.',
+    keywords: ['g sharp breath control songs', 'g sharp breath stamina'],
+    relatedIds: ['rec_breath_control_songs', 'br_breath_control']
+  },
+  {
+    id: 'sc_gsharp_base_concerts',
+    question: 'Which songs are suitable for concerts on G Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '*Kal Ho Naa Ho*, *Kesariya*, *Lag Ja Gale*, and *Vande Mataram* sound captivating on G Sharp Base.',
+    keywords: ['g sharp concert songs', 'g sharp stage performance'],
+    relatedIds: ['sng_ideal_stage', 'perf_prepare_live']
+  },
+  {
+    id: 'sc_gsharp_base_beginner',
+    question: 'Which beginner songs are recommended for G Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '• *Hai Apna Dil To Aawara*\n• *Pee Loon*\n• *Lag Ja Gale*\n• *Zara Zara*.',
+    keywords: ['g sharp beginner songs', 'easy g sharp songs'],
+    relatedIds: ['sng_easiest_beginners', 'sc_gsharp_base_bollywood']
+  },
+  {
+    id: 'sc_gsharp_base_emotional',
+    question: 'Which emotional songs sound best on G Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '• *Tere Bina Zindagi Se*\n• *Tujhse Naraz Nahin Zindagi*\n• *Chupke Chupke Raat Din*\n• *Moh Moh Ke Dhaage*.',
+    keywords: ['g sharp emotional songs', 'soulful g sharp base songs'],
+    relatedIds: ['tech_emotional_melodies', 'sc_gsharp_base_bollywood']
+  },
+  {
+    id: 'sc_gsharp_base_perform',
+    question: 'Which songs are easiest to perform on G Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '*Lag Ja Gale* and *Pee Loon* are forgiving, highly expressive melodies for G Sharp Base.',
+    keywords: ['g sharp easiest perform', 'easy stage songs g sharp'],
+    relatedIds: ['sc_gsharp_base_beginner', 'sng_ideal_stage']
+  },
+  {
+    id: 'sc_gsharp_base_techniques',
+    question: 'Which flute techniques can I practice on G Sharp flute?',
+    category: 'Notes & Scales',
+    answer: 'G Sharp Base is excellent for practicing deep **Meend** glides, **Kan Swaras**, **Khatka**, and **Alankar scale drills**.',
+    keywords: ['g sharp flute techniques', 'practice techniques g sharp base'],
+    relatedIds: ['tech_meend', 'tech_kan_swar', 'al_what_are_alankars']
+  },
+
+  // ==========================================
+  // 🪈 A NATURAL (BASE) SCALE
+  // ==========================================
+  {
+    id: 'sc_a_base_bollywood',
+    question: 'Which Bollywood songs are best for A Natural flute?',
+    category: 'Notes & Scales',
+    answer: 'A Natural Base produces a rich, deep, woody tone:\n• *Zara Zara*\n• *Lag Ja Gale*\n• *Yeh Shaam Mastani*\n• *Chhookar Mere Manko*\n• *Pee Loon*.',
+    keywords: ['a natural bollywood songs', 'a base flute songs', 'a natural hindi songs'],
+    relatedIds: ['sc_g_base_bollywood', 'sng_easiest_beginners']
+  },
+  {
+    id: 'sc_a_base_devotional',
+    question: 'Which devotional songs sound beautiful on A Natural flute?',
+    category: 'Notes & Scales',
+    answer: '• *Itni Shakti Hame Dena Data*\n• *Yashomati Maiya Se Bole Nandlala*\n• *Achyutam Keshavam*\n• *O Palanhare*.',
+    keywords: ['a natural devotional songs', 'a base bhajan flute'],
+    relatedIds: ['rec_devotional_film_songs', 'rg_list_devotional']
+  },
+  {
+    id: 'sc_a_base_romantic',
+    question: 'Which romantic songs are suitable for A Natural flute?',
+    category: 'Notes & Scales',
+    answer: '• *Pee Loon*\n• *Kesariya*\n• *Tum Hi Ho*\n• *Zara Zara*\n• *Pehla Nasha*.',
+    keywords: ['a natural romantic songs', 'a base romantic flute songs'],
+    relatedIds: ['rec_romantic_bansuri', 'sc_a_base_bollywood']
+  },
+  {
+    id: 'sc_a_base_raagas',
+    question: 'Which classical Raagas are recommended for A Natural flute?',
+    category: 'Notes & Scales',
+    answer: '**Raag Yaman**, **Raag Bhupali**, **Raag Bageshri**, **Raag Darbari Kanada**, and **Raag Desh** sound soothing on A Natural Base.',
+    keywords: ['a natural classical raagas', 'a base raagas'],
+    relatedIds: ['rg_list_popular_concert', 'thaat_kalyan_ragas']
+  },
+  {
+    id: 'sc_a_base_beginner',
+    question: 'Which beginner songs can I play on A Natural flute?',
+    category: 'Notes & Scales',
+    answer: '• *Hai Apna Dil To Aawara*\n• *Pee Loon*\n• *Lag Ja Gale*\n• *Zara Zara*.',
+    keywords: ['a natural beginner songs', 'a base easy songs'],
+    relatedIds: ['sng_easiest_beginners', 'sc_a_base_bollywood']
+  },
+  {
+    id: 'sc_a_base_finger_speed',
+    question: 'Which songs improve finger speed on A Natural flute?',
+    category: 'Notes & Scales',
+    answer: '*Jiya Jale*, *Senorita*, and fast Alankar drills build finger agility on A Natural Base.',
+    keywords: ['a natural finger speed songs', 'a base finger agility'],
+    relatedIds: ['sng_improve_finger_speed', 'fing_increase_speed']
+  },
+  {
+    id: 'sc_a_base_upper_octave',
+    question: 'Which songs improve upper octave playing on A Natural flute?',
+    category: 'Notes & Scales',
+    answer: '*Kesariya* and *Kal Ho Naa Ho* challenge upper register pitch control on A Natural Base.',
+    keywords: ['a natural upper octave songs', 'a base taar saptak'],
+    relatedIds: ['rec_upper_octave_songs', 'ns_upper_octave']
+  },
+  {
+    id: 'sc_a_base_competitions',
+    question: 'Which songs are suitable for competitions on A Natural flute?',
+    category: 'Notes & Scales',
+    answer: '*Ghar More Pardesiya*, *Albela Sajan Aayo Re*, and *Mohe Rang Do Laal* show off full technical mastery on A Natural Base.',
+    keywords: ['a natural competition songs', 'a base contest performance'],
+    relatedIds: ['rec_flute_competition_songs', 'sng_suitable_advanced']
+  },
+  {
+    id: 'sc_a_base_expression',
+    question: 'Which songs help develop expression on A Natural flute?',
+    category: 'Notes & Scales',
+    answer: '*Tujhse Naraz Nahin Zindagi* and *Tere Bina Zindagi Se* encourage deep vocal glides on A Natural Base.',
+    keywords: ['a natural develop expression', 'expressive songs a base'],
+    relatedIds: ['sng_help_expression', 'tech_make_expressive']
+  },
+  {
+    id: 'sc_a_base_classical_concerts',
+    question: 'Can I play classical concerts on A Natural flute?',
+    category: 'Notes & Scales',
+    answer: 'Yes! A Natural Base is a standard scale used by classical musicians for intimate chamber concerts and studio recordings.',
+    keywords: ['classical concerts a natural flute', 'a base classical bansuri'],
+    relatedIds: ['icm_hindustani_music', 'sc_a_base_raagas']
+  },
+
+  // ==========================================
+  // 🪈 A SHARP (BASE) SCALE
+  // ==========================================
+  {
+    id: 'sc_asharp_base_bollywood',
+    question: 'Which Bollywood songs are best for A Sharp flute?',
+    category: 'Notes & Scales',
+    answer: 'A Sharp Base offers a velvety, romantic tone:\n• *Zara Zara*\n• *Lag Ja Gale*\n• *Tere Bina Zindagi Se*\n• *Pee Loon*\n• *Moh Moh Ke Dhaage*.',
+    keywords: ['a sharp bollywood songs', 'a sharp base flute songs'],
+    relatedIds: ['sc_a_base_bollywood', 'sng_easiest_beginners']
+  },
+  {
+    id: 'sc_asharp_base_devotional',
+    question: 'Which devotional songs suit A Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '• *Itni Shakti Hame Dena Data*\n• *O Palanhare*\n• *Achyutam Keshavam*\n• *Yashomati Maiya*.',
+    keywords: ['a sharp devotional songs', 'a sharp bhajan flute'],
+    relatedIds: ['rec_devotional_film_songs', 'rg_list_devotional']
+  },
+  {
+    id: 'sc_asharp_base_beginner',
+    question: 'Which beginner songs are recommended for A Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '• *Hai Apna Dil To Aawara*\n• *Pee Loon*\n• *Lag Ja Gale*\n• *Zara Zara*.',
+    keywords: ['a sharp beginner songs', 'easy a sharp songs'],
+    relatedIds: ['sng_easiest_beginners', 'sc_asharp_base_bollywood']
+  },
+  {
+    id: 'sc_asharp_base_raagas',
+    question: 'Which Raagas sound beautiful on A Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '**Raag Bageshri**, **Raag Yaman**, **Raag Bhimpalasi**, **Raag Desh**, and **Raag Kirwani** sound exceptionally warm on A Sharp Base.',
+    keywords: ['a sharp raagas', 'raagas on a sharp base flute'],
+    relatedIds: ['rg_list_popular_concert', 'rg_bageshri_overview']
+  },
+  {
+    id: 'sc_asharp_base_finger_coordination',
+    question: 'Which songs improve finger coordination on A Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '*Jiya Jale*, *Senorita*, and fast Alankar scale patterns build finger agility on A Sharp Base.',
+    keywords: ['a sharp finger coordination', 'finger agility a sharp base'],
+    relatedIds: ['sng_improve_finger_speed', 'fing_increase_speed']
+  },
+  {
+    id: 'sc_asharp_base_breath_control',
+    question: 'Which songs improve breath control on A Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '*Yeh Kahan Aa Gaye Hum* and *Roz Roz Aankhon Tale* build deep diaphragm breath control on A Sharp Base.',
+    keywords: ['a sharp breath control songs', 'a sharp breath stamina'],
+    relatedIds: ['rec_breath_control_songs', 'br_breath_control']
+  },
+  {
+    id: 'sc_asharp_base_easiest_perform',
+    question: 'Which songs are easiest to perform on A Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '*Lag Ja Gale* and *Pee Loon* are forgiving, highly expressive melodies for A Sharp Base.',
+    keywords: ['a sharp easiest perform', 'easy stage songs a sharp base'],
+    relatedIds: ['sc_asharp_base_beginner', 'sng_ideal_stage']
+  },
+  {
+    id: 'sc_asharp_base_stage',
+    question: 'Which songs are ideal for stage performances on A Sharp flute?',
+    category: 'Notes & Scales',
+    answer: '*Kal Ho Naa Ho*, *Kesariya*, *Lag Ja Gale*, and *Vande Mataram* sound captivating on A Sharp Base.',
+    keywords: ['a sharp stage performance songs', 'a sharp concert songs'],
+    relatedIds: ['sng_ideal_stage', 'perf_prepare_live']
+  },
+  {
+    id: 'sc_asharp_base_techniques',
+    question: 'Which flute techniques can I practice on A Sharp flute?',
+    category: 'Notes & Scales',
+    answer: 'A Sharp Base is excellent for practicing deep **Meend** glides, **Kan Swaras**, **Khatka**, and **Alankar scale drills**.',
+    keywords: ['a sharp flute techniques', 'practice techniques a sharp base'],
+    relatedIds: ['tech_meend', 'tech_kan_swar', 'al_what_are_alankars']
+  },
+  {
+    id: 'sc_asharp_base_best_sounding',
+    question: 'Which songs sound best on A Sharp flute?',
+    category: 'Notes & Scales',
+    answer: 'Slow romantic ghazals and soulful ballads like *Tere Bina Zindagi Se*, *Chupke Chupke Raat Din*, and *Moh Moh Ke Dhaage* sound rich on A Sharp Base.',
+    keywords: ['songs sound best a sharp flute', 'soulful a sharp base songs'],
+    relatedIds: ['tech_emotional_melodies', 'sc_asharp_base_bollywood']
+  },
+
+  // ==========================================
+  // 🪈 B NATURAL (BASE) SCALE
+  // ==========================================
+  {
+    id: 'sc_b_base_bollywood',
+    question: 'Which Bollywood songs are best for B Natural flute?',
+    category: 'Notes & Scales',
+    answer: 'B Natural Base has a warm, full-bodied low register:\n• *Zara Zara*\n• *Lag Ja Gale*\n• *Yeh Shaam Mastani*\n• *Chhookar Mere Manko*\n• *Pee Loon*.',
+    keywords: ['b natural bollywood songs', 'b base flute songs', 'b natural hindi songs'],
+    relatedIds: ['sc_g_base_bollywood', 'sng_easiest_beginners']
+  },
+  {
+    id: 'sc_b_base_devotional',
+    question: 'Which devotional songs are recommended for B Natural flute?',
+    category: 'Notes & Scales',
+    answer: '• *Itni Shakti Hame Dena Data*\n• *Yashomati Maiya Se Bole Nandlala*\n• *Achyutam Keshavam*\n• *O Palanhare*.',
+    keywords: ['b natural devotional songs', 'b base bhajan flute'],
+    relatedIds: ['rec_devotional_film_songs', 'rg_list_devotional']
+  },
+  {
+    id: 'sc_b_base_romantic',
+    question: 'Which romantic songs suit B Natural flute?',
+    category: 'Notes & Scales',
+    answer: '• *Pee Loon*\n• *Kesariya*\n• *Tum Hi Ho*\n• *Zara Zara*\n• *Pehla Nasha*.',
+    keywords: ['b natural romantic songs', 'b base romantic flute songs'],
+    relatedIds: ['rec_romantic_bansuri', 'sc_b_base_bollywood']
+  },
+  {
+    id: 'sc_b_base_beginner',
+    question: 'Which beginner songs can I learn on B Natural flute?',
+    category: 'Notes & Scales',
+    answer: '• *Hai Apna Dil To Aawara*\n• *Pee Loon*\n• *Lag Ja Gale*\n• *Zara Zara*.',
+    keywords: ['b natural beginner songs', 'b base easy songs'],
+    relatedIds: ['sng_easiest_beginners', 'sc_b_base_bollywood']
+  },
+  {
+    id: 'sc_b_base_raagas',
+    question: 'Which classical Raagas sound best on B Natural flute?',
+    category: 'Notes & Scales',
+    answer: '**Raag Yaman**, **Raag Bhupali**, **Raag Bageshri**, **Raag Darbari Kanada**, and **Raag Desh** sound rich on B Natural Base.',
+    keywords: ['b natural classical raagas', 'b base raagas'],
+    relatedIds: ['rg_list_popular_concert', 'thaat_kalyan_ragas']
+  },
+  {
+    id: 'sc_b_base_breath_control',
+    question: 'Which songs improve breath control on B Natural flute?',
+    category: 'Notes & Scales',
+    answer: '*Yeh Kahan Aa Gaye Hum* and *Roz Roz Aankhon Tale* build deep diaphragm breath control on B Natural Base.',
+    keywords: ['b natural breath control songs', 'b base breath stamina'],
+    relatedIds: ['rec_breath_control_songs', 'br_breath_control']
+  },
+  {
+    id: 'sc_b_base_fingering',
+    question: 'Which songs improve fingering on B Natural flute?',
+    category: 'Notes & Scales',
+    answer: '*Jiya Jale*, *Senorita*, and fast Alankar drills build finger agility on B Natural Base.',
+    keywords: ['b natural improve fingering', 'b base finger drills'],
+    relatedIds: ['sng_improve_finger_speed', 'fing_increase_speed']
+  },
+  {
+    id: 'sc_b_base_expression',
+    question: 'Which songs improve expression on B Natural flute?',
+    category: 'Notes & Scales',
+    answer: '*Tujhse Naraz Nahin Zindagi* and *Tere Bina Zindagi Se* encourage deep vocal glides on B Natural Base.',
+    keywords: ['b natural improve expression', 'expressive songs b base'],
+    relatedIds: ['sng_help_expression', 'tech_make_expressive']
+  },
+  {
+    id: 'sc_b_base_concerts',
+    question: 'Which songs are suitable for concerts on B Natural flute?',
+    category: 'Notes & Scales',
+    answer: '*Kal Ho Naa Ho*, *Kesariya*, *Lag Ja Gale*, and *Vande Mataram* sound captivating on B Natural Base.',
+    keywords: ['b natural concert songs', 'b base stage performance'],
+    relatedIds: ['sng_ideal_stage', 'perf_prepare_live']
+  },
+  {
+    id: 'sc_b_base_easiest_beginners',
+    question: 'Which songs are easiest for beginners on B Natural flute?',
+    category: 'Notes & Scales',
+    answer: '*Hai Apna Dil To Aawara* and *Pee Loon* are forgiving, highly expressive melodies for B Natural Base.',
+    keywords: ['b natural easiest beginners', 'easy songs b natural flute'],
+    relatedIds: ['sc_b_base_beginner', 'sng_easiest_beginners']
+  },
+
+  // ==========================================
+  // 🪈 E BASE SCALE
+  // ==========================================
+  {
+    id: 'sc_ebase_bollywood',
+    question: 'Which Bollywood songs are best for E Base flute?',
+    category: 'Notes & Scales',
+    answer: 'E Base flutes produce an intensely deep, resonant, meditative sound:\n• *Moh Moh Ke Dhaage*\n• *Lag Ja Gale*\n• *Tere Bina Zindagi Se*\n• *Chupke Chupke Raat Din*\n• *Yeh Kahan Aa Gaye Hum*.',
+    keywords: ['e base bollywood songs', 'e base flute songs', 'e bass bansuri songs'],
+    relatedIds: ['fl_base_flute_vs_medium', 'tech_emotional_melodies']
+  },
+  {
+    id: 'sc_ebase_devotional',
+    question: 'Which devotional songs sound best on E Base flute?',
+    category: 'Notes & Scales',
+    answer: '• *Vaishnav Jan To*\n• *Achyutam Keshavam*\n• *O Palanhare*\n• *Itni Shakti Hame Dena Data*\n• *Shiv Tandav Stotram (slow Alap)*.',
+    keywords: ['e base devotional songs', 'e base bhajan flute'],
+    relatedIds: ['rec_devotional_film_songs', 'rg_list_devotional']
+  },
+  {
+    id: 'sc_ebase_meditative',
+    question: 'Which meditative melodies suit E Base flute?',
+    category: 'Notes & Scales',
+    answer: 'Slow ambient Alap phrases in **Raag Darbari**, **Raag Malkauns**, **Raag Bhairavi**, and **Raag Yaman** sound hypnotic on E Base.',
+    keywords: ['e base meditative melodies', 'meditation music e base flute'],
+    relatedIds: ['alap_what_is', 'rg_malkauns_overview']
+  },
+  {
+    id: 'sc_ebase_classical_raagas',
+    question: 'Which classical Raagas sound rich on E Base flute?',
+    category: 'Notes & Scales',
+    answer: '**Raag Darbari Kanada**, **Raag Malkauns**, **Raag Yaman**, **Raag Bageshri**, and **Raag Bhairav** sound extraordinarily majestic on E Base.',
+    keywords: ['e base classical raagas', 'e base raaga list'],
+    relatedIds: ['rg_darbari_overview', 'rg_malkauns_overview']
+  },
+  {
+    id: 'sc_ebase_slow_songs',
+    question: 'Which slow songs are ideal for E Base flute?',
+    category: 'Notes & Scales',
+    answer: '• *Lag Ja Gale*\n• *Tere Bina Zindagi Se*\n• *Moh Moh Ke Dhaage*\n• *Roz Roz Aankhon Tale*\n• *Tujhse Naraz Nahin Zindagi*.',
+    keywords: ['e base slow songs', 'slow emotional songs e base flute'],
+    relatedIds: ['tech_emotional_melodies', 'sng_require_meend']
+  },
+  {
+    id: 'sc_ebase_breath_control',
+    question: 'Which songs improve breath control on E Base flute?',
+    category: 'Notes & Scales',
+    answer: 'Playing any slow sustained melody on E Base naturally trains deep abdominal breath capacity and steady air pressure.',
+    keywords: ['e base breath control songs', 'breath capacity e base flute'],
+    relatedIds: ['br_breath_control', 'br_long_blowing']
+  },
+  {
+    id: 'sc_ebase_lower_octave',
+    question: 'Which songs improve lower octave playing on E Base flute?',
+    category: 'Notes & Scales',
+    answer: 'Songs with deep Mandra Saptak rests like *Chupke Chupke Raat Din* and *Tere Bina Zindagi Se* strengthen lower register warmth on E Base.',
+    keywords: ['e base lower octave songs', 'mandra saptak e base flute'],
+    relatedIds: ['sap_lower_octave', 'br_deep_tone']
+  },
+  {
+    id: 'sc_ebase_live_perf',
+    question: 'Which songs are best for live performances on E Base flute?',
+    category: 'Notes & Scales',
+    answer: '*Lag Ja Gale*, *Moh Moh Ke Dhaage*, and classical Dhun pieces create an awe-inspiring atmosphere during live acoustic shows on E Base.',
+    keywords: ['e base live performance songs', 'e base stage show flute'],
+    relatedIds: ['sng_ideal_stage', 'perf_prepare_live']
+  },
+  {
+    id: 'sc_ebase_techniques',
+    question: 'Which flute techniques should I practice on E Base flute?',
+    category: 'Notes & Scales',
+    answer: 'Practice **deep Meend glides**, **Andolan** (slow oscillations), **long Sa blowing**, and **Komal Swara pitch-bending** on E Base.',
+    keywords: ['e base flute techniques', 'practice techniques e base'],
+    relatedIds: ['tech_meend', 'orn_andolan', 'br_long_blowing']
+  },
+  {
+    id: 'sc_ebase_deep_soothing',
+    question: 'Which songs create a deep and soothing sound on E Base flute?',
+    category: 'Notes & Scales',
+    answer: '*Moh Moh Ke Dhaage*, *Lag Ja Gale*, and *Chupke Chupke Raat Din* highlight the rich, warm, soul-stirring resonance of E Base.',
+    keywords: ['e base deep soothing sound', 'soothing songs e base bansuri'],
+    relatedIds: ['sc_ebase_slow_songs', 'tech_emotional_melodies']
+  },
+
+  // ==========================================
+  // 🪈 F BASE SCALE
+  // ==========================================
+  {
+    id: 'sc_fbase_bollywood',
+    question: 'Which Bollywood songs are best for F Base flute?',
+    category: 'Notes & Scales',
+    answer: 'F Base flutes offer a warm, resonant bass voice:\n• *Moh Moh Ke Dhaage*\n• *Lag Ja Gale*\n• *Tere Bina Zindagi Se*\n• *Chupke Chupke Raat Din*\n• *Yeh Kahan Aa Gaye Hum*.',
+    keywords: ['f base bollywood songs', 'f base flute songs', 'f bass bansuri songs'],
+    relatedIds: ['sc_ebase_bollywood', 'tech_emotional_melodies']
+  },
+  {
+    id: 'sc_fbase_devotional',
+    question: 'Which devotional songs are suitable for F Base flute?',
+    category: 'Notes & Scales',
+    answer: '• *Vaishnav Jan To*\n• *Achyutam Keshavam*\n• *O Palanhare*\n• *Itni Shakti Hame Dena Data*.',
+    keywords: ['f base devotional songs', 'f base bhajan flute'],
+    relatedIds: ['rec_devotional_film_songs', 'rg_list_devotional']
+  },
+  {
+    id: 'sc_fbase_romantic',
+    question: 'Which romantic melodies sound beautiful on F Base flute?',
+    category: 'Notes & Scales',
+    answer: '• *Pee Loon*\n• *Kesariya*\n• *Tum Hi Ho*\n• *Zara Zara*\n• *Pehla Nasha*.',
+    keywords: ['f base romantic melodies', 'f base romantic songs'],
+    relatedIds: ['rec_romantic_bansuri', 'sc_fbase_bollywood']
+  },
+  {
+    id: 'sc_fbase_raagas',
+    question: 'Which classical Raagas are commonly played on F Base flute?',
+    category: 'Notes & Scales',
+    answer: '**Raag Darbari Kanada**, **Raag Malkauns**, **Raag Yaman**, **Raag Bageshri**, and **Raag Bhairav** sound exceptionally grand on F Base.',
+    keywords: ['f base classical raagas', 'f base raaga list'],
+    relatedIds: ['rg_darbari_overview', 'rg_malkauns_overview']
+  },
+  {
+    id: 'sc_fbase_beginner',
+    question: 'Which beginner songs can I play on F Base flute?',
+    category: 'Notes & Scales',
+    answer: '• *Hai Apna Dil To Aawara*\n• *Pee Loon*\n• *Lag Ja Gale*\n• *Zara Zara*.',
+    keywords: ['f base beginner songs', 'f base easy songs'],
+    relatedIds: ['sng_easiest_beginners', 'sc_fbase_bollywood']
+  },
+  {
+    id: 'sc_fbase_expression',
+    question: 'Which songs improve expression on F Base flute?',
+    category: 'Notes & Scales',
+    answer: '*Tujhse Naraz Nahin Zindagi* and *Tere Bina Zindagi Se* encourage deep vocal glides on F Base.',
+    keywords: ['f base improve expression', 'expressive songs f base'],
+    relatedIds: ['sng_help_expression', 'tech_make_expressive']
+  },
+  {
+    id: 'sc_fbase_breath_control',
+    question: 'Which songs improve breath control on F Base flute?',
+    category: 'Notes & Scales',
+    answer: '*Yeh Kahan Aa Gaye Hum* and *Roz Roz Aankhon Tale* build deep diaphragm breath control on F Base.',
+    keywords: ['f base breath control songs', 'f base breath stamina'],
+    relatedIds: ['rec_breath_control_songs', 'br_breath_control']
+  },
+  {
+    id: 'sc_fbase_competitions',
+    question: 'Which songs are ideal for competitions on F Base flute?',
+    category: 'Notes & Scales',
+    answer: '*Ghar More Pardesiya*, *Albela Sajan Aayo Re*, and *Mohe Rang Do Laal* show off full technical mastery on F Base.',
+    keywords: ['f base competition songs', 'f base contest performance'],
+    relatedIds: ['rec_flute_competition_songs', 'sng_suitable_advanced']
+  },
+  {
+    id: 'sc_fbase_lower_octave',
+    question: 'Which songs sound best in the lower octave on F Base flute?',
+    category: 'Notes & Scales',
+    answer: 'Songs with deep Mandra Saptak rests like *Chupke Chupke Raat Din* and *Tere Bina Zindagi Se* highlight lower register warmth on F Base.',
+    keywords: ['f base lower octave songs', 'mandra saptak f base flute'],
+    relatedIds: ['sap_lower_octave', 'sc_ebase_lower_octave']
+  },
+  {
+    id: 'sc_fbase_concerts',
+    question: 'Which songs are recommended for concerts on F Base flute?',
+    category: 'Notes & Scales',
+    answer: '*Lag Ja Gale*, *Moh Moh Ke Dhaage*, and classical Dhun pieces create an awe-inspiring atmosphere during live acoustic shows on F Base.',
+    keywords: ['f base concert songs', 'f base stage show flute'],
+    relatedIds: ['sng_ideal_stage', 'perf_prepare_live']
+  },
+
+  // ==========================================
+  // 🪈 GENERAL SONG RECOMMENDATION QUESTIONS
+  // ==========================================
+  {
+    id: 'rec_gen_flute_for_bollywood',
+    question: 'Which flute is best for Bollywood songs?',
+    category: 'Choosing a Flute',
+    answer: 'An **E Medium** or **C Natural** flute is ideal for beginners playing Bollywood songs. For professional recording and rich tone, a **G Natural Base** flute is the industry standard.',
+    keywords: ['which flute best for bollywood', 'best scale for hindi songs'],
+    relatedIds: ['bol_which_scale_best', 'fl_g_natural_scale']
+  },
+  {
+    id: 'rec_gen_flute_for_devotional',
+    question: 'Which flute is best for devotional songs and Bhajans?',
+    category: 'Choosing a Flute',
+    answer: 'A **C Natural**, **G Natural Base**, or **E Base** flute produces the warm, peaceful, meditative tone perfect for temple Bhajans and devotional stotrams.',
+    keywords: ['which flute best for devotional', 'flute for bhajans'],
+    relatedIds: ['rec_devotional_film_songs', 'rg_list_devotional']
+  },
+  {
+    id: 'rec_gen_flute_for_ghazals',
+    question: 'Which flute is best for Ghazals?',
+    category: 'Choosing a Flute',
+    answer: 'A **G Natural Base** or **A Natural Base** flute provides the expressive low-mid range required for deep Ghazal glides (Meend) and emotional expression.',
+    keywords: ['which flute best for ghazals', 'ghazal bansuri scale'],
+    relatedIds: ['sc_g_base_bollywood', 'tech_meend_in_bollywood']
+  },
+  {
+    id: 'rec_gen_flute_for_classical',
+    question: 'Which flute is best for Indian Classical music?',
+    category: 'Choosing a Flute',
+    answer: 'A **E Base**, **F Base**, or **G Natural Base** bansuri is preferred by classical artists for its deep acoustic resonance and wide dynamic expression.',
+    keywords: ['which flute best for indian classical', 'classical bansuri scale'],
+    relatedIds: ['fl_base_flute_vs_medium', 'icm_hindustani_music']
+  },
+  {
+    id: 'rec_gen_flute_for_patriotic',
+    question: 'Which flute is best for patriotic songs?',
+    category: 'Choosing a Flute',
+    answer: 'A **C Natural** or **G Natural Base** flute gives *Vande Mataram* and *Ae Watan* a heroic, triumphant resonance.',
+    keywords: ['which flute best for patriotic', 'vande mataram flute scale'],
+    relatedIds: ['rec_patriotic_songs', 'rg_desh_overview']
+  },
+  {
+    id: 'rec_gen_flute_for_romantic',
+    question: 'Which flute is best for romantic songs?',
+    category: 'Choosing a Flute',
+    answer: 'An **E Medium**, **G Natural Base**, or **A Natural Base** flute renders romantic ballads like *Pee Loon* and *Kesariya* with sweet vocal-like warmth.',
+    keywords: ['which flute best for romantic songs', 'love song flute scale'],
+    relatedIds: ['rec_romantic_bansuri', 'bol_best_for_beginners']
+  },
+  {
+    id: 'rec_gen_flute_for_meditation',
+    question: 'Which flute is best for meditation music?',
+    category: 'Choosing a Flute',
+    answer: 'Large bass flutes like **E Base**, **D Base**, or **C Base** produce deep, low-frequency soothing air resonance ideal for meditation and sound healing.',
+    keywords: ['which flute best for meditation', 'meditation flute scale', 'bass bansuri'],
+    relatedIds: ['sc_ebase_meditative', 'fl_base_flute_vs_medium']
+  },
+  {
+    id: 'rec_gen_flute_for_folk',
+    question: 'Which flute is best for folk songs?',
+    category: 'Choosing a Flute',
+    answer: 'Medium to high pitched flutes like **C Natural**, **D Natural**, or **E Medium** deliver the crisp, playful punch required for folk tunes.',
+    keywords: ['which flute best for folk songs', 'folk flute scale'],
+    relatedIds: ['sc_c_nat_bollywood', 'sc_d_nat_bollywood']
+  },
+  {
+    id: 'rec_gen_flute_for_song_beginners',
+    question: 'Which flute is best for beginners who want to play songs?',
+    category: 'Choosing a Flute',
+    answer: 'An **E Medium** or **C Natural** flute is best—they are easy to blow, comfortable on fingers, and play all popular song notations smoothly.',
+    keywords: ['best flute for beginner song players', 'starter flute for songs'],
+    relatedIds: ['fl_e_natural_scale', 'bol_best_for_beginners']
+  },
+  {
+    id: 'rec_gen_flute_for_advanced',
+    question: 'Which flute is best for advanced players?',
+    category: 'Choosing a Flute',
+    answer: 'Large bass flutes like **E Base** or **E Flat Base** showcase advanced diaphragm breath capacity, complex finger stretching, and deep classical ornamentation.',
+    keywords: ['best flute for advanced players', 'advanced bansuri scale'],
+    relatedIds: ['sc_ebase_classical_raagas', 'fl_base_flute_vs_medium']
+  },
+  {
+    id: 'rec_gen_flute_for_live_perf',
+    question: 'Which flute is best for live performances?',
+    category: 'Choosing a Flute',
+    answer: 'A **G Natural Base** or **C Natural** flute provides excellent pitch clarity that cuts cleanly through live sound systems and backing tracks.',
+    keywords: ['best flute for live performance', 'concert bansuri scale'],
+    relatedIds: ['sc_g_base_bollywood', 'perf_prepare_live']
+  },
+  {
+    id: 'rec_gen_songs_for_my_scale',
+    question: 'How do I find songs recommended for my flute scale?',
+    category: 'Songs',
+    answer: 'You can play virtually ANY song on ANY flute scale! Simply take the relative Swara notation (`S R G M P D N`) of the song and play it on your flute scale.',
+    keywords: ['recommend songs for my scale', 'songs for my flute'],
+    relatedIds: ['play_transpose_song', 'bol_can_play_bansuri']
+  },
+  {
+    id: 'rec_gen_easiest_on_my_flute',
+    question: 'Which songs are easiest to play on my flute?',
+    category: 'Songs',
+    answer: '1. *Hai Apna Dil To Aawara* (simple major notes)\n2. *Pee Loon* (smooth 5-note pattern)\n3. *Lag Ja Gale* (slow expressive tempo).',
+    keywords: ['easiest songs on my flute', 'simplest flute songs'],
+    relatedIds: ['sng_easiest_beginners', 'bol_best_for_beginners']
+  },
+  {
+    id: 'rec_gen_10_beginner_bollywood',
+    question: 'Can you recommend 10 beginner Bollywood songs for flute?',
+    category: 'Songs',
+    answer: 'Top 10 Beginner Bollywood Songs:\n1. *Hai Apna Dil To Aawara*\n2. *Pee Loon*\n3. *Lag Ja Gale*\n4. *Zara Zara*\n5. *Yeh Shaam Mastani*\n6. *Chhookar Mere Manko*\n7. *Tujhe Dekha To Yeh Jaana Sanam*\n8. *Ek Pyar Ka Nagma Hai*\n9. *Pehla Nasha*\n10. *Kahiin To Hoga*.',
+    keywords: ['recommend 10 beginner bollywood songs', 'top 10 hindi flute songs'],
+    relatedIds: ['sng_easiest_beginners', 'bol_best_for_beginners']
+  },
+  {
+    id: 'rec_gen_10_devotional',
+    question: 'Can you recommend 10 devotional flute songs?',
+    category: 'Songs',
+    answer: 'Top 10 Devotional Songs:\n1. *Achyutam Keshavam*\n2. *Itni Shakti Hame Dena Data*\n3. *Yashomati Maiya Se Bole Nandlala*\n4. *O Palanhare* (*Lagaan*)\n5. *Vaishnav Jan To*\n6. *Badi Der Bhai Nandlala*\n7. *Aisi Lagi Lagan*\n8. *Payoji Maine Ram Ratan Dhan*\n9. *Shri Krishna Govind Hare Murari*\n10. *Radhe Radhe Barsane Wali Radhe*.',
+    keywords: ['recommend 10 devotional flute songs', 'top 10 bhajan flute songs'],
+    relatedIds: ['rec_devotional_film_songs', 'rg_list_devotional']
+  },
+  {
+    id: 'rec_gen_10_classical',
+    question: 'Can you recommend 10 classical compositions for flute?',
+    category: 'Songs',
+    answer: 'Top 10 Classical Compositions:\n1. *Bandish in Raag Bhupali* (*Eri Aali Piya Bina*)\n2. *Bandish in Raag Yaman* (*Eri Aai Piya*)\n3. *Dhun in Raag Kafi*\n4. *Bandish in Raag Durga*\n5. *Bandish in Raag Bageshri*\n6. *Bandish in Raag Desh*\n7. *Dhun in Raag Bhairavi*\n8. *Composition in Raag Malkauns*\n9. *Bandish in Raag Darbari Kanada*\n10. *Composition in Raag Kirwani*.',
+    keywords: ['recommend 10 classical compositions', 'top 10 raaga compositions flute'],
+    relatedIds: ['rg_list_popular_concert', 'icm_hindustani_music']
+  },
+  {
+    id: 'rec_gen_10_patriotic',
+    question: 'Can you recommend 10 patriotic songs for flute?',
+    category: 'Songs',
+    answer: 'Top 10 Patriotic Songs:\n1. *Vande Mataram* (*Sujalam Sufalam*)\n2. *Ae Watan* (*Raazi*)\n3. *Aye Mere Watan Ke Logo*\n4. *Kar Chale Hum Fida*\n5. *Teri Mitti* (*Kesari*)\n6. *Jana Gana Mana* (*National Anthem*)\n7. *Sare Jahan Se Achha*\n8. *Ye Desh Hai Veer Jawanon Ka*\n9. *Kadam Kadam Badaye Ja*\n10. *Bharat Humko Jaan Se Pyara Hai*.',
+    keywords: ['recommend 10 patriotic songs', 'top 10 national songs flute'],
+    relatedIds: ['rec_patriotic_songs', 'rg_desh_overview']
+  },
+  {
+    id: 'rec_gen_songs_every_player_learn',
+    question: 'Which songs should every flute player learn?',
+    category: 'Songs',
+    answer: '1. *Lag Ja Gale* (masters Meend)\n2. *Vande Mataram* (masters Raag Desh notes & patriotism)\n3. *Pee Loon* (masters pentatonic flow)\n4. *Hai Apna Dil To Aawara* (masters rhythm)\n5. *Vaishnav Jan To* (masters devotional expression).',
+    keywords: ['songs every flute player learn', 'essential flute repertoire'],
+    relatedIds: ['sng_easiest_beginners', 'rec_beautiful_flute_songs']
+  },
+  {
+    id: 'rec_gen_songs_for_children',
+    question: 'Which songs are suitable for children learning flute?',
+    category: 'Songs',
+    answer: '• *Lakdi Ki Kathi*\n• *Nani Teri Marni Ko Mor Le Gaye*\n• *Twinkle Twinkle Little Star*\n• *Jingle Bells*\n• *Itni Shakti Hame Dena Data*.',
+    keywords: ['songs suitable for children', 'kids flute songs'],
+    relatedIds: ['sc_d_nat_children', 'beg_child_flute']
   }
 ];
 
