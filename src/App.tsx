@@ -111,6 +111,14 @@ export default function App() {
         title = 'How to Choose the Right Flute | FluteSangam';
         description = 'FluteSangam guide on How to Choose the Right Flute (Bansuri): Learn how to select C Middle, A Base, or G Base flutes for beginner and advanced players.';
         break;
+      case 'learn_fingering_chart':
+        title = 'Interactive Fingering Chart | FluteSangam';
+        description = 'FluteSangam Interactive Fingering Chart: Interactive scale selector, Sa Re Ga Ma notes & audio playback for Indian bamboo flute (Bansuri).';
+        break;
+      case 'learn_tuner':
+        title = 'Bansuri Tuner & Tanpura | FluteSangam';
+        description = 'FluteSangam Online Bansuri Tuner & Tanpura Drone: Tune your Indian bamboo flute accurately with real-time frequency detection and tanpura playback.';
+        break;
       case 'learn_alankaras':
         title = 'Alankar Exercises & Sargam | FluteSangam';
         description = 'FluteSangam Alankar Exercises & Sargam Drills: Practice finger agility, pitch accuracy, tempo stability, and daily sargam exercises on Indian bamboo flute.';
