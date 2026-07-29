@@ -700,11 +700,11 @@ export default function App() {
                   <Wind className="w-3 h-3 text-amber-300" />
                   <span>Learn, Practice &amp; Connect with Flute Players Worldwide</span>
                 </div>
-                <h1 className="text-base sm:text-xl md:text-2xl font-extrabold font-display leading-tight tracking-tight text-white">
+                <h1 className="text-lg sm:text-2xl md:text-3xl lg:text-3xl font-extrabold font-display leading-tight tracking-tight text-white">
                   Welcome to FluteSangam — Where Flutists Learn, Share &amp; Grow
                 </h1>
                 <p className="text-[11px] sm:text-xs text-bamboo-100 leading-relaxed font-normal">
-                  <strong>FluteSangam</strong> is an online learning and community platform dedicated to the Indian bamboo flute (Bansuri), where beginners, students, teachers, and enthusiasts can explore step-by-step learning guides, alankars, raagas, practice resources, flute tools, and connect with fellow flute players worldwide.
+                  <strong>FluteSangam</strong> is a dedicated online platform for learning, practicing, and connecting through the Indian bamboo flute (Bansuri). Whether you're a beginner, student, teacher, or experienced musician, you can explore step-by-step learning resources, alankars, raagas, practice guides, interactive flute tools, and engage with a global community of flute enthusiasts.
                 </p>
               </div>
 
