@@ -204,7 +204,7 @@ export default function RagaDurgaView({ onViewChange }: RagaDurgaViewProps) {
       </script>
 
       {/* Hero Header Section */}
-      <div className="bg-gradient-to-br from-emerald-950 via-bamboo-900 to-emerald-900 text-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 lg:p-10 shadow-xl border border-emerald-800/40 relative overflow-hidden">
+      <div className="bg-gradient-to-br from-emerald-950 via-bamboo-900 to-emerald-900 text-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-8 lg:p-10 shadow-xl border border-emerald-800/40 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-72 sm:w-96 h-72 sm:h-96 bg-emerald-500/10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 w-60 sm:w-80 h-60 sm:h-80 bg-amber-500/10 rounded-full blur-3xl -ml-28 -mb-28 pointer-events-none"></div>
 
@@ -213,14 +213,14 @@ export default function RagaDurgaView({ onViewChange }: RagaDurgaViewProps) {
           <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-emerald-200/80 font-medium">
             <button 
               onClick={() => onViewChange?.('learn_dashboard')}
-              className="hover:text-white transition cursor-pointer"
+              className="hover:text-white transition cursor-pointer touch-manipulation"
             >
               Learn Hub
             </button>
             <span>/</span>
             <button 
               onClick={() => onViewChange?.('learn_raagas')}
-              className="hover:text-white transition cursor-pointer"
+              className="hover:text-white transition cursor-pointer touch-manipulation"
             >
               Ragas
             </button>
@@ -228,23 +228,23 @@ export default function RagaDurgaView({ onViewChange }: RagaDurgaViewProps) {
             <span className="text-amber-400 font-bold truncate max-w-[120px] sm:max-w-none">Raag Durga</span>
           </div>
 
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 sm:gap-6">
-            <div className="space-y-2.5 sm:space-y-3 max-w-2xl">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6">
+            <div className="space-y-2 sm:space-y-3 max-w-2xl">
               <div className="inline-flex items-center gap-1.5 bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold tracking-wide uppercase">
-                <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400" />
-                Hindustani Classical • Audav-Audav (Pentatonic)
+                <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400 shrink-0" />
+                Hindustani Classical • Audav-Audav
               </div>
               <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold font-display tracking-tight text-emerald-50 leading-tight" itemProp="headline">
                 Raag Durga Guide
               </h1>
-              <p className="text-emerald-200/90 text-sm sm:text-lg font-medium leading-relaxed">
+              <p className="text-emerald-200/90 text-xs sm:text-lg font-medium leading-relaxed">
                 Notes, Aaroh, Avaroh, Pakad, Practice Routine &amp; Original FluteSangam Composition <em className="text-amber-300 font-serif">"Shant Dhara"</em>.
               </p>
             </div>
 
             {/* Timestamps & Quick Actions */}
             <div className="flex flex-col sm:flex-row lg:flex-col gap-2.5 sm:gap-3 shrink-0">
-              <div className="bg-emerald-950/80 border border-emerald-800/60 rounded-xl sm:rounded-2xl p-3 sm:p-4 text-xs space-y-1.5 sm:space-y-2">
+              <div className="bg-emerald-950/80 border border-emerald-800/60 rounded-xl sm:rounded-2xl p-3 sm:p-4 text-[11px] sm:text-xs space-y-1.5 sm:space-y-2">
                 <div className="flex items-center gap-2 text-emerald-200">
                   <Calendar className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                   <span>Published: <strong className="text-white">Jul 30, 2026</strong></span>
@@ -253,7 +253,7 @@ export default function RagaDurgaView({ onViewChange }: RagaDurgaViewProps) {
                   <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                   <span>Updated: <strong className="text-white">Jul 30, 2026</strong></span>
                 </div>
-                <div className="pt-1 border-t border-emerald-800/60 flex items-center gap-1.5 text-emerald-400 font-bold text-[11px]">
+                <div className="pt-1 border-t border-emerald-800/60 flex items-center gap-1.5 text-emerald-400 font-bold text-[10px] sm:text-[11px]">
                   <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
                   <span>Verified Educational Content</span>
                 </div>
@@ -262,7 +262,7 @@ export default function RagaDurgaView({ onViewChange }: RagaDurgaViewProps) {
               <div className="grid grid-cols-2 sm:flex sm:items-center gap-2">
                 <button
                   onClick={() => window.print()}
-                  className="bg-emerald-900/60 hover:bg-emerald-800/80 text-emerald-100 border border-emerald-700/60 px-3 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer touch-manipulation active:scale-95"
+                  className="bg-emerald-900/60 hover:bg-emerald-800/80 text-emerald-100 border border-emerald-700/60 px-3 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer touch-manipulation active:scale-95 min-h-[38px]"
                   title="Print or Save Lesson PDF"
                 >
                   <Printer className="w-3.5 h-3.5" />
@@ -270,7 +270,7 @@ export default function RagaDurgaView({ onViewChange }: RagaDurgaViewProps) {
                 </button>
                 <button
                   onClick={() => copyToClipboard(window.location.href, 'link')}
-                  className="bg-emerald-900/60 hover:bg-emerald-800/80 text-emerald-100 border border-emerald-700/60 px-3 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer touch-manipulation active:scale-95"
+                  className="bg-emerald-900/60 hover:bg-emerald-800/80 text-emerald-100 border border-emerald-700/60 px-3 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer touch-manipulation active:scale-95 min-h-[38px]"
                   title="Share link"
                 >
                   {copiedSection === 'link' ? <Check className="w-3.5 h-3.5 text-amber-300" /> : <Share2 className="w-3.5 h-3.5" />}
@@ -786,31 +786,31 @@ export default function RagaDurgaView({ onViewChange }: RagaDurgaViewProps) {
         </div>
 
         {/* Metronome Control & Visual Beat Bar */}
-        <div className="bg-gradient-to-r from-emerald-950 via-bamboo-950 to-emerald-900 text-white rounded-2xl p-4 sm:p-6 space-y-4 shadow-md">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
+        <div className="bg-gradient-to-r from-emerald-950 via-bamboo-950 to-emerald-900 text-white rounded-2xl p-3.5 sm:p-6 space-y-3.5 sm:space-y-4 shadow-md">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+            <div className="flex items-center justify-between sm:justify-start gap-3">
               <button
                 onClick={() => setIsPlayingComposition(!isPlayingComposition)}
-                className={`p-3.5 rounded-2xl font-bold flex items-center justify-center gap-2 transition cursor-pointer touch-manipulation active:scale-95 shadow-md ${
+                className={`w-full sm:w-auto px-4 py-3 rounded-xl sm:rounded-2xl font-bold flex items-center justify-center gap-2 transition cursor-pointer touch-manipulation active:scale-95 shadow-md ${
                   isPlayingComposition 
                     ? 'bg-amber-500 hover:bg-amber-400 text-amber-950' 
                     : 'bg-emerald-600 hover:bg-emerald-500 text-white'
                 }`}
               >
-                {isPlayingComposition ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5 ml-0.5" />}
+                {isPlayingComposition ? <Pause className="w-4 h-4 sm:w-5 sm:h-5" /> : <Play className="w-4 h-4 sm:w-5 sm:h-5 ml-0.5" />}
                 <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wide">
                   {isPlayingComposition ? 'Pause Metronome' : 'Start Teentaal Metronome'}
                 </span>
               </button>
 
-              <div className="hidden sm:block text-xs">
+              <div className="hidden md:block text-xs">
                 <span className="text-emerald-300 font-medium block">Taal: Teentaal</span>
                 <span className="text-amber-300 font-bold">16 Beats / Cycle</span>
               </div>
             </div>
 
             {/* BPM Slider */}
-            <div className="flex items-center gap-3 bg-emerald-900/60 border border-emerald-700/60 rounded-xl p-2.5">
+            <div className="flex flex-wrap sm:flex-nowrap items-center justify-between sm:justify-start gap-2 bg-emerald-900/60 border border-emerald-700/60 rounded-xl p-2 sm:p-2.5">
               <span className="text-xs font-extrabold text-emerald-200 shrink-0">BPM: {bpm}</span>
               <input
                 type="range"
@@ -818,14 +818,14 @@ export default function RagaDurgaView({ onViewChange }: RagaDurgaViewProps) {
                 max="100"
                 value={bpm}
                 onChange={(e) => setBpm(Number(e.target.value))}
-                className="w-24 sm:w-32 accent-amber-400 cursor-pointer"
+                className="w-20 sm:w-32 accent-amber-400 cursor-pointer"
               />
-              <div className="flex gap-1">
+              <div className="flex gap-1 shrink-0">
                 {[50, 60, 70, 80].map(speed => (
                   <button
                     key={speed}
                     onClick={() => setBpm(speed)}
-                    className={`px-2 py-0.5 text-[10px] font-bold rounded cursor-pointer transition ${
+                    className={`px-1.5 sm:px-2 py-0.5 text-[10px] font-bold rounded cursor-pointer transition touch-manipulation ${
                       bpm === speed ? 'bg-amber-400 text-amber-950' : 'bg-emerald-800 text-emerald-200 hover:bg-emerald-700'
                     }`}
                   >
@@ -836,7 +836,7 @@ export default function RagaDurgaView({ onViewChange }: RagaDurgaViewProps) {
             </div>
           </div>
 
-          {/* Visual 16 Beat Tracker */}
+          {/* Visual 16 Beat Tracker - 8 columns on mobile, 16 on desktop for clean layout */}
           <div className="space-y-1.5 pt-2 border-t border-emerald-800/60">
             <div className="flex justify-between text-[10px] text-emerald-300 font-bold uppercase tracking-wider">
               <span>Sam (1)</span>
@@ -844,7 +844,7 @@ export default function RagaDurgaView({ onViewChange }: RagaDurgaViewProps) {
               <span>Khali (9)</span>
               <span>Tali (13)</span>
             </div>
-            <div className="grid grid-cols-16 gap-1">
+            <div className="grid grid-cols-8 sm:grid-cols-16 gap-1">
               {Array.from({ length: 16 }).map((_, i) => {
                 const beatNum = i + 1;
                 const isActive = currentBeat === beatNum;
@@ -853,9 +853,9 @@ export default function RagaDurgaView({ onViewChange }: RagaDurgaViewProps) {
                 return (
                   <div
                     key={i}
-                    className={`h-7 rounded-md flex items-center justify-center text-[10px] font-extrabold transition-all ${
+                    className={`h-7 sm:h-8 rounded-md flex items-center justify-center text-[10px] font-extrabold transition-all ${
                       isActive 
-                        ? 'bg-amber-400 text-amber-950 scale-110 shadow-lg ring-2 ring-amber-300' 
+                        ? 'bg-amber-400 text-amber-950 scale-105 shadow-lg ring-2 ring-amber-300 z-10' 
                         : isSam
                           ? 'bg-emerald-700 text-amber-300 border border-amber-400/50'
                           : isKhali
