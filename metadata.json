@@ -1,6 +1,6 @@
 {
   "name": "FluteSangam",
-  "description": "Learn Indian flute, explore ragas and alankars, improve your practice, ask questions, and connect with a growing community of flute players at FluteSangam.",
+  "description": "Learn flute online, practice songs, scales, ragas and techniques, and connect with flute players worldwide. Explore tutorials, resources, and a growing flute community.",
   "requestFramePermissions": ["microphone"],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
