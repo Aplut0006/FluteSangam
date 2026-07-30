@@ -196,8 +196,8 @@ export default function LearnAlankarasView() {
               <div className="flex items-center gap-1.5">
                 <Calendar className="w-3.5 h-3.5 text-amber-600" />
                 <span className="text-gray-500">Published:</span>
-                <time itemProp="datePublished" dateTime="2024-01-15T00:00:00Z" className="font-semibold text-gray-900">
-                  Jan 15, 2024
+                <time itemProp="datePublished" dateTime="2026-07-26T00:00:00Z" className="font-semibold text-gray-900">
+                  Jul 26, 2026
                 </time>
               </div>
               <span className="text-gray-300">•</span>

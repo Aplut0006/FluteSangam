@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
-import { BookOpen, Filter, Music, Sun, Moon, Calendar, Clock, CheckCircle2 } from 'lucide-react';
+import { BookOpen, Filter, Music, Sun, Moon, Calendar, Clock, CheckCircle2, ArrowRight, Sparkles } from 'lucide-react';
 import { LEARN_RAAGAS } from '../data/learnRaagasData';
+import { AppView } from '../types';
 
 type Difficulty = 'Beginner' | 'Intermediate' | 'Advanced';
 
-export default function LearnRaagasView() {
+interface LearnRaagasViewProps {
+  onViewChange?: (view: AppView) => void;
+}
+
+export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) {
   const [filter, setFilter] = useState<Difficulty>('Beginner');
   const raagas = LEARN_RAAGAS;
 
@@ -49,8 +54,8 @@ export default function LearnRaagasView() {
               <div className="flex items-center gap-1.5">
                 <Calendar className="w-3.5 h-3.5 text-indigo-600" />
                 <span className="text-gray-500">Published:</span>
-                <time itemProp="datePublished" dateTime="2024-01-15T00:00:00Z" className="font-semibold text-gray-900">
-                  Jan 15, 2024
+                <time itemProp="datePublished" dateTime="2026-07-26T00:00:00Z" className="font-semibold text-gray-900">
+                  Jul 26, 2026
                 </time>
               </div>
               <span className="text-gray-300">•</span>
@@ -145,6 +150,34 @@ export default function LearnRaagasView() {
             </div>
 
             <div className="grid gap-6 mt-8">
+              {/* Featured Spotlight Card for Raag Bhoopali */}
+              {filter === 'Beginner' && (
+                <div className="bg-gradient-to-br from-amber-500/10 via-amber-100/30 to-bamboo-500/10 border-2 border-amber-300 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+                    <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-800 bg-amber-200/80 px-3 py-1 rounded-full border border-amber-300">
+                      <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                      Featured Beginner Guide
+                    </div>
+                    <span className="text-xs font-bold text-emerald-800 bg-emerald-100 px-3 py-1 rounded-full border border-emerald-200">
+                      Beginner
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-black font-display text-bamboo-950 mb-2">
+                    Raag Bhoopali (Bhupali) – Complete Guide for Beginners
+                  </h3>
+                  <p className="text-sm text-gray-700 leading-relaxed mb-4">
+                    Complete beginner guide with swaras, Aaroh-Avaroh, Pakad, Chalan, practice routine, alankars, and the original composition <em>"Prabhat Prerna"</em>.
+                  </p>
+                  <button
+                    onClick={() => onViewChange?.('raga_bhoopali')}
+                    className="bg-amber-600 hover:bg-amber-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs transition flex items-center gap-2 shadow-sm cursor-pointer"
+                  >
+                    <span>Open Raag Bhoopali Complete Guide</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+              )}
+
               {filteredRaagas.map((raaga, idx) => (
                 <div key={idx} className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:border-indigo-200 hover:shadow-md transition group">
                   <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-4">
@@ -186,9 +219,19 @@ export default function LearnRaagasView() {
                     <p className="text-sm font-semibold text-gray-700">{raaga.mood}</p>
                   </div>
 
-                  <p className="text-gray-600 m-0 leading-relaxed text-base">
+                  <p className="text-gray-600 m-0 leading-relaxed text-base mb-4">
                     {raaga.description}
                   </p>
+
+                  {raaga.name.toLowerCase().includes('bhupali') && (
+                    <button
+                      onClick={() => onViewChange?.('raga_bhoopali')}
+                      className="bg-indigo-50 hover:bg-indigo-100 text-indigo-900 border border-indigo-200 font-bold px-4 py-2 rounded-xl text-xs transition flex items-center gap-2 cursor-pointer mt-2"
+                    >
+                      <span>Read Full Raag Bhoopali Guide &amp; Composition</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-indigo-600" />
+                    </button>
+                  )}
                 </div>
               ))}
             </div>

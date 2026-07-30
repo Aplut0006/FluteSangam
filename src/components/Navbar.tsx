@@ -427,9 +427,21 @@ export default function Navbar({
                     onViewChange?.('learn_raagas');
                     setShowLearnDropdown(false);
                   }}
-                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition cursor-pointer block"
+                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 cursor-pointer block"
                 >
                   Classical Raagas
+                </a>
+                <a
+                  href={VIEW_URLS['raga_bhoopali'] || '/learn/raga-bhoopali'}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onViewChange?.('raga_bhoopali');
+                    setShowLearnDropdown(false);
+                  }}
+                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-amber-900 bg-amber-50/50 hover:bg-amber-100/80 transition cursor-pointer flex items-center justify-between"
+                >
+                  <span>Raag Bhoopali Guide</span>
+                  <span className="text-[9px] bg-amber-200 text-amber-900 font-bold px-1.5 py-0.5 rounded-md uppercase">Featured</span>
                 </a>
               </div>
             )}

@@ -11,6 +11,7 @@ export const VIEW_URLS: Record<string, string> = {
   'learn_alankaras': '/learn/alankaras',
   'alankar_generator': '/alankar-generator',
   'learn_raagas': '/learn/raagas',
+  'raga_bhoopali': '/learn/raga-bhoopali',
   'community_members': '/members',
   'about_us': '/about',
   'contact_us': '/contact',

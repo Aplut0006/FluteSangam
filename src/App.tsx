@@ -26,6 +26,7 @@ import LearnTunerView from './components/LearnTunerView';
 import LearnAlankarasView from './components/LearnAlankarasView';
 import AlankarGeneratorView from './components/AlankarGeneratorView';
 import LearnRaagasView from './components/LearnRaagasView';
+import RagaBhoopaliView from './components/RagaBhoopaliView';
 import MembersView from './components/MembersView';
 import ImageModal from './components/ImageModal';
 import AboutUsView from './components/AboutUsView';
@@ -131,6 +132,10 @@ export default function App() {
         title = 'Learn Ragas & Sargam | FluteSangam Lessons';
         description = 'FluteSangam Learn Ragas, Swaras & Sargam: Master Hindustani and Carnatic ragas on bansuri with detailed scale structures, key phrases, and compositions.';
         break;
+      case 'raga_bhoopali':
+        title = 'Raag Bhoopali (Bhupali) – Complete Guide for Beginners | FluteSangam';
+        description = 'Learn Raag Bhoopali (Bhupali) online with step-by-step swara guides, Aaroh-Avaroh, Pakad, Chalan, practice routine, alankars, and original composition Prabhat Prerna.';
+        break;
       case 'notation_requests':
         title = 'Song Notation Requests | FluteSangam Sargam';
         description = 'FluteSangam Song Notation Requests & Sargam Music: Request sargam sheet music for Bollywood, devotional, folk, or classical songs for Indian bamboo flute.';
@@ -188,10 +193,13 @@ export default function App() {
     document.title = title;
 
     // Determine Freshness Timestamps for current view
-    let pubDate = '2024-01-15T00:00:00Z';
-    let modDate = '2026-07-27T10:00:00Z';
+    let pubDate = '2026-07-26T00:00:00Z';
+    let modDate = '2026-07-30T10:00:00Z';
 
-    if (currentView === 'post-detail' && selectedPost) {
+    if (currentView === 'raga_bhoopali') {
+      pubDate = '2026-07-30T00:00:00Z';
+      modDate = '2026-07-30T10:00:00Z';
+    } else if (currentView === 'post-detail' && selectedPost) {
       if (selectedPost.createdAt) {
         pubDate = selectedPost.createdAt.toDate
           ? selectedPost.createdAt.toDate().toISOString()
@@ -797,7 +805,9 @@ export default function App() {
         ) : currentView === 'alankar_generator' ? (
           <AlankarGeneratorView currentUser={currentUser} />
         ) : currentView === 'learn_raagas' ? (
-          <LearnRaagasView />
+          <LearnRaagasView onViewChange={handleViewChange} />
+        ) : currentView === 'raga_bhoopali' ? (
+          <RagaBhoopaliView onViewChange={handleViewChange} />
         ) : currentView === 'about_us' ? (
           <AboutUsView />
         ) : currentView === 'contact_us' ? (
