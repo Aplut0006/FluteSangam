@@ -38,6 +38,7 @@ import { FluteSangamChatbot } from './components/FluteSangamChatbot';
 import { NotationRequestsView } from './components/NotationRequestsView';
 import PrivacyPolicyView from './components/PrivacyPolicyView';
 import TermsOfServiceView from './components/TermsOfServiceView';
+import NotFoundView from './components/NotFoundView';
 
 // Icons
 import { 
@@ -169,6 +170,10 @@ export default function App() {
       case 'terms_of_service':
         title = 'Terms of Service & Rules | FluteSangam';
         description = 'FluteSangam Terms of Service & Rules: Read official guidelines, platform rules, and commitments for our global Indian flute and bansuri learning community.';
+        break;
+      case 'not_found':
+        title = '404 - Page Not Found | FluteSangam';
+        description = 'The requested page or lesson was not found on FluteSangam. Explore our Indian bamboo flute lessons, raga guides, tuner, alankars, and song notation community.';
         break;
       case 'post-detail':
         if (selectedPost) {
@@ -384,7 +389,7 @@ export default function App() {
             if (fetchedPost) {
               handleViewChange('post-detail', { postId, post: fetchedPost }, false);
             } else {
-              handleViewChange('community', {}, false);
+              handleViewChange('not_found', {}, false);
             }
           });
         }
@@ -409,7 +414,7 @@ export default function App() {
         navigate('/', { replace: true });
     } else {
         const matchingView = Object.keys(VIEW_URLS).find(v => VIEW_URLS[v as AppView] === path) as AppView;
-        const targetView = matchingView || (path === '/' ? 'community' : null);
+        const targetView = matchingView || (path === '/' ? 'community' : 'not_found');
         if (targetView && currentView !== targetView) {
             handleViewChange(targetView, {}, false);
         }
@@ -452,7 +457,8 @@ export default function App() {
       view === 'about_us' ||
       view === 'contact_us' ||
       view === 'notation_requests' ||
-      view === 'learn_dashboard'
+      view === 'learn_dashboard' ||
+      view === 'not_found'
     ) {
       setSelectedPost(null);
       setSelectedProfileUserId(null);
@@ -830,6 +836,14 @@ export default function App() {
           <PrivacyPolicyView onBackToCommunity={() => handleViewChange('community')} />
         ) : currentView === 'terms_of_service' ? (
           <TermsOfServiceView onBackToCommunity={() => handleViewChange('community')} />
+        ) : currentView === 'not_found' ? (
+          <NotFoundView 
+            onViewChange={handleViewChange} 
+            onSearchSubmit={(q) => {
+              setSearchQuery(q);
+              handleViewChange('community');
+            }} 
+          />
         ) : currentView === 'notation_requests' ? (
           <NotationRequestsView currentUser={currentUser} onOpenAuth={() => setAuthModalOpen(true)} />
         ) : currentView === 'community_members' ? (

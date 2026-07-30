@@ -21,4 +21,5 @@ export const VIEW_URLS: Record<string, string> = {
   'notation_requests': '/notations',
   'privacy_policy': '/privacy-policy',
   'terms_of_service': '/terms-of-service',
+  'not_found': '/404',
 };
