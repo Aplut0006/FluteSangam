@@ -27,6 +27,7 @@ import LearnAlankarasView from './components/LearnAlankarasView';
 import AlankarGeneratorView from './components/AlankarGeneratorView';
 import LearnRaagasView from './components/LearnRaagasView';
 import RagaBhoopaliView from './components/RagaBhoopaliView';
+import RagaDurgaView from './components/RagaDurgaView';
 import MembersView from './components/MembersView';
 import ImageModal from './components/ImageModal';
 import AboutUsView from './components/AboutUsView';
@@ -136,6 +137,10 @@ export default function App() {
         title = 'Raag Bhoopali (Bhupali) – Complete Guide for Beginners | FluteSangam';
         description = 'Learn Raag Bhoopali (Bhupali) online with step-by-step swara guides, Aaroh-Avaroh, Pakad, Chalan, practice routine, alankars, and original composition Prabhat Prerna.';
         break;
+      case 'raga_durga':
+        title = 'Raag Durga: Notes, Aaroh, Avaroh, Pakad, Practice & Composition | FluteSangam';
+        description = 'Master Raag Durga on bansuri with step-by-step swara guides, Aaroh-Avaroh, Pakad, Chalan, practice routine, alankars, and original composition Shant Dhara.';
+        break;
       case 'notation_requests':
         title = 'Song Notation Requests | FluteSangam Sargam';
         description = 'FluteSangam Song Notation Requests & Sargam Music: Request sargam sheet music for Bollywood, devotional, folk, or classical songs for Indian bamboo flute.';
@@ -196,7 +201,7 @@ export default function App() {
     let pubDate = '2026-07-26T00:00:00Z';
     let modDate = '2026-07-30T10:00:00Z';
 
-    if (currentView === 'raga_bhoopali') {
+    if (currentView === 'raga_bhoopali' || currentView === 'raga_durga') {
       pubDate = '2026-07-30T00:00:00Z';
       modDate = '2026-07-30T10:00:00Z';
     } else if (currentView === 'post-detail' && selectedPost) {
@@ -808,6 +813,8 @@ export default function App() {
           <LearnRaagasView onViewChange={handleViewChange} />
         ) : currentView === 'raga_bhoopali' ? (
           <RagaBhoopaliView onViewChange={handleViewChange} />
+        ) : currentView === 'raga_durga' ? (
+          <RagaDurgaView onViewChange={handleViewChange} />
         ) : currentView === 'about_us' ? (
           <AboutUsView />
         ) : currentView === 'contact_us' ? (
@@ -1131,6 +1138,16 @@ export default function App() {
                 <li>
                   <a href="/learn/raagas" onClick={(e) => { e.preventDefault(); handleViewChange('learn_raagas'); }} className="hover:text-amber-300 transition">
                     Classical Raagas Lessons
+                  </a>
+                </li>
+                <li>
+                  <a href="/learn/raga-bhoopali" onClick={(e) => { e.preventDefault(); handleViewChange('raga_bhoopali'); }} className="hover:text-amber-300 transition">
+                    Raag Bhoopali Guide
+                  </a>
+                </li>
+                <li>
+                  <a href="/learn/raga-durga" onClick={(e) => { e.preventDefault(); handleViewChange('raga_durga'); }} className="hover:text-amber-300 transition">
+                    Raag Durga Guide
                   </a>
                 </li>
                 <li>

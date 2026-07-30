@@ -163,18 +163,27 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
                     </span>
                   </div>
                   <h3 className="text-2xl font-black font-display text-bamboo-950 mb-2">
-                    Raag Bhoopali (Bhupali) – Complete Guide for Beginners
+                    Featured Beginner Raga Guides
                   </h3>
                   <p className="text-sm text-gray-700 leading-relaxed mb-4">
-                    Complete beginner guide with swaras, Aaroh-Avaroh, Pakad, Chalan, practice routine, alankars, and the original composition <em>"Prabhat Prerna"</em>.
+                    Explore comprehensive step-by-step guides with swara playback, practice routines, alankars, metronome, and original practice compositions.
                   </p>
-                  <button
-                    onClick={() => onViewChange?.('raga_bhoopali')}
-                    className="bg-amber-600 hover:bg-amber-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs transition flex items-center gap-2 shadow-sm cursor-pointer"
-                  >
-                    <span>Open Raag Bhoopali Complete Guide</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
+                  <div className="flex flex-wrap gap-3">
+                    <button
+                      onClick={() => onViewChange?.('raga_bhoopali')}
+                      className="bg-amber-600 hover:bg-amber-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition flex items-center gap-2 shadow-sm cursor-pointer"
+                    >
+                      <span>Raag Bhoopali Guide ("Prabhat Prerna")</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={() => onViewChange?.('raga_durga')}
+                      className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition flex items-center gap-2 shadow-sm cursor-pointer"
+                    >
+                      <span>Raag Durga Guide ("Shant Dhara")</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                  </div>
                 </div>
               )}
 
@@ -230,6 +239,16 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
                     >
                       <span>Read Full Raag Bhoopali Guide &amp; Composition</span>
                       <ArrowRight className="w-3.5 h-3.5 text-indigo-600" />
+                    </button>
+                  )}
+
+                  {raaga.name.toLowerCase().includes('durga') && (
+                    <button
+                      onClick={() => onViewChange?.('raga_durga')}
+                      className="bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-200 font-bold px-4 py-2 rounded-xl text-xs transition flex items-center gap-2 cursor-pointer mt-2"
+                    >
+                      <span>Read Full Raag Durga Guide &amp; Composition ("Shant Dhara")</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-emerald-600" />
                     </button>
                   )}
                 </div>

@@ -12,6 +12,7 @@ export const VIEW_URLS: Record<string, string> = {
   'alankar_generator': '/alankar-generator',
   'learn_raagas': '/learn/raagas',
   'raga_bhoopali': '/learn/raga-bhoopali',
+  'raga_durga': '/learn/raga-durga',
   'community_members': '/members',
   'about_us': '/about',
   'contact_us': '/contact',
