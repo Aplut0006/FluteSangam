@@ -39,6 +39,7 @@ import { NotationRequestsView } from './components/NotationRequestsView';
 import PrivacyPolicyView from './components/PrivacyPolicyView';
 import TermsOfServiceView from './components/TermsOfServiceView';
 import NotFoundView from './components/NotFoundView';
+import FlutePracticeFaqSection from './components/FlutePracticeFaqSection';
 
 // Icons
 import { 
@@ -1032,46 +1033,9 @@ export default function App() {
             />
           </div>
 
-          {/* RIGHT SIDEBAR ADDITION: Quick Tips & Guidelines */}
+          {/* RIGHT SIDEBAR ADDITION: Frequently Asked Questions About Flute Practice */}
           <div className="md:col-span-4 space-y-6 block" id="right-sidebar-tips">
-            <div className="frosted-panel rounded-2xl p-4 space-y-4 shadow-sm" id="community-tips-card">
-              <h3 className="font-display font-bold text-bamboo-800 text-sm flex items-center gap-1.5 border-b border-gray-100 pb-2.5">
-                <HelpCircle className="w-4.5 h-4.5 text-amber-600" />
-                Flute Practice FAQ
-              </h3>
-
-              <div className="space-y-3.5 text-xs">
-                <div className="space-y-1">
-                  <h4 className="font-bold text-gray-800">1. How do I choose my first bansuri?</h4>
-                  <p className="text-gray-600 leading-relaxed">
-                    Beginners should always start with a <strong className="text-bamboo-700 font-semibold">C Natural Medium</strong> flute. It is compact, requires less hand-stretch, and matches perfectly with popular western keyboards.
-                  </p>
-                </div>
-
-                <div className="space-y-1 pt-2.5 border-t border-dashed border-gray-100">
-                  <h4 className="font-bold text-gray-800">2. Why does my sound sound airy or weak?</h4>
-                  <p className="text-gray-600 leading-relaxed">
-                    This is extremely common. Ensure that your lips cover exactly 1/3 of the blowing hole (embouchure). Blow with your diaphragm (warm belly air), not with your cheeks!
-                  </p>
-                </div>
-
-                <div className="space-y-1 pt-2.5 border-t border-dashed border-gray-100">
-                  <h4 className="font-bold text-gray-800">3. What is the 'pipers grip'?</h4>
-                  <p className="text-gray-600 leading-relaxed">
-                    Instead of using the tips of your fingers, place the fleshy middle pads of your fingers on the holes. This is the safest way to prevent finger fatigue, especially on bass flutes.
-                  </p>
-                </div>
-
-                <div className="space-y-1 pt-2.5 border-t border-dashed border-gray-100">
-                  <h4 className="font-bold text-gray-800">4. Community Guidelines</h4>
-                  <ul className="list-disc pl-4 text-gray-500 space-y-1 text-[11px]">
-                    <li>Constructive, kind feedback only.</li>
-                    <li>Always title your covers with the correct Flute Key.</li>
-                    <li>Respect teachers, experts, and beginners alike.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            <FlutePracticeFaqSection />
           </div>
           </div>
         )}
