@@ -84,6 +84,8 @@ export default function Navbar({
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [showLearnDropdown, setShowLearnDropdown] = useState(false);
   const learnDropdownRef = useRef<HTMLDivElement>(null);
+  const [showToolsDropdown, setShowToolsDropdown] = useState(false);
+  const toolsDropdownRef = useRef<HTMLDivElement>(null);
   const [showMoreDropdown, setShowMoreDropdown] = useState(false);
   const moreDropdownRef = useRef<HTMLDivElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
@@ -97,6 +99,9 @@ export default function Navbar({
       if (learnDropdownRef.current && !learnDropdownRef.current.contains(event.target as Node)) {
         setShowLearnDropdown(false);
       }
+      if (toolsDropdownRef.current && !toolsDropdownRef.current.contains(event.target as Node)) {
+        setShowToolsDropdown(false);
+      }
       if (moreDropdownRef.current && !moreDropdownRef.current.contains(event.target as Node)) {
         setShowMoreDropdown(false);
       }
@@ -109,7 +114,7 @@ export default function Navbar({
       }
     }
 
-    if (showProfileDropdown || showLearnDropdown || showMoreDropdown || showMobileMenu) {
+    if (showProfileDropdown || showLearnDropdown || showToolsDropdown || showMoreDropdown || showMobileMenu) {
       document.addEventListener('mousedown', handleClickOutside);
     } else {
       document.removeEventListener('mousedown', handleClickOutside);
@@ -118,7 +123,7 @@ export default function Navbar({
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [showProfileDropdown, showLearnDropdown, showMoreDropdown, showMobileMenu]);
+  }, [showProfileDropdown, showLearnDropdown, showToolsDropdown, showMoreDropdown, showMobileMenu]);
 
 
   const handleLogout = async () => {
@@ -237,8 +242,8 @@ export default function Navbar({
 
   return (
     <>
-      <header className="sticky top-0 z-40 frosted-navbar shadow-3xs" id="app-navbar">
-        <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-2 sm:gap-4 lg:gap-8">
+      <header className="sticky top-0 z-40 frosted-navbar shadow-3xs overflow-x-clip" id="app-navbar">
+        <div className="max-w-7xl mx-auto px-2.5 sm:px-4 lg:px-6 h-14 sm:h-16 flex items-center justify-between gap-1.5 sm:gap-3 lg:gap-4 xl:gap-6 min-w-0">
         {/* Brand Logo & Name */}
         <a 
           href={VIEW_URLS['community'] || '/'}
@@ -248,7 +253,7 @@ export default function Navbar({
             setShowMobileMenu(false);
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
-          className="flex items-center gap-2 sm:gap-2.5 group focus:outline-none cursor-pointer shrink-0 mr-2 sm:mr-4 lg:mr-6"
+          className="flex items-center gap-1.5 sm:gap-2.5 group focus:outline-none cursor-pointer shrink-0 mr-1 sm:mr-2 lg:mr-4"
           id="navbar-brand-logo-btn"
           title="FluteSangam - Go to Home"
         >
@@ -263,13 +268,13 @@ export default function Navbar({
         </a>
 
         {/* Desktop View Selector */}
-        <div className="hidden lg:flex items-center space-x-0.5 xl:space-x-1 bg-bamboo-50/80 p-1 rounded-xl border border-bamboo-100/50 shrink-0">
+        <div className="hidden lg:flex items-center space-x-0.5 xl:space-x-1 bg-bamboo-50/80 p-1 rounded-xl border border-bamboo-100/50 shrink min-w-0">
           
           {/* 1. Sadhana Feed */}
           <a
             href={VIEW_URLS['community'] || '/'}
             onClick={(e) => { e.preventDefault(); onViewChange?.('community'); }}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
+            className={`px-2.5 xl:px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
               currentView === 'community' 
                 ? 'bg-amber-600 text-white shadow-xs' 
                 : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
@@ -279,26 +284,59 @@ export default function Navbar({
             <span>Sadhana Feed</span>
           </a>
 
-          {/* 2. Standalone Flute Tuner Button */}
-          <a
-            href={VIEW_URLS['learn_tuner'] || '/tuner'}
-            onClick={(e) => { e.preventDefault(); onViewChange?.('learn_tuner'); }}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
-              currentView === 'learn_tuner'
-                ? 'bg-gradient-to-r from-amber-600 to-amber-700 text-white shadow-xs'
-                : 'text-amber-900 bg-amber-100/70 hover:bg-amber-200/80 border border-amber-300/60'
-            }`}
-          >
-            <Radio className="w-3.5 h-3.5 text-amber-700 animate-pulse" />
-            <span>Flute Tuner</span>
-            <span className="text-[9px] bg-amber-900/20 text-amber-950 font-black px-1.5 py-0.5 rounded-full">440Hz</span>
-          </a>
+          {/* 2. Practice Tools Dropdown */}
+          <div className="relative" ref={toolsDropdownRef}>
+            <button
+              onClick={() => setShowToolsDropdown(!showToolsDropdown)}
+              className={`px-2.5 xl:px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
+                currentView === 'learn_tuner' || currentView === 'alankar_generator'
+                  ? 'bg-amber-600 text-white shadow-xs'
+                  : 'text-amber-950 bg-amber-100/70 hover:bg-amber-200/80 border border-amber-300/60'
+              }`}
+            >
+              <Radio className={`w-3.5 h-3.5 ${currentView === 'learn_tuner' || currentView === 'alankar_generator' ? 'text-white' : 'text-amber-700 animate-pulse'}`} />
+              <span>Practice Tools</span>
+              <ChevronDown className="w-3.5 h-3.5 opacity-70" />
+            </button>
+            
+            {showToolsDropdown && (
+              <div className="absolute top-full mt-2 left-0 w-60 bg-white rounded-xl shadow-xl border border-bamboo-100 py-1.5 z-50 overflow-hidden">
+                <a
+                  href={VIEW_URLS['learn_tuner'] || '/tuner'}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onViewChange?.('learn_tuner');
+                    setShowToolsDropdown(false);
+                  }}
+                  className="w-full text-left px-4 py-2.5 text-xs font-bold text-amber-900 bg-amber-50/60 hover:bg-amber-100/70 transition border-b border-bamboo-100 cursor-pointer flex items-center justify-between"
+                >
+                  <span className="flex items-center gap-2">
+                    <Radio className="w-3.5 h-3.5 text-amber-600" />
+                    <span>Flute Tuner &amp; Scales</span>
+                  </span>
+                  <span className="text-[9px] bg-amber-200 text-amber-950 font-black px-1.5 py-0.5 rounded-full">440Hz</span>
+                </a>
+                <a
+                  href={VIEW_URLS['alankar_generator'] || '/alankar-generator'}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onViewChange?.('alankar_generator');
+                    setShowToolsDropdown(false);
+                  }}
+                  className="w-full text-left px-4 py-2.5 text-xs font-bold text-bamboo-900 hover:bg-bamboo-50 hover:text-amber-800 transition cursor-pointer flex items-center gap-2"
+                >
+                  <Sliders className="w-3.5 h-3.5 text-amber-600" />
+                  <span>Alankar Generator</span>
+                </a>
+              </div>
+            )}
+          </div>
           
           {/* 3. Learn Flute Dropdown */}
           <div className="relative" ref={learnDropdownRef}>
             <button
               onClick={() => setShowLearnDropdown(!showLearnDropdown)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
+              className={`px-2.5 xl:px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
                 currentView === 'learn_intro' || currentView === 'learn_basics' || currentView === 'learn_choose_flute' || currentView === 'learn_alankaras' || currentView === 'learn_raagas' || currentView === 'learn_dashboard'
                   ? 'bg-amber-600 text-white shadow-xs'
                   : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
@@ -397,20 +435,6 @@ export default function Navbar({
             )}
           </div>
 
-          {/* 4. Standalone Alankar Generator Button */}
-          <a
-            href={VIEW_URLS['alankar_generator'] || '/alankar-generator'}
-            onClick={(e) => { e.preventDefault(); onViewChange?.('alankar_generator'); }}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
-              currentView === 'alankar_generator'
-                ? 'bg-amber-600 text-white shadow-xs'
-                : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
-            }`}
-          >
-            <Sliders className={`w-3.5 h-3.5 ${currentView === 'alankar_generator' ? 'text-white' : 'text-amber-600'}`} />
-            <span>Alankar Generator</span>
-          </a>
-
           {/* 4. Sangam Chats */}
           <a
             href={VIEW_URLS['chats'] || '/chats'}
@@ -422,7 +446,7 @@ export default function Navbar({
                 onViewChange?.('chats');
               }
             }}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 relative cursor-pointer whitespace-nowrap ${
+            className={`px-2.5 xl:px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 relative cursor-pointer whitespace-nowrap ${
               currentView === 'chats' 
                 ? 'bg-amber-600 text-white shadow-xs' 
                 : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
@@ -441,7 +465,7 @@ export default function Navbar({
           <a
             href={VIEW_URLS['notation_requests'] || '/notations'}
             onClick={(e) => { e.preventDefault(); onViewChange?.('notation_requests'); }}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
+            className={`px-2.5 xl:px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
               currentView === 'notation_requests'
                 ? 'bg-amber-600 text-white shadow-xs'
                 : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
@@ -708,7 +732,7 @@ export default function Navbar({
         )}
 
         {/* Global user stats and profile management */}
-        <div className="flex items-center space-x-2 sm:space-x-3">
+        <div className="flex items-center space-x-1.5 sm:space-x-3 shrink-0 min-w-0">
           {currentUser ? (
             <>
               <NotificationsDropdown 
@@ -720,8 +744,9 @@ export default function Navbar({
                 {/* Signed in avatar button */}
               <button
                 onClick={() => setShowProfileDropdown(!showProfileDropdown)}
-                className="flex items-center space-x-2 p-1 rounded-xl hover:bg-bamboo-50 border border-transparent hover:border-bamboo-100/60 transition"
+                className="flex items-center space-x-1.5 sm:space-x-2 p-1 rounded-xl hover:bg-bamboo-50 border border-transparent hover:border-bamboo-100/60 transition shrink min-w-0"
                 id="user-profile-dropdown-trigger"
+                title={currentUser.displayName}
               >
                 <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 border border-bamboo-600 bg-amber-100 flex items-center justify-center">
                   <img
@@ -731,7 +756,7 @@ export default function Navbar({
                     className="w-full h-full object-cover rounded-full"
                   />
                 </div>
-                <span className="hidden sm:inline text-xs font-semibold text-gray-700 truncate max-w-[100px]">
+                <span className="hidden md:inline-block text-xs font-semibold text-gray-700 truncate max-w-[80px] lg:max-w-[120px] xl:max-w-[150px] align-middle shrink min-w-0">
                   {currentUser.displayName}
                 </span>
               </button>
@@ -739,10 +764,10 @@ export default function Navbar({
               {/* Profile dropdown */}
               {showProfileDropdown && (
                 <div 
-                  className="absolute right-0 mt-2.5 w-72 bg-white border border-bamboo-100/80 rounded-2xl shadow-xl p-4 space-y-3.5 origin-top-right animate-fadeIn"
+                  className="absolute right-0 mt-2.5 w-72 max-w-[calc(100vw-1.5rem)] bg-white border border-bamboo-100/80 rounded-2xl shadow-xl p-4 space-y-3.5 origin-top-right animate-fadeIn z-50 overflow-hidden"
                   id="user-profile-dropdown"
                 >
-                  <div className="flex items-center space-x-3 border-b border-gray-100 pb-3">
+                  <div className="flex items-center space-x-3 border-b border-gray-100 pb-3 min-w-0">
                     <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 border border-bamboo-600 bg-amber-100 flex items-center justify-center">
                       <img
                         src={currentUser.photoURL}
@@ -751,16 +776,16 @@ export default function Navbar({
                         className="w-full h-full object-cover rounded-full"
                       />
                     </div>
-                    <div>
-                      <h4 className="font-bold text-sm text-gray-800 flex items-center gap-1">
-                        {currentUser.displayName}
+                    <div className="min-w-0 flex-1 overflow-hidden">
+                      <h4 className="font-bold text-sm text-gray-800 flex items-center gap-1.5 min-w-0">
+                        <span className="truncate min-w-0">{currentUser.displayName}</span>
                         <span className="text-[8px] bg-bamboo-100 text-bamboo-800 px-1 py-0.5 rounded font-bold uppercase shrink-0">
                           {currentUser.level}
                         </span>
                       </h4>
-                      <p className="text-[10px] text-gray-400 font-medium flex items-center gap-0.5 mt-0.5">
+                      <p className="text-[10px] text-gray-400 font-medium flex items-center gap-0.5 mt-0.5 min-w-0 truncate">
                         <MapPin className="w-3 h-3 shrink-0" />
-                        {currentUser.location}
+                        <span className="truncate min-w-0">{currentUser.location}</span>
                       </p>
                     </div>
                   </div>
