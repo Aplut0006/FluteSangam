@@ -239,48 +239,61 @@ export default function LearnAlankarasView() {
             </section>
 
             <section>
-              <p className="text-lg text-gray-700 mb-6">
+              <p className="text-sm sm:text-lg text-gray-700 mb-6 leading-relaxed">
                 Here are the essential basic Alankars every beginner should master. Practice them in two parts: Aroha (ascending order) and Avroha (descending order).
               </p>
 
-              <div className="space-y-8">
-                {alankars.map((alankar, index) => (
-                  <div key={index} className="bg-white border border-bamboo-200 rounded-2xl overflow-hidden shadow-sm">
-                    <div className="bg-bamboo-50 px-6 py-4 border-b border-bamboo-100">
-                      <h3 className="text-xl font-bold text-bamboo-900 m-0">{alankar.title}</h3>
-                      <p className="text-sm text-gray-600 mt-2 m-0">{alankar.desc}</p>
+              {/* Single Master Metronome Bar for Smartphone Practice */}
+              <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200/80 rounded-2xl p-3.5 sm:p-5 mb-8 shadow-xs">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
+                  <div className="flex items-center gap-2">
+                    <Music className="w-5 h-5 text-amber-700 shrink-0" />
+                    <div>
+                      <h3 className="font-bold text-sm sm:text-base text-amber-950 m-0">Interactive Practice Metronome</h3>
+                      <p className="text-[11px] sm:text-xs text-amber-800 m-0">Use this metronome while practicing all 10 Alankar patterns below.</p>
                     </div>
-                    <div className="p-6 space-y-4 flex flex-col md:flex-row gap-6">
-                      <div className="flex-1 space-y-4">
+                  </div>
+                </div>
+                <div className="max-w-md">
+                  <Metronome />
+                </div>
+              </div>
+
+              <div className="space-y-6 sm:space-y-8">
+                {alankars.map((alankar, index) => (
+                  <div key={index} className="bg-white border border-bamboo-200 rounded-2xl sm:rounded-3xl overflow-hidden shadow-xs hover:border-amber-300 transition-all">
+                    <div className="bg-bamboo-50/80 px-4 sm:px-6 py-3.5 sm:py-4 border-b border-bamboo-100">
+                      <h3 className="text-base sm:text-xl font-bold text-bamboo-950 m-0">{alankar.title}</h3>
+                      <p className="text-xs sm:text-sm text-gray-600 mt-1 m-0 leading-relaxed">{alankar.desc}</p>
+                    </div>
+                    <div className="p-3.5 sm:p-6 space-y-4">
+                      <div className="space-y-4">
                         {alankar.aroha && alankar.aroha.length > 0 && (
                           <div>
-                            <div className="flex items-center gap-2 text-amber-700 font-semibold mb-2">
-                              <ArrowUpRight className="w-4 h-4" />
+                            <div className="flex items-center gap-2 text-amber-800 font-bold text-xs sm:text-sm mb-1.5">
+                              <ArrowUpRight className="w-4 h-4 text-amber-600 shrink-0" />
                               <span>{alankar.arohaTitle || 'Aroha (Ascending)'}</span>
                             </div>
-                            <div className="font-mono text-sm sm:text-base text-gray-800 bg-gray-50 p-3 rounded-xl border border-gray-200 overflow-x-auto flex flex-col gap-1">
+                            <div className="font-mono text-xs sm:text-base text-gray-800 bg-gray-50/90 p-3 sm:p-3.5 rounded-xl border border-gray-200/80 overflow-x-auto whitespace-nowrap flex flex-col gap-1.5 leading-relaxed">
                               {alankar.aroha.map((line, i) => (
-                                <div key={i}>{line}</div>
+                                <div key={i} className="tracking-wide">{line}</div>
                               ))}
                             </div>
                           </div>
                         )}
                         {alankar.avroha && alankar.avroha.length > 0 && (
                           <div>
-                            <div className="flex items-center gap-2 text-emerald-700 font-semibold mb-2">
-                              <ArrowDownRight className="w-4 h-4" />
+                            <div className="flex items-center gap-2 text-emerald-800 font-bold text-xs sm:text-sm mb-1.5">
+                              <ArrowDownRight className="w-4 h-4 text-emerald-600 shrink-0" />
                               <span>{alankar.avrohaTitle || 'Avroha (Descending)'}</span>
                             </div>
-                            <div className="font-mono text-sm sm:text-base text-gray-800 bg-gray-50 p-3 rounded-xl border border-gray-200 overflow-x-auto flex flex-col gap-1">
+                            <div className="font-mono text-xs sm:text-base text-gray-800 bg-gray-50/90 p-3 sm:p-3.5 rounded-xl border border-gray-200/80 overflow-x-auto whitespace-nowrap flex flex-col gap-1.5 leading-relaxed">
                               {alankar.avroha.map((line, i) => (
-                                <div key={i}>{line}</div>
+                                <div key={i} className="tracking-wide">{line}</div>
                               ))}
                             </div>
                           </div>
                         )}
-                      </div>
-                      <div className="w-full md:w-64 shrink-0">
-                        <Metronome />
                       </div>
                     </div>
                   </div>

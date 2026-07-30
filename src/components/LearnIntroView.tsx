@@ -3,24 +3,24 @@ import { Wind, Feather, Music, Heart, BookOpen, Calendar, Clock, CheckCircle2 } 
 
 export default function LearnIntroView() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8 animate-in fade-in slide-in-from-bottom-4 duration-500" itemScope itemType="https://schema.org/LearningResource">
-      <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-bamboo-100 overflow-hidden relative">
+    <div className="max-w-4xl mx-auto px-3 sm:px-4 py-4 sm:py-8 animate-in fade-in slide-in-from-bottom-4 duration-500" itemScope itemType="https://schema.org/LearningResource">
+      <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-10 shadow-xs border border-bamboo-100 overflow-hidden relative">
         {/* Abstract Background Element */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
 
         <div className="relative z-10">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 bg-gradient-to-br from-bamboo-100 to-amber-100 rounded-2xl flex items-center justify-center shadow-inner">
-                <Wind className="w-7 h-7 text-bamboo-700" />
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4 mb-6">
+            <div className="flex items-center gap-3 sm:gap-4">
+              <div className="w-11 h-11 sm:w-14 sm:h-14 bg-gradient-to-br from-bamboo-100 to-amber-100 rounded-2xl flex items-center justify-center shadow-inner shrink-0">
+                <Wind className="w-5 h-5 sm:w-7 sm:h-7 text-bamboo-700" />
               </div>
-              <h1 className="text-3xl md:text-4xl font-bold font-display text-bamboo-900 tracking-tight" itemProp="headline">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold font-display text-bamboo-900 tracking-tight" itemProp="headline">
                 Introduction to Flute/Bansuri
               </h1>
             </div>
 
             {/* Explicit Freshness Signals & Timestamps */}
-            <div className="flex flex-wrap items-center gap-2.5 text-xs text-gray-600 bg-amber-50/80 border border-amber-200/60 rounded-2xl px-3.5 py-2 shrink-0">
+            <div className="flex flex-wrap items-center gap-2 text-[11px] sm:text-xs text-gray-600 bg-amber-50/80 border border-amber-200/60 rounded-2xl px-3 py-1.5 sm:px-3.5 sm:py-2 shrink-0">
               <div className="flex items-center gap-1.5">
                 <Calendar className="w-3.5 h-3.5 text-amber-600" />
                 <span className="text-gray-500">Published:</span>
@@ -43,11 +43,11 @@ export default function LearnIntroView() {
             </div>
           </div>
 
-          <div className="prose prose-bamboo prose-lg max-w-none text-gray-700 space-y-10">
+          <div className="prose prose-bamboo prose-lg max-w-none text-gray-700 space-y-6 sm:space-y-10">
             
             {/* Intro section */}
             <section>
-              <p className="text-xl leading-relaxed text-gray-600 font-medium border-l-4 border-amber-400 pl-6 py-2 italic">
+              <p className="text-base sm:text-xl leading-relaxed text-gray-600 font-medium border-l-4 border-amber-400 pl-4 sm:pl-6 py-1.5 sm:py-2 italic">
                 The Bansuri (Indian classical flute) is one of the world's oldest and most elegant musical instruments. Derived from the words bans (bamboo) and sur (musical note), it is a deceptively simple instrument—just a single piece of hollow bamboo with six or seven finger holes. Yet, in the hands of a master, it is capable of mimicking the microtones (shrutis) and emotional depth of the human voice.
               </p>
             </section>
