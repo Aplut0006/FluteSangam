@@ -183,6 +183,13 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
                       <span>Raag Durga Guide ("Shant Dhara")</span>
                       <ArrowRight className="w-4 h-4" />
                     </button>
+                    <button
+                      onClick={() => onViewChange?.('raga_yaman')}
+                      className="bg-amber-700 hover:bg-amber-800 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition flex items-center gap-2 shadow-sm cursor-pointer"
+                    >
+                      <span>Raag Yaman Guide ("Sandhya Prakash")</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
                   </div>
                 </div>
               )}
@@ -249,6 +256,16 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
                     >
                       <span>Read Full Raag Durga Guide &amp; Composition ("Shant Dhara")</span>
                       <ArrowRight className="w-3.5 h-3.5 text-emerald-600" />
+                    </button>
+                  )}
+
+                  {raaga.name.toLowerCase().includes('yaman') && (
+                    <button
+                      onClick={() => onViewChange?.('raga_yaman')}
+                      className="bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 font-bold px-4 py-2 rounded-xl text-xs transition flex items-center gap-2 cursor-pointer mt-2"
+                    >
+                      <span>Read Full Raag Yaman Guide &amp; Composition ("Sandhya Prakash")</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-amber-600" />
                     </button>
                   )}
                 </div>

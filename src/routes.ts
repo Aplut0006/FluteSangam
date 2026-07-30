@@ -13,6 +13,7 @@ export const VIEW_URLS: Record<string, string> = {
   'learn_raagas': '/learn/raagas',
   'raga_bhoopali': '/learn/raga-bhoopali',
   'raga_durga': '/learn/raga-durga',
+  'raga_yaman': '/learn/raga-yaman',
   'community_members': '/members',
   'about_us': '/about',
   'contact_us': '/contact',

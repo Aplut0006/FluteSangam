@@ -450,10 +450,22 @@ export default function Navbar({
                     onViewChange?.('raga_durga');
                     setShowLearnDropdown(false);
                   }}
-                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-emerald-900 bg-emerald-50/50 hover:bg-emerald-100/80 transition cursor-pointer flex items-center justify-between"
+                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-emerald-900 bg-emerald-50/50 hover:bg-emerald-100/80 transition cursor-pointer flex items-center justify-between border-b border-bamboo-50"
                 >
                   <span>Raag Durga Guide</span>
-                  <span className="text-[9px] bg-emerald-200 text-emerald-900 font-bold px-1.5 py-0.5 rounded-md uppercase">New</span>
+                  <span className="text-[9px] bg-emerald-200 text-emerald-900 font-bold px-1.5 py-0.5 rounded-md uppercase">Guide</span>
+                </a>
+                <a
+                  href={VIEW_URLS['raga_yaman'] || '/learn/raga-yaman'}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onViewChange?.('raga_yaman');
+                    setShowLearnDropdown(false);
+                  }}
+                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-amber-900 bg-amber-50/50 hover:bg-amber-100/80 transition cursor-pointer flex items-center justify-between"
+                >
+                  <span>Raag Yaman Guide</span>
+                  <span className="text-[9px] bg-amber-200 text-amber-900 font-bold px-1.5 py-0.5 rounded-md uppercase">New</span>
                 </a>
               </div>
             )}

@@ -28,6 +28,7 @@ import AlankarGeneratorView from './components/AlankarGeneratorView';
 import LearnRaagasView from './components/LearnRaagasView';
 import RagaBhoopaliView from './components/RagaBhoopaliView';
 import RagaDurgaView from './components/RagaDurgaView';
+import RagaYamanView from './components/RagaYamanView';
 import MembersView from './components/MembersView';
 import ImageModal from './components/ImageModal';
 import AboutUsView from './components/AboutUsView';
@@ -140,6 +141,10 @@ export default function App() {
       case 'raga_durga':
         title = 'Raag Durga: Notes, Aaroh, Avaroh, Pakad, Practice & Composition | FluteSangam';
         description = 'Master Raag Durga on bansuri with step-by-step swara guides, Aaroh-Avaroh, Pakad, Chalan, practice routine, alankars, and original composition Shant Dhara.';
+        break;
+      case 'raga_yaman':
+        title = 'Raag Yaman: Notes, Aaroh, Avaroh, Pakad, Practice & Composition | FluteSangam';
+        description = 'Learn Raag Yaman online with step-by-step Tivra Ma swara guides, Aaroh-Avaroh, Pakad, Chalan, 45-min practice schedule, alankars, and original piece Sandhya Prakash.';
         break;
       case 'notation_requests':
         title = 'Song Notation Requests | FluteSangam Sargam';
@@ -815,6 +820,8 @@ export default function App() {
           <RagaBhoopaliView onViewChange={handleViewChange} />
         ) : currentView === 'raga_durga' ? (
           <RagaDurgaView onViewChange={handleViewChange} />
+        ) : currentView === 'raga_yaman' ? (
+          <RagaYamanView onViewChange={handleViewChange} />
         ) : currentView === 'about_us' ? (
           <AboutUsView />
         ) : currentView === 'contact_us' ? (
@@ -1148,6 +1155,11 @@ export default function App() {
                 <li>
                   <a href="/learn/raga-durga" onClick={(e) => { e.preventDefault(); handleViewChange('raga_durga'); }} className="hover:text-amber-300 transition">
                     Raag Durga Guide
+                  </a>
+                </li>
+                <li>
+                  <a href="/learn/raga-yaman" onClick={(e) => { e.preventDefault(); handleViewChange('raga_yaman'); }} className="hover:text-amber-300 transition">
+                    Raag Yaman Guide
                   </a>
                 </li>
                 <li>
