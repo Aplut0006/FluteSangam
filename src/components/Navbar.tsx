@@ -427,57 +427,9 @@ export default function Navbar({
                     onViewChange?.('learn_raagas');
                     setShowLearnDropdown(false);
                   }}
-                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 cursor-pointer block"
+                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition cursor-pointer block"
                 >
                   Classical Raagas
-                </a>
-                <a
-                  href={VIEW_URLS['raga_bhoopali'] || '/learn/raga-bhoopali'}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onViewChange?.('raga_bhoopali');
-                    setShowLearnDropdown(false);
-                  }}
-                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-amber-900 bg-amber-50/50 hover:bg-amber-100/80 transition cursor-pointer flex items-center justify-between"
-                >
-                  <span>Raag Bhoopali Guide</span>
-                  <span className="text-[9px] bg-amber-200 text-amber-900 font-bold px-1.5 py-0.5 rounded-md uppercase">Featured</span>
-                </a>
-                <a
-                  href={VIEW_URLS['raga_durga'] || '/learn/raga-durga'}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onViewChange?.('raga_durga');
-                    setShowLearnDropdown(false);
-                  }}
-                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-emerald-900 bg-emerald-50/50 hover:bg-emerald-100/80 transition cursor-pointer flex items-center justify-between border-b border-bamboo-50"
-                >
-                  <span>Raag Durga Guide</span>
-                  <span className="text-[9px] bg-emerald-200 text-emerald-900 font-bold px-1.5 py-0.5 rounded-md uppercase">Guide</span>
-                </a>
-                <a
-                  href={VIEW_URLS['raga_yaman'] || '/learn/raga-yaman'}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onViewChange?.('raga_yaman');
-                    setShowLearnDropdown(false);
-                  }}
-                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-amber-900 bg-amber-50/50 hover:bg-amber-100/80 transition cursor-pointer flex items-center justify-between border-b border-bamboo-50"
-                >
-                  <span>Raag Yaman Guide</span>
-                  <span className="text-[9px] bg-amber-200 text-amber-900 font-bold px-1.5 py-0.5 rounded-md uppercase">Guide</span>
-                </a>
-                <a
-                  href={VIEW_URLS['raga_hamsadhwani'] || '/learn/raga-hamsadhwani'}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onViewChange?.('raga_hamsadhwani');
-                    setShowLearnDropdown(false);
-                  }}
-                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-rose-900 bg-rose-50/50 hover:bg-rose-100/80 transition cursor-pointer flex items-center justify-between"
-                >
-                  <span>Raag Hamsadhwani Guide</span>
-                  <span className="text-[9px] bg-rose-200 text-rose-900 font-bold px-1.5 py-0.5 rounded-md uppercase">New</span>
                 </a>
               </div>
             )}
@@ -756,23 +708,9 @@ export default function Navbar({
                   </button>
                   <button
                     onClick={() => { onViewChange?.('learn_raagas'); setShowMobileMenu(false); }}
-                    className="w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
+                    className="w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 cursor-pointer"
                   >
                     5. Indian Classical Raagas
-                  </button>
-                  <button
-                    onClick={() => { onViewChange?.('raga_bhoopali'); setShowMobileMenu(false); }}
-                    className="w-full text-left text-xs font-bold text-amber-800 hover:text-amber-900 py-2 border-b border-bamboo-50 cursor-pointer flex items-center justify-between"
-                  >
-                    <span>Raag Bhoopali Guide</span>
-                    <span className="text-[9px] bg-amber-100 text-amber-800 font-bold px-1.5 py-0.5 rounded-full uppercase">Featured</span>
-                  </button>
-                  <button
-                    onClick={() => { onViewChange?.('raga_durga'); setShowMobileMenu(false); }}
-                    className="w-full text-left text-xs font-bold text-emerald-800 hover:text-emerald-900 py-2 cursor-pointer flex items-center justify-between"
-                  >
-                    <span>Raag Durga Guide</span>
-                    <span className="text-[9px] bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.5 rounded-full uppercase">New</span>
                   </button>
                 </div>
               )}
