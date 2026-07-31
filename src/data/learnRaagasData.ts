@@ -61,6 +61,18 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
     mood: "Heroic, Peaceful, Pleasing"
   },
   { 
+    name: "Raag Hamsadhwani", 
+    level: "Beginner", 
+    description: "Joyful, auspicious pentatonic scale skipping Ma and Dha; famous for its bright, swan-like grace and energy.",
+    aaroh: "Sa Re Ga Pa Ni Sa'",
+    avroh: "Sa' Ni Pa Ga Re Sa",
+    vadi: "Ga",
+    samvadi: "Ni",
+    pakad: "Sa Re Ga, Pa Ni, Pa Ga, Re Sa",
+    time: "Early Night (6 PM - 9 PM)",
+    mood: "Joyful, Devotional, Bright, Auspicious"
+  },
+  { 
     name: "Raag Alhaiya Bilawal", 
     level: "Beginner", 
     description: "A Bilawal derivative introducing a subtle, decorative use of Komal Ni in descent.",

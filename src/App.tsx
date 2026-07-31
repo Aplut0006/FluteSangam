@@ -29,6 +29,7 @@ import LearnRaagasView from './components/LearnRaagasView';
 import RagaBhoopaliView from './components/RagaBhoopaliView';
 import RagaDurgaView from './components/RagaDurgaView';
 import RagaYamanView from './components/RagaYamanView';
+import RagaHamsadhwaniView from './components/RagaHamsadhwaniView';
 import MembersView from './components/MembersView';
 import ImageModal from './components/ImageModal';
 import AboutUsView from './components/AboutUsView';
@@ -147,6 +148,10 @@ export default function App() {
       case 'raga_yaman':
         title = 'Raag Yaman: Notes, Aaroh, Avaroh, Pakad, Practice & Composition | FluteSangam';
         description = 'Learn Raag Yaman online with step-by-step Tivra Ma swara guides, Aaroh-Avaroh, Pakad, Chalan, 45-min practice schedule, alankars, and original piece Sandhya Prakash.';
+        break;
+      case 'raga_hamsadhwani':
+        title = 'Raag Hamsadhwani: Notes, Aaroh, Avaroh, Pakad, Practice & FluteSangam Original Learning Piece';
+        description = 'Learn Raag Hamsadhwani on Indian flute: Notes, Aaroh, Avaroh, Pakad, Chalan, 35-min daily practice schedule, alankars, and original learning piece Udaya Sur.';
         break;
       case 'notation_requests':
         title = 'Song Notation Requests | FluteSangam Sargam';
@@ -454,6 +459,10 @@ export default function App() {
       view === 'learn_choose_flute' || 
       view === 'learn_alankaras' || 
       view === 'learn_raagas' || 
+      view === 'raga_bhoopali' ||
+      view === 'raga_durga' ||
+      view === 'raga_yaman' ||
+      view === 'raga_hamsadhwani' ||
       view === 'community_members' ||
       view === 'about_us' ||
       view === 'contact_us' ||
@@ -829,6 +838,8 @@ export default function App() {
           <RagaDurgaView onViewChange={handleViewChange} />
         ) : currentView === 'raga_yaman' ? (
           <RagaYamanView onViewChange={handleViewChange} />
+        ) : currentView === 'raga_hamsadhwani' ? (
+          <RagaHamsadhwaniView onViewChange={handleViewChange} />
         ) : currentView === 'about_us' ? (
           <AboutUsView />
         ) : currentView === 'contact_us' ? (
