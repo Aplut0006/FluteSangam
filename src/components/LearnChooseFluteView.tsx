@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ShoppingBag, ArrowLeft, CheckCircle2, AlertTriangle, Lightbulb, Sparkles, User, Users, Baby, Music, Store, Check, ArrowRight, Radio, BookOpen, Calendar, Clock } from 'lucide-react';
 import { AppView } from '../types';
+import AboutAuthorSection from './AboutAuthorSection';
 
 interface LearnChooseFluteViewProps {
   onBackToLearn?: () => void;
@@ -310,6 +311,9 @@ export default function LearnChooseFluteView({ onBackToLearn, onViewChange }: Le
                 </button>
               </section>
             )}
+
+            {/* Author Section */}
+            <AboutAuthorSection onViewChange={onViewChange} />
 
           </div>
         </div>

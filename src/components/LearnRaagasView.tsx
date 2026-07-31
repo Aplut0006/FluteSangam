@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BookOpen, Filter, Music, Sun, Moon, Calendar, Clock, CheckCircle2, ArrowRight, Sparkles } from 'lucide-react';
 import { LEARN_RAAGAS } from '../data/learnRaagasData';
 import { AppView } from '../types';
+import AboutAuthorSection from './AboutAuthorSection';
 
 type Difficulty = 'Beginner' | 'Intermediate' | 'Advanced';
 
@@ -294,6 +295,9 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
                 No raagas found for this difficulty.
               </div>
             )}
+
+            {/* Author Section */}
+            <AboutAuthorSection onViewChange={onViewChange} />
           </div>
         </div>
       </div>

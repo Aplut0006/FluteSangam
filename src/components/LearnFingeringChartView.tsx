@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Volume2, RotateCcw, Info, Music, ChevronRight, BookOpen, CheckCircle2, ArrowLeft, Radio, Wind, CircleDot } from 'lucide-react';
 import { AppView } from '../types';
+import AboutAuthorSection from './AboutAuthorSection';
 
 interface LearnFingeringChartViewProps {
   onViewChange?: (view: AppView) => void;
@@ -918,6 +919,9 @@ export default function LearnFingeringChartView({ onViewChange }: LearnFingering
           <ChevronRight className="w-4 h-4" />
         </button>
       </div>
+
+      {/* Author Section */}
+      <AboutAuthorSection onViewChange={onViewChange} />
     </div>
   );
 }

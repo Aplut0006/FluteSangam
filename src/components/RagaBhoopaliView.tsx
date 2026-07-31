@@ -6,6 +6,7 @@ import {
   Sliders, Radio, Award, Sparkles, Flame, ShieldAlert, Lightbulb
 } from 'lucide-react';
 import { AppView } from '../types';
+import AboutAuthorSection from './AboutAuthorSection';
 
 interface RagaBhoopaliViewProps {
   onViewChange?: (view: AppView) => void;
@@ -1024,6 +1025,9 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
           ))}
         </div>
       </div>
+
+      {/* Author Section */}
+      <AboutAuthorSection onViewChange={onViewChange} />
 
       {/* Footer Copyright Notice */}
       <div className="text-center text-[11px] sm:text-xs text-gray-500 pt-4 border-t border-bamboo-100 space-y-1">

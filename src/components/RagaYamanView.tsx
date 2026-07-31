@@ -7,6 +7,7 @@ import {
   Sun, ListOrdered, FileText, CheckSquare, Layers
 } from 'lucide-react';
 import { AppView } from '../types';
+import AboutAuthorSection from './AboutAuthorSection';
 
 interface RagaYamanViewProps {
   onViewChange?: (view: AppView) => void;
@@ -1137,6 +1138,9 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
           ))}
         </div>
       </div>
+
+      {/* Author Section */}
+      <AboutAuthorSection onViewChange={onViewChange} />
 
       {/* Original Educational Content Copyright Banner */}
       <div className="bg-amber-950 text-amber-200/90 rounded-2xl p-4 sm:p-6 text-xs leading-relaxed space-y-2 border border-amber-800">

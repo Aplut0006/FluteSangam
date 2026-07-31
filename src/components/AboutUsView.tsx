@@ -62,9 +62,9 @@ export default function AboutUsView() {
       >
         <h2 className="text-3xl font-display font-bold mb-6">Meet the Creator</h2>
         <p className="text-xl mb-6 italic">"The journey with the flute is endless, and every note brings its own peace."</p>
-        <p className="text-lg font-bold mb-2">Aplut | Founder & Developer</p>
-        <p className="text-bamboo-200 mb-8 max-w-2xl mx-auto">
-          Hi, I'm Aplut! I work as a Software Engineer in the IT industry, but my heart lies deep within the world of flute music. Inspired by the magical melodies of the Bansuri, I've been learning and practicing for 4 years. I built FluteSangam to bridge the gap between learning and community for flute enthusiasts.
+        <p className="text-lg font-bold mb-2">Aplut | Founder of FluteSangam</p>
+        <p className="text-bamboo-200 mb-8 max-w-2xl mx-auto leading-relaxed">
+          Aplut is the Founder of FluteSangam, a global platform dedicated to the Indian bamboo flute (Bansuri). Through carefully crafted lessons, practice resources, raga guides, songs, and interactive tools, he aims to make flute learning accessible and enjoyable for enthusiasts worldwide.
         </p>
       </motion.div>
 

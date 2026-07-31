@@ -17,15 +17,6 @@ export default defineConfig(() => {
       cssMinify: true,
       sourcemap: false,
       chunkSizeWarningLimit: 1000,
-      rollupOptions: {
-        output: {
-          manualChunks: {
-            vendor: ['react', 'react-dom', 'react-router-dom'],
-            ui: ['motion', 'lucide-react'],
-            audio: ['tone']
-          }
-        }
-      }
     },
     server: {
       allowedHosts: [

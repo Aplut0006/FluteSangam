@@ -49,9 +49,12 @@
       gtag('config', 'G-X3ZN371N8X');
     </script>
 
-    <!-- Preconnect to Google Fonts domains for faster TLS handshake -->
+    <!-- Preconnect & DNS prefetch for external origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="modulepreload" href="/src/main.tsx" />
 
     <!-- Non-render-blocking Google Fonts stylesheet -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Outfit:wght@400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" />

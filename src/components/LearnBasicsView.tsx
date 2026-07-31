@@ -1,6 +1,7 @@
 import React from 'react';
 import { Wind, Volume2, UserCheck, Move, Play, Music, Calendar, Clock, CheckCircle2, Sparkles, ChevronRight } from 'lucide-react';
 import { AppView } from '../types';
+import AboutAuthorSection from './AboutAuthorSection';
 
 interface LearnBasicsViewProps {
   onViewChange?: (view: AppView) => void;
@@ -223,6 +224,9 @@ export default function LearnBasicsView({ onViewChange }: LearnBasicsViewProps) 
                 </div>
               </section>
             )}
+
+            {/* Author Section */}
+            <AboutAuthorSection onViewChange={onViewChange} />
             
           </div>
         </div>

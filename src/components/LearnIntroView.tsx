@@ -1,7 +1,13 @@
 import React from 'react';
 import { Wind, Feather, Music, Heart, BookOpen, Calendar, Clock, CheckCircle2 } from 'lucide-react';
+import AboutAuthorSection from './AboutAuthorSection';
+import { AppView } from '../types';
 
-export default function LearnIntroView() {
+interface LearnIntroViewProps {
+  onViewChange?: (view: AppView) => void;
+}
+
+export default function LearnIntroView({ onViewChange }: LearnIntroViewProps) {
   return (
     <div className="max-w-4xl mx-auto px-3 sm:px-4 py-4 sm:py-8 animate-in fade-in slide-in-from-bottom-4 duration-500" itemScope itemType="https://schema.org/LearningResource">
       <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-10 shadow-xs border border-bamboo-100 overflow-hidden relative">
@@ -219,6 +225,9 @@ export default function LearnIntroView() {
                 <Feather className="w-8 h-8 text-bamboo-300 absolute -bottom-3 -right-3 opacity-50" />
               </div>
             </section>
+
+            {/* Author Section */}
+            <AboutAuthorSection onViewChange={onViewChange} />
             
           </div>
         </div>

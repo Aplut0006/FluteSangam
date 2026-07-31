@@ -1,8 +1,14 @@
 import React from 'react';
 import { Music, Wind, ArrowUpRight, ArrowDownRight, Lightbulb, Calendar, Clock, CheckCircle2 } from 'lucide-react';
 import Metronome from './Metronome';
+import AboutAuthorSection from './AboutAuthorSection';
+import { AppView } from '../types';
 
-export default function LearnAlankarasView() {
+interface LearnAlankarasViewProps {
+  onViewChange?: (view: AppView) => void;
+}
+
+export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewProps = {}) {
   const alankars = [
     {
       title: "1. The Straight Scale (Saral Alankar)",
@@ -331,6 +337,9 @@ export default function LearnAlankarasView() {
                 </li>
               </ul>
             </section>
+
+            {/* Author Section */}
+            <AboutAuthorSection onViewChange={onViewChange} />
           </div>
         </div>
       </div>
