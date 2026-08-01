@@ -204,6 +204,7 @@ export default function RagaBilawalView({ onViewChange }: RagaBilawalViewProps) 
     'publisher': {
       '@type': 'Organization',
       'name': 'FluteSangam',
+      'alternateName': 'Flute Sangam',
       'url': 'https://flutesangam.com'
     },
     'mainEntityOfPage': 'https://flutesangam.com/learn/raga-bilawal'

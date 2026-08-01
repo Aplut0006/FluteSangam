@@ -195,6 +195,7 @@ export default function RagaHamsadhwaniView({ onViewChange }: RagaHamsadhwaniVie
           "author": {
             "@type": "Organization",
             "name": "FluteSangam",
+            "alternateName": "Flute Sangam",
             "url": "https://flutesangam.com"
           },
           "datePublished": "2026-07-30T00:00:00Z",

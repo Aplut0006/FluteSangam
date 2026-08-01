@@ -23,6 +23,7 @@ export default function FounderView({ onViewChange }: FounderViewProps) {
       '@type': 'Organization',
       '@id': 'https://flutesangam.com/#organization',
       'name': 'FluteSangam',
+      'alternateName': 'Flute Sangam',
       'url': 'https://flutesangam.com'
     },
     'description': 'Founder of FluteSangam, software professional and Indian bamboo flute (Bansuri) enthusiast creating free learning resources, interactive practice tools, and a global flute community.',

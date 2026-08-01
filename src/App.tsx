@@ -299,6 +299,7 @@ export default function App() {
       '@type': 'Organization',
       '@id': 'https://flutesangam.com/#organization',
       'name': 'FluteSangam',
+      'alternateName': 'Flute Sangam',
       'url': 'https://flutesangam.com/',
       'logo': 'https://flutesangam.com/flutesangam_logo.png'
     };
@@ -385,6 +386,10 @@ export default function App() {
       primarySchema['@id'] = `https://flutesangam.com/#${currentView}`;
       primarySchema['headline'] = title;
       primarySchema['description'] = description;
+      primarySchema['image'] = 'https://flutesangam.com/flutesangam_logo.png';
+      primarySchema['about'] = {
+        '@id': 'https://flutesangam.com/#organization'
+      };
     }
 
     const graphData = {
