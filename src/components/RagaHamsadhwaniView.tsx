@@ -173,11 +173,11 @@ export default function RagaHamsadhwaniView({ onViewChange }: RagaHamsadhwaniVie
   ];
 
   const relatedRagas = [
-    { name: 'Raag Bhoopali', description: 'Pentatonic scale skipping Ma and Ni; serene evening raga focused on Ga and Dha.', difficulty: 'Beginner' },
-    { name: 'Raag Durga', description: 'Pentatonic scale skipping Ga and Ni; peaceful evening raga focused on Ma and Sa.', difficulty: 'Beginner' },
-    { name: 'Raag Bilawal', description: 'Parent Thaat scale using all seven Shuddha notes; equivalent to Major scale.', difficulty: 'Beginner' },
-    { name: 'Raag Desh', description: 'Monsoon evening scale with graceful glides between natural and flat notes.', difficulty: 'Intermediate' },
-    { name: 'Raag Yaman', description: 'Evening scale introducing Teevra Ma; foundation of classical improvisation.', difficulty: 'Beginner' },
+    { name: 'Raag Bhoopali', view: 'raga_bhoopali', description: 'Pentatonic scale skipping Ma and Ni; serene evening raga focused on Ga and Dha.', difficulty: 'Beginner' },
+    { name: 'Raag Durga', view: 'raga_durga', description: 'Pentatonic scale skipping Ga and Ni; peaceful evening raga focused on Ma and Sa.', difficulty: 'Beginner' },
+    { name: 'Raag Bilawal', view: 'raga_bilawal', description: 'Parent Thaat scale using all seven Shuddha notes; equivalent to Major scale.', difficulty: 'Beginner' },
+    { name: 'Raag Yaman', view: 'raga_yaman', description: 'Evening scale introducing Teevra Ma; foundation of classical improvisation.', difficulty: 'Beginner' },
+    { name: 'Raag Desh', view: 'learn_raagas', description: 'Monsoon evening scale with graceful glides between natural and flat notes.', difficulty: 'Intermediate' },
   ];
 
   return (
@@ -1107,14 +1107,22 @@ export default function RagaHamsadhwaniView({ onViewChange }: RagaHamsadhwaniVie
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
           {relatedRagas.map((raga, idx) => (
-            <div key={idx} className="bg-emerald-50/40 border border-emerald-200/80 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 space-y-1.5 hover:shadow-sm hover:border-emerald-300 transition">
+            <div 
+              key={idx} 
+              onClick={() => onViewChange?.(raga.view as AppView)}
+              className="bg-emerald-50/40 border border-emerald-200/80 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 space-y-2 hover:shadow-md hover:border-emerald-400 hover:bg-emerald-100/50 transition cursor-pointer group"
+            >
               <div className="flex items-center justify-between gap-2">
-                <h3 className="font-bold text-bamboo-950 text-xs sm:text-sm">{raga.name}</h3>
+                <h3 className="font-bold text-bamboo-950 text-xs sm:text-sm group-hover:text-emerald-800 transition">{raga.name}</h3>
                 <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100 border border-emerald-200 px-2 py-0.5 rounded-full shrink-0">
                   {raga.difficulty}
                 </span>
               </div>
               <p className="text-[11px] sm:text-xs text-gray-600 leading-relaxed">{raga.description}</p>
+              <div className="flex items-center gap-1 text-xs font-bold text-emerald-700 group-hover:text-emerald-900 group-hover:translate-x-0.5 transition pt-1">
+                <span>Open Guide</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </div>
             </div>
           ))}
         </div>

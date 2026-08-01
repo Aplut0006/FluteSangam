@@ -186,11 +186,11 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
   ];
 
   const relatedRagas = [
-    { name: 'Raag Bhoopali', description: 'Pentatonic scale from Kalyan Thaat; uses S R G P D S\' omitting Ma and Ni.', difficulty: 'Beginner' },
-    { name: 'Raag Durga', description: 'Serene evening pentatonic scale skipping Ga and Ni, centered around Shuddha Ma.', difficulty: 'Beginner' },
-    { name: 'Raag Hamsadhwani', description: 'Auspicious pentatonic raga from Shankarabharanam / Bilawal parent scale.', difficulty: 'Beginner' },
-    { name: 'Raag Kalyan (Yaman Kalyan)', description: 'Variant of Yaman that selectively introduces Shuddha Ma in specific descending phrases.', difficulty: 'Intermediate' },
-    { name: 'Raag Bilawal', description: 'Parent Thaat scale using all seven Shuddha notes; equivalent to Major scale.', difficulty: 'Beginner' },
+    { name: 'Raag Bhoopali', view: 'raga_bhoopali', description: 'Pentatonic scale from Kalyan Thaat; uses S R G P D S\' omitting Ma and Ni.', difficulty: 'Beginner' },
+    { name: 'Raag Durga', view: 'raga_durga', description: 'Serene evening pentatonic scale skipping Ga and Ni, centered around Shuddha Ma.', difficulty: 'Beginner' },
+    { name: 'Raag Hamsadhwani', view: 'raga_hamsadhwani', description: 'Auspicious pentatonic raga from Shankarabharanam / Bilawal parent scale.', difficulty: 'Beginner' },
+    { name: 'Raag Bilawal', view: 'raga_bilawal', description: 'Parent Thaat scale using all seven Shuddha notes; equivalent to Major scale.', difficulty: 'Beginner' },
+    { name: 'Raag Kalyan (Yaman Kalyan)', view: 'learn_raagas', description: 'Variant of Yaman that selectively introduces Shuddha Ma in specific descending phrases.', difficulty: 'Intermediate' },
   ];
 
   return (
@@ -1108,32 +1108,24 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
           <span>Related Ragas to Explore</span>
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
           {relatedRagas.map((raga, idx) => (
-            <div key={idx} className="bg-amber-50/30 border border-amber-100 rounded-2xl p-4 space-y-2 hover:shadow-sm transition">
-              <div className="flex items-center justify-between">
-                <h3 className="font-bold text-bamboo-950 text-sm">{raga.name}</h3>
-                <span className="text-[10px] font-bold bg-amber-100 text-amber-900 px-2 py-0.5 rounded">{raga.difficulty}</span>
+            <div 
+              key={idx} 
+              onClick={() => onViewChange?.(raga.view as AppView)}
+              className="bg-amber-50/40 border border-amber-200/80 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 space-y-2 hover:shadow-md hover:border-amber-400 hover:bg-amber-100/50 transition cursor-pointer group"
+            >
+              <div className="flex items-center justify-between gap-2">
+                <h3 className="font-bold text-bamboo-950 text-xs sm:text-sm group-hover:text-amber-800 transition">{raga.name}</h3>
+                <span className="text-[10px] font-bold text-amber-900 bg-amber-100 border border-amber-200 px-2 py-0.5 rounded-full shrink-0">
+                  {raga.difficulty}
+                </span>
               </div>
-              <p className="text-xs text-gray-600 leading-relaxed">{raga.description}</p>
-              {raga.name.includes('Bhoopali') && (
-                <button
-                  onClick={() => onViewChange?.('raga_bhoopali')}
-                  className="text-xs font-bold text-amber-700 hover:text-amber-950 flex items-center gap-1 pt-1 cursor-pointer"
-                >
-                  <span>Open Bhoopali Guide</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
-              )}
-              {raga.name.includes('Durga') && (
-                <button
-                  onClick={() => onViewChange?.('raga_durga')}
-                  className="text-xs font-bold text-emerald-700 hover:text-emerald-950 flex items-center gap-1 pt-1 cursor-pointer"
-                >
-                  <span>Open Durga Guide</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
-              )}
+              <p className="text-[11px] sm:text-xs text-gray-600 leading-relaxed">{raga.description}</p>
+              <div className="flex items-center gap-1 text-xs font-bold text-amber-700 group-hover:text-amber-900 group-hover:translate-x-0.5 transition pt-1">
+                <span>Open Guide</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </div>
             </div>
           ))}
         </div>

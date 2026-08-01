@@ -868,30 +868,50 @@ export default function RagaBilawalView({ onViewChange }: RagaBilawalViewProps) 
       </section>
 
       {/* Related Ragas */}
-      <section className="bg-amber-50/80 rounded-3xl p-6 sm:p-8 border border-amber-200 space-y-4">
-        <h3 className="text-xl font-display font-bold text-bamboo-950">Related Raga Guides</h3>
-        <p className="text-xs text-gray-600">
-          Continue your classical music journey with these other comprehensive guides:
-        </p>
+      <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-sm border border-bamboo-100 space-y-4 sm:space-y-6">
+        <div className="flex items-center justify-between gap-2">
+          <h2 className="text-xl sm:text-2xl font-bold text-bamboo-900 font-display flex items-center gap-2">
+            <Compass className="w-5 h-5 sm:w-6 sm:h-6 text-amber-600 shrink-0" />
+            <span>Related Ragas to Explore Next</span>
+          </h2>
+          <button
+            onClick={() => onViewChange?.('learn_raagas')}
+            className="text-xs font-bold text-amber-800 hover:text-amber-950 transition flex items-center gap-1 cursor-pointer shrink-0"
+          >
+            <span className="hidden sm:inline">View All Ragas</span>
+            <span className="sm:hidden">All Ragas</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
 
-        <div className="flex flex-wrap gap-2.5 pt-1">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
           {[
-            { name: 'Raag Bhoopali', view: 'raga_bhoopali' },
-            { name: 'Raag Yaman', view: 'raga_yaman' },
-            { name: 'Raag Durga', view: 'raga_durga' },
-            { name: 'Raag Hamsadhwani', view: 'raga_hamsadhwani' },
+            { name: 'Raag Bhoopali', view: 'raga_bhoopali', description: 'Serene pentatonic scale skipping Ma and Ni; focused on Ga and Dha.', difficulty: 'Beginner' },
+            { name: 'Raag Yaman', view: 'raga_yaman', description: 'Evening scale introducing Teevra Ma; foundation of classical improvisation.', difficulty: 'Beginner' },
+            { name: 'Raag Durga', view: 'raga_durga', description: 'Crisp pentatonic scale skipping Ga and Ni; peaceful evening mood.', difficulty: 'Beginner' },
+            { name: 'Raag Hamsadhwani', view: 'raga_hamsadhwani', description: 'Auspicious pentatonic raga from Shankarabharanam parent scale.', difficulty: 'Beginner' },
+            { name: 'Raag Desh', view: 'learn_raagas', description: 'Monsoon evening scale with graceful glides between natural and flat notes.', difficulty: 'Intermediate' },
           ].map((raga, idx) => (
-            <button
-              key={idx}
+            <div 
+              key={idx} 
               onClick={() => onViewChange?.(raga.view as AppView)}
-              className="bg-white hover:bg-amber-100 text-bamboo-950 border border-amber-300 font-bold px-4 py-2 rounded-xl text-xs transition flex items-center gap-1.5 shadow-3xs cursor-pointer"
+              className="bg-amber-50/40 border border-amber-200/80 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 space-y-2 hover:shadow-md hover:border-amber-400 hover:bg-amber-100/50 transition cursor-pointer group"
             >
-              <span>{raga.name}</span>
-              <ArrowRight className="w-3.5 h-3.5 text-amber-700" />
-            </button>
+              <div className="flex items-center justify-between gap-2">
+                <h3 className="font-bold text-bamboo-950 text-xs sm:text-sm group-hover:text-amber-800 transition">{raga.name}</h3>
+                <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100 border border-emerald-200 px-2 py-0.5 rounded-full shrink-0">
+                  {raga.difficulty}
+                </span>
+              </div>
+              <p className="text-[11px] sm:text-xs text-gray-600 leading-relaxed">{raga.description}</p>
+              <div className="flex items-center gap-1 text-xs font-bold text-amber-700 group-hover:text-amber-900 group-hover:translate-x-0.5 transition pt-1">
+                <span>Open Guide</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </div>
+            </div>
           ))}
         </div>
-      </section>
+      </div>
 
       {/* Copyright & Original Content Disclaimer */}
       <section className="bg-gray-50 p-6 rounded-2xl border border-gray-200 text-xs text-gray-600 space-y-2 font-sans">

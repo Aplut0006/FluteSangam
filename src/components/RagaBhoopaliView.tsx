@@ -175,11 +175,11 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
   ];
 
   const relatedRagas = [
-    { name: 'Raag Durga', description: 'Pentatonic scale skipping Ga and Ni; crisp finger movements.', difficulty: 'Beginner' },
-    { name: 'Raag Hamsadhwani', description: 'Pentatonic scale skipping Ma and Dha; bright, auspicious mood.', difficulty: 'Beginner' },
-    { name: 'Raag Yaman', description: 'Evening scale introducing Teevra Ma; foundation of classical improvisation.', difficulty: 'Beginner' },
-    { name: 'Raag Bilawal', description: 'Natural scale using all Shuddha notes; equivalent to Western Major scale.', difficulty: 'Beginner' },
-    { name: 'Raag Desh', description: 'Rainy season scale with graceful glides between natural and flat notes.', difficulty: 'Intermediate' },
+    { name: 'Raag Durga', view: 'raga_durga', description: 'Pentatonic scale skipping Ga and Ni; crisp finger movements.', difficulty: 'Beginner' },
+    { name: 'Raag Hamsadhwani', view: 'raga_hamsadhwani', description: 'Pentatonic scale skipping Ma and Dha; bright, auspicious mood.', difficulty: 'Beginner' },
+    { name: 'Raag Yaman', view: 'raga_yaman', description: 'Evening scale introducing Teevra Ma; foundation of classical improvisation.', difficulty: 'Beginner' },
+    { name: 'Raag Bilawal', view: 'raga_bilawal', description: 'Natural scale using all Shuddha notes; equivalent to Western Major scale.', difficulty: 'Beginner' },
+    { name: 'Raag Desh', view: 'learn_raagas', description: 'Rainy season scale with graceful glides between natural and flat notes.', difficulty: 'Intermediate' },
   ];
 
   return (
@@ -1013,14 +1013,22 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
           {relatedRagas.map((raga, idx) => (
-            <div key={idx} className="bg-amber-50/40 border border-amber-200/80 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 space-y-1.5 hover:shadow-sm hover:border-amber-300 transition">
+            <div 
+              key={idx} 
+              onClick={() => onViewChange?.(raga.view as AppView)}
+              className="bg-amber-50/40 border border-amber-200/80 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 space-y-2 hover:shadow-md hover:border-amber-400 hover:bg-amber-100/50 transition cursor-pointer group"
+            >
               <div className="flex items-center justify-between gap-2">
-                <h3 className="font-bold text-bamboo-950 text-xs sm:text-sm">{raga.name}</h3>
+                <h3 className="font-bold text-bamboo-950 text-xs sm:text-sm group-hover:text-amber-800 transition">{raga.name}</h3>
                 <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100 border border-emerald-200 px-2 py-0.5 rounded-full shrink-0">
                   {raga.difficulty}
                 </span>
               </div>
               <p className="text-[11px] sm:text-xs text-gray-600 leading-relaxed">{raga.description}</p>
+              <div className="flex items-center gap-1 text-xs font-bold text-amber-700 group-hover:text-amber-900 group-hover:translate-x-0.5 transition pt-1">
+                <span>Open Guide</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </div>
             </div>
           ))}
         </div>
