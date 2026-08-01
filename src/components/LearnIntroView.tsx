@@ -59,8 +59,8 @@ export default function LearnIntroView({ onViewChange }: LearnIntroViewProps) {
             </section>
 
             <img 
-              src="/images/radha_krishna-800w.jpg" 
-              alt="Radha and Krishna" 
+              src="/krishna_village_old_under_tree.jpg" 
+              alt="Lord Krishna playing flute under a tree" 
               className="w-full h-64 md:h-80 object-cover object-top rounded-2xl shadow-md"
               loading="lazy"
               onError={(e) => {
@@ -141,8 +141,8 @@ export default function LearnIntroView({ onViewChange }: LearnIntroViewProps) {
             </section>
 
             <img 
-              src="/images/bansuri_scales-800w.jpg" 
-              alt="Set of Bamboo Bansuri Flutes" 
+              src="/indian_bansuri_set.jpg" 
+              alt="Set of Indian Bamboo Bansuri Flutes" 
               className="w-full h-48 md:h-64 object-cover object-center rounded-2xl shadow-md"
               loading="lazy"
               onError={(e) => {

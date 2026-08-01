@@ -219,8 +219,8 @@ export default function LearnChooseFluteView({ onBackToLearn, onViewChange }: Le
 
               <div className="bg-bamboo-900 text-white p-6 rounded-3xl shadow-md overflow-hidden relative">
                 <img 
-                  src="/images/bansuri_scales-800w.jpg" 
-                  alt="Bansuri Flutes Comparison - G Base, A Base, C Middle" 
+                  src="/indian_bansuri_set.jpg" 
+                  alt="Bansuri Flutes Comparison - Indian Bansuri Set" 
                   className="w-full h-56 sm:h-72 object-cover object-center rounded-2xl shadow-inner mb-6 border border-bamboo-700/60"
                   loading="lazy"
                   onError={(e) => {
