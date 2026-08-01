@@ -182,7 +182,7 @@ export default function App() {
         description = 'FluteSangam About Us: Learn about our mission to preserve and promote Indian bamboo flute (bansuri) heritage through accessible education and community.';
         break;
       case 'founder':
-        title = 'Aplut - Founder of FluteSangam | Indian Bamboo Flute';
+        title = 'Aplut – Founder of FluteSangam';
         description = 'Meet Aplut, Founder of FluteSangam. Software engineer & Bansuri practitioner building a global community, free flute practice tools, and raga guides.';
         break;
       case 'contact_us':
