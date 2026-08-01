@@ -224,7 +224,7 @@ export default function LearnChooseFluteView({ onBackToLearn, onViewChange }: Le
                   className="w-full h-56 sm:h-72 object-cover object-center rounded-2xl shadow-inner mb-6 border border-bamboo-700/60"
                   loading="lazy"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = "https://upload.wikimedia.org/wikipedia/commons/a/ad/All_scales_of_Bansuris_in_a_set.jpg";
+                    (e.target as HTMLImageElement).src = "/images/bansuri_scales-800w.jpg";
                   }}
                 />
 

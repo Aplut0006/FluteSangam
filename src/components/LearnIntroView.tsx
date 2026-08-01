@@ -64,7 +64,7 @@ export default function LearnIntroView({ onViewChange }: LearnIntroViewProps) {
               className="w-full h-64 md:h-80 object-cover object-top rounded-2xl shadow-md"
               loading="lazy"
               onError={(e) => {
-                (e.target as HTMLImageElement).src = "https://upload.wikimedia.org/wikipedia/commons/e/e5/Radha_Krishna_20.jpg";
+                (e.target as HTMLImageElement).src = "/images/radha_krishna-800w.jpg";
               }}
             />
 
@@ -146,7 +146,7 @@ export default function LearnIntroView({ onViewChange }: LearnIntroViewProps) {
               className="w-full h-48 md:h-64 object-cover object-center rounded-2xl shadow-md"
               loading="lazy"
               onError={(e) => {
-                (e.target as HTMLImageElement).src = "https://upload.wikimedia.org/wikipedia/commons/a/ad/All_scales_of_Bansuris_in_a_set.jpg";
+                (e.target as HTMLImageElement).src = "/images/bansuri_scales-800w.jpg";
               }}
             />
 
