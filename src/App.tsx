@@ -38,6 +38,7 @@ const RagaHamsadhwaniView = React.lazy(() => import('./components/RagaHamsadhwan
 const MembersView = React.lazy(() => import('./components/MembersView'));
 const ImageModal = React.lazy(() => import('./components/ImageModal'));
 const AboutUsView = React.lazy(() => import('./components/AboutUsView'));
+const FounderView = React.lazy(() => import('./components/FounderView'));
 const ContactUsView = React.lazy(() => import('./components/ContactUsView'));
 const FluteSangamChatbot = React.lazy(() => import('./components/FluteSangamChatbot').then(m => ({ default: m.FluteSangamChatbot })));
 const NotationRequestsView = React.lazy(() => import('./components/NotationRequestsView').then(m => ({ default: m.NotationRequestsView })));
@@ -174,6 +175,10 @@ export default function App() {
       case 'about_us':
         title = 'About Us - Indian Bamboo Flute | FluteSangam';
         description = 'FluteSangam About Us: Learn about our mission to preserve and promote Indian bamboo flute (bansuri) heritage through accessible education and community.';
+        break;
+      case 'founder':
+        title = 'Aplut - Founder of FluteSangam | Indian Bamboo Flute';
+        description = 'Meet Aplut, Founder of FluteSangam. Software engineer & Bansuri practitioner building a global community, free flute practice tools, and raga guides.';
         break;
       case 'contact_us':
         title = 'Contact Us & Support | FluteSangam Community';
@@ -475,6 +480,7 @@ export default function App() {
       view === 'raga_hamsadhwani' ||
       view === 'community_members' ||
       view === 'about_us' ||
+      view === 'founder' ||
       view === 'contact_us' ||
       view === 'notation_requests' ||
       view === 'learn_dashboard' ||
@@ -852,7 +858,9 @@ export default function App() {
         ) : currentView === 'raga_hamsadhwani' ? (
           <RagaHamsadhwaniView onViewChange={handleViewChange} />
         ) : currentView === 'about_us' ? (
-          <AboutUsView />
+          <AboutUsView onViewChange={handleViewChange} />
+        ) : currentView === 'founder' ? (
+          <FounderView onViewChange={handleViewChange} />
         ) : currentView === 'contact_us' ? (
           <ContactUsView onBackToCommunity={() => handleViewChange('community')} />
         ) : currentView === 'privacy_policy' ? (
@@ -1151,26 +1159,6 @@ export default function App() {
                   </a>
                 </li>
                 <li>
-                  <a href="/learn/raagas" onClick={(e) => { e.preventDefault(); handleViewChange('learn_raagas'); }} className="hover:text-amber-300 transition">
-                    Classical Raagas Lessons
-                  </a>
-                </li>
-                <li>
-                  <a href="/learn/raga-bhoopali" onClick={(e) => { e.preventDefault(); handleViewChange('raga_bhoopali'); }} className="hover:text-amber-300 transition">
-                    Raag Bhoopali Guide
-                  </a>
-                </li>
-                <li>
-                  <a href="/learn/raga-durga" onClick={(e) => { e.preventDefault(); handleViewChange('raga_durga'); }} className="hover:text-amber-300 transition">
-                    Raag Durga Guide
-                  </a>
-                </li>
-                <li>
-                  <a href="/learn/raga-yaman" onClick={(e) => { e.preventDefault(); handleViewChange('raga_yaman'); }} className="hover:text-amber-300 transition">
-                    Raag Yaman Guide
-                  </a>
-                </li>
-                <li>
                   <a href="/tuner" onClick={(e) => { e.preventDefault(); handleViewChange('learn_tuner'); }} className="hover:text-amber-300 transition">
                     Online Flute Tuner (440Hz)
                   </a>
@@ -1214,6 +1202,11 @@ export default function App() {
                 <li>
                   <a href="/about" onClick={(e) => { e.preventDefault(); handleViewChange('about_us'); }} className="hover:text-amber-300 transition">
                     About FluteSangam
+                  </a>
+                </li>
+                <li>
+                  <a href="/founder" onClick={(e) => { e.preventDefault(); handleViewChange('founder'); }} className="hover:text-amber-300 transition">
+                    Founder Story (Aplut)
                   </a>
                 </li>
                 <li>

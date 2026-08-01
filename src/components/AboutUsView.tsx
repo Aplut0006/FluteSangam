@@ -1,8 +1,21 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Mail, Music, Users, Compass, Wind } from 'lucide-react';
+import { Mail, Music, Users, Compass, Wind, Sparkles, ArrowRight, MessageCircle, ExternalLink } from 'lucide-react';
+import { AppView } from '../types';
 
-export default function AboutUsView() {
+interface AboutUsViewProps {
+  onViewChange?: (view: AppView) => void;
+}
+
+export default function AboutUsView({ onViewChange }: AboutUsViewProps = {}) {
+  const handleFounderClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (onViewChange) {
+      onViewChange('founder');
+    } else {
+      window.location.href = '/founder';
+    }
+  };
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -63,9 +76,18 @@ export default function AboutUsView() {
         <h2 className="text-3xl font-display font-bold mb-6">Meet the Creator</h2>
         <p className="text-xl mb-6 italic">"The journey with the flute is endless, and every note brings its own peace."</p>
         <p className="text-lg font-bold mb-2">Aplut | Founder of FluteSangam</p>
-        <p className="text-bamboo-200 mb-8 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-bamboo-200 mb-6 max-w-2xl mx-auto leading-relaxed">
           Aplut is the Founder of FluteSangam, a global platform dedicated to the Indian bamboo flute (Bansuri). Through carefully crafted lessons, practice resources, raga guides, songs, and interactive tools, he aims to make flute learning accessible and enjoyable for enthusiasts worldwide.
         </p>
+        <a 
+          href="/founder"
+          onClick={handleFounderClick}
+          className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-bamboo-950 px-6 py-2.5 rounded-full font-extrabold text-xs sm:text-sm transition shadow-md hover:shadow-lg cursor-pointer"
+        >
+          <Sparkles className="w-4 h-4 text-bamboo-950" />
+          <span>Read Aplut's Founder Story</span>
+          <ArrowRight className="w-4 h-4" />
+        </a>
       </motion.div>
 
       <motion.div 
@@ -76,15 +98,28 @@ export default function AboutUsView() {
       >
         <h2 className="text-3xl font-display font-bold text-bamboo-900 mb-6">Join the Sangam</h2>
         <p className="text-gray-600 mb-8 max-w-xl mx-auto">
-          "Sangam" means a confluence or merging point. FluteSangam is where music, community, and technology meet. We invite you to explore our guides, practice your favorite tunes, share your journey, and help us grow a vibrant worldwide flute community!
+          "Sangam" means a confluence or merging point. FluteSangam is where music, community, and technology meet. We invite you to explore our guides, practice your favorite tunes, join our global WhatsApp community, and help us grow a vibrant worldwide flute family!
         </p>
-        <a 
-          href="mailto:aplut0006@gmail.com"
-          className="inline-flex items-center gap-2 bg-bamboo-700 hover:bg-bamboo-800 text-white px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-xl"
-        >
-          <Mail className="w-5 h-5" />
-          Contact Me
-        </a>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a 
+            href="https://chat.whatsapp.com/HwfFf145b2A7ieIUrytve2"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 bg-emerald-600 hover:bg-emerald-500 text-white px-7 py-3.5 rounded-full font-bold transition-all shadow-md hover:shadow-lg text-sm sm:text-base cursor-pointer"
+          >
+            <MessageCircle className="w-5 h-5 fill-current" />
+            <span>Join WhatsApp Community</span>
+            <ExternalLink className="w-4 h-4 opacity-80" />
+          </a>
+
+          <a 
+            href="mailto:aplut0006@gmail.com"
+            className="inline-flex items-center gap-2 bg-bamboo-700 hover:bg-bamboo-800 text-white px-7 py-3.5 rounded-full font-bold transition-all shadow-md hover:shadow-lg text-sm sm:text-base cursor-pointer"
+          >
+            <Mail className="w-5 h-5" />
+            <span>Contact Me</span>
+          </a>
+        </div>
       </motion.div>
     </motion.div>
   );

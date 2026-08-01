@@ -17,6 +17,7 @@ export const VIEW_URLS: Record<string, string> = {
   'raga_hamsadhwani': '/learn/raga-hamsadhwani',
   'community_members': '/members',
   'about_us': '/about',
+  'founder': '/founder',
   'contact_us': '/contact',
   'learn_dashboard': '/learn',
   'notation_requests': '/notations',

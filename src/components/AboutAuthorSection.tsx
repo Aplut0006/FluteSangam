@@ -8,13 +8,23 @@ interface AboutAuthorSectionProps {
 }
 
 export default function AboutAuthorSection({ onViewChange, className = '' }: AboutAuthorSectionProps) {
+  const handleFounderClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (onViewChange) {
+      onViewChange('founder');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      window.location.href = '/founder';
+    }
+  };
+
   const handleAboutUsClick = (e: React.MouseEvent) => {
     e.preventDefault();
     if (onViewChange) {
       onViewChange('about_us');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      window.location.href = '/about-us';
+      window.location.href = '/about';
     }
   };
 
@@ -45,15 +55,26 @@ export default function AboutAuthorSection({ onViewChange, className = '' }: Abo
               About the Author
             </h4>
             
-            <a
-              href="/about-us"
-              onClick={handleAboutUsClick}
-              className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-bold text-bamboo-800 hover:text-bamboo-950 bg-amber-100/90 hover:bg-amber-200 px-3 py-1 rounded-lg border border-amber-300/80 transition cursor-pointer shadow-3xs"
-              title="Learn more about Aplut on the About Us page"
-            >
-              <span>About Us</span>
-              <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-700" />
-            </a>
+            <div className="flex items-center gap-1.5">
+              <a
+                href="/founder"
+                onClick={handleFounderClick}
+                className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-bold text-bamboo-950 bg-amber-200/90 hover:bg-amber-300 px-2.5 py-1 rounded-lg border border-amber-400/80 transition cursor-pointer shadow-3xs"
+                title="Read Aplut's Founder story"
+              >
+                <Sparkles className="w-3 h-3 text-amber-700" />
+                <span>Founder Story</span>
+              </a>
+              <a
+                href="/about"
+                onClick={handleAboutUsClick}
+                className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-bold text-bamboo-800 hover:text-bamboo-950 bg-amber-100/90 hover:bg-amber-200 px-2.5 py-1 rounded-lg border border-amber-300/80 transition cursor-pointer shadow-3xs"
+                title="Learn more on About Us page"
+              >
+                <span>About Us</span>
+                <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-700" />
+              </a>
+            </div>
           </div>
 
           <p className="text-xs text-gray-700 leading-relaxed font-sans">
