@@ -58,27 +58,15 @@ export default function LearnIntroView({ onViewChange }: LearnIntroViewProps) {
               </p>
             </section>
 
-            <picture className="block w-full">
-              <source
-                type="image/webp"
-                srcSet="/images/radha_krishna-400w.webp 400w, /images/radha_krishna-800w.webp 800w, /images/radha_krishna-1200w.webp 1200w"
-                sizes="(max-width: 768px) 100vw, 800px"
-              />
-              <source
-                type="image/jpeg"
-                srcSet="/images/radha_krishna-400w.jpg 400w, /images/radha_krishna-800w.jpg 800w, /images/radha_krishna-1200w.jpg 1200w"
-                sizes="(max-width: 768px) 100vw, 800px"
-              />
-              <img 
-                src="/images/radha_krishna-800w.jpg" 
-                alt="Radha and Krishna" 
-                width="800"
-                height="450"
-                className="w-full h-64 md:h-80 object-cover object-top rounded-2xl shadow-md"
-                loading="lazy"
-                decoding="async"
-              />
-            </picture>
+            <img 
+              src="/images/radha_krishna-800w.jpg" 
+              alt="Radha and Krishna" 
+              className="w-full h-64 md:h-80 object-cover object-top rounded-2xl shadow-md"
+              loading="lazy"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = "https://upload.wikimedia.org/wikipedia/commons/e/e5/Radha_Krishna_20.jpg";
+              }}
+            />
 
             {/* Origins */}
             <section className="space-y-6">
@@ -152,27 +140,15 @@ export default function LearnIntroView({ onViewChange }: LearnIntroViewProps) {
               </div>
             </section>
 
-            <picture className="block w-full">
-              <source
-                type="image/webp"
-                srcSet="/images/bansuri_scales-400w.webp 400w, /images/bansuri_scales-800w.webp 800w, /images/bansuri_scales-1200w.webp 1200w"
-                sizes="(max-width: 768px) 100vw, 800px"
-              />
-              <source
-                type="image/jpeg"
-                srcSet="/images/bansuri_scales-400w.jpg 400w, /images/bansuri_scales-800w.jpg 800w, /images/bansuri_scales-1200w.jpg 1200w"
-                sizes="(max-width: 768px) 100vw, 800px"
-              />
-              <img 
-                src="/images/bansuri_scales-800w.jpg" 
-                alt="Set of Bamboo Bansuri Flutes" 
-                width="800"
-                height="600"
-                className="w-full h-48 md:h-64 object-cover object-center rounded-2xl shadow-md"
-                loading="lazy"
-                decoding="async"
-              />
-            </picture>
+            <img 
+              src="/images/bansuri_scales-800w.jpg" 
+              alt="Set of Bamboo Bansuri Flutes" 
+              className="w-full h-48 md:h-64 object-cover object-center rounded-2xl shadow-md"
+              loading="lazy"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = "https://upload.wikimedia.org/wikipedia/commons/a/ad/All_scales_of_Bansuris_in_a_set.jpg";
+              }}
+            />
 
             {/* Structure */}
             <section className="space-y-6">

@@ -218,27 +218,15 @@ export default function LearnChooseFluteView({ onBackToLearn, onViewChange }: Le
               </div>
 
               <div className="bg-bamboo-900 text-white p-6 rounded-3xl shadow-md overflow-hidden relative">
-                <picture className="block w-full mb-6">
-                  <source
-                    type="image/webp"
-                    srcSet="/images/bansuri_scales-400w.webp 400w, /images/bansuri_scales-800w.webp 800w, /images/bansuri_scales-1200w.webp 1200w"
-                    sizes="(max-width: 768px) 100vw, 800px"
-                  />
-                  <source
-                    type="image/jpeg"
-                    srcSet="/images/bansuri_scales-400w.jpg 400w, /images/bansuri_scales-800w.jpg 800w, /images/bansuri_scales-1200w.jpg 1200w"
-                    sizes="(max-width: 768px) 100vw, 800px"
-                  />
-                  <img 
-                    src="/images/bansuri_scales-800w.jpg" 
-                    alt="Bansuri Flutes Comparison - G Base, A Base, C Middle" 
-                    width="800"
-                    height="600"
-                    className="w-full h-56 sm:h-72 object-cover object-center rounded-2xl shadow-inner border border-bamboo-700/60"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </picture>
+                <img 
+                  src="/images/bansuri_scales-800w.jpg" 
+                  alt="Bansuri Flutes Comparison - G Base, A Base, C Middle" 
+                  className="w-full h-56 sm:h-72 object-cover object-center rounded-2xl shadow-inner mb-6 border border-bamboo-700/60"
+                  loading="lazy"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = "https://upload.wikimedia.org/wikipedia/commons/a/ad/All_scales_of_Bansuris_in_a_set.jpg";
+                  }}
+                />
 
                 <div className="bg-bamboo-950/80 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-bamboo-700/80">
                   <h3 className="text-xs uppercase tracking-wider font-bold text-amber-400 mb-3">

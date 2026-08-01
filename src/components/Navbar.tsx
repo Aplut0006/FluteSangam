@@ -257,26 +257,12 @@ export default function Navbar({
           id="navbar-brand-logo-btn"
           title="FluteSangam - Go to Home"
         >
-          <picture className="h-8 sm:h-9 lg:h-10 w-auto shrink-0 flex items-center">
-            <source
-              type="image/webp"
-              srcSet="/flutesangam_without_tagline-300w.webp 300w, /flutesangam_without_tagline-600w.webp 600w"
-              sizes="(max-width: 640px) 120px, 160px"
-            />
-            <source
-              type="image/png"
-              srcSet="/flutesangam_without_tagline-300w.png 300w, /flutesangam_without_tagline-600w.png 600w"
-              sizes="(max-width: 640px) 120px, 160px"
-            />
-            <img 
-              src="/flutesangam_without_tagline.png" 
-              alt="FluteSangam Logo" 
-              width="150"
-              height="100"
-              className="h-8 sm:h-9 lg:h-10 w-auto transition-transform group-hover:scale-105 shrink-0 object-contain drop-shadow-2xs"
-              loading="eager"
-            />
-          </picture>
+          <img 
+            src="/flutesangam_without_tagline.png" 
+            alt="FluteSangam Logo" 
+            className="h-8 sm:h-9 lg:h-10 w-auto transition-transform group-hover:scale-105 shrink-0 object-contain drop-shadow-2xs" 
+            loading="eager"
+          />
           <span className="font-display font-extrabold text-lg sm:text-xl lg:text-2xl tracking-tight text-bamboo-950 group-hover:text-bamboo-800 transition-colors whitespace-nowrap">
             Flute<span className="text-amber-700">Sangam</span>
           </span>
