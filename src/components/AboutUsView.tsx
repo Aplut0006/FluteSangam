@@ -85,7 +85,7 @@ export default function AboutUsView({ onViewChange }: AboutUsViewProps = {}) {
           className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-bamboo-950 px-6 py-2.5 rounded-full font-extrabold text-xs sm:text-sm transition shadow-md hover:shadow-lg cursor-pointer"
         >
           <Sparkles className="w-4 h-4 text-bamboo-950" />
-          <span>Read Aplut's Founder Story</span>
+          <span>Read Aplut's Story</span>
           <ArrowRight className="w-4 h-4" />
         </a>
       </motion.div>
