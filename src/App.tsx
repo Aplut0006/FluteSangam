@@ -7,6 +7,9 @@ import { VIEW_URLS } from './routes';
 import { UserProfile, Post, AppView } from './types';
 import { motion, AnimatePresence } from 'motion/react';
 
+import { lazyWithRetry } from './lib/lazyWithRetry';
+import ErrorBoundary from './components/ErrorBoundary';
+
 // Core Eagerly Loaded Layout Components
 import Navbar from './components/Navbar';
 import AuthModal from './components/AuthModal';
@@ -15,37 +18,37 @@ import MobileBottomNav from './components/MobileBottomNav';
 import FlutePracticeFaqSection from './components/FlutePracticeFaqSection';
 import AboutAuthorSection from './components/AboutAuthorSection';
 
-// Lazy-Loaded Route & Secondary View Components
-const RagaGuide = React.lazy(() => import('./components/RagaGuide'));
-const CreatePostModal = React.lazy(() => import('./components/CreatePostModal'));
-const ShareModal = React.lazy(() => import('./components/ShareModal'));
-const ChatSection = React.lazy(() => import('./components/ChatSection'));
-const PostDetailView = React.lazy(() => import('./components/PostDetailView'));
-const UserProfileView = React.lazy(() => import('./components/UserProfileView'));
-const LearnDashboard = React.lazy(() => import('./components/LearnDashboard'));
-const LearnIntroView = React.lazy(() => import('./components/LearnIntroView'));
-const LearnBasicsView = React.lazy(() => import('./components/LearnBasicsView'));
-const LearnFingeringChartView = React.lazy(() => import('./components/LearnFingeringChartView'));
-const LearnChooseFluteView = React.lazy(() => import('./components/LearnChooseFluteView'));
-const LearnTunerView = React.lazy(() => import('./components/LearnTunerView'));
-const LearnAlankarasView = React.lazy(() => import('./components/LearnAlankarasView'));
-const AlankarGeneratorView = React.lazy(() => import('./components/AlankarGeneratorView'));
-const LearnRaagasView = React.lazy(() => import('./components/LearnRaagasView'));
-const RagaBhoopaliView = React.lazy(() => import('./components/RagaBhoopaliView'));
-const RagaDurgaView = React.lazy(() => import('./components/RagaDurgaView'));
-const RagaYamanView = React.lazy(() => import('./components/RagaYamanView'));
-const RagaHamsadhwaniView = React.lazy(() => import('./components/RagaHamsadhwaniView'));
-const RagaBilawalView = React.lazy(() => import('./components/RagaBilawalView'));
-const MembersView = React.lazy(() => import('./components/MembersView'));
-const ImageModal = React.lazy(() => import('./components/ImageModal'));
-const AboutUsView = React.lazy(() => import('./components/AboutUsView'));
-const FounderView = React.lazy(() => import('./components/FounderView'));
-const ContactUsView = React.lazy(() => import('./components/ContactUsView'));
-const FluteSangamChatbot = React.lazy(() => import('./components/FluteSangamChatbot').then(m => ({ default: m.FluteSangamChatbot })));
-const NotationRequestsView = React.lazy(() => import('./components/NotationRequestsView').then(m => ({ default: m.NotationRequestsView })));
-const PrivacyPolicyView = React.lazy(() => import('./components/PrivacyPolicyView'));
-const TermsOfServiceView = React.lazy(() => import('./components/TermsOfServiceView'));
-const NotFoundView = React.lazy(() => import('./components/NotFoundView'));
+// Lazy-Loaded Route & Secondary View Components with Retry & Error Protection
+const RagaGuide = lazyWithRetry(() => import('./components/RagaGuide'));
+const CreatePostModal = lazyWithRetry(() => import('./components/CreatePostModal'));
+const ShareModal = lazyWithRetry(() => import('./components/ShareModal'));
+const ChatSection = lazyWithRetry(() => import('./components/ChatSection'));
+const PostDetailView = lazyWithRetry(() => import('./components/PostDetailView'));
+const UserProfileView = lazyWithRetry(() => import('./components/UserProfileView'));
+const LearnDashboard = lazyWithRetry(() => import('./components/LearnDashboard'));
+const LearnIntroView = lazyWithRetry(() => import('./components/LearnIntroView'));
+const LearnBasicsView = lazyWithRetry(() => import('./components/LearnBasicsView'));
+const LearnFingeringChartView = lazyWithRetry(() => import('./components/LearnFingeringChartView'));
+const LearnChooseFluteView = lazyWithRetry(() => import('./components/LearnChooseFluteView'));
+const LearnTunerView = lazyWithRetry(() => import('./components/LearnTunerView'));
+const LearnAlankarasView = lazyWithRetry(() => import('./components/LearnAlankarasView'));
+const AlankarGeneratorView = lazyWithRetry(() => import('./components/AlankarGeneratorView'));
+const LearnRaagasView = lazyWithRetry(() => import('./components/LearnRaagasView'));
+const RagaBhoopaliView = lazyWithRetry(() => import('./components/RagaBhoopaliView'));
+const RagaDurgaView = lazyWithRetry(() => import('./components/RagaDurgaView'));
+const RagaYamanView = lazyWithRetry(() => import('./components/RagaYamanView'));
+const RagaHamsadhwaniView = lazyWithRetry(() => import('./components/RagaHamsadhwaniView'));
+const RagaBilawalView = lazyWithRetry(() => import('./components/RagaBilawalView'));
+const MembersView = lazyWithRetry(() => import('./components/MembersView'));
+const ImageModal = lazyWithRetry(() => import('./components/ImageModal'));
+const AboutUsView = lazyWithRetry(() => import('./components/AboutUsView'));
+const FounderView = lazyWithRetry(() => import('./components/FounderView'));
+const ContactUsView = lazyWithRetry(() => import('./components/ContactUsView'));
+const FluteSangamChatbot = lazyWithRetry(() => import('./components/FluteSangamChatbot').then(m => ({ default: m.FluteSangamChatbot })));
+const NotationRequestsView = lazyWithRetry(() => import('./components/NotationRequestsView').then(m => ({ default: m.NotationRequestsView })));
+const PrivacyPolicyView = lazyWithRetry(() => import('./components/PrivacyPolicyView'));
+const TermsOfServiceView = lazyWithRetry(() => import('./components/TermsOfServiceView'));
+const NotFoundView = lazyWithRetry(() => import('./components/NotFoundView'));
 
 const ViewFallbackLoader = () => (
   <div className="flex flex-col items-center justify-center p-12 my-8 bg-white/60 backdrop-blur-md rounded-2xl border border-bamboo-100 shadow-3xs max-w-md mx-auto">
@@ -797,7 +800,8 @@ export default function App() {
 
       {/* Main Layout Area */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 sm:pt-6 flex-1 w-full pb-24 md:pb-12" id="main-content-layout">
-        <React.Suspense fallback={<ViewFallbackLoader />}>
+        <ErrorBoundary>
+          <React.Suspense fallback={<ViewFallbackLoader />}>
 
 
         {currentView === 'user-profile' ? (
@@ -1084,7 +1088,8 @@ export default function App() {
           </div>
           </div>
         )}
-        </React.Suspense>
+          </React.Suspense>
+        </ErrorBoundary>
       </main>
 
       {/* Footer */}
@@ -1267,37 +1272,39 @@ export default function App() {
         onAuthSuccess={handleAuthSuccess}
       />
 
-      <React.Suspense fallback={null}>
-        {currentUser && createPostModalOpen && (
-          <CreatePostModal
-            isOpen={createPostModalOpen}
-            onClose={() => {
-              setCreatePostModalOpen(false);
-              setEditingPost(null);
-            }}
-            currentUser={currentUser}
-            postToEdit={editingPost}
+      <ErrorBoundary>
+        <React.Suspense fallback={null}>
+          {currentUser && createPostModalOpen && (
+            <CreatePostModal
+              isOpen={createPostModalOpen}
+              onClose={() => {
+                setCreatePostModalOpen(false);
+                setEditingPost(null);
+              }}
+              currentUser={currentUser}
+              postToEdit={editingPost}
+            />
+          )}
+
+          {shareModalOpen && (
+            <ShareModal
+              isOpen={shareModalOpen}
+              onClose={() => {
+                setShareModalOpen(false);
+                setActiveSharePost(null);
+              }}
+              post={activeSharePost}
+            />
+          )}
+
+          {selectedImageUrl && <ImageModal imageUrl={selectedImageUrl} onClose={() => setSelectedImageUrl(null)} />}
+
+          <FluteSangamChatbot 
+            onViewChange={handleViewChange}
+            isHidden={authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost}
           />
-        )}
-
-        {shareModalOpen && (
-          <ShareModal
-            isOpen={shareModalOpen}
-            onClose={() => {
-              setShareModalOpen(false);
-              setActiveSharePost(null);
-            }}
-            post={activeSharePost}
-          />
-        )}
-
-        {selectedImageUrl && <ImageModal imageUrl={selectedImageUrl} onClose={() => setSelectedImageUrl(null)} />}
-
-        <FluteSangamChatbot 
-          onViewChange={handleViewChange}
-          isHidden={authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost}
-        />
-      </React.Suspense>
+        </React.Suspense>
+      </ErrorBoundary>
 
       {/* Floating Real-Time Notifications Toast */}
       <AnimatePresence>
