@@ -2,85 +2,127 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://flutesangam.com/</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://flutesangam.com/learn/intro</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://flutesangam.com/learn/choose-flute</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://flutesangam.com/tuner</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://flutesangam.com/learn/basics</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://flutesangam.com/learn/fingering-chart</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://flutesangam.com/learn/alankaras</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://flutesangam.com/alankar-generator</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://flutesangam.com/learn/raagas</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://flutesangam.com/learn/raga-bhoopali</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://flutesangam.com/learn/raga-durga</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://flutesangam.com/learn/raga-yaman</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://flutesangam.com/learn/raga-hamsadhwani</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://flutesangam.com/members</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://flutesangam.com/about</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://flutesangam.com/contact</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://flutesangam.com/learn</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://flutesangam.com/notations</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://flutesangam.com/privacy-policy</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://flutesangam.com/terms-of-service</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://flutesangam.com/404</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
