@@ -35,6 +35,7 @@ const RagaBhoopaliView = React.lazy(() => import('./components/RagaBhoopaliView'
 const RagaDurgaView = React.lazy(() => import('./components/RagaDurgaView'));
 const RagaYamanView = React.lazy(() => import('./components/RagaYamanView'));
 const RagaHamsadhwaniView = React.lazy(() => import('./components/RagaHamsadhwaniView'));
+const RagaBilawalView = React.lazy(() => import('./components/RagaBilawalView'));
 const MembersView = React.lazy(() => import('./components/MembersView'));
 const ImageModal = React.lazy(() => import('./components/ImageModal'));
 const AboutUsView = React.lazy(() => import('./components/AboutUsView'));
@@ -163,6 +164,10 @@ export default function App() {
       case 'raga_hamsadhwani':
         title = 'Raag Hamsadhwani: Notes, Aaroh, Avaroh, Pakad, Practice & FluteSangam Original Learning Piece';
         description = 'Learn Raag Hamsadhwani on Indian flute: Notes, Aaroh, Avaroh, Pakad, Chalan, 35-min daily practice schedule, alankars, and original learning piece Udaya Sur.';
+        break;
+      case 'raga_bilawal':
+        title = 'Raag Bilawal: Complete Guide, Notes, Aaroh, Avaroh & Practice | FluteSangam';
+        description = 'Master Raag Bilawal on Indian Bamboo Flute (Bansuri). Step-by-step guide with swara playback, Aaroh-Avaroh, Pakad, Chalan, 35-min practice routine, alankars, and practice piece Pratah Sur.';
         break;
       case 'notation_requests':
         title = 'Song Notation Requests | FluteSangam Sargam';
@@ -478,6 +483,7 @@ export default function App() {
       view === 'raga_durga' ||
       view === 'raga_yaman' ||
       view === 'raga_hamsadhwani' ||
+      view === 'raga_bilawal' ||
       view === 'community_members' ||
       view === 'about_us' ||
       view === 'founder' ||
@@ -857,6 +863,8 @@ export default function App() {
           <RagaYamanView onViewChange={handleViewChange} />
         ) : currentView === 'raga_hamsadhwani' ? (
           <RagaHamsadhwaniView onViewChange={handleViewChange} />
+        ) : currentView === 'raga_bilawal' ? (
+          <RagaBilawalView onViewChange={handleViewChange} />
         ) : currentView === 'about_us' ? (
           <AboutUsView onViewChange={handleViewChange} />
         ) : currentView === 'founder' ? (

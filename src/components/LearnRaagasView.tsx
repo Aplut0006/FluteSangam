@@ -198,6 +198,13 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
                       <span>Raag Hamsadhwani Guide ("Udaya Sur")</span>
                       <ArrowRight className="w-4 h-4" />
                     </button>
+                    <button
+                      onClick={() => onViewChange?.('raga_bilawal')}
+                      className="bg-amber-800 hover:bg-amber-900 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition flex items-center gap-2 shadow-sm cursor-pointer"
+                    >
+                      <span>Raag Bilawal Guide ("Pratah Sur")</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
                   </div>
                 </div>
               )}
@@ -284,6 +291,16 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
                     >
                       <span>Read Full Raag Hamsadhwani Guide &amp; Composition ("Udaya Sur")</span>
                       <ArrowRight className="w-3.5 h-3.5 text-rose-600" />
+                    </button>
+                  )}
+
+                  {raaga.name.toLowerCase().includes('bilawal') && !raaga.name.toLowerCase().includes('alhaiya') && (
+                    <button
+                      onClick={() => onViewChange?.('raga_bilawal')}
+                      className="bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 font-bold px-4 py-2 rounded-xl text-xs transition flex items-center gap-2 cursor-pointer mt-2"
+                    >
+                      <span>Read Full Raag Bilawal Guide &amp; Composition ("Pratah Sur")</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-amber-600" />
                     </button>
                   )}
                 </div>
