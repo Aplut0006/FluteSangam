@@ -15,6 +15,10 @@ export default defineConfig(() => {
       target: 'esnext',
       minify: true,
       cssMinify: true,
+      cssCodeSplit: true,
+      modulePreload: {
+        polyfill: false,
+      },
       sourcemap: false,
       chunkSizeWarningLimit: 1000,
     },

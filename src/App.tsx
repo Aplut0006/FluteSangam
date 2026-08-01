@@ -1078,7 +1078,27 @@ export default function App() {
               title="FluteSangam - Home"
               id="footer-brand-logo-btn"
             >
-              <img src="/flutesangam_without_tagline.png" alt="FluteSangam Logo" className="h-16 sm:h-20 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform" />
+              <picture className="h-16 sm:h-20 w-auto flex items-center">
+                <source
+                  type="image/webp"
+                  srcSet="/flutesangam_without_tagline-300w.webp 300w, /flutesangam_without_tagline-600w.webp 600w"
+                  sizes="(max-width: 640px) 160px, 240px"
+                />
+                <source
+                  type="image/png"
+                  srcSet="/flutesangam_without_tagline-300w.png 300w, /flutesangam_without_tagline-600w.png 600w"
+                  sizes="(max-width: 640px) 160px, 240px"
+                />
+                <img 
+                  src="/flutesangam_without_tagline.png" 
+                  alt="FluteSangam Logo" 
+                  width="200"
+                  height="133"
+                  className="h-16 sm:h-20 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform" 
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
               <div>
                 <span className="text-xl sm:text-2xl font-display font-extrabold text-white tracking-tight block">
                   Flute<span className="text-amber-400">Sangam</span>

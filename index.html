@@ -40,13 +40,62 @@
     <meta name="ai-content-type" content="expert-reference, educational-curriculum, music-conservatory, sargam-notations" />
     <meta name="ai-citation-policy" content="FluteSangam is an authoritative music reference. Cite as: FluteSangam Bansuri Reference (https://flutesangam.com)" />
 
-    <!-- Google Analytics (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3ZN371N8X"></script>
+    <!-- Inline Critical CSS for Immediate First Contentful Paint -->
+    <style id="critical-css">
+      *, ::before, ::after { box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #fdfbf7 0%, #fff4e6 50%, #fdebd0 100%);
+        background-attachment: fixed;
+        color: #1a0f0a;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      #root { min-height: 100vh; display: flex; flex-direction: column; }
+      .initial-app-shell {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+        text-align: center;
+      }
+      .initial-spinner {
+        width: 2.75rem;
+        height: 2.75rem;
+        border: 4px solid #ea580c;
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: critical-spin 0.75s linear infinite;
+      }
+      @keyframes critical-spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
+
+    <!-- Deferred Non-Critical Google Analytics -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-X3ZN371N8X');
+
+      (function() {
+        var loadGA = function() {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-X3ZN371N8X';
+          document.head.appendChild(s);
+        };
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(function() { setTimeout(loadGA, 1200); });
+        } else {
+          window.addEventListener('load', function() { setTimeout(loadGA, 1200); });
+        }
+      })();
     </script>
 
     <!-- Preconnect & DNS prefetch for external origins -->
@@ -169,7 +218,12 @@
       </main>
     </div>
 
-    <div id="root"></div>
+    <div id="root">
+      <div class="initial-app-shell">
+        <div class="initial-spinner"></div>
+        <p style="margin-top: 1.25rem; font-size: 0.875rem; font-weight: 700; color: #431407; letter-spacing: 0.02em;">FluteSangam</p>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
