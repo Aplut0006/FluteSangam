@@ -242,10 +242,10 @@ export default function FounderView({ onViewChange }: FounderViewProps) {
           </h2>
           <div className="space-y-3 text-xs sm:text-sm text-gray-700 leading-relaxed font-sans">
             <p>
-              My vision is to build one of the world's most trusted online communities for Indian bamboo flute learners.
+              My vision is to build one of the world's most trusted online community for Indian bamboo flute learners.
             </p>
             <p>
-              I want FluteSangam to become a place where anyone—from complete beginners to experienced players—can find quality guidance, practical tools, authentic learning resources, and a welcoming community that encourages continuous growth.
+              I want FluteSangam to become a place where anyone from complete beginner to experienced player can find quality guidance, practical tools, authentic learning resources, and a welcoming community that encourages continuous growth.
             </p>
             <div className="bg-bamboo-900 text-white p-4 rounded-2xl shadow-xs">
               <p className="text-xs sm:text-sm font-bold text-amber-300">
