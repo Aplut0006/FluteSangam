@@ -1,5 +1,5 @@
 import React from 'react';
-import { Music, Wind, ArrowUpRight, ArrowDownRight, Lightbulb, Calendar, Clock, CheckCircle2 } from 'lucide-react';
+import { Music, Wind, ArrowUpRight, ArrowDownRight, Lightbulb, Calendar, Clock, CheckCircle2, ArrowRight, Target } from 'lucide-react';
 import Metronome from './Metronome';
 import AboutAuthorSection from './AboutAuthorSection';
 import { AppView } from '../types';
@@ -336,6 +336,24 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
                   </div>
                 </li>
               </ul>
+            </section>
+
+            {/* Next Lesson Banner */}
+            <section className="bg-gradient-to-r from-bamboo-900 to-amber-900 text-white rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg">
+              <div className="space-y-1 text-center sm:text-left">
+                <span className="text-xs text-amber-300 font-bold uppercase tracking-wider">Next Lesson in Sequence</span>
+                <h3 className="text-xl sm:text-2xl font-black font-display">Daily Flute Practice Guide</h3>
+                <p className="text-xs sm:text-sm text-bamboo-200 max-w-xl">
+                  Build a complete 30–90 minute daily routine for breath control, tone quality, finger agility, rhythm, and musical expression.
+                </p>
+              </div>
+              <button
+                onClick={() => onViewChange?.('learn_daily_practice')}
+                className="bg-amber-500 hover:bg-amber-400 text-bamboo-950 font-extrabold px-6 py-3 rounded-2xl text-xs sm:text-sm transition flex items-center gap-2 shrink-0 cursor-pointer shadow-md"
+              >
+                <span>Go to Daily Practice Guide</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
             </section>
 
             {/* Author Section */}

@@ -177,7 +177,7 @@ export default function RagaHamsadhwaniView({ onViewChange }: RagaHamsadhwaniVie
     { name: 'Raag Durga', view: 'raga_durga', description: 'Pentatonic scale skipping Ga and Ni; peaceful evening raga focused on Ma and Sa.', difficulty: 'Beginner' },
     { name: 'Raag Bilawal', view: 'raga_bilawal', description: 'Parent Thaat scale using all seven Shuddha notes; equivalent to Major scale.', difficulty: 'Beginner' },
     { name: 'Raag Yaman', view: 'raga_yaman', description: 'Evening scale introducing Teevra Ma; foundation of classical improvisation.', difficulty: 'Beginner' },
-    { name: 'Raag Desh', view: 'learn_raagas', description: 'Monsoon evening scale with graceful glides between natural and flat notes.', difficulty: 'Intermediate' },
+    { name: 'Raag Desh', view: 'raga_desh', description: 'Monsoon evening scale with graceful glides and memorable phrases.', difficulty: 'Intermediate' },
   ];
 
   return (

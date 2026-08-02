@@ -205,16 +205,16 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
     mood: "Romantic, Yearning"
   },
   { 
-    name: "Raag Des", 
+    name: "Raag Desh", 
     level: "Intermediate", 
-    description: "Rainy season scale leaning heavily on graceful transitions and glides between natural and flat notes.",
+    description: "Admired for its graceful movements, emotional depth, and memorable descending phrases in Hindustani Classical Music.",
     aaroh: "Sa Re Ma Pa Ni Sa'",
-    avroh: "Sa' Ni(komal) Dha Pa Ma Ga Re Ga Sa",
+    avroh: "Sa' Ni Dha Pa Ma Ga Re Sa",
     vadi: "Re",
     samvadi: "Pa",
-    pakad: "Re Ma Pa Ni, Sa' Re' Ni(komal) Dha Pa",
-    time: "Late Evening / Rainy Season",
-    mood: "Romantic, Monsson"
+    pakad: "Re Ma Pa, Ni Sa', Ni Dha Pa, Ma Ga Re, Sa",
+    time: "Second quarter of the night (9 PM – 12 AM)",
+    mood: "Romantic, Devotional, Graceful"
   },
   { 
     name: "Raag Pilu", 

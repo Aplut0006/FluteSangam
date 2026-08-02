@@ -179,7 +179,7 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
     { name: 'Raag Hamsadhwani', view: 'raga_hamsadhwani', description: 'Pentatonic scale skipping Ma and Dha; bright, auspicious mood.', difficulty: 'Beginner' },
     { name: 'Raag Yaman', view: 'raga_yaman', description: 'Evening scale introducing Teevra Ma; foundation of classical improvisation.', difficulty: 'Beginner' },
     { name: 'Raag Bilawal', view: 'raga_bilawal', description: 'Natural scale using all Shuddha notes; equivalent to Western Major scale.', difficulty: 'Beginner' },
-    { name: 'Raag Desh', view: 'learn_raagas', description: 'Rainy season scale with graceful glides between natural and flat notes.', difficulty: 'Intermediate' },
+    { name: 'Raag Desh', view: 'raga_desh', description: 'Monsoon evening scale with graceful glides and memorable phrases.', difficulty: 'Intermediate' },
   ];
 
   return (

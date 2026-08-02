@@ -276,7 +276,7 @@ export default function RagaBilawalView({ onViewChange }: RagaBilawalViewProps) 
                 </div>
                 <div className="flex items-center gap-2 text-amber-200">
                   <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                  <span>Updated: <strong className="text-white" itemProp="dateModified">Aug 1, 2026</strong></span>
+                  <span>Updated: <strong className="text-white" itemProp="dateModified">Aug 2, 2026</strong></span>
                 </div>
                 <div className="pt-1.5 border-t border-amber-800/60 flex items-center gap-1.5 text-amber-400 font-bold text-[10px] sm:text-[11px]">
                   <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-400" />
@@ -891,7 +891,7 @@ export default function RagaBilawalView({ onViewChange }: RagaBilawalViewProps) 
             { name: 'Raag Yaman', view: 'raga_yaman', description: 'Evening scale introducing Teevra Ma; foundation of classical improvisation.', difficulty: 'Beginner' },
             { name: 'Raag Durga', view: 'raga_durga', description: 'Crisp pentatonic scale skipping Ga and Ni; peaceful evening mood.', difficulty: 'Beginner' },
             { name: 'Raag Hamsadhwani', view: 'raga_hamsadhwani', description: 'Auspicious pentatonic raga from Shankarabharanam parent scale.', difficulty: 'Beginner' },
-            { name: 'Raag Desh', view: 'learn_raagas', description: 'Monsoon evening scale with graceful glides between natural and flat notes.', difficulty: 'Intermediate' },
+            { name: 'Raag Desh', view: 'raga_desh', description: 'Monsoon evening scale with graceful glides and memorable phrases.', difficulty: 'Intermediate' },
           ].map((raga, idx) => (
             <div 
               key={idx} 

@@ -32,6 +32,7 @@ const LearnFingeringChartView = lazyWithRetry(() => import('./components/LearnFi
 const LearnChooseFluteView = lazyWithRetry(() => import('./components/LearnChooseFluteView'));
 const LearnTunerView = lazyWithRetry(() => import('./components/LearnTunerView'));
 const LearnAlankarasView = lazyWithRetry(() => import('./components/LearnAlankarasView'));
+const DailyPracticeGuideView = lazyWithRetry(() => import('./components/DailyPracticeGuideView'));
 const AlankarGeneratorView = lazyWithRetry(() => import('./components/AlankarGeneratorView'));
 const LearnRaagasView = lazyWithRetry(() => import('./components/LearnRaagasView'));
 const RagaBhoopaliView = lazyWithRetry(() => import('./components/RagaBhoopaliView'));
@@ -39,6 +40,7 @@ const RagaDurgaView = lazyWithRetry(() => import('./components/RagaDurgaView'));
 const RagaYamanView = lazyWithRetry(() => import('./components/RagaYamanView'));
 const RagaHamsadhwaniView = lazyWithRetry(() => import('./components/RagaHamsadhwaniView'));
 const RagaBilawalView = lazyWithRetry(() => import('./components/RagaBilawalView'));
+const RagaDeshView = lazyWithRetry(() => import('./components/RagaDeshView'));
 const MembersView = lazyWithRetry(() => import('./components/MembersView'));
 const ImageModal = lazyWithRetry(() => import('./components/ImageModal'));
 const AboutUsView = lazyWithRetry(() => import('./components/AboutUsView'));
@@ -144,6 +146,10 @@ export default function App() {
         title = 'Alankar Exercises & Sargam | FluteSangam';
         description = 'FluteSangam Alankar Exercises & Sargam Drills: Practice finger agility, pitch accuracy, tempo stability, and daily sargam exercises on Indian bamboo flute.';
         break;
+      case 'learn_daily_practice':
+        title = 'Daily Flute Practice Guide | Improve Tone, Technique & Rhythm | FluteSangam';
+        description = 'Master your daily bansuri flute practice routine. Improve tone, breath control, finger coordination, rhythm, scales, and musicality with this complete step-by-step guide.';
+        break;
       case 'alankar_generator':
         title = 'Interactive Alankar Generator & Practice Engine | FluteSangam';
         description = 'FluteSangam Alankar Generator: Create custom sargam patterns for Indian bamboo flute (Bansuri). Filter by scale, difficulty, pattern type, tempo metronome, and practice daily.';
@@ -171,6 +177,10 @@ export default function App() {
       case 'raga_bilawal':
         title = 'Raag Bilawal: Complete Guide, Notes, Aaroh, Avaroh & Practice | FluteSangam';
         description = 'Master Raag Bilawal on Indian Bamboo Flute (Bansuri). Step-by-step guide with swara playback, Aaroh-Avaroh, Pakad, Chalan, 35-min practice routine, alankars, and practice piece Pratah Sur.';
+        break;
+      case 'raga_desh':
+        title = 'Raag Desh: Complete Guide, Notes, Aaroh, Avaroh & Practice | FluteSangam';
+        description = 'Master Raag Desh on Indian Bamboo Flute (Bansuri). Step-by-step guide featuring Swara playback, Pakad, Chalan, original Alankars, and the practice piece Sandhya Vihar.';
         break;
       case 'notation_requests':
         title = 'Song Notation Requests | FluteSangam Sargam';
@@ -492,6 +502,7 @@ export default function App() {
       view === 'raga_yaman' ||
       view === 'raga_hamsadhwani' ||
       view === 'raga_bilawal' ||
+      view === 'raga_desh' ||
       view === 'community_members' ||
       view === 'about_us' ||
       view === 'founder' ||
@@ -860,6 +871,8 @@ export default function App() {
           <LearnTunerView onViewChange={handleViewChange} />
         ) : currentView === 'learn_alankaras' ? (
           <LearnAlankarasView onViewChange={handleViewChange} />
+        ) : currentView === 'learn_daily_practice' ? (
+          <DailyPracticeGuideView onViewChange={handleViewChange} />
         ) : currentView === 'alankar_generator' ? (
           <AlankarGeneratorView currentUser={currentUser} />
         ) : currentView === 'learn_raagas' ? (
@@ -874,6 +887,8 @@ export default function App() {
           <RagaHamsadhwaniView onViewChange={handleViewChange} />
         ) : currentView === 'raga_bilawal' ? (
           <RagaBilawalView onViewChange={handleViewChange} />
+        ) : currentView === 'raga_desh' ? (
+          <RagaDeshView onViewChange={handleViewChange} />
         ) : currentView === 'about_us' ? (
           <AboutUsView onViewChange={handleViewChange} />
         ) : currentView === 'founder' ? (
@@ -1169,6 +1184,11 @@ export default function App() {
                 <li>
                   <a href="/learn/alankaras" onClick={(e) => { e.preventDefault(); handleViewChange('learn_alankaras'); }} className="hover:text-amber-300 transition">
                     Alankar Sargam Drills
+                  </a>
+                </li>
+                <li>
+                  <a href="/learn/daily-practice-guide" onClick={(e) => { e.preventDefault(); handleViewChange('learn_daily_practice'); }} className="hover:text-amber-300 transition text-amber-300 font-semibold">
+                    Daily Flute Practice Guide
                   </a>
                 </li>
                 <li>

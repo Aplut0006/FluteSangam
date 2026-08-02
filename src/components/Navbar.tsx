@@ -422,6 +422,17 @@ export default function Navbar({
                   Alankaras Practice
                 </a>
                 <a
+                  href={VIEW_URLS['learn_daily_practice'] || '/learn/daily-practice-guide'}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onViewChange?.('learn_daily_practice');
+                    setShowLearnDropdown(false);
+                  }}
+                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 cursor-pointer block"
+                >
+                  Daily Flute Practice Guide
+                </a>
+                <a
                   href={VIEW_URLS['learn_raagas'] || '/learn/raagas'}
                   onClick={(e) => {
                     e.preventDefault();
@@ -708,10 +719,16 @@ export default function Navbar({
                     4. Alankaras Practice
                   </button>
                   <button
+                    onClick={() => { onViewChange?.('learn_daily_practice'); setShowMobileMenu(false); }}
+                    className="w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
+                  >
+                    5. Daily Flute Practice Guide
+                  </button>
+                  <button
                     onClick={() => { onViewChange?.('learn_raagas'); setShowMobileMenu(false); }}
                     className="w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 cursor-pointer"
                   >
-                    5. Indian Classical Raagas
+                    6. Indian Classical Raagas
                   </button>
                 </div>
               )}

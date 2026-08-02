@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { BookOpen, Wind, Music, Feather, ShoppingBag, Radio, CircleDot } from 'lucide-react';
+import { BookOpen, Wind, Music, Feather, ShoppingBag, Radio, CircleDot, Target } from 'lucide-react';
 import { AppView } from '../types';
 
 interface LearnDashboardProps {
@@ -14,6 +14,7 @@ export default function LearnDashboard({ onViewChange }: LearnDashboardProps) {
     { id: 'learn_basics', label: 'The Basics', icon: BookOpen, color: 'text-bamboo-700', desc: 'Embouchure, posture & finger grip' },
     { id: 'learn_fingering_chart', label: 'Fingering Chart', icon: CircleDot, color: 'text-amber-600', desc: 'Interactive scale selector, Sa Re Ga Ma notes & audio playback' },
     { id: 'learn_alankaras', label: 'Alankaras', icon: Feather, color: 'text-rose-600', desc: 'Essential daily warmups & exercises' },
+    { id: 'learn_daily_practice', label: 'Daily Practice Guide', icon: Target, color: 'text-amber-600', desc: 'Complete daily routine for steady progress' },
     { id: 'learn_raagas', label: 'Ragas', icon: Music, color: 'text-bamboo-800', desc: 'Classical Hindustani & Carnatic guides' },
     { id: 'learn_tuner', label: 'Flute Tuner', icon: Radio, color: 'text-amber-700', desc: 'Interactive live frequency & scale tuner (440Hz)' },
   ];
