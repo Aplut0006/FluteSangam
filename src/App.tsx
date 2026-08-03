@@ -41,6 +41,7 @@ const RagaYamanView = lazyWithRetry(() => import('./components/RagaYamanView'));
 const RagaHamsadhwaniView = lazyWithRetry(() => import('./components/RagaHamsadhwaniView'));
 const RagaBilawalView = lazyWithRetry(() => import('./components/RagaBilawalView'));
 const RagaDeshView = lazyWithRetry(() => import('./components/RagaDeshView'));
+const RagaKafiView = lazyWithRetry(() => import('./components/RagaKafiView'));
 const MembersView = lazyWithRetry(() => import('./components/MembersView'));
 const ImageModal = lazyWithRetry(() => import('./components/ImageModal'));
 const AboutUsView = lazyWithRetry(() => import('./components/AboutUsView'));
@@ -181,6 +182,10 @@ export default function App() {
       case 'raga_desh':
         title = 'Raag Desh: Complete Guide, Notes, Aaroh, Avaroh & Practice | FluteSangam';
         description = 'Master Raag Desh on Indian Bamboo Flute (Bansuri). Step-by-step guide featuring Swara playback, Pakad, Chalan, original Alankars, and the practice piece Sandhya Vihar.';
+        break;
+      case 'raga_kafi':
+        title = 'Raag Kafi: Complete Guide, Notes, Aaroh, Avaroh & Practice | FluteSangam';
+        description = 'Master Raag Kafi on Indian Bamboo Flute (Bansuri). Complete guide with Swara playback, Pakad, Chalan, original Alankars, and the practice piece Komal Sur Lahari.';
         break;
       case 'notation_requests':
         title = 'Song Notation Requests | FluteSangam Sargam';
@@ -889,6 +894,8 @@ export default function App() {
           <RagaBilawalView onViewChange={handleViewChange} />
         ) : currentView === 'raga_desh' ? (
           <RagaDeshView onViewChange={handleViewChange} />
+        ) : currentView === 'raga_kafi' ? (
+          <RagaKafiView onViewChange={handleViewChange} />
         ) : currentView === 'about_us' ? (
           <AboutUsView onViewChange={handleViewChange} />
         ) : currentView === 'founder' ? (
@@ -1171,6 +1178,11 @@ export default function App() {
                 <li>
                   <a href="/learn/basics" onClick={(e) => { e.preventDefault(); handleViewChange('learn_basics'); }} className="hover:text-amber-300 transition">
                     Bansuri Basics &amp; Fingering
+                  </a>
+                </li>
+                <li>
+                  <a href="/learn/raga-kafi" onClick={(e) => { e.preventDefault(); handleViewChange('raga_kafi'); }} className="hover:text-amber-300 transition font-medium text-amber-300">
+                    Raag Kafi Guide
                   </a>
                 </li>
               </ul>
