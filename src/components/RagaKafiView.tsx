@@ -201,7 +201,7 @@ S`;
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -15 }}
-      className="max-w-5xl mx-auto py-8 px-4 sm:px-6 space-y-10"
+      className="max-w-5xl mx-auto py-4 sm:py-8 px-3 sm:px-6 space-y-6 sm:space-y-10"
     >
       <script
         type="application/ld+json"
@@ -209,46 +209,46 @@ S`;
       />
 
       {/* Header Banner */}
-      <section className="bg-gradient-to-br from-indigo-950 via-bamboo-900 to-amber-950 text-white rounded-3xl p-6 sm:p-10 shadow-xl border border-indigo-800/80 relative overflow-hidden">
+      <section className="bg-gradient-to-br from-indigo-950 via-bamboo-900 to-amber-950 text-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 shadow-xl border border-indigo-800/80 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
         <div className="relative z-10 space-y-4 sm:space-y-6">
           {/* Breadcrumb Navigation */}
-          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-amber-200/80 font-medium">
+          <div className="flex flex-wrap items-center gap-1 sm:gap-2 text-[11px] sm:text-xs text-amber-200/80 font-medium">
             <button 
               onClick={() => onViewChange?.('learn_dashboard')}
-              className="hover:text-amber-300 transition cursor-pointer"
+              className="hover:text-amber-300 transition cursor-pointer touch-manipulation"
             >
               Learn
             </button>
             <span>/</span>
             <button 
               onClick={() => onViewChange?.('learn_raagas')}
-              className="hover:text-amber-300 transition cursor-pointer"
+              className="hover:text-amber-300 transition cursor-pointer touch-manipulation"
             >
               Raagas
             </button>
             <span>/</span>
-            <span className="text-white font-bold">Raag Kafi</span>
+            <span className="text-white font-bold truncate max-w-[140px] sm:max-w-none">Raag Kafi</span>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-indigo-800/80 pb-6">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-indigo-800/80 pb-5 sm:pb-6">
             <div>
-              <div className="inline-flex items-center gap-2 bg-amber-500/20 text-amber-300 px-3 py-1 rounded-full text-xs font-semibold mb-3 border border-amber-400/30">
-                <Moon className="w-3.5 h-3.5 text-amber-400" />
-                <span>Second Quarter of Night (9 PM – 12 AM)</span>
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-amber-500/20 text-amber-300 px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-semibold mb-2 sm:mb-3 border border-amber-400/30">
+                <Moon className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                <span>2nd Quarter of Night (9 PM – 12 AM)</span>
               </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-black font-display tracking-tight text-white mb-3">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl font-black font-display tracking-tight text-white mb-2 sm:mb-3 leading-tight">
                 Raag Kafi Guide
               </h1>
-              <p className="text-sm sm:text-base text-indigo-100 max-w-2xl leading-relaxed font-sans">
+              <p className="text-xs sm:text-base text-indigo-100 max-w-2xl leading-relaxed font-sans">
                 Master Komal Ga (g) and Komal Ni (n), smooth meends, original Alankars, and the educational practice piece <span className="text-amber-300 font-semibold">"Komal Sur Lahari"</span> on Bansuri.
               </p>
             </div>
 
             {/* Quick Practice Timer Card */}
-            <div className="bg-indigo-900/80 border border-indigo-700/80 rounded-2xl p-4 sm:p-5 flex flex-col items-center justify-center shrink-0 min-w-[200px] shadow-inner">
+            <div className="bg-indigo-900/90 border border-indigo-700/80 rounded-xl sm:rounded-2xl p-3.5 sm:p-5 flex flex-col items-center justify-center shrink-0 w-full md:w-auto md:min-w-[200px] shadow-inner">
               <div className="text-xs text-indigo-200 font-medium mb-1 flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-amber-400" />
+                <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                 <span>Suggested Routine</span>
               </div>
               <div className="text-2xl sm:text-3xl font-mono font-bold text-amber-300 my-1">
@@ -257,7 +257,7 @@ S`;
               <div className="flex gap-2 mt-2 w-full">
                 <button
                   onClick={() => setIsTimerRunning(!isTimerRunning)}
-                  className={`flex-1 py-1.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1 cursor-pointer ${
+                  className={`flex-1 py-2 sm:py-1.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1 cursor-pointer min-h-[40px] touch-manipulation ${
                     isTimerRunning ? 'bg-amber-500 text-bamboo-950 hover:bg-amber-400' : 'bg-emerald-600 text-white hover:bg-emerald-500'
                   }`}
                 >
@@ -269,7 +269,7 @@ S`;
                     setIsTimerRunning(false);
                     setTimerSeconds(40 * 60);
                   }}
-                  className="py-1.5 px-3 bg-indigo-800 hover:bg-indigo-700 text-indigo-200 rounded-xl text-xs font-medium transition cursor-pointer"
+                  className="py-2 sm:py-1.5 px-3 bg-indigo-800 hover:bg-indigo-700 text-indigo-200 rounded-xl text-xs font-medium transition cursor-pointer min-h-[40px] touch-manipulation"
                 >
                   Reset
                 </button>
@@ -278,26 +278,26 @@ S`;
           </div>
 
           {/* Metadata Row */}
-          <div className="flex flex-wrap items-center justify-between gap-4 text-xs text-indigo-200/90 pt-1">
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="flex items-center gap-1.5 bg-indigo-900/60 px-3 py-1 rounded-lg border border-indigo-800">
-                <Calendar className="w-3.5 h-3.5 text-amber-400" />
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-indigo-200/90 pt-1">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-[11px] sm:text-xs">
+              <span className="flex items-center gap-1.5 bg-indigo-900/60 px-2.5 sm:px-3 py-1 rounded-lg border border-indigo-800">
+                <Calendar className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                 <span>Published: Aug 3, 2026</span>
               </span>
-              <span className="flex items-center gap-1.5 bg-indigo-900/60 px-3 py-1 rounded-lg border border-indigo-800">
-                <Clock className="w-3.5 h-3.5 text-amber-400" />
+              <span className="flex items-center gap-1.5 bg-indigo-900/60 px-2.5 sm:px-3 py-1 rounded-lg border border-indigo-800">
+                <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                 <span>Updated: Aug 3, 2026</span>
               </span>
-              <span className="flex items-center gap-1.5 bg-indigo-900/60 px-3 py-1 rounded-lg border border-indigo-800">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+              <span className="flex items-center gap-1.5 bg-indigo-900/60 px-2.5 sm:px-3 py-1 rounded-lg border border-indigo-800">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                 <span>Original Educational Content</span>
               </span>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 self-start sm:self-auto">
               <button 
                 onClick={() => copyToClipboard(window.location.href, 'page_url')}
-                className="hover:text-amber-300 transition flex items-center gap-1 text-xs bg-indigo-900/80 px-3 py-1 rounded-lg border border-indigo-700 cursor-pointer"
+                className="hover:text-amber-300 transition flex items-center gap-1 text-[11px] sm:text-xs bg-indigo-900/80 px-3 py-1.5 rounded-lg border border-indigo-700 cursor-pointer min-h-[36px] touch-manipulation"
               >
                 {copiedSection === 'page_url' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Share2 className="w-3.5 h-3.5" />}
                 <span>{copiedSection === 'page_url' ? 'Copied Link!' : 'Share Guide'}</span>
@@ -308,12 +308,12 @@ S`;
       </section>
 
       {/* Introduction Section */}
-      <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-bamboo-100 space-y-4">
-        <h2 className="text-2xl font-bold font-display text-bamboo-950 flex items-center gap-2">
-          <BookOpen className="w-6 h-6 text-indigo-700" />
+      <section className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-sm border border-bamboo-100 space-y-3 sm:space-y-4">
+        <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950 flex items-center gap-2">
+          <BookOpen className="w-5 h-5 sm:w-6 sm:h-6 text-indigo-700 shrink-0" />
           <span>Introduction</span>
         </h2>
-        <div className="prose prose-bamboo max-w-none text-gray-700 space-y-4 leading-relaxed font-sans text-sm sm:text-base">
+        <div className="prose prose-bamboo max-w-none text-gray-700 space-y-3 sm:space-y-4 leading-relaxed font-sans text-xs sm:text-base">
           <p>
             <strong>Raag Kafi</strong> is one of the most expressive and widely performed ragas in Hindustani Classical Music. It belongs to the Kafi Thaat and is known for its gentle, folk-inspired melodies and emotional depth. The raga is frequently heard in classical performances, bhajans, folk music, and semi-classical forms such as thumri and dadra.
           </p>
@@ -324,60 +324,60 @@ S`;
       </section>
 
       {/* Key Technical Matrix (Table) */}
-      <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-bamboo-100 space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <h2 className="text-2xl font-bold font-display text-bamboo-950 flex items-center gap-2">
-            <Sliders className="w-6 h-6 text-indigo-700" />
+      <section className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-sm border border-bamboo-100 space-y-4 sm:space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3">
+          <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950 flex items-center gap-2">
+            <Sliders className="w-5 h-5 sm:w-6 sm:h-6 text-indigo-700 shrink-0" />
             <span>Basic Information</span>
           </h2>
-          <span className="text-xs text-indigo-900 font-bold bg-indigo-50 border border-indigo-200 px-3 py-1 rounded-full self-start sm:self-auto">
+          <span className="text-[11px] sm:text-xs text-indigo-900 font-bold bg-indigo-50 border border-indigo-200 px-3 py-1 rounded-full self-start sm:self-auto">
             Hindustani Classical Framework
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-amber-50/60 border border-amber-200/80 rounded-2xl p-4 flex items-center justify-between">
-            <span className="text-xs font-semibold text-gray-600 uppercase tracking-wider">Raga Name</span>
-            <span className="text-base font-bold text-bamboo-950">Kafi</span>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-4">
+          <div className="bg-amber-50/60 border border-amber-200/80 rounded-xl sm:rounded-2xl p-3 sm:p-4 flex items-center justify-between">
+            <span className="text-[11px] sm:text-xs font-semibold text-gray-600 uppercase tracking-wider">Raga Name</span>
+            <span className="text-sm sm:text-base font-bold text-bamboo-950">Kafi</span>
           </div>
 
-          <div className="bg-amber-50/60 border border-amber-200/80 rounded-2xl p-4 flex items-center justify-between">
-            <span className="text-xs font-semibold text-gray-600 uppercase tracking-wider">Thaat</span>
-            <span className="text-base font-bold text-bamboo-950">Kafi</span>
+          <div className="bg-amber-50/60 border border-amber-200/80 rounded-xl sm:rounded-2xl p-3 sm:p-4 flex items-center justify-between">
+            <span className="text-[11px] sm:text-xs font-semibold text-gray-600 uppercase tracking-wider">Thaat</span>
+            <span className="text-sm sm:text-base font-bold text-bamboo-950">Kafi</span>
           </div>
 
-          <div className="bg-amber-50/60 border border-amber-200/80 rounded-2xl p-4 flex items-center justify-between">
-            <span className="text-xs font-semibold text-gray-600 uppercase tracking-wider">Jati</span>
-            <span className="text-base font-bold text-bamboo-950">Sampurna – Sampurna</span>
+          <div className="bg-amber-50/60 border border-amber-200/80 rounded-xl sm:rounded-2xl p-3 sm:p-4 flex items-center justify-between">
+            <span className="text-[11px] sm:text-xs font-semibold text-gray-600 uppercase tracking-wider">Jati</span>
+            <span className="text-xs sm:text-base font-bold text-bamboo-950">Sampurna – Sampurna</span>
           </div>
 
-          <div className="bg-amber-50/60 border border-amber-200/80 rounded-2xl p-4 flex items-center justify-between">
-            <span className="text-xs font-semibold text-gray-600 uppercase tracking-wider">Time</span>
-            <span className="text-sm font-bold text-bamboo-950">2nd Quarter of Night (9 PM – 12 AM)</span>
+          <div className="bg-amber-50/60 border border-amber-200/80 rounded-xl sm:rounded-2xl p-3 sm:p-4 flex items-center justify-between">
+            <span className="text-[11px] sm:text-xs font-semibold text-gray-600 uppercase tracking-wider">Time</span>
+            <span className="text-xs sm:text-sm font-bold text-bamboo-950">2nd Quarter of Night (9 PM – 12 AM)</span>
           </div>
 
-          <div className="bg-amber-50/60 border border-amber-200/80 rounded-2xl p-4 flex items-center justify-between">
-            <span className="text-xs font-semibold text-gray-600 uppercase tracking-wider">Vadi (King Note)</span>
-            <span className="text-base font-bold text-amber-800">Pa (Pancham)</span>
+          <div className="bg-amber-50/60 border border-amber-200/80 rounded-xl sm:rounded-2xl p-3 sm:p-4 flex items-center justify-between">
+            <span className="text-[11px] sm:text-xs font-semibold text-gray-600 uppercase tracking-wider">Vadi (King Note)</span>
+            <span className="text-xs sm:text-base font-bold text-amber-800">Pa (Pancham)</span>
           </div>
 
-          <div className="bg-amber-50/60 border border-amber-200/80 rounded-2xl p-4 flex items-center justify-between">
-            <span className="text-xs font-semibold text-gray-600 uppercase tracking-wider">Samvadi (Queen Note)</span>
-            <span className="text-base font-bold text-amber-800">Sa (Shadja)</span>
+          <div className="bg-amber-50/60 border border-amber-200/80 rounded-xl sm:rounded-2xl p-3 sm:p-4 flex items-center justify-between">
+            <span className="text-[11px] sm:text-xs font-semibold text-gray-600 uppercase tracking-wider">Samvadi (Queen Note)</span>
+            <span className="text-xs sm:text-base font-bold text-amber-800">Sa (Shadja)</span>
           </div>
 
-          <div className="bg-amber-50/60 border border-amber-200/80 rounded-2xl p-4 flex items-center justify-between">
-            <span className="text-xs font-semibold text-gray-600 uppercase tracking-wider">Nature</span>
-            <span className="text-sm font-bold text-bamboo-950">Romantic, Devotional, Folk-like</span>
+          <div className="bg-amber-50/60 border border-amber-200/80 rounded-xl sm:rounded-2xl p-3 sm:p-4 flex items-center justify-between">
+            <span className="text-[11px] sm:text-xs font-semibold text-gray-600 uppercase tracking-wider">Nature</span>
+            <span className="text-xs sm:text-sm font-bold text-bamboo-950">Romantic, Devotional, Folk-like</span>
           </div>
 
-          <div className="bg-amber-50/60 border border-amber-200/80 rounded-2xl p-4 flex items-center justify-between">
-            <span className="text-xs font-semibold text-gray-600 uppercase tracking-wider">Rasa</span>
-            <span className="text-sm font-bold text-bamboo-950">Shringar, Bhakti, Karuna</span>
+          <div className="bg-amber-50/60 border border-amber-200/80 rounded-xl sm:rounded-2xl p-3 sm:p-4 flex items-center justify-between">
+            <span className="text-[11px] sm:text-xs font-semibold text-gray-600 uppercase tracking-wider">Rasa</span>
+            <span className="text-xs sm:text-sm font-bold text-bamboo-950">Shringar, Bhakti, Karuna</span>
           </div>
 
-          <div className="bg-amber-50/60 border border-amber-200/80 rounded-2xl p-4 flex items-center justify-between col-span-1 md:col-span-2">
-            <span className="text-xs font-semibold text-gray-600 uppercase tracking-wider">Difficulty Level</span>
+          <div className="bg-amber-50/60 border border-amber-200/80 rounded-xl sm:rounded-2xl p-3 sm:p-4 flex items-center justify-between col-span-1 sm:col-span-2">
+            <span className="text-[11px] sm:text-xs font-semibold text-gray-600 uppercase tracking-wider">Difficulty Level</span>
             <span className="text-xs font-bold text-indigo-900 bg-indigo-100 border border-indigo-200 px-3 py-1 rounded-full">
               Intermediate
             </span>
@@ -385,14 +385,14 @@ S`;
         </div>
 
         {/* Swaras Used Interactive Buttons */}
-        <div className="pt-4 border-t border-gray-100 space-y-3">
+        <div className="pt-3 sm:pt-4 border-t border-gray-100 space-y-3">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-bold text-bamboo-900 uppercase tracking-wider">
+            <h3 className="text-xs sm:text-sm font-bold text-bamboo-900 uppercase tracking-wider">
               Swaras Used (Click to Hear Swara Tone)
             </h3>
-            <span className="text-xs text-gray-500">G Base Scale Frequencies</span>
+            <span className="text-[10px] sm:text-xs text-gray-500">G Base Scale Frequencies</span>
           </div>
-          <div className="flex flex-wrap gap-2.5">
+          <div className="flex flex-wrap gap-2">
             {[
               { name: 'Sa (S)', key: 'S' },
               { name: 'Re (R)', key: 'R' },
@@ -406,21 +406,21 @@ S`;
               <button
                 key={swara.key}
                 onClick={() => playSwaraTone(swara.key)}
-                className={`py-2.5 px-4 rounded-xl font-bold text-xs sm:text-sm border transition flex items-center gap-1.5 cursor-pointer ${
+                className={`py-2 px-3 sm:px-4 rounded-xl font-bold text-xs sm:text-sm border transition flex items-center justify-center gap-1.5 cursor-pointer min-h-[44px] touch-manipulation shrink-0 ${
                   activeSwara === swara.key
                     ? 'bg-amber-500 text-bamboo-950 border-amber-600 scale-105 shadow-md'
                     : 'bg-white text-bamboo-900 border-bamboo-200 hover:bg-amber-50 hover:border-amber-300'
                 }`}
               >
-                <Volume2 className="w-3.5 h-3.5 text-amber-600" />
+                <Volume2 className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                 <span>{swara.name}</span>
               </button>
             ))}
           </div>
 
-          <div className="bg-indigo-50/70 border border-indigo-200/80 rounded-2xl p-4 text-xs sm:text-sm text-indigo-950 leading-relaxed mt-4">
+          <div className="bg-indigo-50/70 border border-indigo-200/80 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 text-xs sm:text-sm text-indigo-950 leading-relaxed mt-3 sm:mt-4">
             <p className="font-semibold text-indigo-900 mb-1 flex items-center gap-1.5">
-              <Sparkles className="w-4 h-4 text-indigo-600" />
+              <Sparkles className="w-4 h-4 text-indigo-600 shrink-0" />
               <span>Characteristic Note Usage</span>
             </p>
             <p className="text-gray-700">
@@ -431,42 +431,42 @@ S`;
       </section>
 
       {/* Aaroh, Avaroh, Pakad, Chalan */}
-      <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-bamboo-100 space-y-6">
-        <h2 className="text-2xl font-bold font-display text-bamboo-950 flex items-center gap-2">
-          <Music className="w-6 h-6 text-indigo-700" />
+      <section className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-sm border border-bamboo-100 space-y-4 sm:space-y-6">
+        <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950 flex items-center gap-2">
+          <Music className="w-5 h-5 sm:w-6 sm:h-6 text-indigo-700 shrink-0" />
           <span>Aaroh, Avaroh, Pakad &amp; Chalan</span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {/* Aaroh */}
-          <div className="bg-emerald-50/50 border border-emerald-200/80 rounded-2xl p-5 space-y-2">
+          <div className="bg-emerald-50/50 border border-emerald-200/80 rounded-xl sm:rounded-2xl p-4 sm:p-5 space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-emerald-800 uppercase tracking-wider">Aaroh (Ascending)</span>
+              <span className="text-[11px] sm:text-xs font-bold text-emerald-800 uppercase tracking-wider">Aaroh (Ascending)</span>
               <button 
                 onClick={() => playSwaraTone('S')} 
-                className="text-xs text-emerald-700 hover:underline flex items-center gap-1 cursor-pointer"
+                className="text-xs text-emerald-700 hover:underline flex items-center gap-1 cursor-pointer min-h-[36px] touch-manipulation"
               >
                 <Play className="w-3 h-3" /> Play Root
               </button>
             </div>
-            <p className="text-xl sm:text-2xl font-bold font-mono text-bamboo-950 tracking-wider">
+            <p className="text-lg sm:text-2xl font-bold font-mono text-bamboo-950 tracking-wider overflow-x-auto scrollbar-thin py-1">
               S R g M P D n S'
             </p>
             <p className="text-xs text-gray-600">Full 7-note ascending scale with Komal Ga (g) and Komal Ni (n).</p>
           </div>
 
           {/* Avaroh */}
-          <div className="bg-amber-50/50 border border-amber-200/80 rounded-2xl p-5 space-y-2">
+          <div className="bg-amber-50/50 border border-amber-200/80 rounded-xl sm:rounded-2xl p-4 sm:p-5 space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-amber-800 uppercase tracking-wider">Avaroh (Descending)</span>
+              <span className="text-[11px] sm:text-xs font-bold text-amber-800 uppercase tracking-wider">Avaroh (Descending)</span>
               <button 
                 onClick={() => playSwaraTone('S\'')} 
-                className="text-xs text-amber-700 hover:underline flex items-center gap-1 cursor-pointer"
+                className="text-xs text-amber-700 hover:underline flex items-center gap-1 cursor-pointer min-h-[36px] touch-manipulation"
               >
                 <Play className="w-3 h-3" /> Play Upper Sa
               </button>
             </div>
-            <p className="text-xl sm:text-2xl font-bold font-mono text-bamboo-950 tracking-wider">
+            <p className="text-lg sm:text-2xl font-bold font-mono text-bamboo-950 tracking-wider overflow-x-auto scrollbar-thin py-1">
               S' n D P M g R S
             </p>
             <p className="text-xs text-gray-600">Full 7-note descending scale back to root Sa.</p>
@@ -474,76 +474,66 @@ S`;
         </div>
 
         {/* Pakad */}
-        <div className="bg-bamboo-50/80 border border-bamboo-200 rounded-2xl p-5 space-y-3">
+        <div className="bg-bamboo-50/80 border border-bamboo-200 rounded-xl sm:rounded-2xl p-4 sm:p-5 space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-bamboo-900 uppercase tracking-wider">Pakad (Signature Phrase)</span>
+            <span className="text-[11px] sm:text-xs font-bold text-bamboo-900 uppercase tracking-wider">Pakad (Signature Phrase)</span>
             <button
               onClick={() => copyToClipboard('S R g M | P D | n D P | M g R | S', 'pakad')}
-              className="text-xs text-bamboo-700 hover:text-bamboo-900 flex items-center gap-1 cursor-pointer"
+              className="text-xs text-bamboo-700 hover:text-bamboo-900 flex items-center gap-1 cursor-pointer min-h-[36px] touch-manipulation"
             >
               {copiedSection === 'pakad' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
               <span>{copiedSection === 'pakad' ? 'Copied' : 'Copy'}</span>
             </button>
           </div>
 
-          <div className="bg-white p-4 rounded-xl border border-bamboo-200 space-y-2 font-mono text-sm sm:text-base font-bold text-bamboo-950">
-            <p>S R g M</p>
-            <p>P D</p>
-            <p>n D P</p>
-            <p>M g R</p>
-            <p>S</p>
+          <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-bamboo-200 space-y-1 font-mono text-sm sm:text-base font-bold text-bamboo-950 overflow-x-auto scrollbar-thin">
+            <p>S R g M &nbsp;|&nbsp; P D &nbsp;|&nbsp; n D P &nbsp;|&nbsp; M g R &nbsp;|&nbsp; S</p>
           </div>
 
           <div className="pt-2 border-t border-bamboo-200/60">
-            <span className="text-xs font-semibold text-gray-600 block mb-1">Alternative Pakad Phrase:</span>
-            <p className="font-mono text-sm font-bold text-bamboo-800">
-              R g M | P M | g R | S
+            <span className="text-[11px] sm:text-xs font-semibold text-gray-600 block mb-1">Alternative Pakad Phrase:</span>
+            <p className="font-mono text-xs sm:text-sm font-bold text-bamboo-800 overflow-x-auto scrollbar-thin">
+              R g M &nbsp;|&nbsp; P M &nbsp;|&nbsp; g R &nbsp;|&nbsp; S
             </p>
           </div>
         </div>
 
         {/* Chalan */}
-        <div className="bg-indigo-50/50 border border-indigo-200/80 rounded-2xl p-5 space-y-3">
+        <div className="bg-indigo-50/50 border border-indigo-200/80 rounded-xl sm:rounded-2xl p-4 sm:p-5 space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-indigo-900 uppercase tracking-wider">Chalan (Melodic Progression)</span>
+            <span className="text-[11px] sm:text-xs font-bold text-indigo-900 uppercase tracking-wider">Chalan (Melodic Progression)</span>
             <button
               onClick={() => copyToClipboard('S R g M | P D n S\' | n D P | M g R | S \n\n R g M P | D n D P | M g R S', 'chalan')}
-              className="text-xs text-indigo-700 hover:text-indigo-900 flex items-center gap-1 cursor-pointer"
+              className="text-xs text-indigo-700 hover:text-indigo-900 flex items-center gap-1 cursor-pointer min-h-[36px] touch-manipulation"
             >
               {copiedSection === 'chalan' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
               <span>{copiedSection === 'chalan' ? 'Copied' : 'Copy'}</span>
             </button>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-sm font-bold text-bamboo-950">
-            <div className="bg-white p-4 rounded-xl border border-indigo-100 space-y-1">
-              <p className="text-xs font-sans text-indigo-700 font-semibold mb-1">Movement 1</p>
-              <p>S R g M</p>
-              <p>P D n S'</p>
-              <p>n D P</p>
-              <p>M g R</p>
-              <p>S</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 font-mono text-xs sm:text-sm font-bold text-bamboo-950">
+            <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-indigo-100 space-y-1 overflow-x-auto scrollbar-thin">
+              <p className="text-[11px] font-sans text-indigo-700 font-semibold mb-1">Movement 1</p>
+              <p>S R g M &nbsp;|&nbsp; P D n S' &nbsp;|&nbsp; n D P &nbsp;|&nbsp; M g R &nbsp;|&nbsp; S</p>
             </div>
 
-            <div className="bg-white p-4 rounded-xl border border-indigo-100 space-y-1">
-              <p className="text-xs font-sans text-indigo-700 font-semibold mb-1">Movement 2</p>
-              <p>R g M P</p>
-              <p>D n D P</p>
-              <p>M g R S</p>
+            <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-indigo-100 space-y-1 overflow-x-auto scrollbar-thin">
+              <p className="text-[11px] font-sans text-indigo-700 font-semibold mb-1">Movement 2</p>
+              <p>R g M P &nbsp;|&nbsp; D n D P &nbsp;|&nbsp; M g R S</p>
             </div>
           </div>
         </div>
 
         {/* Important Characteristics */}
-        <div className="bg-amber-50/40 border border-amber-200/60 rounded-2xl p-5 space-y-3">
-          <h3 className="text-base font-bold text-bamboo-950 flex items-center gap-2">
-            <Lightbulb className="w-5 h-5 text-amber-600" />
+        <div className="bg-amber-50/40 border border-amber-200/60 rounded-xl sm:rounded-2xl p-4 sm:p-5 space-y-3">
+          <h3 className="text-sm sm:text-base font-bold text-bamboo-950 flex items-center gap-2">
+            <Lightbulb className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600 shrink-0" />
             <span>Important Characteristics</span>
           </h3>
           <ul className="space-y-2 text-xs sm:text-sm text-gray-700 font-sans">
             <li className="flex items-start gap-2">
               <span className="text-amber-600 font-bold">•</span>
-              <span><strong>Komal Ga (g)</strong> and <strong>Komal Ni (n)</strong> define the raga's identity.</span>
+              <span><strong>Komal Ga (g)</strong> and <strong>Komal Nishad (n)</strong> define the raga's identity.</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-amber-600 font-bold">•</span>
@@ -785,14 +775,14 @@ S`;
       </section>
 
       {/* FluteSangam Original Practice Piece: Komal Sur Lahari */}
-      <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-bamboo-100 space-y-6" id="practice-composition">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-gray-100 pb-5">
+      <section className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-sm border border-bamboo-100 space-y-4 sm:space-y-6" id="practice-composition">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-gray-100 pb-4 sm:pb-5">
           <div>
-            <div className="inline-flex items-center gap-1.5 bg-amber-100 text-amber-900 text-xs font-bold px-3 py-1 rounded-full mb-2 border border-amber-200">
-              <Award className="w-3.5 h-3.5 text-amber-700" />
+            <div className="inline-flex items-center gap-1.5 bg-amber-100 text-amber-900 text-[11px] sm:text-xs font-bold px-3 py-1 rounded-full mb-2 border border-amber-200">
+              <Award className="w-3.5 h-3.5 text-amber-700 shrink-0" />
               <span>Original Educational Practice Piece</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-black font-display text-bamboo-950">
+            <h2 className="text-xl sm:text-3xl font-black font-display text-bamboo-950">
               Komal Sur Lahari
             </h2>
             <p className="text-xs sm:text-sm text-gray-600 mt-1">
@@ -801,23 +791,23 @@ S`;
           </div>
 
           {/* Interactive Metronome Control */}
-          <div className="bg-indigo-50 border border-indigo-200/80 rounded-2xl p-4 flex flex-col items-center shrink-0 min-w-[220px]">
+          <div className="bg-indigo-50 border border-indigo-200/80 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 flex flex-col items-center shrink-0 w-full md:w-auto md:min-w-[220px]">
             <div className="text-xs font-bold text-indigo-900 mb-1 flex items-center gap-1">
-              <Radio className="w-3.5 h-3.5 text-indigo-600" />
+              <Radio className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
               <span>Teentaal Metronome Guide</span>
             </div>
 
-            <div className="flex items-center gap-3 my-2">
+            <div className="flex items-center gap-4 my-2">
               <button
                 onClick={() => setBpm(Math.max(40, bpm - 5))}
-                className="w-7 h-7 bg-white border border-indigo-200 rounded-lg text-xs font-bold hover:bg-indigo-100 flex items-center justify-center cursor-pointer"
+                className="w-9 h-9 sm:w-8 sm:h-8 bg-white border border-indigo-200 rounded-lg text-sm font-bold hover:bg-indigo-100 flex items-center justify-center cursor-pointer touch-manipulation shadow-3xs"
               >
                 -
               </button>
-              <span className="font-mono text-lg font-bold text-bamboo-950">{bpm} BPM</span>
+              <span className="font-mono text-base sm:text-lg font-bold text-bamboo-950">{bpm} BPM</span>
               <button
                 onClick={() => setBpm(Math.min(140, bpm + 5))}
-                className="w-7 h-7 bg-white border border-indigo-200 rounded-lg text-xs font-bold hover:bg-indigo-100 flex items-center justify-center cursor-pointer"
+                className="w-9 h-9 sm:w-8 sm:h-8 bg-white border border-indigo-200 rounded-lg text-sm font-bold hover:bg-indigo-100 flex items-center justify-center cursor-pointer touch-manipulation shadow-3xs"
               >
                 +
               </button>
@@ -825,7 +815,7 @@ S`;
 
             <button
               onClick={() => setIsPlayingComposition(!isPlayingComposition)}
-              className={`w-full py-1.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer ${
+              className={`w-full py-2 sm:py-1.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer min-h-[40px] touch-manipulation ${
                 isPlayingComposition ? 'bg-amber-500 text-bamboo-950 hover:bg-amber-400' : 'bg-indigo-700 text-white hover:bg-indigo-800'
               }`}
             >
@@ -836,86 +826,86 @@ S`;
         </div>
 
         {/* Composition Notation Display */}
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           {/* Section A */}
-          <div className="bg-amber-50/40 border border-amber-200/80 rounded-2xl p-5 space-y-3">
+          <div className="bg-amber-50/40 border border-amber-200/80 rounded-xl sm:rounded-2xl p-4 sm:p-5 space-y-3">
             <div className="flex items-center justify-between">
-              <h3 className="text-sm font-bold text-amber-900 uppercase tracking-wider">
+              <h3 className="text-xs sm:text-sm font-bold text-amber-900 uppercase tracking-wider">
                 Section A (Teentaal)
               </h3>
               <button
                 onClick={() => copyToClipboard(compositionSectionA, 'section_a')}
-                className="text-xs text-amber-800 hover:text-amber-950 flex items-center gap-1 cursor-pointer"
+                className="text-xs text-amber-800 hover:text-amber-950 flex items-center gap-1 cursor-pointer min-h-[36px] touch-manipulation"
               >
                 {copiedSection === 'section_a' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                 <span>Copy Section A</span>
               </button>
             </div>
 
-            <div className="bg-white p-4 rounded-xl border border-amber-200/60 font-mono text-sm sm:text-base font-bold text-bamboo-950 space-y-2 overflow-x-auto leading-relaxed">
-              <p>| S  R  g  M | P  D  n  D |</p>
-              <p>| P  M  g  R | S  -  -  - |</p>
+            <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-amber-200/60 font-mono text-xs sm:text-base font-bold text-bamboo-950 space-y-2 overflow-x-auto scrollbar-thin leading-relaxed">
+              <p>| S &nbsp;R &nbsp;g &nbsp;M | P &nbsp;D &nbsp;n &nbsp;D |</p>
+              <p>| P &nbsp;M &nbsp;g &nbsp;R | S &nbsp;- &nbsp;- &nbsp;- |</p>
               <br />
-              <p>| R  g  M  P | D  n  S' n |</p>
-              <p>| D  P  M  g | R  S  -  - |</p>
+              <p>| R &nbsp;g &nbsp;M &nbsp;P | D &nbsp;n &nbsp;S' n |</p>
+              <p>| D &nbsp;P &nbsp;M &nbsp;g | R &nbsp;S &nbsp;- &nbsp;- |</p>
             </div>
           </div>
 
           {/* Section B */}
-          <div className="bg-indigo-50/40 border border-indigo-200/80 rounded-2xl p-5 space-y-3">
+          <div className="bg-indigo-50/40 border border-indigo-200/80 rounded-xl sm:rounded-2xl p-4 sm:p-5 space-y-3">
             <div className="flex items-center justify-between">
-              <h3 className="text-sm font-bold text-indigo-900 uppercase tracking-wider">
+              <h3 className="text-xs sm:text-sm font-bold text-indigo-900 uppercase tracking-wider">
                 Section B
               </h3>
               <button
                 onClick={() => copyToClipboard(compositionSectionB, 'section_b')}
-                className="text-xs text-indigo-800 hover:text-indigo-950 flex items-center gap-1 cursor-pointer"
+                className="text-xs text-indigo-800 hover:text-indigo-950 flex items-center gap-1 cursor-pointer min-h-[36px] touch-manipulation"
               >
                 {copiedSection === 'section_b' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                 <span>Copy Section B</span>
               </button>
             </div>
 
-            <div className="bg-white p-4 rounded-xl border border-indigo-200/60 font-mono text-sm sm:text-base font-bold text-bamboo-950 space-y-2 overflow-x-auto leading-relaxed">
-              <p>| S' n  D  P | M  g  R  S |</p>
-              <p>| R  g  M  P | D  n  S' - |</p>
+            <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-indigo-200/60 font-mono text-xs sm:text-base font-bold text-bamboo-950 space-y-2 overflow-x-auto scrollbar-thin leading-relaxed">
+              <p>| S' n &nbsp;D &nbsp;P | M &nbsp;g &nbsp;R &nbsp;S |</p>
+              <p>| R &nbsp;g &nbsp;M &nbsp;P | D &nbsp;n &nbsp;S' - |</p>
               <br />
-              <p>| n  D  P  M | g  R  S  R |</p>
-              <p>| g  M  P  M | g  R  S  - |</p>
+              <p>| n &nbsp;D &nbsp;P &nbsp;M | g &nbsp;R &nbsp;S &nbsp;R |</p>
+              <p>| g &nbsp;M &nbsp;P &nbsp;M | g &nbsp;R &nbsp;S &nbsp;- |</p>
             </div>
           </div>
 
           {/* Ending Phrase */}
-          <div className="bg-bamboo-50/60 border border-bamboo-200 rounded-2xl p-5 space-y-3">
+          <div className="bg-bamboo-50/60 border border-bamboo-200 rounded-xl sm:rounded-2xl p-4 sm:p-5 space-y-3">
             <div className="flex items-center justify-between">
-              <h3 className="text-sm font-bold text-bamboo-950 uppercase tracking-wider">
+              <h3 className="text-xs sm:text-sm font-bold text-bamboo-950 uppercase tracking-wider">
                 Ending Phrase (Tihai - Repeat 3 Times)
               </h3>
               <button
                 onClick={() => copyToClipboard(compositionEnding, 'ending')}
-                className="text-xs text-bamboo-800 hover:text-bamboo-950 flex items-center gap-1 cursor-pointer"
+                className="text-xs text-bamboo-800 hover:text-bamboo-950 flex items-center gap-1 cursor-pointer min-h-[36px] touch-manipulation"
               >
                 {copiedSection === 'ending' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                 <span>Copy Ending</span>
               </button>
             </div>
 
-            <div className="bg-white p-4 rounded-xl border border-bamboo-200/80 font-mono text-sm sm:text-base font-bold text-bamboo-950 space-y-2">
-              <p className="text-xs font-sans text-gray-500 font-semibold uppercase">Repeat 3 times:</p>
+            <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-bamboo-200/80 font-mono text-xs sm:text-base font-bold text-bamboo-950 space-y-2 overflow-x-auto scrollbar-thin">
+              <p className="text-[11px] font-sans text-gray-500 font-semibold uppercase">Repeat 3 times:</p>
               <p className="text-indigo-900">g M P &nbsp;|&nbsp; M g R &nbsp;|&nbsp; S</p>
-              <p className="text-xs font-sans text-gray-500 font-semibold uppercase pt-2">Finish on Sam:</p>
-              <p className="text-emerald-800 text-xl font-bold">S</p>
+              <p className="text-[11px] font-sans text-gray-500 font-semibold uppercase pt-1.5">Finish on Sam:</p>
+              <p className="text-emerald-800 text-lg sm:text-xl font-bold">S</p>
             </div>
           </div>
         </div>
 
         {/* How to Practice Steps */}
-        <div className="bg-gray-50 border border-gray-200/80 rounded-2xl p-5 space-y-3">
-          <h3 className="text-sm font-bold text-bamboo-950 uppercase tracking-wider flex items-center gap-2">
-            <Flame className="w-4 h-4 text-amber-600" />
+        <div className="bg-gray-50 border border-gray-200/80 rounded-xl sm:rounded-2xl p-4 sm:p-5 space-y-3">
+          <h3 className="text-xs sm:text-sm font-bold text-bamboo-950 uppercase tracking-wider flex items-center gap-2">
+            <Flame className="w-4 h-4 text-amber-600 shrink-0" />
             <span>How to Practice "Komal Sur Lahari"</span>
           </h3>
-          <ol className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-gray-700">
+          <ol className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 text-xs sm:text-sm text-gray-700">
             {[
               'Practice the Aaroh and Avaroh until smooth.',
               'Repeat the Pakad signature phrase 5 times.',
@@ -925,7 +915,7 @@ S`;
               'Finish with the 3-time repeating ending phrase (Tihai).',
               'Begin at 50 BPM and gradually increase to 80 BPM.'
             ].map((step, idx) => (
-              <li key={idx} className="bg-white p-3 rounded-xl border border-gray-200/60 flex items-start gap-2">
+              <li key={idx} className="bg-white p-2.5 sm:p-3 rounded-xl border border-gray-200/60 flex items-start gap-2">
                 <span className="w-5 h-5 bg-indigo-100 text-indigo-900 font-bold rounded-full flex items-center justify-center shrink-0 text-xs">
                   {idx + 1}
                 </span>
@@ -937,12 +927,12 @@ S`;
       </section>
 
       {/* Daily Routine Schedule */}
-      <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-bamboo-100 space-y-4">
-        <h2 className="text-2xl font-bold font-display text-bamboo-950 flex items-center gap-2">
-          <Calendar className="w-6 h-6 text-indigo-700" />
+      <section className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-sm border border-bamboo-100 space-y-4">
+        <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950 flex items-center gap-2">
+          <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-indigo-700 shrink-0" />
           <span>Suggested Daily Practice Routine</span>
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-3">
           {[
             { exercise: 'Long Notes', time: '5 minutes' },
             { exercise: 'Aaroh–Avaroh', time: '5 minutes' },
@@ -951,13 +941,13 @@ S`;
             { exercise: 'Practice Piece (Komal Sur Lahari)', time: '10 minutes' },
             { exercise: 'Free Improvisation', time: '5 minutes' }
           ].map((item, idx) => (
-            <div key={idx} className="bg-amber-50/50 border border-amber-200/70 rounded-2xl p-3.5 flex items-center justify-between">
+            <div key={idx} className="bg-amber-50/50 border border-amber-200/70 rounded-xl sm:rounded-2xl p-3 sm:p-3.5 flex items-center justify-between">
               <span className="text-xs sm:text-sm font-semibold text-bamboo-950">{item.exercise}</span>
-              <span className="text-xs font-bold text-amber-800 bg-amber-100 px-2.5 py-1 rounded-full">{item.time}</span>
+              <span className="text-[11px] sm:text-xs font-bold text-amber-800 bg-amber-100 px-2.5 py-1 rounded-full shrink-0">{item.time}</span>
             </div>
           ))}
         </div>
-        <div className="bg-indigo-900 text-white rounded-2xl p-4 flex items-center justify-between shadow-xs mt-2">
+        <div className="bg-indigo-900 text-white rounded-xl sm:rounded-2xl p-3.5 sm:p-4 flex items-center justify-between shadow-xs mt-2">
           <span className="text-xs sm:text-sm font-bold">Total Practice Time:</span>
           <span className="text-base sm:text-lg font-mono font-bold text-amber-300">40 minutes</span>
         </div>
