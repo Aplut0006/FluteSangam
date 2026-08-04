@@ -108,12 +108,12 @@ export default function App() {
 
   // Dynamic SEO Title & Meta Description Management
   useEffect(() => {
-    let title = 'FluteSangam | Learn Indian Bansuri & Flute Online';
-    let description = 'Learn Indian bansuri online with step-by-step guides, alankars, raagas, practice routines, flute tips, and a welcoming community to help you learn, practice, and grow with FluteSangam';
+    let title = 'FluteSangam | Learn Flute, Bansuri & Connect with Flutists';
+    let description = 'Learn flute online with lessons, songs, ragas, techniques, practice guides, and connect with a global community of flutists to learn, share, perform, and grow together.';
 
     switch (currentView) {
       case 'community':
-        title = 'FluteSangam | Learn Indian Bansuri & Flute Online';
+        title = 'FluteSangam | Learn Flute, Bansuri & Connect with Flutists';
         description = 'FluteSangam is the premier Indian flute and bansuri sargam learning community. Explore community posts, audio recitals, questions, and member discussions.';
         break;
       case 'chats':
