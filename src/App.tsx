@@ -1135,7 +1135,7 @@ export default function App() {
               id="footer-brand-logo-btn"
             >
               <img 
-                src="/flutesangam_without_tagline.png" 
+                src="/flutesangam_without_tagline_compressed.png"
                 alt="FluteSangam Logo" 
                 className="h-16 sm:h-20 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform" 
                 loading="lazy"
@@ -1186,11 +1186,6 @@ export default function App() {
                 <li>
                   <a href="/learn/basics" onClick={(e) => { e.preventDefault(); handleViewChange('learn_basics'); }} className="hover:text-amber-300 transition">
                     Bansuri Basics &amp; Fingering
-                  </a>
-                </li>
-                <li>
-                  <a href="/learn/raga-kafi" onClick={(e) => { e.preventDefault(); handleViewChange('raga_kafi'); }} className="hover:text-amber-300 transition font-medium text-amber-300">
-                    Raag Kafi Guide
                   </a>
                 </li>
               </ul>

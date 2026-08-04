@@ -258,7 +258,7 @@ export default function Navbar({
           title="FluteSangam - Go to Home"
         >
           <img 
-            src="/flutesangam_without_tagline.png" 
+            src="/flutesangam_without_tagline_compressed.png"
             alt="FluteSangam Logo" 
             className="h-8 sm:h-9 lg:h-10 w-auto transition-transform group-hover:scale-105 shrink-0 object-contain drop-shadow-2xs" 
             loading="eager"
