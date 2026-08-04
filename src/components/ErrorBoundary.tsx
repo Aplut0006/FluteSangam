@@ -27,10 +27,17 @@ export class ErrorBoundary extends Component<Props, State> {
   }
 
   private handleReload = () => {
+    if (this.props.onReset) {
+      this.props.onReset();
+    }
+    this.setState({ hasError: false, error: null });
     window.location.reload();
   };
 
   private handleGoHome = () => {
+    if (this.props.onReset) {
+      this.props.onReset();
+    }
     this.setState({ hasError: false, error: null });
     window.location.href = '/';
   };

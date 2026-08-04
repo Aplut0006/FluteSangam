@@ -42,6 +42,7 @@ const RagaHamsadhwaniView = lazyWithRetry(() => import('./components/RagaHamsadh
 const RagaBilawalView = lazyWithRetry(() => import('./components/RagaBilawalView'));
 const RagaDeshView = lazyWithRetry(() => import('./components/RagaDeshView'));
 const RagaKafiView = lazyWithRetry(() => import('./components/RagaKafiView'));
+const RagaBageshreeView = lazyWithRetry(() => import('./components/RagaBageshreeView'));
 const MembersView = lazyWithRetry(() => import('./components/MembersView'));
 const ImageModal = lazyWithRetry(() => import('./components/ImageModal'));
 const AboutUsView = lazyWithRetry(() => import('./components/AboutUsView'));
@@ -186,6 +187,10 @@ export default function App() {
       case 'raga_kafi':
         title = 'Raag Kafi: Complete Guide, Notes, Aaroh, Avaroh & Practice | FluteSangam';
         description = 'Master Raag Kafi on Indian Bamboo Flute (Bansuri). Complete guide with Swara playback, Pakad, Chalan, original Alankars, and the practice piece Komal Sur Lahari.';
+        break;
+      case 'raga_bageshree':
+        title = 'Raag Bageshree: Complete Guide, Notes, Aaroh, Avaroh & Practice | FluteSangam';
+        description = 'Master Raag Bageshree on Indian Bamboo Flute (Bansuri). Complete guide with Swara playback, Pakad, Chalan, original Alankars, and the practice piece Nisha Dhwani.';
         break;
       case 'notation_requests':
         title = 'Song Notation Requests | FluteSangam Sargam';
@@ -508,6 +513,7 @@ export default function App() {
       view === 'raga_hamsadhwani' ||
       view === 'raga_bilawal' ||
       view === 'raga_desh' ||
+      view === 'raga_bageshree' ||
       view === 'community_members' ||
       view === 'about_us' ||
       view === 'founder' ||
@@ -896,6 +902,8 @@ export default function App() {
           <RagaDeshView onViewChange={handleViewChange} />
         ) : currentView === 'raga_kafi' ? (
           <RagaKafiView onViewChange={handleViewChange} />
+        ) : currentView === 'raga_bageshree' ? (
+          <RagaBageshreeView onViewChange={handleViewChange} />
         ) : currentView === 'about_us' ? (
           <AboutUsView onViewChange={handleViewChange} />
         ) : currentView === 'founder' ? (

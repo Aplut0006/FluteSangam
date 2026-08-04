@@ -219,6 +219,13 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
                       <span>Raag Kafi Guide ("Komal Sur Lahari")</span>
                       <ArrowRight className="w-4 h-4" />
                     </button>
+                    <button
+                      onClick={() => onViewChange?.('raga_bageshree')}
+                      className="bg-purple-900 hover:bg-purple-950 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition flex items-center gap-2 shadow-sm cursor-pointer"
+                    >
+                      <span>Raag Bageshree Guide ("Nisha Dhwani")</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
                   </div>
                 </div>
               )}
@@ -335,6 +342,16 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
                     >
                       <span>Read Full Raag Kafi Guide &amp; Composition ("Komal Sur Lahari")</span>
                       <ArrowRight className="w-3.5 h-3.5 text-amber-600" />
+                    </button>
+                  )}
+
+                  {raaga.name.toLowerCase().includes('bageshree') && (
+                    <button
+                      onClick={() => onViewChange?.('raga_bageshree')}
+                      className="bg-purple-50 hover:bg-purple-100 text-purple-950 border border-purple-200 font-bold px-4 py-2 rounded-xl text-xs transition flex items-center gap-2 cursor-pointer mt-2"
+                    >
+                      <span>Read Full Raag Bageshree Guide &amp; Composition ("Nisha Dhwani")</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-purple-600" />
                     </button>
                   )}
                 </div>
