@@ -172,11 +172,11 @@ export default function HomepageOverview({
   return (
     <div className="space-y-10 sm:space-y-14" itemScope itemType="https://schema.org/EducationalOrganization">
       {/* SECTION 1: Welcome Purpose Banner */}
-      <section className="bg-gradient-to-br from-bamboo-950 via-bamboo-900 to-amber-950 text-white rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden border border-amber-800/40">
+      <section className="-mx-4 sm:-mx-6 lg:-mx-8 -mt-5 sm:-mt-6 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 bg-gradient-to-br from-bamboo-950 via-bamboo-900 to-amber-950 text-white relative overflow-hidden shadow-md border-b border-amber-800/50">
         <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-bamboo-600/20 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="relative space-y-5">
+        <div className="max-w-7xl mx-auto relative space-y-6">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div className="space-y-3 max-w-3xl">
               <div className="inline-flex items-center gap-2 bg-amber-400/20 text-amber-200 border border-amber-400/30 text-[11px] sm:text-xs font-bold px-3.5 py-1 rounded-full uppercase tracking-wider backdrop-blur-md">

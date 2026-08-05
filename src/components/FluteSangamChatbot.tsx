@@ -217,14 +217,14 @@ export const FluteSangamChatbot: React.FC<FluteSangamChatbotProps> = ({ onViewCh
         <button
           onClick={() => setIsOpen(true)}
           id="flute-chatbot-trigger-btn"
-          className="fixed bottom-[calc(5.25rem+env(safe-area-inset-bottom,0px))] md:bottom-6 right-4 md:right-6 z-[1001] bg-gradient-to-r from-bamboo-800 via-bamboo-900 to-amber-950 hover:from-bamboo-700 hover:to-bamboo-900 text-white px-4 py-3 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 flex items-center gap-2.5 border border-amber-400/50 group cursor-pointer"
+          className="fixed bottom-[calc(5.25rem+env(safe-area-inset-bottom,0px))] md:bottom-6 right-4 md:right-6 z-[1001] bg-white/95 hover:bg-amber-50 text-bamboo-950 px-4 py-2.5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center gap-2.5 border border-amber-300/90 backdrop-blur-md group cursor-pointer"
           title="Ask FluteSangam Assistant"
         >
           <div className="relative flex items-center justify-center shrink-0">
-            <Bot className="w-5 h-5 text-amber-400 transition-transform group-hover:scale-110 shrink-0" />
-            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 rounded-full border-2 border-bamboo-900 animate-pulse" />
+            <Bot className="w-5 h-5 text-amber-700 transition-transform group-hover:scale-110 shrink-0" />
+            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-500 rounded-full border-2 border-white animate-pulse" />
           </div>
-          <span className="font-extrabold text-xs sm:text-sm tracking-wide text-white pr-0.5">
+          <span className="font-extrabold text-xs sm:text-sm tracking-wide text-bamboo-950 pr-0.5">
             Flute Assistant
           </span>
         </button>

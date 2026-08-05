@@ -17,6 +17,7 @@ import PostCard from './components/PostCard';
 import MobileBottomNav from './components/MobileBottomNav';
 import FlutePracticeFaqSection from './components/FlutePracticeFaqSection';
 import AboutAuthorSection from './components/AboutAuthorSection';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 // Lazy-Loaded Route & Secondary View Components with Retry & Error Protection
 const RagaGuide = lazyWithRetry(() => import('./components/RagaGuide'));
@@ -1348,8 +1349,10 @@ export default function App() {
 
           <FluteSangamChatbot 
             onViewChange={handleViewChange}
-            isHidden={authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost}
+            isHidden={authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost || currentView === 'learn_tuner' || currentView === 'notation_requests'}
           />
+
+          <ScrollToTopButton />
         </React.Suspense>
       </ErrorBoundary>
 
