@@ -161,6 +161,10 @@ export default function App() {
         title = 'Daily Flute Practice Guide | Improve Tone, Technique & Rhythm | FluteSangam';
         description = 'Master your daily bansuri flute practice routine. Improve tone, breath control, finger coordination, rhythm, scales, and musicality with this complete step-by-step guide.';
         break;
+      case 'learn_common_mistakes':
+        title = 'Common Flute Mistakes and How to Fix Them | FluteSangam';
+        description = 'Learn the most common flute mistakes beginners and intermediate players make, along with practical tips to improve tone, finger placement, breathing, rhythm, and technique.';
+        break;
       case 'alankar_generator':
         title = 'Interactive Alankar Generator & Practice Engine | FluteSangam';
         description = 'FluteSangam Alankar Generator: Create custom sargam patterns for Indian bamboo flute (Bansuri). Filter by scale, difficulty, pattern type, tempo metronome, and practice daily.';
