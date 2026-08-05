@@ -68,7 +68,7 @@ const ViewFallbackLoader = () => (
 // Icons
 import { 
   Search, Plus, Sparkles, HelpCircle, Compass, ChevronDown,
-  BookOpen, Video, Info, ArrowUpRight, Music, Filter, CheckCircle2, MessageSquare, Bell, X, Wind, ShieldCheck, User, Users, Globe
+  BookOpen, Video, Info, ArrowUpRight, Music, Filter, CheckCircle2, MessageSquare, Bell, X, Wind, ShieldCheck, User, Users, Globe, ArrowLeft, Home
 } from 'lucide-react';
 
 export default function App() {
@@ -96,6 +96,7 @@ export default function App() {
   const [createPostModalOpen, setCreatePostModalOpen] = useState(false);
   const [shareModalOpen, setShareModalOpen] = useState(false);
   const [activeSharePost, setActiveSharePost] = useState<Post | null>(null);
+  const [isChatbotOpen, setIsChatbotOpen] = useState(false);
 
   // View Management
   const [currentView, setCurrentView] = useState<AppView>('community');
@@ -554,6 +555,16 @@ export default function App() {
     }
   };
 
+  const handleGoBack = () => {
+    if (window.history.state && typeof window.history.state.idx === 'number' && window.history.state.idx > 0) {
+      navigate(-1);
+    } else if (currentView.startsWith('learn_') || currentView.startsWith('raga_') || currentView === 'alankar_generator') {
+      handleViewChange('learn_dashboard');
+    } else {
+      handleViewChange('community');
+    }
+  };
+
   // Incoming floating notification toast
   const [activeNotification, setActiveNotification] = useState<{
     id: string;
@@ -793,6 +804,43 @@ export default function App() {
 
       {/* Main Layout Area */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 sm:pt-6 flex-1 w-full pb-24 md:pb-12" id="main-content-layout">
+        {/* Global Navigation Top Bar for Subpages */}
+        {currentView !== 'community' && (
+          <div className="mb-4 sm:mb-6 flex items-center justify-between gap-3 bg-white/90 backdrop-blur-md px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-2xl border border-amber-200/80 shadow-xs" id="global-top-back-bar">
+            <button
+              onClick={handleGoBack}
+              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-amber-50 hover:bg-amber-100 text-bamboo-950 text-xs sm:text-sm font-bold border border-amber-300/80 shadow-2xs hover:shadow-xs transition-all cursor-pointer group shrink-0"
+              title="Go back to previous page"
+              id="global-back-btn"
+            >
+              <ArrowLeft className="w-4 h-4 text-amber-700 group-hover:-translate-x-1 transition-transform" />
+              <span>Back</span>
+            </button>
+
+            <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5">
+              <button
+                onClick={() => handleViewChange('community')}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-bamboo-800 hover:text-bamboo-950 hover:bg-amber-100/60 transition cursor-pointer shrink-0"
+                id="global-feed-btn"
+              >
+                <Home className="w-3.5 h-3.5 text-amber-600" />
+                <span>Community Feed</span>
+              </button>
+
+              {(currentView.startsWith('learn_') || currentView.startsWith('raga_') || currentView === 'alankar_generator') && (
+                <button
+                  onClick={() => handleViewChange('learn_dashboard')}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-amber-900 bg-amber-100/70 hover:bg-amber-200/80 transition cursor-pointer shrink-0"
+                  id="global-learn-hub-btn"
+                >
+                  <BookOpen className="w-3.5 h-3.5 text-amber-700" />
+                  <span>Learning Hub</span>
+                </button>
+              )}
+            </div>
+          </div>
+        )}
+
         <ErrorBoundary>
           <React.Suspense fallback={<ViewFallbackLoader />}>
 
@@ -1354,9 +1402,12 @@ export default function App() {
           <FluteSangamChatbot 
             onViewChange={handleViewChange}
             isHidden={authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost || currentView === 'learn_tuner' || currentView === 'notation_requests'}
+            onOpenChange={setIsChatbotOpen}
           />
 
-          <ScrollToTopButton />
+          <ScrollToTopButton 
+            isHidden={authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost || currentView === 'learn_tuner' || currentView === 'notation_requests' || isChatbotOpen}
+          />
         </React.Suspense>
       </ErrorBoundary>
 

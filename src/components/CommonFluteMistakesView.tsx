@@ -399,7 +399,7 @@ export default function CommonFluteMistakesView({ onViewChange }: CommonFluteMis
       </div>
 
       {/* Why Do Flute Mistakes Happen Box */}
-      <section id="why-mistakes-happen" className="bg-gradient-to-br from-bamboo-950 via-bamboo-900 to-amber-950 text-white rounded-3xl p-6 md:p-8 shadow-md relative overflow-hidden border border-amber-800/40 space-y-4">
+      <section id="why-mistakes-happen" className="scroll-mt-20 md:scroll-mt-24 bg-gradient-to-br from-bamboo-950 via-bamboo-900 to-amber-950 text-white rounded-3xl p-6 md:p-8 shadow-md relative overflow-hidden border border-amber-800/40 space-y-4">
         <div className="flex items-center gap-3 border-b border-amber-800/60 pb-3">
           <ShieldAlert className="w-6 h-6 text-amber-400" />
           <h2 className="text-2xl font-bold font-display text-amber-200">
@@ -449,7 +449,7 @@ export default function CommonFluteMistakesView({ onViewChange }: CommonFluteMis
       </section>
 
       {/* Detailed Mistakes & Fixes List */}
-      <section id="mistakes-list" className="space-y-6">
+      <section id="mistakes-list" className="scroll-mt-20 md:scroll-mt-24 space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-amber-200 pb-3">
           <h2 className="text-2xl font-bold font-display text-bamboo-950 flex items-center gap-2">
             <Target className="w-6 h-6 text-amber-600" />
@@ -560,7 +560,7 @@ export default function CommonFluteMistakesView({ onViewChange }: CommonFluteMis
       </section>
 
       {/* Simple Daily Practice Routine Section */}
-      <section id="daily-routine" className="bg-white rounded-3xl p-6 md:p-8 border border-amber-200/80 shadow-2xs space-y-6">
+      <section id="daily-routine" className="scroll-mt-20 md:scroll-mt-24 bg-white rounded-3xl p-6 md:p-8 border border-amber-200/80 shadow-2xs space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-100 pb-3">
           <div>
             <span className="text-xs font-extrabold uppercase tracking-wider text-amber-800 bg-amber-100 px-3 py-1 rounded-full">
@@ -693,7 +693,7 @@ export default function CommonFluteMistakesView({ onViewChange }: CommonFluteMis
       </section>
 
       {/* Tips for Faster Improvement */}
-      <section id="faster-tips" className="bg-amber-100/60 border border-amber-300 rounded-3xl p-6 md:p-8 space-y-4">
+      <section id="faster-tips" className="scroll-mt-20 md:scroll-mt-24 bg-amber-100/60 border border-amber-300 rounded-3xl p-6 md:p-8 space-y-4">
         <h2 className="text-xl md:text-2xl font-bold font-display text-bamboo-950 flex items-center gap-2">
           <Sparkles className="w-6 h-6 text-amber-700" />
           Tips for Faster Improvement
@@ -719,7 +719,7 @@ export default function CommonFluteMistakesView({ onViewChange }: CommonFluteMis
       </section>
 
       {/* Frequently Asked Questions */}
-      <section id="faqs" className="bg-white rounded-3xl p-6 md:p-8 border border-amber-200/80 shadow-2xs space-y-4">
+      <section id="faqs" className="scroll-mt-20 md:scroll-mt-24 bg-white rounded-3xl p-6 md:p-8 border border-amber-200/80 shadow-2xs space-y-4">
         <div className="border-b border-gray-100 pb-3">
           <h2 className="text-2xl font-bold font-display text-bamboo-950 flex items-center gap-2">
             <HelpCircle className="w-6 h-6 text-amber-600" />
@@ -774,7 +774,7 @@ export default function CommonFluteMistakesView({ onViewChange }: CommonFluteMis
       </section>
 
       {/* About Author Section */}
-      <div id="author">
+      <div id="author" className="scroll-mt-20 md:scroll-mt-24">
         <AboutAuthorSection />
       </div>
     </div>

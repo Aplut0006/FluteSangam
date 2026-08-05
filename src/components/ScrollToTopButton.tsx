@@ -2,20 +2,35 @@ import React, { useState, useEffect } from 'react';
 import { ArrowUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
-export default function ScrollToTopButton() {
+interface ScrollToTopButtonProps {
+  isHidden?: boolean;
+}
+
+export default function ScrollToTopButton({ isHidden = false }: ScrollToTopButtonProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.scrollY > 300) {
+      const scrollHeight = document.documentElement.scrollHeight;
+      const clientHeight = window.innerHeight;
+      const totalScrollable = scrollHeight - clientHeight;
+      // Show button only when user has scrolled down to at least half the scrollable height of the page
+      const halfPageThreshold = totalScrollable > 0 ? Math.max(300, totalScrollable / 2) : 300;
+
+      if (window.scrollY >= halfPageThreshold) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
       }
     };
 
+    toggleVisibility();
     window.addEventListener('scroll', toggleVisibility, { passive: true });
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    window.addEventListener('resize', toggleVisibility, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', toggleVisibility);
+      window.removeEventListener('resize', toggleVisibility);
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -27,7 +42,7 @@ export default function ScrollToTopButton() {
 
   return (
     <AnimatePresence>
-      {isVisible && (
+      {!isHidden && isVisible && (
         <motion.button
           id="scroll-to-top-button"
           initial={{ opacity: 0, scale: 0.8, y: 20 }}

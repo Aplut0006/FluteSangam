@@ -24,6 +24,24 @@
   --color-saffron-700: #9a3412;
 }
 
+html {
+  scroll-padding-top: 5rem;
+  scroll-behavior: smooth;
+}
+
+[id] {
+  scroll-margin-top: 5rem;
+}
+
+@media (min-width: 640px) {
+  html {
+    scroll-padding-top: 5.5rem;
+  }
+  [id] {
+    scroll-margin-top: 5.5rem;
+  }
+}
+
 body {
   background: linear-gradient(135deg, #fdfbf7 0%, #fff4e6 50%, #fdebd0 100%);
   background-attachment: fixed;

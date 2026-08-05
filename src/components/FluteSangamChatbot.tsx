@@ -29,12 +29,18 @@ interface Message {
 interface FluteSangamChatbotProps {
   onViewChange?: (view: any) => void;
   isHidden?: boolean;
+  onOpenChange?: (isOpen: boolean) => void;
 }
 
-export const FluteSangamChatbot: React.FC<FluteSangamChatbotProps> = ({ onViewChange, isHidden }) => {
+export const FluteSangamChatbot: React.FC<FluteSangamChatbotProps> = ({ onViewChange, isHidden, onOpenChange }) => {
   if (isHidden) return null;
 
   const [isOpen, setIsOpen] = useState(false);
+
+  // Notify parent component when chatbot open state changes
+  useEffect(() => {
+    onOpenChange?.(isOpen);
+  }, [isOpen, onOpenChange]);
   const [selectedCategory, setSelectedCategory] = useState<string>('Beginner');
   const [inputValue, setInputValue] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
