@@ -217,7 +217,7 @@ export const FluteSangamChatbot: React.FC<FluteSangamChatbotProps> = ({ onViewCh
         <button
           onClick={() => setIsOpen(true)}
           id="flute-chatbot-trigger-btn"
-          className="fixed bottom-[calc(5.25rem+env(safe-area-inset-bottom,0px))] md:bottom-6 right-4 md:right-6 z-[1001] bg-white/95 hover:bg-amber-50 text-bamboo-950 px-4 py-2.5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center gap-2.5 border border-amber-300/90 backdrop-blur-md group cursor-pointer"
+          className="fixed bottom-[calc(5.25rem+env(safe-area-inset-bottom,0px))] md:bottom-6 right-4 md:right-6 z-[1001] bg-white hover:bg-amber-50 text-bamboo-950 px-4 py-3 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center gap-2.5 border border-amber-300 group cursor-pointer"
           title="Ask FluteSangam Assistant"
         >
           <div className="relative flex items-center justify-center shrink-0">
