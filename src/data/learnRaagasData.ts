@@ -9,6 +9,7 @@ export type RaagaDetails = {
   pakad: string;
   time: string;
   mood: string;
+  link?: string;
 };
 
 export const LEARN_RAAGAS: RaagaDetails[] = [
@@ -119,6 +120,19 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
     pakad: "Ga Ma Dha(komal) Dha(komal) Pa, Ga Ma Re(komal) Re(komal) Sa",
     time: "Early Morning",
     mood: "Solemn, Meditative"
+  },
+  { 
+    name: "Raag Bhimpalasi", 
+    level: "Intermediate", 
+    description: "Peaceful afternoon raga from Kafi Thaat emphasizing Komal Ga and Komal Ni with Ma as Vadi.",
+    aaroh: "Ni(komal)(lower) Sa Ga(komal) Ma Pa Ni(komal) Sa'",
+    avroh: "Sa' Ni(komal) Dha Pa Ma Ga(komal) Re Sa",
+    vadi: "Ma",
+    samvadi: "Sa",
+    pakad: "Ni(komal)(lower) Sa Ga(komal) Ma, Pa Ma, Ga(komal) Re Sa",
+    time: "Afternoon (1 PM - 4 PM)",
+    mood: "Peaceful, Devotional, Introspective",
+    link: "raga_bhimpalasi"
   },
   { 
     name: "Raag Kafi", 

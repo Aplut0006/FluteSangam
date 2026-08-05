@@ -12,7 +12,7 @@ export interface AppNotification {
   createdAt: any;
 }
 
-export type AppView = 'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_choose_flute' | 'learn_tuner' | 'learn_basics' | 'learn_fingering_chart' | 'learn_alankaras' | 'learn_daily_practice' | 'learn_raagas' | 'raga_bhoopali' | 'raga_durga' | 'raga_yaman' | 'raga_hamsadhwani' | 'raga_bilawal' | 'raga_desh' | 'raga_kafi' | 'raga_bageshree' | 'alankar_generator' | 'community_members' | 'about_us' | 'founder' | 'contact_us' | 'learn_dashboard' | 'notation_requests' | 'privacy_policy' | 'terms_of_service' | 'not_found';
+export type AppView = 'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_choose_flute' | 'learn_tuner' | 'learn_basics' | 'learn_fingering_chart' | 'learn_alankaras' | 'learn_daily_practice' | 'learn_raagas' | 'raga_bhoopali' | 'raga_durga' | 'raga_yaman' | 'raga_hamsadhwani' | 'raga_bilawal' | 'raga_desh' | 'raga_kafi' | 'raga_bageshree' | 'raga_bhimpalasi' | 'alankar_generator' | 'community_members' | 'about_us' | 'founder' | 'contact_us' | 'learn_dashboard' | 'notation_requests' | 'privacy_policy' | 'terms_of_service' | 'not_found';
 
 export interface UserProfile {
   uid: string;
@@ -92,4 +92,5 @@ export interface RagaDetail {
   time: string; // time of day
   mood: string; // sentiment/emotion
   description: string;
+  link?: AppView | string;
 }

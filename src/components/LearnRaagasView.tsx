@@ -151,7 +151,7 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
             </div>
 
             <div className="grid gap-6 mt-8">
-              {/* Featured Spotlight Card for Raag Bhoopali */}
+              {/* Featured Spotlight Card for Beginner Raagas */}
               {filter === 'Beginner' && (
                 <div className="bg-gradient-to-br from-amber-500/10 via-amber-100/30 to-bamboo-500/10 border-2 border-amber-300 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
@@ -205,6 +205,29 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
                       <span>Raag Bilawal Guide ("Pratah Sur")</span>
                       <ArrowRight className="w-4 h-4" />
                     </button>
+                  </div>
+                </div>
+              )}
+
+              {/* Featured Spotlight Card for Intermediate Raagas */}
+              {filter === 'Intermediate' && (
+                <div className="bg-gradient-to-br from-blue-500/10 via-indigo-100/30 to-bamboo-500/10 border-2 border-blue-300 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+                    <div className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-900 bg-blue-200/80 px-3 py-1 rounded-full border border-blue-300">
+                      <Sparkles className="w-3.5 h-3.5 text-blue-600" />
+                      Featured Intermediate Guide
+                    </div>
+                    <span className="text-xs font-bold text-blue-800 bg-blue-100 px-3 py-1 rounded-full border border-blue-200">
+                      Intermediate
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-black font-display text-bamboo-950 mb-2">
+                    Featured Intermediate Raga Guides
+                  </h3>
+                  <p className="text-sm text-gray-700 leading-relaxed mb-4">
+                    Explore comprehensive step-by-step guides with swara playback, practice routines, alankars, metronome, and original practice compositions.
+                  </p>
+                  <div className="flex flex-wrap gap-3">
                     <button
                       onClick={() => onViewChange?.('raga_desh')}
                       className="bg-indigo-700 hover:bg-indigo-800 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition flex items-center gap-2 shadow-sm cursor-pointer"
@@ -217,6 +240,13 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
                       className="bg-bamboo-900 hover:bg-bamboo-950 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition flex items-center gap-2 shadow-sm cursor-pointer"
                     >
                       <span>Raag Kafi Guide ("Komal Sur Lahari")</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={() => onViewChange?.('raga_bhimpalasi')}
+                      className="bg-amber-700 hover:bg-amber-800 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition flex items-center gap-2 shadow-sm cursor-pointer"
+                    >
+                      <span>Raag Bhimpalasi Guide ("Madhur Vela")</span>
                       <ArrowRight className="w-4 h-4" />
                     </button>
                     <button
@@ -341,6 +371,16 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
                       className="bg-bamboo-50 hover:bg-bamboo-100 text-bamboo-950 border border-bamboo-200 font-bold px-4 py-2 rounded-xl text-xs transition flex items-center gap-2 cursor-pointer mt-2"
                     >
                       <span>Read Full Raag Kafi Guide &amp; Composition ("Komal Sur Lahari")</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-amber-600" />
+                    </button>
+                  )}
+
+                  {raaga.name.toLowerCase().includes('bhimpalasi') && (
+                    <button
+                      onClick={() => onViewChange?.('raga_bhimpalasi')}
+                      className="bg-amber-50 hover:bg-amber-100 text-amber-950 border border-amber-200 font-bold px-4 py-2 rounded-xl text-xs transition flex items-center gap-2 cursor-pointer mt-2"
+                    >
+                      <span>Read Full Raag Bhimpalasi Guide &amp; Composition ("Madhur Vela")</span>
                       <ArrowRight className="w-3.5 h-3.5 text-amber-600" />
                     </button>
                   )}

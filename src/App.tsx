@@ -43,6 +43,7 @@ const RagaBilawalView = lazyWithRetry(() => import('./components/RagaBilawalView
 const RagaDeshView = lazyWithRetry(() => import('./components/RagaDeshView'));
 const RagaKafiView = lazyWithRetry(() => import('./components/RagaKafiView'));
 const RagaBageshreeView = lazyWithRetry(() => import('./components/RagaBageshreeView'));
+const RagaBhimpalasiView = lazyWithRetry(() => import('./components/RagaBhimpalasiView'));
 const MembersView = lazyWithRetry(() => import('./components/MembersView'));
 const ImageModal = lazyWithRetry(() => import('./components/ImageModal'));
 const AboutUsView = lazyWithRetry(() => import('./components/AboutUsView'));
@@ -191,6 +192,10 @@ export default function App() {
       case 'raga_bageshree':
         title = 'Raag Bageshree: Complete Guide, Notes, Aaroh, Avaroh & Practice | FluteSangam';
         description = 'Master Raag Bageshree on Indian Bamboo Flute (Bansuri). Complete guide with Swara playback, Pakad, Chalan, original Alankars, and the practice piece Nisha Dhwani.';
+        break;
+      case 'raga_bhimpalasi':
+        title = 'Raag Bhimpalasi: Complete Guide, Notes, Aaroh, Avaroh & Practice | FluteSangam';
+        description = 'Master Raag Bhimpalasi on Indian Bamboo Flute (Bansuri). Complete guide with Swara playback, Pakad, Chalan, original Alankars, and the practice piece Madhur Vela.';
         break;
       case 'notation_requests':
         title = 'Song Notation Requests | FluteSangam Sargam';
@@ -513,7 +518,9 @@ export default function App() {
       view === 'raga_hamsadhwani' ||
       view === 'raga_bilawal' ||
       view === 'raga_desh' ||
+      view === 'raga_kafi' ||
       view === 'raga_bageshree' ||
+      view === 'raga_bhimpalasi' ||
       view === 'community_members' ||
       view === 'about_us' ||
       view === 'founder' ||
@@ -904,6 +911,8 @@ export default function App() {
           <RagaKafiView onViewChange={handleViewChange} />
         ) : currentView === 'raga_bageshree' ? (
           <RagaBageshreeView onViewChange={handleViewChange} />
+        ) : currentView === 'raga_bhimpalasi' ? (
+          <RagaBhimpalasiView onViewChange={handleViewChange} />
         ) : currentView === 'about_us' ? (
           <AboutUsView onViewChange={handleViewChange} />
         ) : currentView === 'founder' ? (
