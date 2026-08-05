@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Compass, BookOpen, Users, Radio } from 'lucide-react';
+import { Compass, BookOpen, Music, Radio } from 'lucide-react';
 import { AppView, UserProfile } from '../types';
 import { VIEW_URLS } from '../routes';
 
@@ -43,10 +43,10 @@ export default function MobileBottomNav({
       isActive: currentView === 'learn_tuner'
     },
     { 
-      id: 'community_members' as AppView, 
-      label: 'Members', 
-      icon: Users,
-      isActive: currentView === 'community_members'
+      id: 'notation_requests' as AppView, 
+      label: 'Notations', 
+      icon: Music,
+      isActive: currentView === 'notation_requests'
     },
   ];
 

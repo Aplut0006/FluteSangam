@@ -10,6 +10,7 @@ export const VIEW_URLS: Record<string, string> = {
   'learn_fingering_chart': '/learn/fingering-chart',
   'learn_alankaras': '/learn/alankaras',
   'learn_daily_practice': '/learn/daily-practice-guide',
+  'learn_common_mistakes': '/learn/common-flute-mistakes',
   'alankar_generator': '/alankar-generator',
   'learn_raagas': '/learn/raagas',
   'raga_bhoopali': '/learn/raga-bhoopali',

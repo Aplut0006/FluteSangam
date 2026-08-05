@@ -447,31 +447,29 @@ export default function Navbar({
             )}
           </div>
 
-          {/* 4. Sangam Chats */}
-          <a
-            href={VIEW_URLS['chats'] || '/chats'}
-            onClick={(e) => {
-              e.preventDefault();
-              if (!currentUser) {
-                onOpenAuth();
-              } else {
+          {/* 4. Sangam Chats (Only visible when user is signed in) */}
+          {currentUser && (
+            <a
+              href={VIEW_URLS['chats'] || '/chats'}
+              onClick={(e) => {
+                e.preventDefault();
                 onViewChange?.('chats');
-              }
-            }}
-            className={`px-2.5 xl:px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 relative cursor-pointer whitespace-nowrap ${
-              currentView === 'chats' 
-                ? 'bg-amber-600 text-white shadow-xs' 
-                : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
-            }`}
-          >
-            <MessageSquare className={`w-3.5 h-3.5 ${currentView === 'chats' ? 'text-white' : 'text-amber-600'}`} />
-            <span>Chats</span>
-            {unreadCount > 0 && (
-              <span className="absolute -top-1.5 -right-1 bg-yellow-500 text-white text-[9px] font-black h-4.5 min-w-4.5 px-1 rounded-full flex items-center justify-center border border-white animate-bounce shadow-xs">
-                {unreadCount}
-              </span>
-            )}
-          </a>
+              }}
+              className={`px-2.5 xl:px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 relative cursor-pointer whitespace-nowrap ${
+                currentView === 'chats' 
+                  ? 'bg-amber-600 text-white shadow-xs' 
+                  : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
+              }`}
+            >
+              <MessageSquare className={`w-3.5 h-3.5 ${currentView === 'chats' ? 'text-white' : 'text-amber-600'}`} />
+              <span>Chats</span>
+              {unreadCount > 0 && (
+                <span className="absolute -top-1.5 -right-1 bg-yellow-500 text-white text-[9px] font-black h-4.5 min-w-4.5 px-1 rounded-full flex items-center justify-center border border-white animate-bounce shadow-xs">
+                  {unreadCount}
+                </span>
+              )}
+            </a>
+          )}
           
           {/* 5. Notation Requests */}
           <a
@@ -503,18 +501,20 @@ export default function Navbar({
 
             {showMoreDropdown && (
               <div className="absolute top-full mt-2 right-0 w-48 bg-white rounded-xl shadow-xl border border-bamboo-100 py-1.5 z-50 overflow-hidden">
-                <a
-                  href={VIEW_URLS['community_members'] || '/members'}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onViewChange?.('community_members');
-                    setShowMoreDropdown(false);
-                  }}
-                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 flex items-center gap-2 cursor-pointer"
-                >
-                  <Users className="w-3.5 h-3.5 text-amber-600" />
-                  <span>Flutists Directory</span>
-                </a>
+                {currentUser && (
+                  <a
+                    href={VIEW_URLS['community_members'] || '/members'}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onViewChange?.('community_members');
+                      setShowMoreDropdown(false);
+                    }}
+                    className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 flex items-center gap-2 cursor-pointer"
+                  >
+                    <Users className="w-3.5 h-3.5 text-amber-600" />
+                    <span>Flutists Directory</span>
+                  </a>
+                )}
                 <a
                   href={VIEW_URLS['about_us'] || '/about'}
                   onClick={(e) => {
@@ -616,26 +616,27 @@ export default function Navbar({
                   <span>Sadhana Feed</span>
                 </button>
 
-                <button
-                  onClick={() => { 
-                    if (!currentUser) onOpenAuth();
-                    else onViewChange?.('chats'); 
-                    setShowMobileMenu(false); 
-                  }}
-                  className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left relative cursor-pointer ${
-                    currentView === 'chats'
-                      ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
-                      : 'bg-bamboo-50/60 text-gray-700 border-bamboo-100 hover:bg-bamboo-100/60'
-                  }`}
-                >
-                  <MessageSquare className={`w-4 h-4 shrink-0 ${currentView === 'chats' ? 'text-white' : 'text-amber-600'}`} />
-                  <span>Sangam Chats</span>
-                  {unreadCount > 0 && (
-                    <span className="ml-auto bg-yellow-400 text-amber-950 text-[9px] font-black px-1.5 py-0.5 rounded-full">
-                      {unreadCount}
-                    </span>
-                  )}
-                </button>
+                {currentUser && (
+                  <button
+                    onClick={() => { 
+                      onViewChange?.('chats'); 
+                      setShowMobileMenu(false); 
+                    }}
+                    className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left relative cursor-pointer ${
+                      currentView === 'chats'
+                        ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
+                        : 'bg-bamboo-50/60 text-gray-700 border-bamboo-100 hover:bg-bamboo-100/60'
+                    }`}
+                  >
+                    <MessageSquare className={`w-4 h-4 shrink-0 ${currentView === 'chats' ? 'text-white' : 'text-amber-600'}`} />
+                    <span>Sangam Chats</span>
+                    {unreadCount > 0 && (
+                      <span className="ml-auto bg-yellow-400 text-amber-950 text-[9px] font-black px-1.5 py-0.5 rounded-full">
+                        {unreadCount}
+                      </span>
+                    )}
+                  </button>
+                )}
 
                 <button
                   onClick={() => { onViewChange?.('notation_requests'); setShowMobileMenu(false); }}
@@ -649,17 +650,19 @@ export default function Navbar({
                   <span>Notations</span>
                 </button>
 
-                <button
-                  onClick={() => { onViewChange?.('community_members'); setShowMobileMenu(false); }}
-                  className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
-                    currentView === 'community_members'
-                      ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
-                      : 'bg-bamboo-50/60 text-gray-700 border-bamboo-100 hover:bg-bamboo-100/60'
-                  }`}
-                >
-                  <Users className={`w-4 h-4 shrink-0 ${currentView === 'community_members' ? 'text-white' : 'text-amber-600'}`} />
-                  <span>Flutists</span>
-                </button>
+                {currentUser && (
+                  <button
+                    onClick={() => { onViewChange?.('community_members'); setShowMobileMenu(false); }}
+                    className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
+                      currentView === 'community_members'
+                        ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
+                        : 'bg-bamboo-50/60 text-gray-700 border-bamboo-100 hover:bg-bamboo-100/60'
+                    }`}
+                  >
+                    <Users className={`w-4 h-4 shrink-0 ${currentView === 'community_members' ? 'text-white' : 'text-amber-600'}`} />
+                    <span>Flutists</span>
+                  </button>
+                )}
               </div>
             </div>
 

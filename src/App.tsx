@@ -33,6 +33,7 @@ const LearnChooseFluteView = lazyWithRetry(() => import('./components/LearnChoos
 const LearnTunerView = lazyWithRetry(() => import('./components/LearnTunerView'));
 const LearnAlankarasView = lazyWithRetry(() => import('./components/LearnAlankarasView'));
 const DailyPracticeGuideView = lazyWithRetry(() => import('./components/DailyPracticeGuideView'));
+const CommonFluteMistakesView = lazyWithRetry(() => import('./components/CommonFluteMistakesView'));
 const AlankarGeneratorView = lazyWithRetry(() => import('./components/AlankarGeneratorView'));
 const LearnRaagasView = lazyWithRetry(() => import('./components/LearnRaagasView'));
 const RagaBhoopaliView = lazyWithRetry(() => import('./components/RagaBhoopaliView'));
@@ -54,6 +55,7 @@ const NotationRequestsView = lazyWithRetry(() => import('./components/NotationRe
 const PrivacyPolicyView = lazyWithRetry(() => import('./components/PrivacyPolicyView'));
 const TermsOfServiceView = lazyWithRetry(() => import('./components/TermsOfServiceView'));
 const NotFoundView = lazyWithRetry(() => import('./components/NotFoundView'));
+const HomepageOverview = lazyWithRetry(() => import('./components/HomepageOverview'));
 
 const ViewFallbackLoader = () => (
   <div className="flex flex-col items-center justify-center p-12 my-8 bg-white/60 backdrop-blur-md rounded-2xl border border-bamboo-100 shadow-3xs max-w-md mx-auto">
@@ -64,7 +66,7 @@ const ViewFallbackLoader = () => (
 
 // Icons
 import { 
-  Search, Plus, Sparkles, HelpCircle, Compass, 
+  Search, Plus, Sparkles, HelpCircle, Compass, ChevronDown,
   BookOpen, Video, Info, ArrowUpRight, Music, Filter, CheckCircle2, MessageSquare, Bell, X, Wind, ShieldCheck, User, Users, Globe
 } from 'lucide-react';
 
@@ -79,6 +81,11 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [activeRagaFilter, setActiveRagaFilter] = useState<string | null>(null);
+  const [visiblePostsCount, setVisiblePostsCount] = useState<number>(6);
+
+  useEffect(() => {
+    setVisiblePostsCount(6);
+  }, [searchQuery, activeCategory, activeRagaFilter]);
   
   // Active Tab for mobile (Feed vs Raga Sadhana vs Quick Tips vs Chats)
   // const [mobileTab, setMobileTab] = useState<'feed' | 'ragas' | 'chats' | 'tips'>('feed');
@@ -779,54 +786,6 @@ export default function App() {
         onSelectPost={handleSelectPostById}
       />
 
-      {/* Hero Welcome Banner */}
-      {currentView === 'community' && (
-        <section className="block bg-gradient-to-br from-bamboo-900 via-bamboo-800 to-amber-900 text-white relative overflow-hidden shadow-xs" id="hero-banner">
-          {/* Abstract design vector accents */}
-          <div className="absolute top-0 right-0 w-80 h-80 bg-amber-400/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-bamboo-600/30 rounded-full blur-2xl -ml-20 -mb-20 pointer-events-none"></div>
-
-          <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 py-3.5 sm:py-5 relative space-y-3 sm:space-y-4">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
-              <div className="max-w-2xl space-y-1.5 sm:space-y-2 text-center md:text-left">
-                <div className="inline-flex items-center gap-1.5 text-[9px] sm:text-[10px] font-bold tracking-widest text-amber-300 uppercase bg-amber-400/10 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-amber-300/20 backdrop-blur-md">
-                  <Wind className="w-3 h-3 text-amber-300" />
-                  <span>Learn, Practice &amp; Connect with Flute Players Worldwide</span>
-                </div>
-                <h1 className="text-lg sm:text-2xl md:text-3xl lg:text-3xl font-extrabold font-display leading-tight tracking-tight text-white">
-                  Welcome to FluteSangam — Where Flutists Learn, Share &amp; Grow
-                </h1>
-                <p className="text-[11px] sm:text-xs text-bamboo-100 leading-relaxed font-normal">
-                  <strong>FluteSangam</strong> is a dedicated online platform for learning, practicing, and connecting through the Indian bamboo flute (Bansuri). Whether you're a beginner, student, teacher, or experienced musician, you can explore step-by-step learning resources, alankars, raagas, practice guides, interactive flute tools, and engage with a global community of flute enthusiasts.
-                </p>
-              </div>
-
-              {/* Core Call To Action */}
-              <div className="bg-white/10 backdrop-blur-md p-3 sm:p-3.5 rounded-2xl border border-white/15 w-full md:w-72 shrink-0 shadow-md space-y-2 text-center md:text-left">
-                <div className="space-y-0.5">
-                  <h4 className="font-bold text-xs text-amber-300 flex items-center justify-center md:justify-start gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-                    Join Our Flute Sangam
-                  </h4>
-                  <p className="text-[10px] text-bamboo-100 font-medium leading-normal">
-                    Share your daily practice (sadhana) &amp; get peer feedback
-                  </p>
-                </div>
-                
-                <button
-                  onClick={handleOpenCreatePost}
-                  className="w-full py-1.5 sm:py-2 bg-amber-400 hover:bg-amber-300 text-bamboo-950 font-extrabold text-[11px] rounded-xl transition shadow-xs tracking-wider uppercase flex items-center justify-center space-x-1 cursor-pointer"
-                  id="hero-share-performance-btn"
-                >
-                  <Plus className="w-3.5 h-3.5 stroke-[3]" />
-                  <span>Share Your Recital</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* Main Layout Area */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 sm:pt-6 flex-1 w-full pb-24 md:pb-12" id="main-content-layout">
         <ErrorBoundary>
@@ -891,6 +850,8 @@ export default function App() {
           <LearnAlankarasView onViewChange={handleViewChange} />
         ) : currentView === 'learn_daily_practice' ? (
           <DailyPracticeGuideView onViewChange={handleViewChange} />
+        ) : currentView === 'learn_common_mistakes' ? (
+          <CommonFluteMistakesView onViewChange={handleViewChange} />
         ) : currentView === 'alankar_generator' ? (
           <AlankarGeneratorView currentUser={currentUser} />
         ) : currentView === 'learn_raagas' ? (
@@ -983,148 +944,190 @@ export default function App() {
             </div>
           )
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-          {/* LEFT AREA: Search, Filters, and Posts Feed */}
-          <div className="md:col-span-8 space-y-4 block" id="left-feed-container">
-            {/* Search and Filters panel */}
-            <div className="frosted-panel rounded-2xl p-4 space-y-4 shadow-sm">
-              <div className="flex flex-col sm:flex-row gap-3">
-                {/* Search field */}
-                <div className="flex-1 flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-xl border border-gray-200/60 focus-within:ring-2 focus-within:ring-bamboo-600 focus-within:border-transparent transition-all">
-                  <Search className="w-4.5 h-4.5 text-gray-400 shrink-0" />
-                  <input
-                    type="text"
-                    placeholder="Search compositions, ragas, keys, reviews, or gurus..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full bg-transparent text-xs text-gray-700 focus:outline-none placeholder-gray-400"
-                  />
-                  {searchQuery && (
-                    <button 
-                      onClick={() => setSearchQuery('')}
-                      className="text-[10px] text-gray-400 hover:text-gray-600 font-semibold uppercase pr-1"
-                    >
-                      Clear
-                    </button>
-                  )}
-                </div>
+          <div className="space-y-8 sm:space-y-12">
+            {/* Overview & Purpose Section for Google AdSense & Visitors */}
+            <HomepageOverview 
+              onViewChange={handleViewChange}
+              onOpenAuth={() => setAuthModalOpen(true)}
+              onOpenCreatePost={handleOpenCreatePost}
+              currentUser={currentUser}
+            />
 
-                {/* Create post trigger for desktop */}
-                {currentUser && (
-                  <button
-                    onClick={handleOpenCreatePost}
-                    className="py-2 px-4 bg-bamboo-700 hover:bg-bamboo-600 text-white text-xs font-bold rounded-xl transition flex items-center justify-center space-x-1.5 shadow-3xs shrink-0"
-                  >
-                    <Plus className="w-4 h-4" />
-                    <span>New Post</span>
-                  </button>
-                )}
-              </div>
-
-              {/* Filtering bar */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1 border-t border-gray-100">
-                <div className="flex items-center space-x-1.5 overflow-x-auto scrollbar-none pb-1 sm:pb-0">
-                  <Filter className="w-3.5 h-3.5 text-bamboo-700 shrink-0 hidden sm:block" />
-                  {['All', 'Question', 'Performance', 'Tutorial', 'Raga Discussion', 'Review'].map((cat) => {
-                    const isSelected = activeCategory === cat;
-                    return (
-                      <button
-                        key={cat}
-                        onClick={() => {
-                          setActiveCategory(cat);
-                          setActiveRagaFilter(null); // Reset raga filter when category is clicked
-                        }}
-                        className={`px-3 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
-                          isSelected 
-                            ? "bg-bamboo-100 text-bamboo-800 border border-bamboo-200" 
-                            : "bg-gray-50 text-gray-500 hover:bg-gray-100 border border-transparent"
-                        }`}
-                      >
-                        {cat === 'Raga Discussion' ? 'Ragas' : cat === 'Question' ? 'Questions' : cat}
-                      </button>
-                    );
-                  })}
-                </div>
-
-                {/* Reset active raga indicator if any */}
-                {activeRagaFilter && (
-                  <div className="flex items-center justify-between sm:justify-start bg-amber-50 border border-amber-200 text-amber-900 px-3 py-1 rounded-lg text-xs font-semibold">
-                    <span className="flex items-center gap-1">
-                      <Music className="w-3.5 h-3.5 text-amber-600" />
-                      Raga: {activeRagaFilter}
-                    </span>
-                    <button 
-                      onClick={() => setActiveRagaFilter(null)}
-                      className="ml-2 text-[10px] text-amber-700 hover:text-amber-950 font-bold uppercase"
-                    >
-                      Remove
-                    </button>
+            {/* Recent Discussions & Community Feed Section */}
+            <div id="recent-discussions-section" className="space-y-4 pt-4 border-t border-bamboo-200/80">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-bamboo-100 pb-3">
+                <div>
+                  <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-900 bg-amber-100 px-2.5 py-0.5 rounded-full mb-1">
+                    <MessageSquare className="w-3.5 h-3.5 text-amber-600" />
+                    Sadhaka Sangam Feed
                   </div>
-                )}
-              </div>
-            </div>
-
-            {/* Posts List rendering */}
-            <div className="space-y-5" id="posts-feed-container">
-              {loading ? (
-                <div className="frosted-panel rounded-2xl p-12 text-center" id="feed-loading-indicator">
-                  <div className="w-10 h-10 border-4 border-bamboo-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                  <p className="text-sm font-semibold text-gray-500">Connecting to FluteSangam...</p>
-                </div>
-              ) : filteredPosts.length === 0 ? (
-                <div className="frosted-panel rounded-2xl p-12 text-center space-y-3" id="feed-empty-state">
-                  <div className="p-4 bg-bamboo-50 rounded-full w-14 h-14 mx-auto text-bamboo-600 flex items-center justify-center">
-                    <Compass className="w-7 h-7" />
-                  </div>
-                  <h3 className="font-display font-bold text-gray-800 text-base">No Matching Posts Found</h3>
-                  <p className="text-xs text-gray-500 max-w-sm mx-auto leading-relaxed">
-                    We couldn't find any posts matching your search criteria. Be the first to share a recital, ask a question, or discuss this raga!
+                  <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950">
+                    Recent Discussions &amp; Community Recitals
+                  </h2>
+                  <p className="text-xs text-gray-600">
+                    Explore live questions, performance videos, audio recitals, and raga discussions from flutists around the world.
                   </p>
-                  {currentUser && (
-                    <button
-                      onClick={handleOpenCreatePost}
-                      className="px-4 py-2 bg-bamboo-700 text-white text-xs font-bold rounded-xl hover:bg-bamboo-600 transition"
-                    >
-                      Share First Post
-                    </button>
-                  )}
                 </div>
-              ) : (
-                filteredPosts.map((post) => (
-                  <PostCard
-                    key={post.id}
-                    post={post}
-                    currentUser={currentUser}
-                    onOpenAuth={() => setAuthModalOpen(true)}
-                    onOpenShare={handleOpenShare}
-                    onStartChat={handleStartChat}
-                    onUserProfileClick={handleOpenUserProfile}
-                    onPostClick={(clickedPost, focusComment) => {
-                      handleViewChange('post-detail', { postId: clickedPost.id, post: clickedPost, focusComment });
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
-                    onEditPost={handleOpenEditPost}
-                    onOpenImage={(url) => setSelectedImageUrl(url)}
-                  />
-                ))
-              )}
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+                {/* LEFT AREA: Search, Filters, and Posts Feed */}
+                <div className="md:col-span-8 space-y-4 block" id="left-feed-container">
+                  {/* Search and Filters panel */}
+                  <div className="frosted-panel rounded-2xl p-4 space-y-4 shadow-sm">
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      {/* Search field */}
+                      <div className="flex-1 flex items-center space-x-2 bg-gray-50 px-3 py-2 rounded-xl border border-gray-200/60 focus-within:ring-2 focus-within:ring-bamboo-600 focus-within:border-transparent transition-all">
+                        <Search className="w-4.5 h-4.5 text-gray-400 shrink-0" />
+                        <input
+                          type="text"
+                          placeholder="Search compositions, ragas, keys, reviews, or gurus..."
+                          value={searchQuery}
+                          onChange={(e) => setSearchQuery(e.target.value)}
+                          className="w-full bg-transparent text-xs text-gray-700 focus:outline-none placeholder-gray-400"
+                        />
+                        {searchQuery && (
+                          <button 
+                            onClick={() => setSearchQuery('')}
+                            className="text-[10px] text-gray-400 hover:text-gray-600 font-semibold uppercase pr-1"
+                          >
+                            Clear
+                          </button>
+                        )}
+                      </div>
+
+                      {/* Create post trigger for desktop */}
+                      {currentUser && (
+                        <button
+                          onClick={handleOpenCreatePost}
+                          className="py-2 px-4 bg-bamboo-700 hover:bg-bamboo-600 text-white text-xs font-bold rounded-xl transition flex items-center justify-center space-x-1.5 shadow-3xs shrink-0 cursor-pointer"
+                        >
+                          <Plus className="w-4 h-4" />
+                          <span>New Post</span>
+                        </button>
+                      )}
+                    </div>
+
+                    {/* Filtering bar */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1 border-t border-gray-100">
+                      <div className="flex items-center space-x-1.5 overflow-x-auto scrollbar-none pb-1 sm:pb-0">
+                        <Filter className="w-3.5 h-3.5 text-bamboo-700 shrink-0 hidden sm:block" />
+                        {['All', 'Question', 'Performance', 'Tutorial', 'Raga Discussion', 'Review'].map((cat) => {
+                          const isSelected = activeCategory === cat;
+                          return (
+                            <button
+                              key={cat}
+                              onClick={() => {
+                                setActiveCategory(cat);
+                                setActiveRagaFilter(null);
+                              }}
+                              className={`px-3 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
+                                isSelected 
+                                  ? "bg-bamboo-100 text-bamboo-800 border border-bamboo-200" 
+                                  : "bg-gray-50 text-gray-500 hover:bg-gray-100 border border-transparent"
+                              }`}
+                            >
+                              {cat === 'Raga Discussion' ? 'Ragas' : cat === 'Question' ? 'Questions' : cat}
+                            </button>
+                          );
+                        })}
+                      </div>
+
+                      {/* Reset active raga indicator if any */}
+                      {activeRagaFilter && (
+                        <div className="flex items-center justify-between sm:justify-start bg-amber-50 border border-amber-200 text-amber-900 px-3 py-1 rounded-lg text-xs font-semibold">
+                          <span className="flex items-center gap-1">
+                            <Music className="w-3.5 h-3.5 text-amber-600" />
+                            Raga: {activeRagaFilter}
+                          </span>
+                          <button 
+                            onClick={() => setActiveRagaFilter(null)}
+                            className="ml-2 text-[10px] text-amber-700 hover:text-amber-950 font-bold uppercase cursor-pointer"
+                          >
+                            Remove
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Posts List rendering */}
+                  <div className="space-y-5" id="posts-feed-container">
+                    {loading ? (
+                      <div className="frosted-panel rounded-2xl p-12 text-center" id="feed-loading-indicator">
+                        <div className="w-10 h-10 border-4 border-bamboo-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                        <p className="text-sm font-semibold text-gray-500">Connecting to FluteSangam...</p>
+                      </div>
+                    ) : filteredPosts.length === 0 ? (
+                      <div className="frosted-panel rounded-2xl p-12 text-center space-y-3" id="feed-empty-state">
+                        <div className="p-4 bg-bamboo-50 rounded-full w-14 h-14 mx-auto text-bamboo-600 flex items-center justify-center">
+                          <Compass className="w-7 h-7" />
+                        </div>
+                        <h3 className="font-display font-bold text-gray-800 text-base">No Matching Posts Found</h3>
+                        <p className="text-xs text-gray-500 max-w-sm mx-auto leading-relaxed">
+                          We couldn't find any posts matching your search criteria. Be the first to share a recital, ask a question, or discuss this raga!
+                        </p>
+                        {currentUser && (
+                          <button
+                            onClick={handleOpenCreatePost}
+                            className="px-4 py-2 bg-bamboo-700 text-white text-xs font-bold rounded-xl hover:bg-bamboo-600 transition cursor-pointer"
+                          >
+                            Share First Post
+                          </button>
+                        )}
+                      </div>
+                    ) : (
+                      <>
+                        {filteredPosts.slice(0, visiblePostsCount).map((post) => (
+                          <PostCard
+                            key={post.id}
+                            post={post}
+                            currentUser={currentUser}
+                            onOpenAuth={() => setAuthModalOpen(true)}
+                            onOpenShare={handleOpenShare}
+                            onStartChat={handleStartChat}
+                            onUserProfileClick={handleOpenUserProfile}
+                            onPostClick={(clickedPost, focusComment) => {
+                              handleViewChange('post-detail', { postId: clickedPost.id, post: clickedPost, focusComment });
+                              window.scrollTo({ top: 0, behavior: 'smooth' });
+                            }}
+                            onEditPost={handleOpenEditPost}
+                            onOpenImage={(url) => setSelectedImageUrl(url)}
+                          />
+                        ))}
+
+                        {filteredPosts.length > visiblePostsCount && (
+                          <div className="flex flex-col items-center justify-center pt-4 pb-2 text-center" id="load-more-posts-container">
+                            <button
+                              onClick={() => setVisiblePostsCount(prev => prev + 6)}
+                              className="px-6 py-2.5 bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer group"
+                              id="load-more-posts-btn"
+                            >
+                              <ChevronDown className="w-4 h-4 text-white group-hover:translate-y-0.5 transition-transform" />
+                              <span>Load More Posts ({filteredPosts.length - visiblePostsCount} remaining)</span>
+                            </button>
+                            <span className="text-[11px] text-gray-500 font-medium mt-2">
+                              Showing {Math.min(visiblePostsCount, filteredPosts.length)} of {filteredPosts.length} posts
+                            </span>
+                          </div>
+                        )}
+                      </>
+                    )}
+                  </div>
+                </div>
+
+                {/* RIGHT SIDEBAR: Raga Guide & Tips */}
+                <div className="md:col-span-4 space-y-6 block" id="right-sidebar-ragaguide">
+                  <React.Suspense fallback={<ViewFallbackLoader />}>
+                    <RagaGuide 
+                      onSelectRagaDiscussion={handleSelectRagaDiscussion}
+                      activeRagaFilter={activeRagaFilter}
+                    />
+                  </React.Suspense>
+                  <FlutePracticeFaqSection />
+                </div>
+              </div>
             </div>
-          </div>
-
-          {/* RIGHT SIDEBAR: Raga Guide */}
-          <div className="md:col-span-4 space-y-6 block" id="right-sidebar-ragaguide">
-            <React.Suspense fallback={<ViewFallbackLoader />}>
-              <RagaGuide 
-                onSelectRagaDiscussion={handleSelectRagaDiscussion}
-                activeRagaFilter={activeRagaFilter}
-              />
-            </React.Suspense>
-          </div>
-
-          {/* RIGHT SIDEBAR ADDITION: Frequently Asked Questions About Flute Practice */}
-          <div className="md:col-span-4 space-y-6 block" id="right-sidebar-tips">
-            <FlutePracticeFaqSection />
-          </div>
           </div>
         )}
           </React.Suspense>
