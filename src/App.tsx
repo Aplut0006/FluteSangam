@@ -35,6 +35,7 @@ const LearnTunerView = lazyWithRetry(() => import('./components/LearnTunerView')
 const LearnAlankarasView = lazyWithRetry(() => import('./components/LearnAlankarasView'));
 const DailyPracticeGuideView = lazyWithRetry(() => import('./components/DailyPracticeGuideView'));
 const CommonFluteMistakesView = lazyWithRetry(() => import('./components/CommonFluteMistakesView'));
+const FluteFaqView = lazyWithRetry(() => import('./components/FluteFaqView'));
 const AlankarGeneratorView = lazyWithRetry(() => import('./components/AlankarGeneratorView'));
 const LearnRaagasView = lazyWithRetry(() => import('./components/LearnRaagasView'));
 const RagaBhoopaliView = lazyWithRetry(() => import('./components/RagaBhoopaliView'));
@@ -165,6 +166,10 @@ export default function App() {
       case 'learn_common_mistakes':
         title = 'Common Flute Mistakes and How to Fix Them | FluteSangam';
         description = 'Learn the most common flute mistakes beginners and intermediate players make, along with practical tips to improve tone, finger placement, breathing, rhythm, and technique.';
+        break;
+      case 'flute_faq':
+        title = 'Flute FAQ | Common Questions & Answers for Flute Learners | FluteSangam';
+        description = 'Find answers to common flute questions about learning, practice, bamboo flutes, raagas, breathing, maintenance, and more. Explore the FluteSangam FAQ for helpful guidance';
         break;
       case 'alankar_generator':
         title = 'Interactive Alankar Generator & Practice Engine | FluteSangam';
@@ -905,6 +910,8 @@ export default function App() {
           <DailyPracticeGuideView onViewChange={handleViewChange} />
         ) : currentView === 'learn_common_mistakes' ? (
           <CommonFluteMistakesView onViewChange={handleViewChange} />
+        ) : currentView === 'flute_faq' ? (
+          <FluteFaqView onViewChange={handleViewChange} />
         ) : currentView === 'alankar_generator' ? (
           <AlankarGeneratorView currentUser={currentUser} />
         ) : currentView === 'learn_raagas' ? (
@@ -1177,7 +1184,7 @@ export default function App() {
                       activeRagaFilter={activeRagaFilter}
                     />
                   </React.Suspense>
-                  <FlutePracticeFaqSection />
+                  <FlutePracticeFaqSection onViewChange={handleViewChange} />
                 </div>
               </div>
             </div>
@@ -1251,6 +1258,11 @@ export default function App() {
                 <li>
                   <a href="/learn/basics" onClick={(e) => { e.preventDefault(); handleViewChange('learn_basics'); }} className="hover:text-amber-300 transition">
                     Bansuri Basics &amp; Fingering
+                  </a>
+                </li>
+                <li>
+                  <a href="/faq" onClick={(e) => { e.preventDefault(); handleViewChange('flute_faq'); }} className="hover:text-amber-300 transition text-amber-300 font-semibold">
+                    Flute FAQ &amp; Help Center
                   </a>
                 </li>
               </ul>

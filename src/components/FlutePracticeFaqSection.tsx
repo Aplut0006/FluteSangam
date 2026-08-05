@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { HelpCircle, ChevronDown, ChevronUp, Sparkles } from 'lucide-react';
+import { FAQ_DATA } from './FluteFaqView';
 
 export interface FaqItem {
   q: string;
@@ -89,7 +90,13 @@ export const FLUTE_PRACTICE_FAQS: FaqItem[] = [
   }
 ];
 
-export default function FlutePracticeFaqSection() {
+import { AppView } from '../types';
+
+interface FlutePracticeFaqSectionProps {
+  onViewChange?: (view: AppView) => void;
+}
+
+export default function FlutePracticeFaqSection({ onViewChange }: FlutePracticeFaqSectionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0); // First item open by default
 
   const toggleFaq = (idx: number) => {
@@ -146,6 +153,19 @@ export default function FlutePracticeFaqSection() {
           );
         })}
       </div>
+
+      {onViewChange && (
+        <div className="pt-2 border-t border-gray-100 text-center">
+          <button
+            type="button"
+            onClick={() => onViewChange('flute_faq')}
+            className="w-full py-2.5 px-3 bg-amber-100 hover:bg-amber-200 text-amber-950 font-bold text-xs rounded-xl transition cursor-pointer flex items-center justify-center gap-1.5"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-amber-700" />
+            <span>Explore All {FAQ_DATA.length}+ Flute FAQs &amp; Help Center &rarr;</span>
+          </button>
+        </div>
+      )}
     </div>
   );
 }
