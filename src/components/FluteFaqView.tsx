@@ -12,6 +12,8 @@ import { DAILY_PRACTICE_FAQS } from '../data/dailyPracticeFaqData';
 import { PLAYING_TECHNIQUES_FAQS } from '../data/playingTechniquesFaqData';
 import { SCALES_AND_ALANKARS_FAQS } from '../data/scalesAndAlankarsFaqData';
 import { RAAGAS_FAQS } from '../data/raagasFaqData';
+import { MUSIC_THEORY_FAQS } from '../data/musicTheoryFaqData';
+import { FLUTE_CARE_FAQS } from '../data/fluteCareFaqData';
 
 interface FluteFaqViewProps {
   onViewChange?: (view: AppView) => void;
@@ -1602,53 +1604,11 @@ Look for sellers who specialize exclusively in wind instruments, provide scale s
   // 6. RAAGAS & CLASSICAL MUSIC (60 Comprehensive Questions)
   ...RAAGAS_FAQS,
 
-  // 6. FLUTE CARE & MAINTENANCE
-  {
-    id: 'care-cleaning',
-    category: 'Flute Care & Maintenance',
-    question: 'How do I clean and maintain a natural bamboo flute?',
-    answer: `Proper care ensures your Assam bamboo bansuri remains well-tuned, resonant, and crack-free for decades.
-
-Essential care guidelines:
-- Swab Moisture After Playing: Moisture from your breath collects inside the bore. After playing, gently pass a soft, lint-free cotton cloth tied to a thin wooden rod through the inside bore to remove condensation.
-- Natural Oiling (Once Every 3–6 Months): Apply a few drops of natural unrefined oil (such as mustard oil, sesame oil, or sweet almond oil) to a soft swab and gently coat the inside bore. Avoid getting oil directly on the thread bindings or blow hole edge.
-- Never Wash with Water: Water causes raw bamboo fibers to swell, distorting pitch calibration or cracking the tube.
-- Wipe Finger Marks: Wipe the exterior surface with a dry microfiber cloth after every session.`,
-    relatedLink: { text: 'Read Full Maintenance Section in Choosing Flute', view: 'learn_choose_flute' },
-    tags: ['cleaning', 'oiling', 'bamboo care', 'maintenance']
-  },
-  {
-    id: 'care-cracks',
-    category: 'Flute Care & Maintenance',
-    question: 'Can a bamboo flute crack, and how can I prevent it?',
-    answer: `Yes, bamboo is a natural organic grass that expands and contracts with changes in humidity and temperature, making it susceptible to cracking if exposed to harsh conditions.
-
-Prevention tips:
-- Avoid Direct Sunlight & Heat: Never leave your bansuri inside a hot parked car, near heaters, or under direct sunlight.
-- Guard Against Rapid Temperature Spikes: If bringing a cold flute indoors during winter, let it adjust to room temperature inside its case before playing.
-- Keep Thread Bindings Intact: The tightly wound nylon/silk threads at both ends and along the body reinforce structural integrity and prevent hairline cracks from spreading.
-- Store in Padded Hard Cases: Always carry your flutes in rigid PVC or padded canvas carrying tubes.`,
-    relatedLink: { text: 'Learn Bansuri Safety Tips', view: 'learn_basics' },
-    tags: ['cracks', 'bamboo protection', 'storage']
-  },
+  // 6. FLUTE CARE & MAINTENANCE (80 Comprehensive Questions)
+  ...FLUTE_CARE_FAQS,
 
   // 7. MUSIC THEORY & TUNING
-  {
-    id: 'theory-440-vs-432',
-    category: 'Music Theory & Tuning',
-    question: 'What is concert pitch (A=440Hz), and how do I tune my bansuri?',
-    answer: `Concert pitch A=440Hz is the international standard frequency for tuning musical instruments. Professional bansuri makers tune flutes so that when all finger holes are open or played at Sa pitch, it aligns perfectly with standard pitch frequencies (e.g., A=440Hz or C=523.2Hz).
-
-How to tune your bansuri:
-- Use a Tuner App: Open the FluteSangam Online Tuner or Tanpura app set to your flute's key pitch (e.g., C or G).
-- Blow Steady Sa: Play your fundamental Sa note with steady, unforced breath.
-- Adjust Blowing Angle & Air Velocity:
-  * Rolling the flute slightly INWARD lowers the pitch (flatter).
-  * Rolling the flute slightly OUTWARD or blowing slightly faster raises the pitch (sharper).
-  * Warmer ambient temperature slightly raises pitch, while colder environments make pitch flatter.`,
-    relatedLink: { text: 'Open Free Interactive Flute Tuner', view: 'learn_tuner' },
-    tags: ['tuning', '440hz', 'frequency', 'tanpura']
-  },
+  ...MUSIC_THEORY_FAQS,
 
   // 8. FLUTESANGAM PLATFORM & COMMUNITY
   {
