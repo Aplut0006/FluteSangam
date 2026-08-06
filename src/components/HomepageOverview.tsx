@@ -207,7 +207,7 @@ export default function HomepageOverview({
             <div className="bg-white/10 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-white/20 shadow-lg space-y-3 shrink-0 lg:w-72 text-center lg:text-left">
               <div className="space-y-1">
                 <span className="text-[10px] font-extrabold uppercase tracking-widest text-amber-300 block">Start Learning Now</span>
-                <p className="text-xs text-white font-semibold">Join thousands of flute sadhakas practicing daily.</p>
+                <p className="text-xs text-white font-semibold">Join a growing community of flute lovers.</p>
               </div>
 
               <div className="space-y-2">
@@ -217,13 +217,6 @@ export default function HomepageOverview({
                 >
                   <BookOpen className="w-4 h-4" />
                   <span>Explore Learning Hub</span>
-                </button>
-                <button
-                  onClick={() => onViewChange('flute_faq')}
-                  className="w-full py-2 px-4 bg-amber-500/20 hover:bg-amber-500/35 text-amber-100 font-bold text-xs rounded-xl border border-amber-300/40 transition flex items-center justify-center gap-2 cursor-pointer"
-                >
-                  <HelpCircle className="w-3.5 h-3.5 text-amber-300" />
-                  <span>Flute FAQ Center</span>
                 </button>
                 <button
                   onClick={() => {
@@ -612,13 +605,6 @@ export default function HomepageOverview({
           </div>
 
           <div className="flex flex-wrap items-center gap-2 shrink-0">
-            <button
-              onClick={() => onViewChange('flute_faq')}
-              className="px-3.5 py-1.5 bg-amber-600 hover:bg-amber-700 text-white border border-amber-700 text-xs font-bold rounded-xl transition cursor-pointer flex items-center gap-1.5 shadow-2xs"
-            >
-              <HelpCircle className="w-3.5 h-3.5 text-white" />
-              <span>Flute FAQ Center</span>
-            </button>
             <button
               onClick={() => onViewChange('about_us')}
               className="px-3.5 py-1.5 bg-amber-50 hover:bg-amber-100 text-bamboo-900 border border-amber-200 text-xs font-bold rounded-xl transition cursor-pointer"

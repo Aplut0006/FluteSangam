@@ -16,6 +16,8 @@ import { MUSIC_THEORY_FAQS } from '../data/musicTheoryFaqData';
 import { FLUTE_CARE_FAQS } from '../data/fluteCareFaqData';
 import { HEALTH_AND_BREATHING_FAQS } from '../data/healthBreathingFaqData';
 import { ADVANCED_TECHNIQUES_FAQS } from '../data/advancedTechniquesFaqData';
+import { FLUTE_ACCESSORIES_FAQS } from '../data/fluteAccessoriesFaqData';
+import { FLUTE_TYPES_FAQS } from '../data/fluteTypesFaqData';
 
 interface FluteFaqViewProps {
   onViewChange?: (view: AppView) => void;
@@ -1618,7 +1620,13 @@ Look for sellers who specialize exclusively in wind instruments, provide scale s
   // 8. MUSIC THEORY & TUNING
   ...MUSIC_THEORY_FAQS,
 
-  // 8. FLUTESANGAM PLATFORM & COMMUNITY
+  // 9. FLUTE ACCESSORIES (80 Comprehensive Questions)
+  ...FLUTE_ACCESSORIES_FAQS,
+
+  // 10. FLUTE TYPES (80 Comprehensive Questions)
+  ...FLUTE_TYPES_FAQS,
+
+  // 11. FLUTESANGAM PLATFORM & COMMUNITY
   {
     id: 'platform-what-is',
     category: 'FluteSangam Platform',
@@ -1661,6 +1669,8 @@ export const CATEGORIES = [
   'Flute Care & Maintenance',
   'Health & Breathing',
   'Music Theory & Tuning',
+  'Flute Accessories',
+  'Flute Types',
   'FluteSangam Platform'
 ];
 
@@ -1677,6 +1687,8 @@ export const CATEGORY_SLUGS: Record<string, string> = {
   'Flute Care & Maintenance': 'flute-care-and-maintenance',
   'Health & Breathing': 'health-and-breathing',
   'Music Theory & Tuning': 'music-theory-and-tuning',
+  'Flute Accessories': 'flute-accessories',
+  'Flute Types': 'flute-types',
   'FluteSangam Platform': 'flutesangam-platform',
 };
 
@@ -1700,6 +1712,13 @@ export const SLUG_TO_CATEGORY: Record<string, string> = {
   'health-breathing': 'Health & Breathing',
   'music-theory-and-tuning': 'Music Theory & Tuning',
   'music-theory-tuning': 'Music Theory & Tuning',
+  'flute-accessories': 'Flute Accessories',
+  'flute-accessory': 'Flute Accessories',
+  'accessories': 'Flute Accessories',
+  'flute-types': 'Flute Types',
+  'flute-type': 'Flute Types',
+  'types-of-flutes': 'Flute Types',
+  'types-of-flute': 'Flute Types',
   'flutesangam-platform': 'FluteSangam Platform',
 };
 
@@ -1816,6 +1835,14 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
       case 'Music Theory & Tuning':
         title = 'Music Theory & Tuning FAQ | Pitch, Tanpura & Microtones | FluteSangam';
         description = 'Answers to music theory and tuning questions: 440Hz tuning, Tanpura drone setup, microtones (Shrutis), and Hindustani notation systems.';
+        break;
+      case 'Flute Accessories':
+        title = 'Flute Accessories FAQ | Cases, Stands, Tuners & Mics | FluteSangam';
+        description = 'Comprehensive answers to 80 flute accessories questions: cases, covers, cleaning rods, microfiber cloths, stands, tanpura apps, tuners, microphones, travel bags, and gift recommendations.';
+        break;
+      case 'Flute Types':
+        title = 'Flute Types FAQ | Bansuri, PVC, Western, Bass & Piccolo | FluteSangam';
+        description = 'Comprehensive answers to 80 flute types questions: bamboo bansuri, PVC flutes, Western concert flutes, bass flutes, piccolos, key choices, and buying comparisons.';
         break;
       case 'FluteSangam Platform':
         title = 'FluteSangam Platform FAQ | Community, Features & Tools | FluteSangam';
