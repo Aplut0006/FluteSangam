@@ -260,8 +260,11 @@ export default function Navbar({
           <img 
             src="/flutesangam_without_tagline_compressed.png"
             alt="FluteSangam Logo" 
-            className="h-8 sm:h-9 lg:h-10 w-auto transition-transform group-hover:scale-105 shrink-0 object-contain drop-shadow-2xs" 
+            width="40"
+            height="40"
+            className="h-8 sm:h-9 lg:h-10 w-8 sm:w-9 lg:w-10 transition-transform group-hover:scale-105 shrink-0 object-contain drop-shadow-2xs" 
             loading="eager"
+            decoding="sync"
           />
           <span className="font-display font-extrabold text-lg sm:text-xl lg:text-2xl tracking-tight text-bamboo-950 group-hover:text-bamboo-800 transition-colors whitespace-nowrap">
             Flute<span className="text-amber-700">Sangam</span>

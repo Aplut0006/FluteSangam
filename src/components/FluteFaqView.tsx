@@ -2043,7 +2043,7 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
       </section>
 
       {/* FAQ Accordion List */}
-      <div className="space-y-4" id="faq-list-container">
+      <div className="space-y-4 min-h-[500px]" id="faq-list-container">
         <div className="flex items-center justify-between text-xs font-bold text-gray-500 px-1">
           <span>Showing {Math.min(visibleCount, filteredFaqs.length)} of {filteredFaqs.length} Questions</span>
           {selectedCategory !== 'All Categories' && (

@@ -60,7 +60,7 @@ const NotFoundView = lazyWithRetry(() => import('./components/NotFoundView'));
 const HomepageOverview = lazyWithRetry(() => import('./components/HomepageOverview'));
 
 const ViewFallbackLoader = () => (
-  <div className="flex flex-col items-center justify-center p-12 my-8 bg-white/60 backdrop-blur-md rounded-2xl border border-bamboo-100 shadow-3xs max-w-md mx-auto">
+  <div className="flex flex-col items-center justify-center p-12 my-8 bg-white/60 backdrop-blur-md rounded-2xl border border-bamboo-100 shadow-3xs max-w-md mx-auto min-h-[400px]">
     <div className="w-10 h-10 border-4 border-bamboo-600 border-t-transparent rounded-full animate-spin mb-3"></div>
     <p className="text-xs font-bold text-bamboo-900 tracking-wide">Loading FluteSangam Module...</p>
   </div>
@@ -1209,7 +1209,9 @@ export default function App() {
               <img 
                 src="/flutesangam_without_tagline_compressed.png"
                 alt="FluteSangam Logo" 
-                className="h-16 sm:h-20 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform" 
+                width="80"
+                height="80"
+                className="h-16 sm:h-20 w-16 sm:w-20 object-contain drop-shadow-md group-hover:scale-105 transition-transform shrink-0" 
                 loading="lazy"
               />
               <div>

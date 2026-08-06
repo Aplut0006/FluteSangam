@@ -115,7 +115,7 @@ export default function FlutePracticeFaqSection({ onViewChange }: FlutePracticeF
         </span>
       </div>
 
-      <div className="space-y-2">
+      <div className="space-y-2 min-h-[220px]">
         {FLUTE_PRACTICE_FAQS.map((faq, idx) => {
           const isOpen = openIndex === idx;
           return (
