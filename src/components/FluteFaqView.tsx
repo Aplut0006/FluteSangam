@@ -14,6 +14,8 @@ import { SCALES_AND_ALANKARS_FAQS } from '../data/scalesAndAlankarsFaqData';
 import { RAAGAS_FAQS } from '../data/raagasFaqData';
 import { MUSIC_THEORY_FAQS } from '../data/musicTheoryFaqData';
 import { FLUTE_CARE_FAQS } from '../data/fluteCareFaqData';
+import { HEALTH_AND_BREATHING_FAQS } from '../data/healthBreathingFaqData';
+import { ADVANCED_TECHNIQUES_FAQS } from '../data/advancedTechniquesFaqData';
 
 interface FluteFaqViewProps {
   onViewChange?: (view: AppView) => void;
@@ -1595,6 +1597,9 @@ Look for sellers who specialize exclusively in wind instruments, provide scale s
   // 3. PLAYING TECHNIQUES (60 Detailed Questions across 6 Subcategories)
   ...PLAYING_TECHNIQUES_FAQS,
 
+  // ADVANCED TECHNIQUES (80 Comprehensive Questions)
+  ...ADVANCED_TECHNIQUES_FAQS,
+
   // 4. DAILY PRACTICE & ROUTINES (60 Comprehensive Questions)
   ...DAILY_PRACTICE_FAQS,
 
@@ -1607,7 +1612,10 @@ Look for sellers who specialize exclusively in wind instruments, provide scale s
   // 6. FLUTE CARE & MAINTENANCE (80 Comprehensive Questions)
   ...FLUTE_CARE_FAQS,
 
-  // 7. MUSIC THEORY & TUNING
+  // 7. HEALTH & BREATHING (80 Comprehensive Questions)
+  ...HEALTH_AND_BREATHING_FAQS,
+
+  // 8. MUSIC THEORY & TUNING
   ...MUSIC_THEORY_FAQS,
 
   // 8. FLUTESANGAM PLATFORM & COMMUNITY
@@ -1646,10 +1654,12 @@ export const CATEGORIES = [
   'Learning the Flute',
   'Choosing the Right Flute',
   'Playing Techniques',
+  'Advanced Techniques',
   'Daily Practice',
   'Scales & Alankars',
   'Raagas',
   'Flute Care & Maintenance',
+  'Health & Breathing',
   'Music Theory & Tuning',
   'FluteSangam Platform'
 ];
@@ -1660,10 +1670,12 @@ export const CATEGORY_SLUGS: Record<string, string> = {
   'Learning the Flute': 'learning-the-flute',
   'Choosing the Right Flute': 'choosing-the-right-flute',
   'Playing Techniques': 'playing-techniques',
+  'Advanced Techniques': 'advanced-techniques',
   'Daily Practice': 'daily-practice',
   'Scales & Alankars': 'scales-and-alankars',
   'Raagas': 'raagas',
   'Flute Care & Maintenance': 'flute-care-and-maintenance',
+  'Health & Breathing': 'health-and-breathing',
   'Music Theory & Tuning': 'music-theory-and-tuning',
   'FluteSangam Platform': 'flutesangam-platform',
 };
@@ -1675,6 +1687,8 @@ export const SLUG_TO_CATEGORY: Record<string, string> = {
   'choosing-the-right-flute': 'Choosing the Right Flute',
   'choosing-a-flute': 'Choosing the Right Flute',
   'playing-techniques': 'Playing Techniques',
+  'advanced-techniques': 'Advanced Techniques',
+  'advanced-technique': 'Advanced Techniques',
   'daily-practice': 'Daily Practice',
   'scales-and-alankars': 'Scales & Alankars',
   'scales-and-alankaras': 'Scales & Alankars',
@@ -1682,6 +1696,8 @@ export const SLUG_TO_CATEGORY: Record<string, string> = {
   'raagas': 'Raagas',
   'flute-care-and-maintenance': 'Flute Care & Maintenance',
   'flute-care-maintenance': 'Flute Care & Maintenance',
+  'health-and-breathing': 'Health & Breathing',
+  'health-breathing': 'Health & Breathing',
   'music-theory-and-tuning': 'Music Theory & Tuning',
   'music-theory-tuning': 'Music Theory & Tuning',
   'flutesangam-platform': 'FluteSangam Platform',
@@ -1773,6 +1789,10 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
         title = 'Playing Techniques Flute FAQ | Meend, Gamak & Ornamentation | FluteSangam';
         description = 'Frequently asked questions about advanced bansuri playing techniques including Meend glides, Gamak oscillations, Komal notes, and breath control.';
         break;
+      case 'Advanced Techniques':
+        title = 'Advanced Flute Techniques FAQ | Meend, Gamak, Murki, Khatka & Kan Swar | FluteSangam';
+        description = 'Comprehensive answers to 80 advanced flute questions covering Meend, Gamak, Murki, Khatka, Kan Swar ornamentation, vibrato, and performance mastery on bansuri.';
+        break;
       case 'Daily Practice':
         title = 'Daily Flute Practice FAQ | Routines, Sadhana & Timing | FluteSangam';
         description = 'Answers to daily practice questions: practice routines, holding sustained notes (Kharaj), timing, tanpura practice, and daily sargam drills.';
@@ -1788,6 +1808,10 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
       case 'Flute Care & Maintenance':
         title = 'Flute Care & Maintenance FAQ | Oiling, Storage & Bamboo Protection | FluteSangam';
         description = 'Frequently asked questions about bamboo flute care, thread binding, oiling, crack prevention, temperature safety, and cleaning.';
+        break;
+      case 'Health & Breathing':
+        title = 'Health & Breathing Flute FAQ | Diaphragmatic Breath & Posture | FluteSangam';
+        description = 'Frequently asked questions about breathing techniques, lung capacity, diaphragmatic support, posture alignment, lip fatigue, hand health, and practice habits for flute players.';
         break;
       case 'Music Theory & Tuning':
         title = 'Music Theory & Tuning FAQ | Pitch, Tanpura & Microtones | FluteSangam';
