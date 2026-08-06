@@ -100,14 +100,15 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Brindavani Sarang", 
     level: "Beginner", 
-    description: "Monsoon scale using both natural and flat Ni; highly rhythmic.",
-    aaroh: "Sa Re Ma Pa Ni Sa'",
-    avroh: "Sa' Ni(komal) Pa Ma Re Sa",
+    description: "Serene pentatonic midday raga from Kafi Thaat omitting Ga and Dha; famous for its peaceful Vrindavan atmosphere and devotional character.",
+    aaroh: "S R M P N S'",
+    avroh: "S' N P M R S",
     vadi: "Re",
     samvadi: "Pa",
-    pakad: "Ni(komal) Pa Ma Re, Sa, Ni(lower) Sa",
-    time: "Late Morning / Afternoon",
-    mood: "Romantic, Monsoon"
+    pakad: "R M P, N P, M R, S",
+    time: "Midday (12 PM - 3 PM)",
+    mood: "Peaceful, Devotional, Bright",
+    link: "raga_brindavani_sarang"
   },
   { 
     name: "Raag Bhairav", 

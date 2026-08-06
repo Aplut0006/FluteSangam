@@ -992,12 +992,12 @@ S`;
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
-            { name: 'Raag Bilawal', view: 'raga_bilawal', description: 'Parent Thaat scale using all seven Shuddha notes; equivalent to Major scale.', difficulty: 'Beginner' },
+            { name: 'Raag Brindavani Sarang', view: 'raga_brindavani_sarang', description: 'Serene pentatonic midday raga from Kafi Thaat omitting Ga and Dha.', difficulty: 'Beginner' },
+            { name: 'Raag Bhimpalasi', view: 'raga_bhimpalasi', description: 'Peaceful afternoon raga from Kafi Thaat emphasizing Komal Ga and Komal Ni.', difficulty: 'Intermediate' },
             { name: 'Raag Desh', view: 'raga_desh', description: 'Monsoon evening scale with graceful glides and memorable descending phrases.', difficulty: 'Intermediate' },
+            { name: 'Raag Bageshree', view: 'raga_bageshree', description: 'Deeply romantic night melody using Komal Ga and Komal Ni with winding movements.', difficulty: 'Intermediate' },
             { name: 'Raag Bhoopali', view: 'raga_bhoopali', description: 'Peaceful pentatonic scale skipping Ma and Ni; rich in meditative calmness.', difficulty: 'Beginner' },
             { name: 'Raag Yaman', view: 'raga_yaman', description: 'Evening scale introducing Teevra Ma; foundation of classical improvisation.', difficulty: 'Beginner' },
-            { name: 'Raag Durga', view: 'raga_durga', description: 'Crisp pentatonic scale skipping Ga and Ni; peaceful evening mood.', difficulty: 'Beginner' },
-            { name: 'Raag Hamsadhwani', view: 'raga_hamsadhwani', description: 'Auspicious pentatonic raga from Shankarabharanam parent scale.', difficulty: 'Beginner' },
           ].map((raga, idx) => (
             <div 
               key={idx} 

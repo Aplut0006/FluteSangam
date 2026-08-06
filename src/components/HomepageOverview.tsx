@@ -207,7 +207,7 @@ export default function HomepageOverview({
             <div className="bg-white/10 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-white/20 shadow-lg space-y-3 shrink-0 lg:w-72 text-center lg:text-left">
               <div className="space-y-1">
                 <span className="text-[10px] font-extrabold uppercase tracking-widest text-amber-300 block">Start Learning Now</span>
-                <p className="text-xs text-white font-semibold">Join a growing community of flute lovers.</p>
+                <p className="text-xs text-white font-semibold">Join a growing community of flute lovers</p>
               </div>
 
               <div className="space-y-2">
@@ -368,7 +368,7 @@ export default function HomepageOverview({
             onClick={() => onViewChange('learn_raagas')}
             className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 text-xs font-bold rounded-xl transition self-start sm:self-center cursor-pointer shadow-2xs group"
           >
-            <span>View All 9 Raagas</span>
+            <span>View All 10 Raagas</span>
             <ArrowRight className="w-4 h-4 text-amber-700 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>

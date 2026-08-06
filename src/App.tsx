@@ -47,6 +47,7 @@ const RagaDeshView = lazyWithRetry(() => import('./components/RagaDeshView'));
 const RagaKafiView = lazyWithRetry(() => import('./components/RagaKafiView'));
 const RagaBageshreeView = lazyWithRetry(() => import('./components/RagaBageshreeView'));
 const RagaBhimpalasiView = lazyWithRetry(() => import('./components/RagaBhimpalasiView'));
+const RagaBrindavaniSarangView = lazyWithRetry(() => import('./components/RagaBrindavaniSarangView'));
 const MembersView = lazyWithRetry(() => import('./components/MembersView'));
 const ImageModal = lazyWithRetry(() => import('./components/ImageModal'));
 const AboutUsView = lazyWithRetry(() => import('./components/AboutUsView'));
@@ -214,6 +215,10 @@ export default function App() {
       case 'raga_bhimpalasi':
         title = 'Raag Bhimpalasi: Complete Guide, Notes, Aaroh, Avaroh & Practice | FluteSangam';
         description = 'Master Raag Bhimpalasi on Indian Bamboo Flute (Bansuri). Complete guide with Swara playback, Pakad, Chalan, original Alankars, and the practice piece Madhur Vela.';
+        break;
+      case 'raga_brindavani_sarang':
+        title = 'Raag Brindavani Sarang: Complete Guide, Notes, Aaroh, Avaroh & Practice | FluteSangam';
+        description = 'Master Raag Brindavani Sarang on Indian Bamboo Flute (Bansuri). Step-by-step guide with Swara playback, Pakad, Chalan, 45-min practice routine, alankars, and practice piece Vrindavan Prabhat.';
         break;
       case 'notation_requests':
         title = 'Song Notation Requests | FluteSangam Sargam';
@@ -548,6 +553,7 @@ export default function App() {
       view === 'raga_kafi' ||
       view === 'raga_bageshree' ||
       view === 'raga_bhimpalasi' ||
+      view === 'raga_brindavani_sarang' ||
       view === 'community_members' ||
       view === 'about_us' ||
       view === 'founder' ||
@@ -820,10 +826,10 @@ export default function App() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 sm:pt-6 flex-1 w-full pb-24 md:pb-12" id="main-content-layout">
         {/* Global Navigation Top Bar for Subpages */}
         {currentView !== 'community' && (
-          <div className="mb-4 sm:mb-6 flex items-center justify-between gap-3 bg-white/90 backdrop-blur-md px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-2xl border border-amber-200/80 shadow-xs" id="global-top-back-bar">
+          <div className="mb-3 sm:mb-6 flex items-center justify-between gap-2 bg-white/95 backdrop-blur-md px-3 sm:px-4 py-2 sm:py-2.5 rounded-2xl border border-amber-200/80 shadow-xs" id="global-top-back-bar">
             <button
               onClick={handleGoBack}
-              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-amber-50 hover:bg-amber-100 text-bamboo-950 text-xs sm:text-sm font-bold border border-amber-300/80 shadow-2xs hover:shadow-xs transition-all cursor-pointer group shrink-0"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-amber-50 hover:bg-amber-100 text-bamboo-950 text-xs sm:text-sm font-bold border border-amber-300/80 shadow-2xs hover:shadow-xs transition-all cursor-pointer group shrink-0"
               title="Go back to previous page"
               id="global-back-btn"
             >
@@ -831,19 +837,20 @@ export default function App() {
               <span>Back</span>
             </button>
 
-            <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5">
+            <div className="flex items-center gap-2 shrink-0">
               <button
                 onClick={() => handleViewChange('community')}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-bamboo-800 hover:text-bamboo-950 hover:bg-amber-100/60 transition cursor-pointer shrink-0"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-bamboo-900 bg-amber-100/70 hover:bg-amber-200/80 border border-amber-300/60 transition cursor-pointer shrink-0"
                 id="global-feed-btn"
+                title="Go to Home"
               >
-                <Home className="w-3.5 h-3.5 text-amber-600" />
-                <span>Community Feed</span>
+                <Home className="w-3.5 h-3.5 text-amber-700" />
+                <span>Home</span>
               </button>
 
               <button
                 onClick={() => handleViewChange('flute_faq')}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer shrink-0 ${
+                className={`hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer shrink-0 ${
                   currentView === 'flute_faq'
                     ? 'text-amber-900 bg-amber-200/90 shadow-2xs'
                     : 'text-amber-950 bg-amber-100/70 hover:bg-amber-200/80 border border-amber-300/60'
@@ -857,7 +864,7 @@ export default function App() {
               {(currentView.startsWith('learn_') || currentView.startsWith('raga_') || currentView === 'alankar_generator') && (
                 <button
                   onClick={() => handleViewChange('learn_dashboard')}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-amber-900 bg-amber-100/70 hover:bg-amber-200/80 transition cursor-pointer shrink-0"
+                  className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold text-amber-900 bg-amber-100/70 hover:bg-amber-200/80 transition cursor-pointer shrink-0"
                   id="global-learn-hub-btn"
                 >
                   <BookOpen className="w-3.5 h-3.5 text-amber-700" />
@@ -956,6 +963,8 @@ export default function App() {
           <RagaBageshreeView onViewChange={handleViewChange} />
         ) : currentView === 'raga_bhimpalasi' ? (
           <RagaBhimpalasiView onViewChange={handleViewChange} />
+        ) : currentView === 'raga_brindavani_sarang' ? (
+          <RagaBrindavaniSarangView onViewChange={handleViewChange} />
         ) : currentView === 'about_us' ? (
           <AboutUsView onViewChange={handleViewChange} />
         ) : currentView === 'founder' ? (

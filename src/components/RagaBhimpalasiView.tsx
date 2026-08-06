@@ -1018,11 +1018,11 @@ Finish on Sam: S`;
 
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
           {[
+            { name: 'Raag Brindavani Sarang', view: 'raga_brindavani_sarang' as AppView },
             { name: 'Raag Kafi', view: 'raga_kafi' as AppView },
             { name: 'Raag Bageshree', view: 'raga_bageshree' as AppView },
             { name: 'Raag Desh', view: 'raga_desh' as AppView },
             { name: 'Raag Yaman', view: 'raga_yaman' as AppView },
-            { name: 'Raag Durga', view: 'raga_durga' as AppView },
           ].map((raga, idx) => (
             <button
               key={idx}
