@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   HelpCircle, Search, ChevronDown, BookOpen, Music, Wind, 
@@ -7,6 +8,10 @@ import {
   Calendar, Info, RefreshCw, Layers, CircleDot, Filter, AlertTriangle, LifeBuoy, Plus
 } from 'lucide-react';
 import { AppView } from '../types';
+import { DAILY_PRACTICE_FAQS } from '../data/dailyPracticeFaqData';
+import { PLAYING_TECHNIQUES_FAQS } from '../data/playingTechniquesFaqData';
+import { SCALES_AND_ALANKARS_FAQS } from '../data/scalesAndAlankarsFaqData';
+import { RAAGAS_FAQS } from '../data/raagasFaqData';
 
 interface FluteFaqViewProps {
   onViewChange?: (view: AppView) => void;
@@ -1585,146 +1590,17 @@ Look for sellers who specialize exclusively in wind instruments, provide scale s
     tags: ['where to buy', 'reliable makers', 'punam flutes', 'bansuri sellers']
   },
 
-  // 3. PLAYING TECHNIQUES
-  {
-    id: 'tech-no-sound',
-    category: 'Playing Techniques',
-    question: 'Why is my flute not producing any sound when I blow into it?',
-    answer: `Not producing sound initially is the single most common hurdle for new flute players! Unlike a recorder or whistle with a enclosed mouthpiece, a transverse bamboo flute relies on your lips to form a focused air jet across the blow hole (embouchure hole).
+  // 3. PLAYING TECHNIQUES (60 Detailed Questions across 6 Subcategories)
+  ...PLAYING_TECHNIQUES_FAQS,
 
-Here are 4 steps to produce your first sound:
-1. Cover Half the Hole: Place the edge of the blow hole gently against the dip of your lower lip, covering approximately 25% to 30% of the hole with your lip.
-2. Form a Small Aperture: Relax your lips and form a tiny, tight oval opening in the center (like blowing out a candle flame gently or sipping through a straw).
-3. Air Angle: Aim the air stream downward against the outer edge of the blowing hole—not straight inside the tube. Approximately 50% of the air should go into the flute, and 50% should split over the rim.
-4. Keep Holes Open First: Do not cover any finger holes initially. Focus purely on getting a clear, open sound from the bare flute.`,
-    relatedLink: { text: 'Read Step-by-Step Embouchure Guide', view: 'learn_basics' },
-    tags: ['no sound', 'embouchure', 'blowing technique', 'troubleshooting']
-  },
-  {
-    id: 'tech-breath-control',
-    category: 'Playing Techniques',
-    question: 'How can I improve my breath control and sustain long notes on the flute?',
-    answer: `Breath control on the bansuri relies on Diaphragmatic Breathing—the same deep abdominal technique used by vocalists and yoga practitioners.
+  // 4. DAILY PRACTICE & ROUTINES (60 Comprehensive Questions)
+  ...DAILY_PRACTICE_FAQS,
 
-Key practices to dramatically expand your breath control:
-- Diaphragmatic Engagement: Inhale deeply into your abdomen so your belly expands, rather than shallow chest breathing that raises your shoulders.
-- Long Swara Practice (Kharaj Riaz): Spend 15 minutes every morning holding single notes (especially Sa and Pa) with a steady Tanpura drone. Use a timer to aim for 15, 20, or 25 seconds per sustained breath.
-- Eliminate Air Waste: A sharp, focused lip aperture prevents excess air leakage around the blowing hole, doubling your breath duration instantly.
-- Posture Alignment: Stand upright or sit with a straight spine and open chest to allow full lung expansion.`,
-    relatedLink: { text: 'See Breath Control Exercises in Practice Guide', view: 'learn_daily_practice' },
-    tags: ['breath control', 'diaphragm', 'long blows', 'tone']
-  },
-  {
-    id: 'tech-high-notes',
-    category: 'Playing Techniques',
-    question: 'Why are higher octave notes (Taar Saptak) screeching or difficult to play?',
-    answer: `Notes in the upper octave (Taar Saptak) require faster air velocity and a slightly tighter, smaller lip aperture—NOT harder or louder blowing!
+  // 5. SCALES & ALANKARS (50 Detailed Questions)
+  ...SCALES_AND_ALANKARS_FAQS,
 
-Common reasons high notes screech or fail:
-1. Blowing Harder Instead of Faster: Forceful blowing causes harsh, airy squeaks. Instead, compress your lip aperture slightly to create a thinner, faster jet stream of air.
-2. Incomplete Finger Seals: Even a micro-gap in any closed finger hole will prevent high notes from resonating cleanly.
-3. Air Angle Adjustment: Slightly rolling the flute outward or directing the air jet slightly higher over the blowing edge helps higher frequencies ignite smoothly.`,
-    relatedLink: { text: 'View Interactive Fingering Chart for Octaves', view: 'learn_fingering_chart' },
-    tags: ['high notes', 'taar saptak', 'octaves', 'squeaking']
-  },
-  {
-    id: 'tech-finger-speed',
-    category: 'Playing Techniques',
-    question: 'How do I increase my finger speed and agility on the flute?',
-    answer: `Finger speed is a byproduct of relaxation, economy of motion, and precise muscle memory—not muscular force.
-
-Rules for rapid, clean finger movement:
-- Stay Relaxed: Ensure your fingers, wrists, and shoulders are completely free of tension. Tense muscles move slowly.
-- Minimal Finger Lift: Lift your finger pads only 5 to 10 millimeters above the holes. Excessively high finger lifting wastes motion and slows down transitions.
-- Use Metronome Gradual Speedups: Practice Alankar drills at a slow tempo (e.g., 60 BPM) where every note is perfectly crisp. Only increase the metronome by 5 BPM once you achieve flawless execution.
-- Flat Finger Pads: In Indian bansuri, use the soft pads of your fingers (Pannalal Ghosh style) rather than fingertips to cover finger holes cleanly.`,
-    relatedLink: { text: 'Practice Custom Alankars with Generator', view: 'alankar_generator' },
-    tags: ['finger speed', 'agility', 'metronome', 'alankars']
-  },
-
-  // 4. DAILY PRACTICE & ROUTINES
-  {
-    id: 'prac-ideal-routine',
-    category: 'Daily Practice',
-    question: 'What is the ideal daily practice routine for bansuri players?',
-    answer: `A well-rounded daily practice routine (Sadhana) balances tone development, finger technique, rhythm stability, and musical creativity.
-
-Here is a recommended 45-minute daily structure:
-1. Warmup & Long Blows (15 Mins): Sustaining Sa, Pa, and lower octave Swaras (Kharaj) with a Tanpura drone at 440Hz.
-2. Sargam & Alankar Agility (15 Mins): Practicing 3 to 4 Alankars in different tempos (Vilambit, Madhya, Drut) using a metronome.
-3. Scale & Swara Accuracy (10 Mins): Playing octaves and smooth octave jumps without pitch breaking.
-4. Repertoire & Song Practice (15 Mins): Learning compositions, Bandish, or improvising freely over a Raag scale.`,
-    relatedLink: { text: 'Read Detailed Daily Practice Blueprint', view: 'learn_daily_practice' },
-    tags: ['practice routine', 'sadhana', 'alankar', 'tanpura']
-  },
-  {
-    id: 'prac-daily-scales',
-    category: 'Daily Practice',
-    question: 'Should I practice Alankars and scales every single day?',
-    answer: `Yes, daily Alankar practice is the single most effective exercise for developing pitch accuracy, rhythm alignment, and finger coordination on the bansuri. Alankars act as the fundamental gymnastics for your fingers and mind.
-
-Even advanced virtuosos start their daily practice with basic Alankars. Practicing Alankars in double speed (Dugun) and quadruple speed (Chougun) sharpens your subconscious muscle memory, making complex song melodies and raag taans feel effortlessly smooth.`,
-    relatedLink: { text: 'Generate Unlimited Sargam Alankars', view: 'alankar_generator' },
-    tags: ['alankars', 'daily practice', 'sargam']
-  },
-  {
-    id: 'prac-avoid-bad-habits',
-    category: 'Daily Practice',
-    question: 'How do I identify and prevent bad habits during self-practice?',
-    answer: `Preventing bad physical habits early saves months of re-learning later. The most common bad habits include hunching shoulders, curling fingers awkwardly, pressing too hard on finger holes, and blowing with puffed cheeks.
-
-Tips to maintain good practice habits:
-- Mirror Practice: Practice in front of a mirror or record yourself on your smartphone camera weekly to check posture and finger position.
-- Tune Regularly: Always practice with a live Tanpura drone or flute tuner to calibrate your ears to correct pitch.
-- Check Physical Tension: If your hands or lip muscles feel sore, stop immediately, shake out your arms, and relax before continuing.`,
-    relatedLink: { text: 'Read Common Flute Mistakes & Fixes', view: 'learn_common_mistakes' },
-    tags: ['bad habits', 'posture', 'self-correction']
-  },
-
-  // 5. RAAGAS & CLASSICAL MUSIC
-  {
-    id: 'raag-first-raag',
-    category: 'Raagas',
-    question: 'Which Raag should beginners learn first on the bansuri?',
-    answer: `Raag Bhoopali (also known as Bhupali or Mohanam in Carnatic music) is universally recommended as the first classical raag for bansuri beginners.
-
-Why Raag Bhoopali is ideal:
-- Audava-Audava Structure: It is a pentatonic (5-note) scale using only Shuddha (natural) swaras: Sa, Re, Ga, Pa, Dha.
-- No Complex Swaras: It excludes Ma and Ni, eliminating difficult half-hole half-note finger placements for beginners.
-- Soothing Melody: Its majestic, uplifting evening mood makes it easy to internalize melodies and practice simple Aalap and Bandish compositions.
-
-Other great secondary raagas for beginners include Raag Durga, Raag Yaman, and Raag Desh.`,
-    relatedLink: { text: 'Explore Complete Raag Bhoopali Guide', view: 'raga_bhoopali' },
-    tags: ['raag bhoopali', 'beginner raag', 'classical music']
-  },
-  {
-    id: 'raag-vs-scale',
-    category: 'Raagas',
-    question: 'What is the difference between a Raag and a Western scale?',
-    answer: `While a Western scale is simply a collection of notes arranged in ascending or descending order (like C Major or A Minor), a Raag is a rich, living musical framework governed by specific aesthetic rules, emotional moods (Rasa), time of day, and melodic movements.
-
-A Raag includes:
-- Aaroh & Avaroh: Specific ascending and descending swara paths.
-- Vadi & Samvadi: Primary and secondary dominant notes that carry the raag's soul.
-- Pakad & Chalan: Signature characteristic phrases that immediately identify the raag.
-- Emotional Character: Raagas evoke specific emotions—such as devotion (Bhakti), tranquility (Shanta), or longing (Sringara)—and are traditionally rendered at specific times of day or seasons.`,
-    relatedLink: { text: 'Browse All Classical Raga Guides', view: 'learn_raagas' },
-    tags: ['raag vs scale', 'music theory', 'aaroh avaroh']
-  },
-  {
-    id: 'raag-without-guru',
-    category: 'Raagas',
-    question: 'Can I learn Raagas without a traditional Guru?',
-    answer: `While a Guru traditionally imparts the subtle nuances and soul of a Raag, enthusiastic self-learners can definitely learn the foundational structures, compositions, and swara rules of raagas using modern educational tools, high-quality audio recordings, and structured guides.
-
-To learn raagas effectively on your own:
-1. Listen Extensively: Listen to classical bansuri masters (like Pandit Hariprasad Chaurasia, Pandit Pannalal Ghosh, or Rakesh Chaurasia) playing the target raag for dozens of hours.
-2. Master the Skeleton: Learn the Aaroh, Avaroh, Pakad, and key swara rules thoroughly.
-3. Learn Standard Compositions (Bandish): Practice fixed traditional compositions in Teental or Jhaptal to understand rhythmic phrasing.
-4. Share Recitals for Feedback: Post your raag practice in community forums like FluteSangam to get guidance from senior players.`,
-    relatedLink: { text: 'Explore Raga Lessons Hub', view: 'learn_raagas' },
-    tags: ['guru', 'self-study', 'raagas', 'listening']
-  },
+  // 6. RAAGAS & CLASSICAL MUSIC (60 Comprehensive Questions)
+  ...RAAGAS_FAQS,
 
   // 6. FLUTE CARE & MAINTENANCE
   {
@@ -1811,28 +1687,151 @@ export const CATEGORIES = [
   'Choosing the Right Flute',
   'Playing Techniques',
   'Daily Practice',
+  'Scales & Alankars',
   'Raagas',
   'Flute Care & Maintenance',
   'Music Theory & Tuning',
   'FluteSangam Platform'
 ];
 
+export const CATEGORY_SLUGS: Record<string, string> = {
+  'All Categories': '',
+  'Getting Started': 'getting-started',
+  'Learning the Flute': 'learning-the-flute',
+  'Choosing the Right Flute': 'choosing-the-right-flute',
+  'Playing Techniques': 'playing-techniques',
+  'Daily Practice': 'daily-practice',
+  'Scales & Alankars': 'scales-and-alankars',
+  'Raagas': 'raagas',
+  'Flute Care & Maintenance': 'flute-care-and-maintenance',
+  'Music Theory & Tuning': 'music-theory-and-tuning',
+  'FluteSangam Platform': 'flutesangam-platform',
+};
+
+export const SLUG_TO_CATEGORY: Record<string, string> = {
+  '': 'All Categories',
+  'getting-started': 'Getting Started',
+  'learning-the-flute': 'Learning the Flute',
+  'choosing-the-right-flute': 'Choosing the Right Flute',
+  'choosing-a-flute': 'Choosing the Right Flute',
+  'playing-techniques': 'Playing Techniques',
+  'daily-practice': 'Daily Practice',
+  'scales-and-alankars': 'Scales & Alankars',
+  'scales-and-alankaras': 'Scales & Alankars',
+  'scales-alankars': 'Scales & Alankars',
+  'raagas': 'Raagas',
+  'flute-care-and-maintenance': 'Flute Care & Maintenance',
+  'flute-care-maintenance': 'Flute Care & Maintenance',
+  'music-theory-and-tuning': 'Music Theory & Tuning',
+  'music-theory-tuning': 'Music Theory & Tuning',
+  'flutesangam-platform': 'FluteSangam Platform',
+};
+
 export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
-  const [selectedCategory, setSelectedCategory] = useState<string>('All Categories');
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Map current URL pathname to category name
+  const currentPathCategory = useMemo(() => {
+    const path = location.pathname;
+    if (path === '/faq' || path === '/faq/') {
+      return 'All Categories';
+    }
+    if (path.startsWith('/faq/')) {
+      const slug = path.replace('/faq/', '').split('/')[0].toLowerCase().trim();
+      return SLUG_TO_CATEGORY[slug] || 'All Categories';
+    }
+    return 'All Categories';
+  }, [location.pathname]);
+
+  const [selectedCategory, setSelectedCategory] = useState<string>(currentPathCategory);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [expandedFaqId, setExpandedFaqId] = useState<string | null>('start-what-is-bamboo-flute');
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [helpfulFeedback, setHelpfulFeedback] = useState<Record<string, 'yes' | 'no'>>({});
   const [visibleCount, setVisibleCount] = useState<number>(10);
 
+  // Sync category state when URL changes (e.g., via browser Back/Forward or direct link)
+  useEffect(() => {
+    if (selectedCategory !== currentPathCategory) {
+      setSelectedCategory(currentPathCategory);
+    }
+  }, [currentPathCategory]);
+
+  const handleCategorySelect = (cat: string) => {
+    let targetCategory = cat;
+    // If user clicks on the currently active category (and it's not 'All Categories'), unselect back to 'All Categories'
+    if (cat === selectedCategory && cat !== 'All Categories') {
+      targetCategory = 'All Categories';
+    }
+
+    setSelectedCategory(targetCategory);
+    if (searchQuery) {
+      setSearchQuery('');
+    }
+
+    // Update URL route dynamically
+    const slug = CATEGORY_SLUGS[targetCategory] || '';
+    const targetUrl = slug ? `/faq/${slug}` : '/faq';
+    if (location.pathname !== targetUrl) {
+      navigate(targetUrl);
+    }
+  };
+
   // Reset pagination when category or search changes
   useEffect(() => {
     setVisibleCount(10);
   }, [selectedCategory, searchQuery]);
 
-  // Inject SEO Title and Meta Description dynamically
+  // Inject dynamic SEO Title, Meta Description, and Canonical Link based on selected category
   useEffect(() => {
-    document.title = 'Flute FAQ | Common Questions & Answers for Flute Learners | FluteSangam';
+    let title = 'Flute FAQ | Common Questions & Answers for Flute Learners | FluteSangam';
+    let description = 'Find answers to common flute questions about learning, practice, bamboo flutes, raagas, breathing, maintenance, and more. Explore the FluteSangam FAQ for helpful guidance';
+
+    switch (selectedCategory) {
+      case 'Getting Started':
+        title = 'Getting Started Flute FAQ | Beginner Bansuri Questions & Answers | FluteSangam';
+        description = 'Answers to common beginner questions on getting started with Indian bamboo flute (bansuri), initial posture, first notes, and learning tips.';
+        break;
+      case 'Learning the Flute':
+        title = 'Learning the Flute FAQ | Bansuri Practice & Sound Production | FluteSangam';
+        description = 'Frequently asked questions about learning the flute, blowing techniques, fingering mastery, sound production, and posture on Indian bamboo flutes.';
+        break;
+      case 'Choosing the Right Flute':
+        title = 'Choosing the Right Flute FAQ | Scales, Base vs Medium Bansuri | FluteSangam';
+        description = 'Frequently asked questions on how to choose the right flute scale, C Middle vs A Base vs G Base, bamboo quality, and beginner recommendations.';
+        break;
+      case 'Playing Techniques':
+        title = 'Playing Techniques Flute FAQ | Meend, Gamak & Ornamentation | FluteSangam';
+        description = 'Frequently asked questions about advanced bansuri playing techniques including Meend glides, Gamak oscillations, Komal notes, and breath control.';
+        break;
+      case 'Daily Practice':
+        title = 'Daily Flute Practice FAQ | Routines, Sadhana & Timing | FluteSangam';
+        description = 'Answers to daily practice questions: practice routines, holding sustained notes (Kharaj), timing, tanpura practice, and daily sargam drills.';
+        break;
+      case 'Scales & Alankars':
+        title = 'Scales & Alankars Flute FAQ | Sargam Patterns & Finger Speed | FluteSangam';
+        description = 'Frequently asked questions about Alankar finger drills, sargam patterns, building finger speed, metronome practice, and scale transposing.';
+        break;
+      case 'Raagas':
+        title = 'Raagas & Classical Music FAQ | Hindustani Raga Rules & Practice | FluteSangam';
+        description = 'Answers to classical raga questions: Aroh-Avroh, Pakad, Vadi-Samvadi, Chalan, Aalap, Bandish, Taans, and daily raga practice for bansuri.';
+        break;
+      case 'Flute Care & Maintenance':
+        title = 'Flute Care & Maintenance FAQ | Oiling, Storage & Bamboo Protection | FluteSangam';
+        description = 'Frequently asked questions about bamboo flute care, thread binding, oiling, crack prevention, temperature safety, and cleaning.';
+        break;
+      case 'Music Theory & Tuning':
+        title = 'Music Theory & Tuning FAQ | Pitch, Tanpura & Microtones | FluteSangam';
+        description = 'Answers to music theory and tuning questions: 440Hz tuning, Tanpura drone setup, microtones (Shrutis), and Hindustani notation systems.';
+        break;
+      case 'FluteSangam Platform':
+        title = 'FluteSangam Platform FAQ | Community, Features & Tools | FluteSangam';
+        description = 'Frequently asked questions about FluteSangam: posting audio recitals, requesting song notations, using the tuner, and connecting with flutists.';
+        break;
+    }
+
+    document.title = title;
     
     // Set or update Meta Description tag
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -1841,32 +1840,46 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
       metaDescription.setAttribute('name', 'description');
       document.head.appendChild(metaDescription);
     }
-    metaDescription.setAttribute(
-      'content',
-      'Find answers to common flute questions about learning, practice, bamboo flutes, raagas, breathing, maintenance, and more. Explore the FluteSangam FAQ for helpful guidance'
-    );
+    metaDescription.setAttribute('content', description);
 
-    // Scroll smoothly to top on load
+    // Set or update Canonical Link tag
+    const slug = CATEGORY_SLUGS[selectedCategory] || '';
+    const canonicalUrl = `https://flutesangam.com/faq${slug ? '/' + slug : ''}`;
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonicalLink);
+    }
+    canonicalLink.setAttribute('href', canonicalUrl);
+
+    // Scroll smoothly to top when category changes
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
+  }, [selectedCategory]);
 
   // Filter FAQs based on active category & live search text
   const filteredFaqs = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+
     return FAQ_DATA.filter((faq) => {
+      // When a user searches in the FAQ, search across ALL categories
+      if (query) {
+        const matchesQuestion = faq.question.toLowerCase().includes(query);
+        const matchesAnswer = faq.answer.toLowerCase().includes(query);
+        const matchesCategoryText = faq.category.toLowerCase().includes(query);
+        const matchesTags = faq.tags?.some(tag => tag.toLowerCase().includes(query));
+
+        return matchesQuestion || matchesAnswer || matchesCategoryText || matchesTags;
+      }
+
+      // When there is no search query, filter by selected category
       const matchesCategory =
         selectedCategory === 'All Categories' ||
         faq.category === selectedCategory ||
         ((selectedCategory === 'Choosing a Flute' || selectedCategory === 'Choosing the Right Flute') &&
          (faq.category === 'Choosing a Flute' || faq.category === 'Choosing the Right Flute'));
-      const query = searchQuery.trim().toLowerCase();
-      if (!query) return matchesCategory;
 
-      const matchesQuestion = faq.question.toLowerCase().includes(query);
-      const matchesAnswer = faq.answer.toLowerCase().includes(query);
-      const matchesCategoryText = faq.category.toLowerCase().includes(query);
-      const matchesTags = faq.tags?.some(tag => tag.toLowerCase().includes(query));
-
-      return matchesCategory && (matchesQuestion || matchesAnswer || matchesCategoryText || matchesTags);
+      return matchesCategory;
     });
   }, [selectedCategory, searchQuery]);
 
@@ -1881,17 +1894,13 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
     setVisibleCount(prev => prev + 10);
   };
 
-  const handleShowAll = () => {
-    setVisibleCount(filteredFaqs.length);
-  };
-
   const toggleExpand = (id: string) => {
     setExpandedFaqId(prev => (prev === id ? null : id));
   };
 
   const handleCopyLink = (id: string, e: React.MouseEvent) => {
     e.stopPropagation();
-    const url = `${window.location.origin}/faq#${id}`;
+    const url = `${window.location.origin}${location.pathname}#${id}`;
     navigator.clipboard.writeText(url);
     setCopiedId(id);
     setTimeout(() => setCopiedId(null), 2500);
@@ -1974,15 +1983,24 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
           <input
             type="text"
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search any question (e.g., 'breath control', 'Raag Bhoopali', 'C Medium', 'cracks')..."
+            onChange={(e) => {
+              const val = e.target.value;
+              setSearchQuery(val);
+              if (val.trim() && selectedCategory !== 'All Categories') {
+                handleCategorySelect('All Categories');
+              }
+            }}
+            placeholder="Search any question across all categories (e.g., 'breath control', 'embouchure', 'C Medium', 'squeak')..."
             className="w-full pl-11 pr-10 py-3 bg-amber-50/50 border border-amber-300/80 rounded-xl text-sm font-medium text-bamboo-950 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all shadow-inner"
             id="faq-search-input"
           />
           {searchQuery && (
             <button
-              onClick={() => setSearchQuery('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold bg-amber-200 hover:bg-amber-300 text-amber-950 px-2 py-1 rounded-md transition"
+              onClick={() => {
+                setSearchQuery('');
+                handleCategorySelect('All Categories');
+              }}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold bg-amber-200 hover:bg-amber-300 text-amber-950 px-2 py-1 rounded-md transition cursor-pointer"
               title="Clear search"
             >
               Clear
@@ -2004,7 +2022,7 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
             return (
               <button
                 key={cat}
-                onClick={() => setSelectedCategory(cat)}
+                onClick={() => handleCategorySelect(cat)}
                 className={`px-3.5 py-1.5 rounded-xl font-bold whitespace-nowrap transition-all cursor-pointer flex items-center gap-1.5 shrink-0 ${
                   isActive
                     ? 'bg-amber-600 text-white shadow-xs border border-amber-700'
@@ -2045,13 +2063,31 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
       {/* FAQ Accordion List */}
       <div className="space-y-4 min-h-[500px]" id="faq-list-container">
         <div className="flex items-center justify-between text-xs font-bold text-gray-500 px-1">
-          <span>Showing {Math.min(visibleCount, filteredFaqs.length)} of {filteredFaqs.length} Questions</span>
-          {selectedCategory !== 'All Categories' && (
+          <span>
+            Showing {Math.min(visibleCount, filteredFaqs.length)} of {filteredFaqs.length} Questions
+            {searchQuery.trim() && (
+              <span className="ml-2 text-amber-900 font-bold bg-amber-100 border border-amber-300 px-2.5 py-0.5 rounded-full text-[11px] inline-flex items-center gap-1">
+                Searched across All Categories
+              </span>
+            )}
+          </span>
+          {selectedCategory !== 'All Categories' && !searchQuery.trim() && (
             <button 
-              onClick={() => setSelectedCategory('All Categories')} 
+              onClick={() => handleCategorySelect('All Categories')} 
               className="text-amber-700 hover:underline cursor-pointer"
             >
               Reset Category Filter
+            </button>
+          )}
+          {searchQuery.trim() && (
+            <button 
+              onClick={() => {
+                setSearchQuery('');
+                handleCategorySelect('All Categories');
+              }} 
+              className="text-amber-700 hover:underline cursor-pointer"
+            >
+              Clear Search
             </button>
           )}
         </div>
@@ -2219,14 +2255,6 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
                   <Plus className="w-4 h-4" />
                   <span>Load More Questions ({filteredFaqs.length - visibleCount} remaining)</span>
                   <ChevronDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
-                </button>
-
-                <button
-                  type="button"
-                  onClick={handleShowAll}
-                  className="w-full sm:w-auto px-5 py-3 bg-amber-100 hover:bg-amber-200 text-amber-950 font-bold text-xs sm:text-sm rounded-xl transition cursor-pointer"
-                >
-                  Show All {filteredFaqs.length} Questions
                 </button>
               </div>
             )}

@@ -167,6 +167,16 @@ export default function HomepageOverview({
       gradient: 'from-amber-500/15 via-bamboo-500/5 to-transparent',
       borderColor: 'border-amber-200'
     },
+    {
+      title: 'Flute FAQ Knowledge Base',
+      description: 'Find instant answers to common questions on bamboo flute selection, blowing, tuning, raagas, and care.',
+      view: 'flute_faq' as AppView,
+      icon: HelpCircle,
+      badge: '100+ Q&A Guides',
+      features: ['Search Any Topic', 'Categories & Tips', 'Shareable Links'],
+      gradient: 'from-amber-500/15 via-amber-400/5 to-transparent',
+      borderColor: 'border-amber-200'
+    },
   ];
 
   return (
@@ -209,6 +219,13 @@ export default function HomepageOverview({
                   <span>Explore Learning Hub</span>
                 </button>
                 <button
+                  onClick={() => onViewChange('flute_faq')}
+                  className="w-full py-2 px-4 bg-amber-500/20 hover:bg-amber-500/35 text-amber-100 font-bold text-xs rounded-xl border border-amber-300/40 transition flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <HelpCircle className="w-3.5 h-3.5 text-amber-300" />
+                  <span>Flute FAQ Center</span>
+                </button>
+                <button
                   onClick={() => {
                     const el = document.getElementById('recent-discussions-section');
                     if (el) {
@@ -229,6 +246,13 @@ export default function HomepageOverview({
           {/* Quick Nav Pills Bar */}
           <div className="pt-4 border-t border-amber-800/60 flex items-center gap-2 overflow-x-auto scrollbar-none pb-1">
             <span className="text-xs font-bold text-amber-300 shrink-0 uppercase tracking-wider mr-1 hidden sm:inline-block">Quick Sections:</span>
+            <button
+              onClick={() => onViewChange('flute_faq')}
+              className="px-3 py-1.5 bg-amber-400/30 hover:bg-amber-400/45 text-white rounded-xl text-xs font-bold whitespace-nowrap border border-amber-300/50 transition flex items-center gap-1.5 cursor-pointer shrink-0"
+            >
+              <HelpCircle className="w-3.5 h-3.5 text-amber-300" />
+              <span>Flute FAQ</span>
+            </button>
             <a href="#learn-flute-section" className="px-3 py-1.5 bg-amber-500/20 hover:bg-amber-500/30 text-amber-100 rounded-xl text-xs font-semibold whitespace-nowrap border border-amber-400/30 transition flex items-center gap-1.5">
               <BookOpen className="w-3.5 h-3.5 text-amber-300" />
               <span>Learn Flute</span>
@@ -587,7 +611,14 @@ export default function HomepageOverview({
             </p>
           </div>
 
-          <div className="flex items-center gap-2 shrink-0">
+          <div className="flex flex-wrap items-center gap-2 shrink-0">
+            <button
+              onClick={() => onViewChange('flute_faq')}
+              className="px-3.5 py-1.5 bg-amber-600 hover:bg-amber-700 text-white border border-amber-700 text-xs font-bold rounded-xl transition cursor-pointer flex items-center gap-1.5 shadow-2xs"
+            >
+              <HelpCircle className="w-3.5 h-3.5 text-white" />
+              <span>Flute FAQ Center</span>
+            </button>
             <button
               onClick={() => onViewChange('about_us')}
               className="px-3.5 py-1.5 bg-amber-50 hover:bg-amber-100 text-bamboo-900 border border-amber-200 text-xs font-bold rounded-xl transition cursor-pointer"

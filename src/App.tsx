@@ -364,6 +364,11 @@ export default function App() {
       breadcrumbItems.push({ '@type': 'ListItem', 'position': 3, 'name': title, 'item': `https://flutesangam.com/learn#${currentView}` });
     } else if (currentView === 'learn_tuner') {
       breadcrumbItems.push({ '@type': 'ListItem', 'position': 2, 'name': 'Bansuri Tuner', 'item': 'https://flutesangam.com/tuner' });
+    } else if (currentView === 'flute_faq') {
+      breadcrumbItems.push({ '@type': 'ListItem', 'position': 2, 'name': 'Flute FAQ', 'item': 'https://flutesangam.com/faq' });
+      if (location.pathname.startsWith('/faq/')) {
+        breadcrumbItems.push({ '@type': 'ListItem', 'position': 3, 'name': title, 'item': `https://flutesangam.com${location.pathname}` });
+      }
     }
 
     const breadcrumbSchema = {
@@ -483,6 +488,10 @@ export default function App() {
     } else if (path === '/terms' || path === '/terms-of-service') {
         if (currentView !== 'terms_of_service') {
             handleViewChange('terms_of_service', {}, false);
+        }
+    } else if (path === '/faq' || path.startsWith('/faq/')) {
+        if (currentView !== 'flute_faq') {
+            handleViewChange('flute_faq', {}, false);
         }
     } else if (path === '/community') {
         if (currentView !== 'community') {
@@ -830,6 +839,19 @@ export default function App() {
               >
                 <Home className="w-3.5 h-3.5 text-amber-600" />
                 <span>Community Feed</span>
+              </button>
+
+              <button
+                onClick={() => handleViewChange('flute_faq')}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer shrink-0 ${
+                  currentView === 'flute_faq'
+                    ? 'text-amber-900 bg-amber-200/90 shadow-2xs'
+                    : 'text-amber-950 bg-amber-100/70 hover:bg-amber-200/80 border border-amber-300/60'
+                }`}
+                id="global-faq-btn"
+              >
+                <HelpCircle className="w-3.5 h-3.5 text-amber-700" />
+                <span>Flute FAQ</span>
               </button>
 
               {(currentView.startsWith('learn_') || currentView.startsWith('raga_') || currentView === 'alankar_generator') && (

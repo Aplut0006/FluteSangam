@@ -4,7 +4,7 @@ import { VIEW_URLS } from '../routes';
 import { auth } from '../lib/firebase';
 import { signOut } from 'firebase/auth';
 import { updateUserProfile, isEmailTaken, isPhoneTaken, isUsernameTaken, deleteUserAccount } from '../lib/db';
-import { Music, LogOut, User, Globe, Edit3, Check, X, ShieldAlert, Sparkles, MapPin, Feather, Phone, Mail, Camera, Upload, MessageSquare, Wind, BookOpen, ChevronDown, Users, Zap, Menu, Info, Radio, Trash2, Sliders, CircleDot } from 'lucide-react';
+import { Music, LogOut, User, Globe, Edit3, Check, X, ShieldAlert, Sparkles, MapPin, Feather, Phone, Mail, Camera, Upload, MessageSquare, Wind, BookOpen, ChevronDown, Users, Zap, Menu, Info, Radio, Trash2, Sliders, CircleDot, HelpCircle } from 'lucide-react';
 import { CARTOON_AVATARS } from './AuthModal';
 import NotificationsDropdown from './NotificationsDropdown';
 
@@ -442,15 +442,45 @@ export default function Navbar({
                     onViewChange?.('learn_raagas');
                     setShowLearnDropdown(false);
                   }}
-                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition cursor-pointer block"
+                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 cursor-pointer block"
                 >
                   Classical Raagas
+                </a>
+                <a
+                  href={VIEW_URLS['flute_faq'] || '/faq'}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onViewChange?.('flute_faq');
+                    setShowLearnDropdown(false);
+                  }}
+                  className="w-full text-left px-4 py-2.5 text-xs font-bold text-amber-900 bg-amber-50/70 hover:bg-amber-100/80 transition cursor-pointer flex items-center justify-between"
+                >
+                  <span className="flex items-center gap-2">
+                    <HelpCircle className="w-3.5 h-3.5 text-amber-600" />
+                    <span>Flute FAQ Knowledge Base</span>
+                  </span>
+                  <span className="text-[9px] bg-amber-200 text-amber-950 font-black px-1.5 py-0.5 rounded-full">FAQ</span>
                 </a>
               </div>
             )}
           </div>
 
-          {/* 4. Sangam Chats (Only visible when user is signed in) */}
+          {/* 4. Flute FAQ (Top-level Button) */}
+          <a
+            href={VIEW_URLS['flute_faq'] || '/faq'}
+            onClick={(e) => { e.preventDefault(); onViewChange?.('flute_faq'); }}
+            className={`px-2.5 xl:px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
+              currentView === 'flute_faq'
+                ? 'bg-amber-600 text-white shadow-xs'
+                : 'text-amber-950 bg-amber-50/90 hover:bg-amber-100/80 border border-amber-200/80'
+            }`}
+            title="Flute FAQ Knowledge Base"
+          >
+            <HelpCircle className={`w-3.5 h-3.5 ${currentView === 'flute_faq' ? 'text-white' : 'text-amber-700'}`} />
+            <span>Flute FAQ</span>
+          </a>
+
+          {/* 5. Sangam Chats (Only visible when user is signed in) */}
           {currentUser && (
             <a
               href={VIEW_URLS['chats'] || '/chats'}
@@ -653,6 +683,18 @@ export default function Navbar({
                   <span>Notations</span>
                 </button>
 
+                <button
+                  onClick={() => { onViewChange?.('flute_faq'); setShowMobileMenu(false); }}
+                  className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
+                    currentView === 'flute_faq'
+                      ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
+                      : 'bg-amber-100/70 text-amber-950 border-amber-300/80 hover:bg-amber-200/80'
+                  }`}
+                >
+                  <HelpCircle className={`w-4 h-4 shrink-0 ${currentView === 'flute_faq' ? 'text-white' : 'text-amber-700'}`} />
+                  <span>Flute FAQ</span>
+                </button>
+
                 {currentUser && (
                   <button
                     onClick={() => { onViewChange?.('community_members'); setShowMobileMenu(false); }}
@@ -732,9 +774,19 @@ export default function Navbar({
                   </button>
                   <button
                     onClick={() => { onViewChange?.('learn_raagas'); setShowMobileMenu(false); }}
-                    className="w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 cursor-pointer"
+                    className="w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
                   >
                     6. Indian Classical Raagas
+                  </button>
+                  <button
+                    onClick={() => { onViewChange?.('flute_faq'); setShowMobileMenu(false); }}
+                    className="w-full text-left text-xs font-bold text-amber-900 hover:text-bamboo-950 py-2 cursor-pointer flex items-center justify-between pt-2"
+                  >
+                    <span className="flex items-center gap-1.5">
+                      <HelpCircle className="w-3.5 h-3.5 text-amber-600" />
+                      <span>7. Flute FAQ Center</span>
+                    </span>
+                    <span className="text-[9px] bg-amber-100 text-amber-800 font-bold px-1.5 py-0.5 rounded-full uppercase">FAQ</span>
                   </button>
                 </div>
               )}
