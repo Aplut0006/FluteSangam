@@ -1776,6 +1776,14 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
     if (location.pathname !== targetUrl) {
       navigate(targetUrl);
     }
+
+    // Scroll smoothly to the first question / FAQ list
+    setTimeout(() => {
+      const container = document.getElementById('faq-list-container');
+      if (container) {
+        container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 50);
   };
 
   // Reset pagination when category or search changes
@@ -2061,7 +2069,7 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
       </section>
 
       {/* FAQ Accordion List */}
-      <div className="space-y-4 min-h-[500px]" id="faq-list-container">
+      <div className="space-y-4 min-h-[500px] scroll-mt-28" id="faq-list-container">
         <div className="flex items-center justify-between text-xs font-bold text-gray-500 px-1">
           <span>
             Showing {Math.min(visibleCount, filteredFaqs.length)} of {filteredFaqs.length} Questions
