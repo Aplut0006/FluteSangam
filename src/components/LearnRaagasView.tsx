@@ -264,6 +264,13 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
                       <ArrowRight className="w-4 h-4" />
                     </button>
                     <button
+                      onClick={() => onViewChange?.('raga_bhairav')}
+                      className="bg-amber-900 hover:bg-amber-950 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition flex items-center gap-2 shadow-sm cursor-pointer"
+                    >
+                      <span>Raag Bhairav Guide ("Pratah Dhyan")</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                    <button
                       onClick={() => onViewChange?.('raga_khamaj')}
                       className="bg-rose-900 hover:bg-rose-950 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition flex items-center gap-2 shadow-sm cursor-pointer"
                     >

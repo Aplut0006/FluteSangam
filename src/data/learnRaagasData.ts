@@ -120,7 +120,8 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
     samvadi: "Re",
     pakad: "Ga Ma Dha(komal) Dha(komal) Pa, Ga Ma Re(komal) Re(komal) Sa",
     time: "Early Morning",
-    mood: "Solemn, Meditative"
+    mood: "Solemn, Meditative",
+    link: "raga_bhairav"
   },
   { 
     name: "Raag Bhimpalasi", 
