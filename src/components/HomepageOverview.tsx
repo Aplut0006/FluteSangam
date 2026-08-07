@@ -238,7 +238,7 @@ export default function HomepageOverview({
               </h1>
 
               <p className="text-xs sm:text-base text-amber-100/90 leading-relaxed font-sans max-w-2xl" itemProp="description">
-                <strong>FluteSangam</strong> is an open educational platform dedicated to Indian Bamboo Flute (Bansuri) learning. Discover step-by-step beginner tutorials, interactive fingering charts, authentic Hindustani classical raga guides, daily alankar practice drills, online tuner tools, and a collaborative community feed.
+                <strong>FluteSangam</strong> is an open platform for learning flute, exploring classical ragas, practicing sargam notations, using practice tools, and connecting with flutists worldwide. Explore practical guides, practice resources, and a growing collection of flute-related content for learners at different stages.
               </p>
             </div>
 
