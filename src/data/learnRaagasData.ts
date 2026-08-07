@@ -150,14 +150,15 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Khamaj", 
     level: "Intermediate", 
-    description: "Uses natural Ni ascending and flat Ni descending; the foundation for romantic Thumri expressions.",
-    aaroh: "Sa Ga Ma Pa Dha Ni Sa'",
-    avroh: "Sa' Ni(komal) Dha Pa Ma Ga Re Sa",
+    description: "Graceful and expressive raga from Khamaj Thaat using Shuddha Ni ascending and Komal Ni descending; famous for its romantic and playful character.",
+    aaroh: "S G M P D N S'",
+    avroh: "S' n D P M G R S",
     vadi: "Ga",
     samvadi: "Ni",
-    pakad: "Ni(lower) Dha(lower) Sa, Ga Ma Pa Dha Ma Ga, Re Sa",
-    time: "Late Evening",
-    mood: "Romantic, Playful"
+    pakad: "G M P D M G, R S, n D P, M G R S",
+    time: "Second Quarter of Night (9 PM - 12 AM)",
+    mood: "Romantic, Graceful, Devotional",
+    link: "raga_khamaj"
   },
   { 
     name: "Raag Asavari", 

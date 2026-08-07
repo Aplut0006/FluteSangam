@@ -442,24 +442,9 @@ export default function Navbar({
                     onViewChange?.('learn_raagas');
                     setShowLearnDropdown(false);
                   }}
-                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition border-b border-bamboo-50 cursor-pointer block"
+                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-bamboo-50 hover:text-bamboo-800 transition cursor-pointer block"
                 >
                   Classical Raagas
-                </a>
-                <a
-                  href={VIEW_URLS['flute_faq'] || '/faq'}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onViewChange?.('flute_faq');
-                    setShowLearnDropdown(false);
-                  }}
-                  className="w-full text-left px-4 py-2.5 text-xs font-bold text-amber-900 bg-amber-50/70 hover:bg-amber-100/80 transition cursor-pointer flex items-center justify-between"
-                >
-                  <span className="flex items-center gap-2">
-                    <HelpCircle className="w-3.5 h-3.5 text-amber-600" />
-                    <span>Flute FAQ Knowledge Base</span>
-                  </span>
-                  <span className="text-[9px] bg-amber-200 text-amber-950 font-black px-1.5 py-0.5 rounded-full">FAQ</span>
                 </a>
               </div>
             )}
@@ -774,19 +759,9 @@ export default function Navbar({
                   </button>
                   <button
                     onClick={() => { onViewChange?.('learn_raagas'); setShowMobileMenu(false); }}
-                    className="w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
+                    className="w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 cursor-pointer"
                   >
                     6. Indian Classical Raagas
-                  </button>
-                  <button
-                    onClick={() => { onViewChange?.('flute_faq'); setShowMobileMenu(false); }}
-                    className="w-full text-left text-xs font-bold text-amber-900 hover:text-bamboo-950 py-2 cursor-pointer flex items-center justify-between pt-2"
-                  >
-                    <span className="flex items-center gap-1.5">
-                      <HelpCircle className="w-3.5 h-3.5 text-amber-600" />
-                      <span>7. Flute FAQ Center</span>
-                    </span>
-                    <span className="text-[9px] bg-amber-100 text-amber-800 font-bold px-1.5 py-0.5 rounded-full uppercase">FAQ</span>
                   </button>
                 </div>
               )}
