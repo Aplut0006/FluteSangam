@@ -50,11 +50,11 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
   const featuredGuides = [
     { name: 'Raag Bhoopali', view: 'raga_bhoopali', title: 'Prabhat Prerna', level: 'Beginner', color: 'bg-amber-600 hover:bg-amber-700' },
     { name: 'Raag Durga', view: 'raga_durga', title: 'Shant Dhara', level: 'Beginner', color: 'bg-emerald-600 hover:bg-emerald-700' },
-    { name: 'Raag Yaman', view: 'raga_yaman', title: 'Sandhya Prakash', level: 'Beginner', color: 'bg-indigo-600 hover:bg-indigo-700' },
+    { name: 'Raag Yaman', view: 'raga_yaman', title: 'Sandhya Prakash', level: 'Beginner', color: 'bg-amber-700 hover:bg-amber-800' },
     { name: 'Raag Hamsadhwani', view: 'raga_hamsadhwani', title: 'Udaya Sur', level: 'Beginner', color: 'bg-rose-600 hover:bg-rose-700' },
-    { name: 'Raag Bilawal', view: 'raga_bilawal', title: 'Pratah Sur', level: 'Beginner', color: 'bg-amber-700 hover:bg-amber-800' },
+    { name: 'Raag Bilawal', view: 'raga_bilawal', title: 'Pratah Sur', level: 'Beginner', color: 'bg-amber-800 hover:bg-amber-900' },
     { name: 'Raag Brindavani Sarang', view: 'raga_brindavani_sarang', title: 'Vrindavan Prabhat', level: 'Beginner', color: 'bg-teal-600 hover:bg-teal-700' },
-    { name: 'Raag Desh', view: 'raga_desh', title: 'Sandhya Vihar', level: 'Intermediate', color: 'bg-blue-600 hover:bg-blue-700' },
+    { name: 'Raag Desh', view: 'raga_desh', title: 'Sandhya Vihar', level: 'Intermediate', color: 'bg-orange-700 hover:bg-orange-800' },
     { name: 'Raag Kafi', view: 'raga_kafi', title: 'Komal Sur Lahari', level: 'Intermediate', color: 'bg-bamboo-800 hover:bg-bamboo-900' },
     { name: 'Raag Bhimpalasi', view: 'raga_bhimpalasi', title: 'Madhur Vela', level: 'Intermediate', color: 'bg-amber-800 hover:bg-amber-900' },
     { name: 'Raag Bageshree', view: 'raga_bageshree', title: 'Nisha Dhwani', level: 'Intermediate', color: 'bg-purple-700 hover:bg-purple-800' },
@@ -92,7 +92,7 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
     if (t.includes('morning') || t.includes('dawn') || t.includes('pratah')) {
       return <Sun className="w-3.5 h-3.5 text-amber-500" />;
     } else if (t.includes('night') || t.includes('evening') || t.includes('sandhya')) {
-      return <Moon className="w-3.5 h-3.5 text-indigo-500" />;
+      return <Moon className="w-3.5 h-3.5 text-amber-600" />;
     }
     return <Compass className="w-3.5 h-3.5 text-teal-500" />;
   };
@@ -238,16 +238,16 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
-        className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-950 via-bamboo-950 to-slate-900 text-white p-6 md:p-10 shadow-xl border border-indigo-500/20"
+        className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-950 via-bamboo-950 to-stone-900 text-white p-6 md:p-10 shadow-xl border border-amber-500/20"
       >
         {/* Background Ambient Glowing Orbs */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none animate-pulse"></div>
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none animate-pulse"></div>
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none"></div>
 
         <div className="relative z-10 space-y-6">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div className="flex items-center gap-4">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-amber-500 to-indigo-600 p-0.5 shadow-lg shadow-indigo-500/20">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-600 p-0.5 shadow-lg shadow-amber-500/20">
                 <div className="w-full h-full bg-slate-900/90 backdrop-blur-md rounded-[14px] flex items-center justify-center">
                   <Music className="w-8 h-8 text-amber-400 animate-bounce" style={{ animationDuration: '3s' }} />
                 </div>
@@ -263,30 +263,30 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
             </div>
 
             {/* Microdata Signals & Timestamps */}
-            <div className="flex flex-wrap items-center gap-2.5 text-xs text-indigo-200/90 bg-indigo-900/40 border border-indigo-500/30 backdrop-blur-md rounded-2xl px-4 py-2.5 shrink-0">
+            <div className="flex flex-wrap items-center gap-2.5 text-xs text-amber-100/90 bg-amber-950/60 border border-amber-500/30 backdrop-blur-md rounded-2xl px-4 py-2.5 shrink-0">
               <div className="flex items-center gap-1.5">
                 <Calendar className="w-3.5 h-3.5 text-amber-400" />
-                <span className="text-indigo-300/80">Published:</span>
+                <span className="text-amber-200/80">Published:</span>
                 <time itemProp="datePublished" dateTime="2026-07-26T00:00:00Z" className="font-semibold text-white">
                   Jul 26, 2026
                 </time>
               </div>
-              <span className="text-indigo-500/60">•</span>
+              <span className="text-amber-500/60">•</span>
               <div className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-amber-400" />
-                <span className="text-indigo-300/80">Updated:</span>
+                <span className="text-amber-200/80">Updated:</span>
                 <time itemProp="dateModified" dateTime="2026-07-27T10:00:00Z" className="font-semibold text-white">
                   Jul 27, 2026
                 </time>
               </div>
-              <span className="text-indigo-500/60">•</span>
+              <span className="text-amber-500/60">•</span>
               <span className="inline-flex items-center gap-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold px-2.5 py-0.5 rounded-full text-[11px]">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> Verified Lesson
               </span>
             </div>
           </div>
 
-          <p className="text-indigo-100/90 text-base md:text-lg max-w-3xl leading-relaxed font-light">
+          <p className="text-amber-100/90 text-base md:text-lg max-w-3xl leading-relaxed font-light">
             In Indian classical music, a <strong className="text-amber-300 font-semibold">Raaga</strong> is an acoustic framework designed to <em className="italic text-white">"color the mind"</em> and evoke deep emotional states (<strong className="text-emerald-300 font-semibold">Rasa</strong>). Explore structural grammar, swara scales, signature pakad phrases, and step-by-step flute guides.
           </p>
 
@@ -294,19 +294,19 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
             <div className="bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-sm">
               <span className="text-2xl font-black text-amber-400 font-mono">12+</span>
-              <p className="text-xs text-indigo-200/80 font-medium">Core Classical Raags</p>
+              <p className="text-xs text-amber-200/80 font-medium">Core Classical Raags</p>
             </div>
             <div className="bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-sm">
               <span className="text-2xl font-black text-emerald-400 font-mono">12</span>
-              <p className="text-xs text-indigo-200/80 font-medium">Full Flute Guides</p>
+              <p className="text-xs text-amber-200/80 font-medium">Full Flute Guides</p>
             </div>
             <div className="bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-sm">
-              <span className="text-2xl font-black text-indigo-300 font-mono">3</span>
-              <p className="text-xs text-indigo-200/80 font-medium">Skill Level Tiers</p>
+              <span className="text-2xl font-black text-amber-300 font-mono">3</span>
+              <p className="text-xs text-amber-200/80 font-medium">Skill Level Tiers</p>
             </div>
             <div className="bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-sm">
               <span className="text-2xl font-black text-rose-400 font-mono">22</span>
-              <p className="text-xs text-indigo-200/80 font-medium">Microtonal Shrutis</p>
+              <p className="text-xs text-amber-200/80 font-medium">Microtonal Shrutis</p>
             </div>
           </div>
         </div>
@@ -317,7 +317,7 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-5">
           <div>
             <h2 className="text-2xl font-extrabold font-display text-slate-900 dark:text-white flex items-center gap-2">
-              <BookOpen className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+              <BookOpen className="w-6 h-6 text-amber-600 dark:text-amber-400" />
               Mastering Raga Theory & Pillars
             </h2>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
@@ -341,19 +341,19 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
                   onClick={() => setActiveTab(t.id as ConceptTab)}
                   className={`relative px-3.5 py-2 rounded-xl text-xs font-bold transition-colors flex items-center gap-1.5 cursor-pointer ${
                     isActive
-                      ? 'text-indigo-900 dark:text-white shadow-xs'
+                      ? 'text-amber-950 dark:text-white shadow-xs'
                       : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                   }`}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="activeConceptTab"
-                      className="absolute inset-0 bg-white dark:bg-slate-700 rounded-xl border border-slate-200/80 dark:border-slate-600 shadow-xs"
+                      className="absolute inset-0 bg-white dark:bg-slate-700 rounded-xl border border-amber-200/80 dark:border-slate-600 shadow-xs"
                       transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                     />
                   )}
                   <span className="relative z-10 flex items-center gap-1.5">
-                    <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-indigo-600 dark:text-indigo-400' : ''}`} />
+                    <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-amber-600 dark:text-amber-400' : ''}`} />
                     {t.label}
                   </span>
                 </button>
@@ -374,18 +374,18 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
           >
             {activeTab === 'grammar' && (
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-4 bg-indigo-50/50 dark:bg-slate-800/50 p-5 rounded-2xl border border-indigo-100 dark:border-slate-700">
-                  <h3 className="font-bold text-indigo-900 dark:text-indigo-300 text-base flex items-center gap-2">
-                    <Layers className="w-4 h-4 text-indigo-600" />
+                <div className="space-y-4 bg-amber-50/50 dark:bg-slate-800/50 p-5 rounded-2xl border border-amber-100 dark:border-slate-700">
+                  <h3 className="font-bold text-amber-900 dark:text-amber-300 text-base flex items-center gap-2">
+                    <Layers className="w-4 h-4 text-amber-600" />
                     Scale Grammar & Direction
                   </h3>
                   <ul className="space-y-3 text-xs md:text-sm">
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 mt-2 shrink-0"></span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-600 mt-2 shrink-0"></span>
                       <span><strong>Aroha &amp; Avroha:</strong> The linear path ascending up the scale and descending down. Paths can be straight or <em>Vakra</em> (zig-zag).</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 mt-2 shrink-0"></span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-600 mt-2 shrink-0"></span>
                       <span><strong>Varjit Swaras:</strong> Strictly prohibited notes. Omitting a single note transforms the entire scale and character.</span>
                     </li>
                   </ul>
@@ -437,9 +437,9 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
             )}
 
             {activeTab === 'time' && (
-              <div className="bg-gradient-to-r from-amber-500/10 via-slate-100 dark:via-slate-800 to-indigo-500/10 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-3">
+              <div className="bg-gradient-to-r from-amber-500/10 via-slate-100 dark:via-slate-800 to-orange-500/10 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-3">
                 <h3 className="font-bold text-slate-900 dark:text-white text-base flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-indigo-600" />
+                  <Clock className="w-4 h-4 text-amber-600" />
                   Samay Chakra (24-Hour Time & Seasonal Cycle)
                 </h3>
                 <p className="text-xs md:text-sm leading-relaxed">
@@ -474,7 +474,7 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
             placeholder="Search raaga by name, swaras, time, or mood..."
-            className="w-full pl-10 pr-9 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs md:text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition"
+            className="w-full pl-10 pr-9 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs md:text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition"
           />
           {searchQuery && (
             <button
@@ -488,7 +488,7 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
 
         {/* Level Filters */}
         <div className="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0">
-          <Filter className="w-4 h-4 text-indigo-500 shrink-0 mr-1 hidden sm:block" />
+          <Filter className="w-4 h-4 text-amber-600 shrink-0 mr-1 hidden sm:block" />
           {(['All', 'Beginner', 'Intermediate', 'Advanced'] as Difficulty[]).map(lvl => {
             const isSelected = filter === lvl;
             return (
@@ -497,7 +497,7 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
                 onClick={() => setFilter(lvl)}
                 className={`relative px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                   isSelected
-                    ? 'text-white bg-indigo-600 shadow-md shadow-indigo-500/20'
+                    ? 'text-white bg-amber-700 shadow-md shadow-amber-600/20'
                     : 'text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700'
                 }`}
               >
@@ -515,7 +515,7 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="bg-gradient-to-br from-amber-500/10 via-indigo-500/5 to-emerald-500/10 border border-amber-300/60 dark:border-amber-500/30 rounded-3xl p-6 shadow-sm space-y-4"
+            className="bg-gradient-to-br from-amber-500/10 via-orange-500/5 to-emerald-500/10 border border-amber-300/60 dark:border-amber-500/30 rounded-3xl p-6 shadow-sm space-y-4"
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -562,7 +562,7 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
-              className="text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1 cursor-pointer"
+              className="text-amber-700 dark:text-amber-400 hover:underline flex items-center gap-1 cursor-pointer"
             >
               <RotateCcw className="w-3 h-3" /> Clear search filter
             </button>
@@ -580,16 +580,16 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: Math.min(idx * 0.05, 0.3) }}
-                className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 md:p-7 shadow-xs hover:shadow-md hover:border-indigo-300 dark:hover:border-indigo-700 transition-all group relative overflow-hidden"
+                className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 md:p-7 shadow-xs hover:shadow-md hover:border-amber-400 dark:hover:border-amber-600 transition-all group relative overflow-hidden"
               >
                 {/* Top Header Row */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100 dark:border-slate-800">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-100 dark:border-indigo-800/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400 font-bold shrink-0">
+                    <div className="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/50 border border-amber-200 dark:border-amber-800/50 flex items-center justify-center text-amber-700 dark:text-amber-400 font-bold shrink-0">
                       <Music className="w-5 h-5" />
                     </div>
                     <div>
-                      <h3 className="text-xl md:text-2xl font-black font-display text-slate-900 dark:text-white m-0 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                      <h3 className="text-xl md:text-2xl font-black font-display text-slate-900 dark:text-white m-0 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">
                         {raaga.name}
                       </h3>
                       <div className="flex items-center gap-2 mt-0.5 text-xs text-slate-500 dark:text-slate-400">
@@ -612,7 +612,7 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
                       className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer border ${
                         isPlaying
                           ? 'bg-amber-500 text-white border-amber-600 shadow-xs animate-pulse'
-                          : 'bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-800 hover:bg-indigo-100'
+                          : 'bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 border-amber-200 dark:border-amber-800 hover:bg-amber-100'
                       }`}
                       title="Play C# Flute Scale Audio Preview"
                     >
@@ -650,9 +650,9 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
                     <span className="text-sm font-extrabold text-amber-950 dark:text-amber-200">{raaga.vadi}</span>
                   </div>
 
-                  <div className="bg-indigo-50/60 dark:bg-indigo-950/30 p-3 rounded-xl border border-indigo-200/60 dark:border-indigo-800/40">
-                    <span className="text-[10px] font-bold text-indigo-800 dark:text-indigo-400 uppercase tracking-wider block mb-0.5">Samvadi (Queen Note)</span>
-                    <span className="text-sm font-extrabold text-indigo-950 dark:text-indigo-200">{raaga.samvadi}</span>
+                  <div className="bg-orange-50/60 dark:bg-orange-950/30 p-3 rounded-xl border border-orange-200/60 dark:border-orange-800/40">
+                    <span className="text-[10px] font-bold text-orange-800 dark:text-orange-400 uppercase tracking-wider block mb-0.5">Samvadi (Queen Note)</span>
+                    <span className="text-sm font-extrabold text-orange-950 dark:text-orange-200">{raaga.samvadi}</span>
                   </div>
 
                   <div className="bg-emerald-50/60 dark:bg-emerald-950/30 p-3 rounded-xl border border-emerald-200/60 dark:border-emerald-800/40 sm:col-span-1 col-span-2">
@@ -671,7 +671,7 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
                   <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex justify-end">
                     <button
                       onClick={() => onViewChange?.(guideRoute)}
-                      className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition flex items-center gap-2 shadow-xs cursor-pointer group"
+                      className="bg-amber-700 hover:bg-amber-800 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition flex items-center gap-2 shadow-xs cursor-pointer group"
                     >
                       <span>Read Step-by-Step {raaga.name} Guide</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -693,7 +693,7 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
                 setFilter('All');
                 setSearchQuery('');
               }}
-              className="bg-indigo-600 text-white font-bold px-4 py-2 rounded-xl text-xs hover:bg-indigo-700 transition cursor-pointer"
+              className="bg-amber-700 text-white font-bold px-4 py-2 rounded-xl text-xs hover:bg-amber-800 transition cursor-pointer"
             >
               Reset Filters
             </button>
