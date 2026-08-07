@@ -43,6 +43,7 @@ export default function HomepageOverview({
       difficulty: 'Beginner', 
       badge: 'Essential Classical',
       notes: '\'N R G M\' P D N S\'',
+      avaroh: 'S\' N D P M\' G R S',
       mood: 'Tranquil & Romantic',
       color: 'from-amber-500/10 to-orange-500/10'
     },
@@ -55,6 +56,7 @@ export default function HomepageOverview({
       difficulty: 'Beginner', 
       badge: 'Popular Starter',
       notes: 'S R G P D S\'',
+      avaroh: 'S\' D P G R S',
       mood: 'Peaceful & Devotional',
       color: 'from-amber-500/10 to-bamboo-500/10'
     },
@@ -67,6 +69,7 @@ export default function HomepageOverview({
       difficulty: 'Beginner', 
       badge: 'Energetic Pentatonic',
       notes: 'S R M P D S\'',
+      avaroh: 'S\' D P M R S',
       mood: 'Bold & Heroic',
       color: 'from-amber-500/10 to-emerald-500/10'
     },
@@ -79,6 +82,7 @@ export default function HomepageOverview({
       difficulty: 'Intermediate', 
       badge: 'Romantic Classic',
       notes: 'S G M P D N S\'',
+      avaroh: 'S\' n D P M G R S',
       mood: 'Expressive & Sensual',
       color: 'from-amber-500/10 to-rose-500/10'
     },
@@ -459,9 +463,15 @@ export default function HomepageOverview({
                 </div>
 
                 {/* Swara Notes Preview */}
-                <div className="bg-bamboo-950 text-amber-200 p-2.5 rounded-xl text-xs font-mono flex items-center justify-between border border-amber-800/40">
-                  <span className="text-[10px] text-amber-400/80 uppercase tracking-widest font-sans font-bold">Aaroh:</span>
-                  <span className="font-bold tracking-widest">{raga.notes}</span>
+                <div className="bg-bamboo-950 text-amber-200 p-2.5 rounded-xl text-[11px] font-mono space-y-1.5 border border-amber-800/40">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] text-amber-400/80 uppercase tracking-widest font-sans font-bold shrink-0">Aaroh:</span>
+                    <span className="font-bold tracking-wider text-right">{raga.notes}</span>
+                  </div>
+                  <div className="flex items-center justify-between border-t border-amber-900/60 pt-1.5">
+                    <span className="text-[10px] text-amber-400/80 uppercase tracking-widest font-sans font-bold shrink-0">Avaroh:</span>
+                    <span className="font-bold tracking-wider text-right">{raga.avaroh}</span>
+                  </div>
                 </div>
 
                 <p className="text-[11px] text-gray-600 flex items-center gap-1.5 pt-1">
