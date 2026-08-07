@@ -8,6 +8,8 @@ import {
   Calendar, Info, RefreshCw, Layers, CircleDot, Filter, AlertTriangle, LifeBuoy, Plus
 } from 'lucide-react';
 import { AppView } from '../types';
+import { GETTING_STARTED_FAQS } from '../data/gettingStartedFaqData';
+import { LEARNING_THE_FLUTE_FAQS } from '../data/learningTheFluteFaqData';
 import { DAILY_PRACTICE_FAQS } from '../data/dailyPracticeFaqData';
 import { PLAYING_TECHNIQUES_FAQS } from '../data/playingTechniquesFaqData';
 import { SCALES_AND_ALANKARS_FAQS } from '../data/scalesAndAlankarsFaqData';
@@ -18,6 +20,8 @@ import { HEALTH_AND_BREATHING_FAQS } from '../data/healthBreathingFaqData';
 import { ADVANCED_TECHNIQUES_FAQS } from '../data/advancedTechniquesFaqData';
 import { FLUTE_ACCESSORIES_FAQS } from '../data/fluteAccessoriesFaqData';
 import { FLUTE_TYPES_FAQS } from '../data/fluteTypesFaqData';
+import { TUNING_AND_PITCH_FAQS } from '../data/tuningAndPitchFaqData';
+import { CHILDREN_AND_BEGINNERS_FAQS } from '../data/childrenAndBeginnersFaqData';
 
 interface FluteFaqViewProps {
   onViewChange?: (view: AppView) => void;
@@ -36,6 +40,50 @@ export interface FaqItem {
 }
 
 export const FAQ_DATA: FaqItem[] = [
+  ...GETTING_STARTED_FAQS,
+  ...LEARNING_THE_FLUTE_FAQS,
+  ...PLAYING_TECHNIQUES_FAQS,
+  ...ADVANCED_TECHNIQUES_FAQS,
+  ...DAILY_PRACTICE_FAQS,
+  ...SCALES_AND_ALANKARS_FAQS,
+  ...RAAGAS_FAQS,
+  ...FLUTE_CARE_FAQS,
+  ...HEALTH_AND_BREATHING_FAQS,
+  ...CHILDREN_AND_BEGINNERS_FAQS,
+  ...MUSIC_THEORY_FAQS,
+  ...TUNING_AND_PITCH_FAQS,
+  ...FLUTE_ACCESSORIES_FAQS,
+  ...FLUTE_TYPES_FAQS,
+  {
+    id: 'platform-what-is',
+    category: 'FluteSangam Platform',
+    question: 'What is FluteSangam, and is it completely free to use?',
+    answer: `FluteSangam is an open, global digital sanctuary and learning community created dedicatedly for Indian bamboo flute (Bansuri) and Western flute enthusiasts, students, and gurus. 
+
+Yes, FluteSangam is 100% FREE to join and explore! Our mission is to preserve and celebrate flute music by providing high-quality interactive learning tools, scale selection guides, Sargam generator engines, online tuners, song notations, and a supportive community feed where members can post audio/video recitals, ask questions, and connect with fellow flutists worldwide.`,
+    relatedLink: { text: 'About FluteSangam & Founder Story', view: 'about_us' },
+    tags: ['flutesangam', 'free platform', 'community', 'learning']
+  },
+  {
+    id: 'platform-how-to-join',
+    category: 'FluteSangam Platform',
+    question: 'How do I join the community, post recitals, and request song notations?',
+    answer: `Joining FluteSangam takes less than 30 seconds:
+1. Click the "Login / Sign Up" button in the top navigation bar.
+2. Sign in seamlessly with your Google Account.
+3. Customize your flutist profile by adding your playing level (Beginner, Intermediate, Advanced) and favorite bansuri scale.
+
+Once signed in, you can:
+- Post audio clips, video links, or text updates on the Sadhana Feed.
+- Comment and give encouragement to fellow community members.
+- Submit custom song notation requests to our community repository.
+- Use our interactive Alankar Generator and Live Flute Tuner anytime!`,
+    relatedLink: { text: 'Visit Community Sadhana Feed', view: 'community' },
+    tags: ['join community', 'post recitals', 'notation request']
+  }
+];
+
+const _OLD_INLINE_FAQS: FaqItem[] = [
   // 0. GETTING STARTED
   {
     id: 'start-what-is-bamboo-flute',
@@ -1656,6 +1704,10 @@ Once signed in, you can:
   }
 ];
 
+if (false as boolean) {
+  console.log(_OLD_INLINE_FAQS);
+}
+
 export const CATEGORIES = [
   'All Categories',
   'Getting Started',
@@ -1668,6 +1720,8 @@ export const CATEGORIES = [
   'Raagas',
   'Flute Care & Maintenance',
   'Health & Breathing',
+  'Children & Beginners',
+  'Flute Tuning & Pitch',
   'Music Theory & Tuning',
   'Flute Accessories',
   'Flute Types',
@@ -1686,6 +1740,8 @@ export const CATEGORY_SLUGS: Record<string, string> = {
   'Raagas': 'raagas',
   'Flute Care & Maintenance': 'flute-care-and-maintenance',
   'Health & Breathing': 'health-and-breathing',
+  'Children & Beginners': 'children-and-beginners',
+  'Flute Tuning & Pitch': 'flute-tuning-and-pitch',
   'Music Theory & Tuning': 'music-theory-and-tuning',
   'Flute Accessories': 'flute-accessories',
   'Flute Types': 'flute-types',
@@ -1710,6 +1766,16 @@ export const SLUG_TO_CATEGORY: Record<string, string> = {
   'flute-care-maintenance': 'Flute Care & Maintenance',
   'health-and-breathing': 'Health & Breathing',
   'health-breathing': 'Health & Breathing',
+  'children-and-beginners': 'Children & Beginners',
+  'children-beginners': 'Children & Beginners',
+  'kids-and-beginners': 'Children & Beginners',
+  'kids-beginners': 'Children & Beginners',
+  'children': 'Children & Beginners',
+  'beginners': 'Children & Beginners',
+  'flute-tuning-and-pitch': 'Flute Tuning & Pitch',
+  'flute-tuning-pitch': 'Flute Tuning & Pitch',
+  'tuning-and-pitch': 'Flute Tuning & Pitch',
+  'tuning-pitch': 'Flute Tuning & Pitch',
   'music-theory-and-tuning': 'Music Theory & Tuning',
   'music-theory-tuning': 'Music Theory & Tuning',
   'flute-accessories': 'Flute Accessories',

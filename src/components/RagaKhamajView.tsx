@@ -175,7 +175,7 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
               <span>Updated: <strong className="text-amber-100" itemProp="dateModified" content="2026-08-07">August 7, 2026</strong></span>
             </div>
             <div className="flex items-center gap-1.5">
-              <Clock className="w-4 h-4 text-amber-300" />
+              <BookOpen className="w-4 h-4 text-amber-300" />
               <span>12 min read</span>
             </div>
             <div className="flex items-center gap-1.5">
