@@ -23,20 +23,17 @@ export default function HomepageOverview({
 }: HomepageOverviewProps) {
   const [activeTab, setActiveTab] = useState<'all' | 'learn' | 'ragas' | 'practice' | 'articles'>('all');
 
-  // Featured Raagas Data (1 row of 3 cards)
+  const scrollToRecentDiscussions = () => {
+    const elem = document.getElementById('recent-discussions-section');
+    if (elem) {
+      elem.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      onViewChange('community');
+    }
+  };
+
+  // Featured Raagas Data (Popular Ragas)
   const featuredRaagas = [
-    { 
-      name: 'Raag Bhoopali', 
-      thaat: 'Kalyan', 
-      jati: 'Audav - Audav', 
-      time: 'First quarter of night (7-10 PM)', 
-      view: 'raga_bhoopali' as AppView, 
-      difficulty: 'Beginner', 
-      badge: 'Popular Starter',
-      notes: 'S R G P D S\'',
-      mood: 'Peaceful & Devotional',
-      color: 'from-amber-500/10 to-bamboo-500/10'
-    },
     { 
       name: 'Raag Yaman', 
       thaat: 'Kalyan', 
@@ -50,20 +47,44 @@ export default function HomepageOverview({
       color: 'from-amber-500/10 to-orange-500/10'
     },
     { 
-      name: 'Raag Bhimpalasi', 
-      thaat: 'Kafi', 
-      jati: 'Audav - Sampurna', 
-      time: 'Afternoon (1-4 PM)', 
-      view: 'raga_bhimpalasi' as AppView, 
+      name: 'Raag Bhoopali', 
+      thaat: 'Kalyan', 
+      jati: 'Audav - Audav', 
+      time: 'First quarter of night (7-10 PM)', 
+      view: 'raga_bhoopali' as AppView, 
+      difficulty: 'Beginner', 
+      badge: 'Popular Starter',
+      notes: 'S R G P D S\'',
+      mood: 'Peaceful & Devotional',
+      color: 'from-amber-500/10 to-bamboo-500/10'
+    },
+    { 
+      name: 'Raag Durga', 
+      thaat: 'Bilaval', 
+      jati: 'Audav - Audav', 
+      time: 'Late Night (10 PM-1 AM)', 
+      view: 'raga_durga' as AppView, 
+      difficulty: 'Beginner', 
+      badge: 'Energetic Pentatonic',
+      notes: 'S R M P D S\'',
+      mood: 'Bold & Heroic',
+      color: 'from-amber-500/10 to-emerald-500/10'
+    },
+    { 
+      name: 'Raag Khamaj', 
+      thaat: 'Khamaj', 
+      jati: 'Shadav - Sampurna', 
+      time: 'Second quarter of night (10 PM-1 AM)', 
+      view: 'raga_khamaj' as AppView, 
       difficulty: 'Intermediate', 
-      badge: 'Afternoon Devotion',
-      notes: 'n S g M P n S\'',
-      mood: 'Sweet Melancholy',
-      color: 'from-bamboo-500/10 to-emerald-500/10'
+      badge: 'Romantic Classic',
+      notes: 'S G M P D N S\'',
+      mood: 'Expressive & Sensual',
+      color: 'from-amber-500/10 to-rose-500/10'
     },
   ];
 
-  // Latest Articles & Guides Data (1 row of 2 cards)
+  // Latest Articles & Guides Data
   const latestArticles = [
     {
       title: 'How to Master Breath Control & Long Notes (Swar Sadhana)',
@@ -82,6 +103,24 @@ export default function HomepageOverview({
       category: 'Buying Guide',
       targetView: 'learn_choose_flute' as AppView,
       highlights: ['Finger stretch check', 'Bansuri scale choice', 'Blowing hole size']
+    },
+    {
+      title: 'Children & Beginners Bansuri Guide: Easy First Notes',
+      excerpt: 'How kids and complete novices can start learning bamboo flute with simplified finger spacing, light blowing resistance, and fun practice songs.',
+      readTime: '7 min read',
+      date: 'August 3, 2026',
+      category: 'Beginner Guide',
+      targetView: 'flute_faq' as AppView,
+      highlights: ['Kids flute sizes', 'Light blowing tips', 'Simple sargam notes']
+    },
+    {
+      title: 'Flute Tuning & Pitch Precision: Chromatic Tuners & A=440Hz',
+      excerpt: 'Learn how temperature, blowing angle, and breath pressure affect bansuri pitch, and how to align your flute with tanpura drones.',
+      readTime: '9 min read',
+      date: 'August 2, 2026',
+      category: 'Tuning Guide',
+      targetView: 'learn_tuner' as AppView,
+      highlights: ['A=440Hz standard', 'Tanpura alignment', 'Pitch cent control']
     },
   ];
 
@@ -349,31 +388,31 @@ export default function HomepageOverview({
         </div>
       </section>
 
-      {/* SECTION 3: Explore Raagas (Hindustani Classical Raga Directory) */}
+      {/* SECTION 3: Popular Ragas (Hindustani Classical Raga Directory) */}
       <section id="explore-raagas-section" className="space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-bamboo-200/80 pb-4">
           <div className="space-y-1">
             <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-900 bg-amber-100/90 px-3 py-1 rounded-full border border-amber-200">
               <Music className="w-3.5 h-3.5 text-amber-700" />
-              Classical Raga Directory
+              Popular Ragas
             </div>
             <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950">
-              Explore Hindustani Classical Raagas
+              Popular Classical Ragas
             </h2>
             <p className="text-xs text-gray-600">
-              In-depth guides featuring swara playback, Aaroh, Avaroh, Pakad, Chalan, Alankars, and practice pieces.
+              In-depth guides featuring swara notes, Aaroh, Avaroh, Pakad, Chalan, Alankars, and practice compositions.
             </p>
           </div>
           <button
             onClick={() => onViewChange('learn_raagas')}
             className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 text-xs font-bold rounded-xl transition self-start sm:self-center cursor-pointer shadow-2xs group"
           >
-            <span>View All 10 Raagas</span>
+            <span>View All Ragas</span>
             <ArrowRight className="w-4 h-4 text-amber-700 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {featuredRaagas.map((raga, idx) => (
             <motion.div
               key={raga.name}
@@ -591,7 +630,94 @@ export default function HomepageOverview({
         </div>
       </section>
 
-      {/* SECTION 6: FAQ & Verification Trust Banner for Google AdSense */}
+      {/* SECTION 6: Community — Connect, Share & Practice */}
+      <section id="community-overview-section" className="bg-gradient-to-br from-bamboo-950 via-bamboo-900 to-amber-950 text-white rounded-3xl p-6 sm:p-8 border border-amber-800/50 shadow-xl space-y-6 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+        
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-amber-800/60 pb-5 relative z-10">
+          <div className="space-y-1">
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-300 bg-amber-400/20 px-3 py-1 rounded-full border border-amber-400/30">
+              <Users className="w-3.5 h-3.5 text-amber-300" />
+              Global Flutist Network
+            </div>
+            <h2 className="text-xl sm:text-2xl font-bold font-display text-white">
+              Connect, Share &amp; Practice with Flutists Worldwide
+            </h2>
+            <p className="text-xs text-amber-100/80 max-w-2xl">
+              Post audio recitals, ask technical questions on lip placement &amp; breath control, request song notations, and receive feedback from fellow learners.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+            <button
+              onClick={scrollToRecentDiscussions}
+              className="px-4 py-2 bg-amber-400 hover:bg-amber-300 text-bamboo-950 font-bold text-xs rounded-xl transition shadow-md flex items-center gap-1.5 cursor-pointer"
+            >
+              <MessageSquare className="w-3.5 h-3.5" />
+              <span>Explore Community Discussions</span>
+            </button>
+            <button
+              onClick={() => onViewChange('notation_requests')}
+              className="px-4 py-2 bg-white/15 hover:bg-white/25 text-white font-bold text-xs rounded-xl border border-white/20 transition flex items-center gap-1.5 cursor-pointer"
+            >
+              <FileText className="w-3.5 h-3.5 text-amber-300" />
+              <span>Request Song Sargams</span>
+            </button>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs relative z-10">
+          <div 
+            onClick={scrollToRecentDiscussions}
+            className="p-5 bg-white/10 backdrop-blur-md rounded-2xl border border-white/15 hover:border-amber-400/50 transition cursor-pointer space-y-2 group"
+          >
+            <div className="flex items-center justify-between">
+              <span className="font-bold text-amber-300 text-sm flex items-center gap-1.5">
+                <Flame className="w-4 h-4 text-amber-400" />
+                Daily Sadhana Feed
+              </span>
+              <ArrowRight className="w-4 h-4 text-amber-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+            </div>
+            <p className="text-amber-100/80 leading-relaxed">
+              Share your daily practice recordings, log long note minutes, and track your progress alongside flutists from over 40 countries.
+            </p>
+          </div>
+
+          <div 
+            onClick={() => onViewChange('notation_requests')}
+            className="p-5 bg-white/10 backdrop-blur-md rounded-2xl border border-white/15 hover:border-amber-400/50 transition cursor-pointer space-y-2 group"
+          >
+            <div className="flex items-center justify-between">
+              <span className="font-bold text-amber-300 text-sm flex items-center gap-1.5">
+                <FileText className="w-4 h-4 text-amber-400" />
+                Song Sargam Library
+              </span>
+              <ArrowRight className="w-4 h-4 text-amber-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+            </div>
+            <p className="text-amber-100/80 leading-relaxed">
+              Browse community-transcribed sargam sheet music for popular film songs, classical bandishes, bhajans, and folk melodies.
+            </p>
+          </div>
+
+          <div 
+            onClick={() => onViewChange('community_members')}
+            className="p-5 bg-white/10 backdrop-blur-md rounded-2xl border border-white/15 hover:border-amber-400/50 transition cursor-pointer space-y-2 group"
+          >
+            <div className="flex items-center justify-between">
+              <span className="font-bold text-amber-300 text-sm flex items-center gap-1.5">
+                <Users className="w-4 h-4 text-amber-400" />
+                Flutist Directory
+              </span>
+              <ArrowRight className="w-4 h-4 text-amber-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+            </div>
+            <p className="text-amber-100/80 leading-relaxed">
+              Find flute learning partners, connect with experienced bansuri players, and build your musical circle.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 7: Quality & Trust Banner */}
       <section className="bg-white rounded-3xl p-6 sm:p-8 border border-amber-200/80 shadow-2xs space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-gray-100 pb-4">
           <div className="space-y-1">
