@@ -1101,7 +1101,7 @@ export default function App() {
                   className="py-2.5 px-4 bg-bamboo-700 hover:bg-bamboo-800 active:bg-bamboo-900 text-white text-xs sm:text-sm font-bold rounded-xl transition flex items-center justify-center space-x-1.5 shadow-md hover:shadow-lg shrink-0 cursor-pointer self-start sm:self-center w-full sm:w-auto mt-1 sm:mt-0"
                 >
                   <Plus className="w-4 h-4 text-amber-300" />
-                  <span>+ New Post</span>
+                  <span>New Post</span>
                 </button>
               </div>
 
