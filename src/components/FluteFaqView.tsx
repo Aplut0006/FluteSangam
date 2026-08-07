@@ -1644,34 +1644,40 @@ Look for sellers who specialize exclusively in wind instruments, provide scale s
     tags: ['where to buy', 'reliable makers', 'punam flutes', 'bansuri sellers']
   },
 
-  // 3. PLAYING TECHNIQUES (60 Detailed Questions across 6 Subcategories)
+  // 3. PLAYING TECHNIQUES
   ...PLAYING_TECHNIQUES_FAQS,
 
-  // ADVANCED TECHNIQUES (80 Comprehensive Questions)
+  // ADVANCED TECHNIQUES
   ...ADVANCED_TECHNIQUES_FAQS,
 
-  // 4. DAILY PRACTICE & ROUTINES (60 Comprehensive Questions)
+  // 4. DAILY PRACTICE & ROUTINES
   ...DAILY_PRACTICE_FAQS,
 
-  // 5. SCALES & ALANKARS (50 Detailed Questions)
+  // 5. SCALES & ALANKARS
   ...SCALES_AND_ALANKARS_FAQS,
 
-  // 6. RAAGAS & CLASSICAL MUSIC (60 Comprehensive Questions)
+  // 6. RAAGAS & CLASSICAL MUSIC
   ...RAAGAS_FAQS,
 
-  // 6. FLUTE CARE & MAINTENANCE (80 Comprehensive Questions)
+  // 7. FLUTE CARE & MAINTENANCE
   ...FLUTE_CARE_FAQS,
 
-  // 7. HEALTH & BREATHING (80 Comprehensive Questions)
+  // 8. HEALTH & BREATHING
   ...HEALTH_AND_BREATHING_FAQS,
 
-  // 8. MUSIC THEORY & TUNING
+  // 9. CHILDREN & BEGINNERS
+  ...CHILDREN_AND_BEGINNERS_FAQS,
+
+  // 10. MUSIC THEORY & TUNING
   ...MUSIC_THEORY_FAQS,
 
-  // 9. FLUTE ACCESSORIES (80 Comprehensive Questions)
+  // 11. FLUTE TUNING & PITCH
+  ...TUNING_AND_PITCH_FAQS,
+
+  // 12. FLUTE ACCESSORIES
   ...FLUTE_ACCESSORIES_FAQS,
 
-  // 10. FLUTE TYPES (80 Comprehensive Questions)
+  // 13. FLUTE TYPES
   ...FLUTE_TYPES_FAQS,
 
   // 11. FLUTESANGAM PLATFORM & COMMUNITY
@@ -1876,7 +1882,15 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
         break;
       case 'Advanced Techniques':
         title = 'Advanced Flute Techniques FAQ | Meend, Gamak, Murki, Khatka & Kan Swar | FluteSangam';
-        description = 'Comprehensive answers to 80 advanced flute questions covering Meend, Gamak, Murki, Khatka, Kan Swar ornamentation, vibrato, and performance mastery on bansuri.';
+        description = 'Comprehensive answers to advanced flute questions covering Meend, Gamak, Murki, Khatka, Kan Swar ornamentation, vibrato, and performance mastery on bansuri.';
+        break;
+      case 'Children & Beginners':
+        title = 'Children & Beginners Flute FAQ | Bansuri for Kids & Novices | FluteSangam';
+        description = 'Frequently asked questions about children learning flute, best flute sizes for kids, beginner practice routines, first notes, and learning without prior music theory.';
+        break;
+      case 'Flute Tuning & Pitch':
+        title = 'Flute Tuning & Pitch FAQ | Chromatic Tuners, A=440Hz & Pitch Control | FluteSangam';
+        description = 'Frequently asked questions about flute tuning, pitch accuracy, A=440Hz standard, cents in music, breath pressure pitch shifts, and tanpura alignment.';
         break;
       case 'Daily Practice':
         title = 'Daily Flute Practice FAQ | Routines, Sadhana & Timing | FluteSangam';
@@ -1904,11 +1918,11 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
         break;
       case 'Flute Accessories':
         title = 'Flute Accessories FAQ | Cases, Stands, Tuners & Mics | FluteSangam';
-        description = 'Comprehensive answers to 80 flute accessories questions: cases, covers, cleaning rods, microfiber cloths, stands, tanpura apps, tuners, microphones, travel bags, and gift recommendations.';
+        description = 'Comprehensive answers to flute accessories questions: cases, covers, cleaning rods, microfiber cloths, stands, tanpura apps, tuners, microphones, travel bags, and gift recommendations.';
         break;
       case 'Flute Types':
         title = 'Flute Types FAQ | Bansuri, PVC, Western, Bass & Piccolo | FluteSangam';
-        description = 'Comprehensive answers to 80 flute types questions: bamboo bansuri, PVC flutes, Western concert flutes, bass flutes, piccolos, key choices, and buying comparisons.';
+        description = 'Comprehensive answers to flute types questions: bamboo bansuri, PVC flutes, Western concert flutes, bass flutes, piccolos, key choices, and buying comparisons.';
         break;
       case 'FluteSangam Platform':
         title = 'FluteSangam Platform FAQ | Community, Features & Tools | FluteSangam';
