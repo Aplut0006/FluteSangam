@@ -1054,9 +1054,9 @@ export default function App() {
 
             {/* Recent Discussions & Community Feed Section */}
             <div id="recent-discussions-section" className="space-y-4 pt-4 border-t border-bamboo-200/80">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-bamboo-100 pb-3">
-                <div>
-                  <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-900 bg-amber-100 px-2.5 py-0.5 rounded-full mb-1">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-bamboo-100 pb-3">
+                <div className="space-y-1">
+                  <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-900 bg-amber-100 px-2.5 py-0.5 rounded-full">
                     <MessageSquare className="w-3.5 h-3.5 text-amber-600" />
                     Sadhaka Sangam Feed
                   </div>
@@ -1067,6 +1067,14 @@ export default function App() {
                     Explore live questions, performance videos, audio recitals, and raga discussions from flutists around the world.
                   </p>
                 </div>
+
+                <button
+                  onClick={handleOpenCreatePost}
+                  className="py-2.5 px-4 bg-bamboo-700 hover:bg-bamboo-800 active:bg-bamboo-900 text-white text-xs sm:text-sm font-bold rounded-xl transition flex items-center justify-center space-x-1.5 shadow-md hover:shadow-lg shrink-0 cursor-pointer self-start sm:self-center w-full sm:w-auto mt-1 sm:mt-0"
+                >
+                  <Plus className="w-4 h-4 text-amber-300" />
+                  <span>+ New Post</span>
+                </button>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
@@ -1095,16 +1103,14 @@ export default function App() {
                         )}
                       </div>
 
-                      {/* Create post trigger for desktop */}
-                      {currentUser && (
-                        <button
-                          onClick={handleOpenCreatePost}
-                          className="py-2 px-4 bg-bamboo-700 hover:bg-bamboo-600 text-white text-xs font-bold rounded-xl transition flex items-center justify-center space-x-1.5 shadow-3xs shrink-0 cursor-pointer"
-                        >
-                          <Plus className="w-4 h-4" />
-                          <span>New Post</span>
-                        </button>
-                      )}
+                      {/* Secondary Create post trigger */}
+                      <button
+                        onClick={handleOpenCreatePost}
+                        className="hidden sm:flex py-2 px-4 bg-bamboo-700 hover:bg-bamboo-600 text-white text-xs font-bold rounded-xl transition items-center justify-center space-x-1.5 shadow-3xs shrink-0 cursor-pointer"
+                      >
+                        <Plus className="w-4 h-4" />
+                        <span>New Post</span>
+                      </button>
                     </div>
 
                     {/* Filtering bar */}

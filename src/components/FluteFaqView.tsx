@@ -2107,15 +2107,45 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
           )}
         </div>
 
-        {/* Category Pills Slider */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar text-xs">
+        {/* Mobile Dropdown Category Select */}
+        <div className="block sm:hidden space-y-1.5 pt-1">
+          <label htmlFor="faq-category-dropdown-mobile" className="text-xs font-bold text-gray-700 flex items-center gap-1.5">
+            <Filter className="w-3.5 h-3.5 text-amber-600" />
+            <span>Select FAQ Category:</span>
+          </label>
+          <div className="relative">
+            <select
+              id="faq-category-dropdown-mobile"
+              value={selectedCategory}
+              onChange={(e) => handleCategorySelect(e.target.value)}
+              className="w-full appearance-none bg-amber-50 border border-amber-300 text-bamboo-950 font-bold text-xs py-2.5 pl-3.5 pr-10 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all cursor-pointer shadow-2xs"
+            >
+              {CATEGORIES.map((cat) => {
+                const count = cat === 'All Categories' 
+                  ? FAQ_DATA.length 
+                  : FAQ_DATA.filter(f => f.category === cat || ((cat === 'Choosing a Flute' || cat === 'Choosing the Right Flute') && (f.category === 'Choosing a Flute' || f.category === 'Choosing the Right Flute'))).length;
+                return (
+                  <option key={cat} value={cat}>
+                    {cat} ({count} Q&amp;A)
+                  </option>
+                );
+              })}
+            </select>
+            <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-amber-800 font-bold text-xs">
+              ▼
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Category Pills Slider */}
+        <div className="hidden sm:flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar text-xs">
           <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider shrink-0 mr-1 flex items-center gap-1">
             <Filter className="w-3 h-3 text-amber-600" /> Filter:
           </span>
           {CATEGORIES.map((cat) => {
             const count = cat === 'All Categories' 
               ? FAQ_DATA.length 
-              : FAQ_DATA.filter(f => f.category === cat).length;
+              : FAQ_DATA.filter(f => f.category === cat || ((cat === 'Choosing a Flute' || cat === 'Choosing the Right Flute') && (f.category === 'Choosing a Flute' || f.category === 'Choosing the Right Flute'))).length;
             const isActive = selectedCategory === cat;
 
             return (
