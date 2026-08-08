@@ -84,9 +84,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
   };
 
   const SWARA_FREQS: Record<string, number> = {
-    'Sa': 261.63, 'Re': 293.66, 'Ga': 329.63, 'Ma': 349.23, 'Ma#': 369.99, 'Pa': 392.00, 'Dha': 440.00, 'Ni': 493.88,
+    'Sa': 261.63, 'Re': 293.66, 're': 277.18, 'Ga': 329.63, 'ga': 311.13, 'Ma': 349.23, 'Ma#': 369.99, 'Pa': 392.00, 'Dha': 440.00, 'dha': 415.30, 'Ni': 493.88, 'ni': 466.16,
     'Sā': 523.25, 'Rā': 587.33, 'Gā': 659.25, 'Mā': 698.46,
-    'N.': 246.94, 'D.': 220.00, 'P.': 196.00
+    'N.': 246.94, 'n.': 233.08, 'D.': 220.00, 'd.': 207.65, 'P.': 196.00
   };
 
   // Realistic Bamboo Flute (Bansuri) Synthesizer
@@ -238,7 +238,7 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
 
     const fullText = lines.join(' ');
     // Match swaras and swara pairs like Sa~Ga
-    const tokenRegex = /(Sā|Rā|Gā|Mā|Sa|Re|Ga|Ma#|Ma|Pa|Dha|Ni|N\.|D\.|P\.)(?:~(Sā|Rā|Gā|Mā|Sa|Re|Ga|Ma#|Ma|Pa|Dha|Ni|N\.|D\.|P\.))?/g;
+    const tokenRegex = /(Sā|Rā|Gā|Mā|Sa|Re|re|Ga|ga|Ma#|Ma|Pa|Dha|dha|Ni|ni|N\.|n\.|D\.|d\.|P\.)(?:~(Sā|Rā|Gā|Mā|Sa|Re|re|Ga|ga|Ma#|Ma|Pa|Dha|dha|Ni|ni|N\.|n\.|D\.|d\.|P\.))?/gi;
     const tokens = fullText.match(tokenRegex);
 
     if (!tokens || tokens.length === 0) return;
@@ -280,7 +280,7 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
   };
 
   const allAlankars: AlankarItem[] = [
-    // ---------------- BEGINNER ALANKARS (1 - 14) ----------------
+    // ---------------- BEGINNER ALANKARS (1 - 20) ----------------
     {
       id: 1,
       level: 'Beginner',
@@ -512,12 +512,110 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       ],
       tips: "Do not blow harder; focus air stream tighter using your lip embouchure for higher notes."
     },
-
-    // ---------------- INTERMEDIATE ALANKARS (15 - 28) ----------------
     {
       id: 15,
+      level: 'Beginner',
+      title: "15. Five-Note Ascending Sweep (Panch Swara Saral)",
+      focus: "Extended Breath Phrasing",
+      desc: "A continuous 5-note phrase that expands breath endurance and builds smooth finger transitions across half an octave.",
+      aroha: [
+        "Sa-Re-Ga-Ma-Pa", "Re-Ga-Ma-Pa-Dha",
+        "Ga-Ma-Pa-Dha-Ni", "Ma-Pa-Dha-Ni-Sā"
+      ],
+      avroha: [
+        "Sā-Ni-Dha-Pa-Ma", "Ni-Dha-Pa-Ma-Ga",
+        "Dha-Pa-Ma-Ga-Re", "Pa-Ma-Ga-Re-Sa"
+      ],
+      tips: "Distribute your breath evenly across all 5 notes without fading on the last note."
+    },
+    {
+      id: 16,
+      level: 'Beginner',
+      title: "16. Two-Step Return Pattern (Do Kadam Wapsi)",
+      focus: "Backward Recovery Finger Control",
+      desc: "Steps forward 3 notes then moves backward 2 steps before advancing. Teaches finger recoil speed.",
+      aroha: [
+        "Sa-Re-Ga-Re-Sa", "Re-Ga-Ma-Ga-Re",
+        "Ga-Ma-Pa-Ma-Ga", "Ma-Pa-Dha-Pa-Ma",
+        "Pa-Dha-Ni-Dha-Pa", "Dha-Ni-Sā-Ni-Dha"
+      ],
+      avroha: [
+        "Sā-Ni-Dha-Ni-Sā", "Ni-Dha-Pa-Dha-Ni",
+        "Dha-Pa-Ma-Pa-Dha", "Pa-Ma-Ga-Ma-Pa",
+        "Ma-Ga-Re-Ga-Ma", "Ga-Re-Sa-Re-Ga"
+      ],
+      tips: "Ensure the two backward notes have crisp, equal duration."
+    },
+    {
+      id: 17,
+      level: 'Beginner',
+      title: "17. Quadruplet Repeat Pattern (Chaar Jod Alankar)",
+      focus: "4-Beat Air Cut Staccato Drill",
+      desc: "Repeats every swara four times consecutively. Builds solid 4-beat bar counting and precise micro-tonguing.",
+      aroha: [
+        "Sa-Sa-Sa-Sa", "Re-Re-Re-Re", "Ga-Ga-Ga-Ga", "Ma-Ma-Ma-Ma",
+        "Pa-Pa-Pa-Pa", "Dha-Dha-Dha-Dha", "Ni-Ni-Ni-Ni", "Sā-Sā-Sā-Sā"
+      ],
+      avroha: [
+        "Sā-Sā-Sā-Sā", "Ni-Ni-Ni-Ni", "Dha-Dha-Dha-Dha", "Pa-Pa-Pa-Pa",
+        "Ma-Ma-Ma-Ma", "Ga-Ga-Ga-Ga", "Re-Re-Re-Re", "Sa-Sa-Sa-Sa"
+      ],
+      tips: "Use light throat taps rather than stopping airflow completely with your chest."
+    },
+    {
+      id: 18,
+      level: 'Beginner',
+      title: "18. Triplet Sandalwood Step (Trikon Alankar)",
+      focus: "3-Note Interlocking Steps",
+      desc: "Interlocks 3-note groups by moving up two and back one in a triangle pattern. Excellent for finger agility.",
+      aroha: [
+        "Sa-Re-Ga-Re-Ga-Ma", "Re-Ga-Ma-Ga-Ma-Pa",
+        "Ga-Ma-Pa-Ma-Pa-Dha", "Ma-Pa-Dha-Pa-Dha-Ni", "Pa-Dha-Ni-Dha-Ni-Sā"
+      ],
+      avroha: [
+        "Sā-Ni-Dha-Ni-Dha-Pa", "Ni-Dha-Pa-Dha-Pa-Ma",
+        "Dha-Pa-Ma-Pa-Ma-Ga", "Pa-Ma-Ga-Ma-Ga-Re", "Ma-Ga-Re-Ga-Re-Sa"
+      ],
+      tips: "Keep your wrists loose and fingers curved softly over tone holes."
+    },
+    {
+      id: 19,
+      level: 'Beginner',
+      title: "19. Double Skip Beginner Jump (Do Swara Chhalaang)",
+      focus: "Fourth-Interval Finger Landing",
+      desc: "Jumps two notes ahead to a perfect fourth interval (Sa-Ma, Re-Pa). Builds muscle memory for wide jumps.",
+      aroha: [
+        "Sa-Ma", "Re-Pa", "Ga-Dha",
+        "Ma-Ni", "Pa-Sā"
+      ],
+      avroha: [
+        "Sā-Pa", "Ni-Ma", "Dha-Ga",
+        "Pa-Re", "Ma-Sa"
+      ],
+      tips: "Ensure flat finger pads seal the target tone holes instantly upon landing."
+    },
+    {
+      id: 20,
+      level: 'Beginner',
+      title: "20. Lower Saptak Anchor (Mandra Sa Sanchar)",
+      focus: "Deep Lower Register Grounding",
+      desc: "Explores Mandra Saptak (lower octave) notes while anchoring on base Sa. Builds rich, warm low-register resonance.",
+      aroha: [
+        "Sa-N.-Sa", "Sa-D.-Sa", "Sa-P.-Sa",
+        "Sa-Re-Sa", "Sa-Ga-Sa", "Sa-Ma-Sa", "Sa-Pa-Sa"
+      ],
+      avroha: [
+        "Sā-Ni-Sā", "Sā-Dha-Sā", "Sā-Pa-Sā",
+        "Sā-Ma-Sā", "Sā-Ga-Sā", "Sā-Re-Sā", "Sā-Sa-Sā"
+      ],
+      tips: "Angle your air stream slightly lower into the embouchure hole for Mandra notes."
+    },
+
+    // ---------------- INTERMEDIATE ALANKARS (21 - 40) ----------------
+    {
+      id: 21,
       level: 'Intermediate',
-      title: "15. Five-Note Sequence (Panch Swara Alankar)",
+      title: "21. Five-Note Sequence (Panch Swara Alankar)",
       focus: "Extended Phrasing & Rhythmic Drive",
       desc: "A 5-note grouping that spans half an octave in a single breath phrase. Builds seamless continuity across middle notes.",
       aroha: [
@@ -531,9 +629,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       tips: "Practice in 5/4 rhythm or set metronome to accent beat 1 of every 5 notes."
     },
     {
-      id: 16,
+      id: 22,
       level: 'Intermediate',
-      title: "16. Double Skip Turnaround (Chhalang Vakra Alankar)",
+      title: "22. Double Skip Turnaround (Chhalang Vakra Alankar)",
       focus: "Agile Raga Taan Preparation",
       desc: "Skips one note forward, steps one note back, and resolves forward. Widely used in classical drut compositions and fast taan passages.",
       aroha: [
@@ -547,9 +645,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       tips: "Keep air pressure steady through the direction change."
     },
     {
-      id: 17,
+      id: 23,
       level: 'Intermediate',
-      title: "17. Reverse Triplet Pattern (Ulta Teen Swara)",
+      title: "23. Reverse Triplet Pattern (Ulta Teen Swara)",
       focus: "Reverse Muscle Memory & Speed",
       desc: "Moves 3-note phrases in reverse direction. Trains your brain and fingers to execute descending micro-passages effortlessly.",
       aroha: [
@@ -563,9 +661,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       tips: "Pay close attention to smooth finger lifting during reverse progression."
     },
     {
-      id: 18,
+      id: 24,
       level: 'Intermediate',
-      title: "18. Triple Swara Repeating Pattern (Trigun Swara)",
+      title: "24. Triple Swara Repeating Pattern (Trigun Swara)",
       focus: "Rapid Micro-Tonguing & Pitch Precision",
       desc: "Each note is repeated three times in rapid succession. Develops crisp throat cuts and refined embouchure stability.",
       aroha: [
@@ -579,9 +677,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       tips: "Use light, subtle air cuts with the back of the palate rather than blowing heavy puffs."
     },
     {
-      id: 19,
+      id: 25,
       level: 'Intermediate',
-      title: "19. Cross-Step Quadruplet (Vakra Chaar Swara - Complex)",
+      title: "25. Cross-Step Quadruplet (Vakra Chaar Swara - Complex)",
       focus: "Complex Finger Agility for Drut Laya",
       desc: "Moves two notes forward, steps one note back, and leaps two forward. Excellent for building finger agility for fast Bandish compositions.",
       aroha: [
@@ -595,9 +693,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       tips: "Play with a light touch; avoid pressing hard on the flute holes."
     },
     {
-      id: 20,
+      id: 26,
       level: 'Intermediate',
-      title: "20. Double Leap and Fill (Dupli-Chhalang Alankar)",
+      title: "26. Double Leap and Fill (Dupli-Chhalang Alankar)",
       focus: "Interval Leap Recovery",
       desc: "Leaps three notes ahead (Sa to Ma), steps back note by note to Sa, then moves to the next base note.",
       aroha: [
@@ -611,9 +709,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       tips: "Focus on making the initial leap crisp and clean before descending smoothly."
     },
     {
-      id: 21,
+      id: 27,
       level: 'Intermediate',
-      title: "21. Symmetrical Octave Wave (Tarr-Mandra Sanchar)",
+      title: "27. Symmetrical Octave Wave (Tarr-Mandra Sanchar)",
       focus: "Octave Register Jump & Pitch Accuracy",
       desc: "Alternates between lower octave, middle octave, and upper octave notes to build seamless register shifts without harsh blowing.",
       aroha: [
@@ -627,9 +725,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       tips: "Maintain an oval lip aperture; tighten slightly for upper notes without pushing extra wind."
     },
     {
-      id: 22,
+      id: 28,
       level: 'Intermediate',
-      title: "22. Four-Note Double Hook (Khatka Preparation Pattern)",
+      title: "28. Four-Note Double Hook (Khatka Preparation Pattern)",
       focus: "Finger Technique for Classical Khatka",
       desc: "A rapid four-note oscillation (Sa-Re-Sa-Ga) that lays the exact finger technique foundation for classical Khatka and Murki ornaments.",
       aroha: [
@@ -643,9 +741,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       tips: "The middle two notes should feel like a quick rebound flick."
     },
     {
-      id: 23,
+      id: 29,
       level: 'Intermediate',
-      title: "23. Pyramid Skip Pattern (Swar Vistar Alankar)",
+      title: "29. Pyramid Skip Pattern (Swar Vistar Alankar)",
       focus: "Interval Expansion & Pitch Tuning",
       desc: "An expanding interval pattern starting from a single note jump and expanding up to a fifth, returning to base Sa each time.",
       aroha: [
@@ -659,9 +757,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       tips: "Listen carefully to ensure every leap is perfectly in tune relative to Sa."
     },
     {
-      id: 24,
+      id: 30,
       level: 'Intermediate',
-      title: "24. Meend & Glide Preparation Alankar (Swar Sparsh)",
+      title: "30. Meend & Glide Preparation Alankar (Swar Sparsh)",
       focus: "Smooth Meend (Portamento) Slide",
       desc: "Connects pairs of notes using continuous air velocity and smooth finger slide (Meend) rather than staccato tonguing.",
       aroha: [
@@ -675,9 +773,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       tips: "Slowly roll or slide your fingers off the tone holes to create a continuous liquid glide."
     },
     {
-      id: 25,
+      id: 31,
       level: 'Intermediate',
-      title: "25. Two-Note Skip Pattern (Do Swara Chhalang)",
+      title: "31. Two-Note Skip Pattern (Do Swara Chhalang)",
       focus: "Wide Finger Stretch & Precision Landing",
       desc: "Skips two notes ahead (Sa to Ma, Re to Pa). Forces complete finger independence across non-adjacent holes.",
       aroha: [
@@ -691,9 +789,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       tips: "Keep ring finger relaxed to avoid accidental half-hole air leakage."
     },
     {
-      id: 26,
+      id: 32,
       level: 'Intermediate',
-      title: "26. Six-Note Step-Back Pattern (Chhat Swara Palta)",
+      title: "32. Six-Note Step-Back Pattern (Chhat Swara Palta)",
       focus: "6-Beat Rhythm Subdivision & Flow",
       desc: "Moves five notes forward and steps back one note. Excellent for practicing Dadra (6 beats) or Rupak (7 beats) rhythm structures.",
       aroha: [
@@ -707,9 +805,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       tips: "Ensure smooth breath flow across the 6-swara phrase."
     },
     {
-      id: 27,
+      id: 33,
       level: 'Intermediate',
-      title: "27. Teevra Ma Swara Drill (Kalyan Thaat Drill)",
+      title: "33. Teevra Ma Swara Drill (Kalyan Thaat Drill)",
       focus: "Sharp Fourth (Teevra Ma#) Finger Precision",
       desc: "Replaces Shuddha Ma with Teevra Ma# (sharp 4th) across sequential phrases. Essential for mastering Kalyan and Yaman raga fingerings.",
       aroha: [
@@ -723,9 +821,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       tips: "Half-open the top hole cleanly for accurate Teevra Ma pitch."
     },
     {
-      id: 28,
+      id: 34,
       level: 'Intermediate',
-      title: "28. Lower Saptak Anchor (Mandra Saptak Drill)",
+      title: "34. Lower Saptak Anchor (Mandra Saptak Drill)",
       focus: "Lower Octave Resonant Tone",
       desc: "Explores the lower octave notes (P., D., N.) to develop rich, deep, warm lower-register resonance on Bansuri.",
       aroha: [
@@ -738,12 +836,108 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       ],
       tips: "Relax your jaw and aim warm, slow breath downward into the embouchure hole."
     },
-
-    // ---------------- ADVANCED ALANKARS (29 - 42) ----------------
     {
-      id: 29,
+      id: 35,
+      level: 'Intermediate',
+      title: "35. Komal Swara Expressive Drill (Komal Swara Palta)",
+      focus: "Flat Note (Komal re, ga, dha, ni) Half-Hole Precision",
+      desc: "Incorporates Komal Re, Ga, Dha, and Ni flat notes to master delicate half-hole finger positions essential for Bhairavi and Todi ragas.",
+      aroha: [
+        "Sa-re-ga-Ma", "re-ga-Ma-Pa",
+        "ga-Ma-Pa-dha", "Ma-Pa-dha-ni", "Pa-dha-ni-Sā"
+      ],
+      avroha: [
+        "Sā-ni-dha-Pa", "ni-dha-Pa-Ma",
+        "dha-Pa-Ma-ga", "Pa-Ma-ga-re", "Ma-ga-re-Sa"
+      ],
+      tips: "Uncover exactly 50% of the hole for precise komal swara intonation."
+    },
+    {
+      id: 36,
+      level: 'Intermediate',
+      title: "36. Six-Note Cross-Leap (Chhat Swara Vakra Chhalaang)",
+      focus: "Symmetrical Hook & Recoil",
+      desc: "Moves five notes up, steps back to the fourth, and advances. Highly effective for building finger speed and mental tracking.",
+      aroha: [
+        "Sa-Re-Ga-Ma-Pa-Ma", "Re-Ga-Ma-Pa-Dha-Pa",
+        "Ga-Ma-Pa-Dha-Ni-Dha", "Ma-Pa-Dha-Ni-Sā-Ni"
+      ],
+      avroha: [
+        "Sā-Ni-Dha-Pa-Ma-Pa", "Ni-Dha-Pa-Ma-Ga-Ma",
+        "Dha-Pa-Ma-Ga-Re-Ga", "Pa-Ma-Ga-Re-Sa-Re"
+      ],
+      tips: "Keep the direction-reversal note clean and well-articulated."
+    },
+    {
+      id: 37,
+      level: 'Intermediate',
+      title: "37. Staccato Air-Cut Triple-Step (Bansuri Chhand Alankar)",
+      focus: "Precision Micro-Tonguing Rhythms",
+      desc: "Combines 3-note ascending steps with a return step. Teaches rhythmic precision and subtle breath pulses.",
+      aroha: [
+        "Sa-Re-Ga-Sa", "Re-Ga-Ma-Re", "Ga-Ma-Pa-Ga",
+        "Ma-Pa-Dha-Ma", "Pa-Dha-Ni-Pa", "Dha-Ni-Sā-Dha"
+      ],
+      avroha: [
+        "Sā-Ni-Dha-Sā", "Ni-Dha-Pa-Ni", "Dha-Pa-Ma-Dha",
+        "Pa-Ma-Ga-Pa", "Ma-Ga-Re-Ma", "Ga-Re-Sa-Ga"
+      ],
+      tips: "Execute crisp staccato cuts using light throat taps."
+    },
+    {
+      id: 38,
+      level: 'Intermediate',
+      title: "38. Asymmetric 5-Beat Teentaal Fill (Panchak Palta)",
+      focus: "5-in-4 Cross-Rhythm Subdivision",
+      desc: "Subdivides 5 swaras against standard 4-beat bar beats. Develops advanced rhythmic independence (Layakari).",
+      aroha: [
+        "Sa-Re-Ga-Ma-Pa", "Re-Ga-Ma-Pa-Dha",
+        "Ga-Ma-Pa-Dha-Ni", "Ma-Pa-Dha-Ni-Sā"
+      ],
+      avroha: [
+        "Sā-Ni-Dha-Pa-Ma", "Ni-Dha-Pa-Ma-Ga",
+        "Dha-Pa-Ma-Ga-Re", "Pa-Ma-Ga-Re-Sa"
+      ],
+      tips: "Set metronome to 4/4 and notice how the accent shifts across beat boundaries."
+    },
+    {
+      id: 39,
+      level: 'Intermediate',
+      title: "39. Double Reverse Hook (Dohra Vakra Palta)",
+      focus: "Symmetrical Reverse Oscillation",
+      desc: "Moves 4 notes up and steps 2 notes back in a smooth pendulum wave. Strengthens reverse finger memory.",
+      aroha: [
+        "Sa-Re-Ga-Ma-Ga-Re", "Re-Ga-Ma-Pa-Ma-Ga",
+        "Ga-Ma-Pa-Dha-Pa-Ma", "Ma-Pa-Dha-Ni-Dha-Pa", "Pa-Dha-Ni-Sā-Ni-Dha"
+      ],
+      avroha: [
+        "Sā-Ni-Dha-Pa-Dha-Ni", "Ni-Dha-Pa-Ma-Pa-Dha",
+        "Dha-Pa-Ma-Ga-Ma-Pa", "Pa-Ma-Ga-Re-Ga-Ma", "Ma-Ga-Re-Sa-Re-Ga"
+      ],
+      tips: "Maintain steady air velocity through the 2-note reverse movement."
+    },
+    {
+      id: 40,
+      level: 'Intermediate',
+      title: "40. Deep Saptak & Tarr Shift (Trisaptak Sanchar)",
+      focus: "Multi-Octave Rapid Shift",
+      desc: "Shifts from Mandra (lower octave) to Tarr (upper octave) across consecutive phrases, developing embouchure flexibility.",
+      aroha: [
+        "N.-Sa-Re-Ga", "Sā-Ni-Dha-Pa",
+        "D.-N.-Sa-Re", "Rā-Sā-Ni-Dha"
+      ],
+      avroha: [
+        "Rā-Sā-Ni-Dha", "D.-N.-Sa-Re",
+        "Sā-Ni-Dha-Pa", "N.-Sa-Re-Ga"
+      ],
+      tips: "Focus on lip aperture adjustment rather than pushing extra air pressure."
+    },
+
+    // ---------------- ADVANCED ALANKARS (41 - 60) ----------------
+    {
+      id: 41,
       level: 'Advanced',
-      title: "29. Complex Vakra Six-Note Pattern (Chhanda Alankar)",
+      title: "41. Complex Vakra Six-Note Pattern (Chhanda Alankar)",
       focus: "Mental Alertness & Rapid Direction Shifts",
       desc: "A complex 6-note non-linear phrase (Sa-Re-Ga-Ma-Re-Sa) that demands high mental alertness and rapid direction changes.",
       aroha: [
@@ -757,9 +951,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       tips: "Practice at half speed with a metronome until finger movements are completely automatic."
     },
     {
-      id: 30,
+      id: 42,
       level: 'Advanced',
-      title: "30. Gamak & Heavy Oscillation Drill (Gamak Pradarsan)",
+      title: "42. Gamak & Heavy Oscillation Drill (Gamak Pradarsan)",
       focus: "Diaphragm Pressure Pulses & Gamak",
       desc: "Employs rapid diaphragm pressure pulses on paired notes to create authentic classical Gamak ornaments.",
       aroha: [
@@ -773,9 +967,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       tips: "Generate the pulsation from your lower abdomen (diaphragm), not your lips."
     },
     {
-      id: 31,
+      id: 43,
       level: 'Advanced',
-      title: "31. Eight-Note Complex Sprint (Drut Taan Alankar)",
+      title: "43. Eight-Note Complex Sprint (Drut Taan Alankar)",
       focus: "High-Speed Taan & Jhala Finger Speed",
       desc: "An 8-note double phrase per breath designed to build lightning-fast finger movement for fast-tempo Jhala and Taan performance.",
       aroha: [
@@ -791,9 +985,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       tips: "Gradually build speed from 80 BPM to 160 BPM in 8th-note subdivisions."
     },
     {
-      id: 32,
+      id: 44,
       level: 'Advanced',
-      title: "32. Multi-Octave Leap & Return (Chhalaang Vakra)",
+      title: "44. Multi-Octave Leap & Return (Chhalaang Vakra)",
       focus: "Cross-Saptak Flexibility & Control",
       desc: "Leaps across octaves and immediately executes a descending 3-note phrase before leaping to the next octave note.",
       aroha: [
@@ -807,9 +1001,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       tips: "Ensure smooth transition between Mandra (lower), Madhya (middle), and Tarr (upper) octaves."
     },
     {
-      id: 33,
+      id: 45,
       level: 'Advanced',
-      title: "33. Murki & Micro-Ornament Pattern (Sookshma Swar)",
+      title: "45. Murki & Micro-Ornament Pattern (Sookshma Swar)",
       focus: "Thumri & Light Classical Murki Flick",
       desc: "A 5-note rapid burst pattern (Sa-Re-Sa-Ni.-Sa) used directly in Thumri, Ghazal, and light-classical murki ornaments.",
       aroha: [
@@ -823,9 +1017,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       tips: "The inner notes (Re-Sa-Ni.) should be flicked gracefully without losing pitch accuracy."
     },
     {
-      id: 34,
+      id: 46,
       level: 'Advanced',
-      title: "34. Khatka Quad-Burst Pattern (Teevra Khatka)",
+      title: "46. Khatka Quad-Burst Pattern (Teevra Khatka)",
       focus: "Split-Second Four-Note Ornament Flick",
       desc: "Four notes played in a split-second flick: upper note - target note - lower note - target note. Pure master-level finger training.",
       aroha: [
@@ -839,9 +1033,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       tips: "Keep the wrist and hands relaxed; flick fingers lightly off the holes."
     },
     {
-      id: 35,
+      id: 47,
       level: 'Advanced',
-      title: "35. Seven-Swara Triplet Wave (Saptak Tarang)",
+      title: "47. Seven-Swara Triplet Wave (Saptak Tarang)",
       focus: "7/8 Asymmetric Rhythmic Grouping",
       desc: "A 7-note ascending phrase in 7/8 or 3+4 beat division that challenges rhythm keeping and finger coordination.",
       aroha: [
@@ -855,9 +1049,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       tips: "Count as 1-2-3, 1-2-3-4 or practice with Rupak Taal (7 beats)."
     },
     {
-      id: 36,
+      id: 48,
       level: 'Advanced',
-      title: "36. Vakra Jhala Sprint (Jhala Pattern)",
+      title: "48. Vakra Jhala Sprint (Jhala Pattern)",
       focus: "Sitar-Style High Drone Alternation",
       desc: "Mimics the rapid rhythm of sitar/sarod Jhala playing, alternating between high Sa (drone) and changing melody notes.",
       aroha: [
@@ -871,9 +1065,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       tips: "Use crisp embouchure control to switch between Madhya Sa and Tarr Sā instantly."
     },
     {
-      id: 37,
+      id: 49,
       level: 'Advanced',
-      title: "37. Chhalang Meend Combine (Glided Jumps)",
+      title: "49. Chhalang Meend Combine (Glided Jumps)",
       focus: "Vilambit Expressive Glides with Skip",
       desc: "Combines 3-note skips with glided meend descent. Essential for expressive Vilambit and Drut khayal bansuri improvisations.",
       aroha: [
@@ -889,9 +1083,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       tips: "Ensure the ~ symbol represents a continuous smooth pitch bend without re-blowing."
     },
     {
-      id: 38,
+      id: 50,
       level: 'Advanced',
-      title: "38. Master Jhala & Taan Sprint (Maha Palta)",
+      title: "50. Master Jhala & Taan Sprint (Maha Palta)",
       focus: "Ultimate 12-Note Complete Taan Mastery",
       desc: "The ultimate 12-note comprehensive Palta testing full octave breath control, ultra-fast fingering, and rhythmic precision.",
       aroha: [
@@ -907,9 +1101,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       tips: "Mastering this 12-note Palta unlocks total confidence in fast classical taan improvisations."
     },
     {
-      id: 39,
+      id: 51,
       level: 'Advanced',
-      title: "39. 16-Swara Rapid Drut Taan Sprint (Maha Taan Sprint)",
+      title: "51. 16-Swara Rapid Drut Taan Sprint (Maha Taan Sprint)",
       focus: "Full Octave Continuous Rapid Taan",
       desc: "Covers a full octave ascent and descent in a single continuous 16-note rapid phrase. Tests ultimate finger synchronization and stamina.",
       aroha: [
@@ -921,9 +1115,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       tips: "Keep air stream completely fluid and unbroken through all 16 notes."
     },
     {
-      id: 40,
+      id: 52,
       level: 'Advanced',
-      title: "40. Vakra Saptak Spiral (Vakra Sparsh Palta)",
+      title: "52. Vakra Saptak Spiral (Vakra Sparsh Palta)",
       focus: "Non-Linear Spiral Movement for Fast Drut Bandish",
       desc: "A spiraling skip-and-return pattern (Sa-Ga-Re-Ma) that creates complex rhythmic syncopations for fast classical compositions.",
       aroha: [
@@ -937,9 +1131,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       tips: "Flick fingers lightly without applying extra pressure to tone holes."
     },
     {
-      id: 41,
+      id: 53,
       level: 'Advanced',
-      title: "41. Kan-Swara Touch Glide (Sparsh Swara Alankar)",
+      title: "53. Kan-Swara Touch Glide (Sparsh Swara Alankar)",
       focus: "Micro-Grace Note (Kan Swara) Precision",
       desc: "Glides between swaras with subtle grace-note touches (Kan Swaras). Imparts true classical soul and emotional depth to bansuri playing.",
       aroha: [
@@ -953,9 +1147,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
       tips: "The upper grace note touch should be as light as a whisper."
     },
     {
-      id: 42,
+      id: 54,
       level: 'Advanced',
-      title: "42. Ultra Vakra Double Hook Palta (Anahata Palta)",
+      title: "54. Ultra Vakra Double Hook Palta (Anahata Palta)",
       focus: "Master-Class Rhythmic Finger Independence",
       desc: "A 12-note master-level double-hook pattern that challenges spatial finger awareness and advanced rhythmic phrasing.",
       aroha: [
@@ -969,6 +1163,114 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
         "Dha-Pa-Ma-Dha-Pa-Ga-Ma-Pa-Ga-Ma-Re-Ga"
       ],
       tips: "Practice slowly with a metronome at 60 BPM before accelerating."
+    },
+    {
+      id: 55,
+      level: 'Advanced',
+      title: "55. Kampit & Vibrato Micro-Bend Drill (Kampit Swara Palta)",
+      focus: "Kampit Alankar & Diaphragm Pitch Bend",
+      desc: "Features delicate pitch oscillations (~Kampit Swara) before escalating into rapid 4-note ascending resolution. Essential for classical ornamentation.",
+      aroha: [
+        "Sa~Re~Sa-Re-Ga-Ma", "Re~Ga~Re-Ga-Ma-Pa",
+        "Ga~Ma~Ga-Ma-Pa-Dha", "Ma~Pa~Ma-Pa-Dha-Ni", "Pa~Dha~Pa-Dha-Ni-Sā"
+      ],
+      avroha: [
+        "Sā~Ni~Sā-Ni-Dha-Pa", "Ni~Dha~Ni-Dha-Pa-Ma",
+        "Dha~Pa~Dha-Pa-Ma-Ga", "Pa~Ma~Pa-Ma-Ga-Re", "Ma~Ga~Ma-Ga-Re-Sa"
+      ],
+      tips: "Gently pulse diaphragmatic air pressure to create natural, warm pitch waves."
+    },
+    {
+      id: 56,
+      level: 'Advanced',
+      title: "56. 10-Beat Jhaptal Vakra Sprint (Jhaptal Palta)",
+      focus: "10-Beat (2+3+2+3) Jhaptal Rhythm Subdivision",
+      desc: "A 10-swara non-linear phrase specifically structured to fit Jhaptal (10 beats) rhythm patterns in classical bansuri concert performances.",
+      aroha: [
+        "Sa-Re-Ga-Ma-Pa-Ma-Ga-Re-Sa-Re",
+        "Re-Ga-Ma-Pa-Dha-Pa-Ma-Ga-Re-Ga",
+        "Ga-Ma-Pa-Dha-Ni-Dha-Pa-Ma-Ga-Ma"
+      ],
+      avroha: [
+        "Sā-Ni-Dha-Pa-Ma-Pa-Dha-Ni-Sā-Ni",
+        "Ni-Dha-Pa-Ma-Ga-Ma-Pa-Dha-Ni-Dha",
+        "Dha-Pa-Ma-Ga-Re-Ga-Ma-Pa-Dha-Pa"
+      ],
+      tips: "Accent beats 1, 3, 6, and 8 to lock into the 2+3+2+3 Jhaptal structure."
+    },
+    {
+      id: 57,
+      level: 'Advanced',
+      title: "57. 12-Beat Ektaal Fast Taan Wave (Ektaal Taan Sanchar)",
+      focus: "12-Beat Ektaal High-Speed Taan",
+      desc: "Extends 12 swaras in a single continuous wave across full octave boundaries, designed for fast Ektaal Drut Bandish improvisations.",
+      aroha: [
+        "Sa-Re-Ga-Ma-Pa-Dha-Ni-Sā-Ni-Dha-Pa-Ma",
+        "Re-Ga-Ma-Pa-Dha-Ni-Sā-Rā-Sā-Ni-Dha-Pa",
+        "Ga-Ma-Pa-Dha-Ni-Sā-Rā-Gā-Rā-Sā-Ni-Dha"
+      ],
+      avroha: [
+        "Sā-Ni-Dha-Pa-Ma-Ga-Re-Sa-Re-Ga-Ma-Pa",
+        "Ni-Dha-Pa-Ma-Ga-Re-Sa-N.-Sa-Re-Ga-Ma",
+        "Dha-Pa-Ma-Ga-Re-Sa-N.-D.-N.-Sa-Re-Ga"
+      ],
+      tips: "Keep fingertips relaxed and close to tone holes for instant 12th-note speed."
+    },
+    {
+      id: 58,
+      level: 'Advanced',
+      title: "58. Double Khatka-Murki Combination (Khatka-Murki Sanchar)",
+      focus: "Compound Fast Classical Ornamentation",
+      desc: "Combines a 5-note Murki flick with a 4-note Khatka turnaround in a single breath phrase. Found in thumri and drut khayal bansuri solos.",
+      aroha: [
+        "Sa-Re-Sa-N.-Sa-Re-Ga-Re-Sa-Re",
+        "Re-Ga-Re-Sa-Re-Ga-Ma-Ga-Re-Ga",
+        "Ga-Ma-Ga-Re-Ga-Ma-Pa-Ma-Ga-Ma",
+        "Ma-Pa-Ma-Ga-Ma-Pa-Dha-Pa-Ma-Pa",
+        "Pa-Dha-Pa-Ma-Pa-Dha-Ni-Dha-Pa-Dha"
+      ],
+      avroha: [
+        "Sā-Rā-Sā-Ni-Sā-Sā-Ni-Dha-Ni-Sā",
+        "Ni-Sā-Ni-Dha-Ni-Ni-Dha-Pa-Dha-Ni",
+        "Dha-Ni-Dha-Pa-Dha-Dha-Pa-Ma-Pa-Dha",
+        "Pa-Dha-Pa-Ma-Pa-Pa-Ma-Ga-Ma-Pa",
+        "Ma-Pa-Ma-Ga-Ma-Ma-Ga-Re-Ga-Ma"
+      ],
+      tips: "Ensure the ornament flick is ultra-fast while the target note remains steady."
+    },
+    {
+      id: 59,
+      level: 'Advanced',
+      title: "59. Master Trisaptak Ultra Sprint (Maha Trisaptak Chhalaang)",
+      focus: "Extreme 3-Octave Leap Synchronization",
+      desc: "Leaps instantaneously across all three saptaks (Mandra, Madhya, Tarr) in alternating octave leaps. The ultimate test of embouchure precision.",
+      aroha: [
+        "P.-Sa-P.-Sā", "D.-Re-D.-Rā",
+        "N.-Ga-N.-Gā", "Sa-Ma-Sā-Mā"
+      ],
+      avroha: [
+        "Sā-P.-Sā-Sa", "Rā-D.-Rā-Re",
+        "Gā-N.-Gā-Ga", "Mā-Sa-Mā-Ma"
+      ],
+      tips: "Aperture adjustment must happen at the exact millisecond of finger placement."
+    },
+    {
+      id: 60,
+      level: 'Advanced',
+      title: "60. Infinite Spiral Vakra Palta (Ananta Vakra Sanchar)",
+      focus: "Complete Octave Non-Linear Master Taan",
+      desc: "The grand master 18-swara non-linear spiral Palta spanning the full compass of Hindustani classical flute mastery.",
+      aroha: [
+        "Sa-Re-Ga-Ma-Pa-Dha-Ni-Sā-Ni-Dha-Pa-Ma-Ga-Re-Sa-N.-Sa",
+        "Re-Ga-Ma-Pa-Dha-Ni-Sā-Rā-Sā-Ni-Dha-Pa-Ma-Ga-Re-Sa-Re",
+        "Ga-Ma-Pa-Dha-Ni-Sā-Rā-Gā-Rā-Sā-Ni-Dha-Pa-Ma-Ga-Re-Ga"
+      ],
+      avroha: [
+        "Sā-Ni-Dha-Pa-Ma-Ga-Re-Sa-Re-Ga-Ma-Pa-Dha-Ni-Sā-Rā-Sā",
+        "Ni-Dha-Pa-Ma-Ga-Re-Sa-N.-Sa-Re-Ga-Ma-Pa-Dha-Ni-Sā-Ni",
+        "Dha-Pa-Ma-Ga-Re-Sa-N.-D.-N.-Sa-Re-Ga-Ma-Pa-Dha-Ni-Dha"
+      ],
+      tips: "Mastering this 60th Palta represents peak finger independence, breath control, and classical bansuri command."
     }
   ];
 
@@ -996,7 +1298,7 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
           "@context": "https://schema.org",
           "@type": "LearningResource",
           "name": "Bansuri Alankaras Practice Guide: Beginner, Intermediate & Advanced Paltas",
-          "description": "Comprehensive collection of 42 Bansuri Alankars (Paltas) categorized into Beginner, Intermediate, and Advanced levels with Swara notes, audio playback, metronome practice, and instructional tips.",
+          "description": "Comprehensive collection of 60 Bansuri Alankars (Paltas) categorized into Beginner, Intermediate, and Advanced levels with Swara notes, audio playback, metronome practice, and instructional tips.",
           "learningResourceType": "Practice Guide",
           "educationalLevel": ["Beginner", "Intermediate", "Advanced"],
           "publisher": {
@@ -1045,13 +1347,13 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
               </div>
               <span className="text-gray-300">•</span>
               <span className="inline-flex items-center gap-1 bg-amber-100 text-amber-900 font-bold px-2 py-0.5 rounded-md text-[10px] tracking-wide uppercase">
-                <CheckCircle2 className="w-3 h-3 text-amber-700" /> 42 Paltas Included
+                <CheckCircle2 className="w-3 h-3 text-amber-700" /> 60 Paltas Included
               </span>
             </div>
           </div>
 
           <p className="text-base sm:text-lg leading-relaxed text-gray-700 font-medium border-l-4 border-amber-400 pl-4 sm:pl-6 py-1 italic">
-            In Indian classical music, <strong>Alankars (Paltas)</strong> are melodic patterns that train your fingers, breath velocity, micro-tonguing, and ear. Master all 42 structured exercises across <strong>Beginner</strong>, <strong>Intermediate</strong>, and <strong>Advanced</strong> difficulty tiers to unlock effortless flute playing!
+            In Indian classical music, <strong>Alankars (Paltas)</strong> are melodic patterns that train your fingers, breath velocity, micro-tonguing, and ear. Master all 60 structured exercises across <strong>Beginner</strong>, <strong>Intermediate</strong>, and <strong>Advanced</strong> difficulty tiers to unlock effortless flute playing!
           </p>
 
           {/* Quick Swara Reference Bar */}
