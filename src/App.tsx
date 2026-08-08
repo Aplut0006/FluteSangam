@@ -122,7 +122,19 @@ export default function App() {
     setCurrentUserRaw(user);
     try {
       if (user) {
-        localStorage.setItem('flutesangam_user_profile', JSON.stringify(user));
+        // Only store non-sensitive visual UI data in localStorage
+        const safeCachedProfile = {
+          uid: user.uid,
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+          username: user.username,
+          level: user.level,
+          status: user.status,
+          bio: user.bio,
+          location: user.location,
+          bansuriType: user.bansuriType
+        };
+        localStorage.setItem('flutesangam_user_profile', JSON.stringify(safeCachedProfile));
       } else {
         localStorage.removeItem('flutesangam_user_profile');
       }
