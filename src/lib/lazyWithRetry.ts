@@ -1,42 +1,57 @@
 import React from 'react';
 
+export type PreloadableComponent<T extends React.ComponentType<any>> = React.LazyExoticComponent<T> & {
+  preload: () => Promise<any>;
+};
+
 /**
- * Smart lazy loader with automatic retry mechanism for dynamic imports.
+ * Smart lazy loader with automatic retry mechanism and instant preloading support.
  * Catches chunk loading failures caused by network blips or updated deployments
  * and retries loading up to 2 times before triggering a single auto-reload.
  */
 export function lazyWithRetry<T extends React.ComponentType<any>>(
   componentImport: () => Promise<{ default: T } | any>
-): React.LazyExoticComponent<T> {
-  return React.lazy(async () => {
-    const pageHasBeenRefreshed = sessionStorage.getItem('flutesangam_chunk_refreshed');
+): PreloadableComponent<T> {
+  let modulePromise: Promise<{ default: T }> | null = null;
 
-    // Attempt up to 3 tries with backoff
-    for (let i = 0; i < 3; i++) {
-      try {
-        const module = await componentImport();
-        // Clear refresh flag on successful load
-        if (pageHasBeenRefreshed) {
-          sessionStorage.removeItem('flutesangam_chunk_refreshed');
-        }
-        return module;
-      } catch (error: any) {
-        console.warn(`[FluteSangam] Dynamic module import attempt ${i + 1} failed:`, error);
-        
-        // Wait before retrying (400ms, 800ms)
-        if (i < 2) {
-          await new Promise((resolve) => setTimeout(resolve, 400 * (i + 1)));
-        } else {
-          // If all retries failed and page hasn't auto-refreshed yet, reload once to grab fresh assets
-          if (!pageHasBeenRefreshed) {
-            sessionStorage.setItem('flutesangam_chunk_refreshed', 'true');
-            window.location.reload();
-            return new Promise<{ default: T }>(() => {});
+  const preload = (): Promise<{ default: T }> => {
+    if (!modulePromise) {
+      modulePromise = (async () => {
+        const pageHasBeenRefreshed = sessionStorage.getItem('flutesangam_chunk_refreshed');
+
+        for (let i = 0; i < 3; i++) {
+          try {
+            const rawModule = await componentImport();
+            const module = rawModule && rawModule.default ? rawModule : { default: rawModule };
+            
+            if (pageHasBeenRefreshed) {
+              sessionStorage.removeItem('flutesangam_chunk_refreshed');
+            }
+            return module;
+          } catch (error: any) {
+            console.warn(`[FluteSangam] Dynamic module import attempt ${i + 1} failed:`, error);
+            
+            if (i < 2) {
+              await new Promise((resolve) => setTimeout(resolve, 300 * (i + 1)));
+            } else {
+              if (!pageHasBeenRefreshed) {
+                sessionStorage.setItem('flutesangam_chunk_refreshed', 'true');
+                window.location.reload();
+                return new Promise<{ default: T }>(() => {});
+              }
+              throw error;
+            }
           }
-          throw error;
         }
-      }
+        const finalRaw = await componentImport();
+        return finalRaw && finalRaw.default ? finalRaw : { default: finalRaw };
+      })();
     }
-    return componentImport();
-  });
+    return modulePromise;
+  };
+
+  const Component = React.lazy(() => preload());
+  (Component as any).preload = preload;
+
+  return Component as PreloadableComponent<T>;
 }

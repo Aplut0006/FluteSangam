@@ -66,24 +66,11 @@ const NotFoundView = lazyWithRetry(() => import('./components/NotFoundView'));
 const HomepageOverview = lazyWithRetry(() => import('./components/HomepageOverview'));
 
 const ViewFallbackLoader = () => (
-  <div className="w-full min-h-[750px] space-y-6 animate-pulse py-4">
-    <div className="bg-amber-900/10 rounded-3xl p-8 border border-amber-800/10 min-h-[260px] space-y-4">
-      <div className="h-5 bg-amber-800/20 rounded-full w-44"></div>
-      <div className="h-9 bg-amber-800/20 rounded-2xl w-3/4"></div>
-      <div className="h-4 bg-amber-800/15 rounded-xl w-1/2"></div>
-      <div className="flex gap-3 pt-3">
-        <div className="h-10 bg-amber-800/25 rounded-xl w-32"></div>
-        <div className="h-10 bg-amber-800/15 rounded-xl w-32"></div>
-      </div>
-    </div>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-      {[1, 2, 3, 4].map((i) => (
-        <div key={i} className="bg-white/80 rounded-2xl p-5 border border-amber-100 min-h-[150px] space-y-3">
-          <div className="h-4 bg-amber-200/50 rounded-lg w-1/2"></div>
-          <div className="h-3 bg-amber-100/60 rounded-lg w-full"></div>
-          <div className="h-3 bg-amber-100/40 rounded-lg w-3/4"></div>
-        </div>
-      ))}
+  <div className="w-full min-h-[300px] flex flex-col items-center justify-center space-y-3 py-16 px-4">
+    <div className="w-9 h-9 border-3 border-amber-600 border-t-transparent rounded-full animate-spin"></div>
+    <div className="text-center space-y-1">
+      <p className="text-xs font-bold text-bamboo-900 font-display uppercase tracking-wider">Loading lesson...</p>
+      <p className="text-[11px] text-gray-500">Preparing interactive content</p>
     </div>
   </div>
 );
@@ -182,6 +169,63 @@ export default function App() {
   const [editingPost, setEditingPost] = useState<Post | null>(null);
   const [isNavbarEditingProfile, setIsNavbarEditingProfile] = useState(false);
   const [selectedImageUrl, setSelectedImageUrl] = useState<string | null>(null);
+
+  // Background Idle Preloader for Page Chunks so page switching is instant
+  useEffect(() => {
+    const preloadViews = () => {
+      const viewsToPreload = [
+        HomepageOverview,
+        LearnDashboard,
+        LearnIntroView,
+        LearnBasicsView,
+        LearnFingeringChartView,
+        LearnChooseFluteView,
+        LearnTunerView,
+        LearnAlankarasView,
+        DailyPracticeGuideView,
+        LearnScalesOctavesView,
+        CommonFluteMistakesView,
+        FluteFaqView,
+        AlankarGeneratorView,
+        LearnRaagasView,
+        RagaGuide,
+        RagaBhoopaliView,
+        RagaDurgaView,
+        RagaYamanView,
+        RagaHamsadhwaniView,
+        RagaBilawalView,
+        RagaDeshView,
+        RagaKafiView,
+        RagaBageshreeView,
+        RagaBhimpalasiView,
+        RagaBrindavaniSarangView,
+        RagaKhamajView,
+        RagaBhairavView,
+        RagaBihagView,
+        RagaMalkaunsView,
+        AboutUsView,
+        FounderView,
+        ContactUsView,
+        NotationRequestsView,
+        MembersView,
+        ChatSection
+      ];
+
+      viewsToPreload.forEach((comp) => {
+        if (comp && typeof comp.preload === 'function') {
+          comp.preload();
+        }
+      });
+    };
+
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      const idleId = (window as any).requestIdleCallback(preloadViews, { timeout: 2000 });
+      return () => (window as any).cancelIdleCallback(idleId);
+    } else {
+      const timer = setTimeout(preloadViews, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   // Dynamic SEO Title & Meta Description Management
   useEffect(() => {
@@ -631,7 +675,7 @@ export default function App() {
     }
 
     setCurrentView(view);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
 
     if (
       view === 'community' || 
