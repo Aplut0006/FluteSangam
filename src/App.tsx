@@ -321,8 +321,8 @@ export default function App() {
         description = 'FluteSangam Flutist Directory & Member Profiles: Connect with Indian flute players, bansuri teachers, performers, and fellow learners in our global community.';
         break;
       case 'about_us':
-        title = 'About Us - Indian Bamboo Flute | FluteSangam';
-        description = 'FluteSangam About Us: Learn about our mission to preserve and promote Indian bamboo flute (bansuri) heritage through accessible education and community.';
+        title = 'About FluteSangam | Learn, Practice & Connect';
+        description = 'Learn about FluteSangam, a global platform for learning, practicing, exploring music, and connecting with flute players around the world.';
         break;
       case 'founder':
         title = 'Aplut – Founder of FluteSangam';
