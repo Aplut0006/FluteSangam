@@ -7,6 +7,7 @@ import {
   Sliders, Radio, Award, Sparkles, Flame, ShieldAlert, Lightbulb, Printer, AlertCircle
 } from 'lucide-react';
 import { AppView } from '../types';
+import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
 
 interface RagaKhamajViewProps {
@@ -127,6 +128,10 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
           const nextBeat = (prevBeat + 1) % 16;
           const noteToPlay = compositionNotes[nextBeat % compositionNotes.length];
           playSwaraTone(noteToPlay, 0.4);
+          try {
+            const ctx = getAudioContext();
+            playTakMetronomeClick(ctx, nextBeat === 0);
+          } catch (e) {}
           return nextBeat;
         });
       }, beatDurationMs);

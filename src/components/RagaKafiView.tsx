@@ -7,6 +7,7 @@ import {
   Sliders, Radio, Award, Sparkles, Flame, ShieldAlert, Lightbulb
 } from 'lucide-react';
 import { AppView } from '../types';
+import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
 
 interface RagaKafiViewProps {
@@ -123,7 +124,14 @@ export default function RagaKafiView({ onViewChange }: RagaKafiViewProps) {
     if (isPlayingComposition) {
       const intervalMs = (60 / bpm) * 1000;
       beatInterval = setInterval(() => {
-        setCurrentBeat(prev => (prev % 16) + 1);
+        setCurrentBeat(prev => {
+          const next = (prev % 16) + 1;
+          try {
+            const ctx = getAudioContext();
+            playTakMetronomeClick(ctx, next === 1);
+          } catch (e) {}
+          return next;
+        });
       }, intervalMs);
     } else {
       setCurrentBeat(0);

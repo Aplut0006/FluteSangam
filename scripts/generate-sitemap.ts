@@ -13,8 +13,12 @@ const faqCategoryRoutes = Object.values(CATEGORY_SLUGS)
   .filter(Boolean)
   .map(slug => `/faq/${slug}`);
 
-// Combine base routes and FAQ category routes (ensuring no duplicates)
-const allRoutes = Array.from(new Set([...baseRoutes, ...faqCategoryRoutes]));
+const alankarLevelRoutes = ['beginner', 'intermediate', 'advanced'].map(
+  lvl => `/learn/alankaras/${lvl}`
+);
+
+// Combine base routes, FAQ category routes, and Alankar level routes (ensuring no duplicates)
+const allRoutes = Array.from(new Set([...baseRoutes, ...faqCategoryRoutes, ...alankarLevelRoutes]));
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

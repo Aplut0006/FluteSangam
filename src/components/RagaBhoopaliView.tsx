@@ -6,6 +6,7 @@ import {
   Sliders, Radio, Award, Sparkles, Flame, ShieldAlert, Lightbulb
 } from 'lucide-react';
 import { AppView } from '../types';
+import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
 
 interface RagaBhoopaliViewProps {
@@ -117,27 +118,20 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
     if (isPlayingComposition) {
       const intervalMs = (60 / bpm) * 1000;
       beatInterval = setInterval(() => {
-        setCurrentBeat(prev => (prev % 16) + 1);
-        // Gentle click sound
-        try {
-          const ctx = getAudioContext();
-          const osc = ctx.createOscillator();
-          const gain = ctx.createGain();
-          osc.type = 'sine';
-          osc.frequency.setValueAtTime(currentBeat === 1 ? 880 : 440, ctx.currentTime);
-          gain.gain.setValueAtTime(0.08, ctx.currentTime);
-          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08);
-          osc.connect(gain);
-          gain.connect(ctx.destination);
-          osc.start();
-          osc.stop(ctx.currentTime + 0.08);
-        } catch (e) {}
+        setCurrentBeat(prev => {
+          const next = (prev % 16) + 1;
+          try {
+            const ctx = getAudioContext();
+            playTakMetronomeClick(ctx, next === 1);
+          } catch (e) {}
+          return next;
+        });
       }, intervalMs);
     } else {
       setCurrentBeat(0);
     }
     return () => clearInterval(beatInterval);
-  }, [isPlayingComposition, bpm, currentBeat]);
+  }, [isPlayingComposition, bpm]);
 
   const basicInfo = [
     { label: 'Also Known As', value: 'Bhup / Bhoop', icon: <Music className="w-4 h-4 text-amber-600" /> },

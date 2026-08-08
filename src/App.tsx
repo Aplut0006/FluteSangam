@@ -188,8 +188,19 @@ export default function App() {
         description = 'FluteSangam Online Bansuri Tuner & Tanpura Drone: Tune your Indian bamboo flute accurately with real-time frequency detection and tanpura playback.';
         break;
       case 'learn_alankaras':
-        title = 'Alankar Exercises & Sargam | FluteSangam';
-        description = 'FluteSangam Alankar Exercises & Sargam Drills: Practice finger agility, pitch accuracy, tempo stability, and daily sargam exercises on Indian bamboo flute.';
+        if (location.pathname.includes('/learn/alankaras/intermediate')) {
+          title = 'Intermediate Alankar Exercises & Sargam | FluteSangam';
+          description = 'FluteSangam Intermediate Alankar Exercises & Sargam Drills: Practice double swara combinations, speed variations, and rhythmic patterns on Indian bamboo flute.';
+        } else if (location.pathname.includes('/learn/alankaras/advanced')) {
+          title = 'Advanced Alankar Exercises & Sargam | FluteSangam';
+          description = 'FluteSangam Advanced Alankar Exercises & Sargam Drills: Master intricate meend transitions, complex pattern skips, fast palta drills, and ragas agility on Indian bamboo flute.';
+        } else if (location.pathname.includes('/learn/alankaras/beginner')) {
+          title = 'Beginner Alankar Exercises & Sargam | FluteSangam';
+          description = 'FluteSangam Beginner Alankar Exercises & Sargam Drills: Practice fundamental Sa Re Ga Ma notes, single swara repeats, and basic sargam exercises on Indian bamboo flute.';
+        } else {
+          title = 'Alankar Exercises & Sargam | FluteSangam';
+          description = 'FluteSangam Alankar Exercises & Sargam Drills: Practice finger agility, pitch accuracy, tempo stability, and daily sargam exercises on Indian bamboo flute.';
+        }
         break;
       case 'learn_daily_practice':
         title = 'Daily Flute Practice Guide | Improve Tone, Technique & Rhythm | FluteSangam';
@@ -540,6 +551,10 @@ export default function App() {
     } else if (path === '/faq' || path.startsWith('/faq/')) {
         if (currentView !== 'flute_faq') {
             handleViewChange('flute_faq', {}, false);
+        }
+    } else if (path === '/learn/alankaras' || path.startsWith('/learn/alankaras/')) {
+        if (currentView !== 'learn_alankaras') {
+            handleViewChange('learn_alankaras', {}, false);
         }
     } else if (path === '/community') {
         if (currentView !== 'community') {

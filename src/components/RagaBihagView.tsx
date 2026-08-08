@@ -7,6 +7,7 @@ import {
   Sliders, Award, Sparkles, ShieldAlert, Lightbulb, RotateCcw
 } from 'lucide-react';
 import { AppView } from '../types';
+import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
 
 interface RagaBihagViewProps {
@@ -140,18 +141,9 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
       metronomeIntervalRef.current = setInterval(() => {
         setCurrentBeat(prev => {
           const next = (prev % 16) + 1;
-          // Play click sound
           try {
             const ctx = getAudioContext();
-            const osc = ctx.createOscillator();
-            const gain = ctx.createGain();
-            osc.frequency.value = next === 1 ? 880 : (next === 5 || next === 13) ? 660 : 440;
-            gain.gain.setValueAtTime(0.12, ctx.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08);
-            osc.connect(gain);
-            gain.connect(ctx.destination);
-            osc.start();
-            osc.stop(ctx.currentTime + 0.08);
+            playTakMetronomeClick(ctx, next === 1);
           } catch(e) {}
           return next;
         });
