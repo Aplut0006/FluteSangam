@@ -60,6 +60,7 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
     { name: 'Raag Bageshree', view: 'raga_bageshree', title: 'Nisha Dhwani', level: 'Intermediate', color: 'bg-purple-700 hover:bg-purple-800' },
     { name: 'Raag Bhairav', view: 'raga_bhairav', title: 'Pratah Dhyan', level: 'Intermediate', color: 'bg-orange-700 hover:bg-orange-800' },
     { name: 'Raag Khamaj', view: 'raga_khamaj', title: 'Madhur Milan', level: 'Intermediate', color: 'bg-rose-800 hover:bg-rose-900' },
+    { name: 'Raag Bihag', view: 'raga_bihag', title: 'Sandhya Madhurya', level: 'Intermediate', color: 'bg-amber-700 hover:bg-amber-800' },
   ];
 
   // Featured Guides filtered according to chosen level filter & search
@@ -227,6 +228,7 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
     if (n.includes('bageshree')) return 'raga_bageshree';
     if (n.includes('bhairav')) return 'raga_bhairav';
     if (n.includes('khamaj')) return 'raga_khamaj';
+    if (n.includes('bihag')) return 'raga_bihag';
     return null;
   };
 

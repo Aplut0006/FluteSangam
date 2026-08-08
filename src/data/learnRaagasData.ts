@@ -260,14 +260,15 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Bihag", 
     level: "Intermediate", 
-    description: "Uses all Shuddha notes with a hidden touch of Teevra Ma; famous for wide octave jumps.",
-    aaroh: "Sa Ga Ma Pa Ni Sa'",
-    avroh: "Sa' Ni Dha Pa, Ma(tivra) Pa Ga Ma Ga, Re Sa",
+    description: "Graceful and melodious Bilawal Thaat raga associated with late evening and night, featuring both Shuddha Ma and Tivra Ma with graceful movements around Ga, Ma, Pa, and Ni.",
+    aaroh: "S G M P N S'",
+    avroh: "S' N D P M G M G R S",
     vadi: "Ga",
     samvadi: "Ni",
-    pakad: "Ga Ma Pa, Ni Dha Pa, Ma(tivra) Pa Ga Ma Ga Re Sa",
-    time: "Late Evening",
-    mood: "Romantic, Happy"
+    pakad: "G M P, N D P, M G M G, R S",
+    time: "Late Evening / Night",
+    mood: "Romantic, Graceful, Serene",
+    link: "raga_bihag"
   },
   { 
     name: "Raag Hameed", 

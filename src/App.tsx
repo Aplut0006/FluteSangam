@@ -50,6 +50,7 @@ const RagaBhimpalasiView = lazyWithRetry(() => import('./components/RagaBhimpala
 const RagaBrindavaniSarangView = lazyWithRetry(() => import('./components/RagaBrindavaniSarangView'));
 const RagaKhamajView = lazyWithRetry(() => import('./components/RagaKhamajView'));
 const RagaBhairavView = lazyWithRetry(() => import('./components/RagaBhairavView'));
+const RagaBihagView = lazyWithRetry(() => import('./components/RagaBihagView'));
 const MembersView = lazyWithRetry(() => import('./components/MembersView'));
 const ImageModal = lazyWithRetry(() => import('./components/ImageModal'));
 const AboutUsView = lazyWithRetry(() => import('./components/AboutUsView'));
@@ -257,6 +258,10 @@ export default function App() {
       case 'raga_bhairav':
         title = 'Raag Bhairav: Complete Guide, Notes, Aaroh, Avaroh & Practice | FluteSangam';
         description = 'Master Raag Bhairav on Indian Bamboo Flute (Bansuri). Step-by-step guide with Swara playback, Pakad, Chalan, 45-min practice routine, alankars, and practice piece Pratah Dhyan.';
+        break;
+      case 'raga_bihag':
+        title = 'Raag Bihag: Complete Guide, Notes, Aaroh, Avaroh & Practice | FluteSangam';
+        description = 'Master Raag Bihag on Indian Bamboo Flute (Bansuri). Complete guide with Swara playback, Tivra Ma usage, Pakad, Chalan, 45-min practice routine, alankars, and practice piece Sandhya Madhurya.';
         break;
       case 'notation_requests':
         title = 'Song Notation Requests | FluteSangam Sargam';
@@ -1009,6 +1014,8 @@ export default function App() {
           <RagaKhamajView onViewChange={handleViewChange} />
         ) : currentView === 'raga_bhairav' ? (
           <RagaBhairavView onViewChange={handleViewChange} />
+        ) : currentView === 'raga_bihag' ? (
+          <RagaBihagView onViewChange={handleViewChange} />
         ) : currentView === 'about_us' ? (
           <AboutUsView onViewChange={handleViewChange} />
         ) : currentView === 'founder' ? (
