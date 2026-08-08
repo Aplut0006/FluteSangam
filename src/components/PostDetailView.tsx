@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Post, Comment, UserProfile } from '../types';
-import { auth } from '../lib/firebase';
 import { 
   toggleLikePost, 
   subscribeToComments, 
@@ -231,7 +230,7 @@ export default function PostDetailView({
     }
   };
 
-  const userEmail = (currentUser?.email || auth.currentUser?.email || '').toLowerCase().trim();
+  const userEmail = (currentUser?.email || '').toLowerCase().trim();
   const isAdmin = userEmail === 'aplut0006@gmail.com';
   const hasLiked = currentUser ? post.likes.includes(currentUser.uid) : false;
   const isPostAuthor = currentUser?.uid === post.authorId;

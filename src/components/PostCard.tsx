@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Post, Comment, UserProfile } from '../types';
 import { toggleLikePost, subscribeToComments, subscribeToLatestComments, deletePost } from '../lib/db';
-import { auth } from '../lib/firebase';
 import { 
   Heart, 
   MessageSquare, 
@@ -44,7 +43,7 @@ export default function PostCard({
   const [commentsCount, setCommentsCount] = useState(post.commentsCount || 0);
   const [latestComments, setLatestComments] = useState<Comment[]>([]);
 
-  const userEmail = (currentUser?.email || auth.currentUser?.email || '').toLowerCase().trim();
+  const userEmail = (currentUser?.email || '').toLowerCase().trim();
   const isAdmin = userEmail === 'aplut0006@gmail.com';
   const canDeletePost = isAdmin || (!!currentUser && currentUser.uid === post.authorId);
 

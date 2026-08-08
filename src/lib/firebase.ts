@@ -4,17 +4,15 @@ import {
   initializeFirestore, 
   persistentLocalCache, 
   persistentMultipleTabManager,
-  memoryLocalCache,
-  doc,
-  getDocFromServer
+  memoryLocalCache
 } from 'firebase/firestore';
 import firebaseConfig from '../../firebase-applet-config.json';
 
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 
 const dbId = firebaseConfig.firestoreDatabaseId || '(default)';
 
-let firestoreDb;
+let firestoreDb: any;
 try {
   firestoreDb = initializeFirestore(app, {
     experimentalAutoDetectLongPolling: true,
@@ -31,16 +29,21 @@ try {
 }
 
 export const db = firestoreDb;
-export const auth = getAuth(app);
 
-// Test initial connection safely
-async function testConnection() {
-  try {
-    await getDocFromServer(doc(db, 'test', 'connection'));
-  } catch (error) {
-    if (error instanceof Error && error.message.includes('the client is offline')) {
-      console.warn("Firestore operating in offline/cached mode.");
-    }
+let authInstance: any = null;
+export function getAuthInstance() {
+  if (!authInstance) {
+    authInstance = getAuth(app);
   }
+  return authInstance;
 }
-testConnection();
+
+// Proxy object for auth so that getAuth(app) is executed lazily when auth properties/methods are accessed, preventing synchronous auth iframe creation on page load
+export const auth: ReturnType<typeof getAuth> = new Proxy({} as any, {
+  get(_target, prop) {
+    const instance = getAuthInstance();
+    const val = (instance as any)[prop];
+    return typeof val === 'function' ? val.bind(instance) : val;
+  }
+});
+

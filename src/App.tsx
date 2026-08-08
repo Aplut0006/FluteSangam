@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { auth } from './lib/firebase';
-import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { seedDatabaseIfEmpty, subscribeToPosts, getUserProfile, getUserProfileByEmail, subscribeToUnreadMessages, subscribeToAllUsers, getPost, createUserProfile, generateUniqueUsername, markUserAsDeletedInFirestore } from './lib/db';
+import { STATIC_INITIAL_POSTS } from './data/mockPosts';
 import { VIEW_URLS } from './routes';
 import { UserProfile, Post, AppView } from './types';
 import { motion, AnimatePresence } from 'motion/react';
@@ -110,8 +110,8 @@ export default function App() {
   const navigate = useNavigate();
   const location = useLocation();
   const [currentUser, setCurrentUser] = useState<UserProfile | null>(null);
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [posts, setPosts] = useState<Post[]>(STATIC_INITIAL_POSTS);
+  const [loading, setLoading] = useState(false);
   
   // Search & Filter state
   const [searchQuery, setSearchQuery] = useState('');
@@ -677,74 +677,82 @@ export default function App() {
     handleViewChange('chats');
   };
 
-  // 1. Initial Auth and database seeding
+  // 1. Initial Auth and database seeding (Deferred to allow LCP paint to happen instantly)
   useEffect(() => {
-    // Seed database if empty first, then subscribe to real-time posts
-    const initializeApp = async () => {
-      await seedDatabaseIfEmpty();
-    };
-    initializeApp();
+    let unsubscribeAuth: (() => void) | null = null;
+    let unsubscribePosts: (() => void) | null = null;
 
-    // Listen for auth state changes
-    const unsubscribeAuth = onAuthStateChanged(auth, async (firebaseUser) => {
-      if (firebaseUser) {
-        // Enforce email verification check for password provider logins
-        const isPasswordProvider = firebaseUser.providerData.some(p => p.providerId === 'password') || (!firebaseUser.providerData.length && !firebaseUser.emailVerified);
-        if (isPasswordProvider && !firebaseUser.emailVerified) {
-          await signOut(auth);
-          setCurrentUser(null);
-          setLoading(false);
-          return;
-        }
+    const timer = setTimeout(async () => {
+      // Dynamically import firebase/auth so it is not in the critical load chain of homepage
+      try {
+        const { onAuthStateChanged, signOut } = await import('firebase/auth');
 
-        let profile = await getUserProfile(firebaseUser.uid);
-        if (!profile && firebaseUser.email) {
-          profile = await getUserProfileByEmail(firebaseUser.email);
-        }
+        unsubscribeAuth = onAuthStateChanged(auth, async (firebaseUser) => {
+          if (firebaseUser) {
+            // Enforce email verification check for password provider logins
+            const isPasswordProvider = firebaseUser.providerData.some(p => p.providerId === 'password') || (!firebaseUser.providerData.length && !firebaseUser.emailVerified);
+            if (isPasswordProvider && !firebaseUser.emailVerified) {
+              await signOut(auth);
+              setCurrentUser(null);
+              return;
+            }
 
-        // If profile is not found immediately, retry to give AuthModal time to save custom user profile
-        if (!profile) {
-          for (let attempt = 0; attempt < 2; attempt++) {
-            await new Promise(r => setTimeout(r, 600));
-            profile = await getUserProfile(firebaseUser.uid);
+            let profile = await getUserProfile(firebaseUser.uid);
             if (!profile && firebaseUser.email) {
               profile = await getUserProfileByEmail(firebaseUser.email);
             }
-            if (profile) break;
+
+            // If profile is not found immediately, retry to give AuthModal time to save custom user profile
+            if (!profile) {
+              for (let attempt = 0; attempt < 2; attempt++) {
+                await new Promise(r => setTimeout(r, 600));
+                profile = await getUserProfile(firebaseUser.uid);
+                if (!profile && firebaseUser.email) {
+                  profile = await getUserProfileByEmail(firebaseUser.email);
+                }
+                if (profile) break;
+              }
+            }
+
+            if (profile && (profile.isDeleted || profile.status === 'deleted')) {
+              await signOut(auth);
+              setCurrentUser(null);
+              return;
+            }
+            if (profile) {
+              setCurrentUser({
+                ...profile,
+                email: profile.email || firebaseUser.email || ''
+              });
+            } else {
+              await signOut(auth);
+              setCurrentUser(null);
+            }
+          } else {
+            setCurrentUser(null);
           }
-        }
-
-        if (profile && (profile.isDeleted || profile.status === 'deleted')) {
-          await signOut(auth);
-          setCurrentUser(null);
-          setLoading(false);
-          return;
-        }
-        if (profile) {
-          setCurrentUser({
-            ...profile,
-            email: profile.email || firebaseUser.email || ''
-          });
-        } else {
-          // If profile document is missing in Firestore (e.g. user deleted from Firestore),
-          // sign them out of Firebase Auth so a new profile document is NOT automatically recreated!
-          await signOut(auth);
-          setCurrentUser(null);
-        }
-      } else {
-        setCurrentUser(null);
+        });
+      } catch (err) {
+        console.warn("Deferred auth initialization warning:", err);
       }
-      setLoading(false);
-    });
 
-    // Subscribe to real-time posts
-    const unsubscribePosts = subscribeToPosts((loadedPosts) => {
-      setPosts(loadedPosts);
-    });
+      // Seed database if empty and subscribe to real-time posts
+      try {
+        await seedDatabaseIfEmpty();
+        unsubscribePosts = subscribeToPosts((loadedPosts) => {
+          if (loadedPosts && loadedPosts.length > 0) {
+            setPosts(loadedPosts);
+          }
+        });
+      } catch (err) {
+        console.warn("Deferred posts subscription warning:", err);
+      }
+    }, 250);
 
     return () => {
-      unsubscribeAuth();
-      unsubscribePosts();
+      clearTimeout(timer);
+      if (unsubscribeAuth) unsubscribeAuth();
+      if (unsubscribePosts) unsubscribePosts();
     };
   }, []);
 

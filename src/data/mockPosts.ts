@@ -179,6 +179,22 @@ export const INITIAL_COMMUNITY_POSTS: Omit<Post, 'id' | 'createdAt'>[] = [
   }
 ];
 
+export const STATIC_INITIAL_POSTS: Post[] = INITIAL_COMMUNITY_POSTS.map((item, index) => {
+  const ids = [
+    "morning-meditation",
+    "essential-breath-tips",
+    "shakur-c-natural-review",
+    "six-to-seven-hole-question",
+    "bhimpalasi-deep-dive"
+  ];
+  return {
+    id: ids[index] || `post-${index}`,
+    createdAt: new Date(1722000000000 - index * 86400000),
+    updatedAt: new Date(1722000000000 - index * 86400000),
+    ...item
+  };
+});
+
 export const MOCK_COMMENTS: Record<string, Omit<Comment, 'id' | 'createdAt'>[]> = {
   // Comments for Raga Bhairav post
   "morning-meditation": [

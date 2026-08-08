@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { UserProfile, AppView } from '../types';
 import { VIEW_URLS } from '../routes';
 import { auth } from '../lib/firebase';
-import { signOut } from 'firebase/auth';
 import { updateUserProfile, isEmailTaken, isPhoneTaken, isUsernameTaken, deleteUserAccount } from '../lib/db';
 import { Music, LogOut, User, Globe, Edit3, Check, X, ShieldAlert, Sparkles, MapPin, Feather, Phone, Mail, Camera, Upload, MessageSquare, Wind, BookOpen, ChevronDown, Users, Zap, Menu, Info, Radio, Trash2, Sliders, CircleDot, HelpCircle } from 'lucide-react';
 import { CARTOON_AVATARS } from '../constants/avatars';
@@ -63,6 +62,7 @@ export default function Navbar({
     }
     setDeleting(true);
     try {
+      const { signOut } = await import('firebase/auth');
       await deleteUserAccount(currentUser.uid);
       await signOut(auth);
       onLogout();
@@ -71,6 +71,7 @@ export default function Navbar({
       alert("Your account has been deleted.");
     } catch (err: any) {
       console.error("Error deleting account:", err);
+      const { signOut } = await import('firebase/auth');
       await signOut(auth);
       onLogout();
       setIsEditingProfile(false);
@@ -128,6 +129,7 @@ export default function Navbar({
 
   const handleLogout = async () => {
     try {
+      const { signOut } = await import('firebase/auth');
       await signOut(auth);
       onLogout();
       setShowProfileDropdown(false);
