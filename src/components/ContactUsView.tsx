@@ -145,7 +145,7 @@ export default function ContactUsView({ onBackToCommunity }: ContactUsViewProps)
             </div>
             <h2 className="text-lg font-display font-bold text-bamboo-900 mb-2">Global Sangam</h2>
             <p className="text-xs text-gray-600 leading-relaxed mb-4">
-              Serving bansuri learners and masters globally across India, North America, Europe, and Asia.
+              Serving bansuri learners, teachers, and experienced flutists globally across India, North America, Europe, and Asia.
             </p>
           </div>
           <div className="bg-emerald-50 text-emerald-900 text-[11px] font-semibold px-3 py-2 rounded-xl border border-emerald-200/80 text-center">
