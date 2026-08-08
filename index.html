@@ -114,16 +114,22 @@
       gtag('config', 'G-X3ZN371N8X');
 
       (function() {
+        var gaLoaded = false;
         var loadGA = function() {
+          if (gaLoaded) return;
+          gaLoaded = true;
           var s = document.createElement('script');
           s.async = true;
           s.src = 'https://www.googletagmanager.com/gtag/js?id=G-X3ZN371N8X';
           document.head.appendChild(s);
         };
+        ['touchstart', 'scroll', 'mousemove', 'click'].forEach(function(ev) {
+          window.addEventListener(ev, loadGA, { once: true, passive: true });
+        });
         if ('requestIdleCallback' in window) {
-          requestIdleCallback(function() { setTimeout(loadGA, 1200); });
+          requestIdleCallback(function() { setTimeout(loadGA, 3500); });
         } else {
-          window.addEventListener('load', function() { setTimeout(loadGA, 1200); });
+          window.addEventListener('load', function() { setTimeout(loadGA, 3500); });
         }
       })();
     </script>
@@ -133,13 +139,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-    <link rel="modulepreload" href="/src/main.tsx" />
+    <link rel="preload" as="image" href="/flutesangam_without_tagline_compressed.png" type="image/png" fetchpriority="high" />
 
-    <!-- Non-render-blocking Google Fonts stylesheet -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Outfit:wght@400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Outfit:wght@400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" media="print" onload="this.media='all'" />
+    <!-- Non-render-blocking Lightweight Google Fonts stylesheet -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Outfit:wght@600;700;800&amp;family=Playfair+Display:wght@600;700&amp;display=swap" media="print" onload="this.media='all'" />
     <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Outfit:wght@400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Outfit:wght@600;700;800&amp;family=Playfair+Display:wght@600;700&amp;display=swap" />
     </noscript>
 
     <!-- Icons & Manifest -->
