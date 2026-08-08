@@ -1615,6 +1615,7 @@ export const CATEGORIES = [
   'All Categories',
   'Getting Started',
   'Learning the Flute',
+  'Adult Learners',
   'Choosing the Right Flute',
   'Playing Techniques',
   'Advanced Techniques',
@@ -1635,6 +1636,9 @@ export const SLUG_TO_CATEGORY: Record<string, string> = {
   '': 'All Categories',
   'getting-started': 'Getting Started',
   'learning-the-flute': 'Learning the Flute',
+  'adult-learners': 'Adult Learners',
+  'adults': 'Adult Learners',
+  'adult-learner': 'Adult Learners',
   'choosing-the-right-flute': 'Choosing the Right Flute',
   'choosing-a-flute': 'Choosing the Right Flute',
   'playing-techniques': 'Playing Techniques',
@@ -1748,6 +1752,10 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
       case 'Learning the Flute':
         title = 'Learning the Flute FAQ | Bansuri Practice & Sound Production | FluteSangam';
         description = 'Frequently asked questions about learning the flute, blowing techniques, fingering mastery, sound production, and posture on Indian bamboo flutes.';
+        break;
+      case 'Adult Learners':
+        title = 'Adult Learners Flute FAQ | Starting Flute Later in Life | FluteSangam';
+        description = 'Comprehensive answers for adult flute learners: starting age, practice routines with full-time jobs, beginner scales, self-learning tips, and breath control.';
         break;
       case 'Choosing the Right Flute':
         title = 'Choosing the Right Flute FAQ | Scales, Base vs Medium Bansuri | FluteSangam';

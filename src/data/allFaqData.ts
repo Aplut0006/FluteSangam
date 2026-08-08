@@ -13,6 +13,7 @@ import { FLUTE_ACCESSORIES_FAQS } from './fluteAccessoriesFaqData';
 import { FLUTE_TYPES_FAQS } from './fluteTypesFaqData';
 import { TUNING_AND_PITCH_FAQS } from './tuningAndPitchFaqData';
 import { CHILDREN_AND_BEGINNERS_FAQS } from './childrenAndBeginnersFaqData';
+import { ADULT_LEARNERS_FAQS } from './adultLearnersFaqData';
 
 export interface FaqItem {
   id: string;
@@ -30,6 +31,7 @@ export const CATEGORY_SLUGS: Record<string, string> = {
   'All Categories': '',
   'Getting Started': 'getting-started',
   'Learning the Flute': 'learning-the-flute',
+  'Adult Learners': 'adult-learners',
   'Playing Techniques': 'playing-techniques',
   'Advanced Techniques': 'advanced-techniques',
   'Daily Practice': 'daily-practice',
@@ -48,6 +50,7 @@ export const CATEGORY_SLUGS: Record<string, string> = {
 export const FAQ_DATA: FaqItem[] = [
   ...GETTING_STARTED_FAQS,
   ...LEARNING_THE_FLUTE_FAQS,
+  ...ADULT_LEARNERS_FAQS,
   ...PLAYING_TECHNIQUES_FAQS,
   ...ADVANCED_TECHNIQUES_FAQS,
   ...DAILY_PRACTICE_FAQS,
