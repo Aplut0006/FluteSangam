@@ -52,6 +52,7 @@ const RagaBrindavaniSarangView = lazyWithRetry(() => import('./components/RagaBr
 const RagaKhamajView = lazyWithRetry(() => import('./components/RagaKhamajView'));
 const RagaBhairavView = lazyWithRetry(() => import('./components/RagaBhairavView'));
 const RagaBihagView = lazyWithRetry(() => import('./components/RagaBihagView'));
+const RagaMalkaunsView = lazyWithRetry(() => import('./components/RagaMalkaunsView'));
 const MembersView = lazyWithRetry(() => import('./components/MembersView'));
 const ImageModal = lazyWithRetry(() => import('./components/ImageModal'));
 const AboutUsView = lazyWithRetry(() => import('./components/AboutUsView'));
@@ -1038,6 +1039,8 @@ export default function App() {
           <RagaBhairavView onViewChange={handleViewChange} />
         ) : currentView === 'raga_bihag' ? (
           <RagaBihagView onViewChange={handleViewChange} />
+        ) : currentView === 'raga_malkauns' ? (
+          <RagaMalkaunsView onViewChange={handleViewChange} />
         ) : currentView === 'about_us' ? (
           <AboutUsView onViewChange={handleViewChange} />
         ) : currentView === 'founder' ? (

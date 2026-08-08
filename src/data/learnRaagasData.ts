@@ -521,5 +521,18 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
     pakad: "Ga Ma Re, Sa, Ma Pa Dha Pa, Ma Ga Re Sa",
     time: "Monsoon",
     mood: "Joyful, Rainy"
+  },
+  {
+    name: "Raag Malkauns",
+    level: "Intermediate",
+    description: "Deep, meditative late-night pentatonic scale using Komal Ga, Komal Dha, and Komal Ni, with Re and Pa omitted.",
+    aaroh: "Sa Ga(komal) Ma Dha(komal) Ni(komal) Sa'",
+    avroh: "Sa' Ni(komal) Dha(komal) Ma Ga(komal) Sa",
+    vadi: "Ma",
+    samvadi: "Sa",
+    pakad: "Sa Ga(komal) Ma, Dha(komal) Ma, Ga(komal) Sa",
+    time: "Late Night (Midnight)",
+    mood: "Serious, Meditative, Deep",
+    link: "raga_malkauns"
   }
 ];
