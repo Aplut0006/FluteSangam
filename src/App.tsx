@@ -1472,7 +1472,7 @@ export default function App() {
                 </li>
                 <li>
                   <a href="/contact" onClick={(e) => { e.preventDefault(); handleViewChange('contact_us'); }} className="hover:text-amber-300 transition">
-                    Contact Us &amp; Support
+                    Contact Us
                   </a>
                 </li>
                 <li>
