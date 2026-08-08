@@ -325,8 +325,8 @@ export default function App() {
         description = 'Learn about FluteSangam, a global platform for learning, practicing, exploring music, and connecting with flute players around the world.';
         break;
       case 'founder':
-        title = 'Aplut – Founder of FluteSangam';
-        description = 'Meet Aplut, Founder of FluteSangam. Software engineer & Bansuri practitioner building a global community, free flute practice tools, and raga guides.';
+        title = 'Aplut | Founder of FluteSangam';
+        description = 'Meet Aplut, the founder of FluteSangam, and discover his flute-learning journey, why he created the platform, and his vision for a global flute community.';
         break;
       case 'contact_us':
         title = 'Contact Us & Support | FluteSangam Community';
