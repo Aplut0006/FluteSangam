@@ -2055,7 +2055,7 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
           </h1>
 
           <p className="text-sm sm:text-base text-bamboo-200 leading-relaxed font-sans">
-            Welcome to the official FluteSangam Knowledge Base! Whether you are picking up the Indian bamboo flute (Bansuri) for the very first time, selecting your initial scale, troubleshooting breath control, practicing classical raagas, or exploring our community tools, you will find comprehensive, step-by-step guidance right here.
+            Welcome to the official FluteSangam Knowledge Base! Whether you are picking up the flute (Bansuri) for the very first time, selecting your initial scale, troubleshooting breath control, practicing classical raagas, or exploring our community tools, you will find comprehensive, step-by-step guidance right here.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 text-xs text-amber-200/90 pt-2 border-t border-amber-800/60">

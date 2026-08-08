@@ -1492,7 +1492,7 @@ export default function App() {
 
           <div className="pt-6 border-t border-bamboo-700/60 text-center space-y-2">
             <p className="text-xs text-bamboo-300/80 max-w-xl mx-auto leading-relaxed">
-              FluteSangam is a free learning platform for Indian Bansuri and flute players. Learn step-by-step with beginner guides, alankars, ragas, fingering charts, practice routines, and connect with flute learners worldwide
+              FluteSangam is a free learning platform for flute and Bansuri players. Learn step-by-step with beginner guides, alankars, ragas, fingering charts, practice routines, and connect with flute learners worldwide.
             </p>
             <p className="text-[11px] font-medium text-amber-300/90 tracking-wide">
               Free learning resources • Community driven • Made for Flute enthusiasts worldwide
