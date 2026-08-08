@@ -189,17 +189,17 @@ export default function App() {
         break;
       case 'learn_alankaras':
         if (location.pathname.includes('/learn/alankaras/intermediate')) {
-          title = 'Intermediate Alankar Exercises & Sargam | FluteSangam';
-          description = 'FluteSangam Intermediate Alankar Exercises & Sargam Drills: Practice double swara combinations, speed variations, and rhythmic patterns on Indian bamboo flute.';
+          title = 'Intermediate Bansuri Alankar Exercises (20 Swara Paltas) | FluteSangam';
+          description = 'Master 20 intermediate bansuri alankars (sargam paltas) on Indian bamboo flute. Practice vakra cross-steps, double-skips, komal swaras, half-hole fingerings, speed variations, and rhythmic laya drills.';
         } else if (location.pathname.includes('/learn/alankaras/advanced')) {
-          title = 'Advanced Alankar Exercises & Sargam | FluteSangam';
-          description = 'FluteSangam Advanced Alankar Exercises & Sargam Drills: Master intricate meend transitions, complex pattern skips, fast palta drills, and ragas agility on Indian bamboo flute.';
+          title = 'Advanced Bansuri Alankar Exercises (20 Master Paltas) | FluteSangam';
+          description = 'Master 20 advanced bansuri alankars (master paltas) on Indian bamboo flute. Practice fast drut taan sprints, khatka-murki ornaments, gamak oscillations, 3-octave leaps, and jhala speed drills.';
         } else if (location.pathname.includes('/learn/alankaras/beginner')) {
-          title = 'Beginner Alankar Exercises & Sargam | FluteSangam';
-          description = 'FluteSangam Beginner Alankar Exercises & Sargam Drills: Practice fundamental Sa Re Ga Ma notes, single swara repeats, and basic sargam exercises on Indian bamboo flute.';
+          title = 'Beginner Bansuri Alankar Exercises (20 Sargam Paltas) | FluteSangam';
+          description = 'Master 20 beginner bansuri alankars (sargam paltas) on Indian bamboo flute. Practice fundamental Sa Re Ga Ma notes, double swaras, 3 & 4 note patterns, metronome timing, and finger agility.';
         } else {
-          title = 'Alankar Exercises & Sargam | FluteSangam';
-          description = 'FluteSangam Alankar Exercises & Sargam Drills: Practice finger agility, pitch accuracy, tempo stability, and daily sargam exercises on Indian bamboo flute.';
+          title = 'Bansuri Alankar Practice Vault: 60 Sargam Paltas & Exercises | FluteSangam';
+          description = 'Explore 60 complete bansuri alankars (paltas) for Indian bamboo flute across Beginner, Intermediate & Advanced levels. Features audio playback, swara notations, and interactive metronome.';
         }
         break;
       case 'learn_daily_practice':

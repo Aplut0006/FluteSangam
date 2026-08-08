@@ -1297,10 +1297,14 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LearningResource",
-          "name": "Bansuri Alankaras Practice Guide: Beginner, Intermediate & Advanced Paltas",
-          "description": "Comprehensive collection of 60 Bansuri Alankars (Paltas) categorized into Beginner, Intermediate, and Advanced levels with Swara notes, audio playback, metronome practice, and instructional tips.",
+          "name": `Bansuri ${selectedLevel} Alankaras Practice Guide (20 ${selectedLevel} Paltas)`,
+          "description": selectedLevel === 'Beginner'
+            ? "Master 20 beginner bansuri alankars (sargam paltas) on Indian bamboo flute. Practice fundamental Sa Re Ga Ma notes, double swaras, 3 & 4 note patterns, metronome timing, and finger agility."
+            : selectedLevel === 'Intermediate'
+            ? "Master 20 intermediate bansuri alankars (sargam paltas) on Indian bamboo flute. Practice vakra cross-steps, double-skips, komal swaras, half-hole fingerings, speed variations, and rhythmic laya drills."
+            : "Master 20 advanced bansuri alankars (master paltas) on Indian bamboo flute. Practice fast drut taan sprints, khatka-murki ornaments, gamak oscillations, 3-octave leaps, and jhala speed drills.",
           "learningResourceType": "Practice Guide",
-          "educationalLevel": ["Beginner", "Intermediate", "Advanced"],
+          "educationalLevel": [selectedLevel],
           "publisher": {
             "@type": "Organization",
             "name": "FluteSangam"
