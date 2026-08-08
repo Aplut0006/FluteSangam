@@ -23,7 +23,8 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
     samvadi: "Dha",
     pakad: "Ga Re Sa, Dha(lower) Sa, Re Ga, Pa Ga, Dha Pa Ga, Re Sa",
     time: "First quarter of the night",
-    mood: "Devotional, peaceful"
+    mood: "Devotional, peaceful",
+    link: "raga_bhoopali"
   },
   { 
     name: "Raag Yaman", 
@@ -35,7 +36,8 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
     samvadi: "Ni",
     pakad: "Ni(lower) Re Ga, Re Sa, Pa Ma(tivra) Ga, Re Sa",
     time: "Evening (6 PM - 9 PM)",
-    mood: "Devotional, Romantic"
+    mood: "Devotional, Romantic",
+    link: "raga_yaman"
   },
   { 
     name: "Raag Bilawal", 
@@ -47,7 +49,8 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
     samvadi: "Ga",
     pakad: "Ga Re, Ga Ma Pa, Ma Ga, Ma Re Sa",
     time: "Morning (9 AM - 12 PM)",
-    mood: "Joyful, Devotional"
+    mood: "Joyful, Devotional",
+    link: "raga_bilawal"
   },
   { 
     name: "Raag Durga", 
@@ -59,7 +62,8 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
     samvadi: "Sa",
     pakad: "Dha(lower) Ma(lower) Re, Pa Dha Sa', Dha Pa Ma Re, Dha(lower) Sa",
     time: "Late Evening (9 PM - 12 AM)",
-    mood: "Heroic, Peaceful, Pleasing"
+    mood: "Heroic, Peaceful, Pleasing",
+    link: "raga_durga"
   },
   { 
     name: "Raag Hamsadhwani", 
@@ -71,7 +75,8 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
     samvadi: "Ni",
     pakad: "Sa Re Ga, Pa Ni, Pa Ga, Re Sa",
     time: "Early Night (6 PM - 9 PM)",
-    mood: "Joyful, Devotional, Bright, Auspicious"
+    mood: "Joyful, Devotional, Bright, Auspicious",
+    link: "raga_hamsadhwani"
   },
   { 
     name: "Raag Alhaiya Bilawal", 
@@ -146,7 +151,8 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
     samvadi: "Sa",
     pakad: "Re Pa, Ma Ga(komal) Re, Sa, Ni(komal)(lower) Sa",
     time: "Late Evening",
-    mood: "Romantic, Light"
+    mood: "Romantic, Light",
+    link: "raga_kafi"
   },
   { 
     name: "Raag Khamaj", 
@@ -219,7 +225,8 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
     samvadi: "Sa",
     pakad: "Dha(lower) Ni(komal)(lower) Sa, Ma, Ga(komal) Re Sa",
     time: "Late Night",
-    mood: "Romantic, Yearning"
+    mood: "Romantic, Yearning",
+    link: "raga_bageshree"
   },
   { 
     name: "Raag Desh", 
@@ -231,7 +238,8 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
     samvadi: "Pa",
     pakad: "Re Ma Pa, Ni Sa', Ni Dha Pa, Ma Ga Re, Sa",
     time: "Second quarter of the night (9 PM – 12 AM)",
-    mood: "Romantic, Devotional, Graceful"
+    mood: "Romantic, Devotional, Graceful",
+    link: "raga_desh"
   },
   { 
     name: "Raag Pilu", 

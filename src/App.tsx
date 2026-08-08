@@ -1350,6 +1350,7 @@ export default function App() {
                     <RagaGuide 
                       onSelectRagaDiscussion={handleSelectRagaDiscussion}
                       activeRagaFilter={activeRagaFilter}
+                      onViewChange={handleViewChange}
                     />
                   </React.Suspense>
                   <FlutePracticeFaqSection onViewChange={handleViewChange} />

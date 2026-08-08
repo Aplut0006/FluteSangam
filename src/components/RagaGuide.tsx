@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { LEARN_RAAGAS } from '../data/learnRaagasData';
-import { RagaDetail } from '../types';
-import { BookOpen, Music, Sun, Moon, Info, Heart, ArrowRight } from 'lucide-react';
+import { RagaDetail, AppView } from '../types';
+import { BookOpen, Music, Sun, Moon, Info, ArrowRight } from 'lucide-react';
 
 interface RagaGuideProps {
   onSelectRagaDiscussion: (ragaName: string) => void;
   activeRagaFilter: string | null;
+  onViewChange?: (view: AppView) => void;
 }
 
-export default function RagaGuide({ onSelectRagaDiscussion, activeRagaFilter }: RagaGuideProps) {
+export default function RagaGuide({ onSelectRagaDiscussion, activeRagaFilter, onViewChange }: RagaGuideProps) {
   const [selectedRaga, setSelectedRaga] = useState<RagaDetail>(LEARN_RAAGAS[0]);
 
   // Helper to determine time icon
@@ -16,6 +17,29 @@ export default function RagaGuide({ onSelectRagaDiscussion, activeRagaFilter }: 
     if (time.toLowerCase().includes('morning')) return <Sun className="w-4 h-4 text-amber-500" />;
     return <Moon className="w-4 h-4 text-indigo-500" />;
   };
+
+  // Helper to resolve route for dedicated Raag page
+  const getRagaView = (raga: RagaDetail): AppView | null => {
+    if (raga.link) return raga.link as AppView;
+    const n = raga.name.toLowerCase();
+    if (n.includes('bhupali') || n.includes('bhoopali')) return 'raga_bhoopali';
+    if (n.includes('durga')) return 'raga_durga';
+    if (n.includes('yaman')) return 'raga_yaman';
+    if (n.includes('hamsadhwani')) return 'raga_hamsadhwani';
+    if (n.includes('bilawal') && !n.includes('alhaiya')) return 'raga_bilawal';
+    if (n.includes('brindavani') || n.includes('sarang')) return 'raga_brindavani_sarang';
+    if (n.includes('desh') && !n.includes('deshkar')) return 'raga_desh';
+    if (n.includes('kafi')) return 'raga_kafi';
+    if (n.includes('bhimpalasi')) return 'raga_bhimpalasi';
+    if (n.includes('bageshree')) return 'raga_bageshree';
+    if (n.includes('bhairav') && !n.includes('ahir')) return 'raga_bhairav';
+    if (n.includes('khamaj')) return 'raga_khamaj';
+    if (n.includes('bihag')) return 'raga_bihag';
+    if (n.includes('malkauns')) return 'raga_malkauns';
+    return null;
+  };
+
+  const targetView = getRagaView(selectedRaga);
 
   return (
     <div className="frosted-panel rounded-2xl overflow-hidden" id="raga-guide-section">
@@ -53,7 +77,7 @@ export default function RagaGuide({ onSelectRagaDiscussion, activeRagaFilter }: 
 
         {/* Selected Raga Detail Card */}
         <div className="bg-white/30 backdrop-blur-xs rounded-xl p-4 border border-white/40 space-y-3" id="raga-detail-container">
-          <div className="flex justify-between items-start">
+          <div className="flex justify-between items-start flex-wrap gap-2">
             <div>
               <h3 className="text-lg font-bold font-display text-bamboo-800 flex items-center gap-1.5">
                 <Music className="w-4.5 h-4.5 text-yellow-600 shrink-0" />
@@ -65,17 +89,19 @@ export default function RagaGuide({ onSelectRagaDiscussion, activeRagaFilter }: 
               </p>
             </div>
                 
-            <button
-              onClick={() => onSelectRagaDiscussion(selectedRaga.name)}
-              className={`px-2.5 py-1 rounded-lg text-[10px] font-bold tracking-wide uppercase transition ${
-                activeRagaFilter === selectedRaga.name
-                  ? "bg-amber-600 text-white hover:bg-amber-700"
-                  : "bg-bamboo-700 text-white hover:bg-bamboo-800"
-              }`}
-              title="See discussions about this raga"
-            >
-              {activeRagaFilter === selectedRaga.name ? "Viewing Discussion" : "Discuss Raga"}
-            </button>
+            <div className="flex items-center gap-1.5 flex-wrap">
+              <button
+                onClick={() => onSelectRagaDiscussion(selectedRaga.name)}
+                className={`px-2.5 py-1 rounded-lg text-[10px] font-bold tracking-wide uppercase transition ${
+                  activeRagaFilter === selectedRaga.name
+                    ? "bg-amber-600 text-white hover:bg-amber-700"
+                    : "bg-bamboo-700 text-white hover:bg-bamboo-800"
+                }`}
+                title="See discussions about this raga"
+              >
+                {activeRagaFilter === selectedRaga.name ? "Viewing Discussion" : "Discuss Raga"}
+              </button>
+            </div>
           </div>
 
           <div className="space-y-2 text-xs border-t border-b border-bamboo-100/60 py-2.5">
@@ -113,6 +139,29 @@ export default function RagaGuide({ onSelectRagaDiscussion, activeRagaFilter }: 
           <p className="text-xs text-gray-600 leading-relaxed pt-1 text-justify">
             {selectedRaga.description}
           </p>
+
+          {/* Dedicated Raag Page Link */}
+          {targetView && (
+            <div className="pt-2 border-t border-bamboo-200/60 flex items-center justify-between gap-2 flex-wrap">
+              <span className="text-[11px] text-bamboo-900 font-medium">
+                Full lesson &amp; practice audio available
+              </span>
+              <a
+                href={`/learn/${targetView.replace('_', '-')}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (onViewChange) {
+                    onViewChange(targetView);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
+                }}
+                className="inline-flex items-center gap-1 text-xs font-bold text-amber-700 hover:text-amber-800 cursor-pointer group"
+              >
+                <span>Go to Raag Page</span>
+                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+              </a>
+            </div>
+          )}
         </div>
 
         {/* Learning Quick Tips */}
