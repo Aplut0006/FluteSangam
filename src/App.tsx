@@ -109,7 +109,27 @@ import {
 export default function App() {
   const navigate = useNavigate();
   const location = useLocation();
-  const [currentUser, setCurrentUser] = useState<UserProfile | null>(null);
+  const [currentUser, setCurrentUserRaw] = useState<UserProfile | null>(() => {
+    try {
+      const saved = localStorage.getItem('flutesangam_user_profile');
+      return saved ? JSON.parse(saved) : null;
+    } catch {
+      return null;
+    }
+  });
+
+  const setCurrentUser = (user: UserProfile | null) => {
+    setCurrentUserRaw(user);
+    try {
+      if (user) {
+        localStorage.setItem('flutesangam_user_profile', JSON.stringify(user));
+      } else {
+        localStorage.removeItem('flutesangam_user_profile');
+      }
+    } catch (e) {
+      console.warn('Error saving cached profile:', e);
+    }
+  };
   const [posts, setPosts] = useState<Post[]>(STATIC_INITIAL_POSTS);
   const [loading, setLoading] = useState(false);
   
@@ -677,13 +697,13 @@ export default function App() {
     handleViewChange('chats');
   };
 
-  // 1. Initial Auth and database seeding (Deferred to allow LCP paint to happen instantly)
+  // 1. Initial Auth and database seeding
   useEffect(() => {
     let unsubscribeAuth: (() => void) | null = null;
     let unsubscribePosts: (() => void) | null = null;
 
-    const timer = setTimeout(async () => {
-      // Dynamically import firebase/auth so it is not in the critical load chain of homepage
+    const initAuthAndDb = async () => {
+      // Dynamically import firebase/auth so it is not in the critical bundle
       try {
         const { onAuthStateChanged, signOut } = await import('firebase/auth');
 
@@ -733,7 +753,7 @@ export default function App() {
           }
         });
       } catch (err) {
-        console.warn("Deferred auth initialization warning:", err);
+        console.warn("Auth initialization warning:", err);
       }
 
       // Seed database if empty and subscribe to real-time posts
@@ -745,12 +765,13 @@ export default function App() {
           }
         });
       } catch (err) {
-        console.warn("Deferred posts subscription warning:", err);
+        console.warn("Posts subscription warning:", err);
       }
-    }, 250);
+    };
+
+    initAuthAndDb();
 
     return () => {
-      clearTimeout(timer);
       if (unsubscribeAuth) unsubscribeAuth();
       if (unsubscribePosts) unsubscribePosts();
     };
