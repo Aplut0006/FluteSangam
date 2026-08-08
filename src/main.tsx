@@ -27,3 +27,16 @@ createRoot(document.getElementById('root')!).render(
     </ErrorBoundary>
   </StrictMode>,
 );
+
+// Clean up hidden static SEO fallback content after React mounts to minimize mobile DOM size and memory
+if (typeof window !== 'undefined') {
+  const cleanupSeoFallback = () => {
+    const el = document.getElementById('seo-fallback-content');
+    if (el) el.remove();
+  };
+  if ('requestIdleCallback' in window) {
+    (window as any).requestIdleCallback(cleanupSeoFallback);
+  } else {
+    setTimeout(cleanupSeoFallback, 1500);
+  }
+}

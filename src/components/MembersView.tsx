@@ -145,35 +145,43 @@ export default function MembersView({
         <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
           
           {/* Search Box */}
-          <div className="relative flex-1 flex items-center bg-bamboo-50/50 px-3.5 py-2.5 rounded-xl border border-bamboo-200/70 focus-within:ring-2 focus-within:ring-bamboo-600 focus-within:border-transparent transition">
-            <Search className="w-4 h-4 text-bamboo-700 shrink-0 mr-2.5" />
+          <div className="relative flex-1 flex items-center bg-bamboo-50/50 px-3.5 py-2.5 min-h-[44px] rounded-xl border border-bamboo-300 focus-within:ring-2 focus-within:ring-bamboo-600 focus-within:border-transparent transition">
+            <label htmlFor="members-search-input" className="sr-only">
+              Search by name, @username, location, or bio
+            </label>
+            <Search className="w-4 h-4 text-bamboo-800 shrink-0 mr-2.5 pointer-events-none" />
             <input
+              id="members-search-input"
               type="text"
               placeholder="Search by name, @username, location, or bio..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="bg-transparent text-xs text-gray-900 focus:outline-none placeholder-gray-400 w-full"
+              className="bg-transparent text-xs sm:text-sm text-gray-900 focus:outline-none placeholder-gray-500 w-full"
+              aria-label="Search members by name, username, location, or bio"
             />
             {searchQuery && (
               <button 
                 onClick={() => setSearchQuery('')}
-                className="text-xs text-gray-400 hover:text-gray-700 p-1 font-bold cursor-pointer"
+                className="text-xs text-gray-500 hover:text-gray-800 p-2 font-bold cursor-pointer min-h-[44px] min-w-[44px] flex items-center justify-center"
+                aria-label="Clear member search"
               >
-                <X className="w-3.5 h-3.5" />
+                <X className="w-4 h-4" />
               </button>
             )}
           </div>
 
           {/* Scale / Key Select */}
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold text-bamboo-900 shrink-0 flex items-center gap-1">
+            <label htmlFor="members-scale-select" className="text-xs font-bold text-bamboo-950 shrink-0 flex items-center gap-1 cursor-pointer">
               <Music className="w-3.5 h-3.5 text-amber-600" />
               <span>Flute Scale:</span>
-            </span>
+            </label>
             <select
+              id="members-scale-select"
               value={selectedScale}
               onChange={(e) => setSelectedScale(e.target.value)}
-              className="bg-bamboo-50/70 border border-bamboo-200 text-bamboo-900 text-xs font-semibold rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-bamboo-600 cursor-pointer"
+              className="bg-bamboo-50/70 border border-bamboo-300 text-bamboo-950 text-xs font-bold rounded-xl px-3 py-2.5 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-bamboo-600 cursor-pointer"
+              aria-label="Filter members by Flute Scale"
             >
               <option value="All">All Scales / Keys</option>
               <option value="E Bass">E Bass</option>

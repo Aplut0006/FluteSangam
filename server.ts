@@ -36,8 +36,20 @@ async function startServer() {
   } else {
     console.log("Running in production mode");
     
-    // Serve static files
-    app.use(express.static(distPath));
+    // Serve static files with efficient cache-control headers
+    app.use(express.static(distPath, {
+      maxAge: '1d',
+      setHeaders: (res, filePath) => {
+        // Immutable cached assets in dist/assets or hashed files
+        if (filePath.includes('/assets/') || filePath.match(/\.[a-f0-9]{8,}\.(js|css|woff2?|png|jpg|webp|svg)$/)) {
+          res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+        } else if (filePath.endsWith('.html')) {
+          res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
+        } else if (filePath.match(/\.(png|jpg|jpeg|gif|webp|svg|ico|mp3|wav|woff2?)$/i)) {
+          res.setHeader('Cache-Control', 'public, max-age=2592000');
+        }
+      }
+    }));
     
     // SPA fallback
     app.get('*', (req, res) => {

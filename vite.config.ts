@@ -12,8 +12,8 @@ export default defineConfig(() => {
       },
     },
     build: {
-      target: 'esnext',
-      minify: true,
+      target: 'es2020',
+      minify: 'esbuild',
       cssMinify: true,
       cssCodeSplit: true,
       modulePreload: {
@@ -21,6 +21,34 @@ export default defineConfig(() => {
       },
       sourcemap: false,
       chunkSizeWarningLimit: 1000,
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              if (id.includes('firebase')) {
+                return 'vendor-firebase';
+              }
+              if (id.includes('lucide-react')) {
+                return 'vendor-icons';
+              }
+              if (id.includes('motion')) {
+                return 'vendor-motion';
+              }
+              if (id.includes('react') || id.includes('react-dom') || id.includes('react-router')) {
+                return 'vendor-react';
+              }
+              if (id.includes('tone')) {
+                return 'vendor-audio';
+              }
+            }
+          },
+        },
+      },
+    },
+    esbuild: {
+      drop: ['console', 'debugger'],
+      legalComments: 'none',
+      treeShaking: true,
     },
     server: {
       allowedHosts: [

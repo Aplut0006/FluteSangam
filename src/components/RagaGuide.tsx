@@ -29,19 +29,27 @@ export default function RagaGuide({ onSelectRagaDiscussion, activeRagaFilter }: 
 
       <div className="p-4 space-y-4">
         {/* Dropdown of all ragas */}
-        <select
-          onChange={(e) => {
-            const raga = LEARN_RAAGAS.find(r => r.name === e.target.value);
-            if (raga) setSelectedRaga(raga);
-          }}
-          className="w-full px-4 py-2 bg-bamboo-50 text-bamboo-800 rounded-xl text-xs font-semibold border-none focus:ring-2 focus:ring-bamboo-600"
-        >
-          {LEARN_RAAGAS.map((raga) => (
-            <option key={raga.name} value={raga.name}>
-              {raga.name}
-            </option>
-          ))}
-        </select>
+        <div className="space-y-1">
+          <label htmlFor="raga-guide-select" className="block text-xs font-bold text-bamboo-950 uppercase tracking-wider">
+            Select Raga
+          </label>
+          <select
+            id="raga-guide-select"
+            value={selectedRaga.name}
+            onChange={(e) => {
+              const raga = LEARN_RAAGAS.find(r => r.name === e.target.value);
+              if (raga) setSelectedRaga(raga);
+            }}
+            className="w-full px-4 py-2.5 min-h-[44px] bg-bamboo-50 text-bamboo-950 rounded-xl text-xs font-bold border border-bamboo-300 focus:ring-2 focus:ring-bamboo-600 cursor-pointer"
+            aria-label="Select Raga"
+          >
+            {LEARN_RAAGAS.map((raga) => (
+              <option key={raga.name} value={raga.name}>
+                {raga.name}
+              </option>
+            ))}
+          </select>
+        </div>
 
         {/* Selected Raga Detail Card */}
         <div className="bg-white/30 backdrop-blur-xs rounded-xl p-4 border border-white/40 space-y-3" id="raga-detail-container">

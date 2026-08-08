@@ -471,18 +471,24 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
         
         {/* Search Input */}
         <div className="relative flex-1">
-          <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+          <label htmlFor="raagas-search-input" className="sr-only">
+            Search raaga by name, swaras, time, or mood
+          </label>
+          <Search className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
           <input
+            id="raagas-search-input"
             type="text"
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
             placeholder="Search raaga by name, swaras, time, or mood..."
-            className="w-full pl-10 pr-9 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs md:text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition"
+            className="w-full pl-10 pr-12 py-2.5 min-h-[44px] rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-xs md:text-sm text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition"
+            aria-label="Search raaga by name, swaras, time, or mood"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer"
+              className="absolute right-1.5 top-1/2 -translate-y-1/2 min-h-[44px] min-w-[44px] flex items-center justify-center text-xs font-bold text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 cursor-pointer"
+              aria-label="Clear raaga search"
             >
               ✕
             </button>
@@ -498,10 +504,10 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
               <button
                 key={lvl}
                 onClick={() => setFilter(lvl)}
-                className={`relative px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+                className={`relative px-3.5 py-2.5 min-h-[44px] flex items-center justify-center rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                   isSelected
-                    ? 'text-white bg-amber-700 shadow-md shadow-amber-600/20'
-                    : 'text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700'
+                    ? 'text-white bg-amber-800 shadow-md shadow-amber-800/20'
+                    : 'text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700'
                 }`}
               >
                 {lvl}
@@ -579,7 +585,7 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
 
             return (
               <motion.div
-                key={raaga.name}
+                key={`${raaga.name}-${idx}`}
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: Math.min(idx * 0.05, 0.3) }}

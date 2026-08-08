@@ -1471,8 +1471,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
                 {/* Speed Dropdown inside each Alankar card */}
                 <div className="flex items-center gap-1.5 bg-white border border-amber-300/80 rounded-xl px-2.5 py-1.5 shadow-2xs">
                   <Gauge className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-                  <span className="text-xs font-bold text-amber-950 hidden sm:inline">Speed:</span>
+                  <label htmlFor={`alankar-speed-select-${item.id}`} className="text-xs font-bold text-amber-950 hidden sm:inline">Speed:</label>
                   <select
+                    id={`alankar-speed-select-${item.id}`}
                     value={itemSpeed}
                     onChange={(e) => {
                       const newSpeed = Number(e.target.value);
@@ -1481,7 +1482,8 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
                         stopAudio();
                       }
                     }}
-                    className="bg-transparent text-xs font-extrabold text-amber-900 focus:outline-none cursor-pointer"
+                    className="bg-transparent text-xs font-extrabold text-amber-950 focus:outline-none cursor-pointer min-h-[44px] py-2"
+                    aria-label={`Playback speed for ${item.title}`}
                   >
                     <option value={1}>1x Speed</option>
                     <option value={2}>2x Speed</option>

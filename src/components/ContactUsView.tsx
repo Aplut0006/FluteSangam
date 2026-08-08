@@ -182,7 +182,7 @@ export default function ContactUsView({ onBackToCommunity }: ContactUsViewProps)
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid sm:grid-cols-2 gap-6">
               <div>
-                <label className="block text-xs font-bold text-bamboo-900 uppercase tracking-wider mb-2">
+                <label htmlFor="contact-name-input" className="block text-xs font-bold text-bamboo-950 uppercase tracking-wider mb-2">
                   Your Name
                 </label>
                 <input
@@ -191,13 +191,14 @@ export default function ContactUsView({ onBackToCommunity }: ContactUsViewProps)
                   placeholder="e.g. Pandit Sharma"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 bg-bamboo-50/50 border border-bamboo-200/80 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 transition"
+                  className="w-full px-4 py-3 min-h-[44px] bg-bamboo-50/50 border border-bamboo-300 rounded-xl text-sm text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 transition"
                   id="contact-name-input"
+                  aria-label="Your Name"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-bamboo-900 uppercase tracking-wider mb-2">
+                <label htmlFor="contact-email-input" className="block text-xs font-bold text-bamboo-950 uppercase tracking-wider mb-2">
                   Your Email Address
                 </label>
                 <input
@@ -206,21 +207,23 @@ export default function ContactUsView({ onBackToCommunity }: ContactUsViewProps)
                   placeholder="you@example.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 bg-bamboo-50/50 border border-bamboo-200/80 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 transition"
+                  className="w-full px-4 py-3 min-h-[44px] bg-bamboo-50/50 border border-bamboo-300 rounded-xl text-sm text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 transition"
                   id="contact-email-input"
+                  aria-label="Your Email Address"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-bamboo-900 uppercase tracking-wider mb-2">
+              <label htmlFor="contact-category-select" className="block text-xs font-bold text-bamboo-950 uppercase tracking-wider mb-2">
                 Inquiry Category
               </label>
               <select
                 value={formData.subject}
                 onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                className="w-full px-4 py-3 bg-bamboo-50/50 border border-bamboo-200/80 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 transition cursor-pointer"
+                className="w-full px-4 py-3 min-h-[44px] bg-bamboo-50/50 border border-bamboo-300 rounded-xl text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 transition cursor-pointer"
                 id="contact-category-select"
+                aria-label="Inquiry Category"
               >
                 <option value="General Inquiry">General Inquiry</option>
                 <option value="Song Sargam Notation Request">Song Sargam Notation Request</option>
@@ -231,7 +234,7 @@ export default function ContactUsView({ onBackToCommunity }: ContactUsViewProps)
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-bamboo-900 uppercase tracking-wider mb-2">
+              <label htmlFor="contact-message-input" className="block text-xs font-bold text-bamboo-950 uppercase tracking-wider mb-2">
                 Message Content
               </label>
               <textarea
@@ -240,14 +243,15 @@ export default function ContactUsView({ onBackToCommunity }: ContactUsViewProps)
                 placeholder="Share your thoughts, notation requests, or feedback..."
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full px-4 py-3 bg-bamboo-50/50 border border-bamboo-200/80 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 transition resize-y"
+                className="w-full px-4 py-3 min-h-[120px] bg-bamboo-50/50 border border-bamboo-300 rounded-xl text-sm text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 transition resize-y"
                 id="contact-message-input"
+                aria-label="Message Content"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full sm:w-auto px-8 py-3.5 bg-bamboo-700 hover:bg-bamboo-800 text-white font-bold rounded-xl text-sm transition shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full sm:w-auto px-8 py-3.5 min-h-[44px] bg-bamboo-800 hover:bg-bamboo-900 text-white font-bold rounded-xl text-sm transition shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer"
               id="send-message-submit-btn"
             >
               <Send className="w-4 h-4" />

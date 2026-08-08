@@ -46,40 +46,49 @@ export default function PracticeNowView() {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Tanpura Section */}
-        <div className="bg-white p-6 rounded-2xl border border-bamboo-100 shadow-sm space-y-4">
-          <div className="flex items-center gap-2 text-bamboo-800">
+        <div className="bg-white p-6 rounded-2xl border border-bamboo-200 shadow-sm space-y-4">
+          <div className="flex items-center gap-2 text-bamboo-900">
             <Music className="w-5 h-5 text-amber-600" />
             <h3 className="font-bold">Tanpura Drone</h3>
           </div>
-          <select 
-            value={tanpuraPitch}
-            onChange={(e) => {
-              setTanpuraPitch(e.target.value);
-              if (tanpuraPlaying) {
-                tanpuraSynth.current?.releaseAll();
-                tanpuraSynth.current?.triggerAttack([e.target.value, Tone.Frequency(e.target.value).transpose(7).toNote()]);
-              }
-            }}
-            className="w-full p-3 bg-bamboo-50 rounded-xl text-sm"
-          >
-            {['C2', 'C#2', 'D2', 'D#2', 'E2', 'F2', 'F#2', 'G2', 'G#2', 'A2', 'A#2', 'B2'].map(note => (
-                <option key={note} value={note}>{note}</option>
-            ))}
-          </select>
+          <div>
+            <label htmlFor="tanpura-pitch-select" className="block text-xs font-bold text-gray-800 uppercase tracking-wider mb-1">
+              Select Tanpura Pitch
+            </label>
+            <select 
+              id="tanpura-pitch-select"
+              value={tanpuraPitch}
+              onChange={(e) => {
+                setTanpuraPitch(e.target.value);
+                if (tanpuraPlaying) {
+                  tanpuraSynth.current?.releaseAll();
+                  tanpuraSynth.current?.triggerAttack([e.target.value, Tone.Frequency(e.target.value).transpose(7).toNote()]);
+                }
+              }}
+              className="w-full p-3 min-h-[44px] bg-bamboo-50 border border-bamboo-300 text-bamboo-950 font-bold rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-bamboo-600 cursor-pointer"
+              aria-label="Select Tanpura Pitch"
+            >
+              {['C2', 'C#2', 'D2', 'D#2', 'E2', 'F2', 'F#2', 'G2', 'G#2', 'A2', 'A#2', 'B2'].map(note => (
+                  <option key={note} value={note}>{note}</option>
+              ))}
+            </select>
+          </div>
           <div className="flex items-center gap-4">
-              <label className="text-sm font-medium text-gray-700">Volume:</label>
+              <label htmlFor="tanpura-volume-range" className="text-sm font-bold text-gray-800 shrink-0 cursor-pointer">Volume:</label>
               <input 
+                  id="tanpura-volume-range"
                   type="range"
                   min="-40"
                   max="0"
                   value={tanpuraVolume}
                   onChange={(e) => setTanpuraVolume(parseInt(e.target.value))}
-                  className="w-full h-2 bg-bamboo-100 rounded-lg appearance-none cursor-pointer"
+                  className="w-full h-2 bg-bamboo-200 rounded-lg appearance-none cursor-pointer accent-amber-600 min-h-[44px]"
+                  aria-label="Tanpura Drone Volume"
               />
           </div>
           <button 
             onClick={toggleTanpura}
-            className={`w-full py-3 rounded-xl flex items-center justify-center gap-2 font-bold ${tanpuraPlaying ? 'bg-amber-600 text-white' : 'bg-bamboo-700 text-white'}`}
+            className={`w-full py-3 min-h-[44px] rounded-xl flex items-center justify-center gap-2 font-bold transition cursor-pointer ${tanpuraPlaying ? 'bg-amber-600 text-white animate-pulse' : 'bg-bamboo-800 text-white hover:bg-bamboo-900'}`}
           >
             {tanpuraPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
             {tanpuraPlaying ? 'Stop Drone' : 'Start Drone'}

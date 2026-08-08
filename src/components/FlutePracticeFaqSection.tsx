@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { HelpCircle, ChevronDown, ChevronUp, Sparkles } from 'lucide-react';
-import { FAQ_DATA } from './FluteFaqView';
+import { FAQ_DATA } from '../data/allFaqData';
 
 export interface FaqItem {
   q: string;

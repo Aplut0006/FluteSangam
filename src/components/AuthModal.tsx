@@ -14,19 +14,8 @@ import { createUserProfile, getUserProfile, getUserProfileByEmail, generateUniqu
 import { UserProfile } from '../types';
 import { Music, X, ShieldAlert, Sparkles, Check, Chrome, Mail, Camera, Upload, Wind, KeyRound, CheckCircle2, MailCheck, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-
-export const CARTOON_AVATARS = [
-  "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix",
-  "https://api.dicebear.com/7.x/adventurer/svg?seed=Bella",
-  "https://api.dicebear.com/7.x/adventurer/svg?seed=Buddy",
-  "https://api.dicebear.com/7.x/adventurer/svg?seed=Milo",
-  "https://api.dicebear.com/7.x/adventurer/svg?seed=Oliver",
-  "https://api.dicebear.com/7.x/adventurer/svg?seed=Leo",
-  "https://api.dicebear.com/7.x/adventurer/svg?seed=Chloe",
-  "https://api.dicebear.com/7.x/adventurer/svg?seed=Max",
-  "https://api.dicebear.com/7.x/adventurer/svg?seed=Lily",
-  "https://api.dicebear.com/7.x/adventurer/svg?seed=Zoe"
-];
+import { CARTOON_AVATARS } from '../constants/avatars';
+export { CARTOON_AVATARS };
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -677,26 +666,30 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-gray-700 mb-1">
+                  <label htmlFor="auth-display-name" className="block text-xs font-bold text-gray-800 mb-1">
                     Full Name / Display Name <span className="text-red-500">*</span>
                   </label>
                   <input
+                    id="auth-display-name"
                     type="text"
                     required
                     value={displayName}
                     onChange={(e) => setDisplayName(e.target.value)}
                     placeholder="e.g. Ramesh Kumar"
-                    className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-bamboo-600 focus:border-transparent"
+                    className="w-full px-3.5 py-2.5 min-h-[44px] border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-bamboo-600 focus:border-transparent"
+                    aria-label="Full Name or Display Name"
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs font-medium text-gray-700 mb-1">Playing Level</label>
+                    <label htmlFor="auth-playing-level" className="block text-xs font-bold text-gray-800 mb-1">Playing Level</label>
                     <select
+                      id="auth-playing-level"
                       value={level}
                       onChange={(e) => setLevel(e.target.value as any)}
-                      className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-bamboo-600 focus:border-transparent"
+                      className="w-full px-3 py-2.5 min-h-[44px] border border-gray-300 rounded-lg text-sm font-medium text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-bamboo-600 focus:border-transparent cursor-pointer"
+                      aria-label="Playing Level"
                     >
                       <option value="Beginner">Beginner (Sadhaka)</option>
                       <option value="Intermediate">Intermediate</option>
@@ -706,42 +699,48 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-gray-700 mb-1">Primary Flute Key</label>
+                    <label htmlFor="auth-bansuri-type" className="block text-xs font-bold text-gray-800 mb-1">Primary Flute Key</label>
                     <input
+                      id="auth-bansuri-type"
                       type="text"
                       required
                       value={bansuriType}
                       onChange={(e) => setBansuriType(e.target.value)}
                       placeholder="e.g. E Bass or C Medium"
-                      className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-bamboo-600 focus:border-transparent"
+                      className="w-full px-3.5 py-2.5 min-h-[44px] border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-bamboo-600 focus:border-transparent"
+                      aria-label="Primary Flute Key"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-gray-700 mb-1">
+                  <label htmlFor="auth-location" className="block text-xs font-bold text-gray-800 mb-1">
                     Your Location <span className="text-red-500">*</span>
                   </label>
                   <input
+                    id="auth-location"
                     type="text"
                     required
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
                     placeholder="e.g. Mumbai, India or New York, USA"
-                    className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-bamboo-600 focus:border-transparent"
+                    className="w-full px-3.5 py-2.5 min-h-[44px] border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-bamboo-600 focus:border-transparent"
+                    aria-label="Your Location"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-gray-700 mb-1">
-                    Short Bio <span className="text-gray-400 font-normal">(Optional - defaults to N/A)</span>
+                  <label htmlFor="auth-bio" className="block text-xs font-bold text-gray-800 mb-1">
+                    Short Bio <span className="text-gray-500 font-normal">(Optional - defaults to N/A)</span>
                   </label>
                   <textarea
+                    id="auth-bio"
                     rows={3}
                     value={bio}
                     onChange={(e) => setBio(e.target.value)}
                     placeholder="Tell other flute enthusiasts about your journey, or leave blank for N/A..."
-                    className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-bamboo-600 focus:border-transparent resize-none"
+                    className="w-full px-3.5 py-2.5 min-h-[80px] border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-bamboo-600 focus:border-transparent resize-y"
+                    aria-label="Short Bio"
                   />
                 </div>
 
@@ -767,8 +766,9 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
             // EMAIL & PASSWORD METHOD
             <form onSubmit={handleAuth} className="space-y-4" id="auth-form-email">
               <div>
-                <label className="block text-xs font-medium text-gray-700 mb-1">Email Address</label>
+                <label htmlFor="auth-email-input" className="block text-xs font-bold text-gray-800 mb-1">Email Address</label>
                 <input
+                  id="auth-email-input"
                   type="email"
                   name="email"
                   autoComplete="email"
@@ -776,13 +776,14 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@example.com"
-                  className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-bamboo-600 focus:border-transparent"
+                  className="w-full px-3.5 py-2.5 min-h-[44px] border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-bamboo-600 focus:border-transparent"
+                  aria-label="Email Address"
                 />
               </div>
 
               <div>
                 <div className="flex items-center justify-between mb-1">
-                  <label className="block text-xs font-medium text-gray-700">Password</label>
+                  <label htmlFor="auth-password-input" className="block text-xs font-bold text-gray-800">Password</label>
                   {!isSignUp && (
                     <button
                       type="button"
@@ -792,7 +793,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
                         setResetSent(false);
                         setResetEmail(email);
                       }}
-                      className="text-[11px] font-semibold text-bamboo-700 hover:underline cursor-pointer"
+                      className="text-[11px] font-semibold text-bamboo-800 hover:underline cursor-pointer min-h-[44px] flex items-center"
                       id="forgot-password-link"
                     >
                       Forgot Password?
@@ -800,6 +801,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
                   )}
                 </div>
                 <input
+                  id="auth-password-input"
                   type="password"
                   name={isSignUp ? "new-password" : "password"}
                   autoComplete={isSignUp ? "new-password" : "current-password"}
@@ -807,7 +809,8 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder={isSignUp ? "At least 8 characters (e.g. FluteSadhaka#2026)" : "Enter your password"}
-                  className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-bamboo-600 focus:border-transparent"
+                  className="w-full px-3.5 py-2.5 min-h-[44px] border border-gray-300 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-bamboo-600 focus:border-transparent"
+                  aria-label="Password"
                 />
                 {isSignUp && (
                   <p className="text-[11px] text-gray-500 mt-1">

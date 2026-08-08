@@ -204,7 +204,7 @@ export const SongRequestModal: React.FC<SongRequestModalProps> = ({ isOpen, onCl
 
               {/* Song Name Input */}
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1.5 flex items-center justify-between">
+                <label htmlFor="req-song-name" className="block text-xs font-bold text-gray-800 mb-1.5 flex items-center justify-between">
                   <span className="flex items-center gap-1.5">
                     <Music className="w-3.5 h-3.5 text-amber-600" />
                     <span>Song / Composition Name</span>
@@ -212,18 +212,20 @@ export const SongRequestModal: React.FC<SongRequestModalProps> = ({ isOpen, onCl
                   </span>
                 </label>
                 <input
+                  id="req-song-name"
                   required
                   type="text"
                   placeholder="e.g. Tera Fitoor, Jab koi baat bigad jaye, O Saathi Re"
-                  className="w-full px-3.5 py-2.5 bg-gray-50 border border-gray-200 focus:bg-white focus:border-amber-600 focus:ring-2 focus:ring-amber-500/20 rounded-xl text-xs sm:text-sm transition text-gray-800 placeholder-gray-400 font-medium outline-none"
+                  className="w-full px-3.5 py-2.5 min-h-[44px] bg-gray-50 border border-gray-300 focus:bg-white focus:border-amber-600 focus:ring-2 focus:ring-amber-500/20 rounded-xl text-xs sm:text-sm transition text-gray-900 placeholder-gray-500 font-medium outline-none"
                   value={formData.songName}
                   onChange={e => setFormData({ ...formData, songName: e.target.value })}
+                  aria-label="Song / Composition Name"
                 />
               </div>
 
               {/* Singer / Artist Input */}
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1.5 flex items-center justify-between">
+                <label htmlFor="req-singer-name" className="block text-xs font-bold text-gray-800 mb-1.5 flex items-center justify-between">
                   <span className="flex items-center gap-1.5">
                     <Mic className="w-3.5 h-3.5 text-amber-600" />
                     <span>Singer / Original Artist</span>
@@ -231,42 +233,48 @@ export const SongRequestModal: React.FC<SongRequestModalProps> = ({ isOpen, onCl
                   </span>
                 </label>
                 <input
+                  id="req-singer-name"
                   required
                   type="text"
                   placeholder="e.g. Arijit Singh, Lata Mangeshkar, Kishore Kumar"
-                  className="w-full px-3.5 py-2.5 bg-gray-50 border border-gray-200 focus:bg-white focus:border-amber-600 focus:ring-2 focus:ring-amber-500/20 rounded-xl text-xs sm:text-sm transition text-gray-800 placeholder-gray-400 font-medium outline-none"
+                  className="w-full px-3.5 py-2.5 min-h-[44px] bg-gray-50 border border-gray-300 focus:bg-white focus:border-amber-600 focus:ring-2 focus:ring-amber-500/20 rounded-xl text-xs sm:text-sm transition text-gray-900 placeholder-gray-500 font-medium outline-none"
                   value={formData.singerName}
                   onChange={e => setFormData({ ...formData, singerName: e.target.value })}
+                  aria-label="Singer / Original Artist"
                 />
               </div>
 
               {/* Movie / Album Input */}
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1.5 flex items-center justify-between">
+                <label htmlFor="req-movie-name" className="block text-xs font-bold text-gray-800 mb-1.5 flex items-center justify-between">
                   <span className="flex items-center gap-1.5">
                     <Film className="w-3.5 h-3.5 text-amber-600" />
                     <span>Movie / Album / Raag (Optional)</span>
                   </span>
                 </label>
                 <input
+                  id="req-movie-name"
                   type="text"
                   placeholder="e.g. Genius, Raag Bhupali, Album Name"
-                  className="w-full px-3.5 py-2.5 bg-gray-50 border border-gray-200 focus:bg-white focus:border-amber-600 focus:ring-2 focus:ring-amber-500/20 rounded-xl text-xs sm:text-sm transition text-gray-800 placeholder-gray-400 font-medium outline-none"
+                  className="w-full px-3.5 py-2.5 min-h-[44px] bg-gray-50 border border-gray-300 focus:bg-white focus:border-amber-600 focus:ring-2 focus:ring-amber-500/20 rounded-xl text-xs sm:text-sm transition text-gray-900 placeholder-gray-500 font-medium outline-none"
                   value={formData.movieName}
                   onChange={e => setFormData({ ...formData, movieName: e.target.value })}
+                  aria-label="Movie / Album / Raag"
                 />
               </div>
 
               {/* Flute Key & Notation Format Selectors */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 mb-1.5">
+                  <label htmlFor="req-flute-key" className="block text-xs font-bold text-gray-800 mb-1.5">
                     Preferred Flute Scale
                   </label>
                   <select
+                    id="req-flute-key"
                     value={formData.fluteKey}
                     onChange={e => setFormData({ ...formData, fluteKey: e.target.value })}
-                    className="w-full px-3 py-2.5 bg-gray-50 border border-gray-200 focus:bg-white focus:border-amber-600 rounded-xl text-xs font-medium text-gray-800 outline-none"
+                    className="w-full px-3 py-2.5 min-h-[44px] bg-gray-50 border border-gray-300 focus:bg-white focus:border-amber-600 rounded-xl text-xs font-medium text-gray-900 outline-none cursor-pointer"
+                    aria-label="Preferred Flute Scale"
                   >
                     {fluteKeys.map(k => (
                       <option key={k} value={k}>{k}</option>
@@ -275,13 +283,15 @@ export const SongRequestModal: React.FC<SongRequestModalProps> = ({ isOpen, onCl
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 mb-1.5">
+                  <label htmlFor="req-notation-style" className="block text-xs font-bold text-gray-800 mb-1.5">
                     Notation Style
                   </label>
                   <select
+                    id="req-notation-style"
                     value={formData.notationType}
                     onChange={e => setFormData({ ...formData, notationType: e.target.value })}
-                    className="w-full px-3 py-2.5 bg-gray-50 border border-gray-200 focus:bg-white focus:border-amber-600 rounded-xl text-xs font-medium text-gray-800 outline-none"
+                    className="w-full px-3 py-2.5 min-h-[44px] bg-gray-50 border border-gray-300 focus:bg-white focus:border-amber-600 rounded-xl text-xs font-medium text-gray-900 outline-none cursor-pointer"
+                    aria-label="Notation Style"
                   >
                     <option value="Sargam (Indian)">Sargam (Sa Re Ga Ma)</option>
                     <option value="Western Staff / ABC">Western Staff / ABC Notes</option>

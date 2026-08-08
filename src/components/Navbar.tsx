@@ -5,7 +5,7 @@ import { auth } from '../lib/firebase';
 import { signOut } from 'firebase/auth';
 import { updateUserProfile, isEmailTaken, isPhoneTaken, isUsernameTaken, deleteUserAccount } from '../lib/db';
 import { Music, LogOut, User, Globe, Edit3, Check, X, ShieldAlert, Sparkles, MapPin, Feather, Phone, Mail, Camera, Upload, MessageSquare, Wind, BookOpen, ChevronDown, Users, Zap, Menu, Info, Radio, Trash2, Sliders, CircleDot, HelpCircle } from 'lucide-react';
-import { CARTOON_AVATARS } from './AuthModal';
+import { CARTOON_AVATARS } from '../constants/avatars';
 import NotificationsDropdown from './NotificationsDropdown';
 
 interface NavbarProps {
@@ -1011,38 +1011,44 @@ export default function Navbar({
               </div>
 
               <div>
-                <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">Your Display Name</label>
+                <label htmlFor="edit-profile-display-name" className="block text-[11px] font-bold text-gray-800 uppercase tracking-wider mb-1">Your Display Name</label>
                 <input
+                  id="edit-profile-display-name"
                   type="text"
                   required
                   value={editName}
                   onChange={(e) => setEditName(e.target.value)}
-                  className="w-full px-3 py-1.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-bamboo-600"
+                  className="w-full px-3 py-2.5 min-h-[44px] border border-gray-300 rounded-lg text-xs font-medium text-gray-900 focus:outline-none focus:ring-2 focus:ring-bamboo-600"
+                  aria-label="Your Display Name"
                 />
               </div>
 
               <div>
-                <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">Unique Username</label>
+                <label htmlFor="edit-profile-username" className="block text-[11px] font-bold text-gray-800 uppercase tracking-wider mb-1">Unique Username</label>
                 <div className="relative flex items-center">
-                  <span className="absolute left-3 text-xs font-semibold text-gray-400">@</span>
+                  <span className="absolute left-3 text-xs font-semibold text-gray-500">@</span>
                   <input
+                    id="edit-profile-username"
                     type="text"
                     required
                     value={editUsername}
                     onChange={(e) => setEditUsername(e.target.value.toLowerCase().replace(/[^a-z0-9_]/g, ''))}
                     placeholder="username"
-                    className="w-full pl-7 pr-3 py-1.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-bamboo-600 font-mono"
+                    className="w-full pl-7 pr-3 py-2.5 min-h-[44px] border border-gray-300 rounded-lg text-xs font-medium text-gray-900 focus:outline-none focus:ring-2 focus:ring-bamboo-600 font-mono"
+                    aria-label="Unique Username"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">Playing Level</label>
+                  <label htmlFor="edit-profile-level" className="block text-[11px] font-bold text-gray-800 uppercase tracking-wider mb-1">Playing Level</label>
                   <select
+                    id="edit-profile-level"
                     value={editLevel}
                     onChange={(e) => setEditLevel(e.target.value as any)}
-                    className="w-full px-2 py-1.5 border border-gray-200 rounded-lg text-xs bg-white focus:outline-none focus:ring-2 focus:ring-bamboo-600"
+                    className="w-full px-2 py-2.5 min-h-[44px] border border-gray-300 rounded-lg text-xs font-medium text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-bamboo-600"
+                    aria-label="Playing Level"
                   >
                     <option value="Beginner">Beginner (Sadhaka)</option>
                     <option value="Intermediate">Intermediate</option>
@@ -1052,64 +1058,74 @@ export default function Navbar({
                 </div>
 
                 <div>
-                  <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">Bansuri Flute Key</label>
+                  <label htmlFor="edit-profile-bansuri" className="block text-[11px] font-bold text-gray-800 uppercase tracking-wider mb-1">Bansuri Flute Key</label>
                   <input
+                    id="edit-profile-bansuri"
                     type="text"
                     required
                     value={editBansuri}
                     onChange={(e) => setEditBansuri(e.target.value)}
-                    className="w-full px-3 py-1.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-bamboo-600"
+                    className="w-full px-3 py-2.5 min-h-[44px] border border-gray-300 rounded-lg text-xs font-medium text-gray-900 focus:outline-none focus:ring-2 focus:ring-bamboo-600"
+                    aria-label="Bansuri Flute Key"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">Email Address</label>
-                <div className="relative">
-                  <Mail className="absolute left-2.5 top-2.5 h-3.5 w-3.5 text-gray-400" />
+                <label htmlFor="edit-profile-email" className="block text-[11px] font-bold text-gray-800 uppercase tracking-wider mb-1">Email Address</label>
+                <div className="relative flex items-center">
+                  <Mail className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500 pointer-events-none" />
                   <input
+                    id="edit-profile-email"
                     type="email"
                     required
                     value={editEmail}
                     onChange={(e) => setEditEmail(e.target.value)}
-                    className="w-full pl-8 pr-3 py-1.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-bamboo-600"
+                    className="w-full pl-9 pr-3 py-2.5 min-h-[44px] border border-gray-300 rounded-lg text-xs font-medium text-gray-900 focus:outline-none focus:ring-2 focus:ring-bamboo-600"
                     placeholder="e.g. name@domain.com"
+                    aria-label="Email Address"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">Phone Number</label>
-                <div className="relative">
-                  <Phone className="absolute left-2.5 top-2.5 h-3.5 w-3.5 text-gray-400" />
+                <label htmlFor="edit-profile-phone" className="block text-[11px] font-bold text-gray-800 uppercase tracking-wider mb-1">Phone Number</label>
+                <div className="relative flex items-center">
+                  <Phone className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500 pointer-events-none" />
                   <input
+                    id="edit-profile-phone"
                     type="tel"
                     value={editPhone}
                     onChange={(e) => setEditPhone(e.target.value)}
-                    className="w-full pl-8 pr-3 py-1.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-bamboo-600"
+                    className="w-full pl-9 pr-3 py-2.5 min-h-[44px] border border-gray-300 rounded-lg text-xs font-medium text-gray-900 focus:outline-none focus:ring-2 focus:ring-bamboo-600"
                     placeholder="e.g. +919876543210 (with country code)"
+                    aria-label="Phone Number"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">Musician Location</label>
+                <label htmlFor="edit-profile-location" className="block text-[11px] font-bold text-gray-800 uppercase tracking-wider mb-1">Musician Location</label>
                 <input
+                  id="edit-profile-location"
                   type="text"
                   required
                   value={editLocation}
                   onChange={(e) => setEditLocation(e.target.value)}
-                  className="w-full px-3 py-1.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-bamboo-600"
+                  className="w-full px-3 py-2.5 min-h-[44px] border border-gray-300 rounded-lg text-xs font-medium text-gray-900 focus:outline-none focus:ring-2 focus:ring-bamboo-600"
+                  aria-label="Musician Location"
                 />
               </div>
 
               <div>
-                <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">Sadhana Bio</label>
+                <label htmlFor="edit-profile-bio" className="block text-[11px] font-bold text-gray-800 uppercase tracking-wider mb-1">Sadhana Bio</label>
                 <textarea
+                  id="edit-profile-bio"
                   rows={2}
                   value={editBio}
                   onChange={(e) => setEditBio(e.target.value)}
-                  className="w-full px-3 py-1.5 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-bamboo-600 resize-none"
+                  className="w-full px-3 py-2.5 min-h-[80px] border border-gray-300 rounded-lg text-xs font-medium text-gray-900 focus:outline-none focus:ring-2 focus:ring-bamboo-600 resize-y"
+                  aria-label="Sadhana Bio"
                 />
               </div>
 
@@ -1117,14 +1133,14 @@ export default function Navbar({
                 <button
                   type="button"
                   onClick={() => setIsEditingProfile(false)}
-                  className="w-1/3 py-2 border border-gray-200 text-gray-600 text-xs font-semibold rounded-lg transition hover:bg-gray-50"
+                  className="w-1/3 py-2.5 min-h-[44px] border border-gray-300 text-gray-800 text-xs font-bold rounded-lg transition hover:bg-gray-50 flex items-center justify-center cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={loading || deleting}
-                  className="flex-1 py-2 bg-bamboo-700 text-white text-xs font-semibold rounded-lg transition hover:bg-bamboo-600 flex items-center justify-center"
+                  className="flex-1 py-2.5 min-h-[44px] bg-bamboo-800 text-white text-xs font-bold rounded-lg transition hover:bg-bamboo-700 flex items-center justify-center cursor-pointer"
                 >
                   {loading ? "Saving..." : "Save Changes"}
                 </button>

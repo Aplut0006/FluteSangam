@@ -53,17 +53,20 @@ export default function Metronome() {
         <h3 className="font-bold text-sm">Metronome</h3>
       </div>
       <div className="flex items-center gap-2">
-        <label className="text-xs font-medium text-gray-700">Beats:</label>
+        <label htmlFor="metronome-standalone-beats" className="text-xs font-bold text-gray-800 cursor-pointer">Beats:</label>
         <select
+          id="metronome-standalone-beats"
           value={beatsPerMeasure}
           onChange={(e) => setBeatsPerMeasure(parseInt(e.target.value))}
-          className="p-1.5 bg-bamboo-50 rounded-lg text-xs"
+          className="px-3 py-2 min-h-[44px] bg-bamboo-50 border border-bamboo-300 text-bamboo-950 font-bold rounded-lg text-xs cursor-pointer"
+          aria-label="Metronome Beats per measure"
         >
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(beat => <option key={beat} value={beat}>{beat}</option>)}
         </select>
       </div>
       <div className="flex items-center gap-2">
         <input 
+          id="metronome-standalone-bpm"
           type="range"
           min="40"
           max="240"
@@ -73,15 +76,16 @@ export default function Metronome() {
             setBpm(newBpm);
             Tone.Transport.bpm.value = newBpm;
           }}
-          className="w-full h-1.5 bg-bamboo-100 rounded-lg appearance-none cursor-pointer"
+          className="w-full h-2 bg-bamboo-200 rounded-lg appearance-none cursor-pointer accent-amber-600 min-h-[44px]"
+          aria-label="Metronome BPM Tempo"
         />
-        <span className="font-mono text-xs font-bold text-bamboo-900 w-12 text-right">{bpm} BPM</span>
+        <span className="font-mono text-xs font-extrabold text-bamboo-950 w-14 text-right">{bpm} BPM</span>
       </div>
       <button 
         onClick={toggleMetronome}
-        className={`w-full py-2 rounded-lg flex items-center justify-center gap-1.5 text-xs font-bold ${metronomePlaying ? 'bg-amber-600 text-white' : 'bg-bamboo-700 text-white'}`}
+        className={`w-full py-2.5 min-h-[44px] flex items-center justify-center gap-1.5 text-xs font-bold rounded-lg transition cursor-pointer ${metronomePlaying ? 'bg-amber-600 text-white animate-pulse' : 'bg-bamboo-700 text-white hover:bg-bamboo-800'}`}
       >
-        {metronomePlaying ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3" />}
+        {metronomePlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
         {metronomePlaying ? 'Stop' : 'Start'}
       </button>
     </div>

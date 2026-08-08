@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { VIEW_URLS } from '../src/routes';
-import { CATEGORY_SLUGS } from '../src/components/FluteFaqView';
+import { CATEGORY_SLUGS } from '../src/data/allFaqData';
 
 const baseUrl = 'https://flutesangam.com';
 

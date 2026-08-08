@@ -8,80 +8,13 @@ import {
   Calendar, Info, RefreshCw, Layers, CircleDot, Filter, AlertTriangle, LifeBuoy, Plus
 } from 'lucide-react';
 import { AppView } from '../types';
-import { GETTING_STARTED_FAQS } from '../data/gettingStartedFaqData';
-import { LEARNING_THE_FLUTE_FAQS } from '../data/learningTheFluteFaqData';
-import { DAILY_PRACTICE_FAQS } from '../data/dailyPracticeFaqData';
-import { PLAYING_TECHNIQUES_FAQS } from '../data/playingTechniquesFaqData';
-import { SCALES_AND_ALANKARS_FAQS } from '../data/scalesAndAlankarsFaqData';
-import { RAAGAS_FAQS } from '../data/raagasFaqData';
-import { MUSIC_THEORY_FAQS } from '../data/musicTheoryFaqData';
-import { FLUTE_CARE_FAQS } from '../data/fluteCareFaqData';
-import { HEALTH_AND_BREATHING_FAQS } from '../data/healthBreathingFaqData';
-import { ADVANCED_TECHNIQUES_FAQS } from '../data/advancedTechniquesFaqData';
-import { FLUTE_ACCESSORIES_FAQS } from '../data/fluteAccessoriesFaqData';
-import { FLUTE_TYPES_FAQS } from '../data/fluteTypesFaqData';
-import { TUNING_AND_PITCH_FAQS } from '../data/tuningAndPitchFaqData';
-import { CHILDREN_AND_BEGINNERS_FAQS } from '../data/childrenAndBeginnersFaqData';
+import { FAQ_DATA, CATEGORY_SLUGS, type FaqItem } from '../data/allFaqData';
+export type { FaqItem };
+export { FAQ_DATA, CATEGORY_SLUGS };
 
 interface FluteFaqViewProps {
   onViewChange?: (view: AppView) => void;
 }
-
-export interface FaqItem {
-  id: string;
-  category: string;
-  question: string;
-  answer: string;
-  relatedLink?: {
-    text: string;
-    view: AppView;
-  };
-  tags?: string[];
-}
-
-export const FAQ_DATA: FaqItem[] = [
-  ...GETTING_STARTED_FAQS,
-  ...LEARNING_THE_FLUTE_FAQS,
-  ...PLAYING_TECHNIQUES_FAQS,
-  ...ADVANCED_TECHNIQUES_FAQS,
-  ...DAILY_PRACTICE_FAQS,
-  ...SCALES_AND_ALANKARS_FAQS,
-  ...RAAGAS_FAQS,
-  ...FLUTE_CARE_FAQS,
-  ...HEALTH_AND_BREATHING_FAQS,
-  ...CHILDREN_AND_BEGINNERS_FAQS,
-  ...MUSIC_THEORY_FAQS,
-  ...TUNING_AND_PITCH_FAQS,
-  ...FLUTE_ACCESSORIES_FAQS,
-  ...FLUTE_TYPES_FAQS,
-  {
-    id: 'platform-what-is',
-    category: 'FluteSangam Platform',
-    question: 'What is FluteSangam, and is it completely free to use?',
-    answer: `FluteSangam is an open, global digital sanctuary and learning community created dedicatedly for Indian bamboo flute (Bansuri) and Western flute enthusiasts, students, and gurus. 
-
-Yes, FluteSangam is 100% FREE to join and explore! Our mission is to preserve and celebrate flute music by providing high-quality interactive learning tools, scale selection guides, Sargam generator engines, online tuners, song notations, and a supportive community feed where members can post audio/video recitals, ask questions, and connect with fellow flutists worldwide.`,
-    relatedLink: { text: 'About FluteSangam & Founder Story', view: 'about_us' },
-    tags: ['flutesangam', 'free platform', 'community', 'learning']
-  },
-  {
-    id: 'platform-how-to-join',
-    category: 'FluteSangam Platform',
-    question: 'How do I join the community, post recitals, and request song notations?',
-    answer: `Joining FluteSangam takes less than 30 seconds:
-1. Click the "Login / Sign Up" button in the top navigation bar.
-2. Sign in seamlessly with your Google Account.
-3. Customize your flutist profile by adding your playing level (Beginner, Intermediate, Advanced) and favorite bansuri scale.
-
-Once signed in, you can:
-- Post audio clips, video links, or text updates on the Sadhana Feed.
-- Comment and give encouragement to fellow community members.
-- Submit custom song notation requests to our community repository.
-- Use our interactive Alankar Generator and Live Flute Tuner anytime!`,
-    relatedLink: { text: 'Visit Community Sadhana Feed', view: 'community' },
-    tags: ['join community', 'post recitals', 'notation request']
-  }
-];
 
 const _OLD_INLINE_FAQS: FaqItem[] = [
   // 0. GETTING STARTED
@@ -1644,42 +1577,6 @@ Look for sellers who specialize exclusively in wind instruments, provide scale s
     tags: ['where to buy', 'reliable makers', 'punam flutes', 'bansuri sellers']
   },
 
-  // 3. PLAYING TECHNIQUES
-  ...PLAYING_TECHNIQUES_FAQS,
-
-  // ADVANCED TECHNIQUES
-  ...ADVANCED_TECHNIQUES_FAQS,
-
-  // 4. DAILY PRACTICE & ROUTINES
-  ...DAILY_PRACTICE_FAQS,
-
-  // 5. SCALES & ALANKARS
-  ...SCALES_AND_ALANKARS_FAQS,
-
-  // 6. RAAGAS & CLASSICAL MUSIC
-  ...RAAGAS_FAQS,
-
-  // 7. FLUTE CARE & MAINTENANCE
-  ...FLUTE_CARE_FAQS,
-
-  // 8. HEALTH & BREATHING
-  ...HEALTH_AND_BREATHING_FAQS,
-
-  // 9. CHILDREN & BEGINNERS
-  ...CHILDREN_AND_BEGINNERS_FAQS,
-
-  // 10. MUSIC THEORY & TUNING
-  ...MUSIC_THEORY_FAQS,
-
-  // 11. FLUTE TUNING & PITCH
-  ...TUNING_AND_PITCH_FAQS,
-
-  // 12. FLUTE ACCESSORIES
-  ...FLUTE_ACCESSORIES_FAQS,
-
-  // 13. FLUTE TYPES
-  ...FLUTE_TYPES_FAQS,
-
   // 11. FLUTESANGAM PLATFORM & COMMUNITY
   {
     id: 'platform-what-is',
@@ -1733,26 +1630,6 @@ export const CATEGORIES = [
   'Flute Types',
   'FluteSangam Platform'
 ];
-
-export const CATEGORY_SLUGS: Record<string, string> = {
-  'All Categories': '',
-  'Getting Started': 'getting-started',
-  'Learning the Flute': 'learning-the-flute',
-  'Choosing the Right Flute': 'choosing-the-right-flute',
-  'Playing Techniques': 'playing-techniques',
-  'Advanced Techniques': 'advanced-techniques',
-  'Daily Practice': 'daily-practice',
-  'Scales & Alankars': 'scales-and-alankars',
-  'Raagas': 'raagas',
-  'Flute Care & Maintenance': 'flute-care-and-maintenance',
-  'Health & Breathing': 'health-and-breathing',
-  'Children & Beginners': 'children-and-beginners',
-  'Flute Tuning & Pitch': 'flute-tuning-and-pitch',
-  'Music Theory & Tuning': 'music-theory-and-tuning',
-  'Flute Accessories': 'flute-accessories',
-  'Flute Types': 'flute-types',
-  'FluteSangam Platform': 'flutesangam-platform',
-};
 
 export const SLUG_TO_CATEGORY: Record<string, string> = {
   '': 'All Categories',
@@ -2078,6 +1955,9 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
       {/* Live Interactive Search Bar */}
       <div className="bg-white rounded-2xl p-4 sm:p-5 border border-amber-200/90 shadow-md space-y-4" id="faq-search-section">
         <div className="relative">
+          <label htmlFor="faq-search-input" className="sr-only">
+            Search FAQ Questions
+          </label>
           <Search className="w-5 h-5 text-amber-600 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
           <input
             type="text"
@@ -2090,8 +1970,9 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
               }
             }}
             placeholder="Search any question across all categories (e.g., 'breath control', 'embouchure', 'C Medium', 'squeak')..."
-            className="w-full pl-11 pr-10 py-3 bg-amber-50/50 border border-amber-300/80 rounded-xl text-sm font-medium text-bamboo-950 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all shadow-inner"
+            className="w-full pl-11 pr-16 py-3 min-h-[44px] bg-amber-50/50 border border-amber-300 rounded-xl text-sm font-medium text-bamboo-950 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all shadow-inner"
             id="faq-search-input"
+            aria-label="Search FAQ questions across all categories"
           />
           {searchQuery && (
             <button
@@ -2099,8 +1980,9 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
                 setSearchQuery('');
                 handleCategorySelect('All Categories');
               }}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold bg-amber-200 hover:bg-amber-300 text-amber-950 px-2 py-1 rounded-md transition cursor-pointer"
+              className="absolute right-2 top-1/2 -translate-y-1/2 min-h-[44px] min-w-[44px] px-3 py-2 text-xs font-bold bg-amber-200 hover:bg-amber-300 text-amber-950 rounded-lg transition cursor-pointer flex items-center justify-center"
               title="Clear search"
+              aria-label="Clear search input"
             >
               Clear
             </button>
@@ -2109,7 +1991,7 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
 
         {/* Mobile Dropdown Category Select */}
         <div className="block sm:hidden space-y-1.5 pt-1">
-          <label htmlFor="faq-category-dropdown-mobile" className="text-xs font-bold text-gray-700 flex items-center gap-1.5">
+          <label htmlFor="faq-category-dropdown-mobile" className="text-xs font-bold text-gray-800 flex items-center gap-1.5">
             <Filter className="w-3.5 h-3.5 text-amber-600" />
             <span>Select FAQ Category:</span>
           </label>
@@ -2118,7 +2000,8 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
               id="faq-category-dropdown-mobile"
               value={selectedCategory}
               onChange={(e) => handleCategorySelect(e.target.value)}
-              className="w-full appearance-none bg-amber-50 border border-amber-300 text-bamboo-950 font-bold text-xs py-2.5 pl-3.5 pr-10 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all cursor-pointer shadow-2xs"
+              className="w-full min-h-[44px] appearance-none bg-amber-50 border border-amber-300 text-bamboo-950 font-bold text-xs py-2.5 pl-3.5 pr-10 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all cursor-pointer shadow-2xs"
+              aria-label="Select FAQ Category"
             >
               {CATEGORIES.map((cat) => {
                 const count = cat === 'All Categories' 

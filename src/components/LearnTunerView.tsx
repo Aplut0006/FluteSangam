@@ -417,14 +417,16 @@ export default function LearnTunerView({ onViewChange }: LearnTunerViewProps) {
 
           {/* Scale Key Selector Dropdown - Mobile Responsive */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1.5 sm:gap-2.5 justify-between md:justify-end w-full md:w-auto">
-            <span className="text-xs font-bold text-bamboo-900 flex items-center gap-1 shrink-0">
+            <label htmlFor="tuner-scale-select" className="text-xs font-bold text-bamboo-950 flex items-center gap-1 shrink-0 cursor-pointer">
               <Sliders className="w-3.5 h-3.5 text-amber-600 shrink-0" />
               <span>Bansuri Scale Key:</span>
-            </span>
+            </label>
             <select
+              id="tuner-scale-select"
               value={selectedScaleKey}
               onChange={(e) => setSelectedScaleKey(e.target.value)}
-              className="bg-bamboo-50 border border-bamboo-200 text-bamboo-900 text-xs font-bold rounded-xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer w-full sm:w-auto min-w-0 max-w-full"
+              className="bg-bamboo-50 border border-bamboo-300 text-bamboo-950 text-xs font-bold rounded-xl px-3 py-2.5 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer w-full sm:w-auto min-w-0 max-w-full"
+              aria-label="Bansuri Scale Key"
             >
               {NOTE_NAMES.map(note => (
                 <option key={note} value={note}>

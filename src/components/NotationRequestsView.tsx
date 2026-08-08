@@ -322,13 +322,18 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
       <div className="flex flex-col sm:flex-row gap-4 justify-between items-stretch sm:items-center mb-6">
         {/* Search Input */}
         <div className="relative flex-1">
-          <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+          <label htmlFor="notation-search-input" className="sr-only">
+            Search song, singer, or movie
+          </label>
+          <Search className="w-4 h-4 text-gray-500 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
           <input
+            id="notation-search-input"
             type="text"
             placeholder="Search song, singer, or movie..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-bamboo-500/20 focus:border-bamboo-500 transition"
+            className="w-full pl-10 pr-4 py-2.5 min-h-[44px] bg-white border border-gray-300 rounded-xl text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-bamboo-500/20 focus:border-bamboo-500 transition"
+            aria-label="Search song, singer, or movie"
           />
         </div>
 
@@ -336,30 +341,30 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
         <div className="flex bg-gray-100/80 p-1 rounded-xl gap-1 shrink-0">
           <button
             onClick={() => setFilter('all')}
-            className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition cursor-pointer ${
+            className={`px-3.5 py-2 min-h-[44px] flex items-center justify-center rounded-lg text-xs font-semibold transition cursor-pointer ${
               filter === 'all'
-                ? 'bg-white text-bamboo-800 shadow-2xs font-bold'
-                : 'text-gray-600 hover:text-gray-900'
+                ? 'bg-white text-bamboo-900 shadow-2xs font-bold'
+                : 'text-gray-700 hover:text-gray-900'
             }`}
           >
             All ({requests.length})
           </button>
           <button
             onClick={() => setFilter('ready')}
-            className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition cursor-pointer ${
+            className={`px-3.5 py-2 min-h-[44px] flex items-center justify-center rounded-lg text-xs font-semibold transition cursor-pointer ${
               filter === 'ready'
-                ? 'bg-white text-emerald-700 shadow-2xs font-bold'
-                : 'text-gray-600 hover:text-gray-900'
+                ? 'bg-white text-emerald-800 shadow-2xs font-bold'
+                : 'text-gray-700 hover:text-gray-900'
             }`}
           >
             Ready to View
           </button>
           <button
             onClick={() => setFilter('pending')}
-            className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition cursor-pointer ${
+            className={`px-3.5 py-2 min-h-[44px] flex items-center justify-center rounded-lg text-xs font-semibold transition cursor-pointer ${
               filter === 'pending'
-                ? 'bg-white text-amber-700 shadow-2xs font-bold'
-                : 'text-gray-600 hover:text-gray-900'
+                ? 'bg-white text-amber-900 shadow-2xs font-bold'
+                : 'text-gray-700 hover:text-gray-900'
             }`}
           >
             Pending
@@ -783,13 +788,15 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
                     <form onSubmit={handleSubmitNotation} className="space-y-4 bg-gray-50/80 p-4 md:p-5 rounded-2xl border border-gray-200/80">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs font-bold text-gray-700 mb-1">
+                          <label htmlFor="submit-not-scale" className="block text-xs font-bold text-gray-800 mb-1">
                             Flute Scale / Key
                           </label>
                           <select
+                            id="submit-not-scale"
                             value={scale}
                             onChange={(e) => setScale(e.target.value)}
-                            className="w-full px-3 py-2 bg-white border border-gray-300 rounded-xl text-xs font-medium focus:outline-none focus:ring-2 focus:ring-bamboo-500/20 focus:border-bamboo-500"
+                            className="w-full px-3 py-2.5 min-h-[44px] bg-white border border-gray-300 rounded-xl text-xs font-medium text-gray-900 focus:outline-none focus:ring-2 focus:ring-bamboo-500/20 focus:border-bamboo-500 cursor-pointer"
+                            aria-label="Flute Scale / Key"
                           >
                             <option value="C Natural Medium">C Natural Medium</option>
                             <option value="C# Medium">C# Medium</option>
@@ -805,43 +812,49 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
                         </div>
 
                         <div>
-                          <label className="block text-xs font-bold text-gray-700 mb-1">
+                          <label htmlFor="submit-not-videourl" className="block text-xs font-bold text-gray-800 mb-1">
                             Video / Demo Link (Optional)
                           </label>
                           <input
+                            id="submit-not-videourl"
                             type="url"
                             placeholder="e.g. https://youtube.com/..."
                             value={videoUrl}
                             onChange={(e) => setVideoUrl(e.target.value)}
-                            className="w-full px-3 py-2 bg-white border border-gray-300 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-bamboo-500/20 focus:border-bamboo-500"
+                            className="w-full px-3 py-2.5 min-h-[44px] bg-white border border-gray-300 rounded-xl text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-bamboo-500/20 focus:border-bamboo-500"
+                            aria-label="Video or Demo Link"
                           />
                         </div>
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold text-gray-700 mb-1">
+                        <label htmlFor="submit-not-swaras" className="block text-xs font-bold text-gray-800 mb-1">
                           Swaras / Notation Text <span className="text-rose-500">*</span>
                         </label>
                         <textarea
+                          id="submit-not-swaras"
                           required
                           rows={5}
                           placeholder={`Enter the flute swaras here, for example:\nS R G M P D N S'\nS' N D P M G R S\n\n[Chorus]\nP D N S' - S' R' G' M'...`}
                           value={notationText}
                           onChange={(e) => setNotationText(e.target.value)}
-                          className="w-full px-3 py-2.5 bg-white border border-gray-300 rounded-xl text-xs font-mono focus:outline-none focus:ring-2 focus:ring-bamboo-500/20 focus:border-bamboo-500"
+                          className="w-full px-3 py-2.5 min-h-[120px] bg-white border border-gray-300 rounded-xl text-xs font-mono text-gray-900 focus:outline-none focus:ring-2 focus:ring-bamboo-500/20 focus:border-bamboo-500"
+                          aria-label="Swaras or Notation Text"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold text-gray-700 mb-1">
+                        <label htmlFor="submit-not-notes" className="block text-xs font-bold text-gray-800 mb-1">
                           Performance Tips / Notes (Optional)
                         </label>
                         <input
+                          id="submit-not-notes"
                           type="text"
                           placeholder="e.g. Use gentle Meend from P to N in the second line"
                           value={notes}
                           onChange={(e) => setNotes(e.target.value)}
-                          className="w-full px-3 py-2 bg-white border border-gray-300 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-bamboo-500/20 focus:border-bamboo-500"
+                          className="w-full px-3 py-2.5 min-h-[44px] bg-white border border-gray-300 rounded-xl text-xs text-gray-900 focus:outline-none focus:ring-2 focus:ring-bamboo-500/20 focus:border-bamboo-500"
+                          aria-label="Performance Tips or Notes"
                         />
                       </div>
 

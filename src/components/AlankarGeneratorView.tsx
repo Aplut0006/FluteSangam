@@ -957,13 +957,15 @@ Learn & practice on https://flutesangam.com`;
 
               {/* 2. Scale of Flute */}
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider">
+                <label htmlFor="alankar-scale-select" className="block text-xs font-bold text-gray-800 uppercase tracking-wider">
                   Scale of Flute
                 </label>
                 <select
+                  id="alankar-scale-select"
                   value={selectedScale}
                   onChange={(e) => setSelectedScale(e.target.value)}
-                  className="w-full p-2.5 bg-bamboo-50/80 border border-bamboo-200 rounded-xl text-xs font-bold text-bamboo-950 focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer"
+                  className="w-full p-2.5 min-h-[44px] bg-bamboo-50/80 border border-bamboo-300 rounded-xl text-xs font-bold text-bamboo-950 focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer"
+                  aria-label="Scale of Flute"
                 >
                   {SCALE_OPTIONS.map((scale) => (
                     <option key={scale} value={scale}>
@@ -975,13 +977,15 @@ Learn & practice on https://flutesangam.com`;
 
               {/* 3. Pattern Type */}
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider">
+                <label htmlFor="alankar-pattern-select" className="block text-xs font-bold text-gray-800 uppercase tracking-wider">
                   Pattern Type
                 </label>
                 <select
+                  id="alankar-pattern-select"
                   value={selectedPatternType}
                   onChange={(e) => setSelectedPatternType(e.target.value)}
-                  className="w-full p-2.5 bg-bamboo-50/80 border border-bamboo-200 rounded-xl text-xs font-bold text-bamboo-950 focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer"
+                  className="w-full p-2.5 min-h-[44px] bg-bamboo-50/80 border border-bamboo-300 rounded-xl text-xs font-bold text-bamboo-950 focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer"
+                  aria-label="Pattern Type"
                 >
                   {PATTERN_TYPE_OPTIONS.map((pat) => (
                     <option key={pat} value={pat}>
@@ -1011,7 +1015,7 @@ Learn & practice on https://flutesangam.com`;
                   <button
                     type="button"
                     onClick={toggleMetronome}
-                    className={`px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition cursor-pointer ${
+                    className={`px-3 py-2 min-h-[44px] rounded-xl text-xs font-bold flex items-center gap-1.5 transition cursor-pointer ${
                       isPlayingMetronome
                         ? 'bg-amber-600 text-white animate-pulse'
                         : 'bg-bamboo-700 text-white hover:bg-bamboo-800'
@@ -1027,12 +1031,14 @@ Learn & practice on https://flutesangam.com`;
               <div className="flex items-center gap-4">
                 <span className="text-[10px] font-bold text-gray-500">40 BPM</span>
                 <input
+                  id="alankar-bpm-slider"
                   type="range"
                   min="40"
                   max="240"
                   value={bpm}
                   onChange={(e) => handleBpmChange(parseInt(e.target.value))}
-                  className="w-full h-2 bg-bamboo-200 rounded-lg appearance-none cursor-pointer accent-amber-600"
+                  className="w-full h-2 bg-bamboo-200 rounded-lg appearance-none cursor-pointer accent-amber-600 min-h-[44px]"
+                  aria-label="Metronome Tempo BPM"
                 />
                 <span className="text-[10px] font-bold text-gray-500">240 BPM</span>
               </div>
@@ -1056,7 +1062,8 @@ Learn & practice on https://flutesangam.com`;
                       id="metronome-beats-select"
                       value={beatsPerMeasure}
                       onChange={(e) => setBeatsPerMeasure(Number(e.target.value))}
-                      className="w-full bg-white text-bamboo-950 font-bold text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-amber-300 shadow-2xs focus:outline-hidden focus:ring-2 focus:ring-amber-500 cursor-pointer appearance-none pr-9"
+                      className="w-full bg-white text-bamboo-950 font-bold text-xs sm:text-sm px-3.5 py-2.5 min-h-[44px] rounded-xl border border-amber-300 shadow-2xs focus:outline-hidden focus:ring-2 focus:ring-amber-500 cursor-pointer appearance-none pr-9"
+                      aria-label="Metronome Beats per Measure"
                     >
                       <option value={1}>1 Beat (Single Click Pulse)</option>
                       <option value={2}>2 Beats (2/4 Dual Rhythm)</option>

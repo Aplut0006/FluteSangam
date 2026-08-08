@@ -12,7 +12,6 @@ import ErrorBoundary from './components/ErrorBoundary';
 
 // Core Eagerly Loaded Layout Components
 import Navbar from './components/Navbar';
-import AuthModal from './components/AuthModal';
 import PostCard from './components/PostCard';
 import MobileBottomNav from './components/MobileBottomNav';
 import FlutePracticeFaqSection from './components/FlutePracticeFaqSection';
@@ -20,6 +19,7 @@ import AboutAuthorSection from './components/AboutAuthorSection';
 import ScrollToTopButton from './components/ScrollToTopButton';
 
 // Lazy-Loaded Route & Secondary View Components with Retry & Error Protection
+const AuthModal = lazyWithRetry(() => import('./components/AuthModal'));
 const RagaGuide = lazyWithRetry(() => import('./components/RagaGuide'));
 const CreatePostModal = lazyWithRetry(() => import('./components/CreatePostModal'));
 const ShareModal = lazyWithRetry(() => import('./components/ShareModal'));
@@ -1512,11 +1512,15 @@ export default function App() {
       </footer>
 
       {/* MODALS RENDER SECTION */}
-      <AuthModal
-        isOpen={authModalOpen}
-        onClose={() => setAuthModalOpen(false)}
-        onAuthSuccess={handleAuthSuccess}
-      />
+      <React.Suspense fallback={null}>
+        {authModalOpen && (
+          <AuthModal
+            isOpen={authModalOpen}
+            onClose={() => setAuthModalOpen(false)}
+            onAuthSuccess={handleAuthSuccess}
+          />
+        )}
+      </React.Suspense>
 
       <ErrorBoundary>
         <React.Suspense fallback={null}>
