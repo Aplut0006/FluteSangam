@@ -34,6 +34,7 @@ const LearnChooseFluteView = lazyWithRetry(() => import('./components/LearnChoos
 const LearnTunerView = lazyWithRetry(() => import('./components/LearnTunerView'));
 const LearnAlankarasView = lazyWithRetry(() => import('./components/LearnAlankarasView'));
 const DailyPracticeGuideView = lazyWithRetry(() => import('./components/DailyPracticeGuideView'));
+const LearnScalesOctavesView = lazyWithRetry(() => import('./components/LearnScalesOctavesView'));
 const CommonFluteMistakesView = lazyWithRetry(() => import('./components/CommonFluteMistakesView'));
 const FluteFaqView = lazyWithRetry(() => import('./components/FluteFaqView'));
 const AlankarGeneratorView = lazyWithRetry(() => import('./components/AlankarGeneratorView'));
@@ -205,6 +206,10 @@ export default function App() {
       case 'learn_daily_practice':
         title = 'Daily Flute Practice Guide | Improve Tone, Technique & Rhythm | FluteSangam';
         description = 'Master your daily bansuri flute practice routine. Improve tone, breath control, finger coordination, rhythm, scales, and musicality with this complete step-by-step guide.';
+        break;
+      case 'learn_scales_octaves':
+        title = 'Flute Scales & Octaves: A Complete Guide for Flute Players | FluteSangam';
+        description = 'Master flute scales and octaves across Mandra, Madhya & Taar Saptak registers. Features interactive audio swara voice notes, frequency charts, metronome exercises, and daily practice routines.';
         break;
       case 'learn_common_mistakes':
         title = 'Common Flute Mistakes and How to Fix Them | FluteSangam';
@@ -997,6 +1002,8 @@ export default function App() {
           <LearnAlankarasView onViewChange={handleViewChange} />
         ) : currentView === 'learn_daily_practice' ? (
           <DailyPracticeGuideView onViewChange={handleViewChange} />
+        ) : currentView === 'learn_scales_octaves' ? (
+          <LearnScalesOctavesView onViewChange={handleViewChange} />
         ) : currentView === 'learn_common_mistakes' ? (
           <CommonFluteMistakesView onViewChange={handleViewChange} />
         ) : currentView === 'flute_faq' ? (
@@ -1400,6 +1407,11 @@ export default function App() {
                 <li>
                   <a href="/learn/daily-practice-guide" onClick={(e) => { e.preventDefault(); handleViewChange('learn_daily_practice'); }} className="hover:text-amber-300 transition text-amber-300 font-semibold">
                     Daily Flute Practice Guide
+                  </a>
+                </li>
+                <li>
+                  <a href="/learn/flute-scales-octaves" onClick={(e) => { e.preventDefault(); handleViewChange('learn_scales_octaves'); }} className="hover:text-amber-300 transition text-amber-300 font-semibold">
+                    Flute Scales &amp; Octaves
                   </a>
                 </li>
                 <li>

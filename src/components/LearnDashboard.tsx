@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { BookOpen, Wind, Music, Feather, ShoppingBag, Radio, CircleDot, Target, AlertTriangle, HelpCircle } from 'lucide-react';
+import { BookOpen, Wind, Music, Feather, ShoppingBag, Radio, CircleDot, Target, AlertTriangle, HelpCircle, Layers } from 'lucide-react';
 import { AppView } from '../types';
 
 interface LearnDashboardProps {
@@ -14,6 +14,7 @@ export default function LearnDashboard({ onViewChange }: LearnDashboardProps) {
     { id: 'learn_basics', label: 'The Basics', icon: BookOpen, color: 'text-bamboo-700', desc: 'Embouchure, posture & finger grip' },
     { id: 'learn_fingering_chart', label: 'Fingering Chart', icon: CircleDot, color: 'text-amber-600', desc: 'Interactive scale selector, Sa Re Ga Ma notes & audio playback' },
     { id: 'learn_alankaras', label: 'Alankaras', icon: Feather, color: 'text-rose-600', desc: 'Essential daily warmups & exercises' },
+    { id: 'learn_scales_octaves', label: 'Flute Scales & Octaves', icon: Layers, color: 'text-amber-600', desc: 'Master Mandra, Madhya & Taar registers with audio notes & charts' },
     { id: 'learn_daily_practice', label: 'Daily Practice Guide', icon: Target, color: 'text-amber-600', desc: 'Complete daily routine for steady progress' },
     { id: 'learn_common_mistakes', label: 'Common Flute Mistakes', icon: AlertTriangle, color: 'text-amber-700', desc: '15 common mistakes & step-by-step fixes for every player' },
     { id: 'flute_faq', label: 'Flute FAQ Center', icon: HelpCircle, color: 'text-amber-600', desc: 'Comprehensive Q&A knowledge base on flute, practice & raagas' },
