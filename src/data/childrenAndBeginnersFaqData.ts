@@ -300,5 +300,39 @@ Starting with familiar tunes helps you spot pitch mistakes instantly and keeps p
 6. Slouching Posture: Dropping your chin or bending your neck restricts lung expansion and breath capacity.`,
     relatedLink: { text: 'Read 15 Common Flute Mistakes & Solutions', view: 'learn_common_mistakes' },
     tags: ['beginner mistakes', 'pitfalls', 'flat finger pads', 'posture', 'blowing errors']
+  },
+  {
+    id: 'child-right-flute-size-for-kids',
+    category: 'Children & Beginners',
+    question: 'What size flute is best for a 7 to 12 year old child?',
+    answer: `For children aged 7 to 12:
+• G Medium (12 to 13 inches): Ideal for ages 7 to 9. The hole spacing is close together, so small fingers can easily seal all holes completely without hand fatigue.
+• A Medium or C Medium (14 to 15 inches): Suitable for ages 10 to 12 as finger reach expands.
+• Test Fingering Reach: Have the child extend their hands naturally. If their fingers stretch uncomfortably or pop off the holes, choose one scale higher/smaller flute first.`,
+    relatedLink: { text: 'Read Beginner Scale Selection Matrix', view: 'learn_choose_flute' },
+    tags: ['flute size for kids', 'child flute', 'g medium', 'finger reach']
+  },
+  {
+    id: 'child-making-practice-fun',
+    category: 'Children & Beginners',
+    question: 'How can parents make flute practice fun and engaging for young children?',
+    answer: `Keeping young learners enthusiastic relies on gamified practice:
+1. 10-Minute Micro Sessions: Practice 10 minutes in the morning and 10 minutes in the afternoon instead of long, boring sessions.
+2. The "Echo Game": Play a simple 3-note phrase and have the child repeat it back by ear.
+3. Use Visual Tuners: Children love watching digital tuner needles turn green when they hold Sa cleanly.
+4. Celebrate Milestones: Reward consistency with star charts and host mini family concerts on weekends.`,
+    relatedLink: { text: 'Explore Interactive Tools for Beginners', view: 'learn_dashboard' },
+    tags: ['fun practice', 'kids motivation', 'gamified practice', 'parental tips']
+  },
+  {
+    id: 'child-pvc-vs-bamboo-for-kids',
+    category: 'Children & Beginners',
+    question: 'Is a PVC plastic flute better than natural bamboo for young children?',
+    answer: `Both materials have distinct advantages for young children:
+• PVC Synthetic Flutes: Unbreakable, 100% waterproof, washable under tap water, and unaffected by drops or climate changes. Perfect for very young children or outdoor school practice.
+• Natural Bamboo Flutes: Lighter in weight, produce a warmer acoustic tone, and offer traditional aesthetic feel.
+Parent Tip: Starting a 7-year-old on a durable PVC G Medium flute for 6 months and then gifting a natural Assam bamboo flute as a progress reward works wonderfully!`,
+    relatedLink: { text: 'Compare PVC vs Natural Bamboo Flutes', view: 'learn_choose_flute' },
+    tags: ['pvc vs bamboo', 'kids flutes', 'durable flute', 'beginner materials']
   }
 ];

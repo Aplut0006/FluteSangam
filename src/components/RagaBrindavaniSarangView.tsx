@@ -408,12 +408,12 @@ Finish on: S`;
           </div>
 
           {/* Avaroh Card */}
-          <div className="p-5 bg-gradient-to-br from-indigo-50 to-blue-50/50 rounded-2xl border border-indigo-200/80 space-y-3 relative">
+          <div className="p-5 bg-gradient-to-br from-amber-50 to-orange-50/50 rounded-2xl border border-amber-200/80 space-y-3 relative">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-widest text-indigo-800">Avaroh (Descending)</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-amber-900">Avaroh (Descending)</span>
               <button
                 onClick={() => copyToClipboard('S\' N P M R S', 'avaroh')}
-                className="text-xs text-indigo-700 hover:text-indigo-900 flex items-center gap-1 font-semibold"
+                className="text-xs text-amber-800 hover:text-amber-950 flex items-center gap-1 font-semibold"
               >
                 {copiedSection === 'avaroh' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                 <span>{copiedSection === 'avaroh' ? 'Copied' : 'Copy'}</span>

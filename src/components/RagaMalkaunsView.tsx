@@ -9,6 +9,7 @@ import {
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
+import { playBambooFluteTone } from '../utils/fluteSynth';
 
 interface RagaMalkaunsViewProps {
   onViewChange?: (view: AppView) => void;
@@ -62,27 +63,7 @@ export default function RagaMalkaunsView({ onViewChange }: RagaMalkaunsViewProps
       const ctx = getAudioContext();
       const freq = SWARA_FREQS[swaraName] || 261.63;
       
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      
-      // Warm, deep flute timbre using triangle wave + lowpass filter
-      osc.type = 'triangle';
-      osc.frequency.setValueAtTime(freq, ctx.currentTime);
-
-      const filter = ctx.createBiquadFilter();
-      filter.type = 'lowpass';
-      filter.frequency.setValueAtTime(1200, ctx.currentTime);
-
-      gain.gain.setValueAtTime(0.005, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.26, ctx.currentTime + 0.12);
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
-
-      osc.connect(filter);
-      filter.connect(gain);
-      gain.connect(ctx.destination);
-
-      osc.start();
-      osc.stop(ctx.currentTime + duration);
+      playBambooFluteTone(ctx, freq, ctx.currentTime, duration, 0.28);
 
       setActiveSwara(swaraName);
       setActiveScale(scale);
@@ -303,38 +284,38 @@ g M d | M g | S`;
       </div>
 
       {/* Hero Banner Header */}
-      <div className="bg-gradient-to-r from-purple-950 via-indigo-900 to-slate-950 text-white rounded-3xl p-6 sm:p-10 shadow-xl border border-purple-800/40 relative overflow-hidden mb-8">
-        <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-purple-500/10 blur-2xl pointer-events-none" />
+      <div className="bg-gradient-to-br from-amber-100/90 via-orange-50 to-amber-50 text-bamboo-950 rounded-3xl p-6 sm:p-10 shadow-sm border border-amber-300/80 relative overflow-hidden mb-8">
+        <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-amber-400/20 blur-2xl pointer-events-none" />
         <div className="relative z-10 space-y-4">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="p-2.5 bg-amber-400/20 backdrop-blur-md rounded-2xl border border-amber-300/30 shrink-0">
-                <Moon className="w-7 h-7 text-amber-300" />
+              <div className="p-2.5 bg-amber-200/90 backdrop-blur-md rounded-2xl border border-amber-300 shrink-0 shadow-2xs">
+                <Moon className="w-7 h-7 text-amber-800" />
               </div>
               <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-amber-300 bg-amber-400/10 px-3 py-1 rounded-full border border-amber-300/20">
+                <span className="text-xs font-bold uppercase tracking-widest text-amber-900 bg-amber-200/80 px-3 py-1 rounded-full border border-amber-300">
                   Hindustani Classical Raga
                 </span>
-                <h1 className="text-3xl sm:text-5xl font-display font-extrabold tracking-tight text-white mt-1">
+                <h1 className="text-3xl sm:text-5xl font-display font-extrabold tracking-tight text-bamboo-950 mt-1">
                   Raag Malkauns
                 </h1>
               </div>
             </div>
 
             {/* Microdata Signals & Timestamps */}
-            <div className="flex flex-wrap items-center gap-2.5 text-xs text-purple-100/90 bg-purple-950/60 border border-purple-500/30 backdrop-blur-md rounded-2xl px-4 py-2.5 shrink-0">
+            <div className="flex flex-wrap items-center gap-2.5 text-xs text-amber-950 bg-white/90 border border-amber-200 shadow-2xs rounded-2xl px-4 py-2.5 shrink-0">
               <div className="flex items-center gap-1.5">
-                <Calendar className="w-3.5 h-3.5 text-amber-300" />
-                <span className="text-purple-200/80">Published:</span>
-                <time itemProp="datePublished" dateTime="2026-08-08T00:00:00Z" className="font-semibold text-white">
+                <Calendar className="w-3.5 h-3.5 text-amber-700" />
+                <span className="text-stone-600">Published:</span>
+                <time itemProp="datePublished" dateTime="2026-08-08T00:00:00Z" className="font-semibold text-bamboo-950">
                   Aug 8, 2026
                 </time>
               </div>
-              <span className="text-purple-400/60">•</span>
+              <span className="text-amber-300">•</span>
               <div className="flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-amber-300" />
-                <span className="text-purple-200/80">Updated:</span>
-                <time itemProp="dateModified" dateTime="2026-08-08T00:00:00Z" className="font-semibold text-white">
+                <Clock className="w-3.5 h-3.5 text-amber-700" />
+                <span className="text-stone-600">Updated:</span>
+                <time itemProp="dateModified" dateTime="2026-08-08T00:00:00Z" className="font-semibold text-bamboo-950">
                   Aug 8, 2026
                 </time>
               </div>

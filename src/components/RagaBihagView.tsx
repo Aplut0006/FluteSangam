@@ -9,6 +9,7 @@ import {
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
+import { playBambooFluteTone } from '../utils/fluteSynth';
 
 interface RagaBihagViewProps {
   onViewChange?: (view: AppView) => void;
@@ -63,27 +64,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
       const ctx = getAudioContext();
       const freq = SWARA_FREQS[swaraName] || 261.63;
       
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      
-      // Warm bamboo flute timbre
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(freq, ctx.currentTime);
-
-      const filter = ctx.createBiquadFilter();
-      filter.type = 'lowpass';
-      filter.frequency.setValueAtTime(1400, ctx.currentTime);
-
-      gain.gain.setValueAtTime(0.001, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.28, ctx.currentTime + 0.08);
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
-
-      osc.connect(filter);
-      filter.connect(gain);
-      gain.connect(ctx.destination);
-
-      osc.start();
-      osc.stop(ctx.currentTime + duration);
+      playBambooFluteTone(ctx, freq, ctx.currentTime, duration, 0.28);
 
       setActiveSwara(swaraName);
       setTimeout(() => setActiveSwara(null), duration * 1000);

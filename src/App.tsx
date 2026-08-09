@@ -53,6 +53,8 @@ const RagaKhamajView = lazyWithRetry(() => import('./components/RagaKhamajView')
 const RagaBhairavView = lazyWithRetry(() => import('./components/RagaBhairavView'));
 const RagaBihagView = lazyWithRetry(() => import('./components/RagaBihagView'));
 const RagaMalkaunsView = lazyWithRetry(() => import('./components/RagaMalkaunsView'));
+const RagaMarwaView = lazyWithRetry(() => import('./components/RagaMarwaView'));
+const RagaJogView = lazyWithRetry(() => import('./components/RagaJogView'));
 const MembersView = lazyWithRetry(() => import('./components/MembersView'));
 const ImageModal = lazyWithRetry(() => import('./components/ImageModal'));
 const AboutUsView = lazyWithRetry(() => import('./components/AboutUsView'));
@@ -203,6 +205,8 @@ export default function App() {
         RagaBhairavView,
         RagaBihagView,
         RagaMalkaunsView,
+        RagaMarwaView,
+        RagaJogView,
         AboutUsView,
         FounderView,
         ContactUsView,
@@ -355,6 +359,14 @@ export default function App() {
       case 'raga_bihag':
         title = 'Raag Bihag: Complete Guide, Notes, Aaroh, Avaroh & Practice | FluteSangam';
         description = 'Master Raag Bihag on Indian Bamboo Flute (Bansuri). Complete guide with Swara playback, Tivra Ma usage, Pakad, Chalan, 45-min practice routine, alankars, and practice piece Sandhya Madhurya.';
+        break;
+      case 'raga_marwa':
+        title = 'Raag Marwa — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
+        description = 'Learn Raag Marwa with notes, Aaroh, Avaroh, Pakad, practice tips, flute techniques, and an original FluteSangam learning piece.';
+        break;
+      case 'raga_jog':
+        title = 'Raag Jog — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
+        description = 'Learn Raag Jog with detailed notes, Aaroh, Avaroh, Pakad, characteristics, practice tips, Aalap exercises, and an original FluteSangam learning piece.';
         break;
       case 'notation_requests':
         title = 'Song Notation Requests | FluteSangam Sargam';
@@ -1126,6 +1138,10 @@ export default function App() {
           <RagaBihagView onViewChange={handleViewChange} />
         ) : currentView === 'raga_malkauns' ? (
           <RagaMalkaunsView onViewChange={handleViewChange} />
+        ) : currentView === 'raga_marwa' ? (
+          <RagaMarwaView onViewChange={handleViewChange} />
+        ) : currentView === 'raga_jog' ? (
+          <RagaJogView onViewChange={handleViewChange} />
         ) : currentView === 'about_us' ? (
           <AboutUsView onViewChange={handleViewChange} />
         ) : currentView === 'founder' ? (

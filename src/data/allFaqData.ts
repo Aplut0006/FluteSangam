@@ -86,5 +86,28 @@ Once logged in, you can:
 • Customize your public flutist profile with your scale preference, location, bio, and social links.`,
     relatedLink: { text: 'Explore Community Feed', view: 'community' },
     tags: ['sign up', 'join', 'notations', 'community']
+  },
+  {
+    id: 'platform-request-custom-notation',
+    category: 'FluteSangam Platform',
+    question: 'How do I request Sargam notation for my favorite Bollywood or devotional song?',
+    answer: `Requesting song notations on FluteSangam is simple:
+1. Navigate to the "Song Notations" section in the navigation menu.
+2. Click the "Request Song Notation" button.
+3. Submit the song title, film/album name, and preferred flute scale.
+Our team and community mentors review requests weekly and publish accurate Bhatkhande Sargam sheets with line-by-line finger guides.`,
+    relatedLink: { text: 'Browse & Request Song Notations', view: 'notation_requests' },
+    tags: ['request song notation', 'bollywood sargam', 'devotional songs', 'notations']
+  },
+  {
+    id: 'platform-ai-assistant-help',
+    category: 'FluteSangam Platform',
+    question: 'How can the FluteSangam AI Assistant help me with my practice and Raag questions?',
+    answer: `The FluteSangam AI Guru Assistant is trained on Indian classical music theory, bansuri acoustics, and practice routines:
+• Ask questions about any Raag's Aaroh, Avaroh, Pakad, Vadi, or Samvadi notes.
+• Request customized Alankar practice routines based on your current skill level and available daily practice time.
+• Get instant troubleshooting advice for airy tone, squeaks, half-hole finger placements, and flute maintenance.`,
+    relatedLink: { text: 'Chat with FluteSangam AI Assistant', view: 'chats' },
+    tags: ['ai guru', 'ai assistant', 'raag answers', 'practice guidance', 'flutesangam ai']
   }
 ];

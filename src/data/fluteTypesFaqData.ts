@@ -185,5 +185,36 @@ export const FLUTE_TYPES_FAQS: FaqItem[] = [
 - Your Hand Stretch Has Developed: You have developed comfortable finger dexterity to reach the wider hole spacing of long bass tubes.`,
     relatedLink: { text: 'Explore Advanced Raag Lessons', view: 'learn_raagas' },
     tags: ['upgrading flute', 'c medium to e bass', 'progress', 'bass bansuri']
+  },
+  {
+    id: 'type-medium-vs-bass-flutes',
+    category: 'Flute Types & Scales',
+    question: 'What is the acoustic difference between Medium flutes and Bass flutes?',
+    answer: `Distinguishing Medium vs Bass bamboo flutes:
+• Medium Flutes (e.g., C Medium, G Medium): Shorter length (12 to 19 inches), higher frequency pitch, agile finger hole reach, and fast response. Great for folk, pop, fast Alankars, and beginners.
+• Bass Flutes (e.g., E Bass, C Bass, B Bass): Longer length (28 to 36 inches), deep resonant voice, lower pitch frequency, and wide finger hole spacing. Ideal for classical Raag Aalaps, meditative practice, and solo recitals.`,
+    relatedLink: { text: 'View Beginner Scale & Flute Matrix', view: 'learn_choose_flute' },
+    tags: ['medium vs bass', 'bass flute', 'c medium', 'e bass', 'acoustic differences']
+  },
+  {
+    id: 'type-carnatic-venu-vs-hindustani-bansuri',
+    category: 'Flute Types & Scales',
+    question: 'What is the difference between a Carnatic Venu and a Hindustani Bansuri?',
+    answer: `Key differences between South and North Indian bamboo flutes:
+• Carnatic Venu: Features 8 finger holes (or 7 main + 1 cross-fingering hole), thicker bamboo walls, smaller diameter, and higher pitch register. Played using cross-fingerings for rapid Carnatic Gamakas.
+• Hindustani Bansuri: Features 6 or 7 finger holes, thinner bamboo walls, wider bore diameter for deeper bass resonance, and designed for continuous microtonal Meend glides.`,
+    relatedLink: { text: 'Read Music Theory Comparison Blueprint', view: 'learn_basics' },
+    tags: ['carnatic venu', 'hindustani bansuri', '8 hole vs 6 hole', 'gamaka vs meend']
+  },
+  {
+    id: 'type-pvc-flutes-vs-assam-bamboo',
+    category: 'Flute Types & Scales',
+    question: 'Are PVC synthetic flutes as good as natural Assam bamboo flutes?',
+    answer: `Comparing PVC synthetic flutes and natural Assam bamboo:
+• Acoustic Warmth: Natural Assam bamboo has organic interior fibers that produce a unmatched warm, sweet, wooden harmonic tone cherished by classical maestros.
+• Durability & Weather Resistance: PVC plastic flutes are 100% waterproof, virtually indestructible, and immune to humidity or temperature cracking.
+• Recommendation: PVC flutes are fantastic for beginners, children, outdoor practice, and rugged travel. Assam bamboo remains the undisputed gold standard for studio recordings and classical concert recitals.`,
+    relatedLink: { text: 'Read Buyer Checklist for Flutes', view: 'learn_choose_flute' },
+    tags: ['pvc vs bamboo', 'assam bamboo', 'synthetic flutes', 'tone quality']
   }
 ];

@@ -373,7 +373,8 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
     samvadi: "Dha",
     pakad: "Dha Ma(tivra) Ga Re(komal), Ni(lower) Re(komal) Sa",
     time: "Sunset",
-    mood: "Anxious, Searching, Serious"
+    mood: "Anxious, Searching, Serious",
+    link: "raga_marwa"
   },
   { 
     name: "Raag Puriya", 
@@ -481,7 +482,8 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
     samvadi: "Pa",
     pakad: "Ma Ga, Ma Ga(komal) Sa, Ga Ma Pa Ni Pa",
     time: "Late Night",
-    mood: "Mystical, Deep"
+    mood: "Mystical, Deep",
+    link: "raga_jog"
   },
   { 
     name: "Raag Rageshree", 

@@ -1,4 +1,4 @@
-import { FaqItem } from './allFaqData';
+import { FaqItem } from '../components/FluteFaqView';
 
 export const ADULT_LEARNERS_FAQS: FaqItem[] = [
   {
@@ -203,5 +203,46 @@ Reaching an advanced level on the bamboo flute (Bansuri) depends far more on the
 Furthermore, adult flutists bring mature life experiences, emotional depth, and deep appreciation to their playing, giving their music a soulful quality that listeners resonate with deeply. Countless accomplished flutists, performers, and community leaders began their journey in adulthood and now play at an inspiring, advanced level.`,
     relatedLink: { text: 'Explore Advanced Techniques & Meend', view: 'learn_daily_practice' },
     tags: ['advanced flute player', 'starting late', 'meend', 'mastery', 'adult success']
+  },
+  {
+    id: 'adult-finger-stiffness-arthritis',
+    category: 'Adult Learners',
+    question: 'How can adult learners with stiff fingers or mild hand arthritis play comfortably?',
+    answer: `Experiencing stiff fingers or mild arthritis does not mean you have to give up your dream of playing the bamboo flute. With ergonomic adjustments, finger placement adaptations, and gentle physical warm-ups, adults with joint stiffness can play comfortably and pain-free.
+
+Ergonomic Strategies for Stiff Fingers or Joint Stiffness:
+1. Pre-Practice Hand Warm-Up: Soak your hands in warm water for 2 to 3 minutes or execute gentle finger joint flexing and wrist rotations before picking up the flute.
+2. Choose a Flute Scale with Comfortable Hole Spacing: Start with flutes that feature narrower, closer hole spacing—such as a C Medium or G Medium bansuri—to avoid excessive finger stretching.
+3. Adopt the Flat Finger Pad Grip (Pannalal Ghosh Style): Rest the soft, padded underside of your second finger phalanges flat over the hole centers. This requires zero tight finger bending or clawing, completely eliminating strain on small finger joints.
+4. Practice in Short 15-Minute Micro-Sessions: Take frequent rest breaks to keep your hands loose, warm, and comfortable.`,
+    relatedLink: { text: 'Read Posture & Finger Grip Blueprint', view: 'learn_basics' },
+    tags: ['stiff fingers', 'arthritis', 'finger stretch', 'hand ergonomics']
+  },
+  {
+    id: 'adult-switching-from-western-flute',
+    category: 'Adult Learners',
+    question: 'I played Western silver flute before — how do I adapt to keyless bamboo bansuri?',
+    answer: `Transitioning from Western silver transverse flute to Indian bamboo bansuri is an exciting, deeply rewarding journey. While both instruments share transverse side-blowing mechanics, transitioning involves adapting to keyless open holes, microtonal inflection, and relative Sargam notation.
+
+Key Adaptation Points for Western Flutists:
+• Bare Open Hole Coverage: Unlike metal keys with pads, bansuris feature bare open holes. You cover holes directly using flat finger pads rather than raised fingertips, ensuring zero air leakage.
+• Larger Oval Embouchure: Bansuri blow holes are larger and unbeveled. Rest the flute slightly lower on your lower lip to produce warm, woody, resonant acoustic overtones.
+• Relative Sargam System (Sa Re Ga Ma): Instead of Western equal temperament fixed pitch, bansuri music revolves around moveable Sa and expressive microtonal glides (Meend).
+• Instant Advantage: Your existing diaphragm breath support and embouchure strength will accelerate your bansuri progress tremendously!`,
+    relatedLink: { text: 'Read Flute Scale & Type Comparison', view: 'learn_choose_flute' },
+    tags: ['western flute vs bansuri', 'silver flute', 'transitioning', 'keyless flute']
+  },
+  {
+    id: 'adult-memorizing-melodies',
+    category: 'Adult Learners',
+    question: 'As an adult learner, how can I memorize song notations and Raga phrases faster?',
+    answer: `Memorizing musical notations, song melodies, and Raga compositions efficiently relies on active vocalization, phrase chunking, and internalizing core catchphrases (Pakad).
+
+Proven Memory Techniques for Adult Learners:
+1. Vocalize Sargam Aloud First: Sing or chant the swara letters (e.g., "Sa Re Ga Ma Pa") aloud before blowing them into the flute. If your mind can sing the melody fluently, your fingers will navigate the holes instinctively.
+2. Practice Small 2-Bar Chunks: Break long song notations into short 2-bar or 4-bar phrases. Repeat a single chunk 5 times from memory before adding the next line.
+3. Internalize Raga Pakad: Master the signature catchphrase (Pakad) of a Raga first. The Pakad serves as a mental anchor that brings the entire Raga structure into recall effortlessly.`,
+    relatedLink: { text: 'Explore Alankar Generator & Practice Engine', view: 'alankar_generator' },
+    tags: ['memorizing music', 'sargam singing', 'memory techniques', 'raga pakad']
   }
 ];

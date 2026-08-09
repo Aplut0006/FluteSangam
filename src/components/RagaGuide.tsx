@@ -36,6 +36,8 @@ export default function RagaGuide({ onSelectRagaDiscussion, activeRagaFilter, on
     if (n.includes('khamaj')) return 'raga_khamaj';
     if (n.includes('bihag')) return 'raga_bihag';
     if (n.includes('malkauns')) return 'raga_malkauns';
+    if (n.includes('marwa')) return 'raga_marwa';
+    if (n.includes('jog')) return 'raga_jog';
     return null;
   };
 

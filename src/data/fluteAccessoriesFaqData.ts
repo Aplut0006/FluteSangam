@@ -5,13 +5,14 @@ export const FLUTE_ACCESSORIES_FAQS: FaqItem[] = [
     id: 'acc-beginner-essential-toolkit',
     category: 'Flute Accessories',
     question: 'What flute accessories should every beginner own?',
-    answer: `An essential beginner accessory kit ensures proper protection, maintenance, and tuning:
+    answer: `An essential beginner accessory toolkit ensures proper instrument protection, daily maintenance, hygienic care, and precise tuning alignment during daily Sadhana.
 
-1. Padded Flute Case/Bag: Protects natural bamboo against accidental impacts and dust.
-2. Swabbing Rod & Microfiber Cloth: Essential for swabbing internal moisture after every practice session.
-3. Tanpura & Tuner App: Mobile apps (like iTanpura or digital tuner apps) for tuning and pitch alignment.
-4. Metronome App: For building rhythmic timing and speed control.
-5. Mustard or Almond Oil: A small bottle of natural oil for periodic bore maintenance every few months.`,
+Must-Have Accessory Checklist:
+1. Padded Flute Bag / PVC Carrying Tube: Protects natural Assam bamboo against physical impacts, accidental drops, and rapid humidity swings.
+2. Swabbing Rod & Microfiber Cloth: Essential for swabbing internal breath condensation out of the bore immediately after every practice session.
+3. Smartphone Tanpura & Tuner Apps: Digital mobile tools (such as iTanpura or FluteSangam's Live Tuner) for continuous pitch alignment at A=440Hz.
+4. Smartphone Metronome App: For building internal rhythm (Laya), timing accuracy, and metronome speed progression.
+5. Pure Mustard or Almond Oil: A small bottle of natural oil for periodic interior bore oiling every 2 to 3 months.`,
     relatedLink: { text: 'Explore Flute Care Blueprint', view: 'learn_basics' },
     tags: ['essential accessories', 'beginner kit', 'case', 'tanpura app', 'swab']
   },
@@ -19,11 +20,12 @@ export const FLUTE_ACCESSORIES_FAQS: FaqItem[] = [
     id: 'acc-hard-case-vs-soft-cover',
     category: 'Flute Accessories',
     question: 'Hard Flute Case vs Soft Flute Cover: Which is better for bansuris?',
-    answer: `Comparing protective cases for bamboo flutes:
+    answer: `Selecting the right protective case depends on your lifestyle, travel requirements, and how many scale keys you carry.
 
-- Padded Hard Case (PVC/Fiber Tube): The ultimate protection against crushing, heavy objects, and rough travel. Highly recommended for air travel, commuting, or storing multiple flutes.
-- Soft Padded Bag / Cover: Lightweight and easy to carry with a shoulder strap for casual visits to music classes. Offers scratch protection but lacks rigid crush resistance.
-- Recommendation: Use a rigid hard tube case for travel and home storage.`,
+Comparing Case Types:
+• Padded Rigid Hard Case (PVC or Carbon Fiber Tube): Provides ultimate crushing resistance against heavy physical impacts, baggage drop handling, and extreme pressure. Essential for airline cabin travel, long-distance touring, or shipping flutes.
+• Padded Soft Gig Bag (Fabric or Leatherette): Features lightweight construction, shoulder straps, and individual velvet sleeves for storing multiple scale keys comfortably during local commutes to music classes or rehearsals.
+• Recommended Best Practice: Use a multi-flute padded gig bag for daily local commutes and a rigid hard PVC tube case for flight travel.`,
     relatedLink: { text: 'Read Travel Protection Guidelines', view: 'learn_basics' },
     tags: ['hard case', 'soft cover', 'flute protection', 'travel tube']
   },
@@ -31,10 +33,11 @@ export const FLUTE_ACCESSORIES_FAQS: FaqItem[] = [
     id: 'acc-swabbing-rod-and-cleaning-cloths',
     category: 'Flute Accessories',
     question: 'What cleaning rods and cloths are best for swabbing bamboo flutes?',
-    answer: `Selecting safe swabbing tools prevents internal bamboo scratches:
+    answer: `Choosing safe swabbing tools prevents internal bamboo scratches, preserves cork stopper alignment, and keeps your flute interior hygienically clean.
 
-- Swabbing Rod Material: Use smooth wooden or plastic swabbing rods. Avoid sharp metal rods that can scratch internal bamboo walls or dislodge the delicate internal cork stopper.
-- Swabbing Cloth: High-absorbency, lint-free microfiber or soft cotton flannel cloths absorb moisture instantly without leaving loose threads inside the bore.`,
+Safe Swabbing Equipment Guide:
+• Swabbing Rod Material: Use smooth, rounded wooden or plastic swabbing rods. Never use metal rods or screwdrivers that can scratch interior bamboo walls or dislodge the delicate internal cork stopper.
+• Swabbing Cloth Selection: Use high-absorbency, lint-free microfiber or soft cotton flannel cloths that absorb breath moisture instantly without leaving loose thread fibers inside the bamboo bore.`,
     relatedLink: { text: 'View Maintenance & Cleaning Blueprint', view: 'learn_basics' },
     tags: ['swabbing rod', 'microfiber cloth', 'cleaning tools', 'bamboo safety']
   },
@@ -42,12 +45,11 @@ export const FLUTE_ACCESSORIES_FAQS: FaqItem[] = [
     id: 'acc-flute-stands-safety-and-use',
     category: 'Flute Accessories',
     question: 'Do I need a flute stand, and is it safe to keep a bansuri on a stand?',
-    answer: `Flute stands provide convenient access during practice sessions:
+    answer: `Flute stands provide convenient, safe resting spots during practice breaks and rehearsals, preventing precious bamboo flutes from rolling off tables or chairs.
 
-- Benefits: Keeps your flute safely upright during short practice breaks, preventing it from rolling off tables or chairs.
-- Safety Precautions:
-  - Use a felt-padded wooden or heavy-base tripod stand designed for transverse flutes.
-  - Never leave bamboo flutes on stands overnight or near open windows where draft, sunlight, or pets can knock them over.`,
+Flute Stand Safety Best Practices:
+• Stand Design: Choose a felt-padded wooden or heavy-base tripod stand specifically designed for transverse flutes, ensuring the vertical peg supports the internal bore without scratching.
+• Safety Precautions: Never leave bamboo flutes resting on stands overnight or near open windows, air conditioning vents, or direct sunlight where draft, heat, pets, or young children could knock them over.`,
     relatedLink: { text: 'Read Practice Setup Guidelines', view: 'learn_daily_practice' },
     tags: ['flute stand', 'safety', 'practice setup', 'storage']
   },
@@ -55,11 +57,12 @@ export const FLUTE_ACCESSORIES_FAQS: FaqItem[] = [
     id: 'acc-tanpura-and-tuner-mobile-apps',
     category: 'Flute Accessories',
     question: 'Which mobile apps are best for Tanpura drones, tuners, and metronomes?',
-    answer: `Top digital accessories for smartphone practice:
+    answer: `Modern smartphone apps provide world-class acoustic reference tools that turn your mobile phone into an indispensable daily practice station.
 
-- Tanpura Drone Apps: iTanpura, Tanpura Droid, or Radel electronic tanpura apps provide rich, authentic drone harmonics tuned to A=440Hz.
-- Tuner Apps: Soundcorset, TE Tuner, or FluteSangam's built-in Live Tuner help monitor real-time pitch accuracy and microtonal deviation.
-- Metronome Apps: Soundcorset or Pro Metronome for steady click subdivisions (Vilambit to Drut Lay).`,
+Recommended Practice Mobile Apps:
+• Digital Tanpura Drone Apps: iTanpura, Tanpura Droid, or Radel electronic tanpura apps generate authentic acoustic drone overtones tuned precisely to A=440Hz.
+• Chromatic Pitch Tuner Apps: TE Tuner, Soundcorset, or FluteSangam's built-in Live Tuner help monitor real-time pitch accuracy and microtonal intonation deviations.
+• Metronome Apps: Soundcorset or Pro Metronome for practicing steady rhythmic subdivisions (Vilambit to Drut Lay).`,
     relatedLink: { text: 'Use FluteSangam Built-in Live Tuner', view: 'learn_tuner' },
     tags: ['tanpura app', 'tuner app', 'metronome app', 'digital tools']
   },
@@ -67,11 +70,12 @@ export const FLUTE_ACCESSORIES_FAQS: FaqItem[] = [
     id: 'acc-microphones-for-bamboo-flute',
     category: 'Flute Accessories',
     question: 'Which microphones and recording gear work best for recording bansuri at home?',
-    answer: `Capturing the warm, woody, breathy acoustic timbre of a bamboo flute:
+    answer: `Capturing the warm, woody, breathy acoustic timbre of a bamboo flute requires selecting appropriate microphones and positioning them correctly.
 
-- Large-Diaphragm Condenser Mics (e.g., Rode NT1-A, Audio-Technica AT2020): Excellent for home studio recordings, capturing subtle breath dynamics and deep bass resonance cleanly.
-- Clip-On Wireless Mics / Lavalier: Great for live stage performances where moving around freely is required.
-- Placement Tip: Position the mic 12 to 18 inches away from the blow hole at a slight off-axis angle to avoid direct breath popping noises.`,
+Microphone Selection & Placement Guide:
+• Large-Diaphragm Condenser Mics (e.g., Rode NT1-A, Audio-Technica AT2020): Superior choice for home studio recording, capturing delicate breath dynamics and deep bass resonance with pristine clarity.
+• Dynamic Stage Mics (e.g., Shure SM57 / SM58): Ideal for loud live acoustic stage performances due to excellent feedback rejection.
+• Placement Technique: Position the mic 12 to 18 inches away from the blow hole at a 45-degree off-axis angle to avoid direct breath popping noises.`,
     relatedLink: { text: 'Read Home Studio Recording Blueprint', view: 'learn_basics' },
     tags: ['microphones', 'condenser mic', 'recording gear', 'home studio']
   },
@@ -79,12 +83,13 @@ export const FLUTE_ACCESSORIES_FAQS: FaqItem[] = [
     id: 'acc-travel-cases-and-air-travel-kits',
     category: 'Flute Accessories',
     question: 'What travel accessories and humidity packs protect flutes during journeys?',
-    answer: `Essential accessories for flutists on the go:
+    answer: `Long-distance travel exposes bamboo flutes to luggage drops, atmospheric pressure drops in airplanes, and sudden climate shifts.
 
-1. Rigid PVC/Carbon Travel Tube: Fits into cabin overhead bins safely.
-2. Two-Way Humidity Control Packs (e.g., Boveda 49%-55%): Regulates relative humidity inside the case during climate changes.
-3. Compact Microfiber Swab: For quick post-performance swabbing.
-4. Shoulder Strap Bag: Keeps hands free while navigating airports or train stations.`,
+Essential Touring Travel Kit:
+1. Rigid PVC / Carbon-Fiber Travel Tube: Compact tube case engineered to fit comfortably into airplane cabin overhead bins.
+2. Two-Way Humidity Control Packs (e.g., Boveda 49%-55% RH): Regulates relative humidity inside closed cases during extreme weather changes.
+3. Compact Microfiber Swab Rod: For quick post-performance internal drying.
+4. Adjustable Padded Shoulder Strap: Keeps hands free while navigating airports and train stations.`,
     relatedLink: { text: 'Read Air Travel Protection Blueprint', view: 'learn_basics' },
     tags: ['travel case', 'boveda packs', 'humidity control', 'touring']
   },
@@ -92,10 +97,11 @@ export const FLUTE_ACCESSORIES_FAQS: FaqItem[] = [
     id: 'acc-humidity-packs-and-silica-gel',
     category: 'Flute Accessories',
     question: 'Should I use humidity packs or silica gel inside my flute case?',
-    answer: `Managing humidity balance inside closed cases:
+    answer: `Managing relative humidity inside closed flute storage cases prevents mold growth in damp weather and bamboo splitting in dry weather.
 
-- Monsoon Season / High Humidity (>70% RH): Use food-grade Silica Gel packets to absorb excess moisture and prevent mold/rot inside cases.
-- Extremely Dry Winter / Desert Climates (<30% RH): Use 2-way Boveda humidity control packs (49%–55% RH) to release gentle moisture and prevent bamboo shrinkage or cracking.`,
+Selecting Humidity Protection Accessories:
+• Monsoon Season & High Humidity (>70% RH): Include food-grade Silica Gel packets inside the case to absorb excess moisture and prevent mold or bamboo rot.
+• Dry Winter & Desert Climates (<30% RH): Use 2-way Boveda humidity control packs (49%–55% RH) to release gentle moisture and prevent bamboo shrinkage or micro-cracks.`,
     relatedLink: { text: 'Read Flute Care Guidelines', view: 'learn_basics' },
     tags: ['humidity control', 'silica gel', 'boveda packs', 'monsoon care']
   },
@@ -103,10 +109,11 @@ export const FLUTE_ACCESSORIES_FAQS: FaqItem[] = [
     id: 'acc-finger-grips-and-ergonomic-aids',
     category: 'Flute Accessories',
     question: 'Are finger grip stickers or thumb rests useful for bansuri players?',
-    answer: `Ergonomic aids for hand comfort:
+    answer: `Ergonomic aids can help beginners develop spatial finger placement awareness and prevent hand slippage during long performances.
 
-- Tactile Hole Reference Stickers: Tiny, raised silicone dots placed near hole edges can help beginners feel hole boundaries without looking down at their hands.
-- Thumb Cushion / Grip Tape: A soft silicone sleeve or thin non-slip tape placed where the right thumb supports the flute tube prevents slippage due to hand sweat during long recitals.`,
+Useful Ergonomic Accessories:
+• Tactile Hole Reference Stickers: Micro-thin, raised silicone dots placed near tone hole perimeters help beginners feel hole boundaries without looking down at their hands.
+• Silicone Thumb Cushion / Grip Tape: A soft silicone sleeve or thin non-slip tape placed where the right thumb supports the flute tube prevents slipping caused by hand sweat during long recitals.`,
     relatedLink: { text: 'View Ergonomics & Posture Guide', view: 'learn_basics' },
     tags: ['finger grips', 'thumb cushion', 'ergonomics', 'slippage']
   },
@@ -114,10 +121,11 @@ export const FLUTE_ACCESSORIES_FAQS: FaqItem[] = [
     id: 'acc-multi-flute-bags-and-cases',
     category: 'Flute Accessories',
     question: 'How do multi-flute cases and gig bags organize multiple scale keys safely?',
-    answer: `Organizing a collection of bansuris:
+    answer: `Organizing a collection of bansuris across different scale keys requires specialized gig bags designed with protective individual compartments.
 
-- Individual Padded Slots: Multi-flute gig bags feature individual soft velvet or padded nylon sleeves for each flute, preventing flutes from knocking against each other and scratching.
-- Scale Labeling: Keep small scale tags (e.g., C Medium, E Bass, G Medium) on sleeve tops for instant identification during live stage recitals.`,
+Multi-Flute Organization Features:
+• Individual Padded Sleeves: Multi-flute gig bags feature separate velvet or padded nylon sleeves for each flute, preventing instruments from knocking against each other and scratching.
+• Scale Key Tagging: Keep small scale tags (e.g., C Medium, E Bass, G Medium) on sleeve tops for instant identification during fast live stage recitals.`,
     relatedLink: { text: 'Explore Flute Collections Guide', view: 'learn_choose_flute' },
     tags: ['multi flute case', 'gig bag', 'scale organization', 'velvet sleeves']
   },
@@ -125,10 +133,11 @@ export const FLUTE_ACCESSORIES_FAQS: FaqItem[] = [
     id: 'acc-audio-interfaces-for-home-studio',
     category: 'Flute Accessories',
     question: 'Do I need a USB audio interface to record high-quality flute videos or tracks?',
-    answer: `Upgrading from smartphone recording to professional audio:
+    answer: `Upgrading from smartphone recordings to professional studio audio involves incorporating a dedicated USB audio interface.
 
-- Why Use an Audio Interface (e.g., Focusrite Scarlett, Audient EVO): Converts XLR microphone signals into clean, low-noise digital audio for recording software (DAWs).
-- Is it Essential for Beginners?: No. Smartphone microphones or direct USB mics (like Blue Yeti) are more than adequate for recording daily practice and social media clips.`,
+Audio Interface Function & Recommendations:
+• Role of Audio Interfaces (e.g., Focusrite Scarlett 2i2, Audient EVO 4): Converts XLR condenser microphone analog signals into low-noise, high-fidelity digital audio for computer recording software (DAWs).
+• Is it Essential for Beginners?: No. Smartphone microphones or direct USB condenser mics (such as the Blue Yeti) are more than adequate for recording daily practice and social media clips.`,
     relatedLink: { text: 'Read Recording & Audio Setup Blueprint', view: 'learn_basics' },
     tags: ['audio interface', 'focusrite', 'home recording', 'daw']
   },
@@ -136,13 +145,14 @@ export const FLUTE_ACCESSORIES_FAQS: FaqItem[] = [
     id: 'acc-best-gifts-for-flute-players',
     category: 'Flute Accessories',
     question: 'What are the best gifts for a flute player or bansuri student?',
-    answer: `Thoughtful, practical gifts for bansuri enthusiasts:
+    answer: `Selecting practical, high-value musical gifts for bamboo flutists and Indian classical music students.
 
-1. Premium Multi-Flute Gig Bag / Travel Tube.
+Top Gift Ideas for Flutists:
+1. Premium Multi-Flute Gig Bag or Carbon-Fiber Travel Tube.
 2. Concert-Grade C Natural Medium or E Bass Bamboo Bansuri.
-3. Bluetooth Speaker / Tanpura Box for daily practice.
-4. Classical Flute Music Books & Raag Notation Guides.
-5. High-Quality Wooden Flute Stand.`,
+3. Portable Bluetooth Speaker / Digital Tanpura Box for daily practice.
+4. Classical Flute Music Books & Bhatkhande Notation Guides.
+5. Handcrafted Wooden Flute Desktop Stand.`,
     relatedLink: { text: 'Explore FluteSangam Learning Platform', view: 'learn_dashboard' },
     tags: ['gifts for flutists', 'gift ideas', 'bansuri gifts', 'accessories']
   }

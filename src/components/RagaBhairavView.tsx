@@ -9,6 +9,7 @@ import {
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
+import { playBambooFluteTone } from '../utils/fluteSynth';
 
 interface RagaBhairavViewProps {
   onViewChange?: (view: AppView) => void;
@@ -61,27 +62,7 @@ export default function RagaBhairavView({ onViewChange }: RagaBhairavViewProps) 
       const ctx = getAudioContext();
       const freq = SWARA_FREQS[swaraName] || 261.63;
       
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      
-      // Warm flute timbre using triangle wave + lowpass filter
-      osc.type = 'triangle';
-      osc.frequency.setValueAtTime(freq, ctx.currentTime);
-
-      const filter = ctx.createBiquadFilter();
-      filter.type = 'lowpass';
-      filter.frequency.setValueAtTime(1300, ctx.currentTime);
-
-      gain.gain.setValueAtTime(0.01, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.25, ctx.currentTime + 0.1);
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
-
-      osc.connect(filter);
-      filter.connect(gain);
-      gain.connect(ctx.destination);
-
-      osc.start();
-      osc.stop(ctx.currentTime + duration);
+      playBambooFluteTone(ctx, freq, ctx.currentTime, duration, 0.28);
 
       setActiveSwara(swaraName);
       setTimeout(() => setActiveSwara(null), duration * 1000);
@@ -225,7 +206,7 @@ S`;
       "image": "https://flutesangam.com/og-image.jpg",
       "author": {
         "@type": "Organization",
-        "name": "FluteSangam Educational Team"
+        "name": "FluteSangam"
       },
       "publisher": {
         "@type": "Organization",

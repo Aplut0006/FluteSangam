@@ -310,5 +310,38 @@ Awareness of these physical tendencies allows flutists to instinctively compensa
 4. Daily Alankar Practice: Run speed drills through the Alankar Generator over a Tanpura drone to build instinctive intonation at faster tempos.`,
     relatedLink: { text: 'Practice Pitch Accuracy with Alankar Generator', view: 'alankar_generator' },
     tags: ['pitch accuracy', 'tuner freeze drill', 'octave jumps', 'dynamic swelling', 'intonation exercises']
+  },
+  {
+    id: 'tuning-440hz-vs-432hz',
+    category: 'Flute Tuning & Pitch',
+    question: 'Why is A=440Hz standard for flutes, and how does room temperature affect pitch?',
+    answer: `Concert pitch standards and climate physics:
+• Standard Concert Pitch (A=440Hz): The international standard pitch reference used across world instruments. Professional bansuris are crafted to A=440Hz so flutists can play alongside keyboards, guitars, and recording studios seamlessly.
+• Room Temperature Physics: Bamboo flutes play sharper in hot weather (warm air vibrates faster) and flatter in cold weather.
+• Flute Tip: Allow a cold flute to warm up in your hands for 2–3 minutes and blow warm breath through it before fine-tuning against a tuner app.`,
+    relatedLink: { text: 'Use FluteSangam Live Tuner', view: 'learn_tuner' },
+    tags: ['a440hz', 'concert pitch', 'temperature effect', 'flute physics']
+  },
+  {
+    id: 'tuning-correcting-flat-high-notes',
+    category: 'Flute Tuning & Pitch',
+    question: 'Why do my high notes sound sharp and low notes sound flat, and how do I fix it?',
+    answer: `This opposite pitch drift is caused by breath pressure over-compensation:
+• High Notes Sharp: You are likely blowing too hard to reach Taar Saptak. Fix: Keep air velocity high, but narrow your lip aperture slightly and direct air slightly lower to keep pitch from going sharp.
+• Low Notes Flat: You are dropping breath support on Mandra notes. Fix: Maintain steady diaphragmatic breath support while relaxing lip tension to keep lower notes rich and in tune.`,
+    relatedLink: { text: 'Read Intonation & Embouchure Blueprint', view: 'learn_basics' },
+    tags: ['high notes sharp', 'low notes flat', 'breath overcompensation', 'intonation fix']
+  },
+  {
+    id: 'tuning-using-flutesangam-tuner',
+    category: 'Flute Tuning & Pitch',
+    question: 'How do I use the FluteSangam digital tuner to check my swara accuracy?',
+    answer: `Step-by-step guide to using the built-in digital tuner on FluteSangam:
+1. Open FluteSangam Tuner: Grant microphone access when prompted.
+2. Select Your Flute Key: Choose your flute's root key (e.g., C Medium, G Medium, E Bass).
+3. Hold Sustained Swaras: Blow a long, steady note (like Sa, Pa, or Ga). The interactive needle displays your exact frequency and cents deviation in real time.
+4. Green Center Target: Adjust lip angle until the indicator turns green (0 cents deviation).`,
+    relatedLink: { text: 'Open FluteSangam Live Digital Tuner', view: 'learn_tuner' },
+    tags: ['flutesangam tuner', 'digital tuner', 'swara accuracy', 'live pitch calibration']
   }
 ];

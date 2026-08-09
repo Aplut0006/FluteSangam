@@ -214,39 +214,39 @@ S`;
       />
 
       {/* Header Banner */}
-      <section className="bg-gradient-to-br from-indigo-950 via-bamboo-900 to-indigo-900 text-white rounded-2xl sm:rounded-3xl p-4 sm:p-10 shadow-xl border border-indigo-800/80 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
+      <section className="bg-gradient-to-br from-amber-100/90 via-orange-50 to-amber-50 text-bamboo-950 rounded-2xl sm:rounded-3xl p-4 sm:p-10 shadow-sm border border-amber-300/80 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-400/20 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
         <div className="relative z-10 space-y-4 sm:space-y-6">
           {/* Breadcrumb Navigation */}
-          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-amber-200/80 font-medium">
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-amber-900 font-medium">
             <button 
               onClick={() => onViewChange?.('learn_dashboard')}
-              className="hover:text-amber-300 transition cursor-pointer touch-manipulation min-h-[32px] flex items-center"
+              className="hover:text-amber-700 transition cursor-pointer touch-manipulation min-h-[32px] flex items-center"
             >
               Learn
             </button>
             <span>/</span>
             <button 
               onClick={() => onViewChange?.('learn_raagas')}
-              className="hover:text-amber-300 transition cursor-pointer touch-manipulation min-h-[32px] flex items-center"
+              className="hover:text-amber-700 transition cursor-pointer touch-manipulation min-h-[32px] flex items-center"
             >
               Raagas
             </button>
             <span>/</span>
-            <span className="text-amber-400 font-bold truncate max-w-[120px] sm:max-w-none">Raag Desh</span>
+            <span className="text-amber-950 font-bold truncate max-w-[120px] sm:max-w-none">Raag Desh</span>
           </div>
 
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6">
             <div className="space-y-2.5 sm:space-y-3 max-w-2xl">
-              <div className="inline-flex items-center gap-1.5 bg-amber-500/20 text-amber-300 px-3 py-1 rounded-full text-[11px] sm:text-xs font-semibold border border-amber-400/30">
-                <Moon className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+              <div className="inline-flex items-center gap-1.5 bg-amber-200/90 text-amber-950 px-3 py-1 rounded-full text-[11px] sm:text-xs font-semibold border border-amber-300 shadow-2xs">
+                <Moon className="w-3.5 h-3.5 text-amber-700 shrink-0" />
                 <span>Second Quarter of Night (9 PM – 12 AM)</span>
               </div>
-              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black font-display tracking-tight text-white leading-tight">
+              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black font-display tracking-tight text-bamboo-950 leading-tight">
                 Raag Desh Guide
               </h1>
-              <p className="text-xs sm:text-base text-indigo-100 max-w-2xl leading-relaxed font-sans">
-                Master the expressive movements, characteristic descending phrases, original Alankars, and practice composition <span className="text-amber-300 font-semibold">"Sandhya Vihar"</span> on Bansuri.
+              <p className="text-xs sm:text-base text-stone-700 max-w-2xl leading-relaxed font-sans">
+                Master the expressive movements, characteristic descending phrases, original Alankars, and practice composition <span className="text-amber-900 font-semibold">"Sandhya Vihar"</span> on Bansuri.
               </p>
             </div>
 
