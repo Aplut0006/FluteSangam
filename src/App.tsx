@@ -55,6 +55,8 @@ const RagaBihagView = lazyWithRetry(() => import('./components/RagaBihagView'));
 const RagaMalkaunsView = lazyWithRetry(() => import('./components/RagaMalkaunsView'));
 const RagaMarwaView = lazyWithRetry(() => import('./components/RagaMarwaView'));
 const RagaJogView = lazyWithRetry(() => import('./components/RagaJogView'));
+const RagaTodiView = lazyWithRetry(() => import('./components/RagaTodiView'));
+const RagaMiyanKiMalharView = lazyWithRetry(() => import('./components/RagaMiyanKiMalharView'));
 const MembersView = lazyWithRetry(() => import('./components/MembersView'));
 const ImageModal = lazyWithRetry(() => import('./components/ImageModal'));
 const AboutUsView = lazyWithRetry(() => import('./components/AboutUsView'));
@@ -367,6 +369,14 @@ export default function App() {
       case 'raga_jog':
         title = 'Raag Jog — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
         description = 'Learn Raag Jog with detailed notes, Aaroh, Avaroh, Pakad, characteristics, practice tips, Aalap exercises, and an original FluteSangam learning piece.';
+        break;
+      case 'raga_todi':
+        title = 'Raag Todi — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
+        description = 'Learn Raag Todi with detailed notes, Aaroh, Avaroh, Pakad, characteristics, Aalap practice, flute tips, and an original FluteSangam learning piece.';
+        break;
+      case 'raga_miyan_ki_malhar':
+        title = 'Raag Miyan Ki Malhar — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
+        description = 'Learn Raag Miyan Ki Malhar with detailed notes, Aaroh, Avaroh, Pakad, characteristics, Aalap practice, flute tips, and an original FluteSangam learning piece.';
         break;
       case 'notation_requests':
         title = 'Song Notation Requests | FluteSangam Sargam';
@@ -1142,6 +1152,10 @@ export default function App() {
           <RagaMarwaView onViewChange={handleViewChange} />
         ) : currentView === 'raga_jog' ? (
           <RagaJogView onViewChange={handleViewChange} />
+        ) : currentView === 'raga_todi' ? (
+          <RagaTodiView onViewChange={handleViewChange} />
+        ) : currentView === 'raga_miyan_ki_malhar' ? (
+          <RagaMiyanKiMalharView onViewChange={handleViewChange} />
         ) : currentView === 'about_us' ? (
           <AboutUsView onViewChange={handleViewChange} />
         ) : currentView === 'founder' ? (

@@ -377,6 +377,32 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
     link: "raga_marwa"
   },
   { 
+    name: "Raag Todi (Miyan Ki Todi)", 
+    level: "Advanced", 
+    description: "Profound, serious late-morning melody distinguished by Komal Re, Komal Ga, Tivra Ma, and Komal Dha.",
+    aaroh: "Sa Re(komal) Ga(komal) Ma(tivra) Pa Dha(komal) Ni Sa'",
+    avroh: "Sa' Ni Dha(komal) Pa Ma(tivra) Ga(komal) Re(komal) Sa",
+    vadi: "Dha",
+    samvadi: "Ga",
+    pakad: "Ga(komal) Re(komal) Ga(komal) Re(komal) Sa, Re(komal) Ga(komal) Ma(tivra) Ga(komal) Re(komal) Sa",
+    time: "Late Morning (9 AM - 12 PM)",
+    mood: "Contemplative, Introspective, Serious",
+    link: "raga_todi"
+  },
+  { 
+    name: "Raag Miyan Ki Malhar", 
+    level: "Advanced", 
+    description: "Celebrated monsoon raga known for its majestic character, Komal Ga, characteristic Re-Ma movement, and evocative phrases.",
+    aaroh: "Sa Re Ma Re Pa, Ma Pa Ni Sa'",
+    avroh: "Sa' Ni Dha Pa, Ma Pa Komal-Ga Ma Re Sa",
+    vadi: "Sa / Pa",
+    samvadi: "Pa / Sa",
+    pakad: "Re Ma Re Pa, Ma Pa Komal-Ga Ma Re Sa",
+    time: "Monsoon Season / Late Night",
+    mood: "Majestic, Evocative, Expressive, Monsoon",
+    link: "raga_miyan_ki_malhar"
+  },
+  { 
     name: "Raag Puriya", 
     level: "Advanced", 
     description: "Uses the same notes as Marwa but focuses entirely on Ga and Ni, creating a floating atmosphere.",

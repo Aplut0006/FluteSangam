@@ -12,7 +12,7 @@ export interface AppNotification {
   createdAt: any;
 }
 
-export type AppView = 'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_choose_flute' | 'learn_tuner' | 'learn_basics' | 'learn_fingering_chart' | 'learn_alankaras' | 'learn_daily_practice' | 'learn_scales_octaves' | 'learn_raagas' | 'raga_bhoopali' | 'raga_durga' | 'raga_yaman' | 'raga_hamsadhwani' | 'raga_bilawal' | 'raga_desh' | 'raga_kafi' | 'raga_bageshree' | 'raga_bhimpalasi' | 'raga_brindavani_sarang' | 'raga_khamaj' | 'raga_bhairav' | 'raga_bihag' | 'raga_malkauns' | 'raga_marwa' | 'raga_jog' | 'alankar_generator' | 'community_members' | 'about_us' | 'founder' | 'contact_us' | 'learn_dashboard' | 'notation_requests' | 'privacy_policy' | 'terms_of_service' | 'learn_common_mistakes' | 'flute_faq' | 'not_found';
+export type AppView = 'community' | 'chats' | 'post-detail' | 'user-profile' | 'learn_intro' | 'learn_choose_flute' | 'learn_tuner' | 'learn_basics' | 'learn_fingering_chart' | 'learn_alankaras' | 'learn_daily_practice' | 'learn_scales_octaves' | 'learn_raagas' | 'raga_bhoopali' | 'raga_durga' | 'raga_yaman' | 'raga_hamsadhwani' | 'raga_bilawal' | 'raga_desh' | 'raga_kafi' | 'raga_bageshree' | 'raga_bhimpalasi' | 'raga_brindavani_sarang' | 'raga_khamaj' | 'raga_bhairav' | 'raga_bihag' | 'raga_malkauns' | 'raga_marwa' | 'raga_jog' | 'raga_todi' | 'raga_miyan_ki_malhar' | 'alankar_generator' | 'community_members' | 'about_us' | 'founder' | 'contact_us' | 'learn_dashboard' | 'notation_requests' | 'privacy_policy' | 'terms_of_service' | 'learn_common_mistakes' | 'flute_faq' | 'not_found';
 
 export interface UserProfile {
   uid: string;

@@ -64,6 +64,8 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
     { name: 'Raag Malkauns', view: 'raga_malkauns', title: 'Nisha Dhyan', level: 'Intermediate', color: 'bg-indigo-800 hover:bg-indigo-900' },
     { name: 'Raag Marwa', view: 'raga_marwa', title: 'Sandhya Dhyan', level: 'Advanced', color: 'bg-rose-700 hover:bg-rose-800' },
     { name: 'Raag Jog', view: 'raga_jog', title: 'Nisha Gambhirya', level: 'Advanced', color: 'bg-indigo-900 hover:bg-indigo-950' },
+    { name: 'Raag Todi', view: 'raga_todi', title: 'Pratah Dhyan', level: 'Advanced', color: 'bg-amber-800 hover:bg-amber-900' },
+    { name: 'Raag Miyan Ki Malhar', view: 'raga_miyan_ki_malhar', title: 'Varsha Dhyan', level: 'Advanced', color: 'bg-sky-800 hover:bg-sky-900' },
   ];
 
   // Featured Guides filtered according to chosen level filter & search
@@ -298,11 +300,11 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
           {/* Quick Stats Pills */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
             <div className="bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-sm">
-              <span className="text-2xl font-black text-amber-400 font-mono">12+</span>
+              <span className="text-2xl font-black text-amber-400 font-mono">15+</span>
               <p className="text-xs text-amber-200/80 font-medium">Core Classical Raags</p>
             </div>
             <div className="bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-sm">
-              <span className="text-2xl font-black text-emerald-400 font-mono">12</span>
+              <span className="text-2xl font-black text-emerald-400 font-mono">15</span>
               <p className="text-xs text-amber-200/80 font-medium">Full Flute Guides</p>
             </div>
             <div className="bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-sm">
