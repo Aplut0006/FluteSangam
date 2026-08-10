@@ -265,10 +265,6 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
 
   // Copy Notation Swaras
   const handleCopyNotation = (text: string, id: string) => {
-    if (!currentUser) {
-      onOpenAuth?.();
-      return;
-    }
     navigator.clipboard.writeText(text);
     setCopiedId(id);
     setTimeout(() => setCopiedId(null), 2000);
@@ -399,10 +395,6 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
               <div 
                 key={req.id} 
                 onClick={() => {
-                    if (!currentUser) {
-                      onOpenAuth?.();
-                      return;
-                    }
                     setSelectedRequest(req);
                   }}
                 className="bg-white border border-gray-100 hover:border-bamboo-300 rounded-2xl p-5 shadow-xs hover:shadow-md transition-all duration-200 cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-4 group"
@@ -541,7 +533,11 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
               </p>
 
               <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-bamboo-200">
-                <span>Requested by {selectedRequest.userName || selectedRequest.userDisplayName || (selectedRequest.userEmail ? selectedRequest.userEmail.split('@')[0] : 'Community Member')}</span>
+                <span>
+                  Requested by {currentUser 
+                    ? (selectedRequest.userName || selectedRequest.userDisplayName || (selectedRequest.userEmail ? selectedRequest.userEmail.split('@')[0] : 'Community Member')) 
+                    : 'Community Member'}
+                </span>
                 <div className="flex items-center gap-2">
                   {canDeleteRequest(selectedRequest.userId, selectedRequest.userEmail) && (
                     <button
@@ -648,15 +644,17 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
                           {/* Contributor info & scale */}
                           <div className="flex items-center justify-between gap-2 border-b border-bamboo-100/60 pb-3">
                             <div className="flex items-center gap-2.5">
-                              {not.authorPhoto ? (
+                              {currentUser && not.authorPhoto ? (
                                 <img src={not.authorPhoto} alt={not.authorName} className="w-8 h-8 rounded-full object-cover border border-bamboo-200" />
                               ) : (
                                 <div className="w-8 h-8 rounded-full bg-bamboo-700 text-white font-bold text-xs flex items-center justify-center">
-                                  {not.authorName ? not.authorName.charAt(0).toUpperCase() : 'M'}
+                                  {currentUser && not.authorName ? not.authorName.charAt(0).toUpperCase() : 'M'}
                                 </div>
                               )}
                               <div>
-                                <h4 className="text-xs font-bold text-gray-900">{not.authorName}</h4>
+                                <h4 className="text-xs font-bold text-gray-900">
+                                  {currentUser ? (not.authorName || 'Community Member') : 'Community Member'}
+                                </h4>
                                 <p className="text-[10px] text-gray-500">{new Date(not.createdAt).toLocaleDateString()}</p>
                               </div>
                             </div>
