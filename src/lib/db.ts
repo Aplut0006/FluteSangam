@@ -18,7 +18,8 @@ import {
   or,
   limit,
   writeBatch,
-  collectionGroup
+  collectionGroup,
+  deleteField
 } from 'firebase/firestore';
 import { db, auth } from './firebase';
 import { deleteUser } from 'firebase/auth';
@@ -78,6 +79,17 @@ export async function seedDatabaseIfEmpty() {
           }
         }
         console.log("Database seeded successfully!");
+      } else {
+        // Ensure legacy seeded post for Hariprasad K has videoUrl removed if it exists in Firestore
+        try {
+          const morningPostRef = doc(db, 'posts', 'morning-meditation');
+          const morningSnap = await getDoc(morningPostRef);
+          if (morningSnap.exists() && morningSnap.data().videoUrl) {
+            await updateDoc(morningPostRef, { videoUrl: deleteField() });
+          }
+        } catch (e) {
+          // ignore
+        }
       }
     } catch (postErr) {
       console.warn("Could not check/seed posts collection:", postErr);
@@ -302,11 +314,16 @@ export function subscribeToPosts(callback: (posts: Post[]) => void) {
   
   return onSnapshot(q, (snapshot) => {
     const posts: Post[] = [];
-    snapshot.forEach((doc) => {
-      const data = doc.data();
+    snapshot.forEach((docSnap) => {
+      const data = docSnap.data();
+      let videoUrl = data.videoUrl;
+      if (docSnap.id === 'morning-meditation' || data.authorName === 'Hariprasad K.' || data.authorId === 'system_hariprasad') {
+        videoUrl = undefined;
+      }
       posts.push({
         ...data,
-        id: doc.id,
+        videoUrl,
+        id: docSnap.id,
         createdAt: data.createdAt ? data.createdAt.toDate() : new Date()
       } as Post);
     });
@@ -367,8 +384,13 @@ export async function getPost(postId: string): Promise<Post | null> {
     const snap = await getDoc(postRef);
     if (snap.exists()) {
       const data = snap.data();
+      let videoUrl = data.videoUrl;
+      if (snap.id === 'morning-meditation' || data.authorName === 'Hariprasad K.' || data.authorId === 'system_hariprasad') {
+        videoUrl = undefined;
+      }
       return {
         ...data,
+        videoUrl,
         id: snap.id,
         createdAt: data.createdAt ? data.createdAt.toDate() : new Date()
       } as Post;

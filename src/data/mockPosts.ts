@@ -122,7 +122,6 @@ export const INITIAL_COMMUNITY_POSTS: Omit<Post, 'id' | 'createdAt'>[] = [
     description: "Waking up to the serene waves of Raga Bhairav. Practicing the slow Andolan (oscillations) on Komal Re and Komal Dha. Playing on a standard E Bass flute from Punam Flutes. Let me know what you think of the breath transitions!",
     category: "Performance",
     raga: "Bhairav",
-    videoUrl: "https://www.youtube.com/embed/5U9N5Xor9tY", // A high-quality public Bansuri video (or similar)
     likes: ["user1", "user2"],
     likeCount: 2,
     commentsCount: 3
