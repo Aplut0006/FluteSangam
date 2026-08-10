@@ -701,29 +701,13 @@ export default function App() {
 
     if (
       view === 'community' || 
-      view === 'learn_intro' || 
-      view === 'learn_basics' || 
-      view === 'learn_choose_flute' || 
-      view === 'learn_alankaras' || 
-      view === 'learn_raagas' || 
-      view === 'raga_bhoopali' ||
-      view === 'raga_durga' ||
-      view === 'raga_yaman' ||
-      view === 'raga_hamsadhwani' ||
-      view === 'raga_bilawal' ||
-      view === 'raga_desh' ||
-      view === 'raga_kafi' ||
-      view === 'raga_bageshree' ||
-      view === 'raga_bhimpalasi' ||
-      view === 'raga_brindavani_sarang' ||
-      view === 'raga_khamaj' ||
-      view === 'raga_bhairav' ||
+      view.startsWith('learn_') ||
+      view.startsWith('raga_') ||
       view === 'community_members' ||
       view === 'about_us' ||
       view === 'founder' ||
       view === 'contact_us' ||
       view === 'notation_requests' ||
-      view === 'learn_dashboard' ||
       view === 'not_found'
     ) {
       setSelectedPost(null);
