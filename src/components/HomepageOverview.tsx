@@ -119,12 +119,12 @@ export default function HomepageOverview({
     },
     {
       title: 'Flute Tuning & Pitch Precision: Chromatic Tuners & A=440Hz',
-      excerpt: 'Learn how temperature, blowing angle, and breath pressure affect bansuri pitch, and how to align your flute with tanpura drones.',
+      excerpt: 'Learn how temperature, blowing angle, and breath pressure affect bansuri pitch, and how to maintain accurate pitch tuning.',
       readTime: '9 min read',
       date: 'August 2, 2026',
       category: 'Tuning Guide',
       targetView: 'learn_tuner' as AppView,
-      highlights: ['A=440Hz standard', 'Tanpura alignment', 'Pitch cent control']
+      highlights: ['A=440Hz standard', 'Frequency detection', 'Pitch cent control']
     },
   ];
 
@@ -181,12 +181,12 @@ export default function HomepageOverview({
       borderColor: 'border-amber-200'
     },
     {
-      title: 'Online Flute Tuner & Tanpura',
-      description: 'Tune your flute accurately using microphone frequency detection and background tanpura drone.',
+      title: 'Online Flute Tuner',
+      description: 'Tune your flute accurately using microphone frequency detection and real-time cents display.',
       view: 'learn_tuner' as AppView,
       icon: Radio,
       badge: 'Live Audio',
-      features: ['Mic Pitch Detect', 'Tanpura Drone (Sa-Pa)', 'Precision Cent Indicator'],
+      features: ['Mic Pitch Detect', 'Frequency & Cents', 'Precision Cent Indicator'],
       gradient: 'from-amber-500/15 via-bamboo-500/5 to-transparent',
       borderColor: 'border-amber-200'
     },
@@ -519,7 +519,7 @@ export default function HomepageOverview({
               Daily Practice Routine &amp; Interactive Tools
             </h2>
             <p className="text-xs text-gray-600">
-              Elevate your daily flute practice with real-time tuner, tanpura drone, alankar generator, and structured sadhana routines.
+              Elevate your daily flute practice with real-time tuner, alankar generator, and structured sadhana routines.
             </p>
           </div>
         </div>
@@ -799,7 +799,7 @@ export default function HomepageOverview({
               Free Interactive Tools
             </h3>
             <p className="text-gray-600 leading-relaxed">
-              Access real-time flute tuning tools, tanpura drone sound generators, fingering charts, and alankar drill generators with no cost or paywalls.
+              Access real-time flute tuning tools, interactive fingering charts, and alankar drill generators with no cost or paywalls.
             </p>
           </div>
         </div>

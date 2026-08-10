@@ -84,7 +84,7 @@ export default function AboutUsView({ onViewChange }: AboutUsViewProps = {}) {
             The story of FluteSangam began with a simple observation: learning the flute—especially traditional instruments like the Indian bamboo bansuri—has historically been fragmented, intimidating, and scattered across individual video tutorials, articles, and traditional learning environments.
           </p>
           <p className="text-gray-700 leading-relaxed text-base sm:text-lg">
-            The idea for FluteSangam came from recognizing how difficult it can be to find clear, structured guidance on embouchure, scale selection, Sargam notations, Tanpura drones, and Raga dynamics in one central, welcoming place. FluteSangam was created to bridge this gap, bringing timeless musical traditions together with modern interactive web technologies so anyone can learn with confidence.
+            The idea for FluteSangam came from recognizing how difficult it can be to find clear, structured guidance on embouchure, scale selection, Sargam notations, and Raga dynamics in one central, welcoming place. FluteSangam was created to bridge this gap, bringing timeless musical traditions together with modern interactive web technologies so anyone can learn with confidence.
           </p>
         </section>
 
@@ -130,7 +130,7 @@ export default function AboutUsView({ onViewChange }: AboutUsViewProps = {}) {
             Most flute learners face a recurring set of obstacles: inconsistent practice routines, lack of structured song notations, difficulty finding accurate Raga information, and the isolation of practicing alone without feedback. Moreover, adult beginners often feel hesitant or fear starting late in life.
           </p>
           <p className="text-gray-700 leading-relaxed text-base sm:text-lg">
-            <strong>FluteSangam exists to solve these exact problems.</strong> By providing free interactive tools (like digital tuners, Tanpura drones, and scale helpers), structured learning guides, organized Sargam notations, and a supportive community, we aim to reduce the barriers to flute learning so every player can experience the peace and fulfillment of music.
+            <strong>FluteSangam exists to solve these exact problems.</strong> By providing free interactive tools (like digital tuners, metronomes, and scale helpers), structured learning guides, organized Sargam notations, and a supportive community, we aim to reduce the barriers to flute learning so every player can experience the peace and fulfillment of music.
           </p>
         </section>
 
@@ -186,7 +186,7 @@ export default function AboutUsView({ onViewChange }: AboutUsViewProps = {}) {
               </div>
               <h3 className="text-lg font-bold text-bamboo-950 mb-2">Use Interactive Tools</h3>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Utilize in-browser chromatic tuners, Tanpura drone generators, metronomes, scale decision tools, and fingering charts.
+                Utilize in-browser chromatic tuners, metronomes, scale decision tools, and interactive fingering charts.
               </p>
             </div>
 

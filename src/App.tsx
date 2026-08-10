@@ -268,8 +268,8 @@ export default function App() {
         description = 'FluteSangam Interactive Fingering Chart: Interactive scale selector, Sa Re Ga Ma notes & audio playback for Indian bamboo flute (Bansuri).';
         break;
       case 'learn_tuner':
-        title = 'Bansuri Tuner & Tanpura | FluteSangam';
-        description = 'FluteSangam Online Bansuri Tuner & Tanpura Drone: Tune your Indian bamboo flute accurately with real-time frequency detection and tanpura playback.';
+        title = 'Online Bansuri Pitch Tuner | FluteSangam';
+        description = 'FluteSangam Online Bansuri Pitch Tuner: Tune your Indian bamboo flute accurately with real-time frequency detection and precision cent measurement.';
         break;
       case 'learn_alankaras':
         if (location.pathname.includes('/learn/alankaras/intermediate')) {
