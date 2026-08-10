@@ -226,12 +226,6 @@ Finish on: S`;
               <Sun className="w-3.5 h-3.5 text-amber-400" />
               <span>Midday Raga (12 PM – 3 PM) • Kafi Thaat</span>
             </div>
-
-            {/* Freshness Badge */}
-            <div className="flex items-center gap-2 text-xs text-amber-200/80 bg-black/20 px-3 py-1 rounded-full border border-white/10">
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-              <span className="text-emerald-300 font-medium">Verified Lesson</span>
-            </div>
           </div>
 
           <div className="space-y-3">

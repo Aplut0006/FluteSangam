@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { 
   BookOpen, Filter, Music, Sun, Moon, Calendar, Clock, CheckCircle2, 
   ArrowRight, Sparkles, Search, Volume2, Play, Compass, Feather, 
-  Layers, Heart, Award, ShieldCheck, Check, RotateCcw
+  Layers, Heart, Award, Check, RotateCcw
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { LEARN_RAAGAS, RaagaDetails } from '../data/learnRaagasData';
@@ -282,14 +282,10 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
               <div className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-amber-400" />
                 <span className="text-amber-200/80">Updated:</span>
-                <time itemProp="dateModified" dateTime="2026-07-27T10:00:00Z" className="font-semibold text-white">
-                  Jul 27, 2026
+                <time itemProp="dateModified" dateTime="2026-08-10T02:46:00Z" className="font-semibold text-white">
+                  August 10, 2026
                 </time>
               </div>
-              <span className="text-amber-500/60">•</span>
-              <span className="inline-flex items-center gap-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold px-2.5 py-0.5 rounded-full text-[11px]">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> Verified Lesson
-              </span>
             </div>
           </div>
 
