@@ -1550,11 +1550,6 @@ export default function App() {
                     Flutists Directory
                   </a>
                 </li>
-                <li>
-                  <a href="/chats" onClick={(e) => { e.preventDefault(); handleViewChange('chats'); }} className="hover:text-amber-300 transition">
-                    Direct Messages &amp; Chat
-                  </a>
-                </li>
               </ul>
             </div>
 
