@@ -547,8 +547,8 @@ export function renderRouteHtml(path: string, templateHtml: string): { html: str
 
   // Inject Pre-rendered React HTML into <div id="root">
   finalHtml = finalHtml.replace(
-    '<div id="root"></div>',
-    `<div id="root">${renderedContent}</div>`
+    /<div id="root">[\s\S]*?<\/div>\s*<script/i,
+    `<div id="root">${renderedContent}</div>\n    <script`
   );
 
   return {
