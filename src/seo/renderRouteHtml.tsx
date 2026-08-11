@@ -513,6 +513,9 @@ export function renderRouteHtml(path: string, templateHtml: string): { html: str
 
   let finalHtml = templateHtml;
 
+  // Clean out default static fallback container so page source shows ONLY the actual pre-rendered route content
+  finalHtml = finalHtml.replace(/<div id="seo-fallback-content"[\s\S]*?<\/div>\s*(?=<div id="root")/i, '');
+
   // Clean out default canonical links and meta tags if present
   finalHtml = finalHtml.replace(/<link rel="canonical".*?\/>/gi, '');
   finalHtml = finalHtml.replace(/<meta name="description".*?\/>/gi, '');
@@ -546,10 +549,19 @@ export function renderRouteHtml(path: string, templateHtml: string): { html: str
   finalHtml = finalHtml.replace('</head>', `${headAdditions}\n</head>`);
 
   // Inject Pre-rendered React HTML into <div id="root">
-  finalHtml = finalHtml.replace(
-    /<div id="root">[\s\S]*?<\/div>\s*<script/i,
-    `<div id="root">${renderedContent}</div>\n    <script`
-  );
+  const rootStartIndex = finalHtml.indexOf('<div id="root">');
+  if (rootStartIndex !== -1) {
+    let rootEndIndex = finalHtml.indexOf('<script', rootStartIndex);
+    const bodyEndIndex = finalHtml.indexOf('</body>', rootStartIndex);
+    if (rootEndIndex === -1 || (bodyEndIndex !== -1 && rootEndIndex > bodyEndIndex)) {
+      rootEndIndex = bodyEndIndex !== -1 ? bodyEndIndex : finalHtml.length;
+    }
+    finalHtml = finalHtml.substring(0, rootStartIndex) + 
+      `<div id="root">${renderedContent}</div>\n  ` + 
+      finalHtml.substring(rootEndIndex);
+  } else {
+    finalHtml = finalHtml.replace('</body>', `<div id="root">${renderedContent}</div>\n</body>`);
+  }
 
   return {
     html: finalHtml,
