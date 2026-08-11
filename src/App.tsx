@@ -750,6 +750,24 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleSadhanaFeedClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (currentView === 'community') {
+      const el = document.getElementById('recent-discussions-section');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      handleViewChange('community');
+      setTimeout(() => {
+        const el = document.getElementById('recent-discussions-section');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
+
   const handleStartChat = (targetUser: { uid: string; displayName: string; username?: string; photoURL?: string }) => {
     if (!currentUser) {
       setAuthModalOpen(true);
@@ -1220,7 +1238,7 @@ export default function App() {
             />
 
             {/* Recent Discussions & Community Feed Section */}
-            <div id="recent-discussions-section" className="space-y-4 pt-4 border-t border-bamboo-200/80">
+            <div id="recent-discussions-section" className="space-y-4 pt-4 border-t border-bamboo-200/80 scroll-mt-20">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-bamboo-100 pb-3">
                 <div className="space-y-1">
                   <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-900 bg-amber-100 px-2.5 py-0.5 rounded-full">
@@ -1541,7 +1559,7 @@ export default function App() {
               </h3>
               <ul className="space-y-1.5 text-bamboo-200">
                 <li>
-                  <a href="/" onClick={(e) => { e.preventDefault(); handleViewChange('community'); }} className="hover:text-amber-300 transition">
+                  <a href="/#recent-discussions-section" onClick={handleSadhanaFeedClick} className="hover:text-amber-300 transition cursor-pointer">
                     Sadhana Feed &amp; Posts
                   </a>
                 </li>
