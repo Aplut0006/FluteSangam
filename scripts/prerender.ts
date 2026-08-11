@@ -16,7 +16,7 @@ const templateHtml = fs.readFileSync(templatePath, 'utf-8');
 
 // Collect all public indexable routes
 const baseRoutes = Object.values(VIEW_URLS)
-  .filter(p => !p.startsWith('/post') && !p.startsWith('/profile') && !p.startsWith('/chats') && p !== '/404');
+  .filter(p => !p.startsWith('/post') && !p.startsWith('/profile') && !p.startsWith('/chats'));
 
 const faqCategoryRoutes = Object.values(CATEGORY_SLUGS)
   .filter(Boolean)
