@@ -3,6 +3,7 @@ import express from "express";
 import path from "path";
 import fs from "fs";
 import { createServer as createViteServer } from "vite";
+import { renderRouteHtml } from "./src/seo/renderRouteHtml";
 
 const distPath = path.join(process.cwd(), 'dist');
 const isProduction = process.env.NODE_ENV === "production" || fs.existsSync(distPath);
@@ -25,22 +26,14 @@ async function startServer() {
     res.json({ status: "ok" });
   });
 
-  // Vite middleware for development
-  if (!isProduction) {
-    console.log("Running in development mode");
-    const vite = await createViteServer({
-      server: { middlewareMode: true },
-      appType: "spa",
-    });
-    app.use(vite.middlewares);
-  } else {
+  // Serve static files in production mode with extensions & cache control
+  if (isProduction) {
     console.log("Running in production mode");
     
-    // Serve static files with efficient cache-control headers
     app.use(express.static(distPath, {
       maxAge: '1d',
+      extensions: ['html'],
       setHeaders: (res, filePath) => {
-        // Immutable cached assets in dist/assets or hashed files
         if (filePath.includes('/assets/') || filePath.match(/\.[a-f0-9]{8,}\.(js|css|woff2?|png|jpg|webp|svg)$/)) {
           res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
         } else if (filePath.endsWith('.html')) {
@@ -50,12 +43,49 @@ async function startServer() {
         }
       }
     }));
-    
-    // SPA fallback
-    app.get('*', (req, res) => {
-      res.sendFile(path.join(distPath, 'index.html'));
+  } else {
+    console.log("Running in development mode");
+    const vite = await createViteServer({
+      server: { middlewareMode: true },
+      appType: "custom",
     });
+    app.use(vite.middlewares);
   }
+
+  // Dynamic / Prerendered HTML Page Fallback for both production and dev
+  app.get('*', (req, res, next) => {
+    // Skip asset or API files
+    if (req.path.includes('.') && !req.path.endsWith('.html')) {
+      return next();
+    }
+
+    const cleanPath = req.path;
+    
+    // Check if pre-rendered HTML file exists in dist
+    const possibleFiles = [
+      path.join(distPath, cleanPath, 'index.html'),
+      path.join(distPath, `${cleanPath.replace(/^\//, '')}.html`),
+    ];
+
+    for (const filePath of possibleFiles) {
+      if (fs.existsSync(filePath)) {
+        return res.sendFile(filePath);
+      }
+    }
+
+    // Dynamic rendering fallback using renderRouteHtml
+    const templatePath = isProduction 
+      ? path.join(distPath, 'index.html') 
+      : path.join(process.cwd(), 'index.html');
+
+    if (fs.existsSync(templatePath)) {
+      const templateHtml = fs.readFileSync(templatePath, 'utf-8');
+      const { html } = renderRouteHtml(cleanPath, templateHtml);
+      return res.setHeader('Content-Type', 'text/html').send(html);
+    }
+
+    next();
+  });
 
   app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running on port ${PORT}`);

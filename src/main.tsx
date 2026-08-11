@@ -18,14 +18,16 @@ window.addEventListener('unhandledrejection', (event) => {
   }
 });
 
-createRoot(document.getElementById('root')!).render(
+const container = document.getElementById('root')!;
+
+createRoot(container).render(
   <StrictMode>
     <ErrorBoundary>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </ErrorBoundary>
-  </StrictMode>,
+  </StrictMode>
 );
 
 // Clean up hidden static SEO fallback content after React mounts to minimize mobile DOM size and memory
