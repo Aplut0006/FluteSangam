@@ -65,6 +65,7 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
     { name: 'Raag Marwa', view: 'raga_marwa', title: 'Sandhya Dhyan', level: 'Advanced', color: 'bg-rose-700 hover:bg-rose-800' },
     { name: 'Raag Jog', view: 'raga_jog', title: 'Nisha Gambhirya', level: 'Advanced', color: 'bg-indigo-900 hover:bg-indigo-950' },
     { name: 'Raag Todi', view: 'raga_todi', title: 'Pratah Dhyan', level: 'Advanced', color: 'bg-amber-800 hover:bg-amber-900' },
+    { name: 'Raag Multani', view: 'raga_multani', title: 'Madhya Bhaag', level: 'Advanced', color: 'bg-amber-900 hover:bg-amber-950' },
     { name: 'Raag Miyan Ki Malhar', view: 'raga_miyan_ki_malhar', title: 'Varsha Dhyan', level: 'Advanced', color: 'bg-sky-800 hover:bg-sky-900' },
   ];
 

@@ -34,6 +34,7 @@ import RagaMalkaunsView from '../components/RagaMalkaunsView';
 import RagaMarwaView from '../components/RagaMarwaView';
 import RagaJogView from '../components/RagaJogView';
 import RagaTodiView from '../components/RagaTodiView';
+import RagaMultaniView from '../components/RagaMultaniView';
 import RagaMiyanKiMalharView from '../components/RagaMiyanKiMalharView';
 
 import MembersView from '../components/MembersView';
@@ -410,6 +411,11 @@ export function getRouteMetadata(path: string): RouteMetadata {
       title: 'Raag Todi Bansuri Guide - Aaroh, Avaroh, Pakad | FluteSangam',
       desc: 'Learn Raag Todi on Indian Bamboo Flute (Bansuri): morning Raag, Komal Re, Ga, Dha & Tivra Ma, Todi Thaat, Aaroh, Avaroh, Pakad, and classical compositions.',
       comp: RagaTodiView
+    },
+    'multani': {
+      title: 'Raag Multani — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
+      desc: 'Learn Raag Multani with detailed notes, Aaroh, Avaroh, Pakad, characteristics, Aalap practice, flute tips, and an original FluteSangam learning piece.',
+      comp: RagaMultaniView
     },
     'miyan-ki-malhar': {
       title: 'Raag Miyan Ki Malhar Bansuri Guide - Aaroh, Avaroh, Pakad | FluteSangam',

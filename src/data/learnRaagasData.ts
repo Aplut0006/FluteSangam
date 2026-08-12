@@ -390,6 +390,19 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
     link: "raga_todi"
   },
   { 
+    name: "Raag Multani", 
+    level: "Advanced", 
+    description: "Deeply expressive afternoon raga from Todi family featuring Komal Re, Komal Ga, Tivra Ma, and Komal Dha with Audav-Sampurna structure.",
+    aaroh: "Ni(lower) Sa Ga(komal) Ma(tivra) Pa Ni Sa'",
+    avroh: "Sa' Ni Dha(komal) Pa Ma(tivra) Ga(komal) Re(komal) Sa",
+    vadi: "Pa",
+    samvadi: "Sa",
+    pakad: "Ni(lower) Sa Ga(komal) Ma(tivra) Ga(komal) Re(komal) Sa",
+    time: "Afternoon (3 PM - 6 PM)",
+    mood: "Introspective, Serious, Meditative",
+    link: "raga_multani"
+  },
+  { 
     name: "Raag Miyan Ki Malhar", 
     level: "Advanced", 
     description: "Celebrated monsoon raga known for its majestic character, Komal Ga, characteristic Re-Ma movement, and evocative phrases.",
