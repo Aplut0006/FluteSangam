@@ -2,4 +2,12 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
+User-agent: Mediapartners-Google
+Allow: /
+Disallow: /api/
+
+User-agent: Google-Display-Ads-Bot
+Allow: /
+Disallow: /api/
+
 Sitemap: https://flutesangam.com/sitemap.xml
