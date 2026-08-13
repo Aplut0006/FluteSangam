@@ -403,6 +403,19 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
     link: "raga_multani"
   },
   { 
+    name: "Raag Pahadi", 
+    level: "Intermediate", 
+    description: "Lyrical, folk-inspired Himalayan raga known for its sweet melodic phrases, open Ga-Pa leaps, and expressive vocal quality.",
+    aaroh: "Sa Re Ga Pa Dha Sa'",
+    avroh: "Sa' Ni Dha Pa Ga Re Sa",
+    vadi: "Flexible / Phrase-driven",
+    samvadi: "Flexible / Phrase-driven",
+    pakad: "Sa Re Ga Pa, Ga Re Sa | Pa Dha Sa', Ni Dha Pa, Ga Re Sa",
+    time: "Anytime / Evening (Lyrical & Folk)",
+    mood: "Sweet, Lyrical, Folk, Expressive",
+    link: "raga_pahadi"
+  },
+  { 
     name: "Raag Miyan Ki Malhar", 
     level: "Advanced", 
     description: "Celebrated monsoon raga known for its majestic character, Komal Ga, characteristic Re-Ma movement, and evocative phrases.",

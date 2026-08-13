@@ -57,6 +57,7 @@ const RagaMarwaView = lazyWithRetry(() => import('./components/RagaMarwaView'));
 const RagaJogView = lazyWithRetry(() => import('./components/RagaJogView'));
 const RagaTodiView = lazyWithRetry(() => import('./components/RagaTodiView'));
 const RagaMultaniView = lazyWithRetry(() => import('./components/RagaMultaniView'));
+const RagaPahadiView = lazyWithRetry(() => import('./components/RagaPahadiView'));
 const RagaMiyanKiMalharView = lazyWithRetry(() => import('./components/RagaMiyanKiMalharView'));
 const MembersView = lazyWithRetry(() => import('./components/MembersView'));
 const ImageModal = lazyWithRetry(() => import('./components/ImageModal'));
@@ -378,6 +379,10 @@ export default function App() {
       case 'raga_multani':
         title = 'Raag Multani — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
         description = 'Learn Raag Multani with detailed notes, Aaroh, Avaroh, Pakad, characteristics, Aalap practice, flute tips, and an original FluteSangam learning piece.';
+        break;
+      case 'raga_pahadi':
+        title = 'Raag Pahadi — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
+        description = 'Learn Raag Pahadi with detailed notes, Aaroh, Avaroh, Pakad, characteristics, Aalap practice, flute tips, and an original FluteSangam learning piece.';
         break;
       case 'raga_miyan_ki_malhar':
         title = 'Raag Miyan Ki Malhar — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
@@ -1163,6 +1168,8 @@ export default function App() {
           <RagaTodiView onViewChange={handleViewChange} />
         ) : currentView === 'raga_multani' ? (
           <RagaMultaniView onViewChange={handleViewChange} />
+        ) : currentView === 'raga_pahadi' ? (
+          <RagaPahadiView onViewChange={handleViewChange} />
         ) : currentView === 'raga_miyan_ki_malhar' ? (
           <RagaMiyanKiMalharView onViewChange={handleViewChange} />
         ) : currentView === 'about_us' ? (

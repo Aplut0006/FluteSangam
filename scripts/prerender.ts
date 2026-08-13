@@ -29,7 +29,7 @@ const alankarLevelRoutes = ['beginner', 'intermediate', 'advanced'].map(
 const raagList = [
   'bhoopali', 'durga', 'yaman', 'hamsadhwani', 'bilawal', 'desh', 'kafi',
   'bageshree', 'bhimpalasi', 'brindavani-sarang', 'khamaj', 'bhairav', 'bihag',
-  'malkauns', 'marwa', 'jog', 'todi', 'miyan-ki-malhar'
+  'malkauns', 'marwa', 'jog', 'todi', 'multani', 'pahadi', 'miyan-ki-malhar'
 ];
 
 const raagAliasRoutes = raagList.flatMap(r => [

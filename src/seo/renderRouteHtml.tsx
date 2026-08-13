@@ -35,6 +35,7 @@ import RagaMarwaView from '../components/RagaMarwaView';
 import RagaJogView from '../components/RagaJogView';
 import RagaTodiView from '../components/RagaTodiView';
 import RagaMultaniView from '../components/RagaMultaniView';
+import RagaPahadiView from '../components/RagaPahadiView';
 import RagaMiyanKiMalharView from '../components/RagaMiyanKiMalharView';
 
 import MembersView from '../components/MembersView';
@@ -416,6 +417,11 @@ export function getRouteMetadata(path: string): RouteMetadata {
       title: 'Raag Multani — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
       desc: 'Learn Raag Multani with detailed notes, Aaroh, Avaroh, Pakad, characteristics, Aalap practice, flute tips, and an original FluteSangam learning piece.',
       comp: RagaMultaniView
+    },
+    'pahadi': {
+      title: 'Raag Pahadi — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
+      desc: 'Learn Raag Pahadi with detailed notes, Aaroh, Avaroh, Pakad, characteristics, Aalap practice, flute tips, and an original FluteSangam learning piece.',
+      comp: RagaPahadiView
     },
     'miyan-ki-malhar': {
       title: 'Raag Miyan Ki Malhar Bansuri Guide - Aaroh, Avaroh, Pakad | FluteSangam',
