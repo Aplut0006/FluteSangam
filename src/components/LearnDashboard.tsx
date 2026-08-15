@@ -17,6 +17,7 @@ export default function LearnDashboard({ onViewChange }: LearnDashboardProps) {
     { id: 'learn_scales_octaves', label: 'Flute Scales & Octaves', icon: Layers, color: 'text-amber-600', desc: 'Master Mandra, Madhya & Taar registers with audio notes & charts' },
     { id: 'learn_daily_practice', label: 'Daily Practice Guide', icon: Target, color: 'text-amber-600', desc: 'Complete daily routine for steady progress' },
     { id: 'learn_common_mistakes', label: 'Common Flute Mistakes', icon: AlertTriangle, color: 'text-amber-700', desc: '15 common mistakes & step-by-step fixes for every player' },
+    { id: 'budget_flutes', label: 'Best Budget Flutes', icon: ShoppingBag, color: 'text-amber-600', desc: 'Affordable Bamboo & PVC bansuri recommendations for beginners' },
     { id: 'flute_faq', label: 'Flute FAQ Center', icon: HelpCircle, color: 'text-amber-600', desc: 'Comprehensive Q&A knowledge base on flute, practice & raagas' },
     { id: 'learn_raagas', label: 'Ragas', icon: Music, color: 'text-bamboo-800', desc: 'Classical Hindustani & Carnatic guides' },
     { id: 'learn_tuner', label: 'Flute Tuner', icon: Radio, color: 'text-amber-700', desc: 'Interactive live frequency & scale tuner (440Hz)' },

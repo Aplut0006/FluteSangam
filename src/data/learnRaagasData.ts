@@ -315,18 +315,6 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
     mood: "Solemn, Deep, Yearning"
   },
   { 
-    name: "Raag Todi (Miyan Ki Todi)", 
-    level: "Advanced", 
-    description: "The crown jewel of morning Raags; uses exceptionally narrow, haunting microtonal intervals.",
-    aaroh: "Sa Re(komal) Ga(komal) Ma(tivra) Pa Dha(komal) Ni Sa'",
-    avroh: "Sa' Ni Dha(komal) Pa Ma(tivra) Ga(komal) Re(komal) Sa",
-    vadi: "Dha",
-    samvadi: "Ga",
-    pakad: "Dha(komal)(lower) Ni(lower) Sa Re(komal) Ga(komal), Re(komal) Sa, Ma(tivra) Ga(komal) Re(komal) Ga(komal), Re(komal) Sa",
-    time: "Late Morning",
-    mood: "Devotional, Serious, Pleasing"
-  },
-  { 
     name: "Raag Darbari Kanada", 
     level: "Advanced", 
     description: "Deep midnight melody utilizing ultra-slow, heavy oscillations; a massive test of breath capacity.",
@@ -350,18 +338,6 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
     time: "Late Night / Midnight",
     mood: "Meditative, Serene",
     link: "raga_malkauns"
-  },
-  { 
-    name: "Raag Multani", 
-    level: "Advanced", 
-    description: "A searing afternoon Raag structurally identical to Todi's notes but handled with a completely different aesthetic weight.",
-    aaroh: "Ni(lower) Sa Ga(komal) Ma(tivra) Pa, Ni Sa'",
-    avroh: "Sa' Ni Dha(komal) Pa, Ma(tivra) Ga(komal) Re(komal) Sa",
-    vadi: "Pa",
-    samvadi: "Sa",
-    pakad: "Ni(lower) Sa Ga(komal) Ma(tivra) Pa, Ma(tivra) Ga(komal) Re(komal) Sa",
-    time: "Late Afternoon",
-    mood: "Yearning, Passionate"
   },
   { 
     name: "Raag Marwa", 

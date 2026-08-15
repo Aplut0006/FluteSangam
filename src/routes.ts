@@ -43,5 +43,6 @@ export const VIEW_URLS: Record<string, string> = {
   'privacy_policy': '/privacy-policy',
   'terms_of_service': '/terms-of-service',
   'flute_faq': '/faq',
+  'budget_flutes': '/best-budget-flutes',
   'not_found': '/404',
 };

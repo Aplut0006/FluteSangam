@@ -37,6 +37,7 @@ import RagaTodiView from '../components/RagaTodiView';
 import RagaMultaniView from '../components/RagaMultaniView';
 import RagaPahadiView from '../components/RagaPahadiView';
 import RagaMiyanKiMalharView from '../components/RagaMiyanKiMalharView';
+import BudgetFlutesView from '../components/BudgetFlutesView';
 
 import MembersView from '../components/MembersView';
 import AboutUsView from '../components/AboutUsView';
@@ -240,6 +241,15 @@ export function getRouteMetadata(path: string): RouteMetadata {
       description: 'Guide to choosing your first Indian bamboo flute: C Medium vs G Natural Base, key selection for beginners, finger stretch, and bamboo quality.',
       canonicalUrl: `${DOMAIN}/learn/choose-flute`,
       component: LearnChooseFluteView
+    };
+  }
+
+  if (cleanPath === '/best-budget-flutes') {
+    return {
+      title: 'Best Budget Flutes to Buy for Beginners | FluteSangam',
+      description: 'Discover the best affordable budget flutes (bamboo and PVC) for beginners. Read our buying guide, FAQs, and tips for starting your bansuri journey.',
+      canonicalUrl: `${DOMAIN}/best-budget-flutes`,
+      component: BudgetFlutesView
     };
   }
 

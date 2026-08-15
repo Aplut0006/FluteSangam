@@ -137,7 +137,7 @@ export default function LearnChooseFluteView({ onBackToLearn, onViewChange }: Le
                   </li>
                 </ul>
                 <p className="text-xs text-bamboo-800 font-medium pt-1">
-                  💡 If you're a complete beginner, don't worry—they can usually suggest the most suitable flute to help you get started smoothly!
+                  💡 If you're a complete beginner, don't worry—they can usually suggest the most suitable flute to help you get started smoothly! Or check out our <button onClick={() => onViewChange('budget_flutes')} className="text-amber-700 underline font-bold">Best Budget Flutes</button> guide.
                 </p>
               </div>
             </section>

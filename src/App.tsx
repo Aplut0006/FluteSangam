@@ -59,6 +59,7 @@ const RagaTodiView = lazyWithRetry(() => import('./components/RagaTodiView'));
 const RagaMultaniView = lazyWithRetry(() => import('./components/RagaMultaniView'));
 const RagaPahadiView = lazyWithRetry(() => import('./components/RagaPahadiView'));
 const RagaMiyanKiMalharView = lazyWithRetry(() => import('./components/RagaMiyanKiMalharView'));
+const BudgetFlutesView = lazyWithRetry(() => import('./components/BudgetFlutesView'));
 const MembersView = lazyWithRetry(() => import('./components/MembersView'));
 const ImageModal = lazyWithRetry(() => import('./components/ImageModal'));
 const AboutUsView = lazyWithRetry(() => import('./components/AboutUsView'));
@@ -303,6 +304,10 @@ export default function App() {
       case 'flute_faq':
         title = 'Flute FAQ | Common Questions & Answers for Flute Learners | FluteSangam';
         description = 'Find answers to common flute questions about learning, practice, bamboo flutes, raagas, breathing, maintenance, and more. Explore the FluteSangam FAQ for helpful guidance';
+        break;
+      case 'budget_flutes':
+        title = 'Best Budget Flutes to Buy for Beginners | FluteSangam';
+        description = 'Discover the best affordable budget flutes (bamboo and PVC) for beginners. Read our buying guide, FAQs, and tips for starting your bansuri journey.';
         break;
       case 'alankar_generator':
         title = 'Interactive Alankar Generator & Practice Engine | FluteSangam';
@@ -1128,6 +1133,8 @@ export default function App() {
           <CommonFluteMistakesView onViewChange={handleViewChange} />
         ) : currentView === 'flute_faq' ? (
           <FluteFaqView onViewChange={handleViewChange} />
+        ) : currentView === 'budget_flutes' ? (
+          <BudgetFlutesView onViewChange={handleViewChange} />
         ) : currentView === 'alankar_generator' ? (
           <AlankarGeneratorView currentUser={currentUser} />
         ) : currentView === 'learn_raagas' ? (
