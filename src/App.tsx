@@ -60,6 +60,7 @@ const RagaMultaniView = lazyWithRetry(() => import('./components/RagaMultaniView
 const RagaPahadiView = lazyWithRetry(() => import('./components/RagaPahadiView'));
 const RagaMiyanKiMalharView = lazyWithRetry(() => import('./components/RagaMiyanKiMalharView'));
 const BudgetFlutesView = lazyWithRetry(() => import('./components/BudgetFlutesView'));
+const FluteNoteKeyConverterView = lazyWithRetry(() => import('./components/FluteNoteKeyConverterView'));
 const MembersView = lazyWithRetry(() => import('./components/MembersView'));
 const ImageModal = lazyWithRetry(() => import('./components/ImageModal'));
 const AboutUsView = lazyWithRetry(() => import('./components/AboutUsView'));
@@ -212,6 +213,8 @@ export default function App() {
         RagaMalkaunsView,
         RagaMarwaView,
         RagaJogView,
+        BudgetFlutesView,
+        FluteNoteKeyConverterView,
         AboutUsView,
         FounderView,
         ContactUsView,
@@ -308,6 +311,10 @@ export default function App() {
       case 'budget_flutes':
         title = 'Best Budget Flutes to Buy for Beginners | FluteSangam';
         description = 'Discover the best affordable budget flutes (bamboo and PVC) for beginners. Read our buying guide, FAQs, and tips for starting your bansuri journey.';
+        break;
+      case 'note_key_converter':
+        title = 'Flute Note Converter – Swara, Notes & Flute Keys | FluteSangam';
+        description = 'Convert flute notes, Indian swaras and different flute keys with this interactive FluteSangam tool. Useful for learning melodies, practice and music notation.';
         break;
       case 'alankar_generator':
         title = 'Interactive Alankar Generator & Practice Engine | FluteSangam';
@@ -542,6 +549,8 @@ export default function App() {
       breadcrumbItems.push({ '@type': 'ListItem', 'position': 3, 'name': title, 'item': `https://flutesangam.com/learn#${currentView}` });
     } else if (currentView === 'learn_tuner') {
       breadcrumbItems.push({ '@type': 'ListItem', 'position': 2, 'name': 'Bansuri Tuner', 'item': 'https://flutesangam.com/tuner' });
+    } else if (currentView === 'note_key_converter') {
+      breadcrumbItems.push({ '@type': 'ListItem', 'position': 2, 'name': 'Flute Note & Key Converter', 'item': 'https://flutesangam.com/tools/flute-note-key-converter' });
     } else if (currentView === 'flute_faq') {
       breadcrumbItems.push({ '@type': 'ListItem', 'position': 2, 'name': 'Flute FAQ', 'item': 'https://flutesangam.com/faq' });
       if (location.pathname.startsWith('/faq/')) {
@@ -1135,6 +1144,8 @@ export default function App() {
           <FluteFaqView onViewChange={handleViewChange} />
         ) : currentView === 'budget_flutes' ? (
           <BudgetFlutesView onViewChange={handleViewChange} />
+        ) : currentView === 'note_key_converter' ? (
+          <FluteNoteKeyConverterView onNavigate={handleViewChange} />
         ) : currentView === 'alankar_generator' ? (
           <AlankarGeneratorView currentUser={currentUser} />
         ) : currentView === 'learn_raagas' ? (
@@ -1559,6 +1570,11 @@ export default function App() {
                 <li>
                   <a href="/alankar-generator" onClick={(e) => { e.preventDefault(); handleViewChange('alankar_generator'); }} className="hover:text-amber-300 transition font-bold text-amber-300">
                     Alankar Generator Engine
+                  </a>
+                </li>
+                <li>
+                  <a href="/tools/flute-note-key-converter" onClick={(e) => { e.preventDefault(); handleViewChange('note_key_converter'); }} className="hover:text-amber-300 transition font-bold text-amber-300">
+                    Flute Note &amp; Key Converter
                   </a>
                 </li>
                 <li>

@@ -44,5 +44,6 @@ export const VIEW_URLS: Record<string, string> = {
   'terms_of_service': '/terms-of-service',
   'flute_faq': '/faq',
   'budget_flutes': '/best-budget-flutes',
+  'note_key_converter': '/tools/flute-note-key-converter',
   'not_found': '/404',
 };

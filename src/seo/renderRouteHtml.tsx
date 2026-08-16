@@ -38,6 +38,7 @@ import RagaMultaniView from '../components/RagaMultaniView';
 import RagaPahadiView from '../components/RagaPahadiView';
 import RagaMiyanKiMalharView from '../components/RagaMiyanKiMalharView';
 import BudgetFlutesView from '../components/BudgetFlutesView';
+import FluteNoteKeyConverterView from '../components/FluteNoteKeyConverterView';
 
 import MembersView from '../components/MembersView';
 import AboutUsView from '../components/AboutUsView';
@@ -250,6 +251,15 @@ export function getRouteMetadata(path: string): RouteMetadata {
       description: 'Discover the best affordable budget flutes (bamboo and PVC) for beginners. Read our buying guide, FAQs, and tips for starting your bansuri journey.',
       canonicalUrl: `${DOMAIN}/best-budget-flutes`,
       component: BudgetFlutesView
+    };
+  }
+
+  if (cleanPath === '/tools/flute-note-key-converter') {
+    return {
+      title: 'Flute Note & Key Converter | Swara to Western Notes | FluteSangam',
+      description: 'Convert Indian flute swaras to Western notes, translate Western notes to swaras, and explore note relationships across different flute keys with FluteSangam’s interactive converter.',
+      canonicalUrl: `${DOMAIN}/tools/flute-note-key-converter`,
+      component: FluteNoteKeyConverterView
     };
   }
 

@@ -295,12 +295,12 @@ export default function Navbar({
             <button
               onClick={() => setShowToolsDropdown(!showToolsDropdown)}
               className={`px-2.5 xl:px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
-                currentView === 'learn_tuner' || currentView === 'alankar_generator'
+                currentView === 'learn_tuner' || currentView === 'alankar_generator' || currentView === 'note_key_converter'
                   ? 'bg-amber-600 text-white shadow-xs'
                   : 'text-amber-950 bg-amber-100/70 hover:bg-amber-200/80 border border-amber-300/60'
               }`}
             >
-              <Radio className={`w-3.5 h-3.5 ${currentView === 'learn_tuner' || currentView === 'alankar_generator' ? 'text-white' : 'text-amber-700 animate-pulse'}`} />
+              <Radio className={`w-3.5 h-3.5 ${currentView === 'learn_tuner' || currentView === 'alankar_generator' || currentView === 'note_key_converter' ? 'text-white' : 'text-amber-700 animate-pulse'}`} />
               <span>Practice Tools</span>
               <ChevronDown className="w-3.5 h-3.5 opacity-70" />
             </button>
@@ -329,10 +329,25 @@ export default function Navbar({
                     onViewChange?.('alankar_generator');
                     setShowToolsDropdown(false);
                   }}
-                  className="w-full text-left px-4 py-2.5 text-xs font-bold text-bamboo-900 hover:bg-bamboo-50 hover:text-amber-800 transition cursor-pointer flex items-center gap-2"
+                  className="w-full text-left px-4 py-2.5 text-xs font-bold text-bamboo-900 hover:bg-bamboo-50 hover:text-amber-800 transition cursor-pointer flex items-center gap-2 border-b border-bamboo-100"
                 >
                   <Sliders className="w-3.5 h-3.5 text-amber-600" />
                   <span>Alankar Generator</span>
+                </a>
+                <a
+                  href={VIEW_URLS['note_key_converter'] || '/tools/flute-note-key-converter'}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onViewChange?.('note_key_converter');
+                    setShowToolsDropdown(false);
+                  }}
+                  className="w-full text-left px-4 py-2.5 text-xs font-bold text-bamboo-900 hover:bg-bamboo-50 hover:text-amber-800 transition cursor-pointer flex items-center justify-between"
+                >
+                  <span className="flex items-center gap-2">
+                    <Music className="w-3.5 h-3.5 text-amber-600" />
+                    <span>Note &amp; Key Converter</span>
+                  </span>
+                  <span className="text-[9px] bg-emerald-100 text-emerald-900 font-black px-1.5 py-0.5 rounded-full">New</span>
                 </a>
               </div>
             )}
@@ -624,6 +639,27 @@ export default function Navbar({
                     <div className="text-left">
                       <div className={`text-xs font-extrabold ${currentView === 'alankar_generator' ? 'text-white' : 'text-bamboo-950'}`}>Alankar Generator</div>
                       <div className={`text-[11px] ${currentView === 'alankar_generator' ? 'text-amber-100' : 'text-gray-600'}`}>Create your own Alankars</div>
+                    </div>
+                  </div>
+                </button>
+
+                <button
+                  onClick={() => { onViewChange?.('note_key_converter'); setShowMobileMenu(false); }}
+                  className={`w-full flex items-center justify-between p-3.5 border rounded-xl transition cursor-pointer text-left ${
+                    currentView === 'note_key_converter'
+                      ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
+                      : 'bg-emerald-50/70 border-emerald-200/80 hover:bg-emerald-100/80'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center shadow-2xs group-hover:scale-105 transition ${
+                      currentView === 'note_key_converter' ? 'bg-white/20 text-white' : 'bg-emerald-600 text-white'
+                    }`}>
+                      <Music className="w-5 h-5" />
+                    </div>
+                    <div className="text-left">
+                      <div className={`text-xs font-extrabold ${currentView === 'note_key_converter' ? 'text-white' : 'text-bamboo-950'}`}>Note &amp; Key Converter</div>
+                      <div className={`text-[11px] ${currentView === 'note_key_converter' ? 'text-emerald-100' : 'text-gray-600'}`}>Swaras ⇄ Western notes ⇄ Keys</div>
                     </div>
                   </div>
                 </button>
