@@ -155,6 +155,19 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
     link: "raga_kafi"
   },
   { 
+    name: "Raag Tilang", 
+    level: "Intermediate", 
+    description: "Graceful and melodic raga from Khamaj Thaat using Shuddha Ni ascending and Komal Ni descending; sweet and accessible Audav-Audav structure.",
+    aaroh: "Sa Ga Ma Pa Ni Sa'",
+    avroh: "Sa' Ni(komal) Pa Ma Ga Sa",
+    vadi: "Ga",
+    samvadi: "Ni",
+    pakad: "Ga Ma Pa Ni Sa', Ni(komal) Pa Ma Ga Sa",
+    time: "Anytime / Light Classical",
+    mood: "Sweet, Graceful, Devotional",
+    link: "raga_tilang"
+  },
+  { 
     name: "Raag Khamaj", 
     level: "Intermediate", 
     description: "Graceful and expressive raga from Khamaj Thaat using Shuddha Ni ascending and Komal Ni descending; famous for its romantic and playful character.",

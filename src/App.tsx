@@ -59,6 +59,7 @@ const RagaTodiView = lazyWithRetry(() => import('./components/RagaTodiView'));
 const RagaMultaniView = lazyWithRetry(() => import('./components/RagaMultaniView'));
 const RagaPahadiView = lazyWithRetry(() => import('./components/RagaPahadiView'));
 const RagaMiyanKiMalharView = lazyWithRetry(() => import('./components/RagaMiyanKiMalharView'));
+const RagaTilangView = lazyWithRetry(() => import('./components/RagaTilangView'));
 const BudgetFlutesView = lazyWithRetry(() => import('./components/BudgetFlutesView'));
 const FluteNoteKeyConverterView = lazyWithRetry(() => import('./components/FluteNoteKeyConverterView'));
 const MembersView = lazyWithRetry(() => import('./components/MembersView'));
@@ -213,6 +214,7 @@ export default function App() {
         RagaMalkaunsView,
         RagaMarwaView,
         RagaJogView,
+        RagaTilangView,
         BudgetFlutesView,
         FluteNoteKeyConverterView,
         AboutUsView,
@@ -399,6 +401,10 @@ export default function App() {
       case 'raga_miyan_ki_malhar':
         title = 'Raag Miyan Ki Malhar — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
         description = 'Learn Raag Miyan Ki Malhar with detailed notes, Aaroh, Avaroh, Pakad, characteristics, Aalap practice, flute tips, and an original FluteSangam learning piece.';
+        break;
+      case 'raga_tilang':
+        title = 'Raag Tilang — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
+        description = 'Learn Raag Tilang on Indian Bamboo Flute (Bansuri) with notes, Aaroh, Avaroh, Pakad, characteristics, practice tips, and an original FluteSangam learning piece.';
         break;
       case 'notation_requests':
         title = 'Song Notation Requests | FluteSangam Sargam';
@@ -1190,6 +1196,8 @@ export default function App() {
           <RagaPahadiView onViewChange={handleViewChange} />
         ) : currentView === 'raga_miyan_ki_malhar' ? (
           <RagaMiyanKiMalharView onViewChange={handleViewChange} />
+        ) : currentView === 'raga_tilang' ? (
+          <RagaTilangView onViewChange={handleViewChange} />
         ) : currentView === 'about_us' ? (
           <AboutUsView onViewChange={handleViewChange} />
         ) : currentView === 'founder' ? (

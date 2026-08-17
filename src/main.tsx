@@ -5,7 +5,7 @@ import App from './App';
 import ErrorBoundary from './components/ErrorBoundary';
 import './index.css';
 
-// Global error recovery for unhandled promise rejections (e.g., dynamic import failures)
+// Global error handling for unhandled promise rejections and third-party/iframe environment quirks
 window.addEventListener('unhandledrejection', (event) => {
   const reason = event.reason?.toString() || '';
   if (reason.includes('Failed to fetch dynamically imported module') || reason.includes('Importing a module script failed')) {
@@ -15,6 +15,15 @@ window.addEventListener('unhandledrejection', (event) => {
       sessionStorage.setItem('flutesangam_chunk_refreshed', 'true');
       window.location.reload();
     }
+  }
+});
+
+// Suppress harmless sandbox/iframe errors like getter-only fetch overrides
+window.addEventListener('error', (event) => {
+  if (event.message && event.message.includes('Cannot set property fetch of #<Window>')) {
+    event.preventDefault();
+    event.stopPropagation();
+    return false;
   }
 });
 

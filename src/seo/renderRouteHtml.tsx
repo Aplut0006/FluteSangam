@@ -37,6 +37,7 @@ import RagaTodiView from '../components/RagaTodiView';
 import RagaMultaniView from '../components/RagaMultaniView';
 import RagaPahadiView from '../components/RagaPahadiView';
 import RagaMiyanKiMalharView from '../components/RagaMiyanKiMalharView';
+import RagaTilangView from '../components/RagaTilangView';
 import BudgetFlutesView from '../components/BudgetFlutesView';
 import FluteNoteKeyConverterView from '../components/FluteNoteKeyConverterView';
 
@@ -447,6 +448,11 @@ export function getRouteMetadata(path: string): RouteMetadata {
       title: 'Raag Miyan Ki Malhar Bansuri Guide - Aaroh, Avaroh, Pakad | FluteSangam',
       desc: 'Master Raag Miyan Ki Malhar on Indian Bamboo Flute (Bansuri): rain Raag composed by Tansen, dual Ni & Komal Ga, Aaroh, Avaroh, Pakad, and compositions.',
       comp: RagaMiyanKiMalharView
+    },
+    'tilang': {
+      title: 'Raag Tilang — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
+      desc: 'Learn Raag Tilang on Indian Bamboo Flute (Bansuri): Khamaj Thaat, Shuddha & Komal Ni, Aaroh, Avaroh, Pakad, practice drills, and original FluteSangam learning piece.',
+      comp: RagaTilangView
     }
   };
 
@@ -469,13 +475,25 @@ export function getRouteMetadata(path: string): RouteMetadata {
       component: raagInfo.comp,
       jsonLd: {
         '@context': 'https://schema.org',
-        '@type': 'MusicComposition',
-        'name': `Raag ${raagSlug.charAt(0).toUpperCase() + raagSlug.slice(1)}`,
-        'composer': {
-          '@type': 'Organization',
-          'name': 'Hindustani Classical Tradition'
-        },
+        '@type': 'TechArticle',
+        'headline': raagInfo.title,
         'description': raagInfo.desc,
+        'author': {
+          '@type': 'Organization',
+          'name': 'FluteSangam',
+          'url': DOMAIN
+        },
+        'publisher': {
+          '@type': 'Organization',
+          'name': 'FluteSangam',
+          'url': DOMAIN,
+          'logo': {
+            '@type': 'ImageObject',
+            'url': `${DOMAIN}/flutesangam_logo.png`
+          }
+        },
+        'datePublished': '2026-08-17T00:00:00Z',
+        'dateModified': '2026-08-17T00:00:00Z',
         'url': `${DOMAIN}/learn/raga-${raagSlug}`
       }
     };
