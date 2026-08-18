@@ -4,7 +4,7 @@ import {
   HelpCircle, Sliders, ChevronDown, ChevronUp, Layers, ArrowRight, 
   CheckCircle2, Compass, Zap, Share2, Lightbulb, RotateCcw, 
   Target, Radio, AlertTriangle, Check, Copy, ArrowLeft, ArrowDown,
-  FileText, Waves, Mic, Disc, Award, Info
+  FileText, Waves, Mic, Disc, Award, Info, ShoppingBag
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { AppView } from '../types';
@@ -68,8 +68,6 @@ export const HowToFindSongScaleView: React.FC<HowToFindSongScaleViewProps> = ({ 
   const [activeSwaraTone, setActiveSwaraTone] = useState<string | null>(null);
   const [activeScaleTone, setActiveScaleTone] = useState<string | null>(null);
   const [isPlayingSequence, setIsPlayingSequence] = useState<string | null>(null);
-  const [droneNote, setDroneNote] = useState<string | null>(null);
-  const droneOscRef = useRef<{ stop: () => void } | null>(null);
   const [copiedFormula, setCopiedFormula] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -125,14 +123,7 @@ export const HowToFindSongScaleView: React.FC<HowToFindSongScaleViewProps> = ({ 
       masterGainRef.current = null;
     }
 
-    // 3. Stop ongoing drone if any
-    if (droneOscRef.current) {
-      droneOscRef.current.stop();
-      droneOscRef.current = null;
-    }
-
-    // 4. Reset UI states
-    setDroneNote(null);
+    // 3. Reset UI states
     setActiveSwaraTone(null);
     setActiveScaleTone(null);
     setIsPlayingSequence(null);
@@ -160,54 +151,6 @@ export const HowToFindSongScaleView: React.FC<HowToFindSongScaleViewProps> = ({ 
       activeTimeoutsRef.current.push(tId);
     } catch (e) {
       console.warn('Audio play error', e);
-    }
-  };
-
-  // Play a drone note continuously
-  const toggleDrone = (note: string) => {
-    if (droneNote === note) {
-      stopAllAudio();
-      return;
-    }
-
-    stopAllAudio();
-    const freq = NOTE_FREQS[note];
-    if (!freq) return;
-
-    try {
-      const ctx = getAudioContext();
-      const sessionDest = getSessionDestination(ctx);
-      const now = ctx.currentTime;
-      
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      
-      // Warm flute-like drone
-      osc.type = 'triangle';
-      osc.frequency.setValueAtTime(freq, now);
-      
-      gain.gain.setValueAtTime(0.001, now);
-      gain.gain.linearRampToValueAtTime(0.25, now + 0.3);
-      
-      osc.connect(gain);
-      gain.connect(sessionDest);
-      osc.start(now);
-
-      droneOscRef.current = {
-        stop: () => {
-          try {
-            gain.gain.linearRampToValueAtTime(0.0001, ctx.currentTime + 0.1);
-            setTimeout(() => {
-              try { osc.stop(); } catch (e) {}
-            }, 120);
-          } catch (err) {
-            // ignore
-          }
-        }
-      };
-      setDroneNote(note);
-    } catch (e) {
-      console.warn('Drone error', e);
     }
   };
 
@@ -521,7 +464,14 @@ export const HowToFindSongScaleView: React.FC<HowToFindSongScaleViewProps> = ({ 
                 <h3 className="font-bold text-base text-bamboo-950">Step 3: Find That Note on Your Flute</h3>
               </div>
               <p className="text-xs sm:text-sm text-stone-600 leading-relaxed pl-11">
-                Now pick up your flute and locate the note you were humming. If you suspect the home note is G, play G on your flute and match it to the recording. You can also use the <strong>FluteSangam Tuner</strong> to confirm your pitch.
+                Now pick up your flute and locate the note you were humming. If you suspect the home note is G, play G on your flute and match it to the recording. You can also use the{' '}
+                <button
+                  onClick={() => onViewChange?.('learn_tuner')}
+                  className="font-bold text-amber-800 underline decoration-amber-400 decoration-2 underline-offset-2 hover:text-amber-950 transition cursor-pointer"
+                >
+                  FluteSangam Tuner
+                </button>{' '}
+                to check your pitch and verify your 440Hz frequency.
               </p>
               <div className="pl-11 p-3 bg-amber-50 rounded-xl border border-amber-200 text-xs text-amber-950 flex items-start gap-2">
                 <Info className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
@@ -667,7 +617,21 @@ export const HowToFindSongScaleView: React.FC<HowToFindSongScaleViewProps> = ({ 
                 <h3 className="font-bold text-base text-bamboo-950">Step 9: Use Sa–Re–Ga–Ma for Indian / Bansuri Music</h3>
               </div>
               <p className="text-xs sm:text-sm text-stone-600 leading-relaxed pl-11">
-                Once Sa is fixed, you can navigate the whole melody using swaras (S R G M P D N). This unlocks effortless transposition on bansuri for film melodies, bhajans, ghazals, and classical bandishes.
+                Once Sa is fixed, you can navigate the whole melody using swaras (S R G M P D N). This unlocks effortless transposition on bansuri for film melodies, bhajans, ghazals, and classical bandishes. Explore our{' '}
+                <button
+                  onClick={() => onViewChange?.('learn_fingering_chart')}
+                  className="font-bold text-amber-800 underline decoration-amber-400 decoration-2 underline-offset-2 hover:text-amber-950 transition cursor-pointer"
+                >
+                  Interactive Bansuri Fingering Chart
+                </button>{' '}
+                and{' '}
+                <button
+                  onClick={() => onViewChange?.('learn_scales_octaves')}
+                  className="font-bold text-amber-800 underline decoration-amber-400 decoration-2 underline-offset-2 hover:text-amber-950 transition cursor-pointer"
+                >
+                  Flute Scales & 3 Octaves Guide
+                </button>{' '}
+                to master fingerings across Mandra, Madhya, and Taar Saptak.
               </p>
             </div>
 
@@ -772,10 +736,16 @@ export const HowToFindSongScaleView: React.FC<HowToFindSongScaleViewProps> = ({ 
             </table>
           </div>
 
-          <div className="p-4 bg-amber-50 rounded-2xl border border-amber-200 text-xs text-amber-950 space-y-1">
+          <div className="p-4 bg-amber-50 rounded-2xl border border-amber-200 text-xs text-amber-950 space-y-2">
             <p className="font-bold">🔑 Sa is a Relational Reference, NOT a Permanently Fixed Pitch:</p>
             <p className="text-stone-700">
-              Unlike Western fixed pitches (where C is always 261.6 Hz), in Indian music <strong>Sa can be established at any pitch</strong> (G, D, E, etc.) depending on the singer or your bansuri scale.
+              Unlike Western fixed pitches (where C is always 261.6 Hz), in Indian music <strong>Sa can be established at any pitch</strong> (G, D, E, etc.) depending on the singer or your bansuri scale. To easily convert swaras to Western notes for any scale, try our{' '}
+              <button
+                onClick={() => onViewChange?.('note_key_converter')}
+                className="font-bold text-amber-800 underline decoration-amber-400 decoration-2 underline-offset-2 hover:text-amber-950 transition cursor-pointer"
+              >
+                Flute Note & Key Converter Tool
+              </button>.
             </p>
           </div>
         </section>
@@ -815,6 +785,21 @@ export const HowToFindSongScaleView: React.FC<HowToFindSongScaleViewProps> = ({ 
               <span className="font-bold block text-stone-800 mb-0.5">3. Vocal Range</span>
               <span className="text-stone-500">Highest & lowest note reach</span>
             </div>
+          </div>
+
+          <div className="pt-2 flex flex-wrap gap-2 text-xs">
+            <button
+              onClick={() => onViewChange?.('learn_choose_flute')}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-100 hover:bg-amber-200 text-amber-900 font-semibold transition cursor-pointer"
+            >
+              <Compass className="w-3.5 h-3.5" /> How to Choose Your Flute Guide
+            </button>
+            <button
+              onClick={() => onViewChange?.('budget_flutes')}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-800 font-semibold transition cursor-pointer"
+            >
+              <ShoppingBag className="w-3.5 h-3.5 text-amber-700" /> Best Budget Flutes for Beginners
+            </button>
           </div>
         </section>
 
@@ -883,21 +868,8 @@ export const HowToFindSongScaleView: React.FC<HowToFindSongScaleViewProps> = ({ 
                 <Waves className="w-4 h-4 text-amber-700" /> Trick 2: The Continuous Drone Method
               </h3>
               <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                Play a continuous drone pitch on your flute or Tanpura app while the track is running. Does the melody orbit organically around it? This is exactly how Indian classical musicians anchor themselves to Sa!
+                Play a continuous drone pitch on your flute or Tanpura app while the track is running. Does the melody orbit organically around it? If the track feels harmonically anchored and resonant without discordance, you've confirmed your tonic Sa!
               </p>
-              
-              {/* DRONE BUTTON */}
-              <button
-                onClick={() => toggleDrone('G')}
-                className={`w-full py-2 px-3 rounded-xl font-bold text-xs flex items-center justify-center gap-2 transition cursor-pointer ${
-                  droneNote === 'G' 
-                    ? 'bg-amber-700 text-white shadow-md' 
-                    : 'bg-white border border-amber-300 text-amber-900 hover:bg-amber-100'
-                }`}
-              >
-                <Radio className="w-3.5 h-3.5" />
-                {droneNote === 'G' ? 'Stop G Tanpura Drone' : 'Try G Flute Drone Now'}
-              </button>
             </div>
           </div>
         </section>
@@ -1104,7 +1076,132 @@ export const HowToFindSongScaleView: React.FC<HowToFindSongScaleViewProps> = ({ 
           </div>
         </section>
 
-        {/* SECTION 12: AUTHOR BIO */}
+        {/* SECTION 12: EXPLORE RELATED GUIDES & TOOLS */}
+        <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-xs border border-stone-200 space-y-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold">
+                <Compass className="w-5 h-5" />
+              </div>
+              <div>
+                <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950">
+                  Related Flute Learning Guides & Tools
+                </h2>
+                <p className="text-xs text-stone-500">Continue building your ear, fingering agility, and raga repertoire</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              {
+                id: 'note_key_converter' as AppView,
+                title: 'Note & Key Converter',
+                desc: 'Instantly convert between Indian Swaras (Sa Re Ga) and Western notes for any flute pitch.',
+                icon: Music,
+                badge: 'Interactive Tool',
+                color: 'text-emerald-700 bg-emerald-50 border-emerald-200'
+              },
+              {
+                id: 'learn_tuner' as AppView,
+                title: 'Live Flute Tuner',
+                desc: 'Mic-based real-time pitch detector (440Hz) with exact Hz frequency feedback.',
+                icon: Radio,
+                badge: 'Live Audio Tool',
+                color: 'text-amber-700 bg-amber-50 border-amber-200'
+              },
+              {
+                id: 'learn_fingering_chart' as AppView,
+                title: 'Bansuri Fingering Chart',
+                desc: 'Interactive 6-hole bamboo flute fingering diagrams for all Shuddha & Komal swaras.',
+                icon: Layers,
+                badge: 'Visual Guide',
+                color: 'text-stone-800 bg-stone-50 border-stone-200'
+              },
+              {
+                id: 'learn_scales_octaves' as AppView,
+                title: 'Flute Scales & 3 Octaves',
+                desc: 'Master Mandra (lower), Madhya (middle), and Taar (upper) saptaks with smooth blowing.',
+                icon: Target,
+                badge: 'Technique Guide',
+                color: 'text-bamboo-900 bg-bamboo-50 border-bamboo-200'
+              },
+              {
+                id: 'learn_raagas' as AppView,
+                title: 'Classical Ragas Masterclass',
+                desc: 'Explore Aaroh, Avroh, Pakad, Vadi/Samvadi, and notations for 20+ classical Ragas.',
+                icon: Sparkles,
+                badge: 'Classical Library',
+                color: 'text-amber-800 bg-amber-50 border-amber-200'
+              },
+              {
+                id: 'learn_daily_practice' as AppView,
+                title: 'Daily Practice Routine (Riyaz)',
+                desc: 'Structured 30-min to 60-min daily riyaz framework for tone stability and breath control.',
+                icon: BookOpen,
+                badge: 'Practice Routine',
+                color: 'text-indigo-800 bg-indigo-50 border-indigo-200'
+              },
+              {
+                id: 'learn_choose_flute' as AppView,
+                title: 'How to Choose Your Flute',
+                desc: 'Complete guide on bamboo vs PVC, C Natural vs G Medium vs E Bass scales.',
+                icon: Compass,
+                badge: 'Buyer Guide',
+                color: 'text-orange-800 bg-orange-50 border-orange-200'
+              },
+              {
+                id: 'budget_flutes' as AppView,
+                title: 'Best Budget Flutes',
+                desc: 'Top tested and affordable bansuris for beginners under tight budgets.',
+                icon: ShoppingBag,
+                badge: 'Recommendations',
+                color: 'text-amber-800 bg-amber-50 border-amber-200'
+              },
+              {
+                id: 'learn_common_mistakes' as AppView,
+                title: 'Common Flute Mistakes',
+                desc: 'Fix air leakage, bad embouchure, tense posture, and out-of-tune blowing habits.',
+                icon: AlertTriangle,
+                badge: 'Fixing Habits',
+                color: 'text-red-800 bg-red-50 border-red-200'
+              }
+            ].map((card) => {
+              const Icon = card.icon;
+              return (
+                <button
+                  key={card.id}
+                  onClick={() => onViewChange?.(card.id)}
+                  className="p-4 rounded-2xl border border-stone-200 hover:border-amber-400 hover:shadow-md transition-all text-left bg-white group flex flex-col justify-between cursor-pointer space-y-3"
+                >
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <div className={`w-9 h-9 rounded-xl flex items-center justify-center border ${card.color}`}>
+                        <Icon className="w-4 h-4" />
+                      </div>
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-stone-100 text-stone-600">
+                        {card.badge}
+                      </span>
+                    </div>
+                    <h3 className="font-bold text-sm text-bamboo-950 group-hover:text-amber-800 transition flex items-center gap-1">
+                      <span>{card.title}</span>
+                      <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition" />
+                    </h3>
+                    <p className="text-xs text-stone-600 leading-relaxed">
+                      {card.desc}
+                    </p>
+                  </div>
+                  <div className="pt-2 border-t border-stone-100 flex items-center justify-between text-[11px] font-semibold text-amber-700">
+                    <span>Open lesson / tool</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* SECTION 13: AUTHOR BIO */}
         <AboutAuthorSection />
 
       </div>
