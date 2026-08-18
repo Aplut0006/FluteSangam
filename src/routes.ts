@@ -46,5 +46,6 @@ export const VIEW_URLS: Record<string, string> = {
   'flute_faq': '/faq',
   'budget_flutes': '/best-budget-flutes',
   'note_key_converter': '/tools/flute-note-key-converter',
+  'find_song_scale': '/learn/how-to-find-scale-of-a-song-on-flute',
   'not_found': '/404',
 };

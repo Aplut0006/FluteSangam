@@ -5,7 +5,8 @@ export const playBambooFluteTone = (
   freq: number,
   startTime: number,
   duration: number,
-  volume = 0.28
+  volume = 0.28,
+  destinationNode?: AudioNode
 ) => {
   try {
     // Master Gain for smooth natural breath envelope
@@ -84,7 +85,7 @@ export const playBambooFluteTone = (
     gain3.connect(bodyFilter);
 
     bodyFilter.connect(masterGain);
-    masterGain.connect(ctx.destination);
+    masterGain.connect(destinationNode || ctx.destination);
 
     osc1.start(startTime);
     osc2.start(startTime);

@@ -3,6 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function() {
+        // Global error interceptor to prevent iframe wrapper/proxy errors from halting execution
+        window.addEventListener('error', function(e) {
+          if (e && e.message && e.message.indexOf('fetch') !== -1 && e.message.indexOf('getter') !== -1) {
+            e.preventDefault();
+            e.stopImmediatePropagation && e.stopImmediatePropagation();
+            return true;
+          }
+        }, true);
+
+        // Ensure window.fetch is writable / configurable if an external script tries to assign to it
+        try {
+          var originalFetch = window.fetch;
+          if (originalFetch) {
+            var currentDesc = Object.getOwnPropertyDescriptor(window, 'fetch') || Object.getOwnPropertyDescriptor(Object.getPrototypeOf(window), 'fetch');
+            if (currentDesc && !currentDesc.writable && !currentDesc.set) {
+              var fetchRef = originalFetch;
+              Object.defineProperty(window, 'fetch', {
+                get: function() { return fetchRef; },
+                set: function(val) { fetchRef = val; },
+                configurable: true,
+                enumerable: true
+              });
+            }
+          }
+        } catch (err) {
+          // Ignore descriptor modification errors
+        }
+      })();
+    </script>
     <meta name="google-adsense-account" content="ca-pub-1813736970267098" />
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="canonical" href="https://flutesangam.com/" />

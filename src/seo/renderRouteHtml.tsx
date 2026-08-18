@@ -40,6 +40,7 @@ import RagaMiyanKiMalharView from '../components/RagaMiyanKiMalharView';
 import RagaTilangView from '../components/RagaTilangView';
 import BudgetFlutesView from '../components/BudgetFlutesView';
 import FluteNoteKeyConverterView from '../components/FluteNoteKeyConverterView';
+import HowToFindSongScaleView from '../components/HowToFindSongScaleView';
 
 import MembersView from '../components/MembersView';
 import AboutUsView from '../components/AboutUsView';
@@ -261,6 +262,41 @@ export function getRouteMetadata(path: string): RouteMetadata {
       description: 'Convert Indian flute swaras to Western notes, translate Western notes to swaras, and explore note relationships across different flute keys with FluteSangam’s interactive converter.',
       canonicalUrl: `${DOMAIN}/tools/flute-note-key-converter`,
       component: FluteNoteKeyConverterView
+    };
+  }
+
+  if (cleanPath === '/learn/how-to-find-scale-of-a-song-on-flute') {
+    return {
+      title: 'How to Find the Scale or Key of a Song on Flute | FluteSangam',
+      description: 'Learn how to find the scale or key of any song on flute, identify the tonic or Sa, test the melody, and choose a comfortable flute for playing by ear.',
+      canonicalUrl: `${DOMAIN}/learn/how-to-find-scale-of-a-song-on-flute`,
+      component: HowToFindSongScaleView,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        'headline': 'How to Find the Scale or Key of a Song on Flute',
+        'description': 'Learn how to find the scale or key of any song on flute, identify the tonic or Sa, test the melody, and choose a comfortable flute for playing by ear.',
+        'image': `${DOMAIN}/flute_tuner_image.jpeg`,
+        'datePublished': '2026-08-18T00:00:00Z',
+        'dateModified': '2026-08-18T00:00:00Z',
+        'author': {
+          '@type': 'Person',
+          'name': 'Aplut',
+          'url': `${DOMAIN}/founder`
+        },
+        'publisher': {
+          '@type': 'Organization',
+          'name': 'FluteSangam',
+          'logo': {
+            '@type': 'ImageObject',
+            'url': `${DOMAIN}/flutesangam_without_tagline_compressed.png`
+          }
+        },
+        'mainEntityOfPage': {
+          '@type': 'WebPage',
+          '@id': `${DOMAIN}/learn/how-to-find-scale-of-a-song-on-flute`
+        }
+      }
     };
   }
 

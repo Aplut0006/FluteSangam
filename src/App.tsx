@@ -62,6 +62,7 @@ const RagaMiyanKiMalharView = lazyWithRetry(() => import('./components/RagaMiyan
 const RagaTilangView = lazyWithRetry(() => import('./components/RagaTilangView'));
 const BudgetFlutesView = lazyWithRetry(() => import('./components/BudgetFlutesView'));
 const FluteNoteKeyConverterView = lazyWithRetry(() => import('./components/FluteNoteKeyConverterView'));
+const HowToFindSongScaleView = lazyWithRetry(() => import('./components/HowToFindSongScaleView'));
 const MembersView = lazyWithRetry(() => import('./components/MembersView'));
 const ImageModal = lazyWithRetry(() => import('./components/ImageModal'));
 const AboutUsView = lazyWithRetry(() => import('./components/AboutUsView'));
@@ -217,6 +218,7 @@ export default function App() {
         RagaTilangView,
         BudgetFlutesView,
         FluteNoteKeyConverterView,
+        HowToFindSongScaleView,
         AboutUsView,
         FounderView,
         ContactUsView,
@@ -317,6 +319,10 @@ export default function App() {
       case 'note_key_converter':
         title = 'Flute Note Converter – Swara, Notes & Flute Keys | FluteSangam';
         description = 'Convert flute notes, Indian swaras and different flute keys with this interactive FluteSangam tool. Useful for learning melodies, practice and music notation.';
+        break;
+      case 'find_song_scale':
+        title = 'How to Find the Scale or Key of a Song on Flute | FluteSangam';
+        description = 'Learn how to find the scale or key of any song on flute, identify the tonic or Sa, test the melody, and choose a comfortable flute for playing by ear.';
         break;
       case 'alankar_generator':
         title = 'Interactive Alankar Generator & Practice Engine | FluteSangam';
@@ -1152,6 +1158,8 @@ export default function App() {
           <BudgetFlutesView onViewChange={handleViewChange} />
         ) : currentView === 'note_key_converter' ? (
           <FluteNoteKeyConverterView onNavigate={handleViewChange} />
+        ) : currentView === 'find_song_scale' ? (
+          <HowToFindSongScaleView onViewChange={handleViewChange} />
         ) : currentView === 'alankar_generator' ? (
           <AlankarGeneratorView currentUser={currentUser} />
         ) : currentView === 'learn_raagas' ? (

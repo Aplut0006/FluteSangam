@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { BookOpen, Wind, Music, Feather, ShoppingBag, Radio, CircleDot, Target, AlertTriangle, HelpCircle, Layers } from 'lucide-react';
+import { BookOpen, Wind, Music, Feather, ShoppingBag, Radio, CircleDot, Target, AlertTriangle, HelpCircle, Layers, Compass } from 'lucide-react';
 import { AppView } from '../types';
 
 interface LearnDashboardProps {
@@ -20,6 +20,7 @@ export default function LearnDashboard({ onViewChange }: LearnDashboardProps) {
     { id: 'budget_flutes', label: 'Best Budget Flutes', icon: ShoppingBag, color: 'text-amber-600', desc: 'Affordable Bamboo & PVC bansuri recommendations for beginners' },
     { id: 'flute_faq', label: 'Flute FAQ Center', icon: HelpCircle, color: 'text-amber-600', desc: 'Comprehensive Q&A knowledge base on flute, practice & raagas' },
     { id: 'note_key_converter', label: 'Note & Key Converter', icon: Music, color: 'text-emerald-700', desc: 'Convert Swaras ⇄ Western Notes & explore cross-key relationships' },
+    { id: 'find_song_scale', label: 'Find Scale of a Song', icon: Compass, color: 'text-amber-700', desc: 'Ear training guide to identify key, tonic / Sa and melody on flute' },
     { id: 'learn_raagas', label: 'Ragas', icon: Music, color: 'text-bamboo-800', desc: 'Classical Hindustani & Carnatic guides' },
     { id: 'learn_tuner', label: 'Flute Tuner', icon: Radio, color: 'text-amber-700', desc: 'Interactive live frequency & scale tuner (440Hz)' },
   ];
