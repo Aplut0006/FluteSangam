@@ -38,6 +38,7 @@ import RagaMultaniView from '../components/RagaMultaniView';
 import RagaPahadiView from '../components/RagaPahadiView';
 import RagaMiyanKiMalharView from '../components/RagaMiyanKiMalharView';
 import RagaTilangView from '../components/RagaTilangView';
+import RagaShivranjaniView from '../components/RagaShivranjaniView';
 import BudgetFlutesView from '../components/BudgetFlutesView';
 import FluteNoteKeyConverterView from '../components/FluteNoteKeyConverterView';
 import HowToFindSongScaleView from '../components/HowToFindSongScaleView';
@@ -489,6 +490,11 @@ export function getRouteMetadata(path: string): RouteMetadata {
       title: 'Raag Tilang — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
       desc: 'Learn Raag Tilang on Indian Bamboo Flute (Bansuri): Khamaj Thaat, Shuddha & Komal Ni, Aaroh, Avaroh, Pakad, practice drills, and original FluteSangam learning piece.',
       comp: RagaTilangView
+    },
+    'shivranjani': {
+      title: 'Raag Shivranjani — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
+      desc: 'Learn Raag Shivranjani on Indian Bamboo Flute (Bansuri): Kafi Thaat, Komal Ga (g), Audav-Audav pentatonic scale, Aaroh, Avaroh, Pakad, practice drills, and original learning piece.',
+      comp: RagaShivranjaniView
     }
   };
 
