@@ -573,5 +573,18 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
     pakad: "Ga Ma Re, Sa, Ma Pa Dha Pa, Ma Ga Re Sa",
     time: "Monsoon",
     mood: "Joyful, Rainy"
+  },
+  { 
+    name: "Raag Shivranjani", 
+    level: "Beginner", 
+    description: "Soulful, expressive pentatonic raga using Komal Ga; beloved in devotional, cinematic, and light-classical flute music.",
+    aaroh: "Sa Re Ga(komal) Pa Dha Sa'",
+    avroh: "Sa' Dha Pa Ga(komal) Re Sa",
+    vadi: "Pa",
+    samvadi: "Sa",
+    pakad: "Sa Re Ga(komal) Re Sa, Ga(komal) Pa Dha Pa, Ga(komal) Re Sa",
+    time: "Any time (Expressive / Meditative)",
+    mood: "Soulful, Melancholic, Devotional, Romantic",
+    link: "raga_shivranjani"
   }
 ];

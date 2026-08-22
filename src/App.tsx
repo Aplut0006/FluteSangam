@@ -60,6 +60,7 @@ const RagaMultaniView = lazyWithRetry(() => import('./components/RagaMultaniView
 const RagaPahadiView = lazyWithRetry(() => import('./components/RagaPahadiView'));
 const RagaMiyanKiMalharView = lazyWithRetry(() => import('./components/RagaMiyanKiMalharView'));
 const RagaTilangView = lazyWithRetry(() => import('./components/RagaTilangView'));
+const RagaShivranjaniView = lazyWithRetry(() => import('./components/RagaShivranjaniView'));
 const BudgetFlutesView = lazyWithRetry(() => import('./components/BudgetFlutesView'));
 const FluteNoteKeyConverterView = lazyWithRetry(() => import('./components/FluteNoteKeyConverterView'));
 const HowToFindSongScaleView = lazyWithRetry(() => import('./components/HowToFindSongScaleView'));
@@ -1206,6 +1207,8 @@ export default function App() {
           <RagaMiyanKiMalharView onViewChange={handleViewChange} />
         ) : currentView === 'raga_tilang' ? (
           <RagaTilangView onViewChange={handleViewChange} />
+        ) : currentView === 'raga_shivranjani' ? (
+          <RagaShivranjaniView onViewChange={handleViewChange} />
         ) : currentView === 'about_us' ? (
           <AboutUsView onViewChange={handleViewChange} />
         ) : currentView === 'founder' ? (

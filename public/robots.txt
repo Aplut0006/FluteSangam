@@ -4,10 +4,17 @@ Disallow: /api/
 
 User-agent: Mediapartners-Google
 Allow: /
-Disallow: /api/
+
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: AdsBot-Google-Mobile
+Allow: /
 
 User-agent: Google-Display-Ads-Bot
 Allow: /
-Disallow: /api/
+
+User-agent: Googlebot
+Allow: /
 
 Sitemap: https://flutesangam.com/sitemap.xml

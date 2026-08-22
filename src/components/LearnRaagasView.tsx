@@ -69,6 +69,7 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
     { name: 'Raag Pahadi', view: 'raga_pahadi', title: 'Himalayan Lok Sur', level: 'Intermediate', color: 'bg-emerald-800 hover:bg-emerald-900' },
     { name: 'Raag Tilang', view: 'raga_tilang', title: 'Madhur Tilang', level: 'Intermediate', color: 'bg-amber-700 hover:bg-amber-800' },
     { name: 'Raag Miyan Ki Malhar', view: 'raga_miyan_ki_malhar', title: 'Varsha Dhyan', level: 'Advanced', color: 'bg-sky-800 hover:bg-sky-900' },
+    { name: 'Raag Shivranjani', view: 'raga_shivranjani', title: 'Soulful Pentatonic', level: 'Beginner', color: 'bg-rose-700 hover:bg-rose-800' },
   ];
 
   // Featured Guides filtered according to chosen level filter & search
@@ -237,6 +238,15 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
     if (n.includes('bhairav')) return 'raga_bhairav';
     if (n.includes('khamaj')) return 'raga_khamaj';
     if (n.includes('bihag')) return 'raga_bihag';
+    if (n.includes('malkauns')) return 'raga_malkauns';
+    if (n.includes('marwa')) return 'raga_marwa';
+    if (n.includes('jog')) return 'raga_jog';
+    if (n.includes('todi')) return 'raga_todi';
+    if (n.includes('multani')) return 'raga_multani';
+    if (n.includes('pahadi')) return 'raga_pahadi';
+    if (n.includes('tilang')) return 'raga_tilang';
+    if (n.includes('malhar')) return 'raga_miyan_ki_malhar';
+    if (n.includes('shivranjani')) return 'raga_shivranjani';
     return null;
   };
 
@@ -285,8 +295,8 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
               <div className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-amber-400" />
                 <span className="text-amber-200/80">Updated:</span>
-                <time itemProp="dateModified" dateTime="2026-08-10T02:46:00Z" className="font-semibold text-white">
-                  August 10, 2026
+                <time itemProp="dateModified" dateTime="2026-08-21T23:00:00Z" className="font-semibold text-white">
+                  August 21, 2026
                 </time>
               </div>
             </div>
@@ -299,11 +309,11 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
           {/* Quick Stats Pills */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
             <div className="bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-sm">
-              <span className="text-2xl font-black text-amber-400 font-mono">15+</span>
+              <span className="text-2xl font-black text-amber-400 font-mono">20+</span>
               <p className="text-xs text-amber-200/80 font-medium">Core Classical Raags</p>
             </div>
             <div className="bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-sm">
-              <span className="text-2xl font-black text-emerald-400 font-mono">15</span>
+              <span className="text-2xl font-black text-emerald-400 font-mono">20+</span>
               <p className="text-xs text-amber-200/80 font-medium">Full Flute Guides</p>
             </div>
             <div className="bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-sm">
