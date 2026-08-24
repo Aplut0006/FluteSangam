@@ -6,30 +6,36 @@ import { createServer as createViteServer } from "vite";
 import { renderRouteHtml } from "./src/seo/renderRouteHtml";
 
 const distPath = path.join(process.cwd(), 'dist');
-const isProduction = process.env.NODE_ENV === "production" || fs.existsSync(distPath);
+const isProduction = process.env.NODE_ENV === "production";
 
 async function startServer() {
   const app = express();
   const PORT = 3000;
+  let vite: any = null;
 
   app.use(express.json());
-
-  app.use((req, res, next) => {
-    console.log(`Request received: ${req.method} ${req.path}`);
-    next();
-  });
-
-  console.log(`Starting server. NODE_ENV: ${process.env.NODE_ENV}, isProduction: ${isProduction}`);
 
   // API routes
   app.get("/api/health", (req, res) => {
     res.json({ status: "ok" });
   });
 
+  // 301/302 Redirects for legacy and alias URLs
+  app.get(['/faq/flute-care-and-maintenance', '/faq/flute-care-maintenance'], (req, res) => {
+    res.redirect(301, '/faq/flute-care');
+  });
+  app.get('/practice', (req, res) => {
+    res.redirect(301, '/learn/daily-practice-guide');
+  });
+  app.get('/ragas', (req, res) => {
+    res.redirect(301, '/learn/raagas');
+  });
+  app.get('/community', (req, res) => {
+    res.redirect(302, '/#recent-discussions-section');
+  });
+
   // Serve static files in production mode with extensions & cache control
   if (isProduction) {
-    console.log("Running in production mode");
-    
     app.use(express.static(distPath, {
       maxAge: '1d',
       extensions: ['html'],
@@ -44,16 +50,15 @@ async function startServer() {
       }
     }));
   } else {
-    console.log("Running in development mode");
-    const vite = await createViteServer({
+    vite = await createViteServer({
       server: { middlewareMode: true },
-      appType: "custom",
+      appType: "spa",
     });
     app.use(vite.middlewares);
   }
 
   // Dynamic / Prerendered HTML Page Fallback for both production and dev
-  app.get('*', (req, res, next) => {
+  app.get('*', async (req, res, next) => {
     // Skip asset or API files
     if (req.path.includes('.') && !req.path.endsWith('.html')) {
       return next();
@@ -61,27 +66,48 @@ async function startServer() {
 
     const cleanPath = req.path;
     
-    // Check if pre-rendered HTML file exists in dist
-    const possibleFiles = [
-      path.join(distPath, cleanPath, 'index.html'),
-      path.join(distPath, `${cleanPath.replace(/^\//, '')}.html`),
-    ];
-
-    for (const filePath of possibleFiles) {
-      if (fs.existsSync(filePath)) {
-        return res.sendFile(filePath);
+    if (isProduction) {
+      if (cleanPath === '/404' || cleanPath === '/404.html') {
+        const possible404s = [
+          path.join(distPath, '404', 'index.html'),
+          path.join(distPath, '404.html'),
+        ];
+        for (const filePath of possible404s) {
+          if (fs.existsSync(filePath)) {
+            return res.status(404).sendFile(filePath);
+          }
+        }
       }
-    }
 
-    // Dynamic rendering fallback using renderRouteHtml
-    const templatePath = isProduction 
-      ? path.join(distPath, 'index.html') 
-      : path.join(process.cwd(), 'index.html');
+      // Check if pre-rendered HTML file exists in dist
+      const possibleFiles = [
+        path.join(distPath, cleanPath, 'index.html'),
+        path.join(distPath, `${cleanPath.replace(/^\//, '')}.html`),
+      ];
 
-    if (fs.existsSync(templatePath)) {
-      const templateHtml = fs.readFileSync(templatePath, 'utf-8');
-      const { html } = renderRouteHtml(cleanPath, templateHtml);
-      return res.setHeader('Content-Type', 'text/html').send(html);
+      for (const filePath of possibleFiles) {
+        if (fs.existsSync(filePath)) {
+          return res.sendFile(filePath);
+        }
+      }
+
+      const templatePath = path.join(distPath, 'index.html');
+      if (fs.existsSync(templatePath)) {
+        const templateHtml = fs.readFileSync(templatePath, 'utf-8');
+        const { html, is404 } = renderRouteHtml(cleanPath, templateHtml);
+        return res.status(is404 ? 404 : 200).setHeader('Content-Type', 'text/html').send(html);
+      }
+    } else {
+      // Development mode: use Vite to transform index.html
+      const templatePath = path.join(process.cwd(), 'index.html');
+      if (fs.existsSync(templatePath)) {
+        let templateHtml = fs.readFileSync(templatePath, 'utf-8');
+        if (vite) {
+          templateHtml = await vite.transformIndexHtml(req.originalUrl || cleanPath, templateHtml);
+        }
+        const { html, is404 } = renderRouteHtml(cleanPath, templateHtml);
+        return res.status(is404 ? 404 : 200).setHeader('Content-Type', 'text/html').send(html);
+      }
     }
 
     next();

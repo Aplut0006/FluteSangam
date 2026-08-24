@@ -66,6 +66,7 @@ export interface RouteMetadata {
   jsonLd?: object;
   component: React.ComponentType<any>;
   componentProps?: Record<string, any>;
+  is404?: boolean;
 }
 
 const DOMAIN = 'https://flutesangam.com';
@@ -203,10 +204,15 @@ export function getRouteMetadata(path: string): RouteMetadata {
       }));
     }
 
+    let canonicalSlug = slug;
+    if (slug === 'flute-care-and-maintenance' || slug === 'flute-care-maintenance') {
+      canonicalSlug = 'flute-care';
+    }
+
     return {
       title: `${categoryTitle} | FluteSangam`,
       description: `Comprehensive answers to common questions about learning bansuri: embouchure, scale selection, Swar Sadhana, Raagas, adult learning, and flute care.`,
-      canonicalUrl: slug ? `${DOMAIN}/faq/${slug}` : `${DOMAIN}/faq`,
+      canonicalUrl: canonicalSlug ? `${DOMAIN}/faq/${canonicalSlug}` : `${DOMAIN}/faq`,
       component: FluteFaqView,
       jsonLd: {
         '@context': 'https://schema.org',
@@ -339,7 +345,7 @@ export function getRouteMetadata(path: string): RouteMetadata {
     };
   }
 
-  if (cleanPath === '/learn/daily-practice-guide') {
+  if (cleanPath === '/learn/daily-practice-guide' || cleanPath === '/practice') {
     return {
       title: 'Swar Sadhana & Daily Flute Practice Routine | FluteSangam',
       description: 'Step-by-step 30-minute daily Swar Sadhana routine for bansuri players: long note holding, tone purity, dynamic control, and pitch accuracy.',
@@ -375,7 +381,7 @@ export function getRouteMetadata(path: string): RouteMetadata {
     };
   }
 
-  if (cleanPath === '/learn/raagas') {
+  if (cleanPath === '/learn/raagas' || cleanPath === '/ragas') {
     return {
       title: 'Hindustani Classical Raaga Guides for Bansuri | FluteSangam',
       description: 'Explore comprehensive Raaga guides for Indian flute: Aaroh, Avaroh, Pakad, Vadi, Samvadi, time of day, and song compositions.',
@@ -576,11 +582,18 @@ export function getRouteMetadata(path: string): RouteMetadata {
     title: 'Page Not Found | FluteSangam',
     description: 'The requested page could not be found on FluteSangam.',
     canonicalUrl: `${DOMAIN}/404`,
-    component: NotFoundView
+    component: NotFoundView,
+    is404: true
   };
 }
 
-export function renderRouteHtml(path: string, templateHtml: string): { html: string; title: string; description: string; canonicalUrl: string } {
+export function renderRouteHtml(path: string, templateHtml: string): { 
+  html: string; 
+  title: string; 
+  description: string; 
+  canonicalUrl: string;
+  is404: boolean;
+} {
   const meta = getRouteMetadata(path);
   const ViewComponent = meta.component;
   const compProps = meta.componentProps || {};
@@ -612,6 +625,7 @@ export function renderRouteHtml(path: string, templateHtml: string): { html: str
   finalHtml = finalHtml.replace(/<link rel="canonical".*?\/>/gi, '');
   finalHtml = finalHtml.replace(/<meta name="description".*?\/>/gi, '');
   finalHtml = finalHtml.replace(/<meta name="title".*?\/>/gi, '');
+  finalHtml = finalHtml.replace(/<meta name="robots".*?\/>/gi, '');
   finalHtml = finalHtml.replace(/<meta property="og:title".*?\/>/gi, '');
   finalHtml = finalHtml.replace(/<meta property="og:description".*?\/>/gi, '');
   finalHtml = finalHtml.replace(/<meta property="og:url".*?\/>/gi, '');
@@ -626,8 +640,13 @@ export function renderRouteHtml(path: string, templateHtml: string): { html: str
     finalHtml = finalHtml.replace('</head>', `  ${titleTag}\n</head>`);
   }
 
+  const robotsTag = meta.is404
+    ? '<meta name="robots" content="noindex, follow" />'
+    : '<meta name="robots" content="index, follow, max-image-preview:large" />';
+
   // Inject Meta Description & Canonical URL & OpenGraph & JSON-LD into <head>
   const headAdditions = `
+    ${robotsTag}
     <meta name="title" content="${meta.title.replace(/"/g, '&quot;')}" />
     <meta name="description" content="${meta.description.replace(/"/g, '&quot;')}" />
     <link rel="canonical" href="${meta.canonicalUrl}" />
@@ -659,6 +678,7 @@ export function renderRouteHtml(path: string, templateHtml: string): { html: str
     html: finalHtml,
     title: meta.title,
     description: meta.description,
-    canonicalUrl: meta.canonicalUrl
+    canonicalUrl: meta.canonicalUrl,
+    is404: !!meta.is404
   };
 }

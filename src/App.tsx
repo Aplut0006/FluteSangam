@@ -516,6 +516,13 @@ export default function App() {
     setMeta('meta[property="og:description"]', 'property', 'og:description', description);
     setMeta('meta[name="twitter:title"]', 'name', 'twitter:title', title);
     setMeta('meta[name="twitter:description"]', 'name', 'twitter:description', description);
+
+    // Robots meta tag for search indexing vs 404 soft-error prevention
+    if (currentView === 'not_found') {
+      setMeta('meta[name="robots"]', 'name', 'robots', 'noindex, follow');
+    } else {
+      setMeta('meta[name="robots"]', 'name', 'robots', 'index, follow, max-image-preview:large');
+    }
     
     // Explicit Freshness Meta Tags
     setMeta('meta[name="article:published_time"]', 'name', 'article:published_time', pubDate);
@@ -702,6 +709,21 @@ export default function App() {
             handleViewChange('community', {}, false);
         }
         navigate('/', { replace: true });
+    } else if (path === '/practice') {
+        if (currentView !== 'learn_daily_practice') {
+            handleViewChange('learn_daily_practice', {}, false);
+        }
+        navigate('/learn/daily-practice-guide', { replace: true });
+    } else if (path === '/ragas') {
+        if (currentView !== 'learn_raagas') {
+            handleViewChange('learn_raagas', {}, false);
+        }
+        navigate('/learn/raagas', { replace: true });
+    } else if (path === '/faq/flute-care-and-maintenance' || path === '/faq/flute-care-maintenance') {
+        if (currentView !== 'flute_faq') {
+            handleViewChange('flute_faq', {}, false);
+        }
+        navigate('/faq/flute-care', { replace: true });
     } else {
         const matchingView = Object.keys(VIEW_URLS).find(v => VIEW_URLS[v as AppView] === path) as AppView;
         const targetView = matchingView || (path === '/' ? 'community' : 'not_found');

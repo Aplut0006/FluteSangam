@@ -302,7 +302,7 @@ export default function AboutUsView({ onViewChange }: AboutUsViewProps = {}) {
             </a>
 
             <a 
-              href="/ragas"
+              href="/learn/raagas"
               onClick={handleNav('learn_raagas')}
               className="p-3.5 bg-white hover:bg-amber-50 rounded-2xl border border-amber-200/80 font-bold text-amber-900 text-xs sm:text-sm flex flex-col items-center gap-2 transition shadow-xs hover:shadow-md cursor-pointer"
             >
@@ -311,7 +311,7 @@ export default function AboutUsView({ onViewChange }: AboutUsViewProps = {}) {
             </a>
 
             <a 
-              href="/practice"
+              href="/learn/daily-practice-guide"
               onClick={handleNav('learn_daily_practice')}
               className="p-3.5 bg-white hover:bg-emerald-50 rounded-2xl border border-emerald-200/80 font-bold text-emerald-900 text-xs sm:text-sm flex flex-col items-center gap-2 transition shadow-xs hover:shadow-md cursor-pointer"
             >
@@ -338,7 +338,7 @@ export default function AboutUsView({ onViewChange }: AboutUsViewProps = {}) {
             </a>
 
             <a 
-              href="/community"
+              href="/#recent-discussions-section"
               onClick={handleNav('community')}
               className="p-3.5 bg-white hover:bg-teal-50 rounded-2xl border border-teal-200/80 font-bold text-teal-900 text-xs sm:text-sm flex flex-col items-center gap-2 transition shadow-xs hover:shadow-md cursor-pointer"
             >

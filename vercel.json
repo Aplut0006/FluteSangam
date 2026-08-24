@@ -41,6 +41,33 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/faq/flute-care-and-maintenance",
+      "destination": "/faq/flute-care",
+      "permanent": true
+    },
+    {
+      "source": "/faq/flute-care-maintenance",
+      "destination": "/faq/flute-care",
+      "permanent": true
+    },
+    {
+      "source": "/practice",
+      "destination": "/learn/daily-practice-guide",
+      "permanent": true
+    },
+    {
+      "source": "/ragas",
+      "destination": "/learn/raagas",
+      "permanent": true
+    },
+    {
+      "source": "/community",
+      "destination": "/#recent-discussions-section",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {
       "source": "/((?!ads\\.txt|robots\\.txt|sitemap\\.xml).*)",
