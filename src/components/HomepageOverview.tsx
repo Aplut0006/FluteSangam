@@ -619,7 +619,7 @@ export default function HomepageOverview({
               Educational Flute Articles
             </div>
             <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950">
-              Latest Articles &amp; Expert Flute Guides
+              Latest Articles &amp; Detailed Flute Guides
             </h2>
             <p className="text-xs text-gray-600">
               In-depth articles covering technique, instrument care, classical theory, and practice optimization.

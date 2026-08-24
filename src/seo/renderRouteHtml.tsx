@@ -54,6 +54,7 @@ import { NotationRequestsView } from '../components/NotationRequestsView';
 import NotFoundView from '../components/NotFoundView';
 
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import FlutePracticeFaqSection from '../components/FlutePracticeFaqSection';
 import AboutAuthorSection from '../components/AboutAuthorSection';
 
@@ -831,6 +832,7 @@ export function renderRouteHtml(path: string, templateHtml: string): {
             </>
           )}
         </main>
+        <Footer />
       </div>
     </MemoryRouter>
   );
