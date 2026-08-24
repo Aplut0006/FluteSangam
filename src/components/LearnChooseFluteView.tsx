@@ -133,11 +133,11 @@ export default function LearnChooseFluteView({ onBackToLearn, onViewChange }: Le
                   </li>
                   <li className="flex items-start gap-2 bg-white p-3 rounded-xl border border-bamboo-100 shadow-3xs">
                     <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>Receive <strong>expert recommendations</strong> from an experienced flute craftsman.</span>
+                    <span>Receive <strong>practical recommendations</strong> from an experienced flute craftsman.</span>
                   </li>
                 </ul>
                 <p className="text-xs text-bamboo-800 font-medium pt-1">
-                  💡 If you're a complete beginner, don't worry—they can usually suggest the most suitable flute to help you get started smoothly! Or check out our <button onClick={() => onViewChange('budget_flutes')} className="text-amber-700 underline font-bold">Best Budget Flutes</button> guide.
+                  💡 If you're a complete beginner, don't worry—they can usually suggest the most suitable flute to help you get started smoothly! Or check out our <a href="/best-budget-flutes" onClick={(e) => { e.preventDefault(); onViewChange('budget_flutes'); }} className="text-amber-700 underline font-bold">Best Budget Flutes</a> guide.
                 </p>
               </div>
             </section>

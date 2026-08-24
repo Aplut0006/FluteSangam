@@ -974,7 +974,7 @@ export default function RagaMarwaView({ onViewChange }: RagaMarwaViewProps) {
             </div>
             <div>
               <h2 className="text-xl sm:text-2xl font-bold font-display text-gray-900">Frequently Asked Questions</h2>
-              <p className="text-xs text-gray-500">Expert Answers for Raag Marwa Learners</p>
+              <p className="text-xs text-gray-500">Frequently Asked Questions for Raag Marwa</p>
             </div>
           </div>
 

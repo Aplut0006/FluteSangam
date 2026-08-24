@@ -71,6 +71,23 @@ export interface RouteMetadata {
 
 const DOMAIN = 'https://flutesangam.com';
 
+function createWebPageSchema(url: string, name: string, description: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${url}#webpage`,
+    'url': url,
+    'name': name,
+    'description': description,
+    'isPartOf': {
+      '@type': 'WebSite',
+      '@id': `${DOMAIN}/#website`,
+      'name': 'FluteSangam',
+      'url': DOMAIN
+    }
+  };
+}
+
 export function getRouteMetadata(path: string): RouteMetadata {
   // Normalize path
   let cleanPath = path.trim().split('?')[0].split('#')[0];
@@ -88,12 +105,13 @@ export function getRouteMetadata(path: string): RouteMetadata {
       jsonLd: {
         '@context': 'https://schema.org',
         '@type': 'WebSite',
-        'id': `${DOMAIN}/#website`,
+        '@id': `${DOMAIN}/#website`,
         'name': 'FluteSangam',
         'url': DOMAIN,
         'description': 'A comprehensive platform and community for Indian Bamboo Flute (Bansuri) practice, lessons, raga guides, and Sargam notations.',
         'publisher': {
           '@type': 'Organization',
+          '@id': `${DOMAIN}/#organization`,
           'name': 'FluteSangam',
           'url': DOMAIN,
           'logo': `${DOMAIN}/flutesangam_without_tagline_compressed.png`
@@ -104,21 +122,29 @@ export function getRouteMetadata(path: string): RouteMetadata {
 
   // 2. Privacy Policy & Aliases
   if (cleanPath === '/privacy-policy' || cleanPath === '/privacy') {
+    const title = 'Privacy Policy | FluteSangam';
+    const description = 'Privacy Policy for FluteSangam: data protection, security, user account safety, cookies, and privacy compliance for the global Indian flute community.';
+    const canonicalUrl = `${DOMAIN}/privacy-policy`;
     return {
-      title: 'Privacy Policy | FluteSangam',
-      description: 'Privacy Policy for FluteSangam: data protection, security, user account safety, cookies, and privacy compliance for the global Indian flute community.',
-      canonicalUrl: `${DOMAIN}/privacy-policy`,
-      component: PrivacyPolicyView
+      title,
+      description,
+      canonicalUrl,
+      component: PrivacyPolicyView,
+      jsonLd: createWebPageSchema(canonicalUrl, title, description)
     };
   }
 
   // 3. Terms of Service & Aliases
   if (cleanPath === '/terms-of-service' || cleanPath === '/terms') {
+    const title = 'Terms of Service | FluteSangam';
+    const description = 'Terms of Service for FluteSangam: platform guidelines, community code of conduct, intellectual property, and user account terms.';
+    const canonicalUrl = `${DOMAIN}/terms-of-service`;
     return {
-      title: 'Terms of Service | FluteSangam',
-      description: 'Terms of Service for FluteSangam: platform guidelines, community code of conduct, intellectual property, and user account terms.',
-      canonicalUrl: `${DOMAIN}/terms-of-service`,
-      component: TermsOfServiceView
+      title,
+      description,
+      canonicalUrl,
+      component: TermsOfServiceView,
+      jsonLd: createWebPageSchema(canonicalUrl, title, description)
     };
   }
 
@@ -271,14 +297,50 @@ export function getRouteMetadata(path: string): RouteMetadata {
       }
     }
 
-    // Generate FAQ Schema.org data ONLY for visible questions of this page
+    // Generate FAQ Schema.org data ONLY for questions belonging to this specific page's category
     let faqItems: { name: string; acceptedAnswer: { text: string } }[] = [];
-    if (categoryName) {
-      const matchingFaqs = FAQ_DATA.filter(item => 
-        item.category === categoryName ||
-        ((categoryName === 'Choosing a Flute' || categoryName === 'Choosing the Right Flute') &&
-         (item.category === 'Choosing a Flute' || item.category === 'Choosing the Right Flute'))
-      );
+    if (slug) {
+      const matchingFaqs = FAQ_DATA.filter(item => {
+        switch (slug) {
+          case 'getting-started':
+            return item.category === 'Getting Started';
+          case 'learning-the-flute':
+            return item.category === 'Learning the Flute';
+          case 'adult-learners':
+            return item.category === 'Adult Learners';
+          case 'choosing-the-right-flute':
+          case 'choosing-a-flute':
+            return item.category === 'Choosing a Flute' || item.category === 'Choosing the Right Flute';
+          case 'playing-techniques':
+            return item.category === 'Playing Techniques';
+          case 'advanced-techniques':
+            return item.category === 'Advanced Techniques';
+          case 'daily-practice':
+            return item.category === 'Daily Practice';
+          case 'scales-and-alankars':
+            return item.category === 'Scales & Alankars';
+          case 'raagas':
+            return item.category === 'Raagas' || item.category === 'Raagas & Sargam';
+          case 'flute-care-and-maintenance':
+            return item.category === 'Flute Care & Maintenance';
+          case 'health-and-breathing':
+            return item.category === 'Health & Breathing';
+          case 'children-and-beginners':
+            return item.category === 'Children & Beginners';
+          case 'music-theory':
+            return item.category === 'Music Theory & Notation' || item.category === 'Music Theory & Tuning' || item.category === 'Music Theory';
+          case 'tuning-and-pitch':
+            return item.category === 'Flute Tuning & Pitch' || item.category === 'Tuning & Pitch Calibration';
+          case 'flute-accessories':
+            return item.category === 'Flute Accessories' || item.category === 'Flute Accessories & Gear';
+          case 'flute-types':
+            return item.category === 'Flute Types' || item.category === 'Flute Types & Scales';
+          case 'platform':
+            return item.category === 'FluteSangam Platform';
+          default:
+            return item.category === categoryName;
+        }
+      });
       faqItems = matchingFaqs.map(item => ({
         name: item.question,
         acceptedAnswer: {
@@ -297,10 +359,11 @@ export function getRouteMetadata(path: string): RouteMetadata {
       }));
     }
 
+    const canonicalUrl = slug ? `${DOMAIN}/faq/${slug}` : `${DOMAIN}/faq`;
     return {
       title,
       description,
-      canonicalUrl: slug ? `${DOMAIN}/faq/${slug}` : `${DOMAIN}/faq`,
+      canonicalUrl,
       component: FluteFaqView,
       jsonLd: {
         '@context': 'https://schema.org',
@@ -316,47 +379,67 @@ export function getRouteMetadata(path: string): RouteMetadata {
 
   // 7. Learn Dashboard
   if (cleanPath === '/learn') {
+    const title = 'Flute Sangam Learn - Master Indian Flute (Bansuri)';
+    const description = 'Comprehensive step-by-step learning modules for Indian Bamboo Flute (Bansuri): posture, embouchure, alankaras, raga guides, daily Swar Sadhana routines, and fingering charts.';
+    const canonicalUrl = `${DOMAIN}/learn`;
     return {
-      title: 'Flute Sangam Learn - Master Indian Flute (Bansuri)',
-      description: 'Comprehensive step-by-step learning modules for Indian Bamboo Flute (Bansuri): posture, embouchure, alankaras, raga guides, daily Swar Sadhana routines, and fingering charts.',
-      canonicalUrl: `${DOMAIN}/learn`,
-      component: LearnDashboard
+      title,
+      description,
+      canonicalUrl,
+      component: LearnDashboard,
+      jsonLd: createWebPageSchema(canonicalUrl, title, description)
     };
   }
 
   if (cleanPath === '/learn/intro') {
+    const title = 'Introduction to Bansuri | FluteSangam';
+    const description = 'Beginner\'s guide to the Indian Bamboo Flute (Bansuri). Learn about history, anatomy, producing your first clean note, and embouchure technique.';
+    const canonicalUrl = `${DOMAIN}/learn/intro`;
     return {
-      title: 'Introduction to Bansuri | FluteSangam',
-      description: 'Beginner\'s guide to the Indian Bamboo Flute (Bansuri). Learn about history, anatomy, producing your first clean note, and embouchure technique.',
-      canonicalUrl: `${DOMAIN}/learn/intro`,
-      component: LearnIntroView
+      title,
+      description,
+      canonicalUrl,
+      component: LearnIntroView,
+      jsonLd: createWebPageSchema(canonicalUrl, title, description)
     };
   }
 
   if (cleanPath === '/learn/choose-flute') {
+    const title = 'How to Choose Your First Bansuri | FluteSangam';
+    const description = 'Guide to choosing your first Indian bamboo flute: C Medium vs G Natural Base, key selection for beginners, finger stretch, and bamboo quality.';
+    const canonicalUrl = `${DOMAIN}/learn/choose-flute`;
     return {
-      title: 'How to Choose Your First Bansuri | FluteSangam',
-      description: 'Guide to choosing your first Indian bamboo flute: C Medium vs G Natural Base, key selection for beginners, finger stretch, and bamboo quality.',
-      canonicalUrl: `${DOMAIN}/learn/choose-flute`,
-      component: LearnChooseFluteView
+      title,
+      description,
+      canonicalUrl,
+      component: LearnChooseFluteView,
+      jsonLd: createWebPageSchema(canonicalUrl, title, description)
     };
   }
 
   if (cleanPath === '/best-budget-flutes') {
+    const title = 'Best Budget Flutes to Buy for Beginners | FluteSangam';
+    const description = 'Discover the best affordable budget flutes (bamboo and PVC) for beginners. Read our buying guide, FAQs, and tips for starting your bansuri journey.';
+    const canonicalUrl = `${DOMAIN}/best-budget-flutes`;
     return {
-      title: 'Best Budget Flutes to Buy for Beginners | FluteSangam',
-      description: 'Discover the best affordable budget flutes (bamboo and PVC) for beginners. Read our buying guide, FAQs, and tips for starting your bansuri journey.',
-      canonicalUrl: `${DOMAIN}/best-budget-flutes`,
-      component: BudgetFlutesView
+      title,
+      description,
+      canonicalUrl,
+      component: BudgetFlutesView,
+      jsonLd: createWebPageSchema(canonicalUrl, title, description)
     };
   }
 
   if (cleanPath === '/tools/flute-note-key-converter') {
+    const title = 'Flute Note & Key Converter | Swara to Western Notes | FluteSangam';
+    const description = 'Convert Indian flute swaras to Western notes, translate Western notes to swaras, and explore note relationships across different flute keys with FluteSangam’s interactive converter.';
+    const canonicalUrl = `${DOMAIN}/tools/flute-note-key-converter`;
     return {
-      title: 'Flute Note & Key Converter | Swara to Western Notes | FluteSangam',
-      description: 'Convert Indian flute swaras to Western notes, translate Western notes to swaras, and explore note relationships across different flute keys with FluteSangam’s interactive converter.',
-      canonicalUrl: `${DOMAIN}/tools/flute-note-key-converter`,
-      component: FluteNoteKeyConverterView
+      title,
+      description,
+      canonicalUrl,
+      component: FluteNoteKeyConverterView,
+      jsonLd: createWebPageSchema(canonicalUrl, title, description)
     };
   }
 
@@ -396,85 +479,121 @@ export function getRouteMetadata(path: string): RouteMetadata {
   }
 
   if (cleanPath === '/tuner') {
+    const title = 'Online Bansuri Pitch Tuner | FluteSangam';
+    const description = 'FluteSangam Online Bansuri Pitch Tuner: Tune your Indian bamboo flute accurately with real-time frequency detection and precision cent measurement.';
+    const canonicalUrl = `${DOMAIN}/tuner`;
     return {
-      title: 'Online Bansuri Pitch Tuner | FluteSangam',
-      description: 'FluteSangam Online Bansuri Pitch Tuner: Tune your Indian bamboo flute accurately with real-time frequency detection and precision cent measurement.',
-      canonicalUrl: `${DOMAIN}/tuner`,
-      component: LearnTunerView
+      title,
+      description,
+      canonicalUrl,
+      component: LearnTunerView,
+      jsonLd: createWebPageSchema(canonicalUrl, title, description)
     };
   }
 
   if (cleanPath === '/learn/basics') {
+    const title = 'Bansuri Basics & Holding Technique | FluteSangam';
+    const description = 'Learn correct finger positioning, posture, embouchure hole alignment, and air pressure control on the bansuri.';
+    const canonicalUrl = `${DOMAIN}/learn/basics`;
     return {
-      title: 'Bansuri Basics & Holding Technique | FluteSangam',
-      description: 'Learn correct finger positioning, posture, embouchure hole alignment, and air pressure control on the bansuri.',
-      canonicalUrl: `${DOMAIN}/learn/basics`,
-      component: LearnBasicsView
+      title,
+      description,
+      canonicalUrl,
+      component: LearnBasicsView,
+      jsonLd: createWebPageSchema(canonicalUrl, title, description)
     };
   }
 
   if (cleanPath === '/learn/fingering-chart') {
+    const title = 'Bansuri Fingering Chart & Scale Helper | FluteSangam';
+    const description = 'Interactive fingering chart for Indian bamboo flute (Bansuri). View hole coverage for Mandra, Madhya, and Tara Saptak swaras.';
+    const canonicalUrl = `${DOMAIN}/learn/fingering-chart`;
     return {
-      title: 'Bansuri Fingering Chart & Scale Helper | FluteSangam',
-      description: 'Interactive fingering chart for Indian bamboo flute (Bansuri). View hole coverage for Mandra, Madhya, and Tara Saptak swaras.',
-      canonicalUrl: `${DOMAIN}/learn/fingering-chart`,
-      component: LearnFingeringChartView
+      title,
+      description,
+      canonicalUrl,
+      component: LearnFingeringChartView,
+      jsonLd: createWebPageSchema(canonicalUrl, title, description)
     };
   }
 
   if (cleanPath === '/learn/alankaras' || cleanPath.startsWith('/learn/alankaras/')) {
     const level = cleanPath.split('/')[3] || 'overview';
     const levelTitle = level !== 'overview' ? `${level.charAt(0).toUpperCase() + level.slice(1)} ` : '';
+    const title = `${levelTitle}Alankaras & Finger Drills for Bansuri | FluteSangam`;
+    const description = `Master finger speed, pitch accuracy, and ornamentations with structured Alankara drills for beginner, intermediate, and advanced flutists.`;
+    const canonicalUrl = cleanPath.startsWith('/learn/alankaras/') ? `${DOMAIN}${cleanPath}` : `${DOMAIN}/learn/alankaras`;
     return {
-      title: `${levelTitle}Alankaras & Finger Drills for Bansuri | FluteSangam`,
-      description: `Master finger speed, pitch accuracy, and ornamentations with structured Alankara drills for beginner, intermediate, and advanced flutists.`,
-      canonicalUrl: cleanPath.startsWith('/learn/alankaras/') ? `${DOMAIN}${cleanPath}` : `${DOMAIN}/learn/alankaras`,
-      component: LearnAlankarasView
+      title,
+      description,
+      canonicalUrl,
+      component: LearnAlankarasView,
+      jsonLd: createWebPageSchema(canonicalUrl, title, description)
     };
   }
 
   if (cleanPath === '/learn/daily-practice-guide' || cleanPath === '/practice') {
+    const title = 'Swar Sadhana & Daily Flute Practice Routine | FluteSangam';
+    const description = 'Step-by-step 30-minute daily Swar Sadhana routine for bansuri players: long note holding, tone purity, dynamic control, and pitch accuracy.';
+    const canonicalUrl = `${DOMAIN}/learn/daily-practice-guide`;
     return {
-      title: 'Swar Sadhana & Daily Flute Practice Routine | FluteSangam',
-      description: 'Step-by-step 30-minute daily Swar Sadhana routine for bansuri players: long note holding, tone purity, dynamic control, and pitch accuracy.',
-      canonicalUrl: `${DOMAIN}/learn/daily-practice-guide`,
-      component: DailyPracticeGuideView
+      title,
+      description,
+      canonicalUrl,
+      component: DailyPracticeGuideView,
+      jsonLd: createWebPageSchema(canonicalUrl, title, description)
     };
   }
 
   if (cleanPath === '/learn/flute-scales-octaves') {
+    const title = 'Bansuri Scales & Octaves Explained | FluteSangam';
+    const description = 'Understanding Mandra (Lower), Madhya (Middle), and Tara (Higher) Saptaks on the Indian bamboo flute, scale conversions, and pitch keys.';
+    const canonicalUrl = `${DOMAIN}/learn/flute-scales-octaves`;
     return {
-      title: 'Bansuri Scales & Octaves Explained | FluteSangam',
-      description: 'Understanding Mandra (Lower), Madhya (Middle), and Tara (Higher) Saptaks on the Indian bamboo flute, scale conversions, and pitch keys.',
-      canonicalUrl: `${DOMAIN}/learn/flute-scales-octaves`,
-      component: LearnScalesOctavesView
+      title,
+      description,
+      canonicalUrl,
+      component: LearnScalesOctavesView,
+      jsonLd: createWebPageSchema(canonicalUrl, title, description)
     };
   }
 
   if (cleanPath === '/learn/common-flute-mistakes') {
+    const title = '10 Common Bansuri Mistakes & How to Fix Them | FluteSangam';
+    const description = 'Avoid common flute playing pitfalls: airy sound, pitch sharpness, flat notes, finger leaks, shoulder tension, and improper embouchure.';
+    const canonicalUrl = `${DOMAIN}/learn/common-flute-mistakes`;
     return {
-      title: '10 Common Bansuri Mistakes & How to Fix Them | FluteSangam',
-      description: 'Avoid common flute playing pitfalls: airy sound, pitch sharpness, flat notes, finger leaks, shoulder tension, and improper embouchure.',
-      canonicalUrl: `${DOMAIN}/learn/common-flute-mistakes`,
-      component: CommonFluteMistakesView
+      title,
+      description,
+      canonicalUrl,
+      component: CommonFluteMistakesView,
+      jsonLd: createWebPageSchema(canonicalUrl, title, description)
     };
   }
 
   if (cleanPath === '/alankar-generator') {
+    const title = 'Interactive Alankar Pattern Generator | FluteSangam';
+    const description = 'Generate custom Alankar swar patterns in any scale, tempo, or rhythmic structure for bansuri finger practice.';
+    const canonicalUrl = `${DOMAIN}/alankar-generator`;
     return {
-      title: 'Interactive Alankar Pattern Generator | FluteSangam',
-      description: 'Generate custom Alankar swar patterns in any scale, tempo, or rhythmic structure for bansuri finger practice.',
-      canonicalUrl: `${DOMAIN}/alankar-generator`,
-      component: AlankarGeneratorView
+      title,
+      description,
+      canonicalUrl,
+      component: AlankarGeneratorView,
+      jsonLd: createWebPageSchema(canonicalUrl, title, description)
     };
   }
 
   if (cleanPath === '/learn/raagas' || cleanPath === '/ragas') {
+    const title = 'Hindustani Classical Raaga Guides for Bansuri | FluteSangam';
+    const description = 'Explore comprehensive Raaga guides for Indian flute: Aaroh, Avaroh, Pakad, Vadi, Samvadi, time of day, and song compositions.';
+    const canonicalUrl = `${DOMAIN}/learn/raagas`;
     return {
-      title: 'Hindustani Classical Raaga Guides for Bansuri | FluteSangam',
-      description: 'Explore comprehensive Raaga guides for Indian flute: Aaroh, Avaroh, Pakad, Vadi, Samvadi, time of day, and song compositions.',
-      canonicalUrl: `${DOMAIN}/learn/raagas`,
-      component: LearnRaagasView
+      title,
+      description,
+      canonicalUrl,
+      component: LearnRaagasView,
+      jsonLd: createWebPageSchema(canonicalUrl, title, description)
     };
   }
 
@@ -637,31 +756,43 @@ export function getRouteMetadata(path: string): RouteMetadata {
 
   // 9. Community Members
   if (cleanPath === '/members') {
+    const title = 'Community Members | FluteSangam';
+    const description = 'Meet flutists, learners, and mentors in the global FluteSangam community.';
+    const canonicalUrl = `${DOMAIN}/members`;
     return {
-      title: 'Community Members | FluteSangam',
-      description: 'Meet flutists, learners, and mentors in the global FluteSangam community.',
-      canonicalUrl: `${DOMAIN}/members`,
-      component: MembersView
+      title,
+      description,
+      canonicalUrl,
+      component: MembersView,
+      jsonLd: createWebPageSchema(canonicalUrl, title, description)
     };
   }
 
   // 10. Contact Us
   if (cleanPath === '/contact') {
+    const title = 'Contact Us | FluteSangam';
+    const description = 'Get in touch with the FluteSangam team for feedback, questions, or collaboration.';
+    const canonicalUrl = `${DOMAIN}/contact`;
     return {
-      title: 'Contact Us | FluteSangam',
-      description: 'Get in touch with the FluteSangam team for feedback, questions, or collaboration.',
-      canonicalUrl: `${DOMAIN}/contact`,
-      component: ContactUsView
+      title,
+      description,
+      canonicalUrl,
+      component: ContactUsView,
+      jsonLd: createWebPageSchema(canonicalUrl, title, description)
     };
   }
 
   // 11. Notations Requests
   if (cleanPath === '/notations') {
+    const title = 'Sargam Song Notation Requests | FluteSangam';
+    const description = 'Browse and request Sargam notations for Bollywood, devotional, classical, and folk songs on the Indian bamboo flute.';
+    const canonicalUrl = `${DOMAIN}/notations`;
     return {
-      title: 'Sargam Song Notation Requests | FluteSangam',
-      description: 'Browse and request Sargam notations for Bollywood, devotional, classical, and folk songs on the Indian bamboo flute.',
-      canonicalUrl: `${DOMAIN}/notations`,
-      component: NotationRequestsView
+      title,
+      description,
+      canonicalUrl,
+      component: NotationRequestsView,
+      jsonLd: createWebPageSchema(canonicalUrl, title, description)
     };
   }
 

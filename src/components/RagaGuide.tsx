@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { LEARN_RAAGAS } from '../data/learnRaagasData';
 import { RagaDetail, AppView } from '../types';
 import { BookOpen, Music, Sun, Moon, Info, ArrowRight } from 'lucide-react';
@@ -19,25 +20,30 @@ export default function RagaGuide({ onSelectRagaDiscussion, activeRagaFilter, on
   };
 
   // Helper to resolve route for dedicated Raag page
-  const getRagaView = (raga: RagaDetail): AppView | null => {
-    if (raga.link) return raga.link as AppView;
+  const getRagaView = (raga: RagaDetail): { view: AppView; path: string } | null => {
     const n = raga.name.toLowerCase();
-    if (n.includes('bhupali') || n.includes('bhoopali')) return 'raga_bhoopali';
-    if (n.includes('durga')) return 'raga_durga';
-    if (n.includes('yaman')) return 'raga_yaman';
-    if (n.includes('hamsadhwani')) return 'raga_hamsadhwani';
-    if (n.includes('bilawal') && !n.includes('alhaiya')) return 'raga_bilawal';
-    if (n.includes('brindavani') || n.includes('sarang')) return 'raga_brindavani_sarang';
-    if (n.includes('desh') && !n.includes('deshkar')) return 'raga_desh';
-    if (n.includes('kafi')) return 'raga_kafi';
-    if (n.includes('bhimpalasi')) return 'raga_bhimpalasi';
-    if (n.includes('bageshree')) return 'raga_bageshree';
-    if (n.includes('bhairav') && !n.includes('ahir')) return 'raga_bhairav';
-    if (n.includes('khamaj')) return 'raga_khamaj';
-    if (n.includes('bihag')) return 'raga_bihag';
-    if (n.includes('malkauns')) return 'raga_malkauns';
-    if (n.includes('marwa')) return 'raga_marwa';
-    if (n.includes('jog')) return 'raga_jog';
+    if (n.includes('bhupali') || n.includes('bhoopali')) return { view: 'raga_bhoopali', path: '/learn/raga-bhoopali' };
+    if (n.includes('durga')) return { view: 'raga_durga', path: '/learn/raga-durga' };
+    if (n.includes('yaman')) return { view: 'raga_yaman', path: '/learn/raga-yaman' };
+    if (n.includes('hamsadhwani')) return { view: 'raga_hamsadhwani', path: '/learn/raga-hamsadhwani' };
+    if (n.includes('bilawal') && !n.includes('alhaiya')) return { view: 'raga_bilawal', path: '/learn/raga-bilawal' };
+    if (n.includes('brindavani') || n.includes('sarang')) return { view: 'raga_brindavani_sarang', path: '/learn/raga-brindavani-sarang' };
+    if (n.includes('desh') && !n.includes('deshkar')) return { view: 'raga_desh', path: '/learn/raga-desh' };
+    if (n.includes('kafi')) return { view: 'raga_kafi', path: '/learn/raga-kafi' };
+    if (n.includes('bhimpalasi')) return { view: 'raga_bhimpalasi', path: '/learn/raga-bhimpalasi' };
+    if (n.includes('bageshree')) return { view: 'raga_bageshree', path: '/learn/raga-bageshree' };
+    if (n.includes('bhairav') && !n.includes('ahir')) return { view: 'raga_bhairav', path: '/learn/raga-bhairav' };
+    if (n.includes('khamaj')) return { view: 'raga_khamaj', path: '/learn/raga-khamaj' };
+    if (n.includes('bihag')) return { view: 'raga_bihag', path: '/learn/raga-bihag' };
+    if (n.includes('malkauns')) return { view: 'raga_malkauns', path: '/learn/raga-malkauns' };
+    if (n.includes('marwa')) return { view: 'raga_marwa', path: '/learn/raga-marwa' };
+    if (n.includes('jog')) return { view: 'raga_jog', path: '/learn/raga-jog' };
+    if (n.includes('todi')) return { view: 'raga_todi', path: '/learn/raga-todi' };
+    if (n.includes('multani')) return { view: 'raga_multani', path: '/learn/raga-multani' };
+    if (n.includes('pahadi')) return { view: 'raga_pahadi', path: '/learn/raga-pahadi' };
+    if (n.includes('tilang')) return { view: 'raga_tilang', path: '/learn/raga-tilang' };
+    if (n.includes('malhar')) return { view: 'raga_miyan_ki_malhar', path: '/learn/raga-miyan-ki-malhar' };
+    if (n.includes('shivranjani')) return { view: 'raga_shivranjani', path: '/learn/raga-shivranjani' };
     return null;
   };
 
@@ -148,12 +154,11 @@ export default function RagaGuide({ onSelectRagaDiscussion, activeRagaFilter, on
               <span className="text-[11px] text-bamboo-900 font-medium">
                 Full lesson &amp; practice audio available
               </span>
-              <a
-                href={`/learn/${targetView.replace('_', '-')}`}
-                onClick={(e) => {
-                  e.preventDefault();
+              <Link
+                to={targetView.path}
+                onClick={() => {
                   if (onViewChange) {
-                    onViewChange(targetView);
+                    onViewChange(targetView.view);
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }
                 }}
@@ -161,7 +166,7 @@ export default function RagaGuide({ onSelectRagaDiscussion, activeRagaFilter, on
               >
                 <span>Go to Raag Page</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-              </a>
+              </Link>
             </div>
           )}
         </div>

@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   BookOpen, Filter, Music, Sun, Moon, Calendar, Clock, CheckCircle2, 
   ArrowRight, Sparkles, Search, Volume2, Play, Compass, Feather, 
@@ -48,28 +49,28 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
 
   // Featured Step-by-Step Guides list with Level metadata
   const featuredGuides = [
-    { name: 'Raag Bhoopali', view: 'raga_bhoopali', title: 'Prabhat Prerna', level: 'Beginner', color: 'bg-amber-600 hover:bg-amber-700' },
-    { name: 'Raag Durga', view: 'raga_durga', title: 'Shant Dhara', level: 'Beginner', color: 'bg-emerald-600 hover:bg-emerald-700' },
-    { name: 'Raag Yaman', view: 'raga_yaman', title: 'Sandhya Prakash', level: 'Beginner', color: 'bg-amber-700 hover:bg-amber-800' },
-    { name: 'Raag Hamsadhwani', view: 'raga_hamsadhwani', title: 'Udaya Sur', level: 'Beginner', color: 'bg-rose-600 hover:bg-rose-700' },
-    { name: 'Raag Bilawal', view: 'raga_bilawal', title: 'Pratah Sur', level: 'Beginner', color: 'bg-amber-800 hover:bg-amber-900' },
-    { name: 'Raag Brindavani Sarang', view: 'raga_brindavani_sarang', title: 'Vrindavan Prabhat', level: 'Beginner', color: 'bg-teal-600 hover:bg-teal-700' },
-    { name: 'Raag Desh', view: 'raga_desh', title: 'Sandhya Vihar', level: 'Intermediate', color: 'bg-orange-700 hover:bg-orange-800' },
-    { name: 'Raag Kafi', view: 'raga_kafi', title: 'Komal Sur Lahari', level: 'Intermediate', color: 'bg-bamboo-800 hover:bg-bamboo-900' },
-    { name: 'Raag Bhimpalasi', view: 'raga_bhimpalasi', title: 'Madhur Vela', level: 'Intermediate', color: 'bg-amber-800 hover:bg-amber-900' },
-    { name: 'Raag Bageshree', view: 'raga_bageshree', title: 'Nisha Dhwani', level: 'Intermediate', color: 'bg-purple-700 hover:bg-purple-800' },
-    { name: 'Raag Bhairav', view: 'raga_bhairav', title: 'Pratah Dhyan', level: 'Intermediate', color: 'bg-orange-700 hover:bg-orange-800' },
-    { name: 'Raag Khamaj', view: 'raga_khamaj', title: 'Madhur Milan', level: 'Intermediate', color: 'bg-rose-800 hover:bg-rose-900' },
-    { name: 'Raag Bihag', view: 'raga_bihag', title: 'Sandhya Madhurya', level: 'Intermediate', color: 'bg-amber-700 hover:bg-amber-800' },
-    { name: 'Raag Malkauns', view: 'raga_malkauns', title: 'Nisha Dhyan', level: 'Intermediate', color: 'bg-indigo-800 hover:bg-indigo-900' },
-    { name: 'Raag Marwa', view: 'raga_marwa', title: 'Sandhya Dhyan', level: 'Advanced', color: 'bg-rose-700 hover:bg-rose-800' },
-    { name: 'Raag Jog', view: 'raga_jog', title: 'Nisha Gambhirya', level: 'Advanced', color: 'bg-indigo-900 hover:bg-indigo-950' },
-    { name: 'Raag Todi', view: 'raga_todi', title: 'Pratah Dhyan', level: 'Advanced', color: 'bg-amber-800 hover:bg-amber-900' },
-    { name: 'Raag Multani', view: 'raga_multani', title: 'Madhya Bhaag', level: 'Advanced', color: 'bg-amber-900 hover:bg-amber-950' },
-    { name: 'Raag Pahadi', view: 'raga_pahadi', title: 'Himalayan Lok Sur', level: 'Intermediate', color: 'bg-emerald-800 hover:bg-emerald-900' },
-    { name: 'Raag Tilang', view: 'raga_tilang', title: 'Madhur Tilang', level: 'Intermediate', color: 'bg-amber-700 hover:bg-amber-800' },
-    { name: 'Raag Miyan Ki Malhar', view: 'raga_miyan_ki_malhar', title: 'Varsha Dhyan', level: 'Advanced', color: 'bg-sky-800 hover:bg-sky-900' },
-    { name: 'Raag Shivranjani', view: 'raga_shivranjani', title: 'Soulful Pentatonic', level: 'Beginner', color: 'bg-rose-700 hover:bg-rose-800' },
+    { name: 'Raag Bhoopali', path: '/learn/raga-bhoopali', view: 'raga_bhoopali', title: 'Prabhat Prerna', level: 'Beginner', color: 'bg-amber-600 hover:bg-amber-700' },
+    { name: 'Raag Durga', path: '/learn/raga-durga', view: 'raga_durga', title: 'Shant Dhara', level: 'Beginner', color: 'bg-emerald-600 hover:bg-emerald-700' },
+    { name: 'Raag Yaman', path: '/learn/raga-yaman', view: 'raga_yaman', title: 'Sandhya Prakash', level: 'Beginner', color: 'bg-amber-700 hover:bg-amber-800' },
+    { name: 'Raag Hamsadhwani', path: '/learn/raga-hamsadhwani', view: 'raga_hamsadhwani', title: 'Udaya Sur', level: 'Beginner', color: 'bg-rose-600 hover:bg-rose-700' },
+    { name: 'Raag Bilawal', path: '/learn/raga-bilawal', view: 'raga_bilawal', title: 'Pratah Sur', level: 'Beginner', color: 'bg-amber-800 hover:bg-amber-900' },
+    { name: 'Raag Brindavani Sarang', path: '/learn/raga-brindavani-sarang', view: 'raga_brindavani_sarang', title: 'Vrindavan Prabhat', level: 'Beginner', color: 'bg-teal-600 hover:bg-teal-700' },
+    { name: 'Raag Desh', path: '/learn/raga-desh', view: 'raga_desh', title: 'Sandhya Vihar', level: 'Intermediate', color: 'bg-orange-700 hover:bg-orange-800' },
+    { name: 'Raag Kafi', path: '/learn/raga-kafi', view: 'raga_kafi', title: 'Komal Sur Lahari', level: 'Intermediate', color: 'bg-bamboo-800 hover:bg-bamboo-900' },
+    { name: 'Raag Bhimpalasi', path: '/learn/raga-bhimpalasi', view: 'raga_bhimpalasi', title: 'Madhur Vela', level: 'Intermediate', color: 'bg-amber-800 hover:bg-amber-900' },
+    { name: 'Raag Bageshree', path: '/learn/raga-bageshree', view: 'raga_bageshree', title: 'Nisha Dhwani', level: 'Intermediate', color: 'bg-purple-700 hover:bg-purple-800' },
+    { name: 'Raag Bhairav', path: '/learn/raga-bhairav', view: 'raga_bhairav', title: 'Pratah Dhyan', level: 'Intermediate', color: 'bg-orange-700 hover:bg-orange-800' },
+    { name: 'Raag Khamaj', path: '/learn/raga-khamaj', view: 'raga_khamaj', title: 'Madhur Milan', level: 'Intermediate', color: 'bg-rose-800 hover:bg-rose-900' },
+    { name: 'Raag Bihag', path: '/learn/raga-bihag', view: 'raga_bihag', title: 'Sandhya Madhurya', level: 'Intermediate', color: 'bg-amber-700 hover:bg-amber-800' },
+    { name: 'Raag Malkauns', path: '/learn/raga-malkauns', view: 'raga_malkauns', title: 'Nisha Dhyan', level: 'Intermediate', color: 'bg-indigo-800 hover:bg-indigo-900' },
+    { name: 'Raag Marwa', path: '/learn/raga-marwa', view: 'raga_marwa', title: 'Sandhya Dhyan', level: 'Advanced', color: 'bg-rose-700 hover:bg-rose-800' },
+    { name: 'Raag Jog', path: '/learn/raga-jog', view: 'raga_jog', title: 'Nisha Gambhirya', level: 'Advanced', color: 'bg-indigo-900 hover:bg-indigo-950' },
+    { name: 'Raag Todi', path: '/learn/raga-todi', view: 'raga_todi', title: 'Pratah Dhyan', level: 'Advanced', color: 'bg-amber-800 hover:bg-amber-900' },
+    { name: 'Raag Multani', path: '/learn/raga-multani', view: 'raga_multani', title: 'Madhya Bhaag', level: 'Advanced', color: 'bg-amber-900 hover:bg-amber-950' },
+    { name: 'Raag Pahadi', path: '/learn/raga-pahadi', view: 'raga_pahadi', title: 'Himalayan Lok Sur', level: 'Intermediate', color: 'bg-emerald-800 hover:bg-emerald-900' },
+    { name: 'Raag Tilang', path: '/learn/raga-tilang', view: 'raga_tilang', title: 'Madhur Tilang', level: 'Intermediate', color: 'bg-amber-700 hover:bg-amber-800' },
+    { name: 'Raag Miyan Ki Malhar', path: '/learn/raga-miyan-ki-malhar', view: 'raga_miyan_ki_malhar', title: 'Varsha Dhyan', level: 'Advanced', color: 'bg-sky-800 hover:bg-sky-900' },
+    { name: 'Raag Shivranjani', path: '/learn/raga-shivranjani', view: 'raga_shivranjani', title: 'Soulful Pentatonic', level: 'Beginner', color: 'bg-rose-700 hover:bg-rose-800' },
   ];
 
   // Featured Guides filtered according to chosen level filter & search
@@ -223,30 +224,30 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
     }
   };
 
-  const getGuideRouteForRaag = (name: string): AppView | null => {
+  const getGuideRouteForRaag = (name: string): { view: AppView; path: string } | null => {
     const n = name.toLowerCase();
-    if (n.includes('bhupali') || n.includes('bhoopali')) return 'raga_bhoopali';
-    if (n.includes('durga')) return 'raga_durga';
-    if (n.includes('yaman')) return 'raga_yaman';
-    if (n.includes('hamsadhwani')) return 'raga_hamsadhwani';
-    if (n.includes('bilawal') && !n.includes('alhaiya')) return 'raga_bilawal';
-    if (n.includes('brindavani') || n.includes('sarang')) return 'raga_brindavani_sarang';
-    if (n.includes('desh')) return 'raga_desh';
-    if (n.includes('kafi')) return 'raga_kafi';
-    if (n.includes('bhimpalasi')) return 'raga_bhimpalasi';
-    if (n.includes('bageshree')) return 'raga_bageshree';
-    if (n.includes('bhairav')) return 'raga_bhairav';
-    if (n.includes('khamaj')) return 'raga_khamaj';
-    if (n.includes('bihag')) return 'raga_bihag';
-    if (n.includes('malkauns')) return 'raga_malkauns';
-    if (n.includes('marwa')) return 'raga_marwa';
-    if (n.includes('jog')) return 'raga_jog';
-    if (n.includes('todi')) return 'raga_todi';
-    if (n.includes('multani')) return 'raga_multani';
-    if (n.includes('pahadi')) return 'raga_pahadi';
-    if (n.includes('tilang')) return 'raga_tilang';
-    if (n.includes('malhar')) return 'raga_miyan_ki_malhar';
-    if (n.includes('shivranjani')) return 'raga_shivranjani';
+    if (n.includes('bhupali') || n.includes('bhoopali')) return { view: 'raga_bhoopali', path: '/learn/raga-bhoopali' };
+    if (n.includes('durga')) return { view: 'raga_durga', path: '/learn/raga-durga' };
+    if (n.includes('yaman')) return { view: 'raga_yaman', path: '/learn/raga-yaman' };
+    if (n.includes('hamsadhwani')) return { view: 'raga_hamsadhwani', path: '/learn/raga-hamsadhwani' };
+    if (n.includes('bilawal') && !n.includes('alhaiya')) return { view: 'raga_bilawal', path: '/learn/raga-bilawal' };
+    if (n.includes('brindavani') || n.includes('sarang')) return { view: 'raga_brindavani_sarang', path: '/learn/raga-brindavani-sarang' };
+    if (n.includes('desh')) return { view: 'raga_desh', path: '/learn/raga-desh' };
+    if (n.includes('kafi')) return { view: 'raga_kafi', path: '/learn/raga-kafi' };
+    if (n.includes('bhimpalasi')) return { view: 'raga_bhimpalasi', path: '/learn/raga-bhimpalasi' };
+    if (n.includes('bageshree')) return { view: 'raga_bageshree', path: '/learn/raga-bageshree' };
+    if (n.includes('bhairav')) return { view: 'raga_bhairav', path: '/learn/raga-bhairav' };
+    if (n.includes('khamaj')) return { view: 'raga_khamaj', path: '/learn/raga-khamaj' };
+    if (n.includes('bihag')) return { view: 'raga_bihag', path: '/learn/raga-bihag' };
+    if (n.includes('malkauns')) return { view: 'raga_malkauns', path: '/learn/raga-malkauns' };
+    if (n.includes('marwa')) return { view: 'raga_marwa', path: '/learn/raga-marwa' };
+    if (n.includes('jog')) return { view: 'raga_jog', path: '/learn/raga-jog' };
+    if (n.includes('todi')) return { view: 'raga_todi', path: '/learn/raga-todi' };
+    if (n.includes('multani')) return { view: 'raga_multani', path: '/learn/raga-multani' };
+    if (n.includes('pahadi')) return { view: 'raga_pahadi', path: '/learn/raga-pahadi' };
+    if (n.includes('tilang')) return { view: 'raga_tilang', path: '/learn/raga-tilang' };
+    if (n.includes('malhar')) return { view: 'raga_miyan_ki_malhar', path: '/learn/raga-miyan-ki-malhar' };
+    if (n.includes('shivranjani')) return { view: 'raga_shivranjani', path: '/learn/raga-shivranjani' };
     return null;
   };
 
@@ -559,14 +560,15 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
 
             <div className="flex flex-wrap gap-2.5 pt-1">
               {filteredFeaturedGuides.map((guide, idx) => (
-                <button
+                <Link
                   key={idx}
+                  to={guide.path}
                   onClick={() => onViewChange?.(guide.view as AppView)}
                   className={`${guide.color} text-white text-xs font-bold px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-xs cursor-pointer group hover:scale-[1.02] active:scale-[0.98]`}
                 >
                   <span>{guide.name} ("{guide.title}")</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                </button>
+                </Link>
               ))}
             </div>
           </motion.div>
@@ -691,13 +693,14 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
                 {/* Action Link for Full Guide if available */}
                 {guideRoute && (
                   <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex justify-end">
-                    <button
-                      onClick={() => onViewChange?.(guideRoute)}
+                    <Link
+                      to={guideRoute.path}
+                      onClick={() => onViewChange?.(guideRoute.view)}
                       className="bg-amber-700 hover:bg-amber-800 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition flex items-center gap-2 shadow-xs cursor-pointer group"
                     >
                       <span>Read Step-by-Step {raaga.name} Guide</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                    </Link>
                   </div>
                 )}
               </motion.div>

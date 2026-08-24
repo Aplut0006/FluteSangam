@@ -827,7 +827,7 @@ export default function LearnFingeringChartView({ onViewChange }: LearnFingering
           <div className="bg-amber-900/30 border border-amber-700/50 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 space-y-1">
             <h4 className="text-xs font-bold uppercase tracking-wider text-amber-300 flex items-center gap-1.5">
               <Wind className="w-4 h-4 text-amber-400" />
-              Guru's Riyaz Tip
+              Riyaz Practice Tip
             </h4>
             <p className="text-xs text-amber-100/90 leading-relaxed font-medium">
               {currentSwara.tip}

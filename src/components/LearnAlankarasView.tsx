@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { 
   Music, ArrowUpRight, ArrowDownRight, Lightbulb, Calendar, Clock, CheckCircle2, 
   ArrowRight, Copy, Check, Play, Pause, Sparkles, Filter, Zap, Target, Gauge
@@ -1387,9 +1387,11 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
         <div className="grid grid-cols-3 gap-2 sm:gap-3 pt-1">
           {(['Beginner', 'Intermediate', 'Advanced'] as AlankarLevel[]).map((lvl) => {
             const isSelected = selectedLevel === lvl;
+            const targetPath = `/learn/alankaras/${ALANKAR_LEVEL_SLUGS[lvl]}`;
             return (
-              <button
+              <Link
                 key={lvl}
+                to={targetPath}
                 onClick={() => handleLevelChange(lvl)}
                 className={`py-3.5 px-3 sm:px-5 rounded-2xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 cursor-pointer ${
                   isSelected
@@ -1407,7 +1409,7 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
                 }`}>
                   {levelCounts[lvl]}
                 </span>
-              </button>
+              </Link>
             );
           })}
         </div>
@@ -1643,13 +1645,14 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
             Build a complete 30–90 minute daily routine for breath control, tone quality, finger agility, rhythm, and musical expression.
           </p>
         </div>
-        <button
+        <Link
+          to="/learn/daily-practice"
           onClick={() => onViewChange?.('learn_daily_practice')}
           className="bg-amber-500 hover:bg-amber-400 text-bamboo-950 font-extrabold px-6 py-3 rounded-2xl text-xs sm:text-sm transition flex items-center gap-2 shrink-0 cursor-pointer shadow-md"
         >
           <span>Go to Daily Practice Guide</span>
           <ArrowRight className="w-4 h-4" />
-        </button>
+        </Link>
       </section>
 
       {/* Author Section */}

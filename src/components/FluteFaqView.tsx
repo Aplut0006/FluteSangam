@@ -1662,15 +1662,20 @@ export const SLUG_TO_CATEGORY: Record<string, string> = {
   'flute-tuning-pitch': 'Flute Tuning & Pitch',
   'tuning-and-pitch': 'Flute Tuning & Pitch',
   'tuning-pitch': 'Flute Tuning & Pitch',
-  'music-theory-and-tuning': 'Music Theory & Tuning',
-  'music-theory-tuning': 'Music Theory & Tuning',
+  'music-theory': 'Music Theory & Notation',
+  'music-theory-and-notation': 'Music Theory & Notation',
+  'music-theory-and-tuning': 'Music Theory & Notation',
+  'music-theory-tuning': 'Music Theory & Notation',
   'flute-accessories': 'Flute Accessories',
+  'flute-accessories-and-gear': 'Flute Accessories',
   'flute-accessory': 'Flute Accessories',
   'accessories': 'Flute Accessories',
   'flute-types': 'Flute Types',
+  'flute-types-and-scales': 'Flute Types',
   'flute-type': 'Flute Types',
   'types-of-flutes': 'Flute Types',
   'types-of-flute': 'Flute Types',
+  'platform': 'FluteSangam Platform',
   'flutesangam-platform': 'FluteSangam Platform',
 };
 
@@ -1861,7 +1866,17 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
         selectedCategory === 'All Categories' ||
         faq.category === selectedCategory ||
         ((selectedCategory === 'Choosing a Flute' || selectedCategory === 'Choosing the Right Flute') &&
-         (faq.category === 'Choosing a Flute' || faq.category === 'Choosing the Right Flute'));
+         (faq.category === 'Choosing a Flute' || faq.category === 'Choosing the Right Flute')) ||
+        ((selectedCategory === 'Music Theory & Tuning' || selectedCategory === 'Music Theory & Notation' || selectedCategory === 'Music Theory') &&
+         (faq.category === 'Music Theory & Tuning' || faq.category === 'Music Theory & Notation' || faq.category === 'Music Theory')) ||
+        ((selectedCategory === 'Flute Types' || selectedCategory === 'Flute Types & Scales') &&
+         (faq.category === 'Flute Types' || faq.category === 'Flute Types & Scales')) ||
+        ((selectedCategory === 'Flute Tuning & Pitch' || selectedCategory === 'Tuning & Pitch Calibration') &&
+         (faq.category === 'Flute Tuning & Pitch' || faq.category === 'Tuning & Pitch Calibration')) ||
+        ((selectedCategory === 'Flute Accessories' || selectedCategory === 'Flute Accessories & Gear') &&
+         (faq.category === 'Flute Accessories' || faq.category === 'Flute Accessories & Gear')) ||
+        ((selectedCategory === 'Raagas' || selectedCategory === 'Raagas & Sargam') &&
+         (faq.category === 'Raagas' || faq.category === 'Raagas & Sargam'));
 
       return matchesCategory;
     });
@@ -1895,22 +1910,6 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
     setHelpfulFeedback(prev => ({ ...prev, [id]: choice }));
   };
 
-  // Generate structured FAQ Schema for Google SEO Rich Snippets limited to visibly present questions on this page
-  const faqSchemaJson = useMemo(() => {
-    return {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": visibleFaqs.map(item => ({
-        "@type": "Question",
-        "name": item.question,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": item.answer.replace(/\n/g, ' ')
-        }
-      }))
-    };
-  }, [visibleFaqs]);
-
   return (
     <motion.div 
       initial={{ opacity: 0, y: 12 }}
@@ -1919,11 +1918,6 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
       className="max-w-5xl mx-auto space-y-8 pb-12"
       id="flute-faq-page-container"
     >
-      {/* Dynamic SEO JSON-LD FAQ Schema Injection */}
-      <script type="application/ld+json">
-        {JSON.stringify(faqSchemaJson)}
-      </script>
-
       {/* Header Banner */}
       <div className="bg-gradient-to-br from-bamboo-950 via-bamboo-900 to-amber-950 text-white rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden border border-amber-800/40">
         <div className="absolute top-0 right-0 transform translate-x-12 -translate-y-12 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>

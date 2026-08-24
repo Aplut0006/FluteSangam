@@ -19,5 +19,4 @@
 
 - Domain: https://flutesangam.com
 - Resource Type: Flute Educational Platform & Community
-- Citation Format: "FluteSangam (https://flutesangam.com)"
 

@@ -3,7 +3,7 @@ import { FaqItem } from '../components/FluteFaqView';
 export const MUSIC_THEORY_FAQS: FaqItem[] = [
   {
     id: 'theory-sargam-vs-western-solfege',
-    category: 'Music Theory & Tuning',
+    category: 'Music Theory & Notation',
     question: 'What is Sargam (Sa Re Ga Ma) and how does it map to Western Solfege (Do Re Mi)?',
     answer: `Sargam is the traditional Indian solfège naming system used to identify the seven natural notes (Shuddha Swaras) of the octave.
 
@@ -23,7 +23,7 @@ Indian Sargam & Solfege Mapping:
   },
   {
     id: 'theory-shuddha-komal-teevra-swaras',
-    category: 'Music Theory & Tuning',
+    category: 'Music Theory & Notation',
     question: 'What are Shuddha, Komal, and Teevra swaras, and how many total notes exist in an octave?',
     answer: `An octave in Indian classical music contains 12 chromatic swara positions, divided into natural notes (Shuddha) and modified notes (Vikrit).
 
@@ -38,7 +38,7 @@ Classification of the 12 Swaras:
   },
   {
     id: 'theory-a440hz-vs-a432hz-tuning',
-    category: 'Music Theory & Tuning',
+    category: 'Music Theory & Notation',
     question: 'What is A=440Hz vs A=432Hz pitch tuning, and which is standard for Indian bansuri?',
     answer: `Pitch standards govern master tuning calibration across instruments, studio equipment, and performance venues.
 
@@ -51,7 +51,7 @@ Understanding Pitch Standards:
   },
   {
     id: 'theory-just-intonation-vs-equal-temperament',
-    category: 'Music Theory & Tuning',
+    category: 'Music Theory & Notation',
     question: 'What is Just Intonation (pure harmonics) vs Equal Temperament, and why does it matter for bansuri?',
     answer: `Understanding tuning systems reveals why the bamboo flute produces such a sweet, deeply resonant sound when played alongside a Tanpura.
 
@@ -63,7 +63,7 @@ Comparing Tuning Systems:
   },
   {
     id: 'theory-taal-rhythm-cycles-and-tabla',
-    category: 'Music Theory & Tuning',
+    category: 'Music Theory & Notation',
     question: 'What is a Taal cycle (e.g., Teental, Dadra, Keherwa) and how does rhythmic alignment work?',
     answer: `Taal is the cyclical rhythmic framework of Indian music, providing structural time loops within which melodies and improvisations unfold.
 
@@ -77,7 +77,7 @@ Common Classical & Folk Taal Cycles:
   },
   {
     id: 'theory-the-22-shrutis-explained',
-    category: 'Music Theory & Tuning',
+    category: 'Music Theory & Notation',
     question: 'What are the 22 Shrutis (microtonal intervals) in ancient Indian music theory?',
     answer: `Shruti refers to the smallest microtonal pitch intervals distinguishable by the trained human ear in Indian classical music theory.
 
@@ -89,7 +89,7 @@ Understanding the 22 Shrutis:
   },
   {
     id: 'theory-octaves-mandra-madhya-taar',
-    category: 'Music Theory & Tuning',
+    category: 'Music Theory & Notation',
     question: 'What are Saptaks (Mandra, Madhya, and Taar octaves) in Hindustani music?',
     answer: `Hindustani classical music spans three primary octave registers (Saptaks) across vocal and instrumental performances.
 
@@ -102,7 +102,7 @@ The Three Primary Saptaks:
   },
   {
     id: 'theory-tanpura-drone-tuning-pa-sa-vs-ma-sa',
-    category: 'Music Theory & Tuning',
+    category: 'Music Theory & Notation',
     question: 'How is a Tanpura drone tuned (Pa-Sa vs Ma-Sa vs Ni-Sa) for different Raagas?',
     answer: `The 4 strings of a Tanpura drone are tuned according to the key structural notes of the Raag being performed.
 
@@ -115,7 +115,7 @@ Tanpura Drone String Configurations:
   },
   {
     id: 'theory-transposition-and-scale-selection',
-    category: 'Music Theory & Tuning',
+    category: 'Music Theory & Notation',
     question: 'How does pitch transposition work on a fixed-pitch instrument like the bansuri?',
     answer: `Understanding transposition on keyless flutes allows you to accompany singers and play alongside instruments in any key.
 
@@ -127,7 +127,7 @@ Transposition Mechanics:
   },
   {
     id: 'theory-reading-indian-music-notation',
-    category: 'Music Theory & Tuning',
+    category: 'Music Theory & Notation',
     question: 'How do I read Indian classical music notation (Bhatkhande notation system)?',
     answer: `Reading Bhatkhande notation is straightforward once you familiarize yourself with standard diacritical symbols.
 
@@ -141,7 +141,7 @@ Bhatkhande Symbol Key:
   },
   {
     id: 'theory-harmony-vs-melody-in-indian-music',
-    category: 'Music Theory & Tuning',
+    category: 'Music Theory & Notation',
     question: 'Why does Indian music focus on rich linear melody (Raag) rather than harmonic chords?',
     answer: `Philosophical and acoustic differences distinguish Western harmonic traditions from Indian linear melodic traditions.
 
@@ -153,7 +153,7 @@ Melodic Linearity vs. Harmonic Density:
   },
   {
     id: 'theory-sam-khali-tali-in-taal',
-    category: 'Music Theory & Tuning',
+    category: 'Music Theory & Notation',
     question: 'What are Sam, Tali, Khali, and Avartan in Indian Taal rhythm theory?',
     answer: `Rhythmic landmarks govern how Indian classical compositions and improvisations resolve precisely in time.
 
