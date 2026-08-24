@@ -1650,7 +1650,6 @@ export const SLUG_TO_CATEGORY: Record<string, string> = {
   'scales-alankars': 'Scales & Alankars',
   'raagas': 'Raagas',
   'flute-care-and-maintenance': 'Flute Care & Maintenance',
-  'flute-care-maintenance': 'Flute Care & Maintenance',
   'health-and-breathing': 'Health & Breathing',
   'health-breathing': 'Health & Breathing',
   'children-and-beginners': 'Children & Beginners',

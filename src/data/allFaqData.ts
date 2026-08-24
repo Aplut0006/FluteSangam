@@ -37,7 +37,7 @@ export const CATEGORY_SLUGS: Record<string, string> = {
   'Daily Practice': 'daily-practice',
   'Scales & Alankars': 'scales-and-alankars',
   'Raagas & Sargam': 'raagas',
-  'Flute Care & Maintenance': 'flute-care',
+  'Flute Care & Maintenance': 'flute-care-and-maintenance',
   'Health & Breathing': 'health-and-breathing',
   'Children & Beginners': 'children-and-beginners',
   'Music Theory & Notation': 'music-theory',

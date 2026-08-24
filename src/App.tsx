@@ -719,11 +719,6 @@ export default function App() {
             handleViewChange('learn_raagas', {}, false);
         }
         navigate('/learn/raagas', { replace: true });
-    } else if (path === '/faq/flute-care-and-maintenance' || path === '/faq/flute-care-maintenance') {
-        if (currentView !== 'flute_faq') {
-            handleViewChange('flute_faq', {}, false);
-        }
-        navigate('/faq/flute-care', { replace: true });
     } else {
         const matchingView = Object.keys(VIEW_URLS).find(v => VIEW_URLS[v as AppView] === path) as AppView;
         const targetView = matchingView || (path === '/' ? 'community' : 'not_found');

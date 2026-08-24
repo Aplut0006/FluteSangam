@@ -43,16 +43,6 @@
   ],
   "redirects": [
     {
-      "source": "/faq/flute-care-and-maintenance",
-      "destination": "/faq/flute-care",
-      "permanent": true
-    },
-    {
-      "source": "/faq/flute-care-maintenance",
-      "destination": "/faq/flute-care",
-      "permanent": true
-    },
-    {
       "source": "/practice",
       "destination": "/learn/daily-practice-guide",
       "permanent": true

@@ -205,9 +205,6 @@ export function getRouteMetadata(path: string): RouteMetadata {
     }
 
     let canonicalSlug = slug;
-    if (slug === 'flute-care-and-maintenance' || slug === 'flute-care-maintenance') {
-      canonicalSlug = 'flute-care';
-    }
 
     return {
       title: `${categoryTitle} | FluteSangam`,

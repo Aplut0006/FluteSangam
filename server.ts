@@ -21,9 +21,6 @@ async function startServer() {
   });
 
   // 301/302 Redirects for legacy and alias URLs
-  app.get(['/faq/flute-care-and-maintenance', '/faq/flute-care-maintenance'], (req, res) => {
-    res.redirect(301, '/faq/flute-care');
-  });
   app.get('/practice', (req, res) => {
     res.redirect(301, '/learn/daily-practice-guide');
   });
@@ -32,6 +29,33 @@ async function startServer() {
   });
   app.get('/community', (req, res) => {
     res.redirect(302, '/#recent-discussions-section');
+  });
+
+  // Specific static routes with explicit MIME and Cache-Control headers
+  app.get('/sitemap.xml', (req, res) => {
+    const sitemapPath = path.join(isProduction ? distPath : process.cwd(), 'public', 'sitemap.xml');
+    const fallbackPath = path.join(distPath, 'sitemap.xml');
+    const targetPath = fs.existsSync(sitemapPath) ? sitemapPath : fallbackPath;
+    
+    if (fs.existsSync(targetPath)) {
+      res.setHeader('Content-Type', 'application/xml; charset=utf-8');
+      res.setHeader('Cache-Control', 'public, max-age=3600');
+      return res.sendFile(targetPath);
+    }
+    res.status(404).send('Sitemap not found');
+  });
+
+  app.get('/robots.txt', (req, res) => {
+    const robotsPath = path.join(isProduction ? distPath : process.cwd(), 'public', 'robots.txt');
+    const fallbackPath = path.join(distPath, 'robots.txt');
+    const targetPath = fs.existsSync(robotsPath) ? robotsPath : fallbackPath;
+    
+    if (fs.existsSync(targetPath)) {
+      res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+      res.setHeader('Cache-Control', 'public, max-age=3600');
+      return res.sendFile(targetPath);
+    }
+    res.status(404).send('robots.txt not found');
   });
 
   // Serve static files in production mode with extensions & cache control
