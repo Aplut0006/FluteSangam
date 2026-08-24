@@ -75,14 +75,31 @@ const NotationRequestsView = lazyWithRetry(() => import('./components/NotationRe
 const PrivacyPolicyView = lazyWithRetry(() => import('./components/PrivacyPolicyView'));
 const TermsOfServiceView = lazyWithRetry(() => import('./components/TermsOfServiceView'));
 const NotFoundView = lazyWithRetry(() => import('./components/NotFoundView'));
-const HomepageOverview = lazyWithRetry(() => import('./components/HomepageOverview'));
+import HomepageOverview from './components/HomepageOverview';
 
 const ViewFallbackLoader = () => (
-  <div className="w-full min-h-[300px] flex flex-col items-center justify-center space-y-3 py-16 px-4">
-    <div className="w-9 h-9 border-3 border-amber-600 border-t-transparent rounded-full animate-spin"></div>
-    <div className="text-center space-y-1">
-      <p className="text-xs font-bold text-bamboo-900 font-display uppercase tracking-wider">Loading lesson...</p>
-      <p className="text-[11px] text-gray-500">Preparing interactive content</p>
+  <div className="w-full min-h-[350px] space-y-6 py-6 px-2 animate-pulse" id="view-fallback-skeleton">
+    <div className="bg-white/80 rounded-3xl p-6 sm:p-8 border border-amber-200/60 shadow-xs space-y-4">
+      <div className="h-8 bg-amber-200/70 rounded-xl w-2/3 max-w-sm"></div>
+      <div className="h-4 bg-amber-100/80 rounded-lg w-full max-w-lg"></div>
+      <div className="h-4 bg-amber-100/60 rounded-lg w-5/6 max-w-md"></div>
+    </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="h-40 bg-white/70 rounded-2xl border border-amber-100/70 p-5 space-y-3">
+        <div className="h-5 bg-amber-200/60 rounded-md w-1/2"></div>
+        <div className="h-3 bg-amber-100/60 rounded-md w-full"></div>
+        <div className="h-3 bg-amber-100/40 rounded-md w-3/4"></div>
+      </div>
+      <div className="h-40 bg-white/70 rounded-2xl border border-amber-100/70 p-5 space-y-3">
+        <div className="h-5 bg-amber-200/60 rounded-md w-1/2"></div>
+        <div className="h-3 bg-amber-100/60 rounded-md w-full"></div>
+        <div className="h-3 bg-amber-100/40 rounded-md w-3/4"></div>
+      </div>
+      <div className="h-40 bg-white/70 rounded-2xl border border-amber-100/70 p-5 space-y-3 hidden sm:block">
+        <div className="h-5 bg-amber-200/60 rounded-md w-1/2"></div>
+        <div className="h-3 bg-amber-100/60 rounded-md w-full"></div>
+        <div className="h-3 bg-amber-100/40 rounded-md w-3/4"></div>
+      </div>
     </div>
   </div>
 );
@@ -186,7 +203,6 @@ export default function App() {
   useEffect(() => {
     const preloadViews = () => {
       const viewsToPreload = [
-        HomepageOverview,
         LearnDashboard,
         LearnIntroView,
         LearnBasicsView,
@@ -229,7 +245,7 @@ export default function App() {
         ChatSection
       ];
 
-      viewsToPreload.forEach((comp) => {
+      viewsToPreload.forEach((comp: any) => {
         if (comp && typeof comp.preload === 'function') {
           comp.preload();
         }
