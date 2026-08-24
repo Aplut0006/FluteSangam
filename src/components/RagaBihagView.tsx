@@ -176,7 +176,8 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
           "description": "Comprehensive guide to Raag Bihag for bansuri flute players, covering swaras, Aaroh, Avaroh, Pakad, Tivra Ma usage, alankars, and original learning piece Sandhya Madhurya.",
           "author": {
             "@type": "Person",
-            "name": "FluteSangam Master Educator"
+            "name": "Aplut",
+            "url": "https://flutesangam.com/founder"
           },
           "publisher": {
             "@type": "Organization",

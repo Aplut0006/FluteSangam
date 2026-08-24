@@ -26,23 +26,6 @@ export default function FounderView({ onViewChange }: FounderViewProps) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
-  const personSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    '@id': 'https://flutesangam.com/founder#aplut',
-    'name': 'Aplut',
-    'jobTitle': 'Founder of FluteSangam',
-    'worksFor': {
-      '@type': 'Organization',
-      '@id': 'https://flutesangam.com/#organization',
-      'name': 'FluteSangam',
-      'url': 'https://flutesangam.com'
-    },
-    'description': 'Founder of FluteSangam, software professional and flute practitioner building a global platform for learning, practicing, and connecting through music.',
-    'email': 'aplut0006@gmail.com',
-    'url': 'https://flutesangam.com/founder'
-  };
-
   const handleNav = (view: AppView) => (e: React.MouseEvent) => {
     e.preventDefault();
     if (onViewChange) {
@@ -57,14 +40,7 @@ export default function FounderView({ onViewChange }: FounderViewProps) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -15 }}
       className="max-w-4xl mx-auto py-8 sm:py-12 px-4 sm:px-6 space-y-10 sm:space-y-14"
-      itemScope
-      itemType="https://schema.org/Person"
     >
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-      />
-
       {/* 1. H1 Header & Hero Card */}
       <section className="bg-gradient-to-br from-bamboo-950 via-bamboo-900 to-amber-950 text-white rounded-3xl p-6 sm:p-10 shadow-xl border border-bamboo-800/80 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
@@ -80,12 +56,12 @@ export default function FounderView({ onViewChange }: FounderViewProps) {
           </h1>
 
           <div className="pt-2">
-            <h2 className="text-xl sm:text-2xl font-semibold text-amber-300 font-display" itemProp="name">
+            <h2 className="text-xl sm:text-2xl font-semibold text-amber-300 font-display">
               Aplut — Founder of FluteSangam
             </h2>
           </div>
 
-          <p className="text-sm sm:text-base text-bamboo-100 leading-relaxed font-sans max-w-3xl" itemProp="description">
+          <p className="text-sm sm:text-base text-bamboo-100 leading-relaxed font-sans max-w-3xl">
             Hello and welcome! I’m <strong>Aplut</strong>, the founder of FluteSangam. With a passion for music and software engineering, I created FluteSangam to make flute learning accessible, structured, and enjoyable for flute players and enthusiasts worldwide.
           </p>
         </div>
@@ -272,7 +248,6 @@ export default function FounderView({ onViewChange }: FounderViewProps) {
 
           <a 
             href="mailto:aplut0006@gmail.com"
-            itemProp="email"
             className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-bamboo-950 px-5 py-3 rounded-2xl font-extrabold text-xs sm:text-sm transition shadow-md"
           >
             <Mail className="w-4 h-4" />
