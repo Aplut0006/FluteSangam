@@ -44,7 +44,7 @@ export default function LearnIntroView({ onViewChange }: LearnIntroViewProps) {
               </div>
               <span className="text-gray-300">•</span>
               <span className="inline-flex items-center gap-1 bg-amber-100 text-amber-900 font-bold px-2 py-0.5 rounded-md text-[10px] tracking-wide uppercase">
-                <CheckCircle2 className="w-3 h-3 text-amber-700" /> Verified
+                <CheckCircle2 className="w-3 h-3 text-amber-700" /> Guide
               </span>
             </div>
           </div>

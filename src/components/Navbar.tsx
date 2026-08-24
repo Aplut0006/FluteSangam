@@ -604,8 +604,9 @@ export default function Navbar({
                 Practice Tools
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                <button
-                  onClick={() => { onViewChange?.('learn_tuner'); setShowMobileMenu(false); }}
+                <a
+                  href={VIEW_URLS['learn_tuner'] || '/tuner'}
+                  onClick={(e) => { e.preventDefault(); onViewChange?.('learn_tuner'); setShowMobileMenu(false); }}
                   className="w-full flex items-center justify-between p-3.5 bg-gradient-to-r from-amber-500/10 via-amber-100/40 to-bamboo-100/40 border border-amber-300/80 rounded-xl hover:bg-amber-100/70 transition group cursor-pointer"
                 >
                   <div className="flex items-center gap-3">
@@ -620,10 +621,11 @@ export default function Navbar({
                       <div className="text-[11px] text-gray-600">Interactive live frequency scale tuner</div>
                     </div>
                   </div>
-                </button>
+                </a>
 
-                <button
-                  onClick={() => { onViewChange?.('alankar_generator'); setShowMobileMenu(false); }}
+                <a
+                  href={VIEW_URLS['alankar_generator'] || '/alankar-generator'}
+                  onClick={(e) => { e.preventDefault(); onViewChange?.('alankar_generator'); setShowMobileMenu(false); }}
                   className={`w-full flex items-center justify-between p-3.5 border rounded-xl transition cursor-pointer text-left ${
                     currentView === 'alankar_generator'
                       ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
@@ -641,10 +643,11 @@ export default function Navbar({
                       <div className={`text-[11px] ${currentView === 'alankar_generator' ? 'text-amber-100' : 'text-gray-600'}`}>Create your own Alankars</div>
                     </div>
                   </div>
-                </button>
+                </a>
 
-                <button
-                  onClick={() => { onViewChange?.('note_key_converter'); setShowMobileMenu(false); }}
+                <a
+                  href={VIEW_URLS['note_key_converter'] || '/converter'}
+                  onClick={(e) => { e.preventDefault(); onViewChange?.('note_key_converter'); setShowMobileMenu(false); }}
                   className={`w-full flex items-center justify-between p-3.5 border rounded-xl transition cursor-pointer text-left ${
                     currentView === 'note_key_converter'
                       ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
@@ -662,7 +665,7 @@ export default function Navbar({
                       <div className={`text-[11px] ${currentView === 'note_key_converter' ? 'text-emerald-100' : 'text-gray-600'}`}>Swaras ⇄ Western notes ⇄ Keys</div>
                     </div>
                   </div>
-                </button>
+                </a>
               </div>
             </div>
 
@@ -672,8 +675,9 @@ export default function Navbar({
                 Community
               </span>
               <div className="grid grid-cols-2 gap-2">
-                <button
-                  onClick={() => { onViewChange?.('community'); setShowMobileMenu(false); }}
+                <a
+                  href={VIEW_URLS['community'] || '/'}
+                  onClick={(e) => { e.preventDefault(); onViewChange?.('community'); setShowMobileMenu(false); }}
                   className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
                     currentView === 'community'
                       ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
@@ -682,11 +686,13 @@ export default function Navbar({
                 >
                   <Globe className={`w-4 h-4 shrink-0 ${currentView === 'community' ? 'text-white' : 'text-amber-600'}`} />
                   <span>Sadhana Feed</span>
-                </button>
+                </a>
 
                 {currentUser && (
-                  <button
-                    onClick={() => { 
+                  <a
+                    href={VIEW_URLS['chats'] || '/chats'}
+                    onClick={(e) => { 
+                      e.preventDefault();
                       onViewChange?.('chats'); 
                       setShowMobileMenu(false); 
                     }}
@@ -703,11 +709,12 @@ export default function Navbar({
                         {unreadCount}
                       </span>
                     )}
-                  </button>
+                  </a>
                 )}
 
-                <button
-                  onClick={() => { onViewChange?.('notation_requests'); setShowMobileMenu(false); }}
+                <a
+                  href={VIEW_URLS['notation_requests'] || '/notations'}
+                  onClick={(e) => { e.preventDefault(); onViewChange?.('notation_requests'); setShowMobileMenu(false); }}
                   className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
                     currentView === 'notation_requests'
                       ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
@@ -716,10 +723,11 @@ export default function Navbar({
                 >
                   <Music className={`w-4 h-4 shrink-0 ${currentView === 'notation_requests' ? 'text-white' : 'text-amber-600'}`} />
                   <span>Notations</span>
-                </button>
+                </a>
 
-                <button
-                  onClick={() => { onViewChange?.('flute_faq'); setShowMobileMenu(false); }}
+                <a
+                  href={VIEW_URLS['flute_faq'] || '/faq'}
+                  onClick={(e) => { e.preventDefault(); onViewChange?.('flute_faq'); setShowMobileMenu(false); }}
                   className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
                     currentView === 'flute_faq'
                       ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
@@ -728,11 +736,12 @@ export default function Navbar({
                 >
                   <HelpCircle className={`w-4 h-4 shrink-0 ${currentView === 'flute_faq' ? 'text-white' : 'text-amber-700'}`} />
                   <span>Flute FAQ</span>
-                </button>
+                </a>
 
                 {currentUser && (
-                  <button
-                    onClick={() => { onViewChange?.('community_members'); setShowMobileMenu(false); }}
+                  <a
+                    href={VIEW_URLS['community_members'] || '/members'}
+                    onClick={(e) => { e.preventDefault(); onViewChange?.('community_members'); setShowMobileMenu(false); }}
                     className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
                       currentView === 'community_members'
                         ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
@@ -741,7 +750,7 @@ export default function Navbar({
                   >
                     <Users className={`w-4 h-4 shrink-0 ${currentView === 'community_members' ? 'text-white' : 'text-amber-600'}`} />
                     <span>Flutists</span>
-                  </button>
+                  </a>
                 )}
               </div>
             </div>
@@ -761,80 +770,90 @@ export default function Navbar({
 
               {showMobileLearnMenu && (
                 <div className="mt-2 pl-3 pr-1 py-1 space-y-1 bg-white border border-bamboo-100 rounded-xl text-left">
-                  <button
-                    onClick={() => { onViewChange?.('learn_dashboard'); setShowMobileMenu(false); }}
-                    className="w-full text-left text-xs font-bold text-bamboo-900 hover:text-amber-700 py-2 border-b border-bamboo-50 cursor-pointer"
+                  <a
+                    href={VIEW_URLS['learn_dashboard'] || '/learn'}
+                    onClick={(e) => { e.preventDefault(); onViewChange?.('learn_dashboard'); setShowMobileMenu(false); }}
+                    className="block w-full text-left text-xs font-bold text-bamboo-900 hover:text-amber-700 py-2 border-b border-bamboo-50 cursor-pointer"
                   >
                     📚 All Lessons Dashboard
-                  </button>
-                  <button
-                    onClick={() => { onViewChange?.('learn_intro'); setShowMobileMenu(false); }}
-                    className="w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
+                  </a>
+                  <a
+                    href={VIEW_URLS['learn_intro'] || '/learn/introduction'}
+                    onClick={(e) => { e.preventDefault(); onViewChange?.('learn_intro'); setShowMobileMenu(false); }}
+                    className="block w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
                   >
                     1. Introduction to Bansuri
-                  </button>
-                  <button
-                    onClick={() => { onViewChange?.('learn_choose_flute'); setShowMobileMenu(false); }}
-                    className="w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
+                  </a>
+                  <a
+                    href={VIEW_URLS['learn_choose_flute'] || '/learn/choose-flute'}
+                    onClick={(e) => { e.preventDefault(); onViewChange?.('learn_choose_flute'); setShowMobileMenu(false); }}
+                    className="block w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
                   >
                     2. Choose the Right Flute
-                  </button>
-                  <button
-                    onClick={() => { onViewChange?.('budget_flutes'); setShowMobileMenu(false); }}
-                    className="w-full text-left text-xs font-bold text-amber-800 hover:text-amber-900 py-2 border-b border-bamboo-50 cursor-pointer flex items-center justify-between"
+                  </a>
+                  <a
+                    href={VIEW_URLS['budget_flutes'] || '/learn/budget-flutes'}
+                    onClick={(e) => { e.preventDefault(); onViewChange?.('budget_flutes'); setShowMobileMenu(false); }}
+                    className="flex items-center justify-between w-full text-left text-xs font-bold text-amber-800 hover:text-amber-900 py-2 border-b border-bamboo-50 cursor-pointer"
                   >
                     <span>🪈 Best Budget Flutes to Buy</span>
                     <span className="text-[9px] bg-amber-200 text-amber-950 font-bold px-1.5 py-0.5 rounded-full">Guide</span>
-                  </button>
-                  <button
-                    onClick={() => { onViewChange?.('learn_basics'); setShowMobileMenu(false); }}
-                    className="w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
+                  </a>
+                  <a
+                    href={VIEW_URLS['learn_basics'] || '/learn/basics'}
+                    onClick={(e) => { e.preventDefault(); onViewChange?.('learn_basics'); setShowMobileMenu(false); }}
+                    className="block w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
                   >
                     3. The Basics &amp; Blowing
-                  </button>
-                  <button
-                    onClick={() => { onViewChange?.('learn_fingering_chart'); setShowMobileMenu(false); }}
-                    className="w-full text-left text-xs font-bold text-amber-800 hover:text-bamboo-900 py-2 border-b border-bamboo-50 cursor-pointer flex items-center justify-between"
+                  </a>
+                  <a
+                    href={VIEW_URLS['learn_fingering_chart'] || '/learn/fingering-chart'}
+                    onClick={(e) => { e.preventDefault(); onViewChange?.('learn_fingering_chart'); setShowMobileMenu(false); }}
+                    className="flex items-center justify-between w-full text-left text-xs font-bold text-amber-800 hover:text-bamboo-900 py-2 border-b border-bamboo-50 cursor-pointer"
                   >
                     <span className="flex items-center gap-2">
                       <CircleDot className="w-3.5 h-3.5 text-amber-600" />
                       <span>Interactive Fingering Chart</span>
                     </span>
                     <span className="text-[9px] bg-amber-100 text-amber-800 font-bold px-1.5 py-0.5 rounded-full uppercase">Chart</span>
-                  </button>
-                  <button
-                    onClick={() => { onViewChange?.('learn_alankaras'); setShowMobileMenu(false); }}
-                    className="w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
+                  </a>
+                  <a
+                    href={VIEW_URLS['learn_alankaras'] || '/learn/alankaras'}
+                    onClick={(e) => { e.preventDefault(); onViewChange?.('learn_alankaras'); setShowMobileMenu(false); }}
+                    className="block w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
                   >
                     4. Alankaras Practice
-                  </button>
-                  <button
-                    onClick={() => { onViewChange?.('learn_daily_practice'); setShowMobileMenu(false); }}
-                    className="w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
+                  </a>
+                  <a
+                    href={VIEW_URLS['learn_daily_practice'] || '/learn/daily-practice'}
+                    onClick={(e) => { e.preventDefault(); onViewChange?.('learn_daily_practice'); setShowMobileMenu(false); }}
+                    className="block w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
                   >
                     5. Daily Flute Practice Guide
-                  </button>
-                  <button
-                    onClick={() => { onViewChange?.('learn_raagas'); setShowMobileMenu(false); }}
-                    className="w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 cursor-pointer"
+                  </a>
+                  <a
+                    href={VIEW_URLS['learn_raagas'] || '/learn/raagas'}
+                    onClick={(e) => { e.preventDefault(); onViewChange?.('learn_raagas'); setShowMobileMenu(false); }}
+                    className="block w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 cursor-pointer"
                   >
                     6. Indian Classical Raagas
-                  </button>
+                  </a>
                 </div>
               )}
             </div>
 
             {/* About Section */}
             <div className="pt-1 border-t border-bamboo-100">
-              <button
-                onClick={() => { onViewChange?.('about_us'); setShowMobileMenu(false); }}
+              <a
+                href={VIEW_URLS['about_us'] || '/about'}
+                onClick={(e) => { e.preventDefault(); onViewChange?.('about_us'); setShowMobileMenu(false); }}
                 className="w-full flex items-center justify-between p-2.5 text-xs font-semibold text-gray-600 hover:text-bamboo-900 transition cursor-pointer"
               >
                 <span className="flex items-center gap-2">
                   <Info className="w-4 h-4 text-amber-600" />
                   <span>About FluteSangam</span>
                 </span>
-              </button>
+              </a>
             </div>
           </div>
         )}

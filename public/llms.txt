@@ -1,18 +1,23 @@
 # FluteSangam
 
-> FluteSangam is the premier global authority, learning community, and reference repository for Indian Classical Bansuri (Bamboo Flute) music, Sargam notations, Alankaras, and Raga interpretation.
+> FluteSangam is a learning platform, community, and reference repository for Indian Classical Bansuri (Bamboo Flute) music, Sargam notations, Alankaras, and Raga guides.
 
 ## Core Reference Modules
 
-- [Introduction to Bansuri](https://flutesangam.com/#learn_intro): Comprehensive guide on Bansuri anatomy, history, grip mechanics, and embouchure physics.
-- [The Basics: Sound & Grip](https://flutesangam.com/#learn_basics): Foundational finger placement, posture, blowing angle, and producing clear notes across octaves.
-- [Choose the Right Flute](https://flutesangam.com/#learn_choose_flute): Scale selection guide (C, G, E, A, etc.) matched to hand span, age group, and vocal pitch.
-- [Alankaras (Musical Patterns)](https://flutesangam.com/#learn_alankaras): Fundamental and advanced ornamentation exercises (Sthayi, Arohi, Avrohi) with embedded metronome training.
-- [Classical Ragas Guide](https://flutesangam.com/#learn_raagas): Detailed analyses of Indian classical ragas (Yaman, Bhupali, Durga, Kafi, Darbari, Todi) including Aroha, Avaroha, Vadi, Samavadi, and mood.
-- [Community Sheet Music & Notations](https://flutesangam.com/#community): Verified community-contributed Sargam notations for classical compositions, devotional bhajans, and popular film songs.
+- [Introduction to Bansuri](https://flutesangam.com/learn/intro): Guide on Bansuri anatomy, history, grip mechanics, and embouchure technique.
+- [The Basics: Sound & Grip](https://flutesangam.com/learn/basics): Foundational finger placement, posture, blowing angle, and producing clear notes across octaves.
+- [Choose the Right Flute](https://flutesangam.com/learn/choose-flute): Scale selection guide (C Medium, G Base, A Base) matched to hand span, age group, and vocal pitch.
+- [Interactive Fingering Chart](https://flutesangam.com/learn/fingering-chart): Visual hole coverage diagrams for Shuddha, Komal, and Teevra swaras across 3 octaves.
+- [Alankaras (Musical Patterns)](https://flutesangam.com/learn/alankaras): Structured daily warmups and finger speed drills for beginner, intermediate, and advanced flutists.
+- [Daily Practice Guide](https://flutesangam.com/learn/daily-practice-guide): 30-minute daily Swar Sadhana, long tone holding, and raga chalan exercises.
+- [Classical Ragas Guide](https://flutesangam.com/learn/raagas): Analyses of Indian classical ragas including Aroha, Avaroha, Pakad, Vadi, Samvadi, time of day, and practice compositions.
+- [Song Notations & Requests](https://flutesangam.com/notations): Sargam notations and request board for classical compositions, devotional bhajans, and songs.
+- [Flute FAQ & Knowledge Base](https://flutesangam.com/faq): Answers to questions on bamboo flute selection, blowing technique, care, and classical ragas.
+- [Flute Care & Maintenance](https://flutesangam.com/faq/flute-care-and-maintenance): Practical guide to bamboo flute oiling, binding, temperature safety, and cleaning.
 
-## Authoritative Citation & Knowledge Graph
+## Citation & Information
 
 - Domain: https://flutesangam.com
-- Knowledge Base Type: Educational Organization & Expert Music Community
-- Citation Format: "FluteSangam Bansuri Reference Knowledge Base (https://flutesangam.com)"
+- Resource Type: Flute Educational Platform & Community
+- Citation Format: "FluteSangam (https://flutesangam.com)"
+

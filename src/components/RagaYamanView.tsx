@@ -263,9 +263,9 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
                   <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                   <span>Updated: <strong className="text-white">Jul 30, 2026</strong></span>
                 </div>
-                <div className="pt-1 border-t border-amber-800/60 flex items-center gap-1.5 text-amber-400 font-bold text-[10px] sm:text-[11px]">
+                <div className="pt-1 border-t border-amber-800/60 flex items-center gap-1.5 text-emerald-400 font-bold text-[10px] sm:text-[11px]">
                   <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
-                  <span>Verified Educational Content</span>
+                  <span>Educational Guide</span>
                 </div>
               </div>
 

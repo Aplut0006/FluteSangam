@@ -249,12 +249,12 @@ Finish on Sam: S`;
             <span>•</span>
             <div className="flex items-center gap-1">
               <Clock className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
-              <span>Verified Guide</span>
+              <span>Classical Guide</span>
             </div>
             <span>•</span>
-            <span className="inline-flex items-center gap-1 bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full text-[10px]">
-              <CheckCircle2 className="w-3 h-3 text-emerald-600 shrink-0" />
-              FluteSangam Verified
+            <span className="inline-flex items-center gap-1 bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-full text-[10px]">
+              <CheckCircle2 className="w-3 h-3 text-amber-600 shrink-0" />
+              FluteSangam Reference
             </span>
           </div>
         </div>

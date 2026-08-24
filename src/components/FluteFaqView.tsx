@@ -1741,7 +1741,7 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
   // Inject dynamic SEO Title, Meta Description, and Canonical Link based on selected category
   useEffect(() => {
     let title = 'Flute FAQ | Common Questions & Answers for Flute Learners | FluteSangam';
-    let description = 'Find answers to common flute questions about learning, practice, bamboo flutes, raagas, breathing, maintenance, and more. Explore the FluteSangam FAQ for helpful guidance';
+    let description = 'Find answers to common flute questions about learning, practice, bamboo flutes, raagas, breathing, maintenance, and more. Explore the FluteSangam FAQ for helpful guidance.';
 
     switch (selectedCategory) {
       case 'Getting Started':
@@ -1756,25 +1756,13 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
         title = 'Adult Learners Flute FAQ | Starting Flute Later in Life | FluteSangam';
         description = 'Comprehensive answers for adult flute learners: starting age, practice routines with full-time jobs, beginner scales, self-learning tips, and breath control.';
         break;
-      case 'Choosing the Right Flute':
-        title = 'Choosing the Right Flute FAQ | Scales, Base vs Medium Bansuri | FluteSangam';
-        description = 'Frequently asked questions on how to choose the right flute scale, C Middle vs A Base vs G Base, bamboo quality, and beginner recommendations.';
-        break;
       case 'Playing Techniques':
         title = 'Playing Techniques Flute FAQ | Meend, Gamak & Ornamentation | FluteSangam';
-        description = 'Frequently asked questions about advanced bansuri playing techniques including Meend glides, Gamak oscillations, Komal notes, and breath control.';
+        description = 'Frequently asked questions about bansuri playing techniques including Meend glides, Gamak oscillations, Komal notes, and breath control.';
         break;
       case 'Advanced Techniques':
         title = 'Advanced Flute Techniques FAQ | Meend, Gamak, Murki, Khatka & Kan Swar | FluteSangam';
         description = 'Comprehensive answers to advanced flute questions covering Meend, Gamak, Murki, Khatka, Kan Swar ornamentation, vibrato, and performance mastery on bansuri.';
-        break;
-      case 'Children & Beginners':
-        title = 'Children & Beginners Flute FAQ | Bansuri for Kids & Novices | FluteSangam';
-        description = 'Frequently asked questions about children learning flute, best flute sizes for kids, beginner practice routines, first notes, and learning without prior music theory.';
-        break;
-      case 'Flute Tuning & Pitch':
-        title = 'Flute Tuning & Pitch FAQ | Chromatic Tuners, A=440Hz & Pitch Control | FluteSangam';
-        description = 'Frequently asked questions about flute tuning, pitch accuracy, A=440Hz standard, cents in music, breath pressure pitch shifts, and tanpura alignment.';
         break;
       case 'Daily Practice':
         title = 'Daily Flute Practice FAQ | Routines, Sadhana & Timing | FluteSangam';
@@ -1784,8 +1772,9 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
         title = 'Scales & Alankars Flute FAQ | Sargam Patterns & Finger Speed | FluteSangam';
         description = 'Frequently asked questions about Alankar finger drills, sargam patterns, building finger speed, metronome practice, and scale transposing.';
         break;
+      case 'Raagas & Sargam':
       case 'Raagas':
-        title = 'Raagas & Classical Music FAQ | Hindustani Raga Rules & Practice | FluteSangam';
+        title = 'Raagas & Sargam FAQ | Hindustani Raga Rules & Practice | FluteSangam';
         description = 'Answers to classical raga questions: Aroh-Avroh, Pakad, Vadi-Samvadi, Chalan, Aalap, Bandish, Taans, and daily raga practice for bansuri.';
         break;
       case 'Flute Care & Maintenance':
@@ -1796,16 +1785,28 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
         title = 'Health & Breathing Flute FAQ | Diaphragmatic Breath & Posture | FluteSangam';
         description = 'Frequently asked questions about breathing techniques, lung capacity, diaphragmatic support, posture alignment, lip fatigue, hand health, and practice habits for flute players.';
         break;
+      case 'Children & Beginners':
+        title = 'Children & Beginners Flute FAQ | Bansuri for Kids & Novices | FluteSangam';
+        description = 'Frequently asked questions about children learning flute, best flute sizes for kids, beginner practice routines, first notes, and learning without prior music theory.';
+        break;
+      case 'Music Theory & Notation':
       case 'Music Theory & Tuning':
-        title = 'Music Theory & Tuning FAQ | Pitch, Tanpura & Microtones | FluteSangam';
-        description = 'Answers to music theory and tuning questions: 440Hz tuning, Tanpura drone setup, microtones (Shrutis), and Hindustani notation systems.';
+        title = 'Music Theory & Notation FAQ | Swaras, Shrutis & Tanpura | FluteSangam';
+        description = 'Answers to music theory and notation questions: 12 Swaras, Bhatkhande notation, Tanpura tuning, microtones (Shrutis), and Western scale equivalents.';
         break;
+      case 'Tuning & Pitch Calibration':
+      case 'Flute Tuning & Pitch':
+        title = 'Flute Tuning & Pitch Calibration FAQ | A=440Hz & Tuner Tools | FluteSangam';
+        description = 'Frequently asked questions about flute tuning, pitch accuracy, A=440Hz standard, cents in music, breath pressure pitch shifts, and chromatic tuners.';
+        break;
+      case 'Flute Accessories & Gear':
       case 'Flute Accessories':
-        title = 'Flute Accessories FAQ | Cases, Stands, Tuners & Mics | FluteSangam';
-        description = 'Comprehensive answers to flute accessories questions: cases, covers, cleaning rods, microfiber cloths, stands, tanpura apps, tuners, microphones, travel bags, and gift recommendations.';
+        title = 'Flute Accessories & Gear FAQ | Cases, Stands, Tuners & Mics | FluteSangam';
+        description = 'Comprehensive answers to flute accessories questions: cases, covers, cleaning rods, microfiber cloths, stands, tanpura apps, tuners, and microphones.';
         break;
+      case 'Flute Types & Scales':
       case 'Flute Types':
-        title = 'Flute Types FAQ | Bansuri, PVC, Western, Bass & Piccolo | FluteSangam';
+        title = 'Flute Types & Scales FAQ | Bansuri, PVC, Western & Bass Flutes | FluteSangam';
         description = 'Comprehensive answers to flute types questions: bamboo bansuri, PVC flutes, Western concert flutes, bass flutes, piccolos, key choices, and buying comparisons.';
         break;
       case 'FluteSangam Platform':
@@ -1894,21 +1895,21 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
     setHelpfulFeedback(prev => ({ ...prev, [id]: choice }));
   };
 
-  // Generate structured FAQ Schema for Google SEO Rich Snippets
+  // Generate structured FAQ Schema for Google SEO Rich Snippets limited to visibly present questions on this page
   const faqSchemaJson = useMemo(() => {
     return {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": FAQ_DATA.map(item => ({
+      "mainEntity": visibleFaqs.map(item => ({
         "@type": "Question",
         "name": item.question,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": item.answer
+          "text": item.answer.replace(/\n/g, ' ')
         }
       }))
     };
-  }, []);
+  }, [visibleFaqs]);
 
   return (
     <motion.div 
@@ -1949,7 +1950,7 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
             </div>
             <div className="flex items-center gap-1.5">
               <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
-              <span>Verified Guru &amp; Community Answers</span>
+              <span>Structured Answers &amp; Community Insights</span>
             </div>
             <div className="flex items-center gap-1.5">
               <Layers className="w-3.5 h-3.5 text-amber-400" />
@@ -2037,11 +2038,19 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
               ? FAQ_DATA.length 
               : FAQ_DATA.filter(f => f.category === cat || ((cat === 'Choosing a Flute' || cat === 'Choosing the Right Flute') && (f.category === 'Choosing a Flute' || f.category === 'Choosing the Right Flute'))).length;
             const isActive = selectedCategory === cat;
+            const catSlug = CATEGORY_SLUGS[cat] || '';
+            const catHref = catSlug ? `/faq/${catSlug}` : '/faq';
 
             return (
-              <button
+              <a
                 key={cat}
-                onClick={() => handleCategorySelect(cat)}
+                href={catHref}
+                onClick={(e) => {
+                  if (!e.ctrlKey && !e.metaKey) {
+                    e.preventDefault();
+                    handleCategorySelect(cat);
+                  }
+                }}
                 className={`px-3.5 py-1.5 rounded-xl font-bold whitespace-nowrap transition-all cursor-pointer flex items-center gap-1.5 shrink-0 ${
                   isActive
                     ? 'bg-amber-600 text-white shadow-xs border border-amber-700'
@@ -2054,7 +2063,7 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
                 }`}>
                   {count}
                 </span>
-              </button>
+              </a>
             );
           })}
         </div>
@@ -2074,7 +2083,7 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
             The Indian bamboo flute (Bansuri) is one of humanity's oldest and purest musical instruments. Crafting a soulful sound from a simple piece of Assam bamboo requires an exquisite harmony of physical technique, mindful breath control, emotional expression, and continuous practice (Sadhana). Because self-learning or finding a traditional Guru can sometimes feel overwhelming, FluteSangam has compiled this comprehensive Help Center &amp; FAQ library to empower every flutist on their journey.
           </p>
           <p>
-            Our answers cover the entire spectrum of flute playing—from selecting your very first beginner scale (such as C Medium or G Medium) and mastering your lip embouchure, to executing smooth Alankars, practicing classical Hindustani raagas (like Bhoopali or Yaman), maintaining bamboo durability, and utilizing digital tuners. Browse through the categories or search for specific terms to discover practical, guru-verified answers tailored specifically for your progress!
+            Our answers cover the entire spectrum of flute playing—from selecting your very first beginner scale (such as C Medium or G Medium) and mastering your lip embouchure, to executing smooth Alankars, practicing classical Hindustani raagas (like Bhoopali or Yaman), maintaining bamboo durability, and utilizing digital tuners. Browse through the categories or search for specific terms to discover practical, structured answers tailored specifically for your progress!
           </p>
         </div>
       </section>

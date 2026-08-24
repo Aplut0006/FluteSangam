@@ -185,7 +185,7 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
             </div>
             <div className="flex items-center gap-1.5">
               <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-              <span className="text-emerald-300 font-medium">Verified Flute Sangam Lesson</span>
+              <span className="text-emerald-300 font-medium">Educational Guide</span>
             </div>
           </div>
 

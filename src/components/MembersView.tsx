@@ -56,11 +56,11 @@ export default function MembersView({
               <Users className="w-3.5 h-3.5 text-amber-700" />
               <span>Sadhaka Community Directory</span>
             </span>
-            <h2 className="text-2xl sm:text-3xl font-display font-bold text-bamboo-950">
-              Sign In Required
-            </h2>
+            <h1 className="text-2xl sm:text-3xl font-display font-bold text-bamboo-950">
+              FluteSangam Community Members
+            </h1>
             <p className="text-xs sm:text-sm text-gray-600 max-w-md mx-auto leading-relaxed">
-              Please sign in or create an account to view community members, explore flutist profiles, and connect with fellow learners worldwide.
+              Please sign in or create a free account to view the community directory, explore flutist profiles, and connect with fellow learners and mentors worldwide.
             </p>
           </div>
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">

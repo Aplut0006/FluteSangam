@@ -252,7 +252,7 @@ export default function App() {
     switch (currentView) {
       case 'community':
         title = 'FluteSangam | Learn Flute, Bansuri & Connect with Flutists';
-        description = 'FluteSangam is the premier Indian flute and bansuri sargam learning community. Explore community posts, audio recitals, questions, and member discussions.';
+        description = 'FluteSangam is an Indian flute and bansuri sargam learning community. Explore community posts, audio recitals, questions, and member discussions.';
         break;
       case 'chats':
         title = 'Direct Messages & Chat | FluteSangam Community';

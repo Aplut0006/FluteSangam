@@ -308,7 +308,7 @@ S`;
             </div>
             <div className="flex items-center gap-1.5 text-emerald-300 font-semibold bg-emerald-950/40 px-2.5 py-1 rounded-full border border-emerald-500/30 text-[11px]">
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Verified FluteSangam Lesson</span>
+              <span>Educational Guide</span>
             </div>
           </div>
         </div>

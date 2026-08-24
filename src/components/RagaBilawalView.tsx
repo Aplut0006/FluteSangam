@@ -275,7 +275,7 @@ export default function RagaBilawalView({ onViewChange }: RagaBilawalViewProps) 
                 </div>
                 <div className="pt-1.5 border-t border-amber-800/60 flex items-center gap-1.5 text-amber-400 font-bold text-[10px] sm:text-[11px]">
                   <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-400" />
-                  <span>Verified Educational Content</span>
+                  <span>Educational Guide</span>
                 </div>
               </div>
             </div>

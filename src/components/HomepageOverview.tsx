@@ -7,6 +7,7 @@ import {
   Volume2, Target, Mic, Layers, Activity
 } from 'lucide-react';
 import { AppView, UserProfile } from '../types';
+import { VIEW_URLS } from '../routes';
 
 interface HomepageOverviewProps {
   onViewChange: (view: AppView) => void;
@@ -206,7 +207,7 @@ export default function HomepageOverview({
       view: 'notation_requests' as AppView,
       icon: FileText,
       badge: 'Community Notation',
-      features: ['Bollywood & Devotional', 'Verified Swaras', 'Community Requests'],
+      features: ['Bollywood & Devotional', 'Accurate Sargam Notes', 'Community Requests'],
       gradient: 'from-amber-500/15 via-bamboo-500/5 to-transparent',
       borderColor: 'border-amber-200'
     },
@@ -254,13 +255,17 @@ export default function HomepageOverview({
               </div>
 
               <div className="space-y-2">
-                <button
-                  onClick={() => onViewChange('learn_dashboard')}
-                  className="w-full py-2.5 px-4 bg-amber-400 hover:bg-amber-300 text-bamboo-950 font-black text-xs rounded-xl transition shadow-md flex items-center justify-center gap-2 uppercase tracking-wide cursor-pointer"
+                <a
+                  href={VIEW_URLS['learn_dashboard'] || '/learn'}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onViewChange('learn_dashboard');
+                  }}
+                  className="w-full py-2.5 px-4 bg-amber-400 hover:bg-amber-300 text-bamboo-950 font-black text-xs rounded-xl transition shadow-md flex items-center justify-center gap-2 uppercase tracking-wide cursor-pointer text-center"
                 >
                   <BookOpen className="w-4 h-4" />
                   <span>Explore Learning Hub</span>
-                </button>
+                </a>
                 <button
                   onClick={() => {
                     const el = document.getElementById('recent-discussions-section');
@@ -340,28 +345,37 @@ export default function HomepageOverview({
               Step-by-step learning modules designed for beginners, self-learners, and classical students.
             </p>
           </div>
-          <button
-            onClick={() => onViewChange('learn_dashboard')}
+          <a
+            href={VIEW_URLS['learn_dashboard'] || '/learn'}
+            onClick={(e) => {
+              e.preventDefault();
+              onViewChange('learn_dashboard');
+            }}
             className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 text-xs font-bold rounded-xl transition self-start sm:self-center cursor-pointer shadow-2xs group"
           >
             <span>View All Modules</span>
             <ArrowRight className="w-4 h-4 text-amber-700 group-hover:translate-x-1 transition-transform" />
-          </button>
+          </a>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {learningModules.map((module, idx) => {
             const IconComp = module.icon;
+            const targetUrl = VIEW_URLS[module.view] || '/learn';
             return (
-              <motion.div 
+              <motion.a 
                 key={module.id}
+                href={targetUrl}
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: idx * 0.08 }}
                 whileHover={{ y: -5 }}
-                onClick={() => onViewChange(module.view)}
-                className="bg-gradient-to-b from-white to-amber-50/30 rounded-2xl p-5 border border-amber-200/80 shadow-2xs hover:shadow-md hover:border-amber-400 transition-all cursor-pointer group flex flex-col justify-between space-y-4 relative overflow-hidden"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onViewChange(module.view);
+                }}
+                className="bg-gradient-to-b from-white to-amber-50/30 rounded-2xl p-5 border border-amber-200/80 shadow-2xs hover:shadow-md hover:border-amber-400 transition-all cursor-pointer group flex flex-col justify-between space-y-4 relative overflow-hidden text-left"
               >
                 {/* Subtle background glow */}
                 <div className="absolute top-0 right-0 w-24 h-24 bg-amber-400/5 rounded-full blur-xl group-hover:bg-amber-400/15 transition-all pointer-events-none" />
@@ -402,7 +416,7 @@ export default function HomepageOverview({
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </div>
-              </motion.div>
+              </motion.a>
             );
           })}
         </div>
@@ -423,87 +437,98 @@ export default function HomepageOverview({
               In-depth guides featuring swara notes, Aaroh, Avaroh, Pakad, Chalan, Alankars, and practice compositions.
             </p>
           </div>
-          <button
-            onClick={() => onViewChange('learn_raagas')}
+          <a
+            href={VIEW_URLS['learn_raagas'] || '/learn/raagas'}
+            onClick={(e) => {
+              e.preventDefault();
+              onViewChange('learn_raagas');
+            }}
             className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 text-xs font-bold rounded-xl transition self-start sm:self-center cursor-pointer shadow-2xs group"
           >
             <span>View All Ragas</span>
             <ArrowRight className="w-4 h-4 text-amber-700 group-hover:translate-x-1 transition-transform" />
-          </button>
+          </a>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {featuredRaagas.map((raga, idx) => (
-            <motion.div
-              key={raga.name}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.35, delay: idx * 0.1 }}
-              whileHover={{ y: -5 }}
-              onClick={() => onViewChange(raga.view)}
-              className="bg-white rounded-2xl p-5 border border-amber-200/80 shadow-2xs hover:shadow-md hover:border-amber-400 transition-all cursor-pointer group space-y-4 flex flex-col justify-between relative overflow-hidden"
-            >
-              {/* Header Badge Strip */}
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider bg-amber-100/80 text-amber-900 px-2.5 py-0.5 rounded-full border border-amber-200">
-                    {raga.badge}
-                  </span>
-                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md border ${
-                    raga.difficulty === 'Beginner' ? 'bg-emerald-50 text-emerald-800 border-emerald-200' : 'bg-blue-50 text-blue-800 border-blue-200'
-                  }`}>
-                    {raga.difficulty}
-                  </span>
-                </div>
+          {featuredRaagas.map((raga, idx) => {
+            const targetUrl = VIEW_URLS[raga.view] || '/learn/raagas';
+            return (
+              <motion.a
+                key={raga.name}
+                href={targetUrl}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: idx * 0.1 }}
+                whileHover={{ y: -5 }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onViewChange(raga.view);
+                }}
+                className="bg-white rounded-2xl p-5 border border-amber-200/80 shadow-2xs hover:shadow-md hover:border-amber-400 transition-all cursor-pointer group space-y-4 flex flex-col justify-between relative overflow-hidden text-left"
+              >
+                {/* Header Badge Strip */}
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider bg-amber-100/80 text-amber-900 px-2.5 py-0.5 rounded-full border border-amber-200">
+                      {raga.badge}
+                    </span>
+                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md border ${
+                      raga.difficulty === 'Beginner' ? 'bg-emerald-50 text-emerald-800 border-emerald-200' : 'bg-blue-50 text-blue-800 border-blue-200'
+                    }`}>
+                      {raga.difficulty}
+                    </span>
+                  </div>
 
-                <div>
-                  <h3 className="font-bold text-bamboo-950 text-xl group-hover:text-amber-900 transition-colors font-display">
-                    {raga.name}
-                  </h3>
-                  <p className="text-[11px] text-amber-800 font-medium italic mt-0.5">
-                    Mood: {raga.mood}
+                  <div>
+                    <h3 className="font-bold text-bamboo-950 text-xl group-hover:text-amber-900 transition-colors font-display">
+                      {raga.name}
+                    </h3>
+                    <p className="text-[11px] text-amber-800 font-medium italic mt-0.5">
+                      Mood: {raga.mood}
+                    </p>
+                  </div>
+
+                  {/* Raaga Quick Details Grid */}
+                  <div className="grid grid-cols-2 gap-2 text-[11px] bg-amber-50/70 p-3 rounded-xl border border-amber-100/80">
+                    <div>
+                      <span className="text-gray-500 block text-[10px] uppercase font-bold tracking-wider">Thaat</span>
+                      <strong className="text-bamboo-950 font-semibold">{raga.thaat}</strong>
+                    </div>
+                    <div>
+                      <span className="text-gray-500 block text-[10px] uppercase font-bold tracking-wider">Jati</span>
+                      <strong className="text-bamboo-950 font-semibold">{raga.jati}</strong>
+                    </div>
+                  </div>
+
+                  {/* Swara Notes Preview */}
+                  <div className="bg-bamboo-950 text-amber-200 p-2.5 rounded-xl text-[11px] font-mono space-y-1.5 border border-amber-800/40">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] text-amber-400/80 uppercase tracking-widest font-sans font-bold shrink-0">Aaroh:</span>
+                      <span className="font-bold tracking-wider text-right">{raga.notes}</span>
+                    </div>
+                    <div className="flex items-center justify-between border-t border-amber-900/60 pt-1.5">
+                      <span className="text-[10px] text-amber-400/80 uppercase tracking-widest font-sans font-bold shrink-0">Avaroh:</span>
+                      <span className="font-bold tracking-wider text-right">{raga.avaroh}</span>
+                    </div>
+                  </div>
+
+                  <p className="text-[11px] text-gray-600 flex items-center gap-1.5 pt-1">
+                    <Clock className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                    <span>{raga.time}</span>
                   </p>
                 </div>
 
-                {/* Raaga Quick Details Grid */}
-                <div className="grid grid-cols-2 gap-2 text-[11px] bg-amber-50/70 p-3 rounded-xl border border-amber-100/80">
-                  <div>
-                    <span className="text-gray-500 block text-[10px] uppercase font-bold tracking-wider">Thaat</span>
-                    <strong className="text-bamboo-950 font-semibold">{raga.thaat}</strong>
-                  </div>
-                  <div>
-                    <span className="text-gray-500 block text-[10px] uppercase font-bold tracking-wider">Jati</span>
-                    <strong className="text-bamboo-950 font-semibold">{raga.jati}</strong>
+                <div className="pt-3 border-t border-amber-100 flex items-center justify-between text-xs font-bold text-amber-800 group-hover:text-amber-950 transition-colors">
+                  <span>Explore {raga.name} Guide</span>
+                  <div className="p-1.5 rounded-lg bg-amber-100/60 text-amber-800 group-hover:bg-amber-800 group-hover:text-amber-100 transition-all">
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </div>
-
-                {/* Swara Notes Preview */}
-                <div className="bg-bamboo-950 text-amber-200 p-2.5 rounded-xl text-[11px] font-mono space-y-1.5 border border-amber-800/40">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] text-amber-400/80 uppercase tracking-widest font-sans font-bold shrink-0">Aaroh:</span>
-                    <span className="font-bold tracking-wider text-right">{raga.notes}</span>
-                  </div>
-                  <div className="flex items-center justify-between border-t border-amber-900/60 pt-1.5">
-                    <span className="text-[10px] text-amber-400/80 uppercase tracking-widest font-sans font-bold shrink-0">Avaroh:</span>
-                    <span className="font-bold tracking-wider text-right">{raga.avaroh}</span>
-                  </div>
-                </div>
-
-                <p className="text-[11px] text-gray-600 flex items-center gap-1.5 pt-1">
-                  <Clock className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-                  <span>{raga.time}</span>
-                </p>
-              </div>
-
-              <div className="pt-3 border-t border-amber-100 flex items-center justify-between text-xs font-bold text-amber-800 group-hover:text-amber-950 transition-colors">
-                <span>Explore {raga.name} Guide</span>
-                <div className="p-1.5 rounded-lg bg-amber-100/60 text-amber-800 group-hover:bg-amber-800 group-hover:text-amber-100 transition-all">
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.a>
+            );
+          })}
         </div>
       </section>
 
@@ -527,16 +552,21 @@ export default function HomepageOverview({
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {interactiveTools.map((tool, idx) => {
             const IconComp = tool.icon;
+            const targetUrl = VIEW_URLS[tool.view] || '/tuner';
             return (
-              <motion.div 
+              <motion.a 
                 key={tool.title}
+                href={targetUrl}
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: idx * 0.08 }}
                 whileHover={{ y: -5 }}
-                onClick={() => onViewChange(tool.view)}
-                className="bg-white rounded-2xl p-5 border border-amber-200/80 shadow-2xs hover:shadow-md hover:border-amber-400 transition-all cursor-pointer group space-y-4 flex flex-col justify-between relative overflow-hidden"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onViewChange(tool.view);
+                }}
+                className="bg-white rounded-2xl p-5 border border-amber-200/80 shadow-2xs hover:shadow-md hover:border-amber-400 transition-all cursor-pointer group space-y-4 flex flex-col justify-between relative overflow-hidden text-left"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
@@ -574,7 +604,7 @@ export default function HomepageOverview({
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </div>
-              </motion.div>
+              </motion.a>
             );
           })}
         </div>
@@ -598,61 +628,71 @@ export default function HomepageOverview({
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {latestArticles.map((article, idx) => (
-            <motion.article
-              key={idx}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.35, delay: idx * 0.1 }}
-              whileHover={{ y: -5 }}
-              onClick={() => onViewChange(article.targetView)}
-              className="bg-white rounded-2xl p-6 border border-amber-200/80 shadow-2xs hover:shadow-md hover:border-amber-400 transition-all cursor-pointer group space-y-4 flex flex-col justify-between relative overflow-hidden"
-            >
-              <div className="space-y-3">
-                <div className="flex items-center justify-between text-[11px]">
-                  <span className="font-bold text-amber-900 bg-amber-100/80 px-2.5 py-0.5 rounded-full border border-amber-200">
-                    {article.category}
-                  </span>
-                  <div className="flex items-center gap-2 text-gray-500 font-medium">
-                    <span className="flex items-center gap-1">
-                      <Calendar className="w-3 h-3 text-amber-600" />
-                      {article.date}
+          {latestArticles.map((article, idx) => {
+            const targetUrl = VIEW_URLS[article.targetView] || '/learn';
+            return (
+              <motion.article
+                key={idx}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: idx * 0.1 }}
+                whileHover={{ y: -5 }}
+                onClick={() => onViewChange(article.targetView)}
+                className="bg-white rounded-2xl p-6 border border-amber-200/80 shadow-2xs hover:shadow-md hover:border-amber-400 transition-all cursor-pointer group space-y-4 flex flex-col justify-between relative overflow-hidden"
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between text-[11px]">
+                    <span className="font-bold text-amber-900 bg-amber-100/80 px-2.5 py-0.5 rounded-full border border-amber-200">
+                      {article.category}
                     </span>
-                    <span>•</span>
-                    <span className="flex items-center gap-1">
-                      <Clock className="w-3 h-3 text-amber-600" />
-                      {article.readTime}
-                    </span>
+                    <div className="flex items-center gap-2 text-gray-500 font-medium">
+                      <span className="flex items-center gap-1">
+                        <Calendar className="w-3 h-3 text-amber-600" />
+                        {article.date}
+                      </span>
+                      <span>•</span>
+                      <span className="flex items-center gap-1">
+                        <Clock className="w-3 h-3 text-amber-600" />
+                        {article.readTime}
+                      </span>
+                    </div>
+                  </div>
+
+                  <h3 className="font-bold text-bamboo-950 text-lg sm:text-xl group-hover:text-amber-900 transition-colors leading-snug font-display">
+                    {article.title}
+                  </h3>
+
+                  <p className="text-xs text-gray-600 leading-relaxed">
+                    {article.excerpt}
+                  </p>
+
+                  {/* Article Highlights */}
+                  <div className="pt-2 flex flex-wrap gap-2">
+                    {article.highlights.map((tag, tIdx) => (
+                      <span key={tIdx} className="text-[10px] font-semibold text-bamboo-900 bg-amber-50/80 border border-amber-100 px-2 py-0.5 rounded-md">
+                        ✓ {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
 
-                <h3 className="font-bold text-bamboo-950 text-lg sm:text-xl group-hover:text-amber-900 transition-colors leading-snug font-display">
-                  {article.title}
-                </h3>
-
-                <p className="text-xs text-gray-600 leading-relaxed">
-                  {article.excerpt}
-                </p>
-
-                {/* Article Highlights */}
-                <div className="pt-2 flex flex-wrap gap-2">
-                  {article.highlights.map((tag, tIdx) => (
-                    <span key={tIdx} className="text-[10px] font-semibold text-bamboo-900 bg-amber-50/80 border border-amber-100 px-2 py-0.5 rounded-md">
-                      ✓ {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="pt-3 border-t border-amber-100 flex items-center justify-between text-xs font-bold text-amber-800 group-hover:text-amber-950 transition-colors">
-                <span>Read Full Article</span>
-                <div className="p-1.5 rounded-lg bg-amber-100/60 text-amber-800 group-hover:bg-amber-800 group-hover:text-amber-100 transition-all">
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                </div>
-              </div>
-            </motion.article>
-          ))}
+                <a
+                  href={targetUrl}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onViewChange(article.targetView);
+                  }}
+                  className="pt-3 border-t border-amber-100 flex items-center justify-between text-xs font-bold text-amber-800 group-hover:text-amber-950 transition-colors cursor-pointer"
+                >
+                  <span>Read Full Article</span>
+                  <div className="p-1.5 rounded-lg bg-amber-100/60 text-amber-800 group-hover:bg-amber-800 group-hover:text-amber-100 transition-all">
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </a>
+              </motion.article>
+            );
+          })}
         </div>
       </section>
 
@@ -682,13 +722,17 @@ export default function HomepageOverview({
               <MessageSquare className="w-3.5 h-3.5" />
               <span>Explore Community Discussions</span>
             </button>
-            <button
-              onClick={() => onViewChange('notation_requests')}
+            <a
+              href={VIEW_URLS['notation_requests'] || '/notations'}
+              onClick={(e) => {
+                e.preventDefault();
+                onViewChange('notation_requests');
+              }}
               className="px-4 py-2 bg-white/15 hover:bg-white/25 text-white font-bold text-xs rounded-xl border border-white/20 transition flex items-center gap-1.5 cursor-pointer"
             >
               <FileText className="w-3.5 h-3.5 text-amber-300" />
               <span>Request Song Sargams</span>
-            </button>
+            </a>
           </div>
         </div>
 
@@ -709,9 +753,13 @@ export default function HomepageOverview({
             </p>
           </div>
 
-          <div 
-            onClick={() => onViewChange('notation_requests')}
-            className="p-5 bg-white/10 backdrop-blur-md rounded-2xl border border-white/15 hover:border-amber-400/50 transition cursor-pointer space-y-2 group"
+          <a 
+            href={VIEW_URLS['notation_requests'] || '/notations'}
+            onClick={(e) => {
+              e.preventDefault();
+              onViewChange('notation_requests');
+            }}
+            className="p-5 bg-white/10 backdrop-blur-md rounded-2xl border border-white/15 hover:border-amber-400/50 transition cursor-pointer space-y-2 group block"
           >
             <div className="flex items-center justify-between">
               <span className="font-bold text-amber-300 text-sm flex items-center gap-1.5">
@@ -723,11 +771,15 @@ export default function HomepageOverview({
             <p className="text-amber-100/80 leading-relaxed">
               Browse community-transcribed sargam sheet music for popular film songs, classical bandishes, bhajans, and folk melodies.
             </p>
-          </div>
+          </a>
 
-          <div 
-            onClick={() => onViewChange('community_members')}
-            className="p-5 bg-white/10 backdrop-blur-md rounded-2xl border border-white/15 hover:border-amber-400/50 transition cursor-pointer space-y-2 group"
+          <a 
+            href={VIEW_URLS['community_members'] || '/members'}
+            onClick={(e) => {
+              e.preventDefault();
+              onViewChange('community_members');
+            }}
+            className="p-5 bg-white/10 backdrop-blur-md rounded-2xl border border-white/15 hover:border-amber-400/50 transition cursor-pointer space-y-2 group block"
           >
             <div className="flex items-center justify-between">
               <span className="font-bold text-amber-300 text-sm flex items-center gap-1.5">
@@ -739,7 +791,7 @@ export default function HomepageOverview({
             <p className="text-amber-100/80 leading-relaxed">
               Find flute learning partners, connect with experienced bansuri players, and build your musical circle.
             </p>
-          </div>
+          </a>
         </div>
       </section>
 
@@ -752,23 +804,31 @@ export default function HomepageOverview({
               Why FluteSangam? Educational Integrity &amp; Quality
             </h2>
             <p className="text-xs text-gray-600 max-w-2xl">
-              All music notations, raga details, and blowing exercises on FluteSangam are curated and verified by experienced Hindustani classical flute practitioners.
+              All music notations, raga details, and blowing exercises on FluteSangam are curated and organized for Indian bamboo flute (Bansuri) practitioners.
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-2 shrink-0">
-            <button
-              onClick={() => onViewChange('about_us')}
+            <a
+              href={VIEW_URLS['about_us'] || '/about'}
+              onClick={(e) => {
+                e.preventDefault();
+                onViewChange('about_us');
+              }}
               className="px-3.5 py-1.5 bg-amber-50 hover:bg-amber-100 text-bamboo-900 border border-amber-200 text-xs font-bold rounded-xl transition cursor-pointer"
             >
               About FluteSangam
-            </button>
-            <button
-              onClick={() => onViewChange('founder')}
+            </a>
+            <a
+              href={VIEW_URLS['founder'] || '/founder'}
+              onClick={(e) => {
+                e.preventDefault();
+                onViewChange('founder');
+              }}
               className="px-3.5 py-1.5 bg-amber-100 hover:bg-amber-200 text-amber-900 border border-amber-300 text-xs font-bold rounded-xl transition cursor-pointer"
             >
               Founder Profile
-            </button>
+            </a>
           </div>
         </div>
 
