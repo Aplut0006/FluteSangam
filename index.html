@@ -202,10 +202,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin />
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
     <link rel="preload" as="image" href="/flutesangam_without_tagline_compressed.png" type="image/png" fetchpriority="high" />
 
-    <!-- Google Fonts stylesheet -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Outfit:wght@600;700;800&amp;family=Playfair+Display:wght@600;700&amp;display=swap" />
+    <!-- Google Fonts stylesheet - Non-blocking asynchronous loading with font-display: swap -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Outfit:wght@600;700;800&amp;family=Playfair+Display:wght@600;700&amp;display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Outfit:wght@600;700;800&amp;family=Playfair+Display:wght@600;700&amp;display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Outfit:wght@600;700;800&amp;family=Playfair+Display:wght@600;700&amp;display=swap" />
+    </noscript>
 
     <!-- Icons & Manifest -->
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png" />

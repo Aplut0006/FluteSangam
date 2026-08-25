@@ -240,68 +240,6 @@ export default function App() {
   const [isNavbarEditingProfile, setIsNavbarEditingProfile] = useState(false);
   const [selectedImageUrl, setSelectedImageUrl] = useState<string | null>(null);
 
-  // Background Idle Preloader for Page Chunks so page switching is instant
-  useEffect(() => {
-    const preloadViews = () => {
-      const viewsToPreload = [
-        LearnDashboard,
-        LearnIntroView,
-        LearnBasicsView,
-        LearnFingeringChartView,
-        LearnChooseFluteView,
-        LearnTunerView,
-        LearnAlankarasView,
-        DailyPracticeGuideView,
-        LearnScalesOctavesView,
-        CommonFluteMistakesView,
-        FluteFaqView,
-        AlankarGeneratorView,
-        LearnRaagasView,
-        RagaGuide,
-        RagaBhoopaliView,
-        RagaDurgaView,
-        RagaYamanView,
-        RagaHamsadhwaniView,
-        RagaBilawalView,
-        RagaDeshView,
-        RagaKafiView,
-        RagaBageshreeView,
-        RagaBhimpalasiView,
-        RagaBrindavaniSarangView,
-        RagaKhamajView,
-        RagaBhairavView,
-        RagaBihagView,
-        RagaMalkaunsView,
-        RagaMarwaView,
-        RagaJogView,
-        RagaTilangView,
-        BudgetFlutesView,
-        FluteNoteKeyConverterView,
-        HowToFindSongScaleView,
-        AboutUsView,
-        FounderView,
-        ContactUsView,
-        NotationRequestsView,
-        MembersView,
-        ChatSection
-      ];
-
-      viewsToPreload.forEach((comp: any) => {
-        if (comp && typeof comp.preload === 'function') {
-          comp.preload();
-        }
-      });
-    };
-
-    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-      const idleId = (window as any).requestIdleCallback(preloadViews, { timeout: 2000 });
-      return () => (window as any).cancelIdleCallback(idleId);
-    } else {
-      const timer = setTimeout(preloadViews, 1000);
-      return () => clearTimeout(timer);
-    }
-  }, []);
-
   // Dynamic SEO Title & Meta Description Management
   useEffect(() => {
     let title = 'FluteSangam | Learn Flute, Bansuri & Connect with Flutists';
@@ -956,12 +894,14 @@ export default function App() {
         console.warn("Auth initialization warning:", err);
       }
 
-      // Seed database if empty and subscribe to real-time posts
+      // Subscribe to real-time posts immediately without blocking
       try {
-        await seedDatabaseIfEmpty();
         unsubscribePosts = subscribeToPosts((loadedPosts) => {
           if (loadedPosts && loadedPosts.length > 0) {
             setPosts(loadedPosts);
+          } else {
+            // If empty, seed in background
+            seedDatabaseIfEmpty().catch(() => {});
           }
         });
       } catch (err) {
