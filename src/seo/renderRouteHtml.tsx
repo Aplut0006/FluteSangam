@@ -68,6 +68,7 @@ export interface RouteMetadata {
   component: React.ComponentType<any>;
   componentProps?: Record<string, any>;
   is404?: boolean;
+  robots?: string;
 }
 
 const DOMAIN = 'https://flutesangam.com';
@@ -755,7 +756,7 @@ export function getRouteMetadata(path: string): RouteMetadata {
     };
   }
 
-  // 9. Community Members
+  // 9. Community Members (noindex, follow)
   if (cleanPath === '/members') {
     const title = 'Community Members | FluteSangam';
     const description = 'Meet flutists, learners, and mentors in the global FluteSangam community.';
@@ -764,6 +765,7 @@ export function getRouteMetadata(path: string): RouteMetadata {
       title,
       description,
       canonicalUrl,
+      robots: 'noindex, follow',
       component: MembersView,
       jsonLd: createWebPageSchema(canonicalUrl, title, description)
     };
@@ -823,7 +825,7 @@ export function renderRouteHtml(path: string, templateHtml: string): {
     <MemoryRouter initialEntries={[path]}>
       <div className="min-h-screen flex flex-col bg-gradient-to-br from-[#fdfbf7] via-[#fff4e6] to-[#fdebd0] pb-24 md:pb-0" id="flutesangam-app-container">
         <Navbar currentUser={null} onOpenAuth={() => {}} onLogout={() => {}} onProfileUpdated={() => {}} />
-        <main className="flex-grow">
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 sm:pt-6 flex-1 w-full pb-24 md:pb-12 min-h-[75vh]" id="main-content-layout">
           <ViewComponent {...compProps} />
           {path === '/' && (
             <>
@@ -861,9 +863,11 @@ export function renderRouteHtml(path: string, templateHtml: string): {
     finalHtml = finalHtml.replace('</head>', `  ${titleTag}\n</head>`);
   }
 
-  const robotsTag = meta.is404
-    ? '<meta name="robots" content="noindex, follow" />'
-    : '<meta name="robots" content="index, follow, max-image-preview:large" />';
+  const robotsTag = meta.robots
+    ? `<meta name="robots" content="${meta.robots}" />`
+    : meta.is404
+      ? '<meta name="robots" content="noindex, follow" />'
+      : '<meta name="robots" content="index, follow, max-image-preview:large" />';
 
   // Inject Meta Description & Canonical URL & OpenGraph & JSON-LD into <head>
   const headAdditions = `

@@ -34,6 +34,32 @@ export default function MembersView({
   const [selectedScale, setSelectedScale] = useState<string>('All');
 
   useEffect(() => {
+    document.title = 'Community Members | FluteSangam';
+    let metaRobots = document.querySelector('meta[name="robots"]') as HTMLMetaElement | null;
+    let created = false;
+    if (!metaRobots) {
+      metaRobots = document.createElement('meta');
+      metaRobots.setAttribute('name', 'robots');
+      document.head.appendChild(metaRobots);
+      created = true;
+    }
+    const previousRobots = metaRobots.getAttribute('content');
+    metaRobots.setAttribute('content', 'noindex, follow');
+
+    return () => {
+      if (metaRobots) {
+        if (created) {
+          metaRobots.remove();
+        } else if (previousRobots) {
+          metaRobots.setAttribute('content', previousRobots);
+        } else {
+          metaRobots.setAttribute('content', 'index, follow, max-image-preview:large');
+        }
+      }
+    };
+  }, []);
+
+  useEffect(() => {
     if (!currentUser) {
       setUsers([]);
       return;

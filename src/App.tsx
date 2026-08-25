@@ -181,8 +181,29 @@ export default function App() {
   const [activeSharePost, setActiveSharePost] = useState<Post | null>(null);
   const [isChatbotOpen, setIsChatbotOpen] = useState(false);
 
+  // Helper to determine initial view synchronously without flash
+  const getInitialViewFromPathname = (path: string): AppView => {
+    if (path === '/' || path === '/community') return 'community';
+    if (path === '/privacy' || path === '/privacy-policy') return 'privacy_policy';
+    if (path === '/terms' || path === '/terms-of-service') return 'terms_of_service';
+    if (path === '/faq' || path.startsWith('/faq/')) return 'flute_faq';
+    if (path === '/learn/alankaras' || path.startsWith('/learn/alankaras/')) return 'learn_alankaras';
+    if (path === '/practice' || path === '/learn/daily-practice-guide') return 'learn_daily_practice';
+    if (path === '/ragas' || path === '/learn/raagas') return 'learn_raagas';
+    if (path.startsWith('/post/')) return 'post-detail';
+    if (path.startsWith('/profile/')) return 'user-profile';
+    
+    const matchingView = Object.keys(VIEW_URLS).find(v => VIEW_URLS[v as AppView] === path) as AppView;
+    return matchingView || (path === '/' ? 'community' : 'not_found');
+  };
+
   // View Management
-  const [currentView, setCurrentView] = useState<AppView>('community');
+  const [currentView, setCurrentView] = useState<AppView>(() => {
+    if (typeof window !== 'undefined' && window.location) {
+      return getInitialViewFromPathname(window.location.pathname);
+    }
+    return 'community';
+  });
   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
   const [selectedProfileUserId, setSelectedProfileUserId] = useState<string | null>(null);
   const [unreadCount, setUnreadCount] = useState(0);
