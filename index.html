@@ -81,10 +81,41 @@
         background: linear-gradient(135deg, #fdfbf7 0%, #fff4e6 50%, #fdebd0 100%);
         background-attachment: fixed;
         color: #1a0f0a;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
       }
       #root { min-height: 100vh; display: flex; flex-direction: column; }
+      .font-display {
+        font-family: "Outfit", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      }
+      #navbar-brand-logo-btn {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+      #navbar-brand-logo-btn img {
+        height: 2rem;
+        width: 2rem;
+        object-fit: contain;
+      }
+      #navbar-brand-logo-btn span {
+        font-family: "Outfit", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-weight: 800;
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+        letter-spacing: -0.025em;
+        white-space: nowrap;
+      }
+      @media (min-width: 640px) {
+        #navbar-brand-logo-btn img {
+          height: 2.25rem;
+          width: 2.25rem;
+        }
+        #navbar-brand-logo-btn span {
+          font-size: 1.25rem;
+          line-height: 1.75rem;
+        }
+      }
       .initial-app-shell {
         min-height: 100vh;
         display: flex;
@@ -173,11 +204,8 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     <link rel="preload" as="image" href="/flutesangam_without_tagline_compressed.png" type="image/png" fetchpriority="high" />
 
-    <!-- Non-render-blocking Lightweight Google Fonts stylesheet -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Outfit:wght@600;700;800&amp;family=Playfair+Display:wght@600;700&amp;display=swap" media="print" onload="this.media='all'" />
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Outfit:wght@600;700;800&amp;family=Playfair+Display:wght@600;700&amp;display=swap" />
-    </noscript>
+    <!-- Google Fonts stylesheet -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Outfit:wght@600;700;800&amp;family=Playfair+Display:wght@600;700&amp;display=swap" />
 
     <!-- Icons & Manifest -->
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png" />

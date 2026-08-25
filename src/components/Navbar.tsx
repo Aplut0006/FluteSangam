@@ -268,7 +268,7 @@ export default function Navbar({
             loading="eager"
             decoding="sync"
           />
-          <span className="font-display font-extrabold text-lg sm:text-xl lg:text-2xl tracking-tight text-bamboo-950 group-hover:text-bamboo-800 transition-colors whitespace-nowrap">
+          <span className="font-display font-extrabold text-lg sm:text-xl tracking-tight text-bamboo-950 group-hover:text-bamboo-800 transition-colors whitespace-nowrap">
             Flute<span className="text-amber-700">Sangam</span>
           </span>
         </a>
