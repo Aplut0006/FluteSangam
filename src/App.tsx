@@ -583,8 +583,8 @@ export default function App() {
     setMeta('meta[name="twitter:title"]', 'name', 'twitter:title', title);
     setMeta('meta[name="twitter:description"]', 'name', 'twitter:description', description);
 
-    // Robots meta tag for search indexing vs 404 soft-error prevention
-    if (currentView === 'not_found') {
+    // Robots meta tag for search indexing vs 404/member soft-error prevention
+    if (currentView === 'not_found' || currentView === 'community_members' || currentView === 'user-profile' || currentView === 'chats') {
       setMeta('meta[name="robots"]', 'name', 'robots', 'noindex, follow');
     } else {
       setMeta('meta[name="robots"]', 'name', 'robots', 'index, follow, max-image-preview:large');

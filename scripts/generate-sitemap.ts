@@ -6,7 +6,7 @@ import { CATEGORY_SLUGS } from '../src/data/allFaqData';
 const baseUrl = 'https://flutesangam.com';
 
 const baseRoutes = Object.values(VIEW_URLS)
-  .filter(p => !p.startsWith('/post') && !p.startsWith('/profile') && !p.startsWith('/chats') && p !== '/404')
+  .filter(p => !p.startsWith('/post') && !p.startsWith('/profile') && !p.startsWith('/chats') && p !== '/404' && p !== '/members')
   .map(route => (route === '/community' ? '' : route));
 
 const faqCategoryRoutes = Object.values(CATEGORY_SLUGS)
