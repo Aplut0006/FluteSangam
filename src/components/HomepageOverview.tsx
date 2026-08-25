@@ -286,43 +286,43 @@ export default function HomepageOverview({
 
           {/* Quick Nav Pills Bar */}
           <div className="pt-4 border-t border-amber-800/60">
-            <div className="bg-black/20 backdrop-blur-sm border border-white/10 rounded-2xl p-3 sm:p-3.5 space-y-2.5 md:space-y-0 md:flex md:items-center md:justify-between md:gap-3">
+            <div className="bg-black/25 backdrop-blur-sm border border-white/10 rounded-2xl p-3 sm:p-3.5 space-y-2.5 sm:space-y-0 sm:flex sm:items-center sm:justify-between sm:gap-3">
               <div className="flex items-center gap-2 shrink-0">
                 <span className="inline-block w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-                <span className="text-[11px] font-bold text-amber-300 uppercase tracking-widest font-display">Quick Navigation:</span>
+                <span className="text-[11px] sm:text-xs font-bold text-amber-300 uppercase tracking-widest font-display whitespace-nowrap">Quick Navigation:</span>
               </div>
               
-              <div className="grid grid-cols-2 sm:grid-cols-4 lg:flex lg:items-center gap-2 w-full md:w-auto">
+              <div className="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0 no-scrollbar w-full sm:w-auto flex-nowrap sm:flex-wrap">
                 <a 
                   href="#learn-flute-section" 
-                  className="px-3 py-2 bg-white/10 hover:bg-white/20 text-amber-50 rounded-xl text-xs font-semibold border border-white/15 transition flex items-center justify-center sm:justify-start gap-2 group"
+                  className="px-3 py-2 bg-white/10 hover:bg-white/20 active:bg-white/25 text-amber-50 rounded-xl text-xs font-semibold border border-white/15 transition flex items-center justify-center gap-2 group whitespace-nowrap shrink-0"
                 >
                   <BookOpen className="w-3.5 h-3.5 text-amber-300 transition-transform group-hover:scale-110 shrink-0" />
-                  <span className="truncate">Learn Flute</span>
+                  <span>Learn Flute</span>
                 </a>
 
                 <a 
                   href="#explore-raagas-section" 
-                  className="px-3 py-2 bg-white/10 hover:bg-white/20 text-amber-50 rounded-xl text-xs font-semibold border border-white/15 transition flex items-center justify-center sm:justify-start gap-2 group"
+                  className="px-3 py-2 bg-white/10 hover:bg-white/20 active:bg-white/25 text-amber-50 rounded-xl text-xs font-semibold border border-white/15 transition flex items-center justify-center gap-2 group whitespace-nowrap shrink-0"
                 >
                   <Music className="w-3.5 h-3.5 text-amber-300 transition-transform group-hover:scale-110 shrink-0" />
-                  <span className="truncate">Explore Raagas</span>
+                  <span>Explore Raagas</span>
                 </a>
 
                 <a 
                   href="#daily-practice-section" 
-                  className="px-3 py-2 bg-white/10 hover:bg-white/20 text-amber-50 rounded-xl text-xs font-semibold border border-white/15 transition flex items-center justify-center sm:justify-start gap-2 group"
+                  className="px-3 py-2 bg-white/10 hover:bg-white/20 active:bg-white/25 text-amber-50 rounded-xl text-xs font-semibold border border-white/15 transition flex items-center justify-center gap-2 group whitespace-nowrap shrink-0"
                 >
                   <Sliders className="w-3.5 h-3.5 text-amber-300 transition-transform group-hover:scale-110 shrink-0" />
-                  <span className="truncate">Daily Practice</span>
+                  <span>Daily Practice</span>
                 </a>
 
                 <a 
                   href="#latest-articles-section" 
-                  className="px-3 py-2 bg-white/10 hover:bg-white/20 text-amber-50 rounded-xl text-xs font-semibold border border-white/15 transition flex items-center justify-center sm:justify-start gap-2 group"
+                  className="px-3 py-2 bg-white/10 hover:bg-white/20 active:bg-white/25 text-amber-50 rounded-xl text-xs font-semibold border border-white/15 transition flex items-center justify-center gap-2 group whitespace-nowrap shrink-0"
                 >
                   <FileText className="w-3.5 h-3.5 text-amber-300 transition-transform group-hover:scale-110 shrink-0" />
-                  <span className="truncate">Flute Articles</span>
+                  <span>Flute Articles</span>
                 </a>
               </div>
             </div>

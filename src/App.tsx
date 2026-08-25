@@ -183,18 +183,38 @@ export default function App() {
 
   // Helper to determine initial view synchronously without flash
   const getInitialViewFromPathname = (path: string): AppView => {
-    if (path === '/' || path === '/community') return 'community';
-    if (path === '/privacy' || path === '/privacy-policy') return 'privacy_policy';
-    if (path === '/terms' || path === '/terms-of-service') return 'terms_of_service';
-    if (path === '/faq' || path.startsWith('/faq/')) return 'flute_faq';
-    if (path === '/learn/alankaras' || path.startsWith('/learn/alankaras/')) return 'learn_alankaras';
-    if (path === '/practice' || path === '/learn/daily-practice-guide') return 'learn_daily_practice';
-    if (path === '/ragas' || path === '/learn/raagas') return 'learn_raagas';
-    if (path.startsWith('/post/')) return 'post-detail';
-    if (path.startsWith('/profile/')) return 'user-profile';
+    let cleanPath = (path || '').trim().split('?')[0].split('#')[0];
+    if (cleanPath.length > 1 && cleanPath.endsWith('/')) {
+      cleanPath = cleanPath.slice(0, -1);
+    }
+    if (cleanPath === '' || cleanPath === '/' || cleanPath === '/community') return 'community';
+    if (cleanPath === '/privacy' || cleanPath === '/privacy-policy') return 'privacy_policy';
+    if (cleanPath === '/terms' || cleanPath === '/terms-of-service') return 'terms_of_service';
+    if (cleanPath === '/faq' || cleanPath.startsWith('/faq/')) return 'flute_faq';
+    if (cleanPath === '/learn/alankaras' || cleanPath.startsWith('/learn/alankaras/')) return 'learn_alankaras';
+    if (cleanPath === '/practice' || cleanPath === '/learn/daily-practice-guide') return 'learn_daily_practice';
+    if (cleanPath === '/ragas' || cleanPath === '/learn/raagas') return 'learn_raagas';
+    if (cleanPath.startsWith('/post/')) return 'post-detail';
+    if (cleanPath.startsWith('/profile/')) return 'user-profile';
     
-    const matchingView = Object.keys(VIEW_URLS).find(v => VIEW_URLS[v as AppView] === path) as AppView;
-    return matchingView || (path === '/' ? 'community' : 'not_found');
+    // Raag aliases: /learn/raga-<name>, /raag/<name>, /raag-<name>
+    let raagSlug = '';
+    if (cleanPath.startsWith('/learn/raga-')) {
+      raagSlug = cleanPath.replace('/learn/raga-', '');
+    } else if (cleanPath.startsWith('/raag/')) {
+      raagSlug = cleanPath.replace('/raag/', '');
+    } else if (cleanPath.startsWith('/raag-')) {
+      raagSlug = cleanPath.replace('/raag-', '');
+    }
+    if (raagSlug) {
+      const normalizedViewKey = `raga_${raagSlug.replace(/-/g, '_')}` as AppView;
+      if (VIEW_URLS[normalizedViewKey]) {
+        return normalizedViewKey;
+      }
+    }
+
+    const matchingView = Object.keys(VIEW_URLS).find(v => VIEW_URLS[v as AppView] === cleanPath) as AppView;
+    return matchingView || (cleanPath === '/' ? 'community' : 'not_found');
   };
 
   // View Management
@@ -290,7 +310,7 @@ export default function App() {
     switch (currentView) {
       case 'community':
         title = 'FluteSangam | Learn Flute, Bansuri & Connect with Flutists';
-        description = 'FluteSangam is an Indian flute and bansuri sargam learning community. Explore community posts, audio recitals, questions, and member discussions.';
+        description = 'Learn flute online with lessons, songs, ragas, techniques, practice guides, and connect with a global community of flutists to learn, share, perform, and grow together.';
         break;
       case 'chats':
         title = 'Direct Messages & Chat | FluteSangam Community';
@@ -298,23 +318,23 @@ export default function App() {
         break;
       case 'learn_dashboard':
         title = 'Flute Learning Hub & Lessons | FluteSangam';
-        description = 'FluteSangam Flute Learning Hub & Lessons: Learn Indian flute and bansuri step-by-step with posture guides, alankar drills, and Hindustani classical ragas.';
+        description = 'Comprehensive step-by-step learning modules for Indian Bamboo Flute (Bansuri): posture, embouchure, alankaras, raga guides, daily Swar Sadhana routines, and fingering charts.';
         break;
       case 'learn_intro':
-        title = 'Introduction to Bansuri | FluteSangam Hub';
-        description = 'FluteSangam Introduction to Bansuri: Discover origin, anatomy, scale selection, maintenance, and essential playing fundamentals of Indian bamboo flute.';
+        title = 'Introduction to Bansuri | FluteSangam';
+        description = "Beginner's guide to the Indian Bamboo Flute (Bansuri). Learn about history, anatomy, producing your first clean note, and embouchure technique.";
         break;
       case 'learn_basics':
-        title = 'Bansuri Basics & Fingering | FluteSangam';
-        description = 'FluteSangam Bansuri Basics & Blowing Techniques: Master sound generation, blowing posture, finger positioning, and accurate swara production on bamboo flute.';
+        title = 'Bansuri Basics & Holding Technique | FluteSangam';
+        description = 'Learn correct finger positioning, posture, embouchure hole alignment, and air pressure control on the bansuri.';
         break;
       case 'learn_choose_flute':
-        title = 'How to Choose the Right Flute | FluteSangam';
-        description = 'FluteSangam guide on How to Choose the Right Flute (Bansuri): Learn how to select C Middle, A Base, or G Base flutes for beginner and advanced players.';
+        title = 'How to Choose Your First Bansuri | FluteSangam';
+        description = 'Guide to choosing your first Indian bamboo flute: C Medium vs G Natural Base, key selection for beginners, finger stretch, and bamboo quality.';
         break;
       case 'learn_fingering_chart':
-        title = 'Interactive Fingering Chart | FluteSangam';
-        description = 'FluteSangam Interactive Fingering Chart: Interactive scale selector, Sa Re Ga Ma notes & audio playback for Indian bamboo flute (Bansuri).';
+        title = 'Bansuri Fingering Chart & Scale Helper | FluteSangam';
+        description = 'Interactive fingering chart for Indian bamboo flute (Bansuri). View hole coverage for Mandra, Madhya, and Tara Saptak swaras.';
         break;
       case 'learn_tuner':
         title = 'Online Bansuri Pitch Tuner | FluteSangam';
@@ -336,104 +356,108 @@ export default function App() {
         }
         break;
       case 'learn_daily_practice':
-        title = 'Daily Flute Practice Guide | Improve Tone, Technique & Rhythm | FluteSangam';
-        description = 'Master your daily bansuri flute practice routine. Improve tone, breath control, finger coordination, rhythm, scales, and musicality with this complete step-by-step guide.';
+        title = 'Swar Sadhana & Daily Flute Practice Routine | FluteSangam';
+        description = 'Step-by-step 30-minute daily Swar Sadhana routine for bansuri players: long note holding, tone purity, dynamic control, and pitch accuracy.';
         break;
       case 'learn_scales_octaves':
-        title = 'Flute Scales & Octaves: A Complete Guide for Flute Players | FluteSangam';
-        description = 'Master flute scales and octaves across Mandra, Madhya & Taar Saptak registers. Features interactive audio swara voice notes, frequency charts, metronome exercises, and daily practice routines.';
+        title = 'Bansuri Scales & Octaves Explained | FluteSangam';
+        description = 'Understanding Mandra (Lower), Madhya (Middle), and Tara (Higher) Saptaks on the Indian bamboo flute, scale conversions, and pitch keys.';
         break;
       case 'learn_common_mistakes':
-        title = 'Common Flute Mistakes and How to Fix Them | FluteSangam';
-        description = 'Learn the most common flute mistakes beginners and intermediate players make, along with practical tips to improve tone, finger placement, breathing, rhythm, and technique.';
+        title = '10 Common Bansuri Mistakes & How to Fix Them | FluteSangam';
+        description = 'Avoid common flute playing pitfalls: airy sound, pitch sharpness, flat notes, finger leaks, shoulder tension, and improper embouchure.';
         break;
       case 'flute_faq':
         title = 'Flute FAQ | Common Questions & Answers for Flute Learners | FluteSangam';
-        description = 'Find answers to common flute questions about learning, practice, bamboo flutes, raagas, breathing, maintenance, and more. Explore the FluteSangam FAQ for helpful guidance';
+        description = 'Find answers to common flute questions about learning, practice, bamboo flutes, raagas, breathing, maintenance, and more. Explore the FluteSangam FAQ for helpful guidance.';
         break;
       case 'budget_flutes':
         title = 'Best Budget Flutes to Buy for Beginners | FluteSangam';
         description = 'Discover the best affordable budget flutes (bamboo and PVC) for beginners. Read our buying guide, FAQs, and tips for starting your bansuri journey.';
         break;
       case 'note_key_converter':
-        title = 'Flute Note Converter – Swara, Notes & Flute Keys | FluteSangam';
-        description = 'Convert flute notes, Indian swaras and different flute keys with this interactive FluteSangam tool. Useful for learning melodies, practice and music notation.';
+        title = 'Flute Note & Key Converter | Swara to Western Notes | FluteSangam';
+        description = 'Convert Indian flute swaras to Western notes, translate Western notes to swaras, and explore note relationships across different flute keys with FluteSangam’s interactive converter.';
         break;
       case 'find_song_scale':
         title = 'How to Find the Scale or Key of a Song on Flute | FluteSangam';
         description = 'Learn how to find the scale or key of any song on flute, identify the tonic or Sa, test the melody, and choose a comfortable flute for playing by ear.';
         break;
       case 'alankar_generator':
-        title = 'Interactive Alankar Generator & Practice Engine | FluteSangam';
-        description = 'FluteSangam Alankar Generator: Create custom sargam patterns for Indian bamboo flute (Bansuri). Filter by scale, difficulty, pattern type, tempo metronome, and practice daily.';
+        title = 'Interactive Alankar Pattern Generator | FluteSangam';
+        description = 'Generate custom Alankar swar patterns in any scale, tempo, or rhythmic structure for bansuri finger practice.';
         break;
       case 'learn_raagas':
-        title = 'Learn Ragas & Sargam | FluteSangam Lessons';
-        description = 'FluteSangam Learn Ragas, Swaras & Sargam: Master Hindustani and Carnatic ragas on bansuri with detailed scale structures, key phrases, and compositions.';
+        title = 'Hindustani Classical Raaga Guides for Bansuri | FluteSangam';
+        description = 'Explore comprehensive Raaga guides for Indian flute: Aaroh, Avaroh, Pakad, Vadi, Samvadi, time of day, and song compositions.';
         break;
       case 'raga_bhoopali':
-        title = 'Raag Bhoopali (Bhupali) – Complete Guide for Beginners | FluteSangam';
-        description = 'Learn Raag Bhoopali (Bhupali) online with step-by-step swara guides, Aaroh-Avaroh, Pakad, Chalan, practice routine, alankars, and original composition Prabhat Prerna.';
+        title = 'Raag Bhoopali — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
+        description = 'Master Raag Bhoopali on Indian Bamboo Flute (Bansuri): Audav-Audav pentatonic scale, Aaroh, Avaroh, Pakad, Vadi, Samvadi, and classical compositions.';
         break;
       case 'raga_durga':
-        title = 'Raag Durga: Notes, Aaroh, Avaroh, Pakad, Practice & Composition | FluteSangam';
-        description = 'Master Raag Durga on bansuri with step-by-step swara guides, Aaroh-Avaroh, Pakad, Chalan, practice routine, alankars, and original composition Shant Dhara.';
+        title = 'Raag Durga — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
+        description = 'Learn Raag Durga on Indian Bamboo Flute (Bansuri): Audav-Audav scale omitting Ga and Ni, Aaroh, Avaroh, Pakad, Vadi, Samvadi, and compositions.';
         break;
       case 'raga_yaman':
-        title = 'Raag Yaman: Notes, Aaroh, Avaroh, Pakad, Practice & Composition | FluteSangam';
-        description = 'Learn Raag Yaman online with step-by-step Tivra Ma swara guides, Aaroh-Avaroh, Pakad, Chalan, 45-min practice schedule, alankars, and original piece Sandhya Prakash.';
+        title = 'Raag Yaman — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
+        description = 'Master Raag Yaman on Indian Bamboo Flute (Bansuri): Tivra Ma usage, Sampurna scale, Aaroh, Avaroh, Pakad, phrase movement, and classical compositions.';
         break;
       case 'raga_hamsadhwani':
-        title = 'Raag Hamsadhwani: Notes, Aaroh, Avaroh, Pakad, Practice & FluteSangam Original Learning Piece';
-        description = 'Learn Raag Hamsadhwani on Indian flute: Notes, Aaroh, Avaroh, Pakad, Chalan, 35-min daily practice schedule, alankars, and original learning piece Udaya Sur.';
+        title = 'Raag Hamsadhwani — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
+        description = 'Learn Raag Hamsadhwani on Indian Bamboo Flute (Bansuri): pentatonic scale with Shuddha Ga and Ni, Aaroh, Avaroh, Pakad, and flute compositions.';
         break;
       case 'raga_bilawal':
-        title = 'Raag Bilawal: Complete Guide, Notes, Aaroh, Avaroh & Practice | FluteSangam';
-        description = 'Master Raag Bilawal on Indian Bamboo Flute (Bansuri). Step-by-step guide with swara playback, Aaroh-Avaroh, Pakad, Chalan, 35-min practice routine, alankars, and practice piece Pratah Sur.';
+        title = 'Raag Bilawal — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
+        description = 'Learn Raag Bilawal on Indian Bamboo Flute (Bansuri): all Shuddha swaras, Bilawal Thaat, Aaroh, Avaroh, Pakad, Vadi, Samvadi, and compositions.';
         break;
       case 'raga_desh':
-        title = 'Raag Desh: Complete Guide, Notes, Aaroh, Avaroh & Practice | FluteSangam';
-        description = 'Master Raag Desh on Indian Bamboo Flute (Bansuri). Step-by-step guide featuring Swara playback, Pakad, Chalan, original Alankars, and the practice piece Sandhya Vihar.';
+        title = 'Raag Desh — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
+        description = 'Master Raag Desh on Indian Bamboo Flute (Bansuri): Khamaj Thaat, Shuddha & Komal Ni usage, Aaroh, Avaroh, Pakad, and popular melodies.';
         break;
       case 'raga_kafi':
-        title = 'Raag Kafi: Complete Guide, Notes, Aaroh, Avaroh & Practice | FluteSangam';
-        description = 'Master Raag Kafi on Indian Bamboo Flute (Bansuri). Complete guide with Swara playback, Pakad, Chalan, original Alankars, and the practice piece Komal Sur Lahari.';
+        title = 'Raag Kafi — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
+        description = 'Learn Raag Kafi on Indian Bamboo Flute (Bansuri): Komal Ga & Komal Ni swaras, Kafi Thaat, Aaroh, Avaroh, Pakad, and folk compositions.';
         break;
       case 'raga_bageshree':
-        title = 'Raag Bageshree: Complete Guide, Notes, Aaroh, Avaroh & Practice | FluteSangam';
-        description = 'Master Raag Bageshree on Indian Bamboo Flute (Bansuri). Complete guide with Swara playback, Pakad, Chalan, original Alankars, and the practice piece Nisha Dhwani.';
+        title = 'Raag Bageshree — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
+        description = 'Master Raag Bageshree on Indian Bamboo Flute (Bansuri): midnight beauty, Komal Ga & Ni, Audav-Sampurna scale, Aaroh, Avaroh, Pakad, and compositions.';
         break;
       case 'raga_bhimpalasi':
-        title = 'Raag Bhimpalasi: Complete Guide, Notes, Aaroh, Avaroh & Practice | FluteSangam';
-        description = 'Master Raag Bhimpalasi on Indian Bamboo Flute (Bansuri). Complete guide with Swara playback, Pakad, Chalan, original Alankars, and the practice piece Madhur Vela.';
+        title = 'Raag Bhimpalasi — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
+        description = 'Learn Raag Bhimpalasi on Indian Bamboo Flute (Bansuri): afternoon Raag, Komal Ga & Ni, Audav-Sampurna scale, Aaroh, Avaroh, Pakad, and gat compositions.';
         break;
       case 'raga_brindavani_sarang':
-        title = 'Raag Brindavani Sarang: Complete Guide, Notes, Aaroh, Avaroh & Practice | FluteSangam';
-        description = 'Master Raag Brindavani Sarang on Indian Bamboo Flute (Bansuri). Step-by-step guide with Swara playback, Pakad, Chalan, 45-min practice routine, alankars, and practice piece Vrindavan Prabhat.';
+        title = 'Raag Brindavani Sarang — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
+        description = 'Master Raag Brindavani Sarang on Indian Bamboo Flute (Bansuri): Audav-Audav scale, Kafi Thaat, Aaroh, Avaroh, Pakad, and classical gat compositions.';
         break;
       case 'raga_khamaj':
-        title = 'Raag Khamaj: Complete Guide, Notes, Aaroh, Avaroh & Practice | FluteSangam';
-        description = 'Master Raag Khamaj on Indian Bamboo Flute (Bansuri). Complete guide with Swara playback, Pakad, Chalan, original Alankars, and the practice piece Madhur Milan.';
+        title = 'Raag Khamaj — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
+        description = 'Learn Raag Khamaj on Indian Bamboo Flute (Bansuri): Shuddha & Komal Ni, Khamaj Thaat, Shadav-Sampurna scale, Aaroh, Avaroh, Pakad, and Thumri melodies.';
         break;
       case 'raga_bhairav':
-        title = 'Raag Bhairav: Complete Guide, Notes, Aaroh, Avaroh & Practice | FluteSangam';
-        description = 'Master Raag Bhairav on Indian Bamboo Flute (Bansuri). Step-by-step guide with Swara playback, Pakad, Chalan, 45-min practice routine, alankars, and practice piece Pratah Dhyan.';
+        title = 'Raag Bhairav — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
+        description = 'Master Raag Bhairav on Indian Bamboo Flute (Bansuri): morning Raag, Komal Re & Dha, Bhairav Thaat, Aaroh, Avaroh, Pakad, and devotional compositions.';
         break;
       case 'raga_bihag':
-        title = 'Raag Bihag: Complete Guide, Notes, Aaroh, Avaroh & Practice | FluteSangam';
-        description = 'Master Raag Bihag on Indian Bamboo Flute (Bansuri). Complete guide with Swara playback, Tivra Ma usage, Pakad, Chalan, 45-min practice routine, alankars, and practice piece Sandhya Madhurya.';
+        title = 'Raag Bihag — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
+        description = 'Learn Raag Bihag on Indian Bamboo Flute (Bansuri): Bilawal Thaat, Shuddha & Tivra Ma usage, Aaroh, Avaroh, Pakad, and night compositions.';
+        break;
+      case 'raga_malkauns':
+        title = 'Raag Malkauns — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
+        description = 'Master Raag Malkauns on Indian Bamboo Flute (Bansuri): deep midnight Raag, Komal Ga, Dha, Ni, Audav-Audav scale, Aaroh, Avaroh, Pakad, and compositions.';
         break;
       case 'raga_marwa':
         title = 'Raag Marwa — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
-        description = 'Learn Raag Marwa with notes, Aaroh, Avaroh, Pakad, practice tips, flute techniques, and an original FluteSangam learning piece.';
+        description = 'Learn Raag Marwa on Indian Bamboo Flute (Bansuri): sunset Raag, Komal Re & Tivra Ma, Marwa Thaat, Aaroh, Avaroh, Pakad, and classical gat compositions.';
         break;
       case 'raga_jog':
         title = 'Raag Jog — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
-        description = 'Learn Raag Jog with detailed notes, Aaroh, Avaroh, Pakad, characteristics, practice tips, Aalap exercises, and an original FluteSangam learning piece.';
+        description = 'Master Raag Jog on Indian Bamboo Flute (Bansuri): meditative night Raag, dual Ga usage, Audav-Shadav scale, Aaroh, Avaroh, Pakad, and compositions.';
         break;
       case 'raga_todi':
         title = 'Raag Todi — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
-        description = 'Learn Raag Todi with detailed notes, Aaroh, Avaroh, Pakad, characteristics, Aalap practice, flute tips, and an original FluteSangam learning piece.';
+        description = 'Learn Raag Todi on Indian Bamboo Flute (Bansuri): morning Raag, Komal Re, Ga, Dha & Tivra Ma, Todi Thaat, Aaroh, Avaroh, Pakad, and classical compositions.';
         break;
       case 'raga_multani':
         title = 'Raag Multani — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
@@ -445,43 +469,47 @@ export default function App() {
         break;
       case 'raga_miyan_ki_malhar':
         title = 'Raag Miyan Ki Malhar — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
-        description = 'Learn Raag Miyan Ki Malhar with detailed notes, Aaroh, Avaroh, Pakad, characteristics, Aalap practice, flute tips, and an original FluteSangam learning piece.';
+        description = 'Master Raag Miyan Ki Malhar on Indian Bamboo Flute (Bansuri): rain Raag composed by Tansen, dual Ni & Komal Ga, Aaroh, Avaroh, Pakad, and compositions.';
         break;
       case 'raga_tilang':
         title = 'Raag Tilang — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
-        description = 'Learn Raag Tilang on Indian Bamboo Flute (Bansuri) with notes, Aaroh, Avaroh, Pakad, characteristics, practice tips, and an original FluteSangam learning piece.';
+        description = 'Learn Raag Tilang on Indian Bamboo Flute (Bansuri): Khamaj Thaat, Shuddha & Komal Ni, Aaroh, Avaroh, Pakad, practice drills, and original FluteSangam learning piece.';
+        break;
+      case 'raga_shivranjani':
+        title = 'Raag Shivranjani — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
+        description = 'Learn Raag Shivranjani on Indian Bamboo Flute (Bansuri): Kafi Thaat, Komal Ga (g), Audav-Audav pentatonic scale, Aaroh, Avaroh, Pakad, practice drills, and original learning piece.';
         break;
       case 'notation_requests':
-        title = 'Song Notation Requests | FluteSangam Sargam';
-        description = 'FluteSangam Song Notation Requests & Sargam Music: Request sargam sheet music for Bollywood, devotional, folk, or classical songs for Indian bamboo flute.';
+        title = 'Sargam Song Notation Requests | FluteSangam';
+        description = 'Browse and request Sargam notations for Bollywood, devotional, classical, and folk songs on the Indian bamboo flute.';
         break;
       case 'community_members':
-        title = 'Flutist Directory & Members | FluteSangam';
-        description = 'FluteSangam Flutist Directory & Member Profiles: Connect with Indian flute players, bansuri teachers, performers, and fellow learners in our global community.';
+        title = 'Community Members | FluteSangam';
+        description = 'Meet flutists, learners, and mentors in the global FluteSangam community.';
         break;
       case 'about_us':
-        title = 'About FluteSangam | Learn, Practice & Connect';
-        description = 'Learn about FluteSangam, a global platform for learning, practicing, exploring music, and connecting with flute players around the world.';
+        title = 'About FluteSangam - Mission, Vision & Community | FluteSangam';
+        description = 'FluteSangam is dedicated to making Indian Bamboo Flute (Bansuri) education accessible, structured, and enjoyable for musicians worldwide.';
         break;
       case 'founder':
-        title = 'Aplut | Founder of FluteSangam';
-        description = 'Meet Aplut, the founder of FluteSangam, and discover his flute-learning journey, why he created the platform, and his vision for a global flute community.';
+        title = "Founder's Story - Aplut | FluteSangam";
+        description = 'Meet Aplut, founder of FluteSangam. Discover the story behind creating a global, welcoming platform for Indian flute (Bansuri) enthusiasts.';
         break;
       case 'contact_us':
-        title = 'Contact Us & Support | FluteSangam Community';
-        description = 'FluteSangam Contact Us & Support: Reach out to our team for platform support, feedback, song sargam notation requests, or community partnership inquiries.';
+        title = 'Contact Us & Support | FluteSangam';
+        description = 'Get in touch with the FluteSangam team for platform support, feedback, questions, or community collaboration.';
         break;
       case 'privacy_policy':
-        title = 'Privacy Policy | FluteSangam Flute Community';
-        description = 'FluteSangam Official Privacy Policy: Learn how we collect, store, protect, and respect your personal information and user data on our bansuri community.';
+        title = 'Privacy Policy | FluteSangam';
+        description = 'Privacy Policy for FluteSangam: data protection, security, user account safety, cookies, and privacy compliance for the global Indian flute community.';
         break;
       case 'terms_of_service':
-        title = 'Terms of Service & Rules | FluteSangam';
-        description = 'FluteSangam Terms of Service & Rules: Read official guidelines, platform rules, and commitments for our global Indian flute and bansuri learning community.';
+        title = 'Terms of Service | FluteSangam';
+        description = 'Terms of Service for FluteSangam: platform guidelines, community code of conduct, intellectual property, and user account terms.';
         break;
       case 'not_found':
-        title = '404 - Page Not Found | FluteSangam';
-        description = 'The requested page or lesson was not found on FluteSangam. Explore our Indian bamboo flute lessons, raga guides, tuner, alankars, and song notation community.';
+        title = 'Page Not Found | FluteSangam';
+        description = 'The requested page could not be found on FluteSangam.';
         break;
       case 'post-detail':
         if (selectedPost) {

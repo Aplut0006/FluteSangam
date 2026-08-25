@@ -166,7 +166,7 @@ export default function NotFoundView({ onViewChange, onSearchSubmit }: NotFoundV
                   </div>
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center justify-between gap-1">
-                      <h3 className="font-bold text-xs sm:text-sm text-gray-900 group-hover:text-amber-900 transition-colors m-0 truncate">
+                      <h3 className="font-bold text-xs sm:text-sm text-gray-900 group-hover:text-amber-900 transition-colors m-0 leading-snug">
                         {item.title}
                       </h3>
                       <ArrowRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-amber-700 group-hover:translate-x-0.5 transition-all shrink-0" />

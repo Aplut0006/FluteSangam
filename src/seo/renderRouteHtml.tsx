@@ -100,8 +100,8 @@ export function getRouteMetadata(path: string): RouteMetadata {
   // 1. Home / Search
   if (cleanPath === '' || cleanPath === '/' || cleanPath === '/community' || cleanPath === '/search') {
     return {
-      title: 'FluteSangam - Indian Flute (Bansuri) Community, Notations & Lessons',
-      description: 'FluteSangam is a global community for Indian Bamboo Flute (Bansuri) players. Discover Sargam notations, raga guides, daily Swar Sadhana practice tools, and connect with flutists worldwide.',
+      title: 'FluteSangam | Learn Flute, Bansuri & Connect with Flutists',
+      description: 'Learn flute online with lessons, songs, ragas, techniques, practice guides, and connect with a global community of flutists to learn, share, perform, and grow together.',
       canonicalUrl: `${DOMAIN}/`,
       component: HomepageOverview,
       jsonLd: {
@@ -179,7 +179,7 @@ export function getRouteMetadata(path: string): RouteMetadata {
   // 5. About Us
   if (cleanPath === '/about') {
     return {
-      title: 'About FluteSangam - Mission, Vision & Community',
+      title: 'About FluteSangam - Mission, Vision & Community | FluteSangam',
       description: 'FluteSangam is dedicated to making Indian Bamboo Flute (Bansuri) education accessible, structured, and enjoyable for musicians worldwide.',
       canonicalUrl: `${DOMAIN}/about`,
       component: AboutUsView,
@@ -381,7 +381,7 @@ export function getRouteMetadata(path: string): RouteMetadata {
 
   // 7. Learn Dashboard
   if (cleanPath === '/learn') {
-    const title = 'Flute Sangam Learn - Master Indian Flute (Bansuri)';
+    const title = 'Flute Learning Hub & Lessons | FluteSangam';
     const description = 'Comprehensive step-by-step learning modules for Indian Bamboo Flute (Bansuri): posture, embouchure, alankaras, raga guides, daily Swar Sadhana routines, and fingering charts.';
     const canonicalUrl = `${DOMAIN}/learn`;
     return {
@@ -602,87 +602,87 @@ export function getRouteMetadata(path: string): RouteMetadata {
   // 8. Individual Raag Pages (Supports /learn/raga-<name>, /raag/<name>, /raag-<name>)
   const raagMap: Record<string, { title: string; desc: string; comp: React.ComponentType<any> }> = {
     'bhoopali': {
-      title: 'Raag Bhoopali Bansuri Guide - Aaroh, Avaroh, Pakad | FluteSangam',
+      title: 'Raag Bhoopali — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
       desc: 'Master Raag Bhoopali on Indian Bamboo Flute (Bansuri): Audav-Audav pentatonic scale, Aaroh, Avaroh, Pakad, Vadi, Samvadi, and classical compositions.',
       comp: RagaBhoopaliView
     },
     'durga': {
-      title: 'Raag Durga Bansuri Guide - Aaroh, Avaroh, Pakad | FluteSangam',
+      title: 'Raag Durga — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
       desc: 'Learn Raag Durga on Indian Bamboo Flute (Bansuri): Audav-Audav scale omitting Ga and Ni, Aaroh, Avaroh, Pakad, Vadi, Samvadi, and compositions.',
       comp: RagaDurgaView
     },
     'yaman': {
-      title: 'Raag Yaman Bansuri Guide - Aaroh, Avaroh, Pakad | FluteSangam',
+      title: 'Raag Yaman — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
       desc: 'Master Raag Yaman on Indian Bamboo Flute (Bansuri): Tivra Ma usage, Sampurna scale, Aaroh, Avaroh, Pakad, phrase movement, and classical compositions.',
       comp: RagaYamanView
     },
     'hamsadhwani': {
-      title: 'Raag Hamsadhwani Bansuri Guide - Aaroh, Avaroh, Pakad | FluteSangam',
+      title: 'Raag Hamsadhwani — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
       desc: 'Learn Raag Hamsadhwani on Indian Bamboo Flute (Bansuri): pentatonic scale with Shuddha Ga and Ni, Aaroh, Avaroh, Pakad, and flute compositions.',
       comp: RagaHamsadhwaniView
     },
     'bilawal': {
-      title: 'Raag Bilawal Bansuri Guide - Aaroh, Avaroh, Pakad | FluteSangam',
+      title: 'Raag Bilawal — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
       desc: 'Learn Raag Bilawal on Indian Bamboo Flute (Bansuri): all Shuddha swaras, Bilawal Thaat, Aaroh, Avaroh, Pakad, Vadi, Samvadi, and compositions.',
       comp: RagaBilawalView
     },
     'desh': {
-      title: 'Raag Desh Bansuri Guide - Aaroh, Avaroh, Pakad | FluteSangam',
+      title: 'Raag Desh — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
       desc: 'Master Raag Desh on Indian Bamboo Flute (Bansuri): Khamaj Thaat, Shuddha & Komal Ni usage, Aaroh, Avaroh, Pakad, and popular melodies.',
       comp: RagaDeshView
     },
     'kafi': {
-      title: 'Raag Kafi Bansuri Guide - Aaroh, Avaroh, Pakad | FluteSangam',
+      title: 'Raag Kafi — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
       desc: 'Learn Raag Kafi on Indian Bamboo Flute (Bansuri): Komal Ga & Komal Ni swaras, Kafi Thaat, Aaroh, Avaroh, Pakad, and folk compositions.',
       comp: RagaKafiView
     },
     'bageshree': {
-      title: 'Raag Bageshree Bansuri Guide - Aaroh, Avaroh, Pakad | FluteSangam',
+      title: 'Raag Bageshree — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
       desc: 'Master Raag Bageshree on Indian Bamboo Flute (Bansuri): midnight beauty, Komal Ga & Ni, Audav-Sampurna scale, Aaroh, Avaroh, Pakad, and compositions.',
       comp: RagaBageshreeView
     },
     'bhimpalasi': {
-      title: 'Raag Bhimpalasi Bansuri Guide - Aaroh, Avaroh, Pakad | FluteSangam',
+      title: 'Raag Bhimpalasi — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
       desc: 'Learn Raag Bhimpalasi on Indian Bamboo Flute (Bansuri): afternoon Raag, Komal Ga & Ni, Audav-Sampurna scale, Aaroh, Avaroh, Pakad, and gat compositions.',
       comp: RagaBhimpalasiView
     },
     'brindavani-sarang': {
-      title: 'Raag Brindavani Sarang Bansuri Guide - Aaroh, Avaroh, Pakad | FluteSangam',
+      title: 'Raag Brindavani Sarang — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
       desc: 'Master Raag Brindavani Sarang on Indian Bamboo Flute (Bansuri): Audav-Audav scale, Kafi Thaat, Aaroh, Avaroh, Pakad, and classical gat compositions.',
       comp: RagaBrindavaniSarangView
     },
     'khamaj': {
-      title: 'Raag Khamaj Bansuri Guide - Aaroh, Avaroh, Pakad | FluteSangam',
+      title: 'Raag Khamaj — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
       desc: 'Learn Raag Khamaj on Indian Bamboo Flute (Bansuri): Shuddha & Komal Ni, Khamaj Thaat, Shadav-Sampurna scale, Aaroh, Avaroh, Pakad, and Thumri melodies.',
       comp: RagaKhamajView
     },
     'bhairav': {
-      title: 'Raag Bhairav Bansuri Guide - Aaroh, Avaroh, Pakad | FluteSangam',
+      title: 'Raag Bhairav — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
       desc: 'Master Raag Bhairav on Indian Bamboo Flute (Bansuri): morning Raag, Komal Re & Dha, Bhairav Thaat, Aaroh, Avaroh, Pakad, and devotional compositions.',
       comp: RagaBhairavView
     },
     'bihag': {
-      title: 'Raag Bihag Bansuri Guide - Aaroh, Avaroh, Pakad | FluteSangam',
+      title: 'Raag Bihag — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
       desc: 'Learn Raag Bihag on Indian Bamboo Flute (Bansuri): Bilawal Thaat, Shuddha & Tivra Ma usage, Aaroh, Avaroh, Pakad, and night compositions.',
       comp: RagaBihagView
     },
     'malkauns': {
-      title: 'Raag Malkauns Bansuri Guide - Aaroh, Avaroh, Pakad | FluteSangam',
+      title: 'Raag Malkauns — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
       desc: 'Master Raag Malkauns on Indian Bamboo Flute (Bansuri): deep midnight Raag, Komal Ga, Dha, Ni, Audav-Audav scale, Aaroh, Avaroh, Pakad, and compositions.',
       comp: RagaMalkaunsView
     },
     'marwa': {
-      title: 'Raag Marwa Bansuri Guide - Aaroh, Avaroh, Pakad | FluteSangam',
+      title: 'Raag Marwa — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
       desc: 'Learn Raag Marwa on Indian Bamboo Flute (Bansuri): sunset Raag, Komal Re & Tivra Ma, Marwa Thaat, Aaroh, Avaroh, Pakad, and classical gat compositions.',
       comp: RagaMarwaView
     },
     'jog': {
-      title: 'Raag Jog Bansuri Guide - Aaroh, Avaroh, Pakad | FluteSangam',
+      title: 'Raag Jog — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
       desc: 'Master Raag Jog on Indian Bamboo Flute (Bansuri): meditative night Raag, dual Ga usage, Audav-Shadav scale, Aaroh, Avaroh, Pakad, and compositions.',
       comp: RagaJogView
     },
     'todi': {
-      title: 'Raag Todi Bansuri Guide - Aaroh, Avaroh, Pakad | FluteSangam',
+      title: 'Raag Todi — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
       desc: 'Learn Raag Todi on Indian Bamboo Flute (Bansuri): morning Raag, Komal Re, Ga, Dha & Tivra Ma, Todi Thaat, Aaroh, Avaroh, Pakad, and classical compositions.',
       comp: RagaTodiView
     },
@@ -697,7 +697,7 @@ export function getRouteMetadata(path: string): RouteMetadata {
       comp: RagaPahadiView
     },
     'miyan-ki-malhar': {
-      title: 'Raag Miyan Ki Malhar Bansuri Guide - Aaroh, Avaroh, Pakad | FluteSangam',
+      title: 'Raag Miyan Ki Malhar — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
       desc: 'Master Raag Miyan Ki Malhar on Indian Bamboo Flute (Bansuri): rain Raag composed by Tansen, dual Ni & Komal Ga, Aaroh, Avaroh, Pakad, and compositions.',
       comp: RagaMiyanKiMalharView
     },
@@ -773,8 +773,8 @@ export function getRouteMetadata(path: string): RouteMetadata {
 
   // 10. Contact Us
   if (cleanPath === '/contact') {
-    const title = 'Contact Us | FluteSangam';
-    const description = 'Get in touch with the FluteSangam team for feedback, questions, or collaboration.';
+    const title = 'Contact Us & Support | FluteSangam';
+    const description = 'Get in touch with the FluteSangam team for platform support, feedback, questions, or community collaboration.';
     const canonicalUrl = `${DOMAIN}/contact`;
     return {
       title,

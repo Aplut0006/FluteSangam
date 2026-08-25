@@ -33,9 +33,9 @@ async function startServer() {
 
   // Specific static routes with explicit MIME and Cache-Control headers
   app.get('/sitemap.xml', (req, res) => {
-    const sitemapPath = path.join(isProduction ? distPath : process.cwd(), 'public', 'sitemap.xml');
-    const fallbackPath = path.join(distPath, 'sitemap.xml');
-    const targetPath = fs.existsSync(sitemapPath) ? sitemapPath : fallbackPath;
+    const publicSitemap = path.join(process.cwd(), 'public', 'sitemap.xml');
+    const distSitemap = path.join(distPath, 'sitemap.xml');
+    const targetPath = fs.existsSync(publicSitemap) ? publicSitemap : distSitemap;
     
     if (fs.existsSync(targetPath)) {
       res.setHeader('Content-Type', 'application/xml; charset=utf-8');
@@ -46,9 +46,9 @@ async function startServer() {
   });
 
   app.get('/robots.txt', (req, res) => {
-    const robotsPath = path.join(isProduction ? distPath : process.cwd(), 'public', 'robots.txt');
-    const fallbackPath = path.join(distPath, 'robots.txt');
-    const targetPath = fs.existsSync(robotsPath) ? robotsPath : fallbackPath;
+    const publicRobots = path.join(process.cwd(), 'public', 'robots.txt');
+    const distRobots = path.join(distPath, 'robots.txt');
+    const targetPath = fs.existsSync(publicRobots) ? publicRobots : distRobots;
     
     if (fs.existsSync(targetPath)) {
       res.setHeader('Content-Type', 'text/plain; charset=utf-8');
