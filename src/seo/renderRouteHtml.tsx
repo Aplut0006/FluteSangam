@@ -119,6 +119,16 @@ export function getRouteMetadata(path: string): RouteMetadata {
       component: FluteFaqView
     };
   }
+  if (cleanPath === '/learn/daily-practice' || cleanPath === '/practice') {
+    return {
+      title: 'Swar Sadhana & Daily Flute Practice Routine | FluteSangam',
+      description: 'Redirecting to Daily Flute Practice Guide on FluteSangam.',
+      canonicalUrl: `${DOMAIN}/learn/daily-practice-guide`,
+      redirectUrl: `${DOMAIN}/learn/daily-practice-guide`,
+      robots: 'noindex, follow',
+      component: DailyPracticeGuideView
+    };
+  }
 
   // 1. Home / Search
   if (cleanPath === '' || cleanPath === '/' || cleanPath === '/community' || cleanPath === '/search') {
@@ -238,6 +248,11 @@ export function getRouteMetadata(path: string): RouteMetadata {
         title: 'Adult Learners Flute FAQ | Starting Flute Later in Life | FluteSangam',
         desc: 'Comprehensive answers for adult flute learners: starting age, practice routines with full-time jobs, beginner scales, self-learning tips, and breath control.',
         categoryName: 'Adult Learners'
+      },
+      'choosing-the-right-flute': {
+        title: 'Choosing the Right Flute FAQ | Bansuri Scale, Size & Material Guide | FluteSangam',
+        desc: 'Frequently asked questions on choosing the right flute: C Medium vs G Medium scales, bamboo vs PVC flutes, finger reach, sound quality, and selecting your starter bansuri.',
+        categoryName: 'Choosing the Right Flute'
       },
       'playing-techniques': {
         title: 'Playing Techniques Flute FAQ | Meend, Gamak & Ornamentation | FluteSangam',
@@ -543,10 +558,21 @@ export function getRouteMetadata(path: string): RouteMetadata {
   }
 
   if (cleanPath === '/learn/alankaras' || cleanPath.startsWith('/learn/alankaras/')) {
-    const level = cleanPath.split('/')[3] || 'overview';
-    const levelTitle = level !== 'overview' ? `${level.charAt(0).toUpperCase() + level.slice(1)} ` : '';
-    const title = `${levelTitle}Alankaras & Finger Drills for Bansuri | FluteSangam`;
-    const description = `Master finger speed, pitch accuracy, and ornamentations with structured Alankara drills for beginner, intermediate, and advanced flutists.`;
+    const level = (cleanPath.split('/')[3] || 'overview').toLowerCase();
+    let title = 'Bansuri Alankar Practice Vault: 60 Sargam Paltas & Exercises | FluteSangam';
+    let description = 'Explore 60 complete bansuri alankars (paltas) for Indian bamboo flute across Beginner, Intermediate & Advanced levels. Features audio playback, swara notations, and interactive metronome.';
+
+    if (level === 'beginner') {
+      title = 'Beginner Bansuri Alankar Exercises (20 Sargam Paltas) | FluteSangam';
+      description = 'Master 20 beginner bansuri alankars (sargam paltas) on Indian bamboo flute. Practice fundamental Sa Re Ga Ma notes, double swaras, 3 & 4 note patterns, metronome timing, and finger agility.';
+    } else if (level === 'intermediate') {
+      title = 'Intermediate Bansuri Alankar Exercises (20 Swara Paltas) | FluteSangam';
+      description = 'Master 20 intermediate bansuri alankars (sargam paltas) on Indian bamboo flute. Practice vakra cross-steps, double-skips, komal swaras, half-hole fingerings, speed variations, and rhythmic laya drills.';
+    } else if (level === 'advanced') {
+      title = 'Advanced Bansuri Alankar Exercises (20 Master Paltas) | FluteSangam';
+      description = 'Master 20 advanced bansuri alankars (master paltas) on Indian bamboo flute. Practice fast drut taan sprints, khatka-murki ornaments, gamak oscillations, 3-octave leaps, and jhala speed drills.';
+    }
+
     const canonicalUrl = cleanPath.startsWith('/learn/alankaras/') ? `${DOMAIN}${cleanPath}` : `${DOMAIN}/learn/alankaras`;
     return {
       title,
@@ -557,7 +583,7 @@ export function getRouteMetadata(path: string): RouteMetadata {
     };
   }
 
-  if (cleanPath === '/learn/daily-practice-guide' || cleanPath === '/practice') {
+  if (cleanPath === '/learn/daily-practice-guide') {
     const title = 'Swar Sadhana & Daily Flute Practice Routine | FluteSangam';
     const description = 'Step-by-step 30-minute daily Swar Sadhana routine for bansuri players: long note holding, tone purity, dynamic control, and pitch accuracy.';
     const canonicalUrl = `${DOMAIN}/learn/daily-practice-guide`;

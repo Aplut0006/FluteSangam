@@ -42,6 +42,8 @@ const extraAliases = [
   '/privacy',
   '/terms',
   '/search',
+  '/practice',
+  '/learn/daily-practice',
   '/faq/music-theory-and-tuning',
   '/faq/flute-tuning-and-pitch'
 ];

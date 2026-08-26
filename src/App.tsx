@@ -192,7 +192,7 @@ export default function App() {
     if (cleanPath === '/terms' || cleanPath === '/terms-of-service') return 'terms_of_service';
     if (cleanPath === '/faq' || cleanPath.startsWith('/faq/')) return 'flute_faq';
     if (cleanPath === '/learn/alankaras' || cleanPath.startsWith('/learn/alankaras/')) return 'learn_alankaras';
-    if (cleanPath === '/practice' || cleanPath === '/learn/daily-practice-guide') return 'learn_daily_practice';
+    if (cleanPath === '/practice' || cleanPath === '/learn/daily-practice-guide' || cleanPath === '/learn/daily-practice') return 'learn_daily_practice';
     if (cleanPath === '/ragas' || cleanPath === '/learn/raagas') return 'learn_raagas';
     if (cleanPath.startsWith('/post/')) return 'post-detail';
     if (cleanPath.startsWith('/profile/')) return 'user-profile';
@@ -723,7 +723,7 @@ export default function App() {
             handleViewChange('community', {}, false);
         }
         navigate('/', { replace: true });
-    } else if (path === '/practice') {
+    } else if (path === '/practice' || path === '/learn/daily-practice' || path === '/learn/daily-practice/') {
         if (currentView !== 'learn_daily_practice') {
             handleViewChange('learn_daily_practice', {}, false);
         }

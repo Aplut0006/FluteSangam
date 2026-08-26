@@ -1646,7 +1646,7 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
           </p>
         </div>
         <Link
-          to="/learn/daily-practice"
+          to="/learn/daily-practice-guide"
           onClick={() => onViewChange?.('learn_daily_practice')}
           className="bg-amber-500 hover:bg-amber-400 text-bamboo-950 font-extrabold px-6 py-3 rounded-2xl text-xs sm:text-sm transition flex items-center gap-2 shrink-0 cursor-pointer shadow-md"
         >

@@ -27,7 +27,7 @@ async function startServer() {
   app.get(['/faq/flute-tuning-and-pitch', '/faq/flute-tuning-and-pitch/'], (req, res) => {
     res.redirect(301, '/faq/tuning-and-pitch');
   });
-  app.get('/practice', (req, res) => {
+  app.get(['/practice', '/practice/', '/learn/daily-practice', '/learn/daily-practice/'], (req, res) => {
     res.redirect(301, '/learn/daily-practice-guide');
   });
   app.get('/ragas', (req, res) => {

@@ -3,5 +3,8 @@
 /faq/flute-tuning-and-pitch     /faq/tuning-and-pitch 301!
 /faq/flute-tuning-and-pitch/    /faq/tuning-and-pitch 301!
 /practice                       /learn/daily-practice-guide 301!
+/practice/                      /learn/daily-practice-guide 301!
+/learn/daily-practice           /learn/daily-practice-guide 301!
+/learn/daily-practice/          /learn/daily-practice-guide 301!
 /ragas                          /learn/raagas        301!
 /community                      /#recent-discussions-section 302!

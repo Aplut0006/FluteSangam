@@ -115,7 +115,6 @@ Our team and community mentors review requests weekly and publish accurate Bhatk
 • Ask questions about any Raag's Aaroh, Avaroh, Pakad, Vadi, or Samvadi notes.
 • Request customized Alankar practice routines based on your current skill level and available daily practice time.
 • Get instant troubleshooting advice for airy tone, squeaks, half-hole finger placements, and flute maintenance.`,
-    relatedLink: { text: 'Chat with FluteSangam AI Assistant', view: 'chats' },
     tags: ['ai guru', 'ai assistant', 'raag answers', 'practice guidance', 'flutesangam ai']
   }
 ];

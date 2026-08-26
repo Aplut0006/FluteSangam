@@ -825,7 +825,7 @@ export default function Navbar({
                     4. Alankaras Practice
                   </a>
                   <a
-                    href={VIEW_URLS['learn_daily_practice'] || '/learn/daily-practice'}
+                    href={VIEW_URLS['learn_daily_practice'] || '/learn/daily-practice-guide'}
                     onClick={(e) => { e.preventDefault(); onViewChange?.('learn_daily_practice'); setShowMobileMenu(false); }}
                     className="block w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
                   >

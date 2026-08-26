@@ -171,7 +171,7 @@ const BudgetFlutesView: React.FC<BudgetFlutesViewProps> = ({ onViewChange }) => 
                 <a 
                   href="https://www.amazon.in/Foxit-Musical-Natural-Hole-bansuri/dp/B08NJMS2MS?&linkCode=ll2&tag=flutesangam-21&linkId=5d9cefe4ba118cf6347d749668a0980e&ref_=as_li_ss_tl" 
                   target="_blank" 
-                  rel="noopener noreferrer"
+                  rel="sponsored noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition shadow-md hover:shadow-lg"
                 >
                   <span>🛒 Check on Amazon</span>
@@ -230,7 +230,7 @@ const BudgetFlutesView: React.FC<BudgetFlutesViewProps> = ({ onViewChange }) => 
                 <a 
                   href="https://www.amazon.in/Radhe-Flutes-Natural-Bansuri-Middle/dp/B07T35ZBHB?crid=DTQNXHD7Z4AL&dib=eyJ2IjoiMSJ9.ks2DwMeOQktxlABdLCZTkfghYoRzYJIwGsY7VyOL8XOpC_q4W-ILY3Qgq6mAGryKq54CSja7tnU-IArgFsA6WnI4btG-dmrZpFVHmIS2Sas4LuqUWyr8Bg_uJ_Uv4IMmg91O1_N46vXItaLb53UiopnbbzWt6IMxLwiL6TAo5Q6i8r0kw60_OCxANywxswTjq0Ayy4XMphr0TTeZgVd4Z50Nu-OjM_-PYS7lCN18touAp3p6sgSjJzCuWxuJe1n61GTR-eBoDi5PAvt2SIz4-K32dUBiZCq6AfbwBsauBDo.X4svHb3VfzZS_da7ZY95mAErx9U6eci2ansze-sAo9I&dib_tag=se&keywords=FLUTE&qid=1786786795&sprefix=flut%2Caps%2C336&sr=8-1-spons&aref=pD2PSarDRh&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&linkCode=ll2&tag=flutesangam-21&linkId=bea2451639fe6e8f2e654e798ac06ca3&ref_=as_li_ss_tl" 
                   target="_blank" 
-                  rel="noopener noreferrer"
+                  rel="sponsored noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition shadow-md hover:shadow-lg"
                 >
                   <span>🛒 Check on Amazon</span>

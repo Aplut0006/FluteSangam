@@ -58,6 +58,11 @@
       "permanent": true
     },
     {
+      "source": "/learn/daily-practice",
+      "destination": "/learn/daily-practice-guide",
+      "permanent": true
+    },
+    {
       "source": "/ragas",
       "destination": "/learn/raagas",
       "permanent": true
