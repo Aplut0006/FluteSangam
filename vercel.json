@@ -43,6 +43,16 @@
   ],
   "redirects": [
     {
+      "source": "/faq/music-theory-and-tuning",
+      "destination": "/faq/music-theory",
+      "permanent": true
+    },
+    {
+      "source": "/faq/flute-tuning-and-pitch",
+      "destination": "/faq/tuning-and-pitch",
+      "permanent": true
+    },
+    {
       "source": "/practice",
       "destination": "/learn/daily-practice-guide",
       "permanent": true

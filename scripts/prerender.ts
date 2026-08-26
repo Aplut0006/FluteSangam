@@ -41,7 +41,9 @@ const raagAliasRoutes = raagList.flatMap(r => [
 const extraAliases = [
   '/privacy',
   '/terms',
-  '/search'
+  '/search',
+  '/faq/music-theory-and-tuning',
+  '/faq/flute-tuning-and-pitch'
 ];
 
 // Combine all routes into a unique set

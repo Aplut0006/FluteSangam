@@ -700,6 +700,16 @@ export default function App() {
         if (currentView !== 'terms_of_service') {
             handleViewChange('terms_of_service', {}, false);
         }
+    } else if (path === '/faq/music-theory-and-tuning' || path === '/faq/music-theory-and-tuning/') {
+        if (currentView !== 'flute_faq') {
+            handleViewChange('flute_faq', {}, false);
+        }
+        navigate('/faq/music-theory', { replace: true });
+    } else if (path === '/faq/flute-tuning-and-pitch' || path === '/faq/flute-tuning-and-pitch/') {
+        if (currentView !== 'flute_faq') {
+            handleViewChange('flute_faq', {}, false);
+        }
+        navigate('/faq/tuning-and-pitch', { replace: true });
     } else if (path === '/faq' || path.startsWith('/faq/')) {
         if (currentView !== 'flute_faq') {
             handleViewChange('flute_faq', {}, false);

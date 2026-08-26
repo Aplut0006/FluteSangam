@@ -260,10 +260,19 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
 
   // Sync category state when URL changes (e.g., via browser Back/Forward or direct link)
   useEffect(() => {
+    const clean = location.pathname.replace(/\/$/, '');
+    if (clean === '/faq/music-theory-and-tuning') {
+      navigate('/faq/music-theory', { replace: true });
+      return;
+    }
+    if (clean === '/faq/flute-tuning-and-pitch') {
+      navigate('/faq/tuning-and-pitch', { replace: true });
+      return;
+    }
     if (selectedCategory !== currentPathCategory) {
       setSelectedCategory(currentPathCategory);
     }
-  }, [currentPathCategory]);
+  }, [currentPathCategory, location.pathname, navigate]);
 
   const handleCategorySelect = (cat: string) => {
     let targetCategory = cat;

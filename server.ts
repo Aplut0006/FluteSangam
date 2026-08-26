@@ -21,6 +21,12 @@ async function startServer() {
   });
 
   // 301/302 Redirects for legacy and alias URLs
+  app.get(['/faq/music-theory-and-tuning', '/faq/music-theory-and-tuning/'], (req, res) => {
+    res.redirect(301, '/faq/music-theory');
+  });
+  app.get(['/faq/flute-tuning-and-pitch', '/faq/flute-tuning-and-pitch/'], (req, res) => {
+    res.redirect(301, '/faq/tuning-and-pitch');
+  });
   app.get('/practice', (req, res) => {
     res.redirect(301, '/learn/daily-practice-guide');
   });

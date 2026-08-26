@@ -69,6 +69,7 @@ export interface RouteMetadata {
   componentProps?: Record<string, any>;
   is404?: boolean;
   robots?: string;
+  redirectUrl?: string;
 }
 
 const DOMAIN = 'https://flutesangam.com';
@@ -95,6 +96,28 @@ export function getRouteMetadata(path: string): RouteMetadata {
   let cleanPath = path.trim().split('?')[0].split('#')[0];
   if (cleanPath.length > 1 && cleanPath.endsWith('/')) {
     cleanPath = cleanPath.slice(0, -1);
+  }
+
+  // Legacy FAQ URL 301 Permanent Redirects
+  if (cleanPath === '/faq/music-theory-and-tuning') {
+    return {
+      title: 'Music Theory & Notation FAQ | FluteSangam',
+      description: 'Redirecting to Music Theory & Notation FAQ on FluteSangam.',
+      canonicalUrl: `${DOMAIN}/faq/music-theory`,
+      redirectUrl: `${DOMAIN}/faq/music-theory`,
+      robots: 'noindex, follow',
+      component: FluteFaqView
+    };
+  }
+  if (cleanPath === '/faq/flute-tuning-and-pitch') {
+    return {
+      title: 'Flute Tuning & Pitch Calibration FAQ | FluteSangam',
+      description: 'Redirecting to Flute Tuning & Pitch Calibration FAQ on FluteSangam.',
+      canonicalUrl: `${DOMAIN}/faq/tuning-and-pitch`,
+      redirectUrl: `${DOMAIN}/faq/tuning-and-pitch`,
+      robots: 'noindex, follow',
+      component: FluteFaqView
+    };
   }
 
   // 1. Home / Search
@@ -817,6 +840,51 @@ export function renderRouteHtml(path: string, templateHtml: string): {
   is404: boolean;
 } {
   const meta = getRouteMetadata(path);
+
+  // If this is an explicit 301/permanent redirect route
+  if (meta.redirectUrl) {
+    const targetUrl = meta.redirectUrl;
+    let redirectHtml = templateHtml;
+    redirectHtml = redirectHtml.replace(/<div id="seo-fallback-content"[\s\S]*?<\/div>\s*(?=<div id="root")/i, '');
+    redirectHtml = redirectHtml.replace(/<link rel="canonical".*?\/>/gi, '');
+    redirectHtml = redirectHtml.replace(/<meta name="description".*?\/>/gi, '');
+    redirectHtml = redirectHtml.replace(/<meta name="title".*?\/>/gi, '');
+    redirectHtml = redirectHtml.replace(/<meta name="robots".*?\/>/gi, '');
+    redirectHtml = redirectHtml.replace(/<title>.*?<\/title>/s, `<title>Redirecting to ${meta.title}...</title>`);
+    
+    const headAdditions = `
+    <meta name="robots" content="noindex, follow" />
+    <meta http-equiv="refresh" content="0; url=${targetUrl}" />
+    <link rel="canonical" href="${targetUrl}" />
+    <script>window.location.replace("${targetUrl}");</script>
+    `;
+    redirectHtml = redirectHtml.replace('</head>', `${headAdditions}\n</head>`);
+    
+    const redirectBody = `
+    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; text-align: center; padding: 60px 20px; max-width: 600px; margin: 40px auto; background: #ffffff; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #fed7aa;">
+      <h2 style="color: #9a3412; font-size: 24px; font-weight: 700; margin-bottom: 12px;">Redirecting...</h2>
+      <p style="color: #4b5563; font-size: 16px; margin-bottom: 20px;">We are taking you to the updated FAQ guide: <strong>${meta.title}</strong></p>
+      <p style="color: #6b7280; font-size: 14px;">If you are not redirected automatically within a few seconds, <a href="${targetUrl}" style="color: #ea580c; text-decoration: underline; font-weight: 600;">click here</a>.</p>
+    </div>
+    `;
+    
+    const rootStartIndex = redirectHtml.indexOf('<div id="root">');
+    if (rootStartIndex !== -1) {
+      const rootEndIndex = redirectHtml.indexOf('</div>', rootStartIndex) + 6;
+      redirectHtml = redirectHtml.substring(0, rootStartIndex) + 
+        `<div id="root">${redirectBody}</div>` + 
+        redirectHtml.substring(rootEndIndex);
+    }
+    
+    return {
+      html: redirectHtml,
+      title: meta.title,
+      description: meta.description,
+      canonicalUrl: targetUrl,
+      is404: false
+    };
+  }
+
   const ViewComponent = meta.component;
   const compProps = meta.componentProps || {};
 
