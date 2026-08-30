@@ -51,6 +51,20 @@ async function startServer() {
     res.status(404).send('Sitemap not found');
   });
 
+  app.get(['/ads.txt', '/app-ads.txt'], (req, res) => {
+    const filename = req.path.replace('/', '');
+    const publicFile = path.join(process.cwd(), 'public', filename);
+    const distFile = path.join(distPath, filename);
+    const targetPath = fs.existsSync(publicFile) ? publicFile : distFile;
+    
+    if (fs.existsSync(targetPath)) {
+      res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+      res.setHeader('Cache-Control', 'public, max-age=3600');
+      return res.sendFile(targetPath);
+    }
+    res.status(404).send(`${filename} not found`);
+  });
+
   app.get('/robots.txt', (req, res) => {
     const publicRobots = path.join(process.cwd(), 'public', 'robots.txt');
     const distRobots = path.join(distPath, 'robots.txt');
