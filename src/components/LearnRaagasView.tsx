@@ -71,6 +71,7 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
     { name: 'Raag Tilang', path: '/learn/raga-tilang', view: 'raga_tilang', title: 'Madhur Tilang', level: 'Intermediate', color: 'bg-amber-700 hover:bg-amber-800' },
     { name: 'Raag Miyan Ki Malhar', path: '/learn/raga-miyan-ki-malhar', view: 'raga_miyan_ki_malhar', title: 'Varsha Dhyan', level: 'Advanced', color: 'bg-sky-800 hover:bg-sky-900' },
     { name: 'Raag Shivranjani', path: '/learn/raga-shivranjani', view: 'raga_shivranjani', title: 'Soulful Pentatonic', level: 'Beginner', color: 'bg-rose-700 hover:bg-rose-800' },
+    { name: 'Raag Jaunpuri', path: '/learn/raga-jaunpuri', view: 'raga_jaunpuri', title: 'Asavari Thaat Heritage', level: 'Intermediate', color: 'bg-amber-800 hover:bg-amber-900' },
   ];
 
   // Featured Guides filtered according to chosen level filter & search
@@ -248,6 +249,7 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
     if (n.includes('tilang')) return { view: 'raga_tilang', path: '/learn/raga-tilang' };
     if (n.includes('malhar')) return { view: 'raga_miyan_ki_malhar', path: '/learn/raga-miyan-ki-malhar' };
     if (n.includes('shivranjani')) return { view: 'raga_shivranjani', path: '/learn/raga-shivranjani' };
+    if (n.includes('jaunpuri')) return { view: 'raga_jaunpuri', path: '/learn/raga-jaunpuri' };
     return null;
   };
 

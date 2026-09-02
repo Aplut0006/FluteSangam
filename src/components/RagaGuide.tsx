@@ -44,6 +44,7 @@ export default function RagaGuide({ onSelectRagaDiscussion, activeRagaFilter, on
     if (n.includes('tilang')) return { view: 'raga_tilang', path: '/learn/raga-tilang' };
     if (n.includes('malhar')) return { view: 'raga_miyan_ki_malhar', path: '/learn/raga-miyan-ki-malhar' };
     if (n.includes('shivranjani')) return { view: 'raga_shivranjani', path: '/learn/raga-shivranjani' };
+    if (n.includes('jaunpuri')) return { view: 'raga_jaunpuri', path: '/learn/raga-jaunpuri' };
     return null;
   };
 

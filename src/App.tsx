@@ -62,6 +62,7 @@ const RagaPahadiView = lazyWithRetry(() => import('./components/RagaPahadiView')
 const RagaMiyanKiMalharView = lazyWithRetry(() => import('./components/RagaMiyanKiMalharView'));
 const RagaTilangView = lazyWithRetry(() => import('./components/RagaTilangView'));
 const RagaShivranjaniView = lazyWithRetry(() => import('./components/RagaShivranjaniView'));
+const RagaJaunpuriView = lazyWithRetry(() => import('./components/RagaJaunpuriView'));
 const BudgetFlutesView = lazyWithRetry(() => import('./components/BudgetFlutesView'));
 const FluteNoteKeyConverterView = lazyWithRetry(() => import('./components/FluteNoteKeyConverterView'));
 const HowToFindSongScaleView = lazyWithRetry(() => import('./components/HowToFindSongScaleView'));
@@ -416,6 +417,10 @@ export default function App() {
       case 'raga_shivranjani':
         title = 'Raag Shivranjani — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
         description = 'Learn Raag Shivranjani on Indian Bamboo Flute (Bansuri): Kafi Thaat, Komal Ga (g), Audav-Audav pentatonic scale, Aaroh, Avaroh, Pakad, practice drills, and original learning piece.';
+        break;
+      case 'raga_jaunpuri':
+        title = 'Raag Jaunpuri — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
+        description = 'Learn Raag Jaunpuri on Indian Bamboo Flute (Bansuri): Asavari Thaat, Komal Ga, Dha, Ni, Aaroh, Avaroh, Pakad, practice drills, and original learning piece.';
         break;
       case 'notation_requests':
         title = 'Sargam Song Notation Requests | FluteSangam';
@@ -1242,6 +1247,8 @@ export default function App() {
           <RagaTilangView onViewChange={handleViewChange} />
         ) : currentView === 'raga_shivranjani' ? (
           <RagaShivranjaniView onViewChange={handleViewChange} />
+        ) : currentView === 'raga_jaunpuri' ? (
+          <RagaJaunpuriView onViewChange={handleViewChange} />
         ) : currentView === 'about_us' ? (
           <AboutUsView onViewChange={handleViewChange} />
         ) : currentView === 'founder' ? (

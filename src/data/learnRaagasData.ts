@@ -195,14 +195,15 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
   { 
     name: "Raag Jaunpuri", 
     level: "Intermediate", 
-    description: "Structurally similar to Asavari but requires distinct treatment of the upper octave notes.",
+    description: "Graceful, introspective classical raga from Asavari Thaat featuring Komal Ga, Komal Dha, and Komal Ni with expressive descending movements.",
     aaroh: "Sa Re Ma Pa Dha(komal) Ni(komal) Sa'",
     avroh: "Sa' Ni(komal) Dha(komal) Pa Ma Ga(komal) Re Sa",
-    vadi: "Dha",
-    samvadi: "Ga",
-    pakad: "Ma Pa, Ni(komal) Dha(komal) Pa, Ma Pa Ga(komal) Re Sa",
-    time: "Late Morning",
-    mood: "Sorrow, Devotion"
+    vadi: "Dha(komal)",
+    samvadi: "Ga(komal)",
+    pakad: "Ma Pa Dha(komal) Ma Pa, Ma Ga(komal) Re Ma, Ga(komal) Re Sa",
+    time: "Late Morning (9 AM - 12 PM)",
+    mood: "Serious, Introspective, Longing, Tender Melancholy",
+    link: "raga_jaunpuri"
   },
   { 
     name: "Raag Bhairavi", 

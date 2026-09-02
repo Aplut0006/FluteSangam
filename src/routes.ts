@@ -36,6 +36,7 @@ export const VIEW_URLS: Record<string, string> = {
   'raga_miyan_ki_malhar': '/learn/raga-miyan-ki-malhar',
   'raga_tilang': '/learn/raga-tilang',
   'raga_shivranjani': '/learn/raga-shivranjani',
+  'raga_jaunpuri': '/learn/raga-jaunpuri',
   'community_members': '/members',
   'about_us': '/about',
   'founder': '/founder',
