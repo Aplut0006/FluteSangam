@@ -30,7 +30,7 @@ const raagList = [
   'bhoopali', 'durga', 'yaman', 'hamsadhwani', 'bilawal', 'desh', 'kafi',
   'bageshree', 'bhimpalasi', 'brindavani-sarang', 'khamaj', 'bhairav', 'bihag',
   'malkauns', 'marwa', 'jog', 'todi', 'multani', 'pahadi', 'miyan-ki-malhar',
-  'tilang', 'shivranjani'
+  'tilang', 'shivranjani', 'jaunpuri'
 ];
 
 const raagAliasRoutes = raagList.flatMap(r => [

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { BookOpen, Wind, Music, Feather, ShoppingBag, Radio, CircleDot, Target, AlertTriangle, HelpCircle, Layers, Compass } from 'lucide-react';
+import { BookOpen, Wind, Music, Feather, ShoppingBag, Radio, CircleDot, Target, AlertTriangle, HelpCircle, Layers, Compass, FileText } from 'lucide-react';
 import { AppView } from '../types';
 
 interface LearnDashboardProps {
@@ -13,6 +13,7 @@ export default function LearnDashboard({ onViewChange }: LearnDashboardProps) {
     { id: 'learn_intro', path: '/learn/intro', label: 'Introduction', icon: Wind, color: 'text-bamboo-600', desc: 'Origins, legacy & bansuri fundamentals' },
     { id: 'learn_choose_flute', path: '/learn/choose-flute', label: 'Choose the Right Flute', icon: ShoppingBag, color: 'text-emerald-600', desc: 'Scale guide for children, teens & adults' },
     { id: 'learn_basics', path: '/learn/basics', label: 'The Basics', icon: BookOpen, color: 'text-bamboo-700', desc: 'Embouchure, posture & finger grip' },
+    { id: 'how_to_read_bansuri_notation', path: '/learn/how-to-read-bansuri-notation', label: 'Read Flute Notation', icon: FileText, color: 'text-amber-800', desc: 'Sargam symbols, Komal & Tivra notes, octaves, rhythm & ornaments' },
     { id: 'learn_fingering_chart', path: '/learn/fingering-chart', label: 'Fingering Chart', icon: CircleDot, color: 'text-amber-600', desc: 'Interactive scale selector, Sa Re Ga Ma notes & audio playback' },
     { id: 'learn_alankaras', path: '/learn/alankaras', label: 'Alankaras', icon: Feather, color: 'text-rose-600', desc: 'Essential daily warmups & exercises' },
     { id: 'learn_scales_octaves', path: '/learn/flute-scales-octaves', label: 'Flute Scales & Octaves', icon: Layers, color: 'text-amber-600', desc: 'Master Mandra, Madhya & Taar registers with audio notes & charts' },

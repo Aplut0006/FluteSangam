@@ -43,6 +43,7 @@ import RagaJaunpuriView from '../components/RagaJaunpuriView';
 import BudgetFlutesView from '../components/BudgetFlutesView';
 import FluteNoteKeyConverterView from '../components/FluteNoteKeyConverterView';
 import HowToFindSongScaleView from '../components/HowToFindSongScaleView';
+import HowToReadBansuriNotationView from '../components/HowToReadBansuriNotationView';
 
 import MembersView from '../components/MembersView';
 import AboutUsView from '../components/AboutUsView';
@@ -514,6 +515,41 @@ export function getRouteMetadata(path: string): RouteMetadata {
         'mainEntityOfPage': {
           '@type': 'WebPage',
           '@id': `${DOMAIN}/learn/how-to-find-scale-of-a-song-on-flute`
+        }
+      }
+    };
+  }
+
+  if (cleanPath === '/learn/how-to-read-bansuri-notation') {
+    return {
+      title: 'How to Read Bansuri Notation | Beginner Guide',
+      description: 'Learn how to read bansuri notation step by step, including Sargam symbols, Komal and Tivra swaras, octaves, rhythm and basic ornaments.',
+      canonicalUrl: `${DOMAIN}/learn/how-to-read-bansuri-notation`,
+      component: HowToReadBansuriNotationView,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        'headline': 'How to Read Bansuri Notation: A Beginner’s Guide',
+        'description': 'Learn how to read bansuri notation step by step, including Sargam symbols, Komal and Tivra swaras, octaves, rhythm and basic ornaments.',
+        'image': `${DOMAIN}/flutesangam_without_tagline_compressed.png`,
+        'datePublished': '2026-09-01T00:00:00Z',
+        'dateModified': '2026-09-05T00:00:00Z',
+        'author': {
+          '@type': 'Person',
+          'name': 'Aplut',
+          'url': `${DOMAIN}/founder`
+        },
+        'publisher': {
+          '@type': 'Organization',
+          'name': 'FluteSangam',
+          'logo': {
+            '@type': 'ImageObject',
+            'url': `${DOMAIN}/flutesangam_without_tagline_compressed.png`
+          }
+        },
+        'mainEntityOfPage': {
+          '@type': 'WebPage',
+          '@id': `${DOMAIN}/learn/how-to-read-bansuri-notation`
         }
       }
     };

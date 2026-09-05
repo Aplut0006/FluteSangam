@@ -66,6 +66,7 @@ const RagaJaunpuriView = lazyWithRetry(() => import('./components/RagaJaunpuriVi
 const BudgetFlutesView = lazyWithRetry(() => import('./components/BudgetFlutesView'));
 const FluteNoteKeyConverterView = lazyWithRetry(() => import('./components/FluteNoteKeyConverterView'));
 const HowToFindSongScaleView = lazyWithRetry(() => import('./components/HowToFindSongScaleView'));
+const HowToReadBansuriNotationView = lazyWithRetry(() => import('./components/HowToReadBansuriNotationView'));
 const MembersView = lazyWithRetry(() => import('./components/MembersView'));
 const ImageModal = lazyWithRetry(() => import('./components/ImageModal'));
 const AboutUsView = lazyWithRetry(() => import('./components/AboutUsView'));
@@ -192,6 +193,7 @@ export default function App() {
     if (cleanPath === '/privacy' || cleanPath === '/privacy-policy') return 'privacy_policy';
     if (cleanPath === '/terms' || cleanPath === '/terms-of-service') return 'terms_of_service';
     if (cleanPath === '/faq' || cleanPath.startsWith('/faq/')) return 'flute_faq';
+    if (cleanPath === '/learn/how-to-read-bansuri-notation' || cleanPath === '/how-to-read-bansuri-notation') return 'how_to_read_bansuri_notation';
     if (cleanPath === '/learn/alankaras' || cleanPath.startsWith('/learn/alankaras/')) return 'learn_alankaras';
     if (cleanPath === '/practice' || cleanPath === '/learn/daily-practice-guide' || cleanPath === '/learn/daily-practice') return 'learn_daily_practice';
     if (cleanPath === '/ragas' || cleanPath === '/learn/raagas') return 'learn_raagas';
@@ -321,6 +323,10 @@ export default function App() {
       case 'find_song_scale':
         title = 'How to Find the Scale or Key of a Song on Flute | FluteSangam';
         description = 'Learn how to find the scale or key of any song on flute, identify the tonic or Sa, test the melody, and choose a comfortable flute for playing by ear.';
+        break;
+      case 'how_to_read_bansuri_notation':
+        title = 'How to Read Bansuri Notation | Beginner Guide';
+        description = 'Learn how to read bansuri notation step by step, including Sargam symbols, Komal and Tivra swaras, octaves, rhythm and basic ornaments.';
         break;
       case 'alankar_generator':
         title = 'Interactive Alankar Pattern Generator | FluteSangam';
@@ -1199,6 +1205,8 @@ export default function App() {
           <FluteNoteKeyConverterView onNavigate={handleViewChange} />
         ) : currentView === 'find_song_scale' ? (
           <HowToFindSongScaleView onViewChange={handleViewChange} />
+        ) : currentView === 'how_to_read_bansuri_notation' ? (
+          <HowToReadBansuriNotationView onViewChange={handleViewChange} />
         ) : currentView === 'alankar_generator' ? (
           <AlankarGeneratorView currentUser={currentUser} />
         ) : currentView === 'learn_raagas' ? (
