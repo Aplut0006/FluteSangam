@@ -11,6 +11,7 @@ import {
 import { AppView } from '../types';
 import { VIEW_URLS } from '../routes';
 import { FAQ_DATA, CATEGORY_SLUGS, type FaqItem } from '../data/allFaqData';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 export type { FaqItem };
 export { FAQ_DATA, CATEGORY_SLUGS };
 
@@ -739,6 +740,9 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
           </p>
         </div>
       </section>
+
+      {/* Native banner code from Adsterra before the FAQ section */}
+      <AdsterraNativeBanner />
 
       {/* FAQ Accordion List - Every single question and answer is in the HTML DOM for crawlers, visually collapsed with CSS */}
       <div className="space-y-4 min-h-[500px] scroll-mt-28" id="faq-list-container">

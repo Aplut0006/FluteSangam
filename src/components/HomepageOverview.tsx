@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { AppView, UserProfile } from '../types';
 import { VIEW_URLS } from '../routes';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface HomepageOverviewProps {
   onViewChange: (view: AppView) => void;
@@ -864,6 +865,9 @@ export default function HomepageOverview({
           </div>
         </div>
       </section>
+
+      {/* Native Banner Ad */}
+      <AdsterraNativeBanner className="my-8" />
     </div>
   );
 }

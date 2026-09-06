@@ -9,6 +9,7 @@ import {
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface RagaBilawalViewProps {
   onViewChange?: (view: AppView) => void;
@@ -837,6 +838,9 @@ export default function RagaBilawalView({ onViewChange }: RagaBilawalViewProps) 
           </ul>
         </div>
       </section>
+
+      {/* Native banner code from Adsterra before the FAQ section */}
+      <AdsterraNativeBanner />
 
       {/* Frequently Asked Questions (FAQ) */}
       <section className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-bamboo-100 shadow-sm space-y-4 sm:space-y-6">

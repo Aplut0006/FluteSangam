@@ -10,6 +10,7 @@ import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 import { playTakMetronomeClick } from '../lib/audioUtils';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface RagaMultaniViewProps {
   onViewChange?: (view: AppView) => void;
@@ -1287,6 +1288,9 @@ N d P M^ | g r S — ||`;
             </div>
           </div>
         </div>
+
+        {/* Native banner code from Adsterra before the FAQ section */}
+        <AdsterraNativeBanner />
 
         {/* FAQ Accordion Section */}
         <section className="bg-white rounded-2xl p-6 sm:p-8 border border-amber-200/80 shadow-xs space-y-4">

@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { LEARN_RAAGAS, RaagaDetails } from '../data/learnRaagasData';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 type Difficulty = 'All' | 'Beginner' | 'Intermediate' | 'Advanced';
 type ConceptTab = 'grammar' | 'microtones' | 'time' | 'rasa';
@@ -599,9 +600,16 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
           {filteredRaagas.map((raaga, idx) => {
             const guideRoute = getGuideRouteForRaag(raaga.name);
             const isPlaying = playingRaagaName === raaga.name;
+            const isMiddle = idx === Math.floor(filteredRaagas.length / 2);
 
             return (
-              <motion.div
+              <React.Fragment key={`${raaga.name}-${idx}`}>
+                {isMiddle && (
+                  <div className="my-4">
+                    <AdsterraNativeBanner />
+                  </div>
+                )}
+                <motion.div
                 key={`${raaga.name}-${idx}`}
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -706,6 +714,7 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
                   </div>
                 )}
               </motion.div>
+            </React.Fragment>
             );
           })}
         </div>
@@ -727,6 +736,9 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
           </div>
         )}
       </div>
+
+      {/* Native banner code from Adsterra */}
+      <AdsterraNativeBanner className="my-6" />
 
       {/* Author Section */}
       <AboutAuthorSection onViewChange={onViewChange} />

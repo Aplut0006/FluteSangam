@@ -16,6 +16,7 @@ import {
   Mail
 } from 'lucide-react';
 import { AppView } from '../types';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface FounderViewProps {
   onViewChange?: (view: AppView) => void;
@@ -255,6 +256,9 @@ export default function FounderView({ onViewChange }: FounderViewProps) {
           </a>
         </div>
       </section>
+
+      {/* Native Banner Ad */}
+      <AdsterraNativeBanner className="my-8" />
     </motion.div>
   );
 }

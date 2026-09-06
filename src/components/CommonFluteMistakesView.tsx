@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface CommonFluteMistakesViewProps {
   onViewChange?: (view: AppView) => void;
@@ -717,6 +718,9 @@ export default function CommonFluteMistakesView({ onViewChange }: CommonFluteMis
           ))}
         </div>
       </section>
+
+      {/* Native banner code from Adsterra before the FAQ section */}
+      <AdsterraNativeBanner />
 
       {/* Frequently Asked Questions */}
       <section id="faqs" className="scroll-mt-20 md:scroll-mt-24 bg-white rounded-3xl p-6 md:p-8 border border-amber-200/80 shadow-2xs space-y-4">

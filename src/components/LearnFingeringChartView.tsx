@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Volume2, RotateCcw, Info, Music, ChevronRight, BookOpen, CheckCircle2, ArrowLeft, Radio, Wind, CircleDot } from 'lucide-react';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface LearnFingeringChartViewProps {
   onViewChange?: (view: AppView) => void;
@@ -900,6 +901,9 @@ export default function LearnFingeringChartView({ onViewChange }: LearnFingering
           </table>
         </div>
       </div>
+
+      {/* Native Banner Ad */}
+      <AdsterraNativeBanner className="my-6" />
 
       {/* Navigation Footer */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-bamboo-100">

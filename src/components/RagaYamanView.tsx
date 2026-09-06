@@ -9,6 +9,7 @@ import {
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface RagaYamanViewProps {
   onViewChange?: (view: AppView) => void;
@@ -1060,6 +1061,9 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
           </table>
         </div>
       </div>
+
+      {/* Native banner code from Adsterra before the FAQ section */}
+      <AdsterraNativeBanner />
 
       {/* Frequently Asked Questions Accordion */}
       <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-sm border border-bamboo-100 space-y-4">

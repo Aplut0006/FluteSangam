@@ -10,6 +10,7 @@ import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 import { playTakMetronomeClick } from '../lib/audioUtils';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface RagaShivranjaniViewProps {
   onViewChange?: (view: AppView) => void;
@@ -1402,6 +1403,9 @@ export const RagaShivranjaniView: React.FC<RagaShivranjaniViewProps> = ({ onView
           </div>
         </div>
       </section>
+
+      {/* Native banner code from Adsterra before the FAQ section */}
+      <AdsterraNativeBanner />
 
       {/* SECTION 14: FREQUENTLY ASKED QUESTIONS (FAQ) */}
       <section className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xs border border-stone-200 space-y-4">

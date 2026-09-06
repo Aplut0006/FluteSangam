@@ -12,6 +12,7 @@ import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 import { playTakMetronomeClick } from '../lib/audioUtils';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface HowToReadBansuriNotationViewProps {
   onViewChange?: (view: AppView) => void;
@@ -1408,6 +1409,9 @@ Ṇ  = Lower Ni     N = Middle Ni     N' = Upper Ni
             Keep this chart handy while using FluteSangam’s raga lessons, alankar exercises and song notations.
           </p>
         </section>
+
+        {/* Native banner code from Adsterra before the FAQ section */}
+        <AdsterraNativeBanner />
 
         {/* 14. Frequently Asked Questions Accordion */}
         <section className="space-y-4">

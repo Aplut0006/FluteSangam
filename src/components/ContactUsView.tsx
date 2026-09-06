@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Mail, Send, MessageSquare, HelpCircle, ArrowLeft, CheckCircle, Sparkles, MapPin, Globe } from 'lucide-react';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface ContactUsViewProps {
   onBackToCommunity?: () => void;
@@ -260,6 +261,9 @@ export default function ContactUsView({ onBackToCommunity }: ContactUsViewProps)
           </form>
         )}
       </div>
+
+      {/* Native banner code from Adsterra before the FAQ section */}
+      <AdsterraNativeBanner />
 
       {/* Frequently Asked Questions */}
       <div className="bg-bamboo-50/60 rounded-3xl p-6 sm:p-8 border border-bamboo-200/60">

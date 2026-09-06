@@ -17,6 +17,7 @@ import {
   Activity
 } from 'lucide-react';
 import { AppView } from '../types';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface LearnTunerViewProps {
   onViewChange?: (view: AppView) => void;
@@ -779,6 +780,9 @@ export default function LearnTunerView({ onViewChange }: LearnTunerViewProps) {
           </div>
         </div>
       </div>
+
+      {/* Native banner at bottom of Flute Tuner & Scales */}
+      <AdsterraNativeBanner className="my-6" />
 
       {/* Bottom Navigation Actions */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">

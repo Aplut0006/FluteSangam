@@ -37,6 +37,7 @@ import {
   Plus
 } from 'lucide-react';
 import { SongRequestModal } from './SongRequestFAB';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface NotationRequestsViewProps {
   currentUser?: any;
@@ -500,6 +501,9 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
           })}
         </div>
       )}
+
+      {/* Native Banner Ad */}
+      <AdsterraNativeBanner className="my-8" />
 
       {/* DETAIL MODAL FOR NOTATION REQUEST */}
       {selectedRequest && (

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { BookOpen, Wind, Music, Feather, ShoppingBag, Radio, CircleDot, Target, AlertTriangle, HelpCircle, Layers, Compass, FileText } from 'lucide-react';
 import { AppView } from '../types';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface LearnDashboardProps {
   onViewChange?: (view: AppView) => void;
@@ -61,6 +62,9 @@ export default function LearnDashboard({ onViewChange }: LearnDashboardProps) {
           );
         })}
       </div>
+
+      {/* Native Banner Ad */}
+      <AdsterraNativeBanner className="mt-8" />
     </motion.div>
   );
 }

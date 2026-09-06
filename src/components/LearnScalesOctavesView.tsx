@@ -7,6 +7,7 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface LearnScalesOctavesViewProps {
   onViewChange?: (view: AppView) => void;
@@ -1049,6 +1050,9 @@ export default function LearnScalesOctavesView({ onViewChange }: LearnScalesOcta
             ))}
           </div>
         </section>
+
+        {/* Native banner code from Adsterra before the FAQ section */}
+        <AdsterraNativeBanner />
 
         {/* Section 11: FAQs Accordion */}
         <section className="space-y-4">

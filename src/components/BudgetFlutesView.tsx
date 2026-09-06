@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ShoppingCart, Music, CheckCircle2, AlertTriangle, HelpCircle, Info, ChevronDown } from 'lucide-react';
 import { AppView } from '../types';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface BudgetFlutesViewProps {
   onViewChange: (view: AppView) => void;
@@ -315,6 +316,9 @@ const BudgetFlutesView: React.FC<BudgetFlutesViewProps> = ({ onViewChange }) => 
           ))}
         </div>
       </div>
+
+      {/* Native banner code from Adsterra before the FAQ section */}
+      <AdsterraNativeBanner />
 
       {/* FAQ Section */}
       <div className="bg-white rounded-3xl p-6 sm:p-10 border border-bamboo-200/60 shadow-sm">

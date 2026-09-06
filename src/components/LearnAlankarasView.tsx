@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import Metronome from './Metronome';
 import AboutAuthorSection from './AboutAuthorSection';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 import { AppView } from '../types';
 
 interface LearnAlankarasViewProps {
@@ -1438,13 +1439,19 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
           </span>
         </div>
 
-        {filteredAlankars.map((item) => {
+        {filteredAlankars.map((item, index) => {
           const itemSpeed = alankarSpeeds[item.id] || 1;
+          const isMiddle = index === Math.floor(filteredAlankars.length / 2);
           return (
-          <div 
-            key={item.id} 
-            className="bg-white border border-bamboo-200 rounded-3xl overflow-hidden shadow-xs hover:border-amber-400 transition-all space-y-0"
-          >
+            <React.Fragment key={item.id}>
+              {isMiddle && (
+                <div className="py-2">
+                  <AdsterraNativeBanner />
+                </div>
+              )}
+              <div 
+                className="bg-white border border-bamboo-200 rounded-3xl overflow-hidden shadow-xs hover:border-amber-400 transition-all space-y-0"
+              >
             {/* Header Card */}
             <div className="bg-bamboo-50/80 px-5 sm:px-6 py-4 border-b border-bamboo-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div className="space-y-1">
@@ -1600,6 +1607,7 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
               )}
             </div>
           </div>
+        </React.Fragment>
         );
       })}
       </div>
@@ -1654,6 +1662,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
           <ArrowRight className="w-4 h-4" />
         </Link>
       </section>
+
+      {/* Native banner code from Adsterra */}
+      <AdsterraNativeBanner />
 
       {/* Author Section */}
       <AboutAuthorSection onViewChange={onViewChange} />

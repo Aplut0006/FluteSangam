@@ -9,6 +9,7 @@ import {
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
 import Metronome from './Metronome';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface DailyPracticeGuideViewProps {
   onViewChange?: (view: AppView) => void;
@@ -886,6 +887,9 @@ export default function DailyPracticeGuideView({ onViewChange }: DailyPracticeGu
           ))}
         </div>
       </section>
+
+      {/* Native Banner Ad */}
+      <AdsterraNativeBanner className="my-6" />
 
       {/* Next Step Banner: Ragas */}
       <section className="bg-gradient-to-r from-bamboo-900 to-amber-900 text-white rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg">

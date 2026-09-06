@@ -2,6 +2,7 @@ import React from 'react';
 import { Wind, Volume2, UserCheck, Move, Play, Music, Calendar, Clock, CheckCircle2, Sparkles, ChevronRight } from 'lucide-react';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface LearnBasicsViewProps {
   onViewChange?: (view: AppView) => void;
@@ -196,6 +197,9 @@ export default function LearnBasicsView({ onViewChange }: LearnBasicsViewProps) 
                 </p>
               </div>
             </section>
+
+            {/* Native Banner Ad */}
+            <AdsterraNativeBanner className="my-6" />
 
             {/* Next Step: Interactive Fingering Chart CTA */}
             {onViewChange && (

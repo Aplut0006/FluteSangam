@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import * as Tone from 'tone';
 import { UserProfile } from '../types';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 import { 
   subscribeToSavedAlankars, 
   saveAlankarToFirestore, 
@@ -1190,7 +1191,7 @@ Learn & practice on https://flutesangam.com`;
             </div>
           </div>
 
-          {/* Educational Practice Guide Section */}
+          {/* Pro Tips for Alankar Riyaz on Bansuri */}
           <div className="bg-white border border-bamboo-200 rounded-3xl p-6 md:p-8 shadow-xs space-y-4">
             <h3 className="text-lg font-bold text-bamboo-900 font-display flex items-center gap-2">
               <Wind className="w-5 h-5 text-amber-600" />
@@ -1211,6 +1212,9 @@ Learn & practice on https://flutesangam.com`;
               </div>
             </div>
           </div>
+
+          {/* Native banner code from Adsterra at bottom */}
+          <AdsterraNativeBanner className="my-6" />
         </div>
       )}
     </div>

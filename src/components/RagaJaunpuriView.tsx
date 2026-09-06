@@ -10,6 +10,7 @@ import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 import { playTakMetronomeClick } from '../lib/audioUtils';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface RagaJaunpuriViewProps {
   onViewChange?: (view: AppView) => void;
@@ -1327,6 +1328,9 @@ export const RagaJaunpuriView: React.FC<RagaJaunpuriViewProps> = ({ onViewChange
           </div>
         </div>
       </div>
+
+      {/* Native banner code from Adsterra before the FAQ section */}
+      <AdsterraNativeBanner />
 
       {/* Frequently Asked Questions Accordion */}
       <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-7 shadow-xs border border-amber-200/70 dark:border-slate-800 space-y-4">

@@ -9,6 +9,7 @@ import {
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface RagaKafiViewProps {
   onViewChange?: (view: AppView) => void;
@@ -960,6 +961,9 @@ S`;
           <span className="text-base sm:text-lg font-mono font-bold text-amber-300">40 minutes</span>
         </div>
       </section>
+
+      {/* Native banner code from Adsterra before the FAQ section */}
+      <AdsterraNativeBanner />
 
       {/* Frequently Asked Questions */}
       <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-bamboo-100 space-y-4">

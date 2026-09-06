@@ -5,6 +5,7 @@ import {
   Cookie, BarChart3, Radio, FileText, CheckCircle2, HelpCircle,
   Database, Trash2, Baby, Globe, RefreshCw, Mic, Volume2
 } from 'lucide-react';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface PrivacyPolicyViewProps {
   onBackToCommunity?: () => void;
@@ -375,6 +376,9 @@ export const PrivacyPolicyView: React.FC<PrivacyPolicyViewProps> = ({ onBackToCo
               </a>
             </div>
           </section>
+
+          {/* Native Banner Ad */}
+          <AdsterraNativeBanner className="my-6" />
 
           {/* Section 19: Last Updated */}
           <div className="pt-6 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-2 font-medium">

@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface HowToFindSongScaleViewProps {
   onViewChange?: (view: AppView) => void;
@@ -1024,6 +1025,9 @@ export const HowToFindSongScaleView: React.FC<HowToFindSongScaleViewProps> = ({ 
             💡 <strong>FluteSangam Tip:</strong> Don't memorize the scale of every song you want to play. <strong>Train your ear to find Sa.</strong> Once your ear becomes comfortable finding the tonal center, learning new songs on your bamboo flute becomes fast, natural, and joyful!
           </div>
         </section>
+
+        {/* Native banner code from Adsterra before the FAQ section */}
+        <AdsterraNativeBanner />
 
         {/* SECTION 11: FREQUENTLY ASKED QUESTIONS */}
         <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-xs border border-stone-200 space-y-4">

@@ -14,6 +14,7 @@ import {
   X,
   Lock
 } from 'lucide-react';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface MembersViewProps {
   currentUser?: UserProfile | null;
@@ -362,6 +363,9 @@ export default function MembersView({
           })}
         </div>
       )}
+
+      {/* Native Banner Ad */}
+      <AdsterraNativeBanner className="my-8" />
     </div>
   );
 }

@@ -4,12 +4,13 @@ import {
   Volume2, Copy, Check, ChevronDown, ChevronUp, 
   Compass, Zap, Share2, 
   Sliders, Award, Sparkles, ShieldAlert, Lightbulb, ArrowLeft,
-  RefreshCw, RotateCcw
+  RefreshCw, RotateCcw, HelpCircle
 } from 'lucide-react';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 import { playTakMetronomeClick } from '../lib/audioUtils';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface RagaTodiViewProps {
   onViewChange?: (view: AppView) => void;
@@ -1183,6 +1184,60 @@ r g M g | r S — — ||`;
           </p>
           <div className="bg-white/10 backdrop-blur-xs p-4 rounded-2xl border border-white/20 text-xs sm:text-sm text-white font-medium">
             <strong className="text-amber-300">FluteSangam Tip:</strong> In Todi, accuracy and expression go together. Take your time with each swara, allow the phrases to breathe, and let the raga develop gradually.
+          </div>
+        </section>
+
+        {/* Native banner code from Adsterra before the FAQ section */}
+        <AdsterraNativeBanner />
+
+        {/* SECTION 13: FREQUENTLY ASKED QUESTIONS */}
+        <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200/80 mb-8 space-y-4">
+          <div className="flex items-center gap-2.5 text-bamboo-950 font-display font-bold text-xl sm:text-2xl border-b border-stone-200 pb-3">
+            <HelpCircle className="w-6 h-6 text-amber-800 shrink-0" />
+            <h2>Frequently Asked Questions — Raag Todi on Flute</h2>
+          </div>
+
+          <div className="space-y-3 pt-2">
+            {[
+              {
+                q: "What makes Raag Todi such a profound raga for bansuri?",
+                a: "Raag Todi (Miyan Ki Todi) uses Komal Re, Komal Ga, Tivra Ma, and Komal Dha with Shuddha Ni. The microtonal nuances, especially the ultra-soft Komal Ga (Ati-Komal Ga) oscillating towards Re, produce an intense mood of pathos, yearning, and deep contemplation."
+              },
+              {
+                q: "Which Thaat does Raag Todi belong to?",
+                a: "Raag Todi is the archetype raga of Todi Thaat, one of the ten fundamental parent scales in Hindustani classical music."
+              },
+              {
+                q: "How do I blow Komal Re and Komal Ga accurately on bansuri?",
+                a: "Komal Re and Komal Ga are half-hole notes. Use relaxed finger pads to partially uncover the hole (approximately 40-50%), adjust the embouchure angle slightly downward to drop the pitch to true microtonal positions, and practice with a steady Tanpura."
+              },
+              {
+                q: "What is the Vadi and Samvadi of Raag Todi?",
+                a: "The Vadi (primary resting note) is Komal Dha (d), and the Samvadi (secondary anchor note) is Komal Ga (g)."
+              },
+              {
+                q: "When should Raag Todi be played or practiced?",
+                a: "Traditionally, Raag Todi is played during the late morning (second prahar of the day, roughly 9 AM to 12 PM), matching the serene, reflective morning light."
+              }
+            ].map((faq, idx) => (
+              <div key={idx} className="border border-stone-200 rounded-2xl overflow-hidden transition">
+                <button
+                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                  className="w-full text-left p-4 flex items-center justify-between gap-3 font-bold text-xs sm:text-sm text-bamboo-950 hover:bg-stone-50 transition cursor-pointer"
+                >
+                  <span className="flex items-center gap-2">
+                    <span className="text-amber-800 font-extrabold">Q.</span>
+                    {faq.q}
+                  </span>
+                  {openFaq === idx ? <ChevronUp className="w-4 h-4 text-amber-800 shrink-0" /> : <ChevronDown className="w-4 h-4 text-stone-400 shrink-0" />}
+                </button>
+                {openFaq === idx && (
+                  <div className="p-4 pt-0 text-xs sm:text-sm text-stone-700 leading-relaxed border-t border-stone-100 bg-stone-50/50">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </section>
 

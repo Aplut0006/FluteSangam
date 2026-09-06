@@ -25,6 +25,7 @@ import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 import { playTakMetronomeClick } from '../lib/audioUtils';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface RagaMiyanKiMalharViewProps {
   onViewChange?: (view: AppView) => void;
@@ -1119,6 +1120,9 @@ R M R S | S — — — ||`;
             </div>
           </div>
         </div>
+
+        {/* Native banner code from Adsterra before the FAQ section */}
+        <AdsterraNativeBanner />
 
         {/* 14. FREQUENTLY ASKED QUESTIONS */}
         <div className="bg-white rounded-3xl p-6 md:p-8 border border-stone-200/80 mb-10 shadow-sm">

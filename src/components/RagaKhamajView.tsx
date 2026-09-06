@@ -9,6 +9,7 @@ import {
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface RagaKhamajViewProps {
   onViewChange?: (view: AppView) => void;
@@ -1068,6 +1069,9 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
             <span className="font-mono text-base text-amber-900 font-black">45 Minutes / Session</span>
           </div>
         </section>
+
+        {/* Native banner code from Adsterra before the FAQ section */}
+        <AdsterraNativeBanner />
 
         {/* Section 11: Frequently Asked Questions */}
         <section className="bg-white p-6 sm:p-8 rounded-3xl border border-amber-200/80 shadow-xs space-y-6">

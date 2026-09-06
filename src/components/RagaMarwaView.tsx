@@ -10,6 +10,7 @@ import {
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface RagaMarwaViewProps {
   onViewChange?: (view: AppView) => void;
@@ -965,6 +966,9 @@ export default function RagaMarwaView({ onViewChange }: RagaMarwaViewProps) {
             </p>
           </div>
         </section>
+
+        {/* Native banner code from Adsterra before the FAQ section */}
+        <AdsterraNativeBanner />
 
         {/* 12. FAQ Section */}
         <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-amber-200/80 space-y-6">

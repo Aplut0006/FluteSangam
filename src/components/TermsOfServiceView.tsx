@@ -5,6 +5,7 @@ import {
   CheckCircle2, Lock, Radio, Cookie, Eye, Compass, Copyright, 
   BookOpen, Link2, Ban, RefreshCw, HelpCircle, Mic
 } from 'lucide-react';
+import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface TermsOfServiceViewProps {
   onBackToCommunity?: () => void;
@@ -265,6 +266,9 @@ export const TermsOfServiceView: React.FC<TermsOfServiceViewProps> = ({ onBackTo
               </a>
             </div>
           </section>
+
+          {/* Native Banner Ad */}
+          <AdsterraNativeBanner className="my-6" />
 
           {/* Section 16: Last Updated */}
           <div className="pt-6 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-2 font-medium">
