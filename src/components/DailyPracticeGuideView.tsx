@@ -10,6 +10,7 @@ import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
 import Metronome from './Metronome';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface DailyPracticeGuideViewProps {
   onViewChange?: (view: AppView) => void;
@@ -235,6 +236,9 @@ export default function DailyPracticeGuideView({ onViewChange }: DailyPracticeGu
           </p>
         </div>
       </section>
+
+      {/* Adsterra Display Banner: 300x250 after Introduction */}
+      <AdsterraDisplayBanner />
 
       {/* Before You Begin */}
       <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-bamboo-100 space-y-4">

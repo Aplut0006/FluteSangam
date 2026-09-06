@@ -11,6 +11,7 @@ import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface RagaBihagViewProps {
   onViewChange?: (view: AppView) => void;
@@ -292,6 +293,9 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
           </p>
         </div>
       </div>
+
+      {/* Adsterra Display Banner: 300x250 after Introduction */}
+      <AdsterraDisplayBanner />
 
       {/* Basic Information Quick Reference Table */}
       <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">

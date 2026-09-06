@@ -11,6 +11,7 @@ import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface RagaMalkaunsViewProps {
   onViewChange?: (view: AppView) => void;
@@ -351,6 +352,9 @@ g M d | M g | S`;
             The beauty of Malkauns comes from slow development, careful note treatment, and the space between phrases rather than from fast note patterns.
           </p>
         </section>
+
+        {/* Adsterra Display Banner: 300x250 after Introduction */}
+        <AdsterraDisplayBanner />
 
         {/* Basic Information Grid Table */}
         <section className="bg-gradient-to-br from-purple-50/60 to-indigo-50/60 rounded-3xl p-6 sm:p-8 border border-purple-100 shadow-3xs space-y-4">

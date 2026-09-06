@@ -15,6 +15,7 @@ import {
   Lock
 } from 'lucide-react';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface MembersViewProps {
   currentUser?: UserProfile | null;
@@ -166,6 +167,9 @@ export default function MembersView({
           </p>
         </div>
       </div>
+
+      {/* Adsterra Display Banner: 300x250 after Introduction */}
+      <AdsterraDisplayBanner />
 
       {/* Filter and Search Bar */}
       <div className="bg-white rounded-2xl p-4 sm:p-5 border border-bamboo-200/80 shadow-xs space-y-4">

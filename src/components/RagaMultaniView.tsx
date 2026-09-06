@@ -11,6 +11,7 @@ import AboutAuthorSection from './AboutAuthorSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface RagaMultaniViewProps {
   onViewChange?: (view: AppView) => void;
@@ -470,6 +471,9 @@ N d P M^ | g r S — ||`;
             <strong>Note for learners:</strong> Multani is generally better suited to <strong>intermediate-to-advanced and advanced players</strong> because its identity depends heavily on swara treatment and characteristic phrases.
           </p>
         </section>
+
+        {/* Adsterra Display Banner: 300x250 after Introduction */}
+        <AdsterraDisplayBanner />
 
         {/* Interactive Swara Explorer */}
         <section className="bg-white rounded-2xl p-6 sm:p-8 border border-amber-200/80 shadow-xs space-y-6">

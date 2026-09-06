@@ -3,6 +3,7 @@ import { Wind, Volume2, UserCheck, Move, Play, Music, Calendar, Clock, CheckCirc
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface LearnBasicsViewProps {
   onViewChange?: (view: AppView) => void;
@@ -58,6 +59,9 @@ export default function LearnBasicsView({ onViewChange }: LearnBasicsViewProps) 
                 Before you can play melodies, you must master the two foundational pillars of the bansuri: producing a clear, resonant tone (the embouchure) and holding the instrument without tension (the grip).
               </p>
             </section>
+
+            {/* Adsterra Display Banner: 300x250 after Introduction */}
+            <AdsterraDisplayBanner />
 
             {/* Embouchure */}
             <section className="space-y-6">

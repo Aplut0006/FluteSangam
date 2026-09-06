@@ -4,6 +4,7 @@ import { ShoppingBag, ArrowLeft, CheckCircle2, AlertTriangle, Lightbulb, Sparkle
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface LearnChooseFluteViewProps {
   onBackToLearn?: () => void;
@@ -94,6 +95,11 @@ export default function LearnChooseFluteView({ onBackToLearn, onViewChange }: Le
             <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
               One of the most common questions every beginner asks! Choosing the right flute is important because it can make your learning journey much more comfortable and enjoyable. The recommendations below are based on practical learning experience and are intended to help beginners make an informed choice.
             </p>
+          </div>
+
+          {/* Adsterra Display Banner: 300x250 after Introduction */}
+          <div className="mb-8">
+            <AdsterraDisplayBanner />
           </div>
 
           <div className="space-y-10 text-gray-700">

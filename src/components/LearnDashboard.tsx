@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import { BookOpen, Wind, Music, Feather, ShoppingBag, Radio, CircleDot, Target, AlertTriangle, HelpCircle, Layers, Compass, FileText } from 'lucide-react';
 import { AppView } from '../types';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface LearnDashboardProps {
   onViewChange?: (view: AppView) => void;
@@ -39,6 +40,11 @@ export default function LearnDashboard({ onViewChange }: LearnDashboardProps) {
         <p className="text-xs sm:text-sm text-gray-600">
           Step-by-step educational modules to master the Indian bamboo flute (Bansuri)
         </p>
+      </div>
+
+      {/* Adsterra Display Banner: 300x250 after Introduction */}
+      <div className="mb-8">
+        <AdsterraDisplayBanner />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

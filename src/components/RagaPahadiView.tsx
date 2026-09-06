@@ -11,6 +11,7 @@ import AboutAuthorSection from './AboutAuthorSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface RagaPahadiViewProps {
   onViewChange?: (view: AppView) => void;
@@ -531,6 +532,9 @@ R G P G | R S — — ||
                 </p>
               </div>
             </section>
+
+            {/* Adsterra Display Banner: 300x250 after Introduction */}
+            <AdsterraDisplayBanner />
 
             {/* Notes Section & Interactive Swara Audio Explorer */}
             <section className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-stone-200/80 space-y-6">

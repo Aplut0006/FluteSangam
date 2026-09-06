@@ -11,6 +11,7 @@ import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface RagaBhairavViewProps {
   onViewChange?: (view: AppView) => void;
@@ -376,6 +377,9 @@ S`;
           For bansuri players, Bhairav is an excellent intermediate raga because it develops pitch control, breath stability, Andolan, meend, and expressive note treatment. Although its basic swara structure is straightforward, playing it convincingly requires attention to the movement and weight given to individual notes.
         </p>
       </section>
+
+      {/* Adsterra Display Banner: 300x250 after Introduction */}
+      <AdsterraDisplayBanner />
 
       {/* Basic Information Table */}
       <section className="bg-gradient-to-br from-amber-50 to-orange-50/60 rounded-3xl p-6 sm:p-8 border border-amber-200/80 shadow-xs space-y-5">

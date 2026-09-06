@@ -10,6 +10,7 @@ import { LEARN_RAAGAS, RaagaDetails } from '../data/learnRaagasData';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 type Difficulty = 'All' | 'Beginner' | 'Intermediate' | 'Advanced';
 type ConceptTab = 'grammar' | 'microtones' | 'time' | 'rasa';
@@ -331,6 +332,9 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
           </div>
         </div>
       </motion.div>
+
+      {/* Adsterra Display Banner: 300x250 after Introduction */}
+      <AdsterraDisplayBanner />
 
       {/* Interactive Concept Pillars Showcase */}
       <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200 dark:border-slate-800 space-y-6">

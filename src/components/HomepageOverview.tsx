@@ -9,6 +9,7 @@ import {
 import { AppView, UserProfile } from '../types';
 import { VIEW_URLS } from '../routes';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface HomepageOverviewProps {
   onViewChange: (view: AppView) => void;
@@ -330,6 +331,9 @@ export default function HomepageOverview({
           </div>
         </div>
       </section>
+
+      {/* Adsterra Display Banner: 300x250 after Introduction */}
+      <AdsterraDisplayBanner />
 
       {/* SECTION 2: Learn Flute (Step-by-Step Fundamentals) */}
       <section id="learn-flute-section" className="space-y-6">

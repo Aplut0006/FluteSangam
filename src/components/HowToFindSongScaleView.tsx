@@ -11,6 +11,7 @@ import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface HowToFindSongScaleViewProps {
   onViewChange?: (view: AppView) => void;
@@ -286,6 +287,9 @@ export const HowToFindSongScaleView: React.FC<HowToFindSongScaleViewProps> = ({ 
 
           </div>
         </motion.div>
+
+        {/* Adsterra Display Banner: 300x250 after Introduction */}
+        <AdsterraDisplayBanner />
 
         {/* QUICK WORKFLOW HIGHLIGHTS */}
         <div className="grid grid-cols-1 sm:grid-cols-5 gap-3">

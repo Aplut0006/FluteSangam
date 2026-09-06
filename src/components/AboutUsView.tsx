@@ -18,7 +18,6 @@ import {
   ExternalLink
 } from 'lucide-react';
 import { AppView } from '../types';
-import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface AboutUsViewProps {
   onViewChange?: (view: AppView) => void;
@@ -354,9 +353,6 @@ export default function AboutUsView({ onViewChange }: AboutUsViewProps = {}) {
             <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Flute Community</span>
           </div>
         </section>
-
-        {/* Native Banner Ad */}
-        <AdsterraNativeBanner className="my-8" />
 
       </div>
     </motion.div>

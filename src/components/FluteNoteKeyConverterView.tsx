@@ -33,6 +33,7 @@ import {
 } from '../utils/fluteConverterEngine';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 type ConversionMode = 'swara_to_western' | 'western_to_swara' | 'change_flute_key';
 
@@ -255,6 +256,11 @@ export const FluteNoteKeyConverterView: React.FC<Props> = ({ onNavigate }) => {
             Convert Indian swaras and Western notes between different flute keys.
           </p>
         </div>
+      </div>
+
+      {/* Adsterra Display Banner: 300x250 after Introduction */}
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-6 -mb-6">
+        <AdsterraDisplayBanner />
       </div>
 
       {/* Main Interactive Tool Container */}

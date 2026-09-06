@@ -7,6 +7,7 @@ import {
 import * as Tone from 'tone';
 import { UserProfile } from '../types';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 import { 
   subscribeToSavedAlankars, 
   saveAlankarToFirestore, 
@@ -855,6 +856,9 @@ Learn & practice on https://flutesangam.com`;
           </div>
         </div>
       </div>
+
+      {/* Adsterra Display Banner: 300x250 after Introduction */}
+      <AdsterraDisplayBanner />
 
       {activeTab === 'saved' && isUserSignedIn ? (
         /* Saved Collection View */

@@ -38,6 +38,7 @@ import {
 } from 'lucide-react';
 import { SongRequestModal } from './SongRequestFAB';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface NotationRequestsViewProps {
   currentUser?: any;
@@ -306,6 +307,11 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
           </button>
         </div>
         <Music className="absolute -right-6 -bottom-6 w-48 h-48 text-white/5 pointer-events-none" />
+      </div>
+
+      {/* Adsterra Display Banner: 300x250 after Introduction */}
+      <div className="mb-6">
+        <AdsterraDisplayBanner />
       </div>
 
       <SongRequestModal 

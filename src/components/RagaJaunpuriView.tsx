@@ -11,6 +11,7 @@ import AboutAuthorSection from './AboutAuthorSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface RagaJaunpuriViewProps {
   onViewChange?: (view: AppView) => void;
@@ -516,6 +517,9 @@ export const RagaJaunpuriView: React.FC<RagaJaunpuriViewProps> = ({ onViewChange
           </p>
         </div>
       </div>
+
+      {/* Adsterra Display Banner: 300x250 after Introduction */}
+      <AdsterraDisplayBanner />
 
       {/* Swaras, Interactive Notations, Aaroh, Avaroh, Pakad */}
       <div className="space-y-6">

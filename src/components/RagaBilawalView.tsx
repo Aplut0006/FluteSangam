@@ -10,6 +10,7 @@ import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface RagaBilawalViewProps {
   onViewChange?: (view: AppView) => void;
@@ -305,6 +306,9 @@ export default function RagaBilawalView({ onViewChange }: RagaBilawalViewProps) 
           </p>
         </div>
       </section>
+
+      {/* Adsterra Display Banner: 300x250 after Introduction */}
+      <AdsterraDisplayBanner />
 
       {/* Basic Information Grid */}
       <section className="space-y-3 sm:space-y-4">

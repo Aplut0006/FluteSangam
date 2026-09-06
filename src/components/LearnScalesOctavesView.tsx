@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface LearnScalesOctavesViewProps {
   onViewChange?: (view: AppView) => void;
@@ -361,6 +362,9 @@ export default function LearnScalesOctavesView({ onViewChange }: LearnScalesOcta
           </p>
         </div>
       </div>
+
+      {/* Adsterra Display Banner: 300x250 after Introduction */}
+      <AdsterraDisplayBanner />
 
       {/* ================= INTERACTIVE OCTAVES & VOICE SYNTHESIZER ================= */}
       <section className="bg-gradient-to-br from-amber-900 via-bamboo-900 to-stone-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden border border-amber-700/30">

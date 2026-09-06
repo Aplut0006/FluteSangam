@@ -12,6 +12,7 @@ import { AppView } from '../types';
 import { VIEW_URLS } from '../routes';
 import { FAQ_DATA, CATEGORY_SLUGS, type FaqItem } from '../data/allFaqData';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 export type { FaqItem };
 export { FAQ_DATA, CATEGORY_SLUGS };
 
@@ -526,6 +527,9 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
           </div>
         </div>
       </div>
+
+      {/* Adsterra Display Banner: 300x250 after Introduction */}
+      <AdsterraDisplayBanner />
 
       {/* Crawlable Topic Navigation Hub: Browse FAQ by Topic */}
       <section className="bg-white rounded-3xl p-6 sm:p-8 border border-amber-200/90 shadow-md space-y-6" id="faq-topic-navigation-hub">

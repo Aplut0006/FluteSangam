@@ -10,6 +10,7 @@ import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface RagaBrindavaniSarangViewProps {
   onViewChange?: (view: AppView) => void;
@@ -312,6 +313,9 @@ Finish on: S`;
             For bansuri players, Raag Brindavani Sarang serves as an exceptional raga for developing steady breath control, note stability, and expressive phrasing. It is typically introduced after students have built foundational confidence with ragas such as Bhoopali, Durga, Bilawal, and Yaman.
           </p>
         </div>
+
+        {/* Adsterra Display Banner: 300x250 after Introduction */}
+        <AdsterraDisplayBanner />
 
         {/* Basic Information Grid */}
         <div className="mt-6 pt-6 border-t border-bamboo-100">

@@ -11,6 +11,7 @@ import AboutAuthorSection from './AboutAuthorSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface RagaTilangViewProps {
   onViewChange?: (view: AppView) => void;
@@ -475,6 +476,9 @@ export const RagaTilangView: React.FC<RagaTilangViewProps> = ({ onViewChange }) 
             <strong>Note:</strong> Tilang has been described and performed with some variations across musical traditions. The framework below is designed as a practical learning reference for flute players, while the characteristic phrase treatment remains more important than treating the raga as a rigid scale.
           </div>
         </section>
+
+        {/* Adsterra Display Banner: 300x250 after Introduction */}
+        <AdsterraDisplayBanner />
 
         {/* SECTION 2: NOTES & INTERACTIVE SWARA PAD */}
         <section className="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200 shadow-2xs space-y-6">

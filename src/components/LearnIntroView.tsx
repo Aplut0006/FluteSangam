@@ -2,6 +2,7 @@ import React from 'react';
 import { Wind, Feather, Music, Heart, BookOpen, Calendar, Clock, CheckCircle2 } from 'lucide-react';
 import AboutAuthorSection from './AboutAuthorSection';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 import { AppView } from '../types';
 
 interface LearnIntroViewProps {
@@ -58,6 +59,9 @@ export default function LearnIntroView({ onViewChange }: LearnIntroViewProps) {
                 The Bansuri (Indian classical flute) is one of the world's oldest and most elegant musical instruments. Derived from the words bans (bamboo) and sur (musical note), it is a deceptively simple instrument—just a single piece of hollow bamboo with six or seven finger holes. Yet, in the hands of a master, it is capable of mimicking the microtones (shrutis) and emotional depth of the human voice.
               </p>
             </section>
+
+            {/* Adsterra Display Banner: 300x250 after Introduction */}
+            <AdsterraDisplayBanner />
 
             <img 
               src="/krishna_village_old_under_tree.jpg" 

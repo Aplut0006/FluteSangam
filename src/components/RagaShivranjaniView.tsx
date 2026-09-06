@@ -11,6 +11,7 @@ import AboutAuthorSection from './AboutAuthorSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface RagaShivranjaniViewProps {
   onViewChange?: (view: AppView) => void;
@@ -499,6 +500,9 @@ export const RagaShivranjaniView: React.FC<RagaShivranjaniViewProps> = ({ onView
           </div>
         </div>
       </section>
+
+      {/* Adsterra Display Banner: 300x250 after Introduction */}
+      <AdsterraDisplayBanner />
 
       {/* SECTION 2: NOTES & INTERACTIVE SWARA BOARD */}
       <section className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xs border border-stone-200 space-y-6">

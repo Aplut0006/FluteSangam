@@ -13,6 +13,7 @@ import AboutAuthorSection from './AboutAuthorSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface HowToReadBansuriNotationViewProps {
   onViewChange?: (view: AppView) => void;
@@ -374,6 +375,9 @@ export default function HowToReadBansuriNotationView({ onViewChange }: HowToRead
             </div>
           </div>
         </section>
+
+        {/* Adsterra Display Banner: 300x250 after Introduction */}
+        <AdsterraDisplayBanner />
 
         {/* 4. Section 1: The Seven Basic Swaras */}
         <section className="space-y-6">

@@ -7,6 +7,7 @@ import {
 import Metronome from './Metronome';
 import AboutAuthorSection from './AboutAuthorSection';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 import { AppView } from '../types';
 
 interface LearnAlankarasViewProps {
@@ -1376,6 +1377,9 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
           </div>
         </div>
       </div>
+
+      {/* Adsterra Display Banner: 300x250 after Introduction */}
+      <AdsterraDisplayBanner />
 
       {/* Difficulty Level Filter Bar (No Search & No 'All' Filter) */}
       <div className="bg-white rounded-3xl p-5 sm:p-6 shadow-sm border border-bamboo-200 space-y-4">

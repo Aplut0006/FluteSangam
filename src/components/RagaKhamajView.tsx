@@ -10,6 +10,7 @@ import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
+import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface RagaKhamajViewProps {
   onViewChange?: (view: AppView) => void;
@@ -270,6 +271,9 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
             For a flute player, learning Khamaj helps develop the ability to distinguish between similar swaras and to understand how a raga's identity comes from its phrases and note treatment, rather than simply from its scale.
           </p>
         </section>
+
+        {/* Adsterra Display Banner: 300x250 after Introduction */}
+        <AdsterraDisplayBanner />
 
         {/* Section 2: Basic Information Grid */}
         <section className="bg-gradient-to-br from-amber-900 to-amber-950 text-amber-50 p-6 sm:p-8 rounded-3xl shadow-md border border-amber-800/80">
