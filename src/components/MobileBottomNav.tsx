@@ -34,7 +34,7 @@ export default function MobileBottomNav({
       id: 'learn_dashboard' as AppView, 
       label: 'Learn', 
       icon: BookOpen,
-      isActive: currentView === 'learn_dashboard' || (currentView.startsWith('learn_') && currentView !== 'learn_tuner')
+      isActive: currentView === 'learn_dashboard' || (currentView.startsWith('learn_') && currentView !== 'learn_tuner' && currentView !== 'learn_raagas' && !currentView.startsWith('raga_'))
     },
     { 
       id: 'learn_tuner' as AppView, 
@@ -43,10 +43,10 @@ export default function MobileBottomNav({
       isActive: currentView === 'learn_tuner'
     },
     { 
-      id: 'notation_requests' as AppView, 
-      label: 'Notations', 
+      id: 'learn_raagas' as AppView, 
+      label: 'Raagas', 
       icon: Music,
-      isActive: currentView === 'notation_requests'
+      isActive: currentView === 'learn_raagas' || currentView.startsWith('raga_')
     },
   ];
 
