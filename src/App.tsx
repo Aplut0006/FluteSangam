@@ -63,7 +63,6 @@ const RagaMiyanKiMalharView = lazyWithRetry(() => import('./components/RagaMiyan
 const RagaTilangView = lazyWithRetry(() => import('./components/RagaTilangView'));
 const RagaShivranjaniView = lazyWithRetry(() => import('./components/RagaShivranjaniView'));
 const RagaJaunpuriView = lazyWithRetry(() => import('./components/RagaJaunpuriView'));
-const BudgetFlutesView = lazyWithRetry(() => import('./components/BudgetFlutesView'));
 const FluteNoteKeyConverterView = lazyWithRetry(() => import('./components/FluteNoteKeyConverterView'));
 const HowToFindSongScaleView = lazyWithRetry(() => import('./components/HowToFindSongScaleView'));
 const HowToReadBansuriNotationView = lazyWithRetry(() => import('./components/HowToReadBansuriNotationView'));
@@ -311,10 +310,6 @@ export default function App() {
       case 'flute_faq':
         title = 'Flute FAQ | Common Questions & Answers for Flute Learners | FluteSangam';
         description = 'Find answers to common flute questions about learning, practice, bamboo flutes, raagas, breathing, maintenance, and more. Explore the FluteSangam FAQ for helpful guidance.';
-        break;
-      case 'budget_flutes':
-        title = 'Best Budget Flutes to Buy for Beginners | FluteSangam';
-        description = 'Discover the best affordable budget flutes (bamboo and PVC) for beginners. Read our buying guide, FAQs, and tips for starting your bansuri journey.';
         break;
       case 'note_key_converter':
         title = 'Flute Note & Key Converter | Swara to Western Notes | FluteSangam';
@@ -1199,8 +1194,6 @@ export default function App() {
           <CommonFluteMistakesView onViewChange={handleViewChange} />
         ) : currentView === 'flute_faq' ? (
           <FluteFaqView onViewChange={handleViewChange} />
-        ) : currentView === 'budget_flutes' ? (
-          <BudgetFlutesView onViewChange={handleViewChange} />
         ) : currentView === 'note_key_converter' ? (
           <FluteNoteKeyConverterView onNavigate={handleViewChange} />
         ) : currentView === 'find_song_scale' ? (

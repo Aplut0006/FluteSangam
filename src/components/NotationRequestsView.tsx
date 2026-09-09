@@ -672,7 +672,141 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
           </div>
         </div>
 
-        {/* Section 3: Notation FAQs */}
+        {/* Section 3: FEATURED VERIFIED SONG SARGAMS (FULL TRANSCRIPTIONS) */}
+        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-bamboo-200 shadow-sm space-y-6">
+          <div className="border-b border-bamboo-100 pb-4">
+            <span className="text-xs uppercase tracking-wider font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+              Verified Master Transcriptions
+            </span>
+            <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950 mt-2">
+              Featured Practice-Ready Song Sargams
+            </h2>
+            <p className="text-xs sm:text-sm text-gray-600 mt-1.5 leading-relaxed">
+              Below are three complete, verified classical and devotional flute transcriptions crafted specifically for Indian Bamboo Flute practice. Use them directly with your C Medium, E Bass, or G Base bansuri:
+            </p>
+          </div>
+
+          {/* Song 1: Achyutam Keshavam */}
+          <div className="p-5 sm:p-6 rounded-2xl bg-amber-50/50 border border-amber-200 space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-amber-200/60 pb-3">
+              <div>
+                <h3 className="text-base sm:text-lg font-bold text-amber-950">1. Achyutam Keshavam (Krishna Bhajan)</h3>
+                <p className="text-xs text-amber-800">Traditional Devotional Melody • Raag Bhairavi Influence</p>
+              </div>
+              <span className="self-start sm:self-auto text-[11px] font-bold px-3 py-1 rounded-full bg-white border border-amber-300 text-amber-900 shadow-3xs">
+                Suggested Flute: C Natural / G Medium
+              </span>
+            </div>
+
+            <div className="space-y-3 font-mono text-xs sm:text-sm">
+              <div className="bg-white p-4 rounded-xl border border-amber-100 shadow-3xs space-y-2">
+                <span className="font-bold text-bamboo-900 font-sans block text-xs tracking-wider uppercase text-amber-700">
+                  [Sthayi / Chorus]
+                </span>
+                <p className="text-gray-800 leading-loose">
+                  <span className="text-amber-900 font-bold">Sa Re Ga Ma | Pa - - - | Dha Pa Ma Ga | Re - - -</span><br />
+                  <span className="text-gray-500 font-sans text-xs">Ach-yu-tam Ke-sha-vam Ra-ma Na-ra-ya-nam</span>
+                </p>
+                <p className="text-gray-800 leading-loose pt-1">
+                  <span className="text-amber-900 font-bold">Sa Re Ga Ma | Pa Pa Dha Pa | Ma Ga Re Sa | Sa - - -</span><br />
+                  <span className="text-gray-500 font-sans text-xs">Krish-na Dam-o-da-ram Vas-u-de-vam Har-im</span>
+                </p>
+              </div>
+
+              <div className="bg-white p-4 rounded-xl border border-amber-100 shadow-3xs space-y-2">
+                <span className="font-bold text-bamboo-900 font-sans block text-xs tracking-wider uppercase text-amber-700">
+                  [Antara / Verse]
+                </span>
+                <p className="text-gray-800 leading-loose">
+                  <span className="text-amber-900 font-bold">Pa Dha Sa&apos; Sa&apos; | Sa&apos; - - - | Re&apos; Sa&apos; Ni Dha | Pa - - -</span><br />
+                  <span className="text-gray-500 font-sans text-xs">Kaun Keh-ta Hai Bha-gwan Aa-te Na-hin</span>
+                </p>
+                <p className="text-gray-800 leading-loose pt-1">
+                  <span className="text-amber-900 font-bold">Pa Dha Sa&apos; Sa&apos; | Ni Dha Pa Ma | Ga Re Sa - | Sa - - -</span><br />
+                  <span className="text-gray-500 font-sans text-xs">Tum Mee-ra Ke Jai-se Bu-la-te Na-hin</span>
+                </p>
+              </div>
+            </div>
+
+            <div className="p-3 bg-amber-100/50 rounded-xl text-xs text-amber-950 font-sans leading-relaxed">
+              💡 <strong>Bansuri Technique:</strong> Play the transition from Gandhar (Ga) to Rishabh (Re) with a slow, soulful finger slide (<em>Meend</em>) to capture the true meditative feeling of the bhajan.
+            </div>
+          </div>
+
+          {/* Song 2: Pehla Nasha */}
+          <div className="p-5 sm:p-6 rounded-2xl bg-bamboo-50/50 border border-bamboo-200 space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-bamboo-200/60 pb-3">
+              <div>
+                <h3 className="text-base sm:text-lg font-bold text-bamboo-950">2. Pehla Nasha (Romantic Ballad)</h3>
+                <p className="text-xs text-bamboo-800">Composed by Jatin-Lalit • Jo Jeeta Wohi Sikandar (1992)</p>
+              </div>
+              <span className="self-start sm:self-auto text-[11px] font-bold px-3 py-1 rounded-full bg-white border border-bamboo-300 text-bamboo-900 shadow-3xs">
+                Suggested Flute: C Medium / E Bass
+              </span>
+            </div>
+
+            <div className="space-y-3 font-mono text-xs sm:text-sm">
+              <div className="bg-white p-4 rounded-xl border border-bamboo-100 shadow-3xs space-y-2">
+                <span className="font-bold text-bamboo-900 font-sans block text-xs tracking-wider uppercase text-bamboo-700">
+                  [Chorus Hook]
+                </span>
+                <p className="text-gray-800 leading-loose">
+                  <span className="text-bamboo-900 font-bold">Ga - Re Sa | .Ni - .Dha .Pa | .Pa .Dha Sa Re | Ga - - -</span><br />
+                  <span className="text-gray-500 font-sans text-xs">Chaa-he tum kuchh na ka-ho, mai-ne sun li-ya</span>
+                </p>
+                <p className="text-gray-800 leading-loose pt-1">
+                  <span className="text-bamboo-900 font-bold">Ga Ma Pa - | Pa Dha Pa Ma | Ga Re Sa - | .Ni Sa - -</span><br />
+                  <span className="text-gray-500 font-sans text-xs">Peh-la na-sha, peh-la khu-mar, na-ya pyar hai</span>
+                </p>
+              </div>
+            </div>
+
+            <div className="p-3 bg-bamboo-100/50 rounded-xl text-xs text-bamboo-950 font-sans leading-relaxed">
+              💡 <strong>Bansuri Technique:</strong> Notice the notes marked with a dot before them (<code>.Ni, .Dha, .Pa</code>). These are Mandra Saptak (lower octave) notes played by closing 5 and 6 holes with deep, relaxed diaphragmatic air.
+            </div>
+          </div>
+
+          {/* Song 3: Traditional Classical Bandish in Raag Yaman */}
+          <div className="p-5 sm:p-6 rounded-2xl bg-stone-50 border border-stone-200 space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-stone-200/60 pb-3">
+              <div>
+                <h3 className="text-base sm:text-lg font-bold text-stone-900">3. Classical Bandish: &quot;Eri Aali Piya Bin&quot; (Raag Yaman)</h3>
+                <p className="text-xs text-stone-600">Traditional Hindustani Classical Composition • Teentaal (16 Beats)</p>
+              </div>
+              <span className="self-start sm:self-auto text-[11px] font-bold px-3 py-1 rounded-full bg-white border border-stone-300 text-stone-900 shadow-3xs">
+                Suggested Flute: E Bass / C Medium
+              </span>
+            </div>
+
+            <div className="space-y-3 font-mono text-xs sm:text-sm">
+              <div className="bg-white p-4 rounded-xl border border-stone-200 shadow-3xs space-y-2">
+                <span className="font-bold text-stone-900 font-sans block text-xs tracking-wider uppercase text-amber-800">
+                  [Sthayi - Starting from Beat 9 (Khali)]
+                </span>
+                <p className="text-gray-800 leading-loose">
+                  <span className="text-amber-900 font-bold">.Ni Re Ga - | M&apos; Pa Dha Pa | M&apos; Ga Re Sa | .Ni Re Sa -</span><br />
+                  <span className="text-gray-500 font-sans text-xs">E-ri aa-li pi-ya bin kal na pa-rat mo-he</span>
+                </p>
+              </div>
+
+              <div className="bg-white p-4 rounded-xl border border-stone-200 shadow-3xs space-y-2">
+                <span className="font-bold text-stone-900 font-sans block text-xs tracking-wider uppercase text-amber-800">
+                  [Antara]
+                </span>
+                <p className="text-gray-800 leading-loose">
+                  <span className="text-amber-900 font-bold">Ga M&apos; Dha - | Ni Sa&apos; Sa&apos; - | Re&apos; Ni Dha Pa | M&apos; Ga Re Sa</span><br />
+                  <span className="text-gray-500 font-sans text-xs">Jab se ga-ye mor-e man na la-ge re</span>
+                </p>
+              </div>
+            </div>
+
+            <div className="p-3 bg-stone-100 rounded-xl text-xs text-stone-800 font-sans leading-relaxed">
+              💡 <strong>Raag Rules:</strong> Remember that in Raag Yaman, Madhyam is always <strong>Teevra (M&apos;)</strong>. Half-cover or leave hole 4 open to produce the bright classical tension of Yaman.
+            </div>
+          </div>
+        </div>
+
+        {/* Section 4: Notation FAQs */}
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-bamboo-100 shadow-sm space-y-5">
           <div className="border-b border-bamboo-100 pb-4">
             <span className="text-xs uppercase tracking-wider font-bold text-amber-700">Community Answers</span>

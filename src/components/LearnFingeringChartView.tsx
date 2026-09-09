@@ -902,7 +902,104 @@ export default function LearnFingeringChartView({ onViewChange }: LearnFingering
         </div>
       </div>
 
-      {/* Native Banner Ad */}
+      {/* COMPREHENSIVE GUIDE TO BANSURI FINGERINGS & SWARA MECHANICS */}
+      <div className="bg-white rounded-3xl p-6 sm:p-10 border border-bamboo-200/80 shadow-xs space-y-8 text-gray-700">
+        <div>
+          <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-100/70 px-3 py-1 rounded-full border border-amber-200">
+            Performance Anatomy &amp; Hand Mechanics
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-display font-bold text-bamboo-950 mt-3 mb-3">
+            How to Read Bansuri Fingerings, Half-Hole Techniques &amp; Saptak Octaves
+          </h2>
+          <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+            Unlike Western orchestral woodwinds that rely on metal key pads, rods, and leverage springs, the Indian bansuri is an ancient pure-wood instrument where sound depends entirely on the tactile interface between human finger flesh and organic bamboo tone holes.
+          </p>
+        </div>
+
+        {/* 1. Finger Placement & Grip */}
+        <div className="space-y-3">
+          <h3 className="text-lg sm:text-xl font-bold text-bamboo-900">
+            1. Finger Pad vs. Fingertip Placement (The Pandit Pannalal Ghosh Grip)
+          </h3>
+          <p className="text-xs sm:text-sm leading-relaxed">
+            One of the most critical beginner mistakes is pressing tone holes with the very tips of fingers (curling fingers into claws). On medium and bass bansuris (such as E Bass or G Bass), tone holes are spaced 4 to 6 centimeters apart. Reaching these holes with fingertips creates severe forearm tendon tension and guarantees air leaks.
+          </p>
+          <div className="p-4 bg-bamboo-50/60 rounded-2xl border border-bamboo-200 text-xs sm:text-sm leading-relaxed space-y-2">
+            <p>
+              <strong>The Flat-Pad Method:</strong> Lay the flat fleshy pads of your middle phalanges (between the first and second finger joints) across the tone holes. Keep fingers relatively flat and relaxed. This creates an airtight seal with minimal muscular downward pressure.
+            </p>
+            <p>
+              <strong>Pinky Anchoring:</strong> Your right-hand little finger (pinky) rests lightly on the bamboo shaft beneath the 6th tone hole to act as a fulcrum and stabilize the instrument when lifting upper fingers.
+            </p>
+          </div>
+        </div>
+
+        {/* 2. Half-Hole Technique */}
+        <div className="space-y-3">
+          <h3 className="text-lg sm:text-xl font-bold text-bamboo-900">
+            2. The Art of Half-Hole (Komal &amp; Tivra Swaras) Modulation
+          </h3>
+          <p className="text-xs sm:text-sm leading-relaxed">
+            A 6-hole bansuri naturally sounds the 7 natural notes of the Bilawal Thaat (Major Scale). To produce the 5 microtonal flat and sharp swaras (Komal Re, Komal Ga, Tivra Ma, Komal Dha, and Komal Ni), you must partially uncover specific tone holes:
+          </p>
+          <div className="grid sm:grid-cols-2 gap-4 text-xs pt-1">
+            <div className="p-4 rounded-2xl bg-amber-50/60 border border-amber-200/80 space-y-2">
+              <strong className="text-amber-950 font-bold block text-sm">The Rolling Method (Preferred)</strong>
+              <p className="text-gray-600 leading-relaxed">
+                Rather than lifting your finger into the air, simply roll the finger pad slightly upward or to the side. Rolling maintains continuous skin contact with the bamboo edge, producing a smooth glissando (<em>Meend</em>) without sudden volume drops.
+              </p>
+            </div>
+            <div className="p-4 rounded-2xl bg-amber-50/60 border border-amber-200/80 space-y-2">
+              <strong className="text-amber-950 font-bold block text-sm">The Sliding Method</strong>
+              <p className="text-gray-600 leading-relaxed">
+                Slowly slide the finger pad along the longitudinal axis of the flute to expose 50% of the hole circumference. This is particularly effective for Tivra Ma (hole 4) when executing rapid ornamentations (Khatkas and Murkis).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* 3. The Three Saptaks */}
+        <div className="space-y-3">
+          <h3 className="text-lg sm:text-xl font-bold text-bamboo-900">
+            3. Transitioning Across the Three Octaves (Saptaks)
+          </h3>
+          <p className="text-xs sm:text-sm leading-relaxed">
+            The bansuri covers a 2.5 to 3-octave span without changing fingering positions between lower and higher registers:
+          </p>
+          <div className="grid sm:grid-cols-3 gap-4 text-xs pt-1">
+            <div className="p-4 rounded-2xl bg-bamboo-50/70 border border-bamboo-200 space-y-1.5">
+              <strong className="block text-bamboo-900 text-sm">Mandra Saptak (Lower Octave)</strong>
+              <p className="text-gray-600">
+                Notes below Madhya Sa (represented as Ṇ, Ḍ, P̣, Ṃ). Played with warm, relaxed breath from deep in the abdomen. Lower jaw drops slightly to direct air downward into the blow hole.
+              </p>
+            </div>
+            <div className="p-4 rounded-2xl bg-bamboo-50/70 border border-bamboo-200 space-y-1.5">
+              <strong className="block text-bamboo-900 text-sm">Madhya Saptak (Middle Octave)</strong>
+              <p className="text-gray-600">
+                The primary vocal register (S, R, G, M, P, D, N). Played with natural speaking-breath velocity and neutral lip embouchure. This is the foundation of all basic alankars.
+              </p>
+            </div>
+            <div className="p-4 rounded-2xl bg-bamboo-50/70 border border-bamboo-200 space-y-1.5">
+              <strong className="block text-bamboo-900 text-sm">Taar Saptak (Upper Octave)</strong>
+              <p className="text-gray-600">
+                Notes marked with a dot above (Ṡ, Ṙ, Ġ, Ṁ). Generated by <strong>harmonic overblowing</strong> (doubling air stream velocity through a tighter, narrower lip aperture) rather than shifting fingers.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* 4. Ergonomics & Hand Strain Prevention */}
+        <div className="space-y-3 pt-2 border-t border-bamboo-100">
+          <h3 className="text-lg sm:text-xl font-bold text-bamboo-900">
+            4. Ergonomic Guidelines to Prevent Hand Cramps and Tendonitis
+          </h3>
+          <ul className="list-disc list-inside text-xs sm:text-sm space-y-2 text-gray-600 leading-relaxed">
+            <li><strong>Keep Wrists Straight:</strong> Avoid severe bending of the left wrist backward or right wrist inward. Your arms and shoulders should hang loosely without hunched tension.</li>
+            <li><strong>Finger Lifting Height:</strong> When lifting a finger to uncover a tone hole, raise it no more than 1.5 to 2 centimeters above the bamboo. Lifting fingers too high wastes split seconds and makes rapid classical Taans impossible.</li>
+            <li><strong>Warm-Up Hand Stretches:</strong> Before playing large bass flutes (E Bass, D Bass), gently stretch finger flexors and shake out forearm muscles to encourage fluid blood circulation.</li>
+          </ul>
+        </div>
+      </div>
 
       {/* Navigation Footer */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-bamboo-100">

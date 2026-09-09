@@ -19,7 +19,6 @@ export default function LearnDashboard({ onViewChange }: LearnDashboardProps) {
     { id: 'learn_scales_octaves', path: '/learn/flute-scales-octaves', label: 'Flute Scales & Octaves', icon: Layers, color: 'text-amber-600', desc: 'Master Mandra, Madhya & Taar registers with audio notes & charts' },
     { id: 'learn_daily_practice', path: '/learn/daily-practice-guide', label: 'Daily Practice Guide', icon: Target, color: 'text-amber-600', desc: 'Complete daily routine for steady progress' },
     { id: 'learn_common_mistakes', path: '/learn/common-flute-mistakes', label: 'Common Flute Mistakes', icon: AlertTriangle, color: 'text-amber-700', desc: '15 common mistakes & step-by-step fixes for every player' },
-    { id: 'budget_flutes', path: '/best-budget-flutes', label: 'Best Budget Flutes', icon: ShoppingBag, color: 'text-amber-600', desc: 'Affordable Bamboo & PVC bansuri recommendations for beginners' },
     { id: 'flute_faq', path: '/faq', label: 'Flute FAQ Center', icon: HelpCircle, color: 'text-amber-600', desc: 'Comprehensive Q&A knowledge base on flute, practice & raagas' },
     { id: 'note_key_converter', path: '/tools/flute-note-key-converter', label: 'Note & Key Converter', icon: Music, color: 'text-emerald-700', desc: 'Convert Swaras ⇄ Western Notes & explore cross-key relationships' },
     { id: 'find_song_scale', path: '/learn/how-to-find-scale-of-a-song-on-flute', label: 'Find Scale of a Song', icon: Compass, color: 'text-amber-700', desc: 'Ear training guide to identify key, tonic / Sa and melody on flute' },

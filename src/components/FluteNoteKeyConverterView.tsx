@@ -1040,6 +1040,38 @@ export const FluteNoteKeyConverterView: React.FC<Props> = ({ onNavigate }) => {
 
         </div>
 
+        {/* Practical Transposition Case Studies */}
+        <div className="bg-amber-50/60 rounded-3xl p-6 sm:p-8 border border-amber-200/80 shadow-xs space-y-5">
+          <div className="border-b border-amber-200 pb-3">
+            <span className="text-xs font-bold uppercase tracking-wider text-amber-800">Real-World Musical Scenarios</span>
+            <h3 className="text-xl font-bold font-display text-bamboo-950 mt-1">
+              Practical Transposition Scenarios for Bansuri Players
+            </h3>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-5 text-xs sm:text-sm text-gray-700">
+            <div className="p-5 rounded-2xl bg-white border border-amber-200/80 space-y-2.5">
+              <strong className="text-bamboo-950 font-bold block text-sm">Scenario 1: Accompaniment with a Vocalist Singing in D#</strong>
+              <p className="text-gray-600 leading-relaxed text-xs">
+                Suppose a vocalist sings in D# (Black 2) scale, but you only carry an A Base bansuri. By treating your A bansuri&apos;s <strong>Pancham (Pa)</strong> or <strong>Gandhar (Ga)</strong> as the singer&apos;s tonic root, you can accompany them harmoniously without purchasing a dedicated D# flute.
+              </p>
+              <div className="p-2.5 rounded-lg bg-amber-50 border border-amber-200 text-xs font-mono text-amber-900">
+                Formula: Vocalist Sa = D# &rarr; On A Flute, Komal Ga (g) = D#
+              </div>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-white border border-amber-200/80 space-y-2.5">
+              <strong className="text-bamboo-950 font-bold block text-sm">Scenario 2: Moving High Bollywood Melodies Down an Octave</strong>
+              <p className="text-gray-600 leading-relaxed text-xs">
+                When songs have phrases reaching high into Taar Saptak (like Pa&apos; or Dha&apos;), playing on a C Medium flute can sound shrill and tire your breath. Transposing the composition to a deeper <strong>E Bass or G Base</strong> bansuri allows you to play the exact same fingerings while shifting the overall sound into an intimate, warm frequency range.
+              </p>
+              <div className="p-2.5 rounded-lg bg-amber-50 border border-amber-200 text-xs font-mono text-amber-900">
+                Key shift: C4 (261 Hz) &rarr; G3 (196 Hz) = -5 semitones deeper resonance
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Master Quick-Reference Swara-to-Western Table */}
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-bamboo-100 shadow-sm space-y-5">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-bamboo-100 pb-4">

@@ -93,11 +93,6 @@ export default function Footer({ onViewChange, onSadhanaFeedClick }: FooterProps
                 </Link>
               </li>
               <li>
-                <Link to="/best-budget-flutes" onClick={(e) => handleLinkClick('budget_flutes', e)} className="hover:text-amber-300 transition">
-                  Best Budget Flutes Guide
-                </Link>
-              </li>
-              <li>
                 <Link to="/faq" onClick={(e) => handleLinkClick('flute_faq', e)} className="hover:text-amber-300 transition text-amber-300 font-semibold">
                   Flute FAQ &amp; Help Center
                 </Link>

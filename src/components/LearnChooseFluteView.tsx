@@ -140,7 +140,7 @@ export default function LearnChooseFluteView({ onBackToLearn, onViewChange }: Le
                   </li>
                 </ul>
                 <p className="text-xs text-bamboo-800 font-medium pt-1">
-                  💡 If you're a complete beginner, don't worry—they can usually suggest the most suitable flute to help you get started smoothly! Or check out our <a href="/best-budget-flutes" onClick={(e) => { e.preventDefault(); onViewChange('budget_flutes'); }} className="text-amber-700 underline font-bold">Best Budget Flutes</a> guide.
+                  💡 If you&apos;re a complete beginner, don&apos;t worry—flute craftsmen can usually suggest the most suitable starter scale (such as C Medium or G Base) to match your finger span and blowing comfort.
                 </p>
               </div>
             </section>
@@ -253,6 +253,100 @@ export default function LearnChooseFluteView({ onBackToLearn, onViewChange }: Le
                     </div>
                   </div>
                 </div>
+              </div>
+            </section>
+
+            {/* Comprehensive Guide: Materials, Physical Stretch Test & Inspection */}
+            <section className="space-y-6 pt-2">
+              <div className="border-b border-bamboo-100 pb-3">
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-700">Detailed Buyer&apos;s Blueprint</span>
+                <h2 className="text-xl sm:text-2xl font-bold text-bamboo-950 mt-1">
+                  Bansuri Materials, Finger Stretch Test &amp; Quality Inspection
+                </h2>
+              </div>
+
+              {/* Material Comparison */}
+              <div className="space-y-3">
+                <h3 className="text-base sm:text-lg font-bold text-bamboo-900">
+                  Assam Bamboo vs. PVC / Synthetic Flutes: Which Should You Choose?
+                </h3>
+                <div className="grid sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+                  <div className="p-5 rounded-2xl bg-amber-50/60 border border-amber-200/80 space-y-2.5">
+                    <div className="flex items-center justify-between">
+                      <strong className="text-amber-950 font-bold text-sm">Assam Bhaluka Bamboo (Traditional)</strong>
+                      <span className="text-[10px] font-bold bg-amber-200/70 text-amber-900 px-2 py-0.5 rounded-full">Top Choice for Tone</span>
+                    </div>
+                    <p className="text-gray-600 leading-relaxed">
+                      Natural seasoned Assam bamboo produces warm, organic resonance and sweet upper harmonics. Because the wood is porous, it absorbs condensation and vibrates freely against the lips. However, it requires care: avoid extreme heat, direct sunlight, and dry winter air without oiling.
+                    </p>
+                    <ul className="space-y-1 text-gray-700 text-xs">
+                      <li>• <strong>Pros:</strong> Unmatched tonal depth, authentic Indian classical timbre, lightweight.</li>
+                      <li>• <strong>Cons:</strong> Susceptible to humidity cracks if neglected.</li>
+                    </ul>
+                  </div>
+
+                  <div className="p-5 rounded-2xl bg-bamboo-50/60 border border-bamboo-200/80 space-y-2.5">
+                    <div className="flex items-center justify-between">
+                      <strong className="text-bamboo-950 font-bold text-sm">High-Density PVC / Synthetic Resin</strong>
+                      <span className="text-[10px] font-bold bg-bamboo-200/70 text-bamboo-900 px-2 py-0.5 rounded-full">Indestructible Travel</span>
+                    </div>
+                    <p className="text-gray-600 leading-relaxed">
+                      Precision-molded PVC flutes are completely unaffected by weather, drops, rain, or arid air. Their pitch remains identical in summer heat and winter frost. While the tone is slightly brighter and less &quot;woody,&quot; a tuned PVC bansuri is a fantastic, stress-free starter instrument.
+                    </p>
+                    <ul className="space-y-1 text-gray-700 text-xs">
+                      <li>• <strong>Pros:</strong> 100% crack-proof, washable with water, highly budget-friendly.</li>
+                      <li>• <strong>Cons:</strong> Slightly sterile resonance compared to aged organic bamboo.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* The 3-Knuckle Finger Stretch Test */}
+              <div className="p-5 sm:p-6 rounded-2xl bg-white border border-bamboo-200 shadow-3xs space-y-3">
+                <h3 className="text-base sm:text-lg font-bold text-bamboo-900">
+                  The &quot;3-Knuckle Stretch Test&quot; (Check Your Hand Compatibility)
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                  Before purchasing a large bass bansuri (like E Bass or D Bass), measure your finger span. Lay your right hand flat on a table with fingers slightly spread. Measure the distance between the center pad of your index finger and the center pad of your ring finger:
+                </p>
+                <div className="grid sm:grid-cols-3 gap-3 text-xs pt-1 font-sans">
+                  <div className="p-3 rounded-xl bg-stone-50 border border-stone-200">
+                    <strong className="text-bamboo-900 block mb-1">Under 6.5 cm (2.5 in):</strong>
+                    <span className="text-gray-600">Start with <strong>C Medium</strong> or <strong>D Medium</strong>. Attempting G Bass or E Bass will cause wrist strain and incomplete hole sealing.</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-stone-50 border border-stone-200">
+                    <strong className="text-bamboo-900 block mb-1">6.5 cm to 8.0 cm:</strong>
+                    <span className="text-gray-600">Perfect for <strong>G Base</strong> or <strong>A Base</strong>. This is the sweet spot for 85% of adult beginners.</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-stone-50 border border-stone-200">
+                    <strong className="text-bamboo-900 block mb-1">Over 8.0 cm (3.2+ in):</strong>
+                    <span className="text-gray-600">Comfortable on <strong>E Bass</strong> or <strong>F Bass</strong>. You have the hand span required for classical concert flutes.</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* 5-Point Pre-Purchase Quality Checklist */}
+              <div className="p-5 sm:p-6 rounded-2xl bg-amber-50/50 border border-amber-200 space-y-3">
+                <h3 className="text-base sm:text-lg font-bold text-amber-950">
+                  5-Point Pre-Purchase Flute Inspection Checklist
+                </h3>
+                <ol className="list-decimal list-inside space-y-2 text-xs sm:text-sm text-gray-700 leading-relaxed">
+                  <li><strong>Check Cylindrical Straightness:</strong> Hold the bansuri up to one eye and look down its length like an arrow. It should be virtually straight with no noticeable bends or oval warping.</li>
+                  <li><strong>Wall Thickness Uniformity:</strong> The bamboo wall at the blow-hole and bottom end should be approximately 1.8mm to 2.5mm. Walls that are too thin sound shrill; walls that are too thick require excessive blowing force.</li>
+                  <li><strong>Cork Seal Position:</strong> The cork plug inside the headjoint should sit approximately one inner-diameter length away from the blow-hole center and must be air-tight.</li>
+                  <li><strong>Clean Tone-Hole Edges:</strong> The inside edges of finger holes should be gently beveled with fine sandpaper, free from splinters or charred burn burrs.</li>
+                  <li><strong>Tightly Bound Threads:</strong> Nylon or silk threading should be wound with firm tension around critical stress zones (top, bottom, and between upper holes) to protect against longitudinal cracking.</li>
+                </ol>
+              </div>
+
+              {/* Understanding Indian Sa vs Western Key Naming */}
+              <div className="p-5 sm:p-6 rounded-2xl bg-bamboo-50/50 border border-bamboo-200 space-y-2">
+                <h3 className="text-base sm:text-lg font-bold text-bamboo-900">
+                  Understanding Indian Sa vs. Western Key Nomenclature
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                  A common point of confusion for beginners is how flute makers name keys. In Indian classical music, the key of a bansuri is named after the pitch produced when <strong>the upper 3 holes are closed</strong> (which is Middle Sa). For example, on a &quot;C Natural Medium&quot; bansuri, closing 3 holes produces Western C4. In Western woodwind terminology, however, instruments are named after closing <strong>all 6 holes</strong> (which on the same flute produces Western G3). Always confirm with your flute maker that you are ordering by Indian 3-hole Sa!
+                </p>
               </div>
             </section>
 

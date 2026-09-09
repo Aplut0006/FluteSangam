@@ -753,35 +753,155 @@ export default function LearnTunerView({ onViewChange }: LearnTunerViewProps) {
       </div>
 
       {/* FLUTE TUNING TIPS & BLOWING GUIDE */}
-      <div className="bg-amber-50/70 p-6 sm:p-8 rounded-3xl border border-amber-200/80 space-y-4">
+      <div className="bg-amber-50/70 p-6 sm:p-8 rounded-3xl border border-amber-200/80 space-y-6">
         <div className="flex items-center gap-3">
           <HelpCircle className="w-6 h-6 text-amber-700 shrink-0" />
-          <h3 className="text-lg font-display font-bold text-amber-950">
+          <h3 className="text-xl font-display font-bold text-amber-950">
             💡 Essential Tips for Tuning Your Flute
           </h3>
         </div>
 
         <div className="grid sm:grid-cols-2 gap-4 text-xs text-gray-700 leading-relaxed">
-          <div className="bg-white p-4 rounded-2xl border border-amber-200/60 space-y-1.5">
+          <div className="bg-white p-5 rounded-2xl border border-amber-200/60 space-y-2 shadow-2xs">
             <span className="font-bold text-bamboo-900 block text-sm">1. Embouchure &amp; Angle Adjustments</span>
             <p>
-              If your pitch is <strong>Sharp (Too High)</strong>, roll the flute slightly inward towards your mouth or blow softer.
+              If your pitch is <strong>Sharp (Too High)</strong>, roll the flute slightly inward towards your lower lip or blow with a slightly gentler air stream.
             </p>
             <p>
-              If your pitch is <strong>Flat (Too Low)</strong>, roll the flute slightly outward or increase your air pressure.
+              If your pitch is <strong>Flat (Too Low)</strong>, roll the flute slightly outward away from your mouth or increase your diaphragmatic air velocity.
             </p>
           </div>
 
-          <div className="bg-white p-4 rounded-2xl border border-amber-200/60 space-y-1.5">
-            <span className="font-bold text-bamboo-900 block text-sm">2. Temperature &amp; Warmup</span>
+          <div className="bg-white p-5 rounded-2xl border border-amber-200/60 space-y-2 shadow-2xs">
+            <span className="font-bold text-bamboo-900 block text-sm">2. Temperature &amp; Warmup Calibration</span>
             <p>
-              Bamboo is a natural organic material. Cold flutes play slightly flat. Blow warm air through your Bansuri for 2–3 minutes before checking the tuner.
+              Bamboo is a living organic acoustic material. Cold flutes naturally sound 10 to 20 cents flat because the speed of sound is slower in cold air.
+            </p>
+            <p>
+              Always blow warm air through your bansuri for 2–3 minutes to stabilize the internal bore temperature before checking pitch on the tuner.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Native banner at bottom of Flute Tuner & Scales */}
+      {/* COMPREHENSIVE EDUCATIONAL GUIDE TO BANSURI ACOUSTICS & TUNING */}
+      <div className="bg-white rounded-3xl p-6 sm:p-10 border border-bamboo-200/80 shadow-xs space-y-8 text-gray-700">
+        <div>
+          <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-100/70 px-3 py-1 rounded-full border border-amber-200">
+            Acoustic Science &amp; Indian Music Theory
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-display font-bold text-bamboo-950 mt-3 mb-3">
+            The Science of Bansuri Acoustics, Shrutis &amp; Accurate Pitch Tuning
+          </h2>
+          <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+            Tuning an Indian bamboo flute differs fundamentally from tuning a guitar or piano. While modern Western instruments adhere strictly to 12-Tone Equal Temperament (12-TET), Hindustani classical bansuri is founded upon <strong>Just Intonation (Gandhar / Pancham Shrutis)</strong> and natural harmonic acoustic physics.
+          </p>
+        </div>
+
+        {/* Subsection 1: Physics of Open Cylindrical Pipes */}
+        <div className="space-y-3">
+          <h3 className="text-lg sm:text-xl font-bold text-bamboo-900">
+            1. Cylindrical Air Column Resonance &amp; Temperature Effects
+          </h3>
+          <p className="text-xs sm:text-sm leading-relaxed">
+            The bansuri functions as an open-ended cylindrical acoustic resonator. The fundamental resonant frequency (<em>f</em>) produced by the tube is determined by the equation:
+          </p>
+          <div className="p-4 bg-bamboo-50/70 rounded-2xl border border-bamboo-200 font-mono text-xs sm:text-sm text-bamboo-950 text-center font-bold">
+            f = v / (2 × (L + ΔL))
+          </div>
+          <p className="text-xs sm:text-sm leading-relaxed">
+            where <strong>v</strong> is the speed of sound in air, <strong>L</strong> is the acoustic length of the bamboo from the cork face to the open tone hole, and <strong>ΔL</strong> is the end-correction factor. Crucially, the velocity of sound varies directly with ambient temperature according to <em>v ≈ 331.3 + 0.6 × T (°C)</em>. This means that as room temperature rises from 20°C to 30°C, the speed of sound increases by over 6 m/s, causing the natural pitch of your flute to sharpen by approximately 15 to 20 cents without any change in fingering!
+          </p>
+        </div>
+
+        {/* Subsection 2: Equal Temperament vs Just Intonation */}
+        <div className="space-y-3">
+          <h3 className="text-lg sm:text-xl font-bold text-bamboo-900">
+            2. Equal Temperament (12-TET) vs. Indian Just Intonation (Shruti Scale)
+          </h3>
+          <p className="text-xs sm:text-sm leading-relaxed">
+            When you blow into a standard chromatic guitar or keyboard tuner, it measures frequencies against the equal-tempered mathematical scale. However, Indian classical ragas utilize pure natural intervals (Swayambhu Swaras) relative to the Tanpura drone:
+          </p>
+          <div className="grid sm:grid-cols-3 gap-4 text-xs pt-1">
+            <div className="p-4 rounded-2xl bg-amber-50/60 border border-amber-200/80 space-y-1.5">
+              <strong className="block text-amber-900 text-sm">Shuddha Gandhar (Ga)</strong>
+              <p className="text-gray-600">
+                In classical Ragas like Bhoopali and Yaman, pure Ga is tuned ~13.7 cents <em>lower</em> than equal-tempered major third (386 cents vs 400 cents). Do not force it sharp to match a piano!
+              </p>
+            </div>
+            <div className="p-4 rounded-2xl bg-amber-50/60 border border-amber-200/80 space-y-1.5">
+              <strong className="block text-amber-900 text-sm">Pancham (Pa)</strong>
+              <p className="text-gray-600">
+                Natural fifth is acoustically pure (702 cents vs 700 cents in 12-TET), creating a consonant, beat-free resonance with your Tanpura backdrop.
+              </p>
+            </div>
+            <div className="p-4 rounded-2xl bg-amber-50/60 border border-amber-200/80 space-y-1.5">
+              <strong className="block text-amber-900 text-sm">Komal Rishabh (Re)</strong>
+              <p className="text-gray-600">
+                In Ragas like Bhairav and Todi, Komal Re is an emotional microtonal note that sits lower (Ati-Komal) than a Western minor second, achieved by half-covering the top hole.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Subsection 3: Step by Step Tuning Protocol */}
+        <div className="space-y-4">
+          <h3 className="text-lg sm:text-xl font-bold text-bamboo-900">
+            3. Step-by-Step 4-Stage Protocol for Tuning Your Bansuri
+          </h3>
+          <ol className="space-y-3 text-xs sm:text-sm">
+            <li className="flex items-start gap-3 p-3.5 rounded-xl bg-bamboo-50/50 border border-bamboo-100">
+              <span className="w-6 h-6 rounded-full bg-bamboo-800 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</span>
+              <div>
+                <strong className="text-bamboo-950 font-bold block mb-0.5">Warm the Bamboo Core:</strong>
+                <p className="text-gray-600">Play gentle sustained notes for 2 to 3 minutes. The human breath warms the inner bamboo wall to body temperature (~32°C–35°C), which stabilizes the acoustic column.</p>
+              </div>
+            </li>
+            <li className="flex items-start gap-3 p-3.5 rounded-xl bg-bamboo-50/50 border border-bamboo-100">
+              <span className="w-6 h-6 rounded-full bg-bamboo-800 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</span>
+              <div>
+                <strong className="text-bamboo-950 font-bold block mb-0.5">Set Your Fundamental Sa (3 Holes Closed):</strong>
+                <p className="text-gray-600">In Hindustani bansuri tradition, closing the top 3 holes establishes middle <em>Madhya Sa</em>. Blow with relaxed, steady breath pressure and check the meter on the tuner above. The needle should settle within ±5 cents.</p>
+              </div>
+            </li>
+            <li className="flex items-start gap-3 p-3.5 rounded-xl bg-bamboo-50/50 border border-bamboo-100">
+              <span className="w-6 h-6 rounded-full bg-bamboo-800 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</span>
+              <div>
+                <strong className="text-bamboo-950 font-bold block mb-0.5">Check Lower Mandra Pa (All 6 Holes Closed):</strong>
+                <p className="text-gray-600">Close all six tone holes completely. Ensure your finger pads seal the hole perimeters without leaking air. The lower Pancham should sound deep, full, and settle on the designated frequency without squeaking into the upper octave.</p>
+              </div>
+            </li>
+            <li className="flex items-start gap-3 p-3.5 rounded-xl bg-bamboo-50/50 border border-bamboo-100">
+              <span className="w-6 h-6 rounded-full bg-bamboo-800 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">4</span>
+              <div>
+                <strong className="text-bamboo-950 font-bold block mb-0.5">Harmonic Octave Overblowing (Taar Sa):</strong>
+                <p className="text-gray-600">Without altering your finger position, increase your air velocity and slightly tighten the lip aperture to sound higher octave <em>Taar Sa</em>. If it sounds sharp, roll the flute inward slightly to maintain pitch balance between octaves.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        {/* Subsection 4: Tuning FAQs */}
+        <div className="space-y-4 pt-2 border-t border-bamboo-100">
+          <h3 className="text-lg sm:text-xl font-bold text-bamboo-900">
+            Frequently Asked Questions About Bansuri Tuning
+          </h3>
+          <div className="grid sm:grid-cols-2 gap-4 text-xs">
+            <div className="p-4 rounded-xl border border-bamboo-200 bg-white space-y-1">
+              <strong className="text-bamboo-950 font-bold block text-sm">Can a bamboo flute go out of tune permanently?</strong>
+              <p className="text-gray-600 leading-relaxed">
+                Bamboo does not stretch like guitar strings, so tone holes do not move. However, extreme dryness or moisture loss can slightly shrink the diameter or loosen the cork seal at the blow-hole. Regular oiling (mustard or walnut oil once every 3 months) prevents bore deformation.
+              </p>
+            </div>
+            <div className="p-4 rounded-xl border border-bamboo-200 bg-white space-y-1">
+              <strong className="text-bamboo-950 font-bold block text-sm">What is the difference between A=440 Hz and A=432 Hz?</strong>
+              <p className="text-gray-600 leading-relaxed">
+                A=440 Hz is the international concert pitch standard used by all modern keyboards, tanpuras, and audio backing tracks. A=432 Hz is favored by some meditative acoustic traditions. For versatility and playing with others, standard A=440 Hz bansuris are recommended.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Bottom Navigation Actions */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">

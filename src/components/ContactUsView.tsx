@@ -261,6 +261,31 @@ export default function ContactUsView({ onBackToCommunity }: ContactUsViewProps)
         )}
       </div>
 
+      {/* Community Standards & Guidelines */}
+      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-bamboo-200 shadow-sm mb-12 space-y-4">
+        <h3 className="text-xl font-display font-bold text-bamboo-950 flex items-center gap-2">
+          <Sparkles className="w-5 h-5 text-amber-600" />
+          Community Standards &amp; Contribution Guidelines
+        </h3>
+        <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+          FluteSangam is a welcoming, dedicated sanctuary for musicians of all backgrounds. When submitting notation requests, transcribing Sargam sheets, or reaching out to mentors, please adhere to our core standards:
+        </p>
+        <div className="grid sm:grid-cols-3 gap-4 text-xs pt-1">
+          <div className="p-4 rounded-xl bg-bamboo-50/60 border border-bamboo-100 space-y-1.5">
+            <strong className="text-bamboo-900 block font-bold">1. Verified Notation Submissions</strong>
+            <p className="text-gray-600">Ensure song notes denote Saptak octaves accurately (e.g. .Pa for Mandra, Sa&apos; for Taar) and specify the suggested flute scale (C Medium, E Bass, G Base).</p>
+          </div>
+          <div className="p-4 rounded-xl bg-bamboo-50/60 border border-bamboo-100 space-y-1.5">
+            <strong className="text-bamboo-900 block font-bold">2. Constructive Feedback</strong>
+            <p className="text-gray-600">When commenting on community practice audio clips, offer supportive, technique-focused tips on embouchure, breath stability, and finger posture.</p>
+          </div>
+          <div className="p-4 rounded-xl bg-bamboo-50/60 border border-bamboo-100 space-y-1.5">
+            <strong className="text-bamboo-900 block font-bold">3. Mentorship &amp; Lessons</strong>
+            <p className="text-gray-600">Flute teachers wishing to publish comprehensive Raga articles or Paltas can submit proposals directly to aplut0006@gmail.com with author accreditation.</p>
+          </div>
+        </div>
+      </div>
+
       {/* Frequently Asked Questions */}
       <div className="bg-bamboo-50/60 rounded-3xl p-6 sm:p-8 border border-bamboo-200/60">
         <h3 className="text-xl font-display font-bold text-bamboo-900 mb-6 flex items-center gap-2">

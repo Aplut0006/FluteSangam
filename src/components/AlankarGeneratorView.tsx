@@ -1300,6 +1300,31 @@ Learn & practice on https://flutesangam.com`;
               </div>
             </div>
 
+            {/* Classical Classification: The 4 Varnas */}
+            <div className="space-y-3 pt-2">
+              <h4 className="font-bold text-bamboo-950 text-sm sm:text-base">
+                The Four Classical Varnas of Alankars (Bharata Muni&apos;s Natya Shastra)
+              </h4>
+              <div className="grid sm:grid-cols-2 gap-3 text-xs">
+                <div className="p-3.5 rounded-xl bg-bamboo-50/70 border border-bamboo-200 space-y-1">
+                  <strong className="text-bamboo-950 font-bold block">1. Sthayi Varna (Monotone &amp; Sustained)</strong>
+                  <p className="text-gray-600">Alankars where single swaras are held or repeated (e.g. Sa Sa, Re Re, Ga Ga). Builds embouchure endurance and steady breath column.</p>
+                </div>
+                <div className="p-3.5 rounded-xl bg-bamboo-50/70 border border-bamboo-200 space-y-1">
+                  <strong className="text-bamboo-950 font-bold block">2. Arohi Varna (Ascending Scales)</strong>
+                  <p className="text-gray-600">Patterns that step progressively upward from Mandra to Taar Saptak. Trains smooth finger lifting without pitch cracks.</p>
+                </div>
+                <div className="p-3.5 rounded-xl bg-bamboo-50/70 border border-bamboo-200 space-y-1">
+                  <strong className="text-bamboo-950 font-bold block">3. Avarohi Varna (Descending Scales)</strong>
+                  <p className="text-gray-600">Patterns stepping downward toward Mandra Pa. Trains airtight finger pad landings on lower tone holes.</p>
+                </div>
+                <div className="p-3.5 rounded-xl bg-bamboo-50/70 border border-bamboo-200 space-y-1">
+                  <strong className="text-bamboo-950 font-bold block">4. Sanchari Varna (Wandering &amp; Zigzag Loops)</strong>
+                  <p className="text-gray-600">Complex combinations of ascending and descending phrases (Vakra paltas). Essential for improvising classical Drut Taans.</p>
+                </div>
+              </div>
+            </div>
+
             <div className="space-y-3 pt-2">
               <h4 className="font-bold text-bamboo-950 text-sm sm:text-base">Recommended Daily Alankar Routine (30 Minutes)</h4>
               <ul className="list-disc list-inside text-xs text-gray-600 space-y-1.5 leading-relaxed">

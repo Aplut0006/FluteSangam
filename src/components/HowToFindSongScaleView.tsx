@@ -4,7 +4,7 @@ import {
   HelpCircle, Sliders, ChevronDown, ChevronUp, Layers, ArrowRight, 
   CheckCircle2, Compass, Zap, Share2, Lightbulb, RotateCcw, 
   Target, Radio, AlertTriangle, Check, Copy, ArrowLeft, ArrowDown,
-  FileText, Waves, Mic, Disc, Award, Info, ShoppingBag
+  FileText, Waves, Mic, Disc, Award, Info
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { AppView } from '../types';
@@ -796,10 +796,10 @@ export const HowToFindSongScaleView: React.FC<HowToFindSongScaleViewProps> = ({ 
               <Compass className="w-3.5 h-3.5" /> How to Choose Your Flute Guide
             </button>
             <button
-              onClick={() => onViewChange?.('budget_flutes')}
+              onClick={() => onViewChange?.('learn_scales_octaves')}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-800 font-semibold transition cursor-pointer"
             >
-              <ShoppingBag className="w-3.5 h-3.5 text-amber-700" /> Best Budget Flutes for Beginners
+              <Layers className="w-3.5 h-3.5 text-amber-700" /> Flute Scales &amp; Octaves
             </button>
           </div>
         </section>
@@ -1153,11 +1153,11 @@ export const HowToFindSongScaleView: React.FC<HowToFindSongScaleViewProps> = ({ 
                 color: 'text-orange-800 bg-orange-50 border-orange-200'
               },
               {
-                id: 'budget_flutes' as AppView,
-                title: 'Best Budget Flutes',
-                desc: 'Top tested and affordable bansuris for beginners under tight budgets.',
-                icon: ShoppingBag,
-                badge: 'Recommendations',
+                id: 'learn_scales_octaves' as AppView,
+                title: 'Flute Scales & Octaves',
+                desc: 'Master Mandra, Madhya, and Taar registers with scale charts and audio.',
+                icon: Layers,
+                badge: 'Octaves & Scales',
                 color: 'text-amber-800 bg-amber-50 border-amber-200'
               },
               {

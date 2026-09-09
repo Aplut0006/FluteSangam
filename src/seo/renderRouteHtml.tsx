@@ -40,7 +40,6 @@ import RagaMiyanKiMalharView from '../components/RagaMiyanKiMalharView';
 import RagaTilangView from '../components/RagaTilangView';
 import RagaShivranjaniView from '../components/RagaShivranjaniView';
 import RagaJaunpuriView from '../components/RagaJaunpuriView';
-import BudgetFlutesView from '../components/BudgetFlutesView';
 import FluteNoteKeyConverterView from '../components/FluteNoteKeyConverterView';
 import HowToFindSongScaleView from '../components/HowToFindSongScaleView';
 import HowToReadBansuriNotationView from '../components/HowToReadBansuriNotationView';
@@ -455,19 +454,6 @@ export function getRouteMetadata(path: string): RouteMetadata {
       description,
       canonicalUrl,
       component: LearnChooseFluteView,
-      jsonLd: createWebPageSchema(canonicalUrl, title, description)
-    };
-  }
-
-  if (cleanPath === '/best-budget-flutes') {
-    const title = 'Best Budget Flutes to Buy for Beginners | FluteSangam';
-    const description = 'Discover the best affordable budget flutes (bamboo and PVC) for beginners. Read our buying guide, FAQs, and tips for starting your bansuri journey.';
-    const canonicalUrl = `${DOMAIN}/best-budget-flutes`;
-    return {
-      title,
-      description,
-      canonicalUrl,
-      component: BudgetFlutesView,
       jsonLd: createWebPageSchema(canonicalUrl, title, description)
     };
   }

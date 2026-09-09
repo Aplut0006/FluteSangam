@@ -417,18 +417,6 @@ export default function Navbar({
                   Choose the Right Flute
                 </a>
                 <a
-                  href={VIEW_URLS['budget_flutes'] || '/best-budget-flutes'}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onViewChange?.('budget_flutes');
-                    setShowLearnDropdown(false);
-                  }}
-                  className="w-full text-left px-4 py-2.5 text-xs font-semibold text-amber-800 hover:bg-amber-50 hover:text-amber-900 transition border-b border-bamboo-50 cursor-pointer flex items-center justify-between"
-                >
-                  <span>Best Budget Flutes to Buy</span>
-                  <span className="text-[9px] bg-amber-200 text-amber-950 font-bold px-1.5 py-0.5 rounded-md">Guide</span>
-                </a>
-                <a
                   href={VIEW_URLS['learn_basics'] || '/learn/basics'}
                   onClick={(e) => {
                     e.preventDefault();
@@ -815,14 +803,6 @@ export default function Navbar({
                     className="block w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
                   >
                     2. Choose the Right Flute
-                  </a>
-                  <a
-                    href={VIEW_URLS['budget_flutes'] || '/learn/budget-flutes'}
-                    onClick={(e) => { e.preventDefault(); onViewChange?.('budget_flutes'); setShowMobileMenu(false); }}
-                    className="flex items-center justify-between w-full text-left text-xs font-bold text-amber-800 hover:text-amber-900 py-2 border-b border-bamboo-50 cursor-pointer"
-                  >
-                    <span>🪈 Best Budget Flutes to Buy</span>
-                    <span className="text-[9px] bg-amber-200 text-amber-950 font-bold px-1.5 py-0.5 rounded-full">Guide</span>
                   </a>
                   <a
                     href={VIEW_URLS['learn_basics'] || '/learn/basics'}

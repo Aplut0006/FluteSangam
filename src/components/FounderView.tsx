@@ -97,6 +97,60 @@ export default function FounderView({ onViewChange }: FounderViewProps) {
         </div>
       </section>
 
+      {/* Blueprint for Self-Taught Learners & Adult Beginners */}
+      <section className="bg-white rounded-3xl p-6 sm:p-10 border border-bamboo-200 shadow-sm space-y-6">
+        <div className="border-b border-bamboo-100 pb-4">
+          <span className="text-xs font-bold uppercase tracking-wider text-amber-700">From Personal Experience</span>
+          <h2 className="text-2xl sm:text-3xl font-display font-bold text-bamboo-950 mt-1">
+            The Self-Taught Flute Practitioner&apos;s Roadmap
+          </h2>
+          <p className="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+            When you begin learning the bansuri as an adult without a traditional gurukul environment, progress can feel unpredictable. Here is the realistic 4-phase milestone roadmap I developed from my own practice:
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+          <div className="p-5 rounded-2xl bg-amber-50/60 border border-amber-200/70 space-y-2">
+            <span className="text-[11px] font-bold uppercase text-amber-800 tracking-wider">Phase 1 (Months 1–3)</span>
+            <strong className="text-bamboo-950 block text-base font-bold">The Tone &amp; Embouchure Stage</strong>
+            <p className="text-gray-600 leading-relaxed text-xs">
+              Overcoming the initial dizziness and airy hiss. Focusing purely on producing a clean, sustained Middle Sa. Getting comfortable holding the flute without arm cramps, and learning to relax your shoulders.
+            </p>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-bamboo-50/60 border border-bamboo-200/70 space-y-2">
+            <span className="text-[11px] font-bold uppercase text-bamboo-800 tracking-wider">Phase 2 (Months 4–6)</span>
+            <strong className="text-bamboo-950 block text-base font-bold">Kharaj Sadhana &amp; Octave Mastery</strong>
+            <p className="text-gray-600 leading-relaxed text-xs">
+              Practicing lower Mandra Saptak notes (.Pa, .Dha, .Ni) with morning breath exercises. Sealing all 6 holes cleanly with flat finger pads, and transitioning smoothly into the higher Taar Saptak without breath bursting.
+            </p>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-bamboo-50/60 border border-bamboo-200/70 space-y-2">
+            <span className="text-[11px] font-bold uppercase text-bamboo-800 tracking-wider">Phase 3 (Months 7–12)</span>
+            <strong className="text-bamboo-950 block text-base font-bold">Alankars &amp; First Classical Ragas</strong>
+            <p className="text-gray-600 leading-relaxed text-xs">
+              Speeding up finger agility through 60 progressive paltas. Playing your first classical compositions in Raag Bhoopali, Raag Yaman, and Raag Bilawal with steady metronome timing and Tanpura accompaniment.
+            </p>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-amber-50/60 border border-amber-200/70 space-y-2">
+            <span className="text-[11px] font-bold uppercase text-amber-800 tracking-wider">Phase 4 (Year 2 &amp; Beyond)</span>
+            <strong className="text-bamboo-950 block text-base font-bold">Soulful Expression &amp; Meend Glides</strong>
+            <p className="text-gray-600 leading-relaxed text-xs">
+              Moving beyond mechanical note-hitting to emotional expression. Mastering continuous microtonal slides (Meend), subtle touch ornaments (Kan-swar), breath vibrato (Kampita), and playing Bollywood melodies by ear.
+            </p>
+          </div>
+        </div>
+
+        <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200 space-y-2 text-xs sm:text-sm text-gray-700">
+          <strong className="text-bamboo-950 block font-bold">💡 Advice for Adult Learners Balancing Careers:</strong>
+          <p className="leading-relaxed">
+            You do not need 3 hours of practice a day to make genuine progress. A focused <strong>20 to 25 minutes of daily morning Swar Sadhana</strong> with a Tanpura drone is far more powerful than an erratic 2-hour weekend marathon. Consistency builds neuromuscular memory; patience creates musical beauty.
+          </p>
+        </div>
+      </section>
+
       {/* 3. Why I Created FluteSangam (Most Important Section) */}
       <section className="bg-gradient-to-br from-amber-50/90 via-white to-bamboo-50/80 rounded-3xl p-6 sm:p-10 border border-amber-200/80 shadow-md space-y-6">
         <div className="flex items-center gap-3">
