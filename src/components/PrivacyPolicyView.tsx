@@ -359,7 +359,7 @@ export const PrivacyPolicyView: React.FC<PrivacyPolicyViewProps> = ({ onBackToCo
               <h2>Contact & Privacy Requests</h2>
             </div>
             <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-              If you have any questions, concerns, or privacy requests regarding this policy or your account data, please contact our support team at:
+              If you have any questions, concerns, or privacy requests regarding this policy or your account data, please contact us at:
             </p>
             <div className="mt-2 bg-bamboo-50/80 border border-bamboo-200/80 p-4 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
               <div>

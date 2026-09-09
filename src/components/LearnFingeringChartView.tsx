@@ -16,9 +16,9 @@ const FLUTE_SCALES = [
   { key: 'C#', name: 'C# / Db', freq: 277.18, tag: 'Medium' },
   { key: 'D', name: 'D Natural', freq: 293.66, tag: 'Medium' },
   { key: 'D#', name: 'D# / Eb', freq: 311.13, tag: 'Medium' },
-  { key: 'E', name: 'E Bass', freq: 329.63, tag: 'Popular Bass' },
-  { key: 'F', name: 'F Natural', freq: 349.23, tag: 'Medium/Bass' },
-  { key: 'F#', name: 'F# / Gb', freq: 369.99, tag: 'Medium' },
+  { key: 'E', name: 'E Bass', freq: 164.81, tag: 'Popular Bass' },
+  { key: 'F', name: 'F Bass', freq: 174.61, tag: 'Bass' },
+  { key: 'F#', name: 'F# Bass', freq: 185.00, tag: 'Popular Bass' },
   { key: 'G', name: 'G Medium', freq: 392.00, tag: 'Popular Medium' },
   { key: 'G#', name: 'G# / Ab', freq: 415.30, tag: 'Treble' },
   { key: 'A', name: 'A Treble', freq: 440.00, tag: 'Treble' },
@@ -141,10 +141,10 @@ const SWARA_LIST: SwaraDefinition[] = [
     westernInterval: 'Perfect 5th',
     semitonesFromSa: 7, // 7 semitones above Sa in Madhya Saptak
     holes: [1, 1, 1, 1, 1, 1], // All 6 holes CLOSED
-    description: 'Cover ALL 6 finger holes completely with both Left and Right hands. Blow with steady air pressure.',
+    description: 'Cover ALL 6 finger holes completely. Gentle breath produces Mandra Pa (lower octave); faster focused airflow shifts the pitch to Madhya Pa (middle octave).',
     leftHandGuide: 'All 3 top holes completely closed.',
     rightHandGuide: 'All 3 bottom holes completely closed.',
-    tip: 'Requires zero air leakage across all 6 holes. Keep finger pads flat and relaxed.'
+    tip: 'Requires complete airtight seal across all 6 holes. Keep finger pads flat and relaxed without pressing hard.'
   },
   {
     id: 'dha-shuddha',

@@ -159,9 +159,9 @@ To build powerful, efficient breath control for the flute:
 1. Master Diaphragmatic Breathing: Inhale deeply into your lower abdomen and stomach, allowing your diaphragm to expand outwards rather than lifting your shoulders. Exhale with controlled, gentle core support.
 2. Practice Sustained Kharaj Sadhana: Practice holding low notes (like lower Sa and Pa) against a Tanpura drone for as long as possible on a single breath, aiming for 10 to 15 seconds of steady, unvarying tone.
 3. Refine Embouchure Aperture: Reduce the size of your lip opening (aperture). A smaller, focused air stream uses significantly less air while creating a clearer, richer sound.
-4. Incorporate Pranayama Exercise: Simple yogic breathing exercises, such as Anulom Vilom and Kapalabhati, expand lung capacity, strengthen respiratory muscles, and enhance breath endurance for flutists.`,
+4. Gentle Breathing Awareness: Gentle, unhurried breathing exercises—such as slow diaphragmatic breathing and relaxed exhalation drills—help cultivate breath awareness and support steady tone production on the flute.`,
     relatedLink: { text: 'Read Health & Breathing Guide for Flutists', view: 'learn_daily_practice' },
-    tags: ['breath control', 'diaphragm breathing', 'pranayama', 'lung capacity']
+    tags: ['breath control', 'diaphragm breathing', 'breath awareness', 'practice pacing']
   },
   {
     id: 'adult-balance-practice-work-family',

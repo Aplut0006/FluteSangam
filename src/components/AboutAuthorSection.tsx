@@ -78,7 +78,7 @@ export default function AboutAuthorSection({ onViewChange, className = '' }: Abo
           </div>
 
           <p className="text-xs text-gray-700 leading-relaxed font-sans">
-            <strong>Aplut</strong> is the Founder of FluteSangam, a global platform dedicated to the Indian bamboo flute (Bansuri). Through carefully crafted lessons, practice resources, raga guides, songs, and interactive tools, he aims to make flute learning accessible and enjoyable for enthusiasts worldwide.
+            Written and practice-tested by <strong>Aplut</strong>, a self-taught bansuri learner practising since 2022. Content is built on direct practice experience and careful research into classical traditions. Because musical lineages and fingering conventions vary, suggestions and corrections are always welcomed via our contact page or at <a href="mailto:aplut0006@gmail.com" className="text-amber-800 font-medium underline">aplut0006@gmail.com</a>. First-hand instrument experience is identified clearly whenever gear is reviewed.
           </p>
         </div>
       </div>

@@ -72,7 +72,7 @@ export default function ContactUsView({ onBackToCommunity }: ContactUsViewProps)
             Contact FluteSangam
           </h1>
           <p className="text-bamboo-200 text-base sm:text-lg leading-relaxed">
-            Have questions about learning bansuri, suggestions for new ragas, song sargam requests, or platform feedback? Reach out to our team anytime.
+            Have questions about learning bansuri, suggestions for new ragas, song sargam requests, or platform feedback? Reach out to us anytime.
           </p>
         </div>
       </div>
@@ -294,6 +294,20 @@ export default function ContactUsView({ onBackToCommunity }: ContactUsViewProps)
             <h4 className="text-sm font-bold text-bamboo-900 mb-2">How can I contribute to the platform?</h4>
             <p className="text-xs text-gray-600 leading-relaxed">
               You can contribute by sharing audio recitals, answering questions in the feed, transcribing sargams for requested songs, and spreading the word to fellow flutists!
+            </p>
+          </div>
+
+          <div className="bg-white p-5 rounded-2xl border border-bamboo-100 shadow-2xs">
+            <h4 className="text-sm font-bold text-bamboo-900 mb-2">Are you looking for flute mentors or guest teachers?</h4>
+            <p className="text-xs text-gray-600 leading-relaxed">
+              Yes, we welcome experienced bansuri teachers and classical vocalists to share lessons, alankars, and masterclasses. Send us an email detailing your teaching background and areas of expertise.
+            </p>
+          </div>
+
+          <div className="bg-white p-5 rounded-2xl border border-bamboo-100 shadow-2xs">
+            <h4 className="text-sm font-bold text-bamboo-900 mb-2">What is the typical response time for support inquiries?</h4>
+            <p className="text-xs text-gray-600 leading-relaxed">
+              We respond to all direct email inquiries at <span className="font-semibold text-bamboo-800">aplut0006@gmail.com</span> within 24 to 48 business hours.
             </p>
           </div>
         </div>

@@ -71,6 +71,202 @@ export default function LearnDashboard({ onViewChange }: LearnDashboardProps) {
 
       {/* Native Banner Ad */}
       <AdsterraNativeBanner className="mt-8" />
+
+      {/* COMPREHENSIVE BANSURI LEARNING ROADMAP & CURRICULUM */}
+      <div className="mt-16 space-y-12 text-left">
+        {/* Section 1: 5-Stage Learning Roadmap */}
+        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-bamboo-100 shadow-sm space-y-6">
+          <div className="border-b border-bamboo-100 pb-4">
+            <span className="text-xs uppercase tracking-wider font-bold text-amber-700">Structured Curriculum</span>
+            <h2 className="text-2xl sm:text-3xl font-bold font-display text-bamboo-950 mt-1">
+              The 5-Stage Bansuri Sadhana Roadmap
+            </h2>
+            <p className="text-sm text-gray-600 mt-2 leading-relaxed">
+              Learning the Indian bamboo flute requires a systematic transition from basic acoustic sound production to expressive classical ornamentation. Follow this structured roadmap to build solid foundations.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+            <div className="bg-bamboo-50/50 rounded-2xl p-5 border border-bamboo-100 space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="w-7 h-7 rounded-xl bg-amber-600 text-white font-black text-xs flex items-center justify-center">1</span>
+                <h3 className="font-bold text-bamboo-900 text-base">Sound Cultivation &amp; Embouchure</h3>
+              </div>
+              <p className="text-xs text-gray-600 leading-relaxed">
+                Focus on producing a rich, unforced tone on the open flute. Master the 70/30 lip-plate coverage rule, relaxed chin posture, and diaphragm-supported breath stream without covering any finger holes.
+              </p>
+            </div>
+
+            <div className="bg-bamboo-50/50 rounded-2xl p-5 border border-bamboo-100 space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="w-7 h-7 rounded-xl bg-amber-600 text-white font-black text-xs flex items-center justify-center">2</span>
+                <h3 className="font-bold text-bamboo-900 text-base">Shuddha Swaras &amp; Finger Sealing</h3>
+              </div>
+              <p className="text-xs text-gray-600 leading-relaxed">
+                Gradually close holes 1 through 6 using the flat pads of your fingers (never the fingertips). Establish clear intonation across the natural scale: Pa, Dha, Ni, Sa, Re, Ga, Ma in Madhya Saptak.
+              </p>
+            </div>
+
+            <div className="bg-bamboo-50/50 rounded-2xl p-5 border border-bamboo-100 space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="w-7 h-7 rounded-xl bg-amber-600 text-white font-black text-xs flex items-center justify-center">3</span>
+                <h3 className="font-bold text-bamboo-900 text-base">Alankars &amp; Finger Agility</h3>
+              </div>
+              <p className="text-xs text-gray-600 leading-relaxed">
+                Practice ascending (Aroha) and descending (Avaroha) permutations in set rhythm. Alankar riyaz develops finger independence, micro-second reflex coordination, and rhythmic precision (Laya).
+              </p>
+            </div>
+
+            <div className="bg-bamboo-50/50 rounded-2xl p-5 border border-bamboo-100 space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="w-7 h-7 rounded-xl bg-amber-600 text-white font-black text-xs flex items-center justify-center">4</span>
+                <h3 className="font-bold text-bamboo-900 text-base">Octave Register Transitions</h3>
+              </div>
+              <p className="text-xs text-gray-600 leading-relaxed">
+                Learn how air speed—not volume—triggers register shifts. Switch smoothly between the deep, meditative Mandra Saptak (lower octave) and the bright, singing Taar Saptak (upper octave).
+              </p>
+            </div>
+
+            <div className="bg-bamboo-50/50 rounded-2xl p-5 border border-bamboo-100 space-y-2 md:col-span-2">
+              <div className="flex items-center gap-2">
+                <span className="w-7 h-7 rounded-xl bg-amber-600 text-white font-black text-xs flex items-center justify-center">5</span>
+                <h3 className="font-bold text-bamboo-900 text-base">Classical Ragas &amp; Embellishments (Alankritic Ornaments)</h3>
+              </div>
+              <p className="text-xs text-gray-600 leading-relaxed">
+                Begin exploring foundational evening ragas like Raga Yaman and Raga Bhoopali. Incorporate Indian classical ornamentation: Meend (continuous microtonal glissando), Gamak (rapid breath oscillation), Kan (grace notes), and Murki.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Section 2: Recommended Flute Scale Guide */}
+        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-bamboo-100 shadow-sm space-y-6">
+          <div className="border-b border-bamboo-100 pb-4">
+            <span className="text-xs uppercase tracking-wider font-bold text-amber-700">Gear Selection</span>
+            <h2 className="text-2xl sm:text-3xl font-bold font-display text-bamboo-950 mt-1">
+              Which Bansuri Should You Start With?
+            </h2>
+            <p className="text-sm text-gray-600 mt-2 leading-relaxed">
+              Choosing an incorrect flute scale is the #1 reason beginners experience finger fatigue or struggle to produce clear notes. Match your physical hand size to the ideal flute key:
+            </p>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs sm:text-sm border-collapse">
+              <thead>
+                <tr className="bg-bamboo-900 text-white">
+                  <th className="p-3 font-bold rounded-tl-xl">Learner Profile</th>
+                  <th className="p-3 font-bold">Recommended Scale</th>
+                  <th className="p-3 font-bold">Approx. Length</th>
+                  <th className="p-3 font-bold rounded-tr-xl">Why It Works</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-stone-200">
+                <tr className="bg-stone-50/60">
+                  <td className="p-3 font-bold text-bamboo-950">Adult Beginners</td>
+                  <td className="p-3 font-bold text-amber-800">C Natural Medium</td>
+                  <td className="p-3 text-stone-600">~19 inches (48 cm)</td>
+                  <td className="p-3 text-stone-700">Comfortable hole spacing, moderate breath volume requirement, and aligns with standard vocal keys.</td>
+                </tr>
+                <tr className="bg-white">
+                  <td className="p-3 font-bold text-bamboo-950">Teens / Smaller Hands</td>
+                  <td className="p-3 font-bold text-amber-800">G Medium / A Medium</td>
+                  <td className="p-3 text-stone-600">~15–17 inches (38–43 cm)</td>
+                  <td className="p-3 text-stone-700">Compact finger reach, lightweight, and responds instantly to lighter breath pressure.</td>
+                </tr>
+                <tr className="bg-stone-50/60">
+                  <td className="p-3 font-bold text-bamboo-950">Children (Under 10)</td>
+                  <td className="p-3 font-bold text-amber-800">C High / D High</td>
+                  <td className="p-3 text-stone-600">~11–13 inches (28–33 cm)</td>
+                  <td className="p-3 text-stone-700">Zero finger strain; ideal for cultivating the foundational embouchure habit early.</td>
+                </tr>
+                <tr className="bg-white">
+                  <td className="p-3 font-bold text-bamboo-950">Intermediate / Classical Soloists</td>
+                  <td className="p-3 font-bold text-amber-800">E Bass / F# Bass</td>
+                  <td className="p-3 text-stone-600">~28–30 inches (71–76 cm)</td>
+                  <td className="p-3 text-stone-700">Deep, meditative resonance favored by Pt. Hariprasad Chaurasia and traditional Hindustani concerts.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Section 3: Daily Practice Pillars */}
+        <div className="bg-gradient-to-br from-amber-500/10 via-amber-100/30 to-bamboo-50 rounded-3xl p-6 sm:p-10 border border-amber-200/80 space-y-6">
+          <div>
+            <span className="text-xs uppercase tracking-wider font-bold text-amber-800">Daily Riyaz Discipline</span>
+            <h2 className="text-2xl font-bold font-display text-bamboo-950 mt-1">
+              Three Golden Rules for Productive Practice
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs sm:text-sm text-gray-700">
+            <div className="bg-white/90 backdrop-blur-xs p-5 rounded-2xl border border-amber-200 space-y-2">
+              <h3 className="font-bold text-bamboo-900 text-base">1. Always Play with Tanpura</h3>
+              <p className="text-gray-600 leading-relaxed text-xs">
+                The bansuri is a fretless instrument with no fixed keys. Practicing against a calibrated Tanpura drone trains your ear to instinctively detect microtonal deviations and center every swara in harmony.
+              </p>
+            </div>
+
+            <div className="bg-white/90 backdrop-blur-xs p-5 rounded-2xl border border-amber-200 space-y-2">
+              <h3 className="font-bold text-bamboo-900 text-base">2. Tone Quality Over Speed</h3>
+              <p className="text-gray-600 leading-relaxed text-xs">
+                Rushing through fast alankars with a breathy or trembling sound reinforces poor muscle memory. Spend at least 15 minutes sustaining long, uninterrupted notes (Kharaj Sadhana) at the beginning of each session.
+              </p>
+            </div>
+
+            <div className="bg-white/90 backdrop-blur-xs p-5 rounded-2xl border border-amber-200 space-y-2">
+              <h3 className="font-bold text-bamboo-900 text-base">3. Consistency Beats Marathon Hours</h3>
+              <p className="text-gray-600 leading-relaxed text-xs">
+                Playing 25 minutes every day produces far faster neuromuscular adaptation than practicing for three hours only once a week. Daily contact keeps your facial embouchure muscles supple and responsive.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Section 4: Bansuri Learning FAQs */}
+        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-bamboo-100 shadow-sm space-y-6">
+          <div className="border-b border-bamboo-100 pb-4">
+            <span className="text-xs uppercase tracking-wider font-bold text-amber-700">Expert Guidance</span>
+            <h2 className="text-2xl sm:text-3xl font-bold font-display text-bamboo-950 mt-1">
+              Frequently Asked Questions on Learning Bansuri
+            </h2>
+            <p className="text-sm text-gray-600 mt-2 leading-relaxed">
+              Common questions answered by experienced mentors to help accelerate your bansuri journey.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <div className="p-5 rounded-2xl bg-stone-50 border border-stone-200/70 space-y-2">
+              <h3 className="font-bold text-bamboo-950 text-sm sm:text-base">Can I learn bansuri online without a physical teacher?</h3>
+              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
+                Yes. With modern high-fidelity audio, accurate fingering charts, digital tuners, and interactive alankar generators, thousands of students have learned to play bansuri independently. The key is to record yourself frequently, use a 440 Hz tuner or Tanpura to verify your intonation, and follow a structured curriculum without skipping foundational breath exercises.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-stone-50 border border-stone-200/70 space-y-2">
+              <h3 className="font-bold text-bamboo-950 text-sm sm:text-base">How many days does it take to produce the first clear sound on a flute?</h3>
+              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
+                Most students produce their first resonant note within 2 to 5 days of dedicated 15-minute practice sessions. The secret is to keep the lower lip covering approximately one-third of the blowing hole and gently blowing a thin, focused stream of air downward against the opposite inner edge of the embouchure hole.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-stone-50 border border-stone-200/70 space-y-2">
+              <h3 className="font-bold text-bamboo-950 text-sm sm:text-base">Should a beginner buy a Bamboo or PVC bansuri?</h3>
+              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
+                Both have distinct advantages. PVC flutes are completely weatherproof, crack-resistant, washable, and hold precise pitch in any climate, making them exceptionally durable for initial practice and travel. Natural Assam bamboo (Arundinaria or Bambusa tulda) offers richer acoustic harmonics, warm resonance, and organic tactile feel essential for serious classical performance.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-stone-50 border border-stone-200/70 space-y-2">
+              <h3 className="font-bold text-bamboo-950 text-sm sm:text-base">Do I need prior knowledge of Indian classical music theory?</h3>
+              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
+                Not at all. You can begin playing immediately with basic Sargam (Sa, Re, Ga, Ma, Pa, Dha, Ni) which directly corresponds to Western Solfege (Do, Re, Mi, Fa, Sol, La, Ti). As your finger coordination strengthens, you can gradually learn ragas, thaats, and tala rhythms using our step-by-step guides.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </motion.div>
   );
 }

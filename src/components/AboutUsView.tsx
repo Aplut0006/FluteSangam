@@ -103,7 +103,7 @@ export default function AboutUsView({ onViewChange }: AboutUsViewProps = {}) {
               Aplut
             </h3>
             <p className="text-bamboo-100 leading-relaxed text-base sm:text-lg mb-6 max-w-3xl">
-              Aplut is the founder of FluteSangam. With a passion for both flute and technology, he created FluteSangam to make learning, practicing, and connecting with other flute players more accessible.
+              Written and practice-tested by <strong>Aplut</strong>, a self-taught bansuri learner practising since 2022. Driven by a deep appreciation for classical music and software craftsmanship, he built FluteSangam to provide structured lessons, interactive tools, and an encouraging space for fellow flute learners.
             </p>
             <a 
               href="/founder"
@@ -113,6 +113,47 @@ export default function AboutUsView({ onViewChange }: AboutUsViewProps = {}) {
               <span>Read Aplut's Full Story</span>
               <ArrowRight className="w-4 h-4" />
             </a>
+          </div>
+        </section>
+
+        {/* 4b. Editorial Methodology & Trust */}
+        <section className="bg-white p-6 sm:p-10 rounded-3xl border border-bamboo-200/80 shadow-sm space-y-4">
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 rounded-xl bg-bamboo-100 text-bamboo-800">
+              <Sparkles className="w-6 h-6" />
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-display font-bold text-bamboo-950">
+              Editorial Methodology &amp; Standards
+            </h2>
+          </div>
+          <p className="text-gray-700 leading-relaxed text-base sm:text-lg">
+            At FluteSangam, our goal is to offer accurate, trustworthy, and realistic educational guidance for bansuri enthusiasts worldwide:
+          </p>
+          <div className="grid sm:grid-cols-2 gap-4 text-sm text-gray-700 pt-2">
+            <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 space-y-1.5">
+              <h3 className="font-bold text-bamboo-950 text-base">Practice Experience &amp; Research</h3>
+              <p className="leading-relaxed">
+                Tutorials, exercises, and fingering charts are built upon daily practice experience and cross-checked with established classical Hindustani music theory.
+              </p>
+            </div>
+            <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 space-y-1.5">
+              <h3 className="font-bold text-bamboo-950 text-base">Respecting Musical Diversity</h3>
+              <p className="leading-relaxed">
+                Bansuri traditions and gharanas feature natural variations in fingering conventions and ornamentation. We document standard conventions while honoring these artistic differences.
+              </p>
+            </div>
+            <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 space-y-1.5">
+              <h3 className="font-bold text-bamboo-950 text-base">Genuine First-Hand Experience</h3>
+              <p className="leading-relaxed">
+                When reviewing budget flutes or practice gear, first-hand testing is explicitly identified so readers know exactly which instruments have been personally played.
+              </p>
+            </div>
+            <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 space-y-1.5">
+              <h3 className="font-bold text-bamboo-950 text-base">Continuous Reader Corrections</h3>
+              <p className="leading-relaxed">
+                We welcome community feedback. If you notice a typo in a swara sequence or have an alternative fingering to suggest, write to us directly at <a href="mailto:aplut0006@gmail.com" className="text-amber-800 font-bold underline">aplut0006@gmail.com</a>.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -261,7 +302,7 @@ export default function AboutUsView({ onViewChange }: AboutUsViewProps = {}) {
             </h2>
           </div>
           <p className="text-gray-700 leading-relaxed text-base sm:text-lg mb-6">
-            The heart of FluteSangam is its thriving social community. Music is best experienced when shared. Through our interactive community feed, members can post audio and video recordings of their daily practice, receive encouraging feedback from fellow flutists, ask technique questions, and stay inspired.
+            The heart of FluteSangam is its growing community of flute learners. Music is best experienced when shared. Through our interactive community feed, members can post audio and video recordings of their daily practice, receive encouraging feedback from fellow flutists, ask technique questions, and stay inspired.
           </p>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 bg-white p-6 rounded-2xl border border-emerald-200 shadow-xs">

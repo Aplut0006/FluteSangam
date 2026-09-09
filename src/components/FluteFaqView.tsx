@@ -177,7 +177,7 @@ const FAQ_HUB_TOPICS = [
     category: 'Health & Breathing',
     icon: Wind,
     color: 'from-sky-600 to-sky-700',
-    description: 'Diaphragmatic breathing, Pranayama exercises, overcoming dizziness, avoiding hand cramps, and asthma benefits.',
+    description: 'Diaphragmatic breathing, breath awareness drills, overcoming dizziness, avoiding hand cramps, and posture.',
     questionCount: FAQ_DATA.filter(f => f.category === 'Health & Breathing').length
   },
   {
@@ -356,8 +356,8 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
         description = 'Expert answers to flute care questions: mustard oiling frequency, repairing hairline cracks, thread binding, temperature safety, and cleaning.';
         break;
       case 'Health & Breathing':
-        title = 'Flute Health & Breathing FAQ | Pranayama, Posture & Lung Capacity | FluteSangam';
-        description = 'Frequently asked questions on health and breathing for flutists: diaphragmatic breathing, avoiding dizziness, hand ergonomics, and asthma benefits.';
+        title = 'Flute Health & Breathing FAQ | Breath Control, Posture & Ergonomics | FluteSangam';
+        description = 'Frequently asked questions on health and breathing for flutists: diaphragmatic breathing, avoiding dizziness, hand ergonomics, and healthy practice pacing.';
         break;
       case 'Children & Beginners':
         title = 'Flute for Children & Young Beginners FAQ | Sizing & Teaching Tips | FluteSangam';
@@ -812,6 +812,17 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
           </div>
         ) : (
           <>
+            {selectedCategory === 'Health & Breathing' && (
+              <div className="bg-amber-50/95 border border-amber-300/90 rounded-2xl p-4 sm:p-5 text-xs text-amber-950 space-y-1.5 shadow-2xs">
+                <div className="flex items-center gap-2 font-bold text-amber-900 text-sm">
+                  <Info className="w-4 h-4 text-amber-700 shrink-0" />
+                  <span>Educational Disclaimer — Not Medical Advice</span>
+                </div>
+                <p className="leading-relaxed">
+                  The breathing guidance, breath control tips, and ergonomic posture suggestions on FluteSangam are provided purely for general flute-practice education and musical tone production. They do not constitute medical, pulmonary, or physical therapy advice. Wind instrument practice does not diagnose, treat, or cure respiratory illnesses, asthma, or cardiovascular conditions. Learners with pre-existing breathing, cardiac, dizziness, or musculoskeletal concerns should always consult a qualified healthcare professional.
+                </p>
+              </div>
+            )}
             {visibleFaqs.map((faq, index) => {
               const isExpanded = expandedFaqId === faq.id;
 
@@ -960,7 +971,7 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
             <span>Didn't find your answer?</span>
           </h2>
           <p className="text-xs sm:text-sm text-gray-700 max-w-xl leading-relaxed">
-            Feel free to contact our support team directly or join the global FluteSangam community feed to post your questions, share your recitals, and learn alongside fellow bansuri players!
+            Feel free to contact us directly or join the global FluteSangam community feed to post your questions, share your recitals, and learn alongside fellow bansuri players!
           </p>
         </div>
 

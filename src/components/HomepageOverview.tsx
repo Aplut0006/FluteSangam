@@ -94,13 +94,13 @@ export default function HomepageOverview({
   // Latest Articles & Guides Data
   const latestArticles = [
     {
-      title: 'How to Master Breath Control & Long Notes (Swar Sadhana)',
-      excerpt: 'Discover diaphragmatic breathing techniques, blowing pressure control, and daily 15-minute long note exercises for steady, rich flute tone.',
+      title: 'Flute Basics: Embouchure, Hand Grip & Clean Sound Production',
+      excerpt: 'A foundational beginner guide covering lip placement, relaxed finger grip, blowing angle, and producing your first clean musical notes.',
       readTime: '8 min read',
       date: 'August 5, 2026',
-      category: 'Technique',
+      category: 'Beginner Basics',
       targetView: 'learn_basics' as AppView,
-      highlights: ['Diaphragmatic support', 'Tuning stability', '15-min daily routine']
+      highlights: ['Embouchure angle', 'Hand grip technique', 'Clean sound production']
     },
     {
       title: 'Choosing Your First Bansuri: C-Middle vs G-Natural Base',
@@ -112,20 +112,20 @@ export default function HomepageOverview({
       highlights: ['Finger stretch check', 'Bansuri scale choice', 'Blowing hole size']
     },
     {
-      title: 'Children & Beginners Bansuri Guide: Easy First Notes',
-      excerpt: 'How kids and complete novices can start learning bamboo flute with simplified finger spacing, light blowing resistance, and fun practice songs.',
+      title: 'Frequently Asked Questions: Bansuri Learning, Care & Practice FAQ',
+      excerpt: 'Explore comprehensive answers to 100+ common questions on flute selection, daily practice pacing, child learners, tuning, and maintenance.',
       readTime: '7 min read',
       date: 'August 3, 2026',
-      category: 'Beginner Guide',
+      category: 'Knowledge Base',
       targetView: 'flute_faq' as AppView,
-      highlights: ['Kids flute sizes', 'Light blowing tips', 'Simple sargam notes']
+      highlights: ['Bansuri Q&A', 'Practice routines', 'Care & maintenance']
     },
     {
-      title: 'Flute Tuning & Pitch Precision: Chromatic Tuners & A=440Hz',
-      excerpt: 'Learn how temperature, blowing angle, and breath pressure affect bansuri pitch, and how to maintain accurate pitch tuning.',
-      readTime: '9 min read',
+      title: 'Online Flute Tuner: Real-Time Microphone Pitch Detection',
+      excerpt: 'Tune your flute accurately with live microphone frequency detection, real-time cents display, and precise note calibration.',
+      readTime: 'Interactive Tool',
       date: 'August 2, 2026',
-      category: 'Tuning Guide',
+      category: 'Practice Tool',
       targetView: 'learn_tuner' as AppView,
       highlights: ['A=440Hz standard', 'Frequency detection', 'Pitch cent control']
     },
@@ -690,7 +690,7 @@ export default function HomepageOverview({
                   }}
                   className="pt-3 border-t border-amber-100 flex items-center justify-between text-xs font-bold text-amber-800 group-hover:text-amber-950 transition-colors cursor-pointer"
                 >
-                  <span>Read Full Article</span>
+                  <span>{article.category === 'Practice Tool' ? 'Launch Tuner Tool' : article.category === 'Knowledge Base' ? 'Browse FAQ Knowledge Base' : 'Read Full Guide'}</span>
                   <div className="p-1.5 rounded-lg bg-amber-100/60 text-amber-800 group-hover:bg-amber-800 group-hover:text-amber-100 transition-all">
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </div>
@@ -742,9 +742,14 @@ export default function HomepageOverview({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs relative z-10">
-          <div 
-            onClick={scrollToRecentDiscussions}
-            className="p-5 bg-white/10 backdrop-blur-md rounded-2xl border border-white/15 hover:border-amber-400/50 transition cursor-pointer space-y-2 group"
+          <a 
+            href="/#recent-discussions-section"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToRecentDiscussions();
+            }}
+            className="p-5 bg-white/10 backdrop-blur-md rounded-2xl border border-white/15 hover:border-amber-400/50 transition cursor-pointer space-y-2 group block"
+            title="Jump to Recent Discussions & Sadhana Feed"
           >
             <div className="flex items-center justify-between">
               <span className="font-bold text-amber-300 text-sm flex items-center gap-1.5">
@@ -754,9 +759,9 @@ export default function HomepageOverview({
               <ArrowRight className="w-4 h-4 text-amber-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
             </div>
             <p className="text-amber-100/80 leading-relaxed">
-              Share your daily practice recordings, log long note minutes, and track your progress alongside flutists from over 40 countries.
+              Share your daily practice recordings, log long note minutes, and track your progress alongside fellow flute learners.
             </p>
-          </div>
+          </a>
 
           <a 
             href={VIEW_URLS['notation_requests'] || '/notations'}
@@ -765,16 +770,17 @@ export default function HomepageOverview({
               onViewChange('notation_requests');
             }}
             className="p-5 bg-white/10 backdrop-blur-md rounded-2xl border border-white/15 hover:border-amber-400/50 transition cursor-pointer space-y-2 group block"
+            title="Browse Community Notation Requests"
           >
             <div className="flex items-center justify-between">
               <span className="font-bold text-amber-300 text-sm flex items-center gap-1.5">
                 <FileText className="w-4 h-4 text-amber-400" />
-                Song Sargam Library
+                Community Notation Requests
               </span>
               <ArrowRight className="w-4 h-4 text-amber-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
             </div>
             <p className="text-amber-100/80 leading-relaxed">
-              Browse community-transcribed sargam sheet music for popular film songs, classical bandishes, bhajans, and folk melodies.
+              Browse and submit Sargam requests for Bollywood songs, classical bandishes, bhajans, and traditional folk melodies.
             </p>
           </a>
 
@@ -785,16 +791,17 @@ export default function HomepageOverview({
               onViewChange('community_members');
             }}
             className="p-5 bg-white/10 backdrop-blur-md rounded-2xl border border-white/15 hover:border-amber-400/50 transition cursor-pointer space-y-2 group block"
+            title="Browse Flute Learner Profiles"
           >
             <div className="flex items-center justify-between">
               <span className="font-bold text-amber-300 text-sm flex items-center gap-1.5">
                 <Users className="w-4 h-4 text-amber-400" />
-                Flutist Directory
+                Flute Learner Profiles
               </span>
               <ArrowRight className="w-4 h-4 text-amber-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
             </div>
             <p className="text-amber-100/80 leading-relaxed">
-              Find flute learning partners, connect with experienced bansuri players, and build your musical circle.
+              Discover fellow flute enthusiasts, connect with learning partners, and see who is learning and practicing on FluteSangam.
             </p>
           </a>
         </div>

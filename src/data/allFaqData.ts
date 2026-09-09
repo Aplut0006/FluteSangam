@@ -103,7 +103,7 @@ Once logged in, you can:
 1. Navigate to the "Song Notations" section in the navigation menu.
 2. Click the "Request Song Notation" button.
 3. Submit the song title, film/album name, and preferred flute scale.
-Our team and community mentors review requests weekly and publish accurate Bhatkhande Sargam sheets with line-by-line finger guides.`,
+We review requests regularly and publish accurate Bhatkhande Sargam sheets with line-by-line finger guides.`,
     relatedLink: { text: 'Browse & Request Song Notations', view: 'notation_requests' },
     tags: ['request song notation', 'bollywood sargam', 'devotional songs', 'notations']
   },

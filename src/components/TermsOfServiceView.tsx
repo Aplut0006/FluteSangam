@@ -146,7 +146,7 @@ export const TermsOfServiceView: React.FC<TermsOfServiceViewProps> = ({ onBackTo
               <h2>Copyright Complaints</h2>
             </div>
             <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-              FluteSangam respects the intellectual property rights of others. If you believe that any material or user post on the website infringes upon your copyright, please send a notification to our team at <a href="mailto:aplut0006@gmail.com" className="font-bold underline text-bamboo-800 hover:text-amber-700">aplut0006@gmail.com</a> containing details of the copyrighted work and the specific material location for prompt investigation and resolution.
+              FluteSangam respects the intellectual property rights of others. If you believe that any material or user post on the website infringes upon your copyright, please send a notification to <a href="mailto:aplut0006@gmail.com" className="font-bold underline text-bamboo-800 hover:text-amber-700">aplut0006@gmail.com</a> containing details of the copyrighted work and the specific material location for prompt investigation and resolution.
             </p>
           </section>
 
@@ -249,7 +249,7 @@ export const TermsOfServiceView: React.FC<TermsOfServiceViewProps> = ({ onBackTo
               <h2>Contact & Administration Support</h2>
             </div>
             <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-              If you have any questions regarding these Terms of Service, copyright notices, or account administration, please contact our team at:
+              If you have any questions regarding these Terms of Service, copyright notices, or account administration, please contact us at:
             </p>
             <div className="mt-2 bg-bamboo-50/80 border border-bamboo-200/80 p-4 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
               <div>

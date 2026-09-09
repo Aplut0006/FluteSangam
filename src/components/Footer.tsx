@@ -89,7 +89,7 @@ export default function Footer({ onViewChange, onSadhanaFeedClick }: FooterProps
               </li>
               <li>
                 <Link to="/learn/raagas" onClick={(e) => handleLinkClick('learn_raagas', e)} className="hover:text-amber-300 transition">
-                  22 Classical Raagas Library
+                  23 Classical Raagas Library
                 </Link>
               </li>
               <li>

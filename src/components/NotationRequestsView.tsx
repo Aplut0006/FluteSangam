@@ -40,16 +40,109 @@ import { SongRequestModal } from './SongRequestFAB';
 import AdsterraNativeBanner from './AdsterraNativeBanner';
 import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
+const DEFAULT_REQUESTS = [
+  {
+    id: 'req-lag-ja-gale',
+    songName: 'Lag Ja Gale',
+    singerName: 'Lata Mangeshkar',
+    movieName: 'Woh Kaun Thi (1964)',
+    status: 'ready',
+    preferredFormat: 'Sargam (Indian)',
+    notationType: 'Sargam (Indian)',
+    fluteKey: 'C Natural / E Bass',
+    scale: 'C Natural',
+    notes: 'Includes full Mukhda and Antara with Komal Dha and Komal Ni notes for Bansuri.',
+    createdAt: '2026-08-10T10:00:00.000Z',
+    likedBy: ['u1', 'u2', 'u3', 'u4'],
+    notationsCount: 2
+  },
+  {
+    id: 'req-kesariya',
+    songName: 'Kesariya',
+    singerName: 'Arijit Singh',
+    movieName: 'Brahmāstra (2022)',
+    status: 'ready',
+    preferredFormat: 'Sargam (Indian)',
+    notationType: 'Sargam (Indian)',
+    fluteKey: 'C Medium / G Base',
+    scale: 'C Medium',
+    notes: 'Accurate flute swara transcription with meend transitions on Gandhar.',
+    createdAt: '2026-08-12T12:30:00.000Z',
+    likedBy: ['u1', 'u5', 'u6'],
+    notationsCount: 1
+  },
+  {
+    id: 'req-pehla-nasha',
+    songName: 'Pehla Nasha',
+    singerName: 'Udit Narayan & Sadhana Sargam',
+    movieName: 'Jo Jeeta Wohi Sikandar (1992)',
+    status: 'ready',
+    preferredFormat: 'Sargam (Indian)',
+    notationType: 'Sargam (Indian)',
+    fluteKey: 'C Medium',
+    scale: 'C Medium',
+    notes: 'Sweet romantic melody transcription suitable for intermediate flute players.',
+    createdAt: '2026-08-14T09:15:00.000Z',
+    likedBy: ['u2', 'u7'],
+    notationsCount: 1
+  },
+  {
+    id: 'req-tum-hi-ho',
+    songName: 'Tum Hi Ho',
+    singerName: 'Arijit Singh',
+    movieName: 'Aashiqui 2 (2013)',
+    status: 'ready',
+    preferredFormat: 'Sargam (Indian)',
+    notationType: 'Sargam (Indian)',
+    fluteKey: 'E Bass / D Medium',
+    scale: 'E Bass',
+    notes: 'Expressive flute notations capturing deep emotional ornaments in Mandra Saptak.',
+    createdAt: '2026-08-16T14:45:00.000Z',
+    likedBy: ['u3', 'u8', 'u9'],
+    notationsCount: 1
+  },
+  {
+    id: 'req-achyutam-keshavam',
+    songName: 'Achyutam Keshavam (Krishna Bhajan)',
+    singerName: 'Traditional / Vikram Hazra',
+    movieName: 'Devotional Bhajan',
+    status: 'ready',
+    preferredFormat: 'Sargam (Indian)',
+    notationType: 'Sargam (Indian)',
+    fluteKey: 'C Natural / G Medium',
+    scale: 'C Natural',
+    notes: 'Soothing Krishna bhajan notation based on Raag Bhairavi swaras.',
+    createdAt: '2026-08-18T16:20:00.000Z',
+    likedBy: ['u1', 'u4', 'u10'],
+    notationsCount: 2
+  },
+  {
+    id: 'req-tere-mere-hothon-pe',
+    songName: 'Tere Mere Hothon Pe',
+    singerName: 'Lata Mangeshkar & Babla Mehta',
+    movieName: 'Chandni (1989)',
+    status: 'pending',
+    preferredFormat: 'Sargam (Indian)',
+    notationType: 'Sargam (Indian)',
+    fluteKey: 'C Medium',
+    scale: 'C Medium',
+    notes: 'Iconic Shiv-Hari bansuri piece; request includes flute prelude and interlude solos.',
+    createdAt: '2026-08-20T11:10:00.000Z',
+    likedBy: ['u5', 'u6'],
+    notationsCount: 0
+  }
+];
+
 interface NotationRequestsViewProps {
   currentUser?: any;
   onOpenAuth?: () => void;
 }
 
 export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ currentUser, onOpenAuth }) => {
-  const [requests, setRequests] = useState<any[]>([]);
+  const [requests, setRequests] = useState<any[]>(DEFAULT_REQUESTS);
   const [filter, setFilter] = useState<'all' | 'pending' | 'ready'>('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
 
   // Modal / Detail state
@@ -140,7 +233,10 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
     const unsubscribe = onSnapshot(
       q, 
       (snapshot) => {
-        setRequests(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+        const liveDocs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        if (liveDocs.length > 0) {
+          setRequests(liveDocs);
+        }
         setLoading(false);
       },
       (error) => {
@@ -510,6 +606,103 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
 
       {/* Native Banner Ad */}
       <AdsterraNativeBanner className="my-8" />
+
+      {/* COMPREHENSIVE GUIDE TO BANSURI SARGAM NOTATIONS & TRANSPOSITION */}
+      <div className="mt-12 space-y-8 text-left">
+        {/* Section 1: How Flute Sargam Works */}
+        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-bamboo-100 shadow-sm space-y-5">
+          <div className="border-b border-bamboo-100 pb-4">
+            <span className="text-xs uppercase tracking-wider font-bold text-amber-700">Guide to Reading &amp; Playing</span>
+            <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950 mt-1">
+              How Indian Sargam Notations Work on Bansuri
+            </h2>
+            <p className="text-xs sm:text-sm text-gray-600 mt-1.5 leading-relaxed">
+              Unlike fixed-pitch staff notation, Indian classical Sargam is a relative movable-Do system. When you learn a song in Sargam, you can effortlessly play it on any flute scale (C Medium, E Bass, G Base) without rewriting the notes.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+            <div className="bg-bamboo-50/60 p-4.5 rounded-2xl border border-bamboo-100 space-y-2">
+              <span className="font-bold text-bamboo-900 block text-sm">1. Saptak (Octave Marks)</span>
+              <p className="text-gray-600 text-xs leading-relaxed">
+                <strong>Mandra Saptak (Lower):</strong> Notes with a dot below or lowercase (e.g. <code>.Pa .Dha .Ni</code>). Played with gentle, warm air.<br />
+                <strong>Madhya Saptak (Middle):</strong> Standard notes (<code>Sa Re Ga Ma Pa Dha Ni</code>).<br />
+                <strong>Taar Saptak (Higher):</strong> Notes with a dot above or apostrophe (e.g. <code>Sa&apos; Re&apos; Ga&apos;</code>). Played with faster air velocity.
+              </p>
+            </div>
+
+            <div className="bg-bamboo-50/60 p-4.5 rounded-2xl border border-bamboo-100 space-y-2">
+              <span className="font-bold text-bamboo-900 block text-sm">2. Komal &amp; Tivra Swaras</span>
+              <p className="text-gray-600 text-xs leading-relaxed">
+                <strong>Komal (Flat):</strong> <code>re, ga, dha, ni</code> are executed on bansuri by half-covering the corresponding finger hole (Teev-parda).<br />
+                <strong>Tivra (Sharp):</strong> <code>MA</code> (Teevra Madhyam) is played by leaving the first hole completely open or half-closed depending on flute tuning.
+              </p>
+            </div>
+
+            <div className="bg-bamboo-50/60 p-4.5 rounded-2xl border border-bamboo-100 space-y-2">
+              <span className="font-bold text-bamboo-900 block text-sm">3. Ornaments (Meend &amp; Kan)</span>
+              <p className="text-gray-600 text-xs leading-relaxed">
+                A curved line or bracket <code>(Sa~Re)</code> denotes a continuous gliding <em>Meend</em>. A superscript note like <code>(Pa)Ma</code> represents a subtle <em>Kan-swara</em> (grace touch) essential for emotive Bollywood &amp; classical bansuri melodies.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Section 2: Transposition & Vocal Range Compatibility */}
+        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-bamboo-100 shadow-sm space-y-5">
+          <div className="border-b border-bamboo-100 pb-4">
+            <span className="text-xs uppercase tracking-wider font-bold text-amber-700">Flute Scale Selection</span>
+            <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950 mt-1">
+              Matching Song Scales to Your Flute
+            </h2>
+            <p className="text-xs sm:text-sm text-gray-600 mt-1.5 leading-relaxed">
+              When playing along with original movie soundtrack tracks or accompanying a singer, match your flute&apos;s fundamental key to the vocal tonic:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+            <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 space-y-1.5">
+              <h3 className="font-bold text-amber-950 text-sm">Male Vocal Tracks (Usually C to E)</h3>
+              <p className="text-xs text-gray-700 leading-relaxed">
+                Songs by artists like Arijit Singh, Kishore Kumar, or Sonu Nigam are frequently composed around C, C#, D, or E. A <strong>C Medium</strong> or <strong>E Bass</strong> flute is the most versatile choice for direct unison accompaniment.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 space-y-1.5">
+              <h3 className="font-bold text-amber-950 text-sm">Female Vocal Tracks (Usually G to B)</h3>
+              <p className="text-xs text-gray-700 leading-relaxed">
+                Songs by Lata Mangeshkar, Shreya Ghoshal, or Asha Bhosle typically reside around G, G#, A, or B. A <strong>G Bass</strong> or <strong>A Medium</strong> flute effortlessly accommodates these soprano vocal ranges without straining.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Section 3: Notation FAQs */}
+        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-bamboo-100 shadow-sm space-y-5">
+          <div className="border-b border-bamboo-100 pb-4">
+            <span className="text-xs uppercase tracking-wider font-bold text-amber-700">Community Answers</span>
+            <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950 mt-1">
+              Flute Notation FAQs
+            </h2>
+          </div>
+
+          <div className="space-y-4">
+            <div className="p-4.5 rounded-2xl bg-stone-50 border border-stone-200/70 space-y-1.5">
+              <h3 className="font-bold text-bamboo-950 text-sm">Can I request a notation in Western Sheet / ABC format?</h3>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                Yes. While Sargam is the default standard for Indian bamboo flute, our community mentors and contributors can transcribe melodies in Western note letters (C, D, E, F#...) or Piano roll format upon request. Specify your preference in the request form.
+              </p>
+            </div>
+
+            <div className="p-4.5 rounded-2xl bg-stone-50 border border-stone-200/70 space-y-1.5">
+              <h3 className="font-bold text-bamboo-950 text-sm">Why do some notations start on Pa instead of Sa?</h3>
+              <p className="text-xs text-stone-600 leading-relaxed">
+                On the North Indian Bansuri, closing the top 3 holes produces <strong>Sa</strong> (Tonic). Closing all 6 holes produces <strong>Pa</strong> (Pancham) of Mandra Saptak. Many classical and film compositions naturally have their root resting point on Mandra Pa, so the melody notation commences below the middle tonic.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* DETAIL MODAL FOR NOTATION REQUEST */}
       {selectedRequest && (

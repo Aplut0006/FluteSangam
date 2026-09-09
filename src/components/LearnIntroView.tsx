@@ -207,21 +207,26 @@ export default function LearnIntroView({ onViewChange }: LearnIntroViewProps) {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-white p-6 rounded-2xl shadow-sm border border-amber-100">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">1. The Ultimate Breath & Lung Exercise</h3>
-                  <p className="text-sm text-gray-600">Because the bansuri requires a sustained, controlled stream of air to maintain pitch, playing it acts as a deep yogic breathing practice (Pranayama). It strengthens the diaphragm, increases lung capacity, and improves overall cardiovascular endurance.</p>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">1. Mindful Breath & Air Stream Pacing</h3>
+                  <p className="text-sm text-gray-600">Sustaining steady notes on the bansuri develops conscious awareness of breath pacing, smooth exhalation, and relaxed posture. Many learners find that focusing on steady airflow creates an unhurried, focused mental state during daily practice.</p>
                 </div>
                 <div className="bg-white p-6 rounded-2xl shadow-sm border border-amber-100">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">2. Mental Calming & Stress Relief</h3>
-                  <p className="text-sm text-gray-600">The organic sound frequency of bamboo has an inherently soothing effect on the human nervous system. Focusing entirely on breath and finger placement forces mindfulness, making it an excellent tool for relieving anxiety and everyday stress.</p>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">2. Musical Focus & Everyday Relaxation</h3>
+                  <p className="text-sm text-gray-600">The warm acoustic resonance of seasoned bamboo offers an immersive, grounding auditory experience. Focusing entirely on sound purity, finger placement, and swara intonation encourages attentive mindfulness after a demanding day.</p>
                 </div>
                 <div className="bg-white p-6 rounded-2xl shadow-sm border border-amber-100">
                   <h3 className="text-lg font-bold text-gray-900 mb-2">3. Deep Emotional Expression</h3>
-                  <p className="text-sm text-gray-600">Unlike keyed instruments where pressing a button yields a perfect note, the bansuri relies on partial hole covering (fingers covering 1/4th, 1/2, or 3/4ths of a hole). This allows the player to seamlessly glide between notes, capturing microtonal inflections that evoke profound human emotions—from deep sorrow to joyous romance.</p>
+                  <p className="text-sm text-gray-600">Unlike keyed instruments where pressing a button yields a fixed pitch, the bansuri relies on partial hole covering (half-holes, microtonal finger sliding). This allows the player to seamlessly glide between notes, capturing subtle inflections that express genuine musical feeling.</p>
                 </div>
                 <div className="bg-white p-6 rounded-2xl shadow-sm border border-amber-100">
                   <h3 className="text-lg font-bold text-gray-900 mb-2">4. Portability and Simplicity</h3>
-                  <p className="text-sm text-gray-600">It requires no electricity, tuning keys, or heavy cases. You can carry a master-grade instrument anywhere in a simple PVC pipe, connecting with music instantly wherever you go.</p>
+                  <p className="text-sm text-gray-600">It requires no electricity, tuning keys, or heavy cases. You can carry a concert-quality instrument anywhere in a simple protective case, connecting with music wherever you go.</p>
                 </div>
+              </div>
+
+              {/* Educational Health Disclaimer */}
+              <div className="mt-6 p-4 rounded-xl bg-amber-50/80 border border-amber-200/80 text-xs text-gray-700 leading-relaxed">
+                <strong>Educational Notice:</strong> Flute practice materials on FluteSangam are provided purely for musical instruction and personal enjoyment, not medical advice. Playing a wind instrument does not diagnose, treat, or prevent any respiratory or cardiovascular condition. If you experience dizziness, lightheadedness, shortness of breath, or have pre-existing respiratory or cardiac concerns, consult a qualified healthcare professional.
               </div>
             </section>
 

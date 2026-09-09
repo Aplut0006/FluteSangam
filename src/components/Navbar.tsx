@@ -278,8 +278,20 @@ export default function Navbar({
           
           {/* 1. Sadhana Feed */}
           <a
-            href={VIEW_URLS['community'] || '/'}
-            onClick={(e) => { e.preventDefault(); onViewChange?.('community'); }}
+            href="/#recent-discussions-section"
+            onClick={(e) => { 
+              e.preventDefault(); 
+              if (currentView !== 'community') {
+                onViewChange?.('community'); 
+                setTimeout(() => {
+                  const el = document.getElementById('recent-discussions-section');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+              } else {
+                const el = document.getElementById('recent-discussions-section');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
             className={`px-2.5 xl:px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
               currentView === 'community' 
                 ? 'bg-amber-600 text-white shadow-xs' 
@@ -676,8 +688,21 @@ export default function Navbar({
               </span>
               <div className="grid grid-cols-2 gap-2">
                 <a
-                  href={VIEW_URLS['community'] || '/'}
-                  onClick={(e) => { e.preventDefault(); onViewChange?.('community'); setShowMobileMenu(false); }}
+                  href="/#recent-discussions-section"
+                  onClick={(e) => { 
+                    e.preventDefault(); 
+                    if (currentView !== 'community') {
+                      onViewChange?.('community'); 
+                      setTimeout(() => {
+                        const el = document.getElementById('recent-discussions-section');
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }, 100);
+                    } else {
+                      const el = document.getElementById('recent-discussions-section');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    setShowMobileMenu(false); 
+                  }}
                   className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
                     currentView === 'community'
                       ? 'bg-amber-600 text-white border-amber-700 shadow-xs'

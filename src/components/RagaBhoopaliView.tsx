@@ -405,7 +405,7 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
               </div>
             </div>
             <p className="text-[11px] sm:text-xs text-red-800/90 pt-0.5 leading-normal">
-              <strong>Crucial Rule:</strong> Never blow Ma or Ni in Bhoopali. Playing them alters the raga into Deshkar or Yaman.
+              <strong>Crucial Rule:</strong> Never play Ma or Ni in Bhoopali (Varjit swaras). Introducing Teevra Ma and Shuddha Ni turns the melody into Raga Yaman, while Shuddha Ma and Ni shift it towards Bilawal. Note that Raga Deshkar also uses the same five notes (S R G P D) but is distinguished by its morning time, Bilawal Thaat origin, and Vadi Dha / Samvadi Ga prominence.
             </p>
           </div>
         </div>

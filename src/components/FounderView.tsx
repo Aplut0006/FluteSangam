@@ -62,7 +62,7 @@ export default function FounderView({ onViewChange }: FounderViewProps) {
           </div>
 
           <p className="text-sm sm:text-base text-bamboo-100 leading-relaxed font-sans max-w-3xl">
-            Hello and welcome! I’m <strong>Aplut</strong>, the founder of FluteSangam. With a passion for music and software engineering, I created FluteSangam to make flute learning accessible, structured, and enjoyable for flute players and enthusiasts worldwide.
+            Hello and welcome! I’m <strong>Aplut</strong>, a self-taught bansuri learner practising since 2022 and the founder of FluteSangam. With a passion for music and software engineering, I created FluteSangam to make flute learning accessible, structured, and enjoyable for fellow flute enthusiasts worldwide.
           </p>
         </div>
       </section>

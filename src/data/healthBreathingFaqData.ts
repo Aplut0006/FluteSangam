@@ -58,15 +58,17 @@ Preventing Hand Strain & Repetitive Strain Injuries (RSI):
   {
     id: 'health-building-lung-capacity',
     category: 'Health & Breathing',
-    question: 'Can I increase my lung capacity through breathing exercises and lifestyle habits?',
-    answer: `While anatomical lung size is fixed by genetics, you can significantly increase usable lung volume, diaphragm control, and breathing efficiency through targeted exercises.
+    question: 'How can flutists develop better breath control and avoid wasting air?',
+    answer: `While anatomical lung size is determined by genetics and body stature, wind players can dramatically improve how efficiently they use their available air through conscious breath pacing and embouchure focus.
 
-Actionable Methods to Enhance Breathing Stamina:
-• Yogic Pranayama Practices: Practice Anulom Vilom (alternate nostril breathing) and Kapalabhati daily to strengthen respiratory muscles and optimize oxygen exchange.
-• Aerobic Cardiovascular Conditioning: Regular swimming, brisk walking, or cycling builds cardiovascular endurance and lung efficiency.
-• Sustained Kharaj Sadhana: Holding long lower-octave notes daily trains your respiratory system to expel air with maximum control, efficiency, and zero waste.`,
+Practical Techniques for Musical Breath Efficiency:
+• Focused Lip Aperture: A smaller, elliptical lip opening concentrates the air stream directly onto the blowing edge, producing clear sound with far less air expulsion.
+• Gentle Diaphragmatic Awareness: Expanding the lower abdomen on inhalation encourages calm, unhurried air intake without raising the shoulders or straining the neck.
+• Sustained Note Practice (Kharaj Sadhana): Holding calm, steady notes in the lower octave against a drone trains the player to meter airflow smoothly, prolonging note duration naturally through musical practice.
+
+Educational Note: Flute breathing exercises are designed strictly for musical tone production and do not constitute medical or pulmonary treatment.`,
     relatedLink: { text: 'Explore Daily Sadhana Blueprint', view: 'learn_daily_practice' },
-    tags: ['lung capacity', 'pranayama', 'breathing exercises', 'endurance']
+    tags: ['breath control', 'embouchure focus', 'breathing exercises', 'endurance']
   },
   {
     id: 'health-stopping-dizziness-and-lightheadedness',
@@ -123,12 +125,12 @@ Hydration & Lip Care Guidelines:
     id: 'health-playing-with-colds-and-allergies',
     category: 'Health & Breathing',
     question: 'Should I practice the flute when I have a common cold, sore throat, or nasal congestion?',
-    answer: `Practicing while recovering from illness requires mindful self-awareness to protect your respiratory health.
+    answer: `Practicing while recovering from illness requires mindful self-awareness to protect your throat and general comfort.
 
-Health Guidelines for Practicing When Sick:
-• Sore Throat or Fever: Rest completely—do not force your respiratory system when throat or lung tissues are inflamed.
-• Mild Nasal Congestion: Light long-note practice is acceptable and can actually open nasal passages gently, but avoid intense, high-octane speed sessions.
-• Sanitize Your Flute: Always swab and sanitize your flute blow hole thoroughly with isopropyl alcohol wipes after practicing while recovering to prevent re-infection.`,
+Practical Guidelines for Practicing When Unwell:
+• Sore Throat or Fever: Rest completely. Forcing air through inflamed throat tissues causes strain and delays recovery.
+• Mild Nasal Congestion: Gentle low-register note holding may feel manageable, but avoid pushing for speed or high-register playing. Listen to your body and stop if breathing feels laboured or uncomfortable.
+• Sanitize Your Flute: Always swab the embouchure hole thoroughly and keep the instrument clean after practicing while recovering.`,
     relatedLink: { text: 'Read Flute Hygiene Guidelines', view: 'learn_basics' },
     tags: ['common cold', 'sore throat', 'health', 'hygiene']
   },
@@ -136,14 +138,14 @@ Health Guidelines for Practicing When Sick:
     id: 'health-managing-performance-anxiety',
     category: 'Health & Breathing',
     question: 'How do I manage performance anxiety, rapid breathing, and shaky hands before playing?',
-    answer: `Performance anxiety triggers "fight or flight" physiological responses that affect air control, heart rate, and hand stability before recitals.
+    answer: `Performance nerves can trigger shallow breathing, elevated heart rate, and hand tension before playing in front of others.
 
-Anxiety Management Strategies:
-• Box Breathing Routine: Inhale for 4 seconds, hold breath for 4 seconds, exhale for 4 seconds, hold for 4 seconds. Repeat 4 cycles before stepping on stage to reset your nervous system.
-• Focus on the Drone: Center your mind on the soothing frequency of the Tanpura drone rather than worrying about potential mistakes.
-• Ground Your Feet: Feel the physical contact of your feet flat on the floor to release nervous upper-body tension.`,
+Practical Calming Strategies:
+• Slow Paced Breathing: Take 3–4 slow, unhurried breaths (inhale for 4 seconds, exhale smoothly for 6–8 seconds) before raising the flute.
+• Focus on the Drone: Center your attention on the continuous sound of the Tanpura drone rather than worrying about mistakes.
+• Release Upper Body Tension: Drop your shoulders away from your ears and keep your feet flat on the floor to release physical tightness.`,
     relatedLink: { text: 'Join Supportive Community Feed', view: 'community' },
-    tags: ['performance anxiety', 'stage fright', 'shaky hands', 'box breathing']
+    tags: ['performance anxiety', 'stage fright', 'shaky hands', 'breath pacing']
   },
   {
     id: 'health-ideal-practice-break-schedule',
@@ -161,15 +163,15 @@ Recommended Practice Break Rhythm:
   {
     id: 'health-diaphragmatic-breathing-exercises',
     category: 'Health & Breathing',
-    question: 'What daily breathing exercises (Pranayama) increase lung capacity for flutists?',
-    answer: `Practicing Pranayama yogic breathing daily expands lung stamina, diaphragm control, and tone stability on the bamboo flute.
+    question: 'What simple breathing exercises support steady flute tone production?',
+    answer: `Developing calm breath awareness helps players maintain an unhurried, steady air column without tension.
 
-Top 3 Pranayama Exercises for Flutists:
-1. Anulom Vilom (Alternate Nostril Breathing): 5 minutes daily builds respiratory balance and calms the nervous system before practice.
-2. Kapalabhati (Abdominal Breath Pulse): Trains fast abdominal muscle contractions used for executing rapid Gamaks and staccato breath strokes.
-3. Dirga Pranayama (Three-Part Breath): Inhale expanding belly, then ribcage, then chest; exhale slowly in reverse order over 10 seconds to maximize usable air capacity.`,
+Accessible Breathing Drills for Flute Learners:
+1. Slow Belly Inhalation: Spend 2–3 minutes breathing in gently through your nose, letting the abdomen expand naturally without raising your shoulders.
+2. Even 'Sss' Exhalation: Exhale on a quiet, steady 'ssss' sound over 8–12 seconds to practice releasing air in an even, unhurried stream.
+3. Three-Part Breath Awareness: Inhale comfortably into the lower abdomen, ribs, and chest, then exhale gently in reverse. Note: Intense, forceful breathing drills (such as rapid abdominal pumping) are not necessary for flute playing and can induce hyperventilation; keep all breathing relaxed and natural.`,
     relatedLink: { text: 'Read Breathing & Health Blueprint', view: 'learn_basics' },
-    tags: ['pranayama', 'lung capacity', 'diaphragm exercises', 'yogic breathing']
+    tags: ['breathing exercises', 'breath support', 'diaphragm awareness', 'relaxed breathing']
   },
   {
     id: 'health-preventing-repetitive-strain',
@@ -188,14 +190,15 @@ Ergonomic Holding Principles:
   {
     id: 'health-playing-with-asthma',
     category: 'Health & Breathing',
-    question: 'Can people with asthma or respiratory conditions play the bamboo flute safely?',
-    answer: `Yes! Medical experts and music therapists frequently recommend wind instruments like the bamboo flute for managing mild to moderate asthma.
+    question: 'Can people with asthma or respiratory conditions play the bamboo flute?',
+    answer: `Many people with mild asthma or respiratory conditions enjoy playing the bansuri as a recreational musical pastime, but it should always be approached with sensible precautions.
 
-Respiratory Benefits of Flute Playing:
-• Natural Pulmonary Therapy: The slow, controlled diaphragmatic exhalation required for long sustained notes strengthens intercostal chest muscles and increases respiratory efficiency over time.
-• Mindful Pacing: Always keep your inhaler nearby, start with short 10 to 15 minute sessions, and stop immediately if you experience shortness of breath.
-• Medical Progress: Many flutists with mild asthma report noticeable improvements in daily lung function and breath endurance after regular bansuri practice.`,
+Important Health Guidelines:
+• Musical Activity, Not Medical Therapy: Playing a wind instrument is a musical art and does not cure, treat, or replace medical therapies for asthma or respiratory conditions.
+• Follow Your Medical Advice: Always follow your doctor's recommendations and keep any prescribed rescue inhalers or medications within reach during practice.
+• Start Gently & Rest When Needed: Begin with short 5–10 minute sessions. Stop immediately if you feel breathless, wheezy, or lightheaded.
+• Consult Your Doctor: Anyone with asthma, heart conditions, or breathing difficulties should consult their personal physician before starting wind instrument practice.`,
     relatedLink: { text: 'Read Health Benefits of Flute Playing', view: 'learn_basics' },
-    tags: ['asthma', 'respiratory health', 'lung therapy', 'flute wellness']
+    tags: ['asthma', 'respiratory considerations', 'health safety', 'practice pacing']
   }
 ];

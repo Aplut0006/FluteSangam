@@ -415,6 +415,65 @@ export interface AlankarGeneratorViewProps {
   currentUser?: UserProfile | null;
 }
 
+const INITIAL_ALANKARS: AlankarPattern[] = [
+  {
+    id: 'init-alankar-1',
+    number: 1,
+    mathSeed: 100001,
+    title: 'Linear Shuddha Swara Ascent',
+    description: 'Fundamental linear progression across the middle octave (Madhya Saptak).',
+    difficulty: 'Beginner',
+    patternType: 'Linear (Straight Aroha/Avroha)',
+    scale: 'C Middle',
+    tempo: 60,
+    estimatedTimeMinutes: 5,
+    aroha: ['Sa Re Ga Ma Pa Dha Ni Sa\''],
+    avroha: ['Sa\' Ni Dha Pa Ma Ga Re Sa']
+  },
+  {
+    id: 'init-alankar-2',
+    number: 2,
+    mathSeed: 100002,
+    title: 'Double Swara Repetition (Jode Swar)',
+    description: 'Rhythmic double attack pattern for tonguing and finger-pad stability.',
+    difficulty: 'Beginner',
+    patternType: 'Double Swara (Repeat)',
+    scale: 'C Middle',
+    tempo: 65,
+    estimatedTimeMinutes: 5,
+    aroha: ['Sa Sa', 'Re Re', 'Ga Ga', 'Ma Ma', 'Pa Pa', 'Dha Dha', 'Ni Ni', 'Sa\' Sa\''],
+    avroha: ['Sa\' Sa\'', 'Ni Ni', 'Dha Dha', 'Pa Pa', 'Ma Ma', 'Ga Ga', 'Re Re', 'Sa Sa']
+  },
+  {
+    id: 'init-alankar-3',
+    number: 3,
+    mathSeed: 100003,
+    title: 'Triplet Grouping (3-Note Swara Guchha)',
+    description: 'Classic three-note grouping to master compound meter and fluid transitions.',
+    difficulty: 'Beginner',
+    patternType: 'Triplet / Chautal (3-Note)',
+    scale: 'C Middle',
+    tempo: 70,
+    estimatedTimeMinutes: 5,
+    aroha: ['Sa Re Ga', 'Re Ga Ma', 'Ga Ma Pa', 'Ma Pa Dha', 'Pa Dha Ni', 'Dha Ni Sa\''],
+    avroha: ['Sa\' Ni Dha', 'Ni Dha Pa', 'Dha Pa Ma', 'Pa Ma Ga', 'Ma Ga Re', 'Ga Re Sa']
+  },
+  {
+    id: 'init-alankar-4',
+    number: 4,
+    mathSeed: 100004,
+    title: 'Quadruplet Permutation (Char Swar)',
+    description: 'Four-note scalar blocks for building lightning-fast taan agility.',
+    difficulty: 'Intermediate',
+    patternType: 'Quadruplet (4-Note Groups)',
+    scale: 'C Middle',
+    tempo: 75,
+    estimatedTimeMinutes: 6,
+    aroha: ['Sa Re Ga Ma', 'Re Ga Ma Pa', 'Ga Ma Pa Dha', 'Ma Pa Dha Ni', 'Pa Dha Ni Sa\''],
+    avroha: ['Sa\' Ni Dha Pa', 'Ni Dha Pa Ma', 'Dha Pa Ma Ga', 'Pa Ma Ga Re', 'Ma Ga Re Sa']
+  }
+];
+
 export default function AlankarGeneratorView({ currentUser }: AlankarGeneratorViewProps) {
   // Is user authenticated
   const isUserSignedIn = Boolean(currentUser?.uid);
@@ -428,7 +487,7 @@ export default function AlankarGeneratorView({ currentUser }: AlankarGeneratorVi
   const [bpm, setBpm] = useState<number>(60);
   
   // Generated output cards list
-  const [generatedAlankars, setGeneratedAlankars] = useState<AlankarPattern[]>([]);
+  const [generatedAlankars, setGeneratedAlankars] = useState<AlankarPattern[]>(INITIAL_ALANKARS);
   const [savedAlankars, setSavedAlankars] = useState<AlankarPattern[]>([]);
   const [activeTab, setActiveTab] = useState<'generator' | 'saved'>('generator');
 
@@ -1214,6 +1273,44 @@ Learn & practice on https://flutesangam.com`;
                 <span className="font-extrabold text-amber-800 block text-xs">3. One Breath Consistency</span>
                 <p className="text-gray-600 leading-relaxed">Aim to play complete 4-swara or 5-swara phrases in one smooth, uninterrupted breath.</p>
               </div>
+            </div>
+          </div>
+
+          {/* COMPREHENSIVE EDUCATIONAL GUIDE TO ALANKARS & PALTA RIYAZ */}
+          <div className="bg-white border border-bamboo-100 rounded-3xl p-6 md:p-8 shadow-xs space-y-6 text-left">
+            <div className="border-b border-bamboo-100 pb-4">
+              <span className="text-xs uppercase tracking-wider font-bold text-amber-700">Theoretical Foundation</span>
+              <h3 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950 mt-1">
+                The Science of Alankars (Palta) in Classical Flute Practice
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-600 mt-1.5 leading-relaxed">
+                In Sanskrit, <em>Alankar</em> literally translates to &quot;an ornament&quot; or &quot;decoration.&quot; In Hindustani classical music, an Alankar (or <em>Palta</em>) refers to a systematic permutation of musical notes (Swaras) based on geometric mathematical intervals.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs sm:text-sm text-gray-700">
+              <div className="p-4 rounded-2xl bg-amber-50/60 border border-amber-200/70 space-y-2">
+                <h4 className="font-bold text-amber-950 text-sm">1. Neuromuscular Finger Independence</h4>
+                <p className="text-xs text-gray-600 leading-relaxed">
+                  Unlike key-based Western woodwinds, the Indian bamboo flute relies entirely on direct flesh-to-bamboo contact. Irregular alankars train each finger muscle group to articulate independently without reflexive tension in neighboring fingers.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-amber-50/60 border border-amber-200/70 space-y-2">
+                <h4 className="font-bold text-amber-950 text-sm">2. Laya (Tempo) &amp; Breath Calibration</h4>
+                <p className="text-xs text-gray-600 leading-relaxed">
+                  Practicing alankars in Vilambit (slow ~60 BPM), Madhya (medium ~100 BPM), and Drut (fast ~140+ BPM) teaches the diaphragm to meter out steady air velocity rather than hyperventilating during high-speed Taans.
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-3 pt-2">
+              <h4 className="font-bold text-bamboo-950 text-sm sm:text-base">Recommended Daily Alankar Routine (30 Minutes)</h4>
+              <ul className="list-disc list-inside text-xs text-gray-600 space-y-1.5 leading-relaxed">
+                <li><strong>Minutes 1–10:</strong> Simple linear patterns (Sa Re Ga Ma...) in <em>Eka-Guna</em> (1 note per beat at 60 BPM). Focus on pitch purity against the Tanpura drone.</li>
+                <li><strong>Minutes 11–20:</strong> Triplet and quadruplet patterns in <em>Dvi-Guna</em> (2 notes per beat) and <em>Chau-Guna</em> (4 notes per beat).</li>
+                <li><strong>Minutes 21–30:</strong> Complex zigzag/vakra patterns and jumping intervals (e.g. Sa Ga, Re Ma, Ga Pa) to build intuitive finger muscle reflex.</li>
+              </ul>
             </div>
           </div>
 

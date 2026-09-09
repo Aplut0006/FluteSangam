@@ -35,7 +35,7 @@ Recommended Practice Breakdown (30 to 45 Minutes):
 Transformative Benefits of Kharaj Riyaz:
 • Deepens Diaphragmatic Breath Capacity: Sustaining low notes demands controlled, steady air expulsion from your lower abdomen without over-blowing or forcing breath pressure.
 • Enriches Acoustic Tone Timbre: It develops the deep, warm, resonant, "woody" acoustic timbre that defines authentic bansuri sound across all three octaves.
-• Calms Mind and Body: The low acoustic frequencies create a deeply meditative state, relaxing your nervous system and warming up your respiratory muscles safely before fast technical playing.`,
+• Calms Mind and Body: The deep, low pitches encourage an unhurried, focused mental state, helping release tension in the lips, hands, and upper body before faster technical exercises.`,
     relatedLink: { text: 'Read Daily Practice Blueprint', view: 'learn_daily_practice' },
     tags: ['kharaj riyaz', 'lower octave', 'tone quality', 'breath control']
   },

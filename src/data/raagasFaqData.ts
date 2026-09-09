@@ -186,7 +186,7 @@ Key Distinguishing Pillars:
 Understanding Vadi & Samvadi:
 • Vadi Swara (King Note): The most dominant, heavily emphasized, and frequently visited note in a Raag. Lingering on Vadi establishes the Raag's emotional center.
 • Samvadi Swara (Queen Note): The second most prominent note, usually positioned a 4th or 5th harmonic interval away from Vadi, providing structural balance.
-• Examples: In Raag Yaman, Teevra Ma is Vadi and Ni is Samvadi; in Raag Bhupali, Ga is Vadi and Dha is Samvadi.`,
+• Examples: In Raag Yaman, Ga is Vadi and Ni is Samvadi; in Raag Bhupali, Ga is Vadi and Dha is Samvadi.`,
     relatedLink: { text: 'Read Raag Yaman & Bhupali Notations', view: 'raga_bhoopali' },
     tags: ['vadi', 'samvadi', 'king note', 'raag theory', 'swara emphasis']
   },

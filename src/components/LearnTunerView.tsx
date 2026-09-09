@@ -39,7 +39,7 @@ const BANSURI_SCALES: FluteScaleInfo[] = [
   { name: 'E Bass', key: 'E', freq: 164.81, octave: 3, type: 'Bass', swara: 'Sa', description: 'Deep resonant tone, popular for Hindustani classical solos' },
   { name: 'F Bass', key: 'F', freq: 174.61, octave: 3, type: 'Bass', swara: 'Sa', description: 'Rich low pitch, widely used by professional artists' },
   { name: 'F# Bass', key: 'F#', freq: 185.00, octave: 3, type: 'Bass', swara: 'Sa', description: 'Deep warm sound, comfortable finger spacing' },
-  { name: 'G Bass', key: 'G', freq: 196.00, octave: 3, type: 'Bass', swara: 'Sa', description: 'Verstile bass scale, great for classical and meditative music' },
+  { name: 'G Bass', key: 'G', freq: 196.00, octave: 3, type: 'Bass', swara: 'Sa', description: 'Versatile bass scale, great for classical and meditative music' },
   { name: 'A Medium', key: 'A', freq: 220.00, octave: 3, type: 'Medium', swara: 'Sa', description: 'Standard 440Hz reference scale, highly recommended for beginners' },
   { name: 'B Medium', key: 'B', freq: 246.94, octave: 3, type: 'Medium', swara: 'Sa', description: 'Balanced medium scale with effortless finger reach' },
   { name: 'C Natural', key: 'C', freq: 261.63, octave: 4, type: 'Medium', swara: 'Sa', description: 'Universal middle scale, perfect for kids, beginners & vocal accompaniment' },

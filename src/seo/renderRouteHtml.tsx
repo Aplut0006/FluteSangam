@@ -287,8 +287,8 @@ export function getRouteMetadata(path: string): RouteMetadata {
         categoryName: 'Flute Care & Maintenance'
       },
       'health-and-breathing': {
-        title: 'Health & Breathing Flute FAQ | Diaphragmatic Breath & Posture | FluteSangam',
-        desc: 'Frequently asked questions about breathing techniques, lung capacity, diaphragmatic support, posture alignment, lip fatigue, hand health, and practice habits for flute players.',
+        title: 'Health & Breathing Flute FAQ | Breath Control, Posture & Ergonomics | FluteSangam',
+        desc: 'Frequently asked questions about breathing techniques, breath control, diaphragmatic support, posture alignment, lip fatigue, hand health, and practice habits for flute players.',
         categoryName: 'Health & Breathing'
       },
       'children-and-beginners': {
