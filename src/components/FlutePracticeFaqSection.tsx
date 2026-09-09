@@ -91,7 +91,6 @@ export const FLUTE_PRACTICE_FAQS: FaqItem[] = [
 ];
 
 import { AppView } from '../types';
-import AdsterraNativeBanner from './AdsterraNativeBanner';
 
 interface FlutePracticeFaqSectionProps {
   onViewChange?: (view: AppView) => void;
@@ -106,7 +105,6 @@ export default function FlutePracticeFaqSection({ onViewChange }: FlutePracticeF
 
   return (
     <>
-      <AdsterraNativeBanner className="my-4" />
       <div className="frosted-panel rounded-2xl p-4 space-y-4 shadow-xs" id="community-tips-card">
       <div className="flex items-center justify-between border-b border-gray-100 pb-2.5">
         <h2 className="font-display font-bold text-bamboo-900 text-sm sm:text-base flex items-center gap-2 m-0">

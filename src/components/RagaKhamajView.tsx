@@ -9,8 +9,6 @@ import {
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
-import AdsterraNativeBanner from './AdsterraNativeBanner';
-import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface RagaKhamajViewProps {
   onViewChange?: (view: AppView) => void;
@@ -272,8 +270,6 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
           </p>
         </section>
 
-        {/* Adsterra Display Banner: 300x250 after Introduction */}
-        <AdsterraDisplayBanner />
 
         {/* Section 2: Basic Information Grid */}
         <section className="bg-gradient-to-br from-amber-900 to-amber-950 text-amber-50 p-6 sm:p-8 rounded-3xl shadow-md border border-amber-800/80">
@@ -1074,8 +1070,6 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
           </div>
         </section>
 
-        {/* Native banner code from Adsterra before the FAQ section */}
-        <AdsterraNativeBanner />
 
         {/* Section 11: Frequently Asked Questions */}
         <section className="bg-white p-6 sm:p-8 rounded-3xl border border-amber-200/80 shadow-xs space-y-6">

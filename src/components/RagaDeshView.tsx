@@ -9,8 +9,6 @@ import {
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
-import AdsterraNativeBanner from './AdsterraNativeBanner';
-import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface RagaDeshViewProps {
   onViewChange?: (view: AppView) => void;
@@ -330,8 +328,6 @@ S`;
         </div>
       </section>
 
-      {/* Adsterra Display Banner: 300x250 after Introduction */}
-      <AdsterraDisplayBanner />
 
       {/* Key Technical Matrix (Table) */}
       <section className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-sm border border-bamboo-100 space-y-4 sm:space-y-6">
@@ -974,8 +970,6 @@ S`;
         </div>
       </section>
 
-      {/* Native banner code from Adsterra before the FAQ section */}
-      <AdsterraNativeBanner />
 
       {/* Frequently Asked Questions */}
       <section className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-sm border border-bamboo-100 space-y-3 sm:space-y-4">

@@ -10,8 +10,6 @@ import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
-import AdsterraNativeBanner from './AdsterraNativeBanner';
-import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface RagaMalkaunsViewProps {
   onViewChange?: (view: AppView) => void;
@@ -353,8 +351,6 @@ g M d | M g | S`;
           </p>
         </section>
 
-        {/* Adsterra Display Banner: 300x250 after Introduction */}
-        <AdsterraDisplayBanner />
 
         {/* Basic Information Grid Table */}
         <section className="bg-gradient-to-br from-purple-50/60 to-indigo-50/60 rounded-3xl p-6 sm:p-8 border border-purple-100 shadow-3xs space-y-4">
@@ -896,8 +892,6 @@ g M d | M g | S`;
           </div>
         </section>
 
-        {/* Native banner code from Adsterra before the FAQ section */}
-        <AdsterraNativeBanner />
 
         {/* Frequently Asked Questions Accordion */}
         <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-bamboo-100 space-y-4">

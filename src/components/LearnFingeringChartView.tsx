@@ -3,8 +3,6 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Volume2, RotateCcw, Info, Music, ChevronRight, BookOpen, CheckCircle2, ArrowLeft, Radio, Wind, CircleDot } from 'lucide-react';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
-import AdsterraNativeBanner from './AdsterraNativeBanner';
-import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface LearnFingeringChartViewProps {
   onViewChange?: (view: AppView) => void;
@@ -424,8 +422,6 @@ export default function LearnFingeringChartView({ onViewChange }: LearnFingering
         </div>
       </div>
 
-      {/* Adsterra Display Banner: 300x250 after Introduction */}
-      <AdsterraDisplayBanner />
 
       {/* 1. STEP 1: Select Flute Scale */}
       <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-xs border border-bamboo-100 space-y-3 sm:space-y-4">
@@ -907,7 +903,6 @@ export default function LearnFingeringChartView({ onViewChange }: LearnFingering
       </div>
 
       {/* Native Banner Ad */}
-      <AdsterraNativeBanner className="my-6" />
 
       {/* Navigation Footer */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-bamboo-100">

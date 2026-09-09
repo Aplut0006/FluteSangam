@@ -27,8 +27,6 @@ import {
   ArrowLeft,
   MessageCircle
 } from 'lucide-react';
-import AdsterraNativeBanner from './AdsterraNativeBanner';
-import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface PostDetailViewProps {
   post: Post;
@@ -372,9 +370,7 @@ export default function PostDetailView({
               {post.description}
             </p>
 
-            {/* Adsterra Display Banner: 300x250 after Introduction */}
             <div className="my-4">
-              <AdsterraDisplayBanner />
             </div>
 
             {/* High-res Image Attachment */}
@@ -434,7 +430,6 @@ export default function PostDetailView({
 
           {/* Native Banner Ad under post */}
           <div className="mt-6">
-            <AdsterraNativeBanner />
           </div>
         </div>
 

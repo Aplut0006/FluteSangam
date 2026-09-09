@@ -9,8 +9,6 @@ import { motion, AnimatePresence } from 'motion/react';
 import { LEARN_RAAGAS, RaagaDetails } from '../data/learnRaagasData';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
-import AdsterraNativeBanner from './AdsterraNativeBanner';
-import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 type Difficulty = 'All' | 'Beginner' | 'Intermediate' | 'Advanced';
 type ConceptTab = 'grammar' | 'microtones' | 'time' | 'rasa';
@@ -333,8 +331,6 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
         </div>
       </motion.div>
 
-      {/* Adsterra Display Banner: 300x250 after Introduction */}
-      <AdsterraDisplayBanner />
 
       {/* Interactive Concept Pillars Showcase */}
       <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200 dark:border-slate-800 space-y-6">
@@ -610,7 +606,6 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
               <React.Fragment key={`${raaga.name}-${idx}`}>
                 {isMiddle && (
                   <div className="my-4">
-                    <AdsterraNativeBanner />
                   </div>
                 )}
                 <motion.div
@@ -741,8 +736,6 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
         )}
       </div>
 
-      {/* Native banner code from Adsterra */}
-      <AdsterraNativeBanner className="my-6" />
 
       {/* Author Section */}
       <AboutAuthorSection onViewChange={onViewChange} />

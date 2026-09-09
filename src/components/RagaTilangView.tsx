@@ -10,8 +10,6 @@ import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 import { playTakMetronomeClick } from '../lib/audioUtils';
-import AdsterraNativeBanner from './AdsterraNativeBanner';
-import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface RagaTilangViewProps {
   onViewChange?: (view: AppView) => void;
@@ -477,8 +475,6 @@ export const RagaTilangView: React.FC<RagaTilangViewProps> = ({ onViewChange }) 
           </div>
         </section>
 
-        {/* Adsterra Display Banner: 300x250 after Introduction */}
-        <AdsterraDisplayBanner />
 
         {/* SECTION 2: NOTES & INTERACTIVE SWARA PAD */}
         <section className="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200 shadow-2xs space-y-6">
@@ -1311,8 +1307,6 @@ G M P N | S' n P M | G M G S | S — — — ||`)}
           </div>
         </section>
 
-        {/* Native banner code from Adsterra before the FAQ section */}
-        <AdsterraNativeBanner />
 
         {/* SECTION 12: FAQS */}
         <section className="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200 shadow-2xs space-y-6">

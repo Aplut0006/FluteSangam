@@ -1,8 +1,6 @@
 import React from 'react';
 import { Wind, Feather, Music, Heart, BookOpen, Calendar, Clock, CheckCircle2 } from 'lucide-react';
 import AboutAuthorSection from './AboutAuthorSection';
-import AdsterraNativeBanner from './AdsterraNativeBanner';
-import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 import { AppView } from '../types';
 
 interface LearnIntroViewProps {
@@ -60,8 +58,6 @@ export default function LearnIntroView({ onViewChange }: LearnIntroViewProps) {
               </p>
             </section>
 
-            {/* Adsterra Display Banner: 300x250 after Introduction */}
-            <AdsterraDisplayBanner />
 
             <img 
               src="/krishna_village_old_under_tree.jpg" 
@@ -231,7 +227,6 @@ export default function LearnIntroView({ onViewChange }: LearnIntroViewProps) {
             </section>
 
             {/* Native Banner Ad */}
-            <AdsterraNativeBanner className="my-6" />
 
             {/* Conclusion */}
             <section className="text-center py-6">

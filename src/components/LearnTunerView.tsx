@@ -17,8 +17,6 @@ import {
   Activity
 } from 'lucide-react';
 import { AppView } from '../types';
-import AdsterraNativeBanner from './AdsterraNativeBanner';
-import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface LearnTunerViewProps {
   onViewChange?: (view: AppView) => void;
@@ -384,8 +382,6 @@ export default function LearnTunerView({ onViewChange }: LearnTunerViewProps) {
         </div>
       </div>
 
-      {/* Adsterra Display Banner: 300x250 after Introduction */}
-      <AdsterraDisplayBanner />
 
       {/* Main Tuner Card - Speedometer Design */}
       <div className="bg-gradient-to-b from-white via-bamboo-50/30 to-amber-50/20 border border-bamboo-200/80 rounded-3xl p-4 sm:p-8 md:p-10 shadow-xl relative overflow-hidden">
@@ -786,7 +782,6 @@ export default function LearnTunerView({ onViewChange }: LearnTunerViewProps) {
       </div>
 
       {/* Native banner at bottom of Flute Tuner & Scales */}
-      <AdsterraNativeBanner className="my-6" />
 
       {/* Bottom Navigation Actions */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">

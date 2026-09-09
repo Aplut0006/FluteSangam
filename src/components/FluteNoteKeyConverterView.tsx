@@ -32,8 +32,6 @@ import {
   ConversionItem
 } from '../utils/fluteConverterEngine';
 import { playBambooFluteTone } from '../utils/fluteSynth';
-import AdsterraNativeBanner from './AdsterraNativeBanner';
-import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 type ConversionMode = 'swara_to_western' | 'western_to_swara' | 'change_flute_key';
 
@@ -258,9 +256,7 @@ export const FluteNoteKeyConverterView: React.FC<Props> = ({ onNavigate }) => {
         </div>
       </div>
 
-      {/* Adsterra Display Banner: 300x250 after Introduction */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-6 -mb-6">
-        <AdsterraDisplayBanner />
       </div>
 
       {/* Main Interactive Tool Container */}
@@ -954,7 +950,6 @@ export const FluteNoteKeyConverterView: React.FC<Props> = ({ onNavigate }) => {
 
       {/* Native banner in the middle of Note & Key Converter */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 my-8">
-        <AdsterraNativeBanner />
       </div>
 
       {/* Educational Information Section */}
@@ -1103,8 +1098,6 @@ export const FluteNoteKeyConverterView: React.FC<Props> = ({ onNavigate }) => {
           </div>
         </div>
 
-        {/* Native banner code from Adsterra before the FAQ section */}
-        <AdsterraNativeBanner />
 
         {/* Frequently Asked Questions */}
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-bamboo-100 shadow-sm space-y-6">

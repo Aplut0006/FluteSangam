@@ -9,8 +9,6 @@ import {
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
-import AdsterraNativeBanner from './AdsterraNativeBanner';
-import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface RagaBrindavaniSarangViewProps {
   onViewChange?: (view: AppView) => void;
@@ -314,8 +312,6 @@ Finish on: S`;
           </p>
         </div>
 
-        {/* Adsterra Display Banner: 300x250 after Introduction */}
-        <AdsterraDisplayBanner />
 
         {/* Basic Information Grid */}
         <div className="mt-6 pt-6 border-t border-bamboo-100">
@@ -839,8 +835,6 @@ Finish on: S`;
         </div>
       </section>
 
-      {/* Native banner code from Adsterra before the FAQ section */}
-      <AdsterraNativeBanner />
 
       {/* Frequently Asked Questions */}
       <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-bamboo-100 space-y-6">

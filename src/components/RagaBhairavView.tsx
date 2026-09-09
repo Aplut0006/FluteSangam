@@ -10,8 +10,6 @@ import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
-import AdsterraNativeBanner from './AdsterraNativeBanner';
-import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface RagaBhairavViewProps {
   onViewChange?: (view: AppView) => void;
@@ -378,8 +376,6 @@ S`;
         </p>
       </section>
 
-      {/* Adsterra Display Banner: 300x250 after Introduction */}
-      <AdsterraDisplayBanner />
 
       {/* Basic Information Table */}
       <section className="bg-gradient-to-br from-amber-50 to-orange-50/60 rounded-3xl p-6 sm:p-8 border border-amber-200/80 shadow-xs space-y-5">
@@ -1098,8 +1094,6 @@ S`;
         </div>
       </section>
 
-      {/* Native banner code from Adsterra before the FAQ section */}
-      <AdsterraNativeBanner />
 
       {/* Frequently Asked Questions */}
       <section className="bg-white rounded-3xl p-6 sm:p-8 border border-amber-100 shadow-xs space-y-4">

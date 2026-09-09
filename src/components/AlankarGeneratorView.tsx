@@ -6,8 +6,6 @@ import {
 } from 'lucide-react';
 import * as Tone from 'tone';
 import { UserProfile } from '../types';
-import AdsterraNativeBanner from './AdsterraNativeBanner';
-import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 import { 
   subscribeToSavedAlankars, 
   saveAlankarToFirestore, 
@@ -916,8 +914,6 @@ Learn & practice on https://flutesangam.com`;
         </div>
       </div>
 
-      {/* Adsterra Display Banner: 300x250 after Introduction */}
-      <AdsterraDisplayBanner />
 
       {activeTab === 'saved' && isUserSignedIn ? (
         /* Saved Collection View */
@@ -1314,8 +1310,6 @@ Learn & practice on https://flutesangam.com`;
             </div>
           </div>
 
-          {/* Native banner code from Adsterra at bottom */}
-          <AdsterraNativeBanner className="my-6" />
         </div>
       )}
     </div>

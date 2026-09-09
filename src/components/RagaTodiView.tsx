@@ -10,8 +10,6 @@ import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 import { playTakMetronomeClick } from '../lib/audioUtils';
-import AdsterraNativeBanner from './AdsterraNativeBanner';
-import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface RagaTodiViewProps {
   onViewChange?: (view: AppView) => void;
@@ -379,8 +377,6 @@ r g M g | r S — — ||`;
           </div>
         </section>
 
-        {/* Adsterra Display Banner: 300x250 after Introduction */}
-        <AdsterraDisplayBanner />
 
         {/* SECTION 2: NOTES & SWARA NOTATION */}
         <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-xs border border-amber-200/80 mb-8 space-y-6">
@@ -1191,8 +1187,6 @@ r g M g | r S — — ||`;
           </div>
         </section>
 
-        {/* Native banner code from Adsterra before the FAQ section */}
-        <AdsterraNativeBanner />
 
         {/* SECTION 13: FREQUENTLY ASKED QUESTIONS */}
         <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200/80 mb-8 space-y-4">

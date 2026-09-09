@@ -3,8 +3,6 @@ import { motion } from 'motion/react';
 import { ShoppingBag, ArrowLeft, CheckCircle2, AlertTriangle, Lightbulb, Sparkles, User, Users, Baby, Music, Store, Check, ArrowRight, Radio, BookOpen, Calendar, Clock } from 'lucide-react';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
-import AdsterraNativeBanner from './AdsterraNativeBanner';
-import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface LearnChooseFluteViewProps {
   onBackToLearn?: () => void;
@@ -97,9 +95,7 @@ export default function LearnChooseFluteView({ onBackToLearn, onViewChange }: Le
             </p>
           </div>
 
-          {/* Adsterra Display Banner: 300x250 after Introduction */}
           <div className="mb-8">
-            <AdsterraDisplayBanner />
           </div>
 
           <div className="space-y-10 text-gray-700">
@@ -297,7 +293,6 @@ export default function LearnChooseFluteView({ onBackToLearn, onViewChange }: Le
             </section>
 
             {/* Native Banner Ad */}
-            <AdsterraNativeBanner className="my-6" />
 
             {/* Next Lesson: The Basics */}
             {onViewChange && (

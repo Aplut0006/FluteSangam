@@ -7,8 +7,6 @@ import {
 } from 'lucide-react';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
-import AdsterraNativeBanner from './AdsterraNativeBanner';
-import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface CommonFluteMistakesViewProps {
   onViewChange?: (view: AppView) => void;
@@ -400,8 +398,6 @@ export default function CommonFluteMistakesView({ onViewChange }: CommonFluteMis
         </div>
       </div>
 
-      {/* Adsterra Display Banner: 300x250 after Introduction */}
-      <AdsterraDisplayBanner />
 
       {/* Why Do Flute Mistakes Happen Box */}
       <section id="why-mistakes-happen" className="scroll-mt-20 md:scroll-mt-24 bg-gradient-to-br from-bamboo-950 via-bamboo-900 to-amber-950 text-white rounded-3xl p-6 md:p-8 shadow-md relative overflow-hidden border border-amber-800/40 space-y-4">
@@ -723,8 +719,6 @@ export default function CommonFluteMistakesView({ onViewChange }: CommonFluteMis
         </div>
       </section>
 
-      {/* Native banner code from Adsterra before the FAQ section */}
-      <AdsterraNativeBanner />
 
       {/* Frequently Asked Questions */}
       <section id="faqs" className="scroll-mt-20 md:scroll-mt-24 bg-white rounded-3xl p-6 md:p-8 border border-amber-200/80 shadow-2xs space-y-4">

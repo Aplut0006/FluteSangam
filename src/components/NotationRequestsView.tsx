@@ -37,8 +37,6 @@ import {
   Plus
 } from 'lucide-react';
 import { SongRequestModal } from './SongRequestFAB';
-import AdsterraNativeBanner from './AdsterraNativeBanner';
-import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 const DEFAULT_REQUESTS = [
   {
@@ -405,9 +403,7 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
         <Music className="absolute -right-6 -bottom-6 w-48 h-48 text-white/5 pointer-events-none" />
       </div>
 
-      {/* Adsterra Display Banner: 300x250 after Introduction */}
       <div className="mb-6">
-        <AdsterraDisplayBanner />
       </div>
 
       <SongRequestModal 
@@ -605,7 +601,6 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
       )}
 
       {/* Native Banner Ad */}
-      <AdsterraNativeBanner className="my-8" />
 
       {/* COMPREHENSIVE GUIDE TO BANSURI SARGAM NOTATIONS & TRANSPOSITION */}
       <div className="mt-12 space-y-8 text-left">

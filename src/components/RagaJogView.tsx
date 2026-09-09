@@ -9,8 +9,6 @@ import {
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
-import AdsterraNativeBanner from './AdsterraNativeBanner';
-import AdsterraDisplayBanner from './AdsterraDisplayBanner';
 
 interface RagaJogViewProps {
   onViewChange?: (view: AppView) => void;
@@ -347,8 +345,6 @@ export const RagaJogView: React.FC<RagaJogViewProps> = ({ onViewChange }) => {
           </div>
         </div>
 
-        {/* Adsterra Display Banner: 300x250 after Introduction */}
-        <AdsterraDisplayBanner />
 
         {/* NOTES & SWARA STRUCTURE WITH INTERACTIVE SOUND BOARD */}
         <div className="bg-white border border-amber-200/80 rounded-2xl p-6 sm:p-8 mb-8 space-y-6 shadow-xs">
@@ -964,8 +960,6 @@ m G m g | S — — — ||
           </div>
         </div>
 
-        {/* Native banner code from Adsterra before the FAQ section */}
-        <AdsterraNativeBanner />
 
         {/* FAQ ACCORDION SECTION */}
         <div className="bg-white border border-amber-200/80 rounded-2xl p-6 sm:p-8 mb-8 space-y-4 shadow-xs">
