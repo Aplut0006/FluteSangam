@@ -6,11 +6,13 @@ import {
   Sparkles, CheckCircle2, MessageSquare, ArrowRight, Shield, 
   Heart, ExternalLink, ThumbsUp, ThumbsDown, Copy, Check, 
   Calendar, Info, RefreshCw, Layers, CircleDot, Filter, AlertTriangle, LifeBuoy, Plus,
-  Sliders, Package, Compass, Award, Activity, Users, Smile
+  Sliders, Package, Compass, Award, Activity, Users, Smile, ChevronRight, Home
 } from 'lucide-react';
 import { AppView } from '../types';
 import { VIEW_URLS } from '../routes';
 import { FAQ_DATA, CATEGORY_SLUGS, type FaqItem } from '../data/allFaqData';
+import { FAQ_CATEGORY_METADATA } from '../data/faqCategoryMetadata';
+import { RelatedFaqCategories } from './RelatedFaqCategories';
 export type { FaqItem };
 export { FAQ_DATA, CATEGORY_SLUGS };
 
@@ -305,87 +307,24 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
     setVisibleCount(10);
   }, [selectedCategory, searchQuery]);
 
+  // Active category slug and metadata
+  const activeSlug = useMemo(() => {
+    return CATEGORY_SLUGS[selectedCategory] || '';
+  }, [selectedCategory]);
+
+  const categoryMeta = useMemo(() => {
+    if (!activeSlug || selectedCategory === 'All Categories') return null;
+    return FAQ_CATEGORY_METADATA[activeSlug] || null;
+  }, [activeSlug, selectedCategory]);
+
   // Inject dynamic SEO Title, Meta Description, and Canonical Link based on selected category
   useEffect(() => {
     let title = 'Flute FAQ | Common Questions & Answers for Flute Learners | FluteSangam';
     let description = 'Find answers to common flute questions about learning, practice, bamboo flutes, raagas, breathing, maintenance, and more. Explore the FluteSangam FAQ for helpful guidance.';
 
-    switch (selectedCategory) {
-      case 'Getting Started':
-        title = 'Getting Started Flute FAQ | Beginner Bansuri Questions & Answers | FluteSangam';
-        description = 'Find answers to common beginner questions about starting the flute: what is a bansuri, unique features, first sounds, beginner scales, and embouchure.';
-        break;
-      case 'Learning the Flute':
-        title = 'Learning the Flute FAQ | Beginner & Practice Advice | FluteSangam';
-        description = 'Frequently asked questions about learning the flute: finger placement, breath control, octave shifts, self-learning vs gurus, and daily practice routines.';
-        break;
-      case 'Adult Learners':
-        title = 'Adult Flute Learners FAQ | Learning Bansuri Later in Life | FluteSangam';
-        description = 'Common questions for adult flute beginners: hand flexibility, learning pace, managing practice time, breath stamina, and adult-friendly methods.';
-        break;
-      case 'Choosing the Right Flute':
-      case 'Choosing a Flute':
-        title = 'Choosing the Right Flute FAQ | C Natural, G Base & Scale Guide | FluteSangam';
-        description = 'Answers to flute selection questions: C Medium vs G Base, bamboo vs PVC vs acrylic, finding trusted makers, and inspecting flute tuning.';
-        break;
-      case 'Playing Techniques':
-        title = 'Flute Playing Techniques FAQ | Embouchure, Tone & Articulation | FluteSangam';
-        description = 'Common questions about flute playing techniques: clear embouchure, eliminating airy tone, mastering Komal/Teevra swaras, and tongue articulation.';
-        break;
-      case 'Advanced Techniques':
-        title = 'Advanced Flute Techniques FAQ | Meend, Gamak, Murki & Khatka | FluteSangam';
-        description = 'Advanced Indian classical flute questions: producing smooth Meend glides, Gamak oscillations, fast Murki/Khatka, and breath vibrato.';
-        break;
-      case 'Daily Practice':
-        title = 'Daily Flute Practice FAQ | Routines, Metronomes & Riyaz | FluteSangam';
-        description = 'Answers to daily practice questions: structured 30/60 min routines, morning Kharaj practice, metronome training, and overcoming plateaus.';
-        break;
-      case 'Scales & Alankars':
-        title = 'Flute Scales & Alankars FAQ | Sargam Drills & Speed Exercises | FluteSangam';
-        description = 'Questions about scales and Alankars: essential beginner drills, building speed, practicing in Thaats, and finger agility patterns.';
-        break;
-      case 'Raagas':
-      case 'Raagas & Sargam':
-        title = 'Raagas & Sargam Flute FAQ | Classical Indian Ragas on Bansuri | FluteSangam';
-        description = 'Frequently asked questions on classical Indian raagas: first ragas for beginners (Bhoopali, Yaman), Aroha/Avroha, Vadi/Samvadi, and Pakad phrases.';
-        break;
-      case 'Flute Care & Maintenance':
-        title = 'Flute Care & Maintenance FAQ | Oiling, Binding & Crack Prevention | FluteSangam';
-        description = 'Expert answers to flute care questions: mustard oiling frequency, repairing hairline cracks, thread binding, temperature safety, and cleaning.';
-        break;
-      case 'Health & Breathing':
-        title = 'Flute Health & Breathing FAQ | Breath Control, Posture & Ergonomics | FluteSangam';
-        description = 'Frequently asked questions on health and breathing for flutists: diaphragmatic breathing, avoiding dizziness, hand ergonomics, and healthy practice pacing.';
-        break;
-      case 'Children & Beginners':
-        title = 'Flute for Children & Young Beginners FAQ | Sizing & Teaching Tips | FluteSangam';
-        description = 'Helpful answers for young flute learners: ideal starting age, small hand flutes (G/A High), child-friendly practice, and music fundamentals.';
-        break;
-      case 'Music Theory & Notation':
-      case 'Music Theory & Tuning':
-      case 'Music Theory':
-        title = 'Music Theory & Notation Flute FAQ | Swaras, Shrutis & Tanpura | FluteSangam';
-        description = 'Answers to music theory and notation questions: 12 Swaras, Bhatkhande notation, Tanpura tuning, microtones (Shrutis), and Western scale equivalents.';
-        break;
-      case 'Tuning & Pitch Calibration':
-      case 'Flute Tuning & Pitch':
-        title = 'Flute Tuning & Pitch Calibration FAQ | A=440Hz & Tuner Tools | FluteSangam';
-        description = 'Frequently asked questions about flute tuning, pitch accuracy, A=440Hz standard, cents in music, breath pressure pitch shifts, and chromatic tuners.';
-        break;
-      case 'Flute Accessories & Gear':
-      case 'Flute Accessories':
-        title = 'Flute Accessories & Gear FAQ | Cases, Stands, Tuners & Mics | FluteSangam';
-        description = 'Comprehensive answers to flute accessories questions: cases, covers, cleaning rods, microfiber cloths, stands, tanpura apps, tuners, and microphones.';
-        break;
-      case 'Flute Types & Scales':
-      case 'Flute Types':
-        title = 'Flute Types & Scales FAQ | Bansuri, PVC, Western & Bass Flutes | FluteSangam';
-        description = 'Comprehensive answers to flute types questions: bamboo bansuri, PVC flutes, Western concert flutes, bass flutes, piccolos, key choices, and buying comparisons.';
-        break;
-      case 'FluteSangam Platform':
-        title = 'FluteSangam Platform FAQ | Community, Features & Tools | FluteSangam';
-        description = 'Frequently asked questions about FluteSangam: posting audio recitals, requesting song notations, using the tuner, and connecting with flutists.';
-        break;
+    if (categoryMeta) {
+      title = categoryMeta.metaTitle;
+      description = categoryMeta.metaDescription;
     }
 
     document.title = title;
@@ -400,8 +339,7 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
     metaDescription.setAttribute('content', description);
 
     // Set or update Canonical Link tag
-    const slug = CATEGORY_SLUGS[selectedCategory] || '';
-    const canonicalUrl = `https://flutesangam.com/faq${slug ? '/' + slug : ''}`;
+    const canonicalUrl = `https://flutesangam.com/faq${activeSlug ? '/' + activeSlug : ''}`;
     let canonicalLink = document.querySelector('link[rel="canonical"]');
     if (!canonicalLink) {
       canonicalLink = document.createElement('link');
@@ -412,7 +350,7 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
 
     // Scroll smoothly to top when category changes
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [selectedCategory]);
+  }, [selectedCategory, categoryMeta, activeSlug]);
 
   // Filter FAQs based on active category & live search text
   const filteredFaqs = useMemo(() => {
@@ -490,6 +428,34 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
       className="max-w-5xl mx-auto space-y-8 pb-12"
       id="flute-faq-page-container"
     >
+      {/* Breadcrumbs Navigation */}
+      <nav aria-label="Breadcrumb" className="text-xs font-semibold text-gray-600 flex items-center gap-1.5 flex-wrap">
+        <Link to="/" className="hover:text-amber-700 flex items-center gap-1">
+          <Home className="w-3.5 h-3.5" />
+          <span>Home</span>
+        </Link>
+        <ChevronRight className="w-3.5 h-3.5 text-gray-400" />
+        {categoryMeta ? (
+          <>
+            <Link
+              to="/faq"
+              onClick={() => handleCategorySelect('All Categories')}
+              className="hover:text-amber-700"
+            >
+              FAQ Hub
+            </Link>
+            <ChevronRight className="w-3.5 h-3.5 text-gray-400" />
+            <span className="text-amber-900 font-bold" aria-current="page">
+              {categoryMeta.categoryName}
+            </span>
+          </>
+        ) : (
+          <span className="text-amber-900 font-bold" aria-current="page">
+            FAQ Knowledge Base
+          </span>
+        )}
+      </nav>
+
       {/* Header Banner */}
       <div className="bg-gradient-to-br from-bamboo-950 via-bamboo-900 to-amber-950 text-white rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden border border-amber-800/40">
         <div className="absolute top-0 right-0 transform translate-x-12 -translate-y-12 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -498,15 +464,19 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
         <div className="relative z-10 space-y-4 max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold border border-amber-400/30 backdrop-blur-md">
             <LifeBuoy className="w-4 h-4 text-amber-400" />
-            <span>FluteSangam Help Center &amp; Knowledge Base</span>
+            <span>{categoryMeta ? categoryMeta.badge : 'FluteSangam Help Center & Knowledge Base'}</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold font-display tracking-tight text-amber-100 leading-tight">
-            Frequently Asked Questions <span className="text-amber-400 font-serif italic">(FAQ)</span>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-display tracking-tight text-amber-100 leading-tight">
+            {categoryMeta ? categoryMeta.h1 : (
+              <>Frequently Asked Questions <span className="text-amber-400 font-serif italic">(FAQ)</span></>
+            )}
           </h1>
 
           <p className="text-sm sm:text-base text-bamboo-200 leading-relaxed font-sans">
-            Welcome to the official FluteSangam Knowledge Base! Whether you are picking up the flute (Bansuri) for the very first time, selecting your initial scale, troubleshooting breath control, practicing classical raagas, or exploring our community tools, you will find comprehensive, step-by-step guidance right here.
+            {categoryMeta ? categoryMeta.intro : (
+              'Welcome to the official FluteSangam Knowledge Base! Whether you are picking up the flute (Bansuri) for the very first time, selecting your initial scale, troubleshooting breath control, practicing classical raagas, or exploring our community tools, you will find comprehensive, step-by-step guidance right here.'
+            )}
           </p>
 
           <div className="flex flex-wrap items-center gap-4 text-xs text-amber-200/90 pt-2 border-t border-amber-800/60">
@@ -516,97 +486,102 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
             </div>
             <div className="flex items-center gap-1.5">
               <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
-              <span>Structured Answers &amp; Community Insights</span>
+              <span>Structured Answers &amp; Practice Tips</span>
             </div>
             <div className="flex items-center gap-1.5">
               <Layers className="w-3.5 h-3.5 text-amber-400" />
-              <span>{FAQ_DATA.length} Detailed Q&amp;A Topics</span>
+              <span>
+                {categoryMeta 
+                  ? `${filteredFaqs.length} Category Questions`
+                  : `${FAQ_DATA.length} Detailed Q&A Topics`}
+              </span>
             </div>
           </div>
         </div>
       </div>
 
+      {/* Crawlable Topic Navigation Hub: Browse FAQ by Topic - Shown only on main FAQ Hub */}
+      {!categoryMeta && (
+        <section className="bg-white rounded-3xl p-6 sm:p-8 border border-amber-200/90 shadow-md space-y-6" id="faq-topic-navigation-hub">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-amber-100 pb-4">
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950 flex items-center gap-2">
+                <Layers className="w-5 h-5 text-amber-600" />
+                <span>Browse FAQ by Topic</span>
+              </h2>
+              <p className="text-xs text-gray-600 mt-1">
+                Explore specialized questions, technical breakdowns, and guides across all bansuri subjects.
+              </p>
+            </div>
 
-      {/* Crawlable Topic Navigation Hub: Browse FAQ by Topic */}
-      <section className="bg-white rounded-3xl p-6 sm:p-8 border border-amber-200/90 shadow-md space-y-6" id="faq-topic-navigation-hub">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-amber-100 pb-4">
-          <div>
-            <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950 flex items-center gap-2">
-              <Layers className="w-5 h-5 text-amber-600" />
-              <span>Browse FAQ by Topic</span>
-            </h2>
-            <p className="text-xs text-gray-600 mt-1">
-              Explore specialized questions, technical breakdowns, and guides across all bansuri subjects.
-            </p>
+            <Link
+              to="/faq"
+              onClick={() => handleCategorySelect('All Categories')}
+              className={`text-xs font-bold px-4 py-2 rounded-xl transition cursor-pointer self-start sm:self-auto ${
+                selectedCategory === 'All Categories'
+                  ? 'bg-amber-600 text-white'
+                  : 'bg-amber-100 text-amber-900 hover:bg-amber-200'
+              }`}
+            >
+              View All ({FAQ_DATA.length} Q&amp;A)
+            </Link>
           </div>
 
-          <Link
-            to="/faq"
-            onClick={() => handleCategorySelect('All Categories')}
-            className={`text-xs font-bold px-4 py-2 rounded-xl transition cursor-pointer self-start sm:self-auto ${
-              selectedCategory === 'All Categories'
-                ? 'bg-amber-600 text-white'
-                : 'bg-amber-100 text-amber-900 hover:bg-amber-200'
-            }`}
-          >
-            View All ({FAQ_DATA.length} Q&amp;A)
-          </Link>
-        </div>
+          {/* 16 Crawlable Category Hub Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {FAQ_HUB_TOPICS.map((topic) => {
+              const Icon = topic.icon;
+              const isSelected = selectedCategory === topic.category || 
+                ((topic.category === 'Raagas' || topic.category === 'Raagas & Sargam') && (selectedCategory === 'Raagas' || selectedCategory === 'Raagas & Sargam')) ||
+                ((topic.category === 'Music Theory & Notation' || topic.category === 'Music Theory & Tuning' || topic.category === 'Music Theory') && (selectedCategory === 'Music Theory & Notation' || selectedCategory === 'Music Theory & Tuning' || selectedCategory === 'Music Theory')) ||
+                ((topic.category === 'Flute Tuning & Pitch' || topic.category === 'Tuning & Pitch Calibration') && (selectedCategory === 'Flute Tuning & Pitch' || selectedCategory === 'Tuning & Pitch Calibration')) ||
+                ((topic.category === 'Flute Accessories' || topic.category === 'Flute Accessories & Gear') && (selectedCategory === 'Flute Accessories' || selectedCategory === 'Flute Accessories & Gear')) ||
+                ((topic.category === 'Flute Types' || topic.category === 'Flute Types & Scales') && (selectedCategory === 'Flute Types' || selectedCategory === 'Flute Types & Scales'));
 
-        {/* 16 Crawlable Category Hub Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {FAQ_HUB_TOPICS.map((topic) => {
-            const Icon = topic.icon;
-            const isSelected = selectedCategory === topic.category || 
-              ((topic.category === 'Raagas' || topic.category === 'Raagas & Sargam') && (selectedCategory === 'Raagas' || selectedCategory === 'Raagas & Sargam')) ||
-              ((topic.category === 'Music Theory & Notation' || topic.category === 'Music Theory & Tuning' || topic.category === 'Music Theory') && (selectedCategory === 'Music Theory & Notation' || selectedCategory === 'Music Theory & Tuning' || selectedCategory === 'Music Theory')) ||
-              ((topic.category === 'Flute Tuning & Pitch' || topic.category === 'Tuning & Pitch Calibration') && (selectedCategory === 'Flute Tuning & Pitch' || selectedCategory === 'Tuning & Pitch Calibration')) ||
-              ((topic.category === 'Flute Accessories' || topic.category === 'Flute Accessories & Gear') && (selectedCategory === 'Flute Accessories' || selectedCategory === 'Flute Accessories & Gear')) ||
-              ((topic.category === 'Flute Types' || topic.category === 'Flute Types & Scales') && (selectedCategory === 'Flute Types' || selectedCategory === 'Flute Types & Scales'));
-
-            return (
-              <Link
-                key={topic.slug}
-                to={`/faq/${topic.slug}`}
-                onClick={(e) => {
-                  if (!e.ctrlKey && !e.metaKey) {
-                    handleCategorySelect(topic.category);
-                  }
-                }}
-                className={`group p-4 rounded-2xl border transition-all duration-200 flex flex-col justify-between space-y-3 ${
-                  isSelected
-                    ? 'bg-amber-50/90 border-amber-500 shadow-sm ring-2 ring-amber-400/30'
-                    : 'bg-white hover:bg-amber-50/40 border-amber-200/80 hover:border-amber-400 hover:shadow-xs'
-                }`}
-              >
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <div className={`w-9 h-9 rounded-xl bg-gradient-to-br ${topic.color} text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform`}>
-                      <Icon className="w-4 h-4" />
+              return (
+                <Link
+                  key={topic.slug}
+                  to={`/faq/${topic.slug}`}
+                  onClick={(e) => {
+                    if (!e.ctrlKey && !e.metaKey) {
+                      handleCategorySelect(topic.category);
+                    }
+                  }}
+                  className={`group p-4 rounded-2xl border transition-all duration-200 flex flex-col justify-between space-y-3 ${
+                    isSelected
+                      ? 'bg-amber-50/90 border-amber-500 shadow-sm ring-2 ring-amber-400/30'
+                      : 'bg-white hover:bg-amber-50/40 border-amber-200/80 hover:border-amber-400 hover:shadow-xs'
+                  }`}
+                >
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <div className={`w-9 h-9 rounded-xl bg-gradient-to-br ${topic.color} text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform`}>
+                        <Icon className="w-4 h-4" />
+                      </div>
+                      <span className="text-[11px] font-extrabold text-amber-900 bg-amber-100/80 border border-amber-200 px-2.5 py-0.5 rounded-full">
+                        {topic.questionCount} Questions
+                      </span>
                     </div>
-                    <span className="text-[11px] font-extrabold text-amber-900 bg-amber-100/80 border border-amber-200 px-2.5 py-0.5 rounded-full">
-                      {topic.questionCount} Questions
-                    </span>
+
+                    <h3 className="text-sm font-bold font-display text-bamboo-950 group-hover:text-amber-800 transition-colors">
+                      {topic.title}
+                    </h3>
+
+                    <p className="text-xs text-gray-600 leading-relaxed line-clamp-2">
+                      {topic.description}
+                    </p>
                   </div>
 
-                  <h3 className="text-sm font-bold font-display text-bamboo-950 group-hover:text-amber-800 transition-colors">
-                    {topic.title}
-                  </h3>
-
-                  <p className="text-xs text-gray-600 leading-relaxed line-clamp-2">
-                    {topic.description}
-                  </p>
-                </div>
-
-                <div className="pt-2 border-t border-amber-100/70 flex items-center justify-between text-xs font-bold text-amber-700 group-hover:text-amber-900">
-                  <span>Browse Questions</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-      </section>
+                  <div className="pt-2 border-t border-amber-100/70 flex items-center justify-between text-xs font-bold text-amber-700 group-hover:text-amber-900">
+                    <span>Browse Questions</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+      )}
 
       {/* Live Interactive Search Bar & Quick Filters */}
       <div className="bg-white rounded-2xl p-4 sm:p-5 border border-amber-200/90 shadow-md space-y-4" id="faq-search-section">
@@ -722,24 +697,26 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
         </div>
       </div>
 
-      {/* Comprehensive Introduction Narrative */}
-      <section className="bg-white/80 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-amber-200/80 shadow-2xs space-y-4">
-        <div className="flex items-center gap-2.5 border-b border-amber-100 pb-3">
-          <Info className="w-5 h-5 text-amber-600 shrink-0" />
-          <h2 className="text-xl font-bold font-display text-bamboo-950">
-            About the FluteSangam Help Center
-          </h2>
-        </div>
-        
-        <div className="text-xs sm:text-sm text-gray-700 leading-relaxed space-y-3 font-sans">
-          <p>
-            The Indian bamboo flute (Bansuri) is one of humanity's oldest and purest musical instruments. Crafting a soulful sound from a simple piece of Assam bamboo requires an exquisite harmony of physical technique, mindful breath control, emotional expression, and continuous practice (Sadhana). Because self-learning or finding a traditional Guru can sometimes feel overwhelming, FluteSangam has compiled this comprehensive Help Center &amp; FAQ library to empower every flutist on their journey.
-          </p>
-          <p>
-            Our answers cover the entire spectrum of flute playing—from selecting your very first beginner scale (such as C Medium or G Medium) and mastering your lip embouchure, to executing smooth Alankars, practicing classical Hindustani raagas (like Bhoopali or Yaman), maintaining bamboo durability, and utilizing digital tuners. Browse through the categories above or search for specific terms to discover practical, structured answers tailored specifically for your progress!
-          </p>
-        </div>
-      </section>
+      {/* Comprehensive Introduction Narrative - Shown only on main FAQ hub */}
+      {!categoryMeta && (
+        <section className="bg-white/80 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-amber-200/80 shadow-2xs space-y-4">
+          <div className="flex items-center gap-2.5 border-b border-amber-100 pb-3">
+            <Info className="w-5 h-5 text-amber-600 shrink-0" />
+            <h2 className="text-xl font-bold font-display text-bamboo-950">
+              About the FluteSangam Help Center
+            </h2>
+          </div>
+          
+          <div className="text-xs sm:text-sm text-gray-700 leading-relaxed space-y-3 font-sans">
+            <p>
+              The Indian bamboo flute (Bansuri) is one of humanity's oldest and purest musical instruments. Crafting a soulful sound from a simple piece of Assam bamboo requires an exquisite harmony of physical technique, mindful breath control, emotional expression, and continuous practice (Sadhana). Because self-learning or finding a traditional Guru can sometimes feel overwhelming, FluteSangam has compiled this comprehensive Help Center &amp; FAQ library to empower every flutist on their journey.
+            </p>
+            <p>
+              Our answers cover the entire spectrum of flute playing—from selecting your very first beginner scale (such as C Medium or G Medium) and mastering your lip embouchure, to executing smooth Alankars, practicing classical Hindustani raagas (like Bhoopali or Yaman), maintaining bamboo durability, and utilizing digital tuners. Browse through the categories above or search for specific terms to discover practical, structured answers tailored specifically for your progress!
+            </p>
+          </div>
+        </section>
+      )}
 
 
       {/* FAQ Accordion List - Every single question and answer is in the HTML DOM for crawlers, visually collapsed with CSS */}
@@ -956,6 +933,14 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
           </>
         )}
       </div>
+
+      {/* Related FAQ Categories (Shown on Category Pages) */}
+      {categoryMeta && activeSlug && (
+        <RelatedFaqCategories
+          currentSlug={activeSlug}
+          onSelectCategory={handleCategorySelect}
+        />
+      )}
 
       {/* Didn't Find Your Answer? Contact & Community Callout */}
       <section className="bg-gradient-to-r from-amber-500/10 via-amber-100/60 to-bamboo-100/50 rounded-3xl p-6 sm:p-8 border border-amber-300 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6" id="faq-contact-callout">

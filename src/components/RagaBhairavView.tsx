@@ -275,7 +275,7 @@ S`;
           </h1>
 
           <p className="text-amber-100/90 text-sm sm:text-base leading-relaxed">
-            Discover the profound morning sanctuary of <strong>Raag Bhairav</strong>. Master Komal Re (r) and Komal Dha (d) with gentle Andolan, smooth meend, step-by-step alankars, and the original educational piece <em className="text-amber-300 font-serif">"Pratah Dhyan"</em>.
+            Discover the profound morning mood and meditative character of <strong>Raag Bhairav</strong>. Learn Komal Re (r) and Komal Dha (d) with gentle Andolan, smooth meend, step-by-step alankars, and the original educational piece <em className="text-amber-300 font-serif">"Pratah Dhyan"</em>.
           </p>
 
           <div className="pt-2 flex flex-wrap items-center gap-4 text-xs text-amber-200/80">

@@ -25,7 +25,7 @@ This direct physical contact grants the flutist complete freedom over pitch bend
     id: 'start-good-for-beginners',
     category: 'Getting Started',
     question: 'Is the flute a good instrument for beginners?',
-    answer: `Yes, the bamboo flute is an exceptional choices for beginners of all ages! It is extremely lightweight, portable, durable, and highly affordable compared to almost any other acoustic instrument. Because it requires no electrical cords, amplifiers, heavy cases, or costly accessories, you can carry your bansuri anywhere and practice peacefully in nature, home, or studio.
+    answer: `Yes, the bamboo flute is an exceptional choice for beginners of all ages! It is extremely lightweight, portable, durable, and highly affordable compared to almost any other acoustic instrument. Because it requires no electrical cords, amplifiers, heavy cases, or costly accessories, you can carry your bansuri anywhere and practice peacefully in nature, home, or studio.
 
 While producing your very first clean note requires a few days of patient lip embouchure adjustment, the learning path thereafter is remarkably rewarding. The intuitive Sargam notation system (Sa, Re, Ga, Ma) allows complete beginners to play recognizable devotional, folk, and popular melodies within just a few weeks of consistent practice. Furthermore, learning the flute builds deep respiratory awareness, mindful focus, and fine motor skills.`,
     relatedLink: { text: 'Explore our Step-by-Step Learning Hub', view: 'learn_dashboard' },

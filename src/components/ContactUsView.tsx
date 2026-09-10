@@ -268,7 +268,7 @@ export default function ContactUsView({ onBackToCommunity }: ContactUsViewProps)
           Community Standards &amp; Contribution Guidelines
         </h3>
         <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-          FluteSangam is a welcoming, dedicated sanctuary for musicians of all backgrounds. When submitting notation requests, transcribing Sargam sheets, or reaching out to mentors, please adhere to our core standards:
+          FluteSangam is a welcoming learning platform and resource hub for flute learners of all backgrounds. When submitting notation requests, transcribing Sargam sheets, or reaching out to fellow learners, please adhere to our core standards:
         </p>
         <div className="grid sm:grid-cols-3 gap-4 text-xs pt-1">
           <div className="p-4 rounded-xl bg-bamboo-50/60 border border-bamboo-100 space-y-1.5">

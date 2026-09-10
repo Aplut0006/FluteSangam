@@ -594,7 +594,7 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
             { title: 'Develops Meend (Glides)', desc: 'Teaches smooth continuous finger slides between N-R, G-M^, and M^-D.' },
             { title: 'Strengthens Note Transitions', desc: 'Bridges beginner pentatonic scales to full heptatonic classical performance.' },
             { title: 'Builds Improvisation Skills', desc: 'Provides the ultimate flexible framework for Alaap and Taans.' },
-            { title: 'Essential Gateway Raga', desc: 'Foundational benchmark raga studied by every classical bansuri artist.' },
+            { title: 'Essential Gateway Raga', desc: 'Foundational evening raga widely studied by classical bansuri learners.' },
           ].map((reason, idx) => (
             <div key={idx} className="bg-amber-50/40 border border-amber-100 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 space-y-1 hover:shadow-sm transition">
               <span className="text-[10px] font-extrabold text-amber-800 bg-amber-100 px-2 py-0.5 rounded">0{idx + 1}</span>

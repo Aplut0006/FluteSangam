@@ -117,7 +117,7 @@ export const FLUTE_TYPES_FAQS: FaqItem[] = [
     id: 'type-c-natural-medium-explained',
     category: 'Choosing the Right Flute',
     question: 'Why is C Natural Medium (Scale 1) recommended as the standard starter flute?',
-    answer: `C Natural Medium is the worldwide benchmark starter flute for Indian music:
+    answer: `C Natural Medium is widely considered one of the most practical starter flutes for Indian music:
 
 - Universal Notation Standard: In Hindustani music, C Natural is commonly designated as "Scale 1" (Pahila Safed), making notation reading straightforward.
 - Ergonomic Fit: Its hole spacing is comfortable for almost all teenagers and adults without causing wrist strain.

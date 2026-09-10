@@ -75,46 +75,42 @@ export const FAQ_DATA: FaqItem[] = [
     id: 'platform-what-is',
     category: 'FluteSangam Platform',
     question: 'What is FluteSangam, and is it completely free to use?',
-    answer: `FluteSangam is an open, global digital sanctuary and learning community created dedicatedly for Indian bamboo flute (Bansuri) and Western flute enthusiasts, students, and gurus. 
+    answer: `FluteSangam is an open online learning hub and resource platform created dedicatedly for Indian bamboo flute (Bansuri) and flute learners worldwide. 
 
-Yes, FluteSangam is 100% FREE to join and explore! Our mission is to preserve and celebrate flute music by providing high-quality interactive learning tools, scale selection guides, Sargam generator engines, online tuners, song notations, and a supportive community feed where members can post audio/video recitals, ask questions, and connect with fellow flutists worldwide.`,
+Yes, FluteSangam is free to explore and use! Our goal is to support bansuri learning by providing interactive practice tools (such as the online tuner and Alankar generator), scale selection guides, classical Hindustani raga breakdowns, Sargam notations, and educational articles.`,
     relatedLink: { text: 'About FluteSangam & Founder Story', view: 'about_us' },
     tags: ['flutesangam', 'free platform', 'community', 'learning']
   },
   {
     id: 'platform-how-to-join',
     category: 'FluteSangam Platform',
-    question: 'How do I join the community, post recitals, and request song notations?',
-    answer: `Joining is instant and free! Simply click "Join Community" or "Sign In" at the top, sign in with Google or create an account with your email. 
+    question: 'How do I join the community, post recitals, and save my preferences?',
+    answer: `Joining is free and straightforward! You can freely explore all learning guides, articles, and interactive tools as a guest. 
 
-Once logged in, you can:
-• Post practice updates, audio recitals, questions, and maker reviews on the community feed.
-• Request custom song Sargam notations on the "Song Notations" tab.
-• Send direct messages to fellow flutists and teachers.
-• Customize your public flutist profile with your scale preference, location, bio, and social links.`,
-    relatedLink: { text: 'Explore Community Feed', view: 'community' },
-    tags: ['sign up', 'join', 'notations', 'community']
+If you wish to participate in the community, you can sign in with Google or create an account with your email. Once logged in, you can post practice updates, share audio recitals, ask questions, save preferences, and customize your flutist profile.`,
+    relatedLink: { text: 'Explore Community Discussions', view: 'community' },
+    tags: ['sign up', 'join', 'community', 'profile']
   },
   {
     id: 'platform-request-custom-notation',
     category: 'FluteSangam Platform',
-    question: 'How do I request Sargam notation for my favorite Bollywood or devotional song?',
-    answer: `Requesting song notations on FluteSangam is simple:
-1. Navigate to the "Song Notations" section in the navigation menu.
+    question: 'How do I request Sargam notation for a song?',
+    answer: `You can browse existing song sargams or submit requests in the Notations section:
+1. Navigate to the "Song Notations" section.
 2. Click the "Request Song Notation" button.
-3. Submit the song title, film/album name, and preferred flute scale.
-We review requests regularly and publish accurate Bhatkhande Sargam sheets with line-by-line finger guides.`,
+3. Submit the song title, genre/album, and preferred flute scale.
+We regularly review community requests and format melodies into clear Bhatkhande Sargam notation sheets.`,
     relatedLink: { text: 'Browse & Request Song Notations', view: 'notation_requests' },
     tags: ['request song notation', 'bollywood sargam', 'devotional songs', 'notations']
   },
   {
     id: 'platform-ai-assistant-help',
     category: 'FluteSangam Platform',
-    question: 'How can the FluteSangam AI Assistant help me with my practice and Raag questions?',
-    answer: `The FluteSangam AI Guru Assistant is trained on Indian classical music theory, bansuri acoustics, and practice routines:
-• Ask questions about any Raag's Aaroh, Avaroh, Pakad, Vadi, or Samvadi notes.
-• Request customized Alankar practice routines based on your current skill level and available daily practice time.
-• Get instant troubleshooting advice for airy tone, squeaks, half-hole finger placements, and flute maintenance.`,
-    tags: ['ai guru', 'ai assistant', 'raag answers', 'practice guidance', 'flutesangam ai']
+    question: 'How can the Flute Practice Assistant help me with my practice and Raag questions?',
+    answer: `The FluteSangam Interactive Practice Assistant provides fast reference answers on Indian classical music theory, bansuri acoustics, and practice routines:
+• Look up information on Raag Aaroh, Avaroh, Pakad, Vadi, and Samvadi notes.
+• Explore suggested Alankar practice patterns suitable for your skill level.
+• Find troubleshooting tips for airy tone, half-hole finger placements, and flute maintenance.`,
+    tags: ['practice assistant', 'faq helper', 'raag answers', 'practice guidance', 'flutesangam']
   }
 ];
