@@ -9,7 +9,7 @@ export const DAILY_PRACTICE_FAQS: FaqItem[] = [
 
 Why Daily Consistency Trumps Weekend Marathons:
 Practicing daily for 20 to 30 minutes is far more effective than practicing for 3 hours once a week. Frequent short sessions continuously reinforce neural pathways associated with ear-to-finger synchronization and pitch recognition. Skipping several consecutive days causes lip muscles to lose stamina and pitch perception to drift, forcing you to waste valuable practice time re-establishing basic tone purity rather than progressing forward.`,
-    relatedLink: { text: 'Explore Flute Practice Blueprint', view: 'learn_daily_practice' },
+    relatedLink: { text: 'Explore Daily Flute Practice Guide', view: 'learn_daily_practice' },
     tags: ['daily practice', 'sadhana', 'embouchure', 'muscle memory']
   },
   {
@@ -30,13 +30,13 @@ Recommended Practice Breakdown (30 to 45 Minutes):
     id: 'prac-kharaj-riyaz-importance',
     category: 'Daily Practice',
     question: 'What is Kharaj Riyaz and why is it essential for daily practice?',
-    answer: `Kharaj Riyaz refers to the practice of sustaining long, deep notes in the lower octave (Mandra Saptak), particularly Mandra Pa, Mandra Dha, Mandra Ni, and root Sa. Classical bansuri masters universally consider Kharaj Sadhana to be the single most important exercise for flutists.
+    answer: `Kharaj Riyaz refers to the practice of sustaining long, deep notes in the lower octave (Mandra Saptak), particularly Mandra Pa, Mandra Dha, Mandra Ni, and root Sa. Classical bansuri teachers often consider Kharaj Sadhana to be one of the most effective exercises for flutists.
 
-Transformative Benefits of Kharaj Riyaz:
+Key Benefits of Kharaj Riyaz:
 • Deepens Diaphragmatic Breath Capacity: Sustaining low notes demands controlled, steady air expulsion from your lower abdomen without over-blowing or forcing breath pressure.
 • Enriches Acoustic Tone Timbre: It develops the deep, warm, resonant, "woody" acoustic timbre that defines authentic bansuri sound across all three octaves.
 • Calms Mind and Body: The deep, low pitches encourage an unhurried, focused mental state, helping release tension in the lips, hands, and upper body before faster technical exercises.`,
-    relatedLink: { text: 'Read Daily Practice Blueprint', view: 'learn_daily_practice' },
+    relatedLink: { text: 'Read Daily Practice Guide', view: 'learn_daily_practice' },
     tags: ['kharaj riyaz', 'lower octave', 'tone quality', 'breath control']
   },
   {
@@ -56,11 +56,11 @@ Core Benefits of Tanpura Practice:
     id: 'prac-practicing-with-metronome',
     category: 'Daily Practice',
     question: 'How do I effectively use a metronome during daily practice?',
-    answer: `A metronome is the ultimate tool for building internal rhythm (Laya), finger agility, and unshakeable pulse synchronization on the bamboo flute.
+    answer: `A metronome is an essential tool for building internal rhythm (Laya), finger agility, and steady pulse synchronization on the bamboo flute.
 
 How to Use a Metronome Systematically:
-1. Start Exceptionally Slow: Set the metronome to 50–60 BPM. Execute your Alankar patterns with absolute precision on every click before attempting faster tempos.
-2. Incremental Tempo Increases: Increase tempo by only +4 BPM at a time once an exercise is 100% clean, effortless, and free of physical finger tension.
+1. Start Exceptionally Slow: Set the metronome to 50–60 BPM. Execute your Alankar patterns with steady precision on every click before attempting faster tempos.
+2. Incremental Tempo Increases: Increase tempo by only +4 BPM at a time once an exercise is clean, smooth, and free of physical finger tension.
 3. Rhythmic Subdivisions: Practice playing 1 note per beat (Single speed / Ekgun), 2 notes per beat (Double speed / Dugun), and 4 notes per beat (Quadruple speed / Chaugun) over a steady click to build inner rhythmic subdivision control.`,
     relatedLink: { text: 'Practice with Interactive Alankar Generator', view: 'alankar_generator' },
     tags: ['metronome', 'rhythm', 'laya', 'tempo', 'speed building']

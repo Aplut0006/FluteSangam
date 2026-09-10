@@ -24,7 +24,7 @@ Key Structural Components of Raag Grammar:
 • Vadi Swara (King Note): The primary, most heavily emphasized note in the Raag. Lingering on Vadi establishes the Raag's emotional center.
 • Samvadi Swara (Queen Note): The secondary prominent note, usually positioned a 4th or 5th harmonic interval away from Vadi, providing structural balance.
 • Pakad (Catchphrase): The signature 3 to 6 note catchphrase that instantly identifies the Raag to a trained listener.`,
-    relatedLink: { text: 'Read Raag Anatomy & Grammar Blueprint', view: 'learn_raagas' },
+    relatedLink: { text: 'Read Raag Anatomy & Grammar Guide', view: 'learn_raagas' },
     tags: ['vadi', 'samvadi', 'aaroh', 'avaroh', 'pakad', 'raag grammar']
   },
   {
@@ -75,8 +75,8 @@ Recommended Starter Raagas:
   {
     id: 'raag-yaman-complete-overview',
     category: 'Raagas',
-    question: 'Why is Raag Yaman universally taught as the foundation for beginners?',
-    answer: `Raag Yaman (belonging to Kalyan Thaat) is universally considered the ultimate foundational gateway to Hindustani classical music across vocal and instrumental traditions.
+    question: 'Why is Raag Yaman widely taught as the foundation for beginners?',
+    answer: `Raag Yaman (belonging to Kalyan Thaat) is widely considered an excellent foundational gateway to Hindustani classical music across vocal and instrumental traditions.
 
 Why Raag Yaman is the Ideal Foundation:
 • Musical Anatomy: Features Shuddha Re, Ga, Dha, Ni alongside Teevra Ma (sharp 4th). Sa and Pa are omitted in ascending motion (Aaroh: 'Ni Re Ga, Ma' Dha Ni Sa').
@@ -133,7 +133,7 @@ Primary Rasas in Music:
 • Shanta (Peace & Serenity): Evoked by Raag Bhupali, Raag Yaman, and Raag Malkauns.
 • Karuna (Pathos & Devotion): Evoked by Raag Bhairavi, Raag Ahir Bhairav, and Raag Todi.
 • Shringar (Romance & Joy): Evoked by Raag Khamaj, Raag Desh, and Raag Kafi.
-• Keyless Bansuri Advantage: The organic, breathy acoustic timbre of the bamboo bansuri is considered one of the finest instruments in the world for conveying subtle Rasa nuances.`,
+• Keyless Bansuri Advantage: The organic, breathy acoustic timbre of the bamboo bansuri is well suited for conveying subtle Rasa nuances.`,
     relatedLink: { text: 'Read Rasa Theory & Classical Aesthetics', view: 'learn_raagas' },
     tags: ['rasa theory', 'emotions', 'shanta', 'karuna', 'shringar']
   },
@@ -160,7 +160,7 @@ Systematic Improvisation Steps:
 2. Note-by-Note Swara Expansion (Vistaar): Begin from root Sa and expand note by note—first explore Mandra Saptak, then move to Re, Ga, and Ma, returning to Sa after every short phrase.
 3. Respect Vadi Emphases: Pause and linger gracefully on the Vadi and Samvadi notes.
 4. Listen & Transcribe: Listen to recordings of great masters and transcribe short 4-bar phrases to build your vocabulary.`,
-    relatedLink: { text: 'View Raag Improvisation Blueprint', view: 'learn_raagas' },
+    relatedLink: { text: 'View Raag Improvisation Guide', view: 'learn_raagas' },
     tags: ['improvisation', 'vistaar', 'pakad', 'swara expansion']
   },
   {

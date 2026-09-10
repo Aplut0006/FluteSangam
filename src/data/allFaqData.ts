@@ -74,10 +74,10 @@ export const FAQ_DATA: FaqItem[] = [
   {
     id: 'platform-what-is',
     category: 'FluteSangam Platform',
-    question: 'What is FluteSangam, and is it completely free to use?',
-    answer: `FluteSangam is an open online learning hub and resource platform created dedicatedly for Indian bamboo flute (Bansuri) and flute learners worldwide. 
+    question: 'What is FluteSangam, and is it free to use?',
+    answer: `FluteSangam is an open online learning hub and resource platform created specifically for Indian bamboo flute (Bansuri) and flute learners. 
 
-Yes, FluteSangam is free to explore and use! Our goal is to support bansuri learning by providing interactive practice tools (such as the online tuner and Alankar generator), scale selection guides, classical Hindustani raga breakdowns, Sargam notations, and educational articles.`,
+Yes, FluteSangam is free to explore and use. Our goal is to support bansuri learning by providing interactive practice tools (such as the online tuner and Alankar generator), scale selection guides, classical Hindustani raga breakdowns, Sargam notations, and educational articles.`,
     relatedLink: { text: 'About FluteSangam & Founder Story', view: 'about_us' },
     tags: ['flutesangam', 'free platform', 'community', 'learning']
   },
@@ -85,7 +85,7 @@ Yes, FluteSangam is free to explore and use! Our goal is to support bansuri lear
     id: 'platform-how-to-join',
     category: 'FluteSangam Platform',
     question: 'How do I join the community, post recitals, and save my preferences?',
-    answer: `Joining is free and straightforward! You can freely explore all learning guides, articles, and interactive tools as a guest. 
+    answer: `Joining is free and straightforward. You can freely explore all learning guides, articles, and interactive tools as a guest. 
 
 If you wish to participate in the community, you can sign in with Google or create an account with your email. Once logged in, you can post practice updates, share audio recitals, ask questions, save preferences, and customize your flutist profile.`,
     relatedLink: { text: 'Explore Community Discussions', view: 'community' },
@@ -99,18 +99,19 @@ If you wish to participate in the community, you can sign in with Google or crea
 1. Navigate to the "Song Notations" section.
 2. Click the "Request Song Notation" button.
 3. Submit the song title, genre/album, and preferred flute scale.
-We regularly review community requests and format melodies into clear Bhatkhande Sargam notation sheets.`,
+We review requests and format melodies into clear Bhatkhande Sargam notation sheets.`,
     relatedLink: { text: 'Browse & Request Song Notations', view: 'notation_requests' },
     tags: ['request song notation', 'bollywood sargam', 'devotional songs', 'notations']
   },
   {
-    id: 'platform-ai-assistant-help',
+    id: 'platform-practice-tools-help',
     category: 'FluteSangam Platform',
-    question: 'How can the Flute Practice Assistant help me with my practice and Raag questions?',
-    answer: `The FluteSangam Interactive Practice Assistant provides fast reference answers on Indian classical music theory, bansuri acoustics, and practice routines:
-• Look up information on Raag Aaroh, Avaroh, Pakad, Vadi, and Samvadi notes.
-• Explore suggested Alankar practice patterns suitable for your skill level.
-• Find troubleshooting tips for airy tone, half-hole finger placements, and flute maintenance.`,
-    tags: ['practice assistant', 'faq helper', 'raag answers', 'practice guidance', 'flutesangam']
+    question: 'How do the FluteSangam practice tools help with daily flute practice?',
+    answer: `FluteSangam provides several interactive tools to support daily practice:
+• Interactive Tuner & Tanpura: Check note frequencies in cents and practice pitch stability over a steady drone.
+• Alankar Generator: Generate structured swara permutation drills at customizable tempos.
+• Scale Selector: Compare flute keys, hand stretch requirements, and physical dimensions before purchasing an instrument.`,
+    relatedLink: { text: 'Explore Online Flute Tuner', view: 'learn_tuner' },
+    tags: ['practice tools', 'tuner', 'alankar generator', 'tanpura', 'flutesangam']
   }
 ];

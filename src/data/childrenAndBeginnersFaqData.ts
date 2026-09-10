@@ -9,7 +9,7 @@ export const CHILDREN_AND_BEGINNERS_FAQS: FaqItem[] = [
 
 However, younger children aged 5 or 6 can also start exploring music on smaller, high-pitched flutes or recorders to develop breath awareness, rhythm, and ear training.
 
-The key determining factor is physical finger reach rather than chronological age. If a child can cover the tone holes of a small G Medium or C Medium bansuri with relaxed finger pads without stretching their wrist unnaturally, they are physically ready to begin learning. Starting early builds natural musical intuition, perfect pitch memory, and excellent respiratory stamina that lasts a lifetime.`,
+The key determining factor is physical finger reach rather than chronological age. If a child can cover the tone holes of a small G Medium or C Medium bansuri with relaxed finger pads without stretching their wrist unnaturally, they are physically ready to begin learning. Starting early helps nurture musical intuition, ear training, and breath awareness.`,
     relatedLink: { text: 'Explore Flute Scale Selection for Children', view: 'learn_choose_flute' },
     tags: ['child age', 'starting age', 'kids learning', 'readiness', 'finger reach']
   },
@@ -33,7 +33,7 @@ With a properly sized flute (such as G Medium or C Medium) and short, fun daily 
 
 When choosing a flute for a child, avoid large Bass flutes (such as E Bass or C Bass) because the wide distance between tone holes will force the child to stretch their fingers unnaturally, leading to wrist fatigue and poor habits.
 
-Additionally, ensure the bamboo flute is well-finished with smooth, polished edges around the blowhole and finger holes to protect young skin. A well-tuned student G Medium bansuri provides an effortless, sweet tone that keeps children motivated and excited to practice.`,
+Additionally, ensure the bamboo flute is well-finished with smooth, polished edges around the blowhole and finger holes to protect young skin. A well-tuned student G Medium bansuri provides a responsive, sweet tone that keeps children motivated and excited to practice.`,
     relatedLink: { text: 'Read Guide on Choosing the Right Flute', view: 'learn_choose_flute' },
     tags: ['best flute for kids', 'g medium', 'a medium', 'child flute selection']
   },
@@ -48,7 +48,7 @@ Recommended Flute Sizes by Age:
 - Ages 8 to 11: C Medium (15 inches), the standard student size for comfortable reach.
 - Ages 12 and above: C Medium or scale up to F/E Medium as finger span grows.
 
-Using a flute that is too large forces young players to strain their thumbs and wrists, causing air leaks and squeaks. Choosing the correct size ensures effortless finger coverage and beautiful sound production.`,
+Using a flute that is too large forces young players to strain their thumbs and wrists, causing air leaks and squeaks. Choosing the correct size ensures comfortable finger coverage and clean sound production.`,
     relatedLink: { text: 'View Flute Dimensions & Scale Guide', view: 'learn_choose_flute' },
     tags: ['flute size for kids', 'bansuri length', 'age recommendations', 'tone hole spacing']
   },
@@ -139,7 +139,7 @@ Because Indian music uses the natural Sargam system (equivalent to Do-Re-Mi), be
 
 Unlike complex Western notation on staff lines, Sargam notation simply writes out letter names or symbols representing finger positions. Your musical ear naturally develops as you play along with a Tanpura drone, training your brain to recognize pitches automatically.
 
-Thousands of passionate flutists of all ages have learned to play beautifully entirely through ear training, guided practice, and digital song notations without ever reading formal music scores.`,
+Many flute enthusiasts of all ages have learned to play melodically through ear training, guided practice, and digital song notations without ever reading formal Western music scores.`,
     relatedLink: { text: 'View Interactive Fingering & Sargam Chart', view: 'learn_fingering_chart' },
     tags: ['no music theory', 'no prior knowledge', 'sargam for beginners', 'ear learning']
   },
@@ -147,7 +147,7 @@ Thousands of passionate flutists of all ages have learned to play beautifully en
     id: 'child-what-to-learn-first',
     category: 'Children & Beginners',
     question: 'What should a beginner learn first on flute?',
-    answer: `When starting out on the bamboo flute, follow this proven sequential step-by-step roadmap to build solid habits from day one:
+    answer: `When starting out on the bamboo flute, follow this sequential step-by-step roadmap to build solid habits from day one:
 
 1. Lip Embouchure & Tone Production: Practice blowing across the open blowhole without covering any finger holes until you produce a clear, hiss-free sound consistently.
 
@@ -165,14 +165,14 @@ Thousands of passionate flutists of all ages have learned to play beautifully en
     id: 'child-best-flute-for-beginners',
     category: 'Children & Beginners',
     question: 'Which flute is best for a beginner?',
-    answer: `The C Medium bamboo bansuri (or G Medium for children and adults with smaller hands) is widely recognized by flute gurus as the absolute best choice for a beginner.
+    answer: `The C Medium bamboo bansuri (or G Medium for children and adults with smaller hands) is widely recommended by many teachers as a practical starting flute.
 
 Why C Medium is Ideal for Beginners:
 - Ergonomic Finger Reach: The distance between finger holes is moderate and comfortable, preventing hand fatigue and air leaks.
-- Moderate Breath Capacity: It requires manageable air pressure, making tone production easy without causing dizziness.
-- Perfect Tuning Standard: C Medium corresponds to C Natural in Western pitch (A=440 Hz), making it easy to play alongside digital tuners, Tanpura apps, and keyboard backings.
+- Moderate Breath Capacity: It requires manageable air pressure, making tone production accessible without causing dizziness.
+- Standard Tuning Reference: C Medium corresponds to C Natural in standard pitch (A=440 Hz), making it easy to play alongside digital tuners, Tanpura apps, and keyboard backings.
 
-Starting with a high-quality, well-tuned C Medium student bansuri ensures rapid progress and a sweet, inspiring tone.`,
+Starting with a well-crafted, in-tune C Medium student bansuri supports steady progress and a pleasant, inspiring tone.`,
     relatedLink: { text: 'Read Guide on Choosing Your First Flute', view: 'learn_choose_flute' },
     tags: ['best flute for beginners', 'c medium bansuri', 'first flute', 'scale choice']
   },
@@ -182,11 +182,11 @@ Starting with a high-quality, well-tuned C Medium student bansuri ensures rapid 
     question: 'What flute key should a beginner choose?',
     answer: `A beginner should choose either a C Medium key or a G Medium key bansuri, depending on hand size and age:
 
-- C Medium Key (15 inches / 38 cm): The universally recommended standard for adults and teenagers with average hand sizes. The 3-hole Sa corresponds to C Natural.
-- G Medium Key (12 inches / 30 cm): The best key for young children (ages 6 to 10) or adults with smaller hands, as the holes are spaced very close together.
+- C Medium Key (15 inches / 38 cm): A widely used standard for adults and teenagers with average hand sizes. The 3-hole Sa corresponds to C Natural.
+- G Medium Key (12 inches / 30 cm): An effective key for young children (ages 6 to 10) or adults with smaller hands, as the holes are spaced closely together.
 - A Medium Key (13.5 inches / 34 cm): An excellent intermediate size for smaller adult hands.
 
-Avoid starting with large Bass flutes (such as E Bass or C Bass) because the wide hole spacing and high breath volume requirements will create unnecessary physical frustration for a novice.`,
+Avoid starting with large Bass flutes (such as E Bass or C Bass) because the wide hole spacing and high breath volume requirements will create unnecessary physical strain for a beginner.`,
     relatedLink: { text: 'View Beginner Scale Matrix & Comparison', view: 'learn_choose_flute' },
     tags: ['flute key choice', 'c medium vs g medium', 'key selection', 'bansuri key']
   },
@@ -233,7 +233,7 @@ Step-by-Step Method:
 2. Gentle Lip Purse: Say the word "Pooh" or "Pure" gently to form a small, oval aperture in the center of your lips.
 3. Angle the Airstream: Blow a steady, gentle stream of air directed downward at a 45-degree angle against the outer splitting edge of the blowhole.
 4. Rotate the Flute: Slowly rotate the flute tube slightly inward or outward until the air splits cleanly and creates a clear, ringing tone.`,
-    relatedLink: { text: 'Read First Sound & Embouchure Blueprint', view: 'learn_basics' },
+    relatedLink: { text: 'Read First Sound & Embouchure Guide', view: 'learn_basics' },
     tags: ['first sound', 'producing tone', 'embouchure setup', 'blowing technique']
   },
   {
@@ -282,7 +282,7 @@ Recommended Beginner Tunes:
 3. "Jingle Bells": Great for practicing repeated note rhythm and breath control.
 4. Simple Devotional Chants: "Om Jai Jagdish Hare" or basic 3-note dhuns in Raag Bhoopali (Sa, Re, Ga, Pa, Dha).
 
-Starting with familiar tunes helps you spot pitch mistakes instantly and keeps practice fun and rewarding!`,
+Starting with familiar tunes helps you spot pitch mistakes easily and keeps practice fun and rewarding!`,
     relatedLink: { text: 'Browse Free Song Notations', view: 'notation_requests' },
     tags: ['easiest song', 'beginner tunes', 'twinkle twinkle', 'simple melodies', 'sargam songs']
   },
@@ -290,13 +290,13 @@ Starting with familiar tunes helps you spot pitch mistakes instantly and keeps p
     id: 'child-common-beginner-mistakes',
     category: 'Children & Beginners',
     question: 'What are the most common mistakes beginner flutists make?',
-    answer: `Avoiding these six common beginner pitfalls will double your learning speed:
+    answer: `Avoiding these common beginner pitfalls will support your learning progress:
 
 1. Using Fingertips Instead of Flat Pads: Poking holes with curved fingertips leaves tiny side gaps that cause airy leaks and squeaks. Always use flat, soft finger pads.
 2. Blowing Too Hard: Forcing breath creates harsh, screeching sounds. Focus on air focus and lip aperture rather than volume.
-3. Lifting Fingers Too High: Raising fingers high above the bamboo tube slows down playing speed and disrupts balance. Keep fingers hovering 1 cm off holes.
+3. Lifting Fingers Too High: Raising fingers high above the bamboo tube slows down playing speed and disrupts balance. Keep fingers hovering close to the holes.
 4. Skipping Long Blow Warm-ups: Rushing straight into songs without sustaining long notes creates shaky tone and poor intonation.
-5. Practicing Without a Drone or Tuner: Playing without a reference pitch leads to bad ear habits.
+5. Practicing Without a Drone or Tuner: Playing without a reference pitch leads to inaccurate intonation habits.
 6. Slouching Posture: Dropping your chin or bending your neck restricts lung expansion and breath capacity.`,
     relatedLink: { text: 'Read 15 Common Flute Mistakes & Solutions', view: 'learn_common_mistakes' },
     tags: ['beginner mistakes', 'pitfalls', 'flat finger pads', 'posture', 'blowing errors']

@@ -7,7 +7,7 @@ export const GETTING_STARTED_FAQS: FaqItem[] = [
     question: 'What is a bamboo flute?',
     answer: `The bamboo flute, known as the Bansuri in Hindustani classical music and Venu in Carnatic South Indian traditions, is an ancient transverse wind instrument crafted from a single, hollow cylindrical segment of natural bamboo. Uniquely organic and minimalist in construction, it features no mechanical keys, spring valves, pads, or reed mouthpieces. The entire instrument consists simply of a single blowing hole (embouchure) and 6 to 7 open finger holes carved along the bamboo body.
 
-Despite its deceiving physical simplicity, the bamboo flute is capable of producing extraordinary tonal warmth, rich harmonic resonance, and subtle microtonal inflections (Shrutis). Because there are no mechanical keys between the player's hands and the instrument, every nuance of pitch, volume, and expression is controlled directly through lip embouchure, breath pressure, and finger pad positioning over the bare tone holes. This creates an unparalleled, intimate connection between the musician and the sound produced.`,
+Despite its deceiving physical simplicity, the bamboo flute is capable of producing warm tones, rich harmonic resonance, and subtle microtonal inflections (Shrutis). Because there are no mechanical keys between the player's hands and the instrument, every nuance of pitch, volume, and expression is controlled directly through lip embouchure, breath pressure, and finger pad positioning over the bare tone holes. This creates an intimate, direct connection between the musician and the sound produced.`,
     relatedLink: { text: 'Read Bansuri Fundamentals for Beginners', view: 'learn_basics' },
     tags: ['bamboo flute', 'bansuri', 'getting started', 'instrument basics']
   },
@@ -37,7 +37,7 @@ While producing your very first clean note requires a few days of patient lip em
     question: 'What is the best age to start learning the flute (can adults learn)?',
     answer: `You can begin learning the bamboo flute at virtually any age—from young children around 7 or 8 years old all the way to retired adults and seniors in their 70s and 80s! The primary physical consideration for young children is simply hand size and finger reach, which can be comfortably accommodated by choosing a smaller, higher-pitched flute such as a G Medium or A Medium.
 
-Adult learners frequently progress at an astonishing pace. While adults sometimes worry about starting "late," they actually possess distinct advantages over children: superior analytical comprehension, self-disciplined practice habits, mature emotional expressiveness, and a genuine personal passion for the music. Neuroscientific studies show that learning a wind instrument in adulthood stimulates neuroplasticity, enhances memory, and provides therapeutic stress relief.`,
+Adult learners frequently make steady and enjoyable progress. While adults sometimes worry about starting "late," they possess distinct advantages: analytical comprehension, disciplined practice habits, mature emotional expressiveness, and a genuine personal connection to the music. Learning an instrument in adulthood offers an engaging mental activity that supports focus, coordination, and personal creative expression.`,
     relatedLink: { text: 'Check Beginner Scale Selection Matrix', view: 'learn_choose_flute' },
     tags: ['best age', 'adult learners', 'starting late', 'mindset']
   },
@@ -45,21 +45,21 @@ Adult learners frequently progress at an astonishing pace. While adults sometime
     id: 'start-how-difficult-is-it',
     category: 'Getting Started',
     question: 'How difficult is it to learn the flute, and how long does it take?',
-    answer: `Learning the bamboo flute presents a brief initial physical hurdle—shaping your lips into a relaxed embouchure to split the air stream over the blowing edge usually takes 3 to 10 days. Once you produce your first stable note (Sa), progress accelerates steadily through structured daily practice.
+    answer: `Learning the bamboo flute presents a brief initial physical hurdle—shaping your lips into a relaxed embouchure to split the air stream over the blowing edge usually takes 3 to 10 days. Once you produce your first stable note (Sa), progress develops steadily through structured daily practice.
 
 Typical Learning Progress Milestones:
 • 1 to 2 Weeks: Consistently producing clean, clear tones on individual notes across the middle octave.
 • 1 to 3 Months: Playing fundamental Sargam scales (Shuddha Swaras), linear Alankars, and simple devotional or folk songs.
 • 6 to 12 Months: Navigating octaves comfortably (Mandra to Taar Saptak), playing popular songs in rhythm (Taal), and controlling breath dynamics.
 • 1 to 2 Years: Exploring foundational classical Raagas (such as Raag Bhupali or Yaman) with basic expressive glides (Meend) and ornamentations.`,
-    relatedLink: { text: 'See Step-by-Step Embouchure Blueprint', view: 'learn_basics' },
+    relatedLink: { text: 'See Step-by-Step Embouchure Guide', view: 'learn_basics' },
     tags: ['difficulty', 'learning curve', 'timeline', 'progress']
   },
   {
     id: 'start-learn-without-teacher',
     category: 'Getting Started',
     question: 'Can I learn the flute online through self-practice?',
-    answer: `Yes, self-guided online learning has empowered thousands of aspiring flutists around the world to achieve remarkable fluency! Modern digital resources, video tutorials, interactive scale generators, and live pitch calibration tuners have made self-study more effective and accessible than ever before.
+    answer: `Yes, self-guided online learning has enabled many learners around the world to make steady, rewarding musical progress. Modern digital resources, video tutorials, interactive scale generators, and live pitch calibration tuners have made self-study accessible and structured.
 
 To succeed as a self-learner, establish a disciplined feedback loop: practice in front of a mirror to observe your lip embouchure and finger posture, record short audio/video clips on your smartphone to evaluate your tone objectively, and always practice alongside a digital Tanpura drone to calibrate your pitch intonation. Platforms like FluteSangam provide structured roadmaps, automated Alankar practice tools, and community feedback from experienced mentors to keep you on the right path.`,
     relatedLink: { text: 'Explore FluteSangam Learning Hub', view: 'learn_dashboard' },
@@ -69,7 +69,7 @@ To succeed as a self-learner, establish a disciplined feedback loop: practice in
     id: 'start-what-to-learn-first',
     category: 'Getting Started',
     question: 'What should I learn first when starting the flute?',
-    answer: `To build a rock-solid foundation, complete beginners should strictly follow this step-by-step sequence rather than rushing directly into complex song notations:
+    answer: `To build a solid foundation, complete beginners should follow this step-by-step sequence rather than rushing directly into complex song notations:
 
 1. Lip Embouchure & Air Stream: Practice blowing across the open blow hole without covering finger holes until you can produce a steady, whistle-free tone consistently.
 2. Long Note Sa Practice (Kharaj Sadhana): Cover the top three holes to play the root note (Sa) and hold it for 10–15 seconds with a Tanpura drone, focusing on stable air velocity.
@@ -172,7 +172,7 @@ Here is a clear comparison of both options:
 • 6-Hole Bansuri: Covers one full middle octave (Sa to Ni) plus Mandra Saptak Pa (lower Pa). It is lightweight, easier to balance, and features natural, comfortable finger placement without stretching your right pinky finger.
 • 7-Hole Bansuri: Features an additional 7th hole carved at the lower end, played using the right pinky finger. This extra hole allows flutists to reach Mandra Saptak Dha and Pa smoothly without cross-fingering.
 
-Starting on a 6-hole bansuri allows you to master foundational finger sealing, posture, and embouchure effortlessly. You can seamlessly upgrade to a 7-hole bansuri after 6 to 12 months of solid practice.`,
+Starting on a 6-hole bansuri allows you to master foundational finger sealing, posture, and embouchure comfortably. You can explore upgrading to a 7-hole bansuri as your practice advances.`,
     relatedLink: { text: 'Check Beginner Scale Selection Matrix', view: 'learn_choose_flute' },
     tags: ['6 hole vs 7 hole', 'bansuri selection', 'finger grip', 'beginner flute']
   },

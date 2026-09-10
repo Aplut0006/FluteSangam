@@ -20,7 +20,7 @@ export const FLUTE_TYPES_FAQS: FaqItem[] = [
     question: 'Which flute key/scale is best for beginners (C Medium vs G Medium)?',
     answer: `For adult beginners learning Indian classical music:
 
-- C Natural Medium (approx. 19 inches / 48 cm long): Universally recommended as the best starter scale. Its comfortable finger hole spacing fits average hands effortlessly, while producing a pleasant, balanced mid-register pitch.
+- C Natural Medium (approx. 19 inches / 48 cm long): Widely recommended as a practical starter scale. Its comfortable finger hole spacing fits average hands with ease, while producing a pleasant, balanced mid-register pitch.
 - G Natural Medium (approx. 15 inches / 38 cm long): Excellent for children or adults with smaller hands, as the holes sit closer together.
 - E Bass (approx. 30 inches / 76 cm long): The legendary concert scale used by masters, but requires a wider finger stretch—not recommended as a first flute for complete beginners.`,
     relatedLink: { text: 'Read Scale & Key Selection Guide', view: 'learn_choose_flute' },
@@ -203,7 +203,7 @@ export const FLUTE_TYPES_FAQS: FaqItem[] = [
     answer: `Key differences between South and North Indian bamboo flutes:
 • Carnatic Venu: Features 8 finger holes (or 7 main + 1 cross-fingering hole), thicker bamboo walls, smaller diameter, and higher pitch register. Played using cross-fingerings for rapid Carnatic Gamakas.
 • Hindustani Bansuri: Features 6 or 7 finger holes, thinner bamboo walls, wider bore diameter for deeper bass resonance, and designed for continuous microtonal Meend glides.`,
-    relatedLink: { text: 'Read Music Theory Comparison Blueprint', view: 'learn_basics' },
+    relatedLink: { text: 'Read Music Theory Comparison Guide', view: 'learn_basics' },
     tags: ['carnatic venu', 'hindustani bansuri', '8 hole vs 6 hole', 'gamaka vs meend']
   },
   {
@@ -211,9 +211,9 @@ export const FLUTE_TYPES_FAQS: FaqItem[] = [
     category: 'Flute Types & Scales',
     question: 'Are PVC synthetic flutes as good as natural Assam bamboo flutes?',
     answer: `Comparing PVC synthetic flutes and natural Assam bamboo:
-• Acoustic Warmth: Natural Assam bamboo has organic interior fibers that produce a unmatched warm, sweet, wooden harmonic tone cherished by classical maestros.
-• Durability & Weather Resistance: PVC plastic flutes are 100% waterproof, virtually indestructible, and immune to humidity or temperature cracking.
-• Recommendation: PVC flutes are fantastic for beginners, children, outdoor practice, and rugged travel. Assam bamboo remains the undisputed gold standard for studio recordings and classical concert recitals.`,
+• Acoustic Warmth: Natural Assam bamboo has organic interior fibers that produce a warm, sweet, wooden harmonic tone cherished by many musicians.
+• Durability & Weather Resistance: PVC plastic flutes are 100% waterproof, highly durable, and immune to humidity or temperature cracking.
+• Recommendation: PVC flutes are great for beginners, children, outdoor practice, and travel. Assam bamboo remains the traditional preference for studio recordings and classical concert recitals.`,
     relatedLink: { text: 'Read Buyer Checklist for Flutes', view: 'learn_choose_flute' },
     tags: ['pvc vs bamboo', 'assam bamboo', 'synthetic flutes', 'tone quality']
   }

@@ -11,7 +11,7 @@ How Diaphragmatic Breathing Operates:
 • Inhalation Mechanics: As you inhale deeply, expand your lower abdomen outwards, allowing your dome-shaped diaphragm muscle to drop downwards and fill the lower lungs completely with air.
 • Exhalation Mechanics: As you blow into the blow hole, gently engage your lower abdominal core muscles inward to propel a steady, pressurized air column into the instrument.
 • Comparison with Shallow Chest Breathing: Shallow chest breathing expands only the upper ribcage, causing rapid physical fatigue, neck tightness, and unsteady, breathy air pressure.
-• Core Benefits: Delivers rock-solid pitch stability, doubles sustained note duration, and keeps your neck, upper chest, and shoulders completely relaxed.`,
+• Core Benefits: Supports pitch stability, extends comfortable note duration, and keeps your neck, upper chest, and shoulders relaxed.`,
     relatedLink: { text: 'Read Bansuri Fundamentals & Breathing', view: 'learn_basics' },
     tags: ['diaphragmatic breathing', 'belly breathing', 'air support', 'stamina']
   },
@@ -67,7 +67,7 @@ Practical Techniques for Musical Breath Efficiency:
 • Sustained Note Practice (Kharaj Sadhana): Holding calm, steady notes in the lower octave against a drone trains the player to meter airflow smoothly, prolonging note duration naturally through musical practice.
 
 Educational Note: Flute breathing exercises are designed strictly for musical tone production and do not constitute medical or pulmonary treatment.`,
-    relatedLink: { text: 'Explore Daily Sadhana Blueprint', view: 'learn_daily_practice' },
+    relatedLink: { text: 'Explore Daily Sadhana Guide', view: 'learn_daily_practice' },
     tags: ['breath control', 'embouchure focus', 'breathing exercises', 'endurance']
   },
   {
@@ -93,7 +93,7 @@ Correcting Neck & Shoulder Alignment:
 • Drop Your Shoulders: Periodically pause during practice and verify that your shoulders are dropped, relaxed, and resting away from your ears.
 • Bring Flute to Lips: Bring the flute up to meet your lower lip naturally—never lower your chin down or tilt your neck sideways to reach the flute.
 • Mirror Practice Checks: Practice in front of a mirror to catch shoulder elevation or neck tilting before it turns into chronic muscle strain.`,
-    relatedLink: { text: 'View Posture & Alignment Blueprint', view: 'learn_basics' },
+    relatedLink: { text: 'View Posture & Alignment Guide', view: 'learn_basics' },
     tags: ['neck pain', 'shoulder tension', 'posture check', 'mirror alignment']
   },
   {
@@ -170,7 +170,7 @@ Accessible Breathing Drills for Flute Learners:
 1. Slow Belly Inhalation: Spend 2–3 minutes breathing in gently through your nose, letting the abdomen expand naturally without raising your shoulders.
 2. Even 'Sss' Exhalation: Exhale on a quiet, steady 'ssss' sound over 8–12 seconds to practice releasing air in an even, unhurried stream.
 3. Three-Part Breath Awareness: Inhale comfortably into the lower abdomen, ribs, and chest, then exhale gently in reverse. Note: Intense, forceful breathing drills (such as rapid abdominal pumping) are not necessary for flute playing and can induce hyperventilation; keep all breathing relaxed and natural.`,
-    relatedLink: { text: 'Read Breathing & Health Blueprint', view: 'learn_basics' },
+    relatedLink: { text: 'Read Breathing & Posture Guide', view: 'learn_basics' },
     tags: ['breathing exercises', 'breath support', 'diaphragm awareness', 'relaxed breathing']
   },
   {
@@ -184,7 +184,7 @@ Ergonomic Holding Principles:
 • Gentle Thumb Support: Rest the flute tube gently on thumb pads—never pinch or squeeze the bamboo tightly.
 • Parallel Head Alignment: Keep your chin horizontal to the floor. Tilting your head downward compresses neck vertebrae and restricts airflow.
 • Wrist & Shoulder Stretches: Execute gentle wrist rotations and shoulder rolls before and after every practice session.`,
-    relatedLink: { text: 'View Flute Posture & Holding Blueprint', view: 'learn_basics' },
+    relatedLink: { text: 'View Flute Posture & Holding Guide', view: 'learn_basics' },
     tags: ['repetitive strain', 'wrist pain', 'ergonomics', 'neck posture']
   },
   {
@@ -198,7 +198,7 @@ Important Health Guidelines:
 • Follow Your Medical Advice: Always follow your doctor's recommendations and keep any prescribed rescue inhalers or medications within reach during practice.
 • Start Gently & Rest When Needed: Begin with short 5–10 minute sessions. Stop immediately if you feel breathless, wheezy, or lightheaded.
 • Consult Your Doctor: Anyone with asthma, heart conditions, or breathing difficulties should consult their personal physician before starting wind instrument practice.`,
-    relatedLink: { text: 'Read Health Benefits of Flute Playing', view: 'learn_basics' },
+    relatedLink: { text: 'Read Ergonomics & Practice Pacing Guide', view: 'learn_basics' },
     tags: ['asthma', 'respiratory considerations', 'health safety', 'practice pacing']
   }
 ];

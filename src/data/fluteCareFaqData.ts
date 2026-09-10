@@ -25,7 +25,7 @@ Safe Oiling Guidelines & Methods:
 • Safe Natural Oils: Use non-rancid, light natural oils such as Pure Mustard Oil, Sweet Almond Oil, or White Mineral Oil. Avoid heavy cooking vegetable oils that turn sticky and rancid over time.
 • Recommended Oiling Schedule: Oil the interior bore once every 2 to 3 months, or right before dry winter seasons and monsoon transitions.
 • Application Method: Apply 3 to 4 drops of oil onto a soft cotton cloth attached to a wooden swabbing rod, pulling it through the interior bore to coat the bamboo walls evenly. Keep oil away from the blow hole rim and internal cork stopper face.`,
-    relatedLink: { text: 'View Flute Maintenance Blueprint', view: 'learn_basics' },
+    relatedLink: { text: 'View Flute Maintenance Guide', view: 'learn_basics' },
     tags: ['oiling flute', 'mustard oil', 'almond oil', 'bamboo protection']
   },
   {
@@ -74,16 +74,16 @@ Home Storage Best Practices:
     question: 'How do I protect my bamboo flutes during air travel and road trips?',
     answer: `Traveling exposes bamboo flutes to rapid atmospheric pressure drops, extreme temperature shifts, and physical impacts that threaten delicate bamboo.
 
-Travel Safety Blueprint:
+Travel Safety Guide:
 • Cabin Hand Luggage Only: Always carry valuable bamboo flutes inside cabin hand luggage when flying. Never check flutes into airplane cargo baggage where freezing temperatures and rough handling occur.
 • Padded PVC/Carbon-Fiber Case: Transport flutes in a rigid, padded PVC or carbon-fiber travel tube case capable of withstanding heavy external pressure.
 • Avoid Hot Parked Cars: Never leave bamboo flutes inside a parked car, as interior temperatures can exceed 60°C (140°F) within minutes and cause instant bamboo splitting.`,
-    relatedLink: { text: 'Read Travel Protection Blueprint', view: 'learn_basics' },
+    relatedLink: { text: 'Read Travel Protection Guide', view: 'learn_basics' },
     tags: ['air travel', 'cabin luggage', 'travel tube', 'car heat']
   },
   {
     id: 'care-temperature-and-weather-protection',
-    category: 'Health & Breathing',
+    category: 'Flute Care & Maintenance',
     question: 'How do extreme temperature and humidity changes affect bamboo flutes?',
     answer: `Assam bamboo is a hygroscopic material that absorbs atmospheric moisture in humid weather and contracts during cold, dry weather.
 
@@ -152,7 +152,7 @@ Factors Influencing Longevity:
 Safe Hygiene Method:
 • Microfiber Wipe Application: Dampen a microfiber cloth with a 70% isopropyl alcohol spray and wipe only the outer lip contact area gently.
 • Avoid Liquid Immersion: Never submerge bamboo flutes in alcohol or water, as liquid penetration ruins thread glue and damages internal cork seals.`,
-    relatedLink: { text: 'Read Flute Hygiene Blueprint', view: 'learn_basics' },
+    relatedLink: { text: 'Read Flute Hygiene Guide', view: 'learn_basics' },
     tags: ['sanitizing', 'hygiene', 'isopropyl alcohol', 'blow hole']
   }
 ];

@@ -546,7 +546,7 @@ export function getRouteMetadata(path: string): RouteMetadata {
   }
 
   if (cleanPath === '/learn/common-flute-mistakes') {
-    const title = '10 Common Bansuri Mistakes & How to Fix Them | FluteSangam';
+    const title = '15 Common Bansuri Mistakes & How to Fix Them | FluteSangam';
     const description = 'Avoid common flute playing pitfalls: airy sound, pitch sharpness, flat notes, finger leaks, shoulder tension, and improper embouchure.';
     const canonicalUrl = `${DOMAIN}/learn/common-flute-mistakes`;
     return {

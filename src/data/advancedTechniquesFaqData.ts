@@ -62,7 +62,7 @@ Role and Execution of Kan Swar:
 Mastering Krintan and Andolan:
 • Krintan (Finger Plucking / Hammer-On): Rapidly striking and lifting a finger pad off the bamboo tube to produce a sharp, plucked articulation without re-blowing breath. Similar to acoustic guitar hammer-ons and pull-offs, Krintan creates crisp note separation during fast classical passages.
 • Andolan (Slow Microtonal Swing): A deliberate, slow, microtonal swinging of pitch around a specific swara (such as the hypnotic oscillation of Komal Ga in Raag Darbari Kanada). Andolan is achieved by gently swaying the lip embouchure and subtly rotating the flute tube inward and outward without touching adjacent holes.`,
-    relatedLink: { text: 'Explore Advanced Ornamentation Blueprint', view: 'learn_raagas' },
+    relatedLink: { text: 'Explore Advanced Ornamentation Guide', view: 'learn_raagas' },
     tags: ['krintan', 'andolan', 'microtonal oscillation', 'plucking']
   },
   {
@@ -122,13 +122,13 @@ Articulation Mechanics:
     id: 'adv-fast-taans-execution',
     category: 'Advanced Techniques',
     question: 'How do I build finger speed and clarity for executing rapid Taans?',
-    answer: `Building clean, lightning-fast classical Taans requires disciplined metronome progression and complete physical relaxation rather than tense muscle forcing.
+    answer: `Building clean, agile classical Taans requires disciplined metronome progression and complete physical relaxation rather than tense muscle forcing.
 
 Proactive Taan Development Rules:
 • Slow Precision First: Master the Taan pattern at 60 BPM until every note transition is 100% clean, even, and free of squeaks or air leaks.
 • Minimal Finger Lift Height: Keep finger pads hovering within 1 cm of the bamboo holes. Raising fingers high wastes time and ruins rhythmic synchronization.
 • Muscle Relaxation: Keep wrists, forearms, shoulders, and jaw completely loose. Speed is a natural byproduct of relaxed muscle memory.
-• Metronome +4 BPM Rule: Increase metronome tempo by +4 BPM only when you can execute a Taan 3 consecutive times with flawless clarity.`,
+• Metronome +4 BPM Rule: Increase metronome tempo by +4 BPM only when you can execute a Taan 3 consecutive times with clean clarity.`,
     relatedLink: { text: 'Generate Speed Drills in Alankar Generator', view: 'alankar_generator' },
     tags: ['taan', 'speed building', 'finger agility', 'metronome']
   },

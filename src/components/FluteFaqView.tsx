@@ -231,7 +231,7 @@ const FAQ_HUB_TOPICS = [
     category: 'FluteSangam Platform',
     icon: MessageSquare,
     color: 'from-bamboo-800 to-bamboo-950',
-    description: 'How to record and share audio recitals, request song notations, use the online tuner, and connect with gurus.',
+    description: 'How to share practice updates, request song notations, use the online tuner, and connect with other learners.',
     questionCount: FAQ_DATA.filter(f => f.category === 'FluteSangam Platform').length
   }
 ];
@@ -475,7 +475,7 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
 
           <p className="text-sm sm:text-base text-bamboo-200 leading-relaxed font-sans">
             {categoryMeta ? categoryMeta.intro : (
-              'Welcome to the official FluteSangam Knowledge Base! Whether you are picking up the flute (Bansuri) for the very first time, selecting your initial scale, troubleshooting breath control, practicing classical raagas, or exploring our community tools, you will find comprehensive, step-by-step guidance right here.'
+              'Welcome to the FluteSangam Knowledge Base! Whether you are exploring the flute (Bansuri), selecting a scale, working on breath control, practicing classical raagas, or using our practice tools, find practical, structured guidance below.'
             )}
           </p>
 
@@ -703,16 +703,16 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
           <div className="flex items-center gap-2.5 border-b border-amber-100 pb-3">
             <Info className="w-5 h-5 text-amber-600 shrink-0" />
             <h2 className="text-xl font-bold font-display text-bamboo-950">
-              About the FluteSangam Help Center
+              About the FluteSangam Knowledge Base
             </h2>
           </div>
           
           <div className="text-xs sm:text-sm text-gray-700 leading-relaxed space-y-3 font-sans">
             <p>
-              The Indian bamboo flute (Bansuri) is one of humanity's oldest and purest musical instruments. Crafting a soulful sound from a simple piece of Assam bamboo requires an exquisite harmony of physical technique, mindful breath control, emotional expression, and continuous practice (Sadhana). Because self-learning or finding a traditional Guru can sometimes feel overwhelming, FluteSangam has compiled this comprehensive Help Center &amp; FAQ library to empower every flutist on their journey.
+              The Indian bamboo flute (Bansuri) is a traditional instrument with deep roots in Indian classical music. Producing a clear tone and playing melodies involves developing physical technique, steady breath control, and consistent practice. To help flute students at various stages of learning, FluteSangam provides this reference library covering common questions and practical guidance.
             </p>
             <p>
-              Our answers cover the entire spectrum of flute playing—from selecting your very first beginner scale (such as C Medium or G Medium) and mastering your lip embouchure, to executing smooth Alankars, practicing classical Hindustani raagas (like Bhoopali or Yaman), maintaining bamboo durability, and utilizing digital tuners. Browse through the categories above or search for specific terms to discover practical, structured answers tailored specifically for your progress!
+              Our guides cover key areas of flute playing—from selecting a beginner scale (such as C Medium or G Medium) and developing an embouchure, to practicing Alankars, exploring classical Hindustani raagas, maintaining bamboo flutes, and using pitch tuners. Browse through the categories above or search for specific terms to find answers tailored for your practice.
             </p>
           </div>
         </section>

@@ -21,7 +21,7 @@ Understanding Sargam & Flute Mechanics:
     answer: `Alankar (literally meaning "musical ornament" or "decoration") refers to structured, permutated exercise patterns of swaras practiced sequentially in ascending (Aaroh) and descending (Avaroh) order.
 
 Why Daily Alankar Practice is Mandatory:
-• Neuromuscular Reprogramming: Alankars train your brain and finger muscles to execute every possible note pair combination smoothly, rapidly, and without hesitation.
+• Finger and Ear Coordination: Alankars train your brain and finger muscles to execute every possible note pair combination smoothly, rapidly, and without hesitation.
 • Classic Examples:
   - 2-Note Sequential: SaRe, ReGa, GaMa, MaPa, PaDha, DhaNi, NiSa...
   - 3-Note Triplet: SaReGa, ReGaMa, GaMaPa, MaPaDha...
@@ -92,7 +92,7 @@ How Alankars Build Agility:
 • Eliminating Finger Hesitation: By repeating permutated patterns hundreds of times, your brain stops consciously calculating finger movements and triggers fluid motor sequences automatically.
 • Sealing Integrity under Speed: Practicing fast Alankars forces finger pads to land squarely over hole centers without leaving microscopic air gaps.
 • Isolated Finger Independence: Alankars strengthen weaker fingers (such as the ring fingers) that naturally struggle to lift and seal independently during complex runs.`,
-    relatedLink: { text: 'Read Daily Practice Blueprint', view: 'learn_daily_practice' },
+    relatedLink: { text: 'Read Daily Practice Guide', view: 'learn_daily_practice' },
     tags: ['finger agility', 'muscle memory', 'coordination', 'alankars']
   },
   {

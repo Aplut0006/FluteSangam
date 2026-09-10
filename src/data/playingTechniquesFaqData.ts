@@ -7,7 +7,7 @@ export const PLAYING_TECHNIQUES_FAQS: FaqItem[] = [
     question: 'How do I form a correct lip embouchure for the bamboo flute?',
     answer: `Forming a refined lip embouchure is the single most critical foundation for producing a sweet, resonant, whistle-free tone on the bamboo bansuri. Unlike keyed flutes with plastic lip plates, a bamboo flute requires positioning your lips directly against the natural bamboo blow hole.
 
-Step-by-Step Embouchure Blueprint:
+Step-by-Step Embouchure Guide:
 1. Contact Placement: Rest the lower rim of the blow hole against the soft chin crease directly under your lower lip. Your lower lip should cover approximately 25% to 30% of the blow hole opening.
 2. Gentle Central Aperture: Purse your upper and lower lips softly together, as if whispering "p-p-p" or gently blowing out a small candle flame. Form a small, narrow horizontal oval opening directly in the center.
 3. Air Jet Direction: Direct a focused stream of air downward at roughly a 45-degree angle directly against the sharp outer blowing edge (the splitting edge) of the bamboo hole.
@@ -159,7 +159,7 @@ Keys to Master Deep Mandra Notes:
 • Warm, Gentle Air Velocity: Direct a slow, warm, calm air stream into the blow hole. Over-blowing low notes forces the bamboo into higher octave squeaks.
 • Slightly Relaxed Lip Aperture: Widen your lip aperture slightly and relax your jaw muscles to allow low acoustic resonant frequencies to develop inside the bamboo tube.
 • 100% Airtight Hole Sealing: Mandra notes are extremely sensitive to air leaks. Ensure all finger pads cover their respective holes completely with zero gaps.`,
-    relatedLink: { text: 'Read Mandra Saptak Practice Blueprint', view: 'learn_daily_practice' },
+    relatedLink: { text: 'Read Mandra Saptak Practice Guide', view: 'learn_daily_practice' },
     tags: ['lower notes', 'mandra saptak', 'air velocity', 'finger seal']
   },
   {
@@ -181,7 +181,7 @@ Mastering Half-Hole Komal Swaras:
     question: 'What is the secret to executing smooth, unbroken Meend (glides) between distant notes?',
     answer: `Meend (continuous vocalic glides between notes) is considered the true soul of Hindustani classical flute music, transforming isolated notes into a fluid, emotional singing voice.
 
-Secrets to Executing Flawless Meend:
+Techniques for Executing Smooth Meend:
 • Unbroken Continuous Air Column: Never stop blowing or decrease air pressure while moving your fingers between notes. The air column inside the bamboo must remain completely continuous.
 • Peeling Finger Movement: Slowly unroll or peel your finger pads off the holes gradually (like unrolling adhesive tape) rather than lifting fingers abruptly.
 • Combined Flute Tube Rotation: Combine slow finger peeling with rolling the flute tube inward or outward slightly to smoothly bridge pitch gaps (such as gliding from Pa down to Ga or Ma to Sa).`,

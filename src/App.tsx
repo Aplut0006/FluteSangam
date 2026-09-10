@@ -304,7 +304,7 @@ export default function App() {
         description = 'Understanding Mandra (Lower), Madhya (Middle), and Tara (Higher) Saptaks on the Indian bamboo flute, scale conversions, and pitch keys.';
         break;
       case 'learn_common_mistakes':
-        title = '10 Common Bansuri Mistakes & How to Fix Them | FluteSangam';
+        title = '15 Common Bansuri Mistakes & How to Fix Them | FluteSangam';
         description = 'Avoid common flute playing pitfalls: airy sound, pitch sharpness, flat notes, finger leaks, shoulder tension, and improper embouchure.';
         break;
       case 'flute_faq':

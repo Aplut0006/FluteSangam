@@ -34,12 +34,12 @@ Optimal Posture Guidelines:
     question: 'What is the correct embouchure (lip posture) for a bamboo flute?',
     answer: `Forming a refined lip embouchure is the single most critical factor in producing a sweet, whistle-free, resonant acoustic tone on the bamboo flute.
 
-Step-by-Step Embouchure Blueprint:
+Step-by-Step Embouchure Guide:
 1. Contact Point: Rest the lower edge of the blow hole in the soft chin dip just below your lower lip. Your lower lip should cover approximately 25% to 30% of the blow hole area.
 2. Soft Pucker Formation: Gently purse your upper and lower lips together as if whispering the sound "p-p-p" or softly blowing out a candle flame. The central aperture should form a narrow, horizontal oval.
 3. Air Angle Alignment: Direct a focused, fine jet stream of air downward at roughly a 45-degree angle directly against the sharp outer blowing edge (the splitter edge).
 4. Tension-Free Relaxation: Keep your facial cheek muscles, jaw, and throat completely relaxed. Excessive lip tightening produces harsh, pinched tones.`,
-    relatedLink: { text: 'View Embouchure Blueprint', view: 'learn_basics' },
+    relatedLink: { text: 'View Embouchure Guide', view: 'learn_basics' },
     tags: ['embouchure', 'lip placement', 'blowing angle', 'tone production']
   },
   {
@@ -52,7 +52,7 @@ Proven Solutions for Tone Clarity:
 • Reduce Lip Aperture Size: Make the central lip opening smaller and narrower. A smaller air jet concentrates kinetic energy directly onto the bamboo splitting edge.
 • Micro Roll Adjustments: While blowing a gentle, continuous stream of air, slowly roll the flute tube inward toward your chin or outward away from your chin by a millimeter. Listen carefully for the exact angle where the sound suddenly transforms from a breathy hiss into a rich, sweet tone.
 • Steady Diaphragmatic Air Pressure: Avoid blowing violently. Use a steady, calm, continuous breath powered gently by your abdomen rather than taking shallow chest gasps.`,
-    relatedLink: { text: 'Read Tone Clarity Blueprint', view: 'learn_basics' },
+    relatedLink: { text: 'Read Tone Clarity Guide', view: 'learn_basics' },
     tags: ['first note', 'airy sound', 'tone clarity', 'embouchure']
   },
   {
@@ -77,7 +77,7 @@ How to Diagnose and Fix Squeaks:
 Key Exercises for Building Breath Stamina:
 1. Diaphragmatic Inhalation: When inhaling, allow your lower belly and abdomen to expand outward relaxed. When exhaling into the flute, gently pull the abdominal wall inward to maintain a steady air column.
 2. Daily Long Note Practice (Kharaj Sadhana): Practice holding individual notes (like Sa and Pa) for 12 to 20 seconds cleanly against a Tanpura drone. Time your long blows with a stopwatch daily to measure progress.
-3. Air Economy (Lip Aperture Focus): Do not expel all your air at once on the first note of a phrase. By keeping your lip aperture narrow and focused, you consume far less air per second, allowing you to play long, flowing melodic phrases effortlessly.`,
+3. Air Economy (Lip Aperture Focus): Do not expel all your air at once on the first note of a phrase. By keeping your lip aperture narrow and focused, you consume far less air per second, allowing you to play long, flowing melodic phrases with comfort.`,
     relatedLink: { text: 'Read Breathing & Health Guide', view: 'learn_basics' },
     tags: ['breath control', 'diaphragm', 'long blows', 'phrasing']
   },
@@ -98,7 +98,7 @@ How to Reach High Octaves Gracefully:
     id: 'learn-position-fingers',
     category: 'Learning the Flute',
     question: 'How should I position finger pads over the bamboo holes?',
-    answer: `Correct finger pad positioning is foundational to effortless execution, fast Alankars, and strain-free playing.
+    answer: `Correct finger pad positioning is foundational to smooth execution, fast Alankars, and strain-free playing.
 
 Essential Finger Placement Rules:
 • Second-Phalange Pad Contact: Place the soft, fleshy pad of your finger's second joint (phalange) directly over the center of the tone holes. Soft skin acts as a natural rubber gasket, sealing the hole without requiring tight squeezing force.
@@ -191,7 +191,7 @@ Benefits of Self-Recording:
     id: 'learn-after-mastering-basics',
     category: 'Learning the Flute',
     question: 'What should I learn next after mastering basic Sargam scales?',
-    answer: `Once you can play basic middle octave Sargam scales and simple Alankars effortlessly, your next musical horizon opens up into expressive techniques and classical repertoire.
+    answer: `Once you can play basic middle octave Sargam scales and simple Alankars with confidence, your next musical horizon opens up into expressive techniques and classical repertoire.
 
 Next Mastery Steps:
 1. Multi-Octave Navigation: Extend scale exercises into the lower Mandra Saptak (deep bass notes) and higher Taar Saptak notes smoothly.

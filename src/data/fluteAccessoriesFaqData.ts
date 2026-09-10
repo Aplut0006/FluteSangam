@@ -13,7 +13,7 @@ Must-Have Accessory Checklist:
 3. Smartphone Tanpura & Tuner Apps: Digital mobile tools (such as iTanpura or FluteSangam's Live Tuner) for continuous pitch alignment at A=440Hz.
 4. Smartphone Metronome App: For building internal rhythm (Laya), timing accuracy, and metronome speed progression.
 5. Pure Mustard or Almond Oil: A small bottle of natural oil for periodic interior bore oiling every 2 to 3 months.`,
-    relatedLink: { text: 'Explore Flute Care Blueprint', view: 'learn_basics' },
+    relatedLink: { text: 'Explore Flute Care Guide', view: 'learn_basics' },
     tags: ['essential accessories', 'beginner kit', 'case', 'tanpura app', 'swab']
   },
   {
@@ -38,7 +38,7 @@ Comparing Case Types:
 Safe Swabbing Equipment Guide:
 • Swabbing Rod Material: Use smooth, rounded wooden or plastic swabbing rods. Never use metal rods or screwdrivers that can scratch interior bamboo walls or dislodge the delicate internal cork stopper.
 • Swabbing Cloth Selection: Use high-absorbency, lint-free microfiber or soft cotton flannel cloths that absorb breath moisture instantly without leaving loose thread fibers inside the bamboo bore.`,
-    relatedLink: { text: 'View Maintenance & Cleaning Blueprint', view: 'learn_basics' },
+    relatedLink: { text: 'View Maintenance & Cleaning Guide', view: 'learn_basics' },
     tags: ['swabbing rod', 'microfiber cloth', 'cleaning tools', 'bamboo safety']
   },
   {
@@ -57,7 +57,7 @@ Flute Stand Safety Best Practices:
     id: 'acc-tanpura-and-tuner-mobile-apps',
     category: 'Flute Accessories',
     question: 'Which mobile apps are best for Tanpura drones, tuners, and metronomes?',
-    answer: `Modern smartphone apps provide world-class acoustic reference tools that turn your mobile phone into an indispensable daily practice station.
+    answer: `Modern smartphone apps provide reliable acoustic reference tools that turn your mobile phone into a practical daily practice station.
 
 Recommended Practice Mobile Apps:
 • Digital Tanpura Drone Apps: iTanpura, Tanpura Droid, or Radel electronic tanpura apps generate authentic acoustic drone overtones tuned precisely to A=440Hz.
@@ -76,7 +76,7 @@ Microphone Selection & Placement Guide:
 • Large-Diaphragm Condenser Mics (e.g., Rode NT1-A, Audio-Technica AT2020): Superior choice for home studio recording, capturing delicate breath dynamics and deep bass resonance with pristine clarity.
 • Dynamic Stage Mics (e.g., Shure SM57 / SM58): Ideal for loud live acoustic stage performances due to excellent feedback rejection.
 • Placement Technique: Position the mic 12 to 18 inches away from the blow hole at a 45-degree off-axis angle to avoid direct breath popping noises.`,
-    relatedLink: { text: 'Read Home Studio Recording Blueprint', view: 'learn_basics' },
+    relatedLink: { text: 'Read Home Studio Recording Guide', view: 'learn_basics' },
     tags: ['microphones', 'condenser mic', 'recording gear', 'home studio']
   },
   {
@@ -90,7 +90,7 @@ Essential Touring Travel Kit:
 2. Two-Way Humidity Control Packs (e.g., Boveda 49%-55% RH): Regulates relative humidity inside closed cases during extreme weather changes.
 3. Compact Microfiber Swab Rod: For quick post-performance internal drying.
 4. Adjustable Padded Shoulder Strap: Keeps hands free while navigating airports and train stations.`,
-    relatedLink: { text: 'Read Air Travel Protection Blueprint', view: 'learn_basics' },
+    relatedLink: { text: 'Read Air Travel Protection Guide', view: 'learn_basics' },
     tags: ['travel case', 'boveda packs', 'humidity control', 'touring']
   },
   {
@@ -138,7 +138,7 @@ Multi-Flute Organization Features:
 Audio Interface Function & Recommendations:
 • Role of Audio Interfaces (e.g., Focusrite Scarlett 2i2, Audient EVO 4): Converts XLR condenser microphone analog signals into low-noise, high-fidelity digital audio for computer recording software (DAWs).
 • Is it Essential for Beginners?: No. Smartphone microphones or direct USB condenser mics (such as the Blue Yeti) are more than adequate for recording daily practice and social media clips.`,
-    relatedLink: { text: 'Read Recording & Audio Setup Blueprint', view: 'learn_basics' },
+    relatedLink: { text: 'Read Recording & Audio Setup Guide', view: 'learn_basics' },
     tags: ['audio interface', 'focusrite', 'home recording', 'daw']
   },
   {

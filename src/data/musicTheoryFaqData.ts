@@ -43,9 +43,9 @@ Classification of the 12 Swaras:
     answer: `Pitch standards govern master tuning calibration across instruments, studio equipment, and performance venues.
 
 Understanding Pitch Standards:
-• A=440Hz Standard Pitch: The universally accepted concert pitch standard worldwide. Professional master bansuris are tuned to A=440Hz at 25°C room temperature so they align seamlessly with digital Tanpuras, studio recordings, keyboards, and acoustic accompaniment.
-• A=432Hz Alternative Tuning: A slightly lower tuning frequency favored by some sound healing practitioners and meditative solo flutists.
-• Practical Recommendation: FluteSangam strongly recommends purchasing A=440Hz standard concert flutes to ensure full compatibility with accompaniment apps, digital Tanpura drones, and studio sessions.`,
+• A=440Hz Standard Pitch: The widely accepted concert pitch standard worldwide. Professional bansuris are often tuned to A=440Hz at 25°C room temperature so they align with digital Tanpuras, studio recordings, keyboards, and acoustic accompaniment.
+• A=432Hz Alternative Tuning: A slightly lower tuning frequency favored by some solo flutists.
+• Practical Recommendation: FluteSangam recommends purchasing A=440Hz standard concert flutes to ensure full compatibility with accompaniment apps, digital Tanpura drones, and studio sessions.`,
     relatedLink: { text: 'Use Built-in Live Flute Tuner', view: 'learn_tuner' },
     tags: ['440hz', '432hz', 'concert pitch', 'tuning standard']
   },
@@ -83,8 +83,8 @@ Common Classical & Folk Taal Cycles:
 
 Understanding the 22 Shrutis:
 • Ancient Musicological Texts: Works like Bharat Muni's Natya Shastra divide the 12 semitones of an octave into 22 distinct microtonal Shrutis.
-• Keyless Bansuri Expression: Because the bamboo flute features bare finger holes and no metal keys, a master flutist adjusts blowing angle, lip aperture, and half-hole finger coverage to express microtonal variations (such as the lower Komal Ga in Raag Darbari Kanada versus the slightly higher Komal Ga in Raag Kafi).`,
-    relatedLink: { text: 'Read Microtones & Shrutis Blueprint', view: 'learn_raagas' },
+• Keyless Bansuri Expression: Because the bamboo flute features bare finger holes and no metal keys, a flutist adjusts blowing angle, lip aperture, and half-hole finger coverage to express microtonal variations (such as the lower Komal Ga in Raag Darbari Kanada versus the slightly higher Komal Ga in Raag Kafi).`,
+    relatedLink: { text: 'Read Microtones & Shrutis Guide', view: 'learn_raagas' },
     tags: ['22 shrutis', 'microtones', 'natya shastra', 'intonation']
   },
   {
@@ -147,7 +147,7 @@ Bhatkhande Symbol Key:
 
 Melodic Linearity vs. Harmonic Density:
 • Western Harmony: Focuses on polyphony, chord progressions, and counterpoint where multiple distinct pitches sound simultaneously.
-• Indian Melodic Linearity: Focuses on the infinite microtonal refinement of a single melodic line (Raag) resonating over a continuous stationary drone (Tanpura). This enables unmatched microtonal expression, Meend glides, and deep emotional Rasa on a single note.`,
+• Indian Melodic Linearity: Focuses on the refined development of a single melodic line (Raag) resonating over a continuous stationary drone (Tanpura). This enables nuanced microtonal expression, Meend glides, and deep emotional Rasa on a single note.`,
     relatedLink: { text: 'Read Founders Story & Music Aesthetics', view: 'founder' },
     tags: ['melody vs harmony', 'linear melody', 'microtonal depth']
   },
@@ -204,7 +204,7 @@ Transposition Made Simple:
 1. Relative Fingering System: A song written in Sargam (e.g., 'Sa Re Ga Pa') remains identical in finger placement regardless of which flute key you hold!
 2. Automatic Key Shift: Playing 'Sa Re Ga Pa' on a C Medium flute sounds in C key; playing the exact same fingering on an E Bass flute automatically sounds in E Bass key.
 3. Accompaniment Alignment: When playing with a backing track in G key, pick up your G Natural flute and play the standard Sargam fingering natively.`,
-    relatedLink: { text: 'Read Scale Selection & Transposition Blueprint', view: 'learn_choose_flute' },
+    relatedLink: { text: 'Read Scale Selection & Transposition Guide', view: 'learn_choose_flute' },
     tags: ['transposition', 'flute keys', 'relative sa', 'accompaniment']
   }
 ];
