@@ -86,7 +86,7 @@ export default function MembersView({
               FluteSangam Community Members
             </h1>
             <p className="text-xs sm:text-sm text-gray-600 max-w-md mx-auto leading-relaxed">
-              Please sign in or create a free account to view the community directory, explore flutist profiles, and connect with fellow learners and mentors worldwide.
+              Please sign in or create a free account to view the community directory, explore flutist profiles, and connect with fellow learners and contributors worldwide.
             </p>
           </div>
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -161,7 +161,7 @@ export default function MembersView({
             Explore &amp; Connect with Bansuri Artists
           </h1>
           <p className="text-xs sm:text-sm text-bamboo-100/90 leading-relaxed">
-            Discover gurus, classical exponents, and fellow learners across the globe. Share scales, request ragas, or start a direct conversation!
+            Discover classical exponents, contributors, and fellow learners across the globe. Share scales, request ragas, or start a direct conversation!
           </p>
         </div>
       </div>

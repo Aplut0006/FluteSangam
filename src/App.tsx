@@ -429,7 +429,7 @@ export default function App() {
         break;
       case 'community_members':
         title = 'Community Members | FluteSangam';
-        description = 'Meet flutists, learners, and mentors in the global FluteSangam community.';
+        description = 'Meet flutists, learners, and contributors in the global FluteSangam community.';
         break;
       case 'about_us':
         title = 'About FluteSangam - Mission, Vision & Community | FluteSangam';
@@ -528,7 +528,7 @@ export default function App() {
     setMeta('meta[name="twitter:description"]', 'name', 'twitter:description', description);
 
     // Robots meta tag for search indexing vs 404/member soft-error prevention
-    if (currentView === 'not_found' || currentView === 'community_members' || currentView === 'user-profile' || currentView === 'chats') {
+    if (currentView === 'not_found' || currentView === 'community_members' || currentView === 'user-profile' || currentView === 'chats' || currentView === 'notation_requests') {
       setMeta('meta[name="robots"]', 'name', 'robots', 'noindex, follow');
     } else {
       setMeta('meta[name="robots"]', 'name', 'robots', 'index, follow, max-image-preview:large');
@@ -671,6 +671,69 @@ export default function App() {
 
     jsonLdScript.textContent = JSON.stringify(graphData);
   }, [currentView, selectedPost, selectedProfileUserId]);
+
+  // AdSense controller: exclude script, account tag, and auto-ads on non-content routes
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const pathname = window.location.pathname.toLowerCase();
+    const isExcluded = 
+      currentView === 'not_found' ||
+      currentView === 'notation_requests' ||
+      currentView === 'community_members' ||
+      currentView === 'user-profile' ||
+      currentView === 'chats' ||
+      pathname === '/notations' ||
+      pathname.startsWith('/notations/') ||
+      pathname === '/members' ||
+      pathname.startsWith('/members/') ||
+      pathname === '/login' ||
+      pathname.startsWith('/login/') ||
+      pathname === '/signup' ||
+      pathname.startsWith('/signup/') ||
+      pathname === '/profile' ||
+      pathname.startsWith('/profile/') ||
+      pathname === '/settings' ||
+      pathname.startsWith('/settings/') ||
+      pathname === '/admin' ||
+      pathname.startsWith('/admin/') ||
+      pathname === '/404' ||
+      pathname.startsWith('/404/');
+
+    if (isExcluded) {
+      // Remove AdSense script
+      const adScript = document.querySelector('script[src*="adsbygoogle.js"]');
+      if (adScript) {
+        adScript.remove();
+      }
+      // Remove AdSense meta tag
+      const adMeta = document.querySelector('meta[name="google-adsense-account"]');
+      if (adMeta) {
+        adMeta.remove();
+      }
+      // Remove Auto Ad insertions if dynamically injected
+      const autoAds = document.querySelectorAll('.google-auto-placed, ins.adsbygoogle');
+      autoAds.forEach(el => el.remove());
+    } else {
+      // On regular educational pages, ensure AdSense script & meta tag exist
+      let adMeta = document.querySelector('meta[name="google-adsense-account"]');
+      if (!adMeta) {
+        adMeta = document.createElement('meta');
+        adMeta.setAttribute('name', 'google-adsense-account');
+        adMeta.setAttribute('content', 'ca-pub-1813736970267098');
+        document.head.appendChild(adMeta);
+      }
+
+      let adScript = document.querySelector('script[src*="adsbygoogle.js"]');
+      if (!adScript) {
+        adScript = document.createElement('script');
+        adScript.setAttribute('async', '');
+        adScript.setAttribute('src', 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1813736970267098');
+        adScript.setAttribute('crossorigin', 'anonymous');
+        document.head.appendChild(adScript);
+      }
+    }
+  }, [currentView]);
 
 
   // Sync URL with view
@@ -1310,7 +1373,7 @@ export default function App() {
             <div className="flex flex-col items-center justify-center p-12 text-center bg-white rounded-3xl border border-bamboo-100 shadow-sm max-w-lg mx-auto space-y-3 my-8">
               <MessageSquare className="w-12 h-12 text-amber-600 mb-1" />
               <h3 className="text-xl font-display font-bold text-bamboo-900">Sangam Direct Messages</h3>
-              <p className="text-xs text-gray-600 max-w-xs mx-auto">Please sign in to chat directly with fellow flutists and gurus.</p>
+              <p className="text-xs text-gray-600 max-w-xs mx-auto">Please sign in to chat directly with flute learners and contributors.</p>
               <button 
                 onClick={() => setAuthModalOpen(true)} 
                 className="bg-bamboo-700 text-white px-6 py-2.5 rounded-xl text-xs font-bold hover:bg-bamboo-800 transition shadow-sm cursor-pointer"
@@ -1365,7 +1428,7 @@ export default function App() {
                         <Search className="w-4.5 h-4.5 text-gray-400 shrink-0" />
                         <input
                           type="text"
-                          placeholder="Search compositions, ragas, keys, reviews, or gurus..."
+                          placeholder="Search compositions, ragas, keys, questions, or topics..."
                           value={searchQuery}
                           onChange={(e) => setSearchQuery(e.target.value)}
                           className="w-full bg-transparent text-xs text-gray-700 focus:outline-none placeholder-gray-400"

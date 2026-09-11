@@ -226,7 +226,7 @@ export default function LearnDashboard({ onViewChange }: LearnDashboardProps) {
               Frequently Asked Questions on Learning Bansuri
             </h2>
             <p className="text-sm text-gray-600 mt-2 leading-relaxed">
-              Common questions answered by experienced mentors to help accelerate your bansuri journey.
+              Common questions answered with practice-focused guidance to help accelerate your bansuri journey.
             </p>
           </div>
 

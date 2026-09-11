@@ -80,9 +80,10 @@ Recommended Starter Raagas:
 
 Why Raag Yaman is the Ideal Foundation:
 • Musical Anatomy: Features Shuddha Re, Ga, Dha, Ni alongside Teevra Ma (sharp 4th). Sa and Pa are omitted in ascending motion (Aaroh: 'Ni Re Ga, Ma' Dha Ni Sa').
+• Vadi & Samvadi: Vadi: Ga, Samvadi: Ni.
 • Pedagogical Value: Its serene, deeply soothing evening atmosphere is forgiving and emotionally satisfying. Playing Yaman teaches foundational concepts like omitted notes (Varjit Swaras), Teevra Ma half-hole execution, graceful Meends, and landing squarely on structural swaras.`,
-    relatedLink: { text: 'Read Raag Yaman Guide & Notation', view: 'learn_raagas' },
-    tags: ['raag yaman', 'kalyan thaat', 'foundation', 'teevra ma']
+    relatedLink: { text: 'Read Raag Yaman Guide & Notation', view: 'raga_yaman' },
+    tags: ['raag yaman', 'kalyan thaat', 'foundation', 'teevra ma', 'vadi ga', 'samvadi ni']
   },
   {
     id: 'raag-bhupali-audav-structure',
@@ -186,8 +187,8 @@ Key Distinguishing Pillars:
 Understanding Vadi & Samvadi:
 • Vadi Swara (King Note): The most dominant, heavily emphasized, and frequently visited note in a Raag. Lingering on Vadi establishes the Raag's emotional center.
 • Samvadi Swara (Queen Note): The second most prominent note, usually positioned a 4th or 5th harmonic interval away from Vadi, providing structural balance.
-• Examples: In Raag Yaman, Ga is Vadi and Ni is Samvadi; in Raag Bhupali, Ga is Vadi and Dha is Samvadi.`,
-    relatedLink: { text: 'Read Raag Yaman & Bhupali Notations', view: 'raga_bhoopali' },
+• Examples: In Raag Yaman, Vadi: Ga, Samvadi: Ni (Vadi is Gandhar and Samvadi is Nishad); in Raag Bhupali, Ga is Vadi and Dha is Samvadi.`,
+    relatedLink: { text: 'Read Raag Yaman Guide & Notation', view: 'raga_yaman' },
     tags: ['vadi', 'samvadi', 'king note', 'raag theory', 'swara emphasis']
   },
   {

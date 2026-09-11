@@ -131,7 +131,7 @@ export const SongRequestModal: React.FC<SongRequestModalProps> = ({ isOpen, onCl
           </div>
 
           <p className="text-xs text-bamboo-100/90 leading-relaxed pl-1 sm:pl-12">
-            Can't find notes for your favorite song? Submit your request and our community gurus will transcribe the sargam notations.
+            Can't find notes for your favorite song? Submit your request and community contributors will transcribe the sargam notations.
           </p>
         </div>
 

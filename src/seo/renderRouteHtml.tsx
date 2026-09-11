@@ -93,6 +93,23 @@ function createWebPageSchema(url: string, name: string, description: string) {
   };
 }
 
+const AD_EXCLUDED_ROUTES = [
+  '/notations',
+  '/members',
+  '/login',
+  '/signup',
+  '/profile',
+  '/settings',
+  '/admin',
+  '/404'
+];
+
+export function isAdExcludedRoute(routePath: string, is404?: boolean): boolean {
+  if (is404) return true;
+  const clean = routePath.trim().split('?')[0].split('#')[0].replace(/\/+$/, '') || '/';
+  return AD_EXCLUDED_ROUTES.some(p => clean === p || clean.startsWith(p + '/'));
+}
+
 export function getRouteMetadata(path: string): RouteMetadata {
   // Normalize path
   let cleanPath = path.trim().split('?')[0].split('#')[0];
@@ -749,7 +766,7 @@ export function getRouteMetadata(path: string): RouteMetadata {
   // 9. Community Members (noindex, follow)
   if (cleanPath === '/members') {
     const title = 'Community Members | FluteSangam';
-    const description = 'Meet flutists, learners, and mentors in the global FluteSangam community.';
+    const description = 'Meet flutists, learners, and contributors in the global FluteSangam community.';
     const canonicalUrl = `${DOMAIN}/members`;
     return {
       title,
@@ -775,7 +792,7 @@ export function getRouteMetadata(path: string): RouteMetadata {
     };
   }
 
-  // 11. Notations Requests (Indexable educational page)
+  // 11. Notations Requests (noindex, follow - publicly accessible, self-referencing canonical)
   if (cleanPath === '/notations') {
     const title = 'Bansuri Song Notations & Practice Transcriptions | FluteSangam';
     const description = 'Browse Sargam song notations and practice transcriptions for Indian bamboo flute, including classical, devotional, and popular melodies.';
@@ -784,6 +801,7 @@ export function getRouteMetadata(path: string): RouteMetadata {
       title,
       description,
       canonicalUrl,
+      robots: 'noindex, follow',
       component: NotationRequestsView,
       jsonLd: createWebPageSchema(canonicalUrl, title, description)
     };
@@ -896,6 +914,19 @@ export function renderRouteHtml(path: string, templateHtml: string): {
     finalHtml = finalHtml.replace(/<title>.*?<\/title>/s, titleTag);
   } else {
     finalHtml = finalHtml.replace('</head>', `  ${titleTag}\n</head>`);
+  }
+
+  const isAdExcluded = isAdExcludedRoute(path, meta.is404);
+
+  // AdSense script handling: remove on non-content routes, ensure present on educational routes
+  if (isAdExcluded) {
+    finalHtml = finalHtml.replace(/<script[^>]*adsbygoogle\.js[^>]*><\/script>/gi, '');
+    finalHtml = finalHtml.replace(/<meta name="google-adsense-account"[^>]*\/?>/gi, '');
+  } else {
+    if (!finalHtml.includes('ca-pub-1813736970267098')) {
+      const adSenseSnippet = `  <meta name="google-adsense-account" content="ca-pub-1813736970267098" />\n  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1813736970267098" crossorigin="anonymous"></script>\n`;
+      finalHtml = finalHtml.replace('</head>', `${adSenseSnippet}</head>`);
+    }
   }
 
   const robotsTag = meta.robots

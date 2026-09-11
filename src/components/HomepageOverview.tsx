@@ -854,7 +854,7 @@ export default function HomepageOverview({
           <div className="p-4 bg-bamboo-50/50 rounded-2xl border border-bamboo-100 space-y-2">
             <h3 className="font-bold text-bamboo-900 text-sm flex items-center gap-1.5">
               <Users className="w-4 h-4 text-bamboo-600" />
-              Active Flutist Community
+              Growing Flute-Learning Community
             </h3>
             <p className="text-gray-600 leading-relaxed">
               Connect with fellow learners, share audio recitals, ask technical questions, and receive constructive feedback on your daily sadhana.
