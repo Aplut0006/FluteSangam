@@ -225,34 +225,6 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
     }
   };
 
-  const getGuideRouteForRaag = (name: string): { view: AppView; path: string } | null => {
-    const n = name.toLowerCase();
-    if (n.includes('bhupali') || n.includes('bhoopali')) return { view: 'raga_bhoopali', path: '/learn/raga-bhoopali' };
-    if (n.includes('durga')) return { view: 'raga_durga', path: '/learn/raga-durga' };
-    if (n.includes('yaman')) return { view: 'raga_yaman', path: '/learn/raga-yaman' };
-    if (n.includes('hamsadhwani')) return { view: 'raga_hamsadhwani', path: '/learn/raga-hamsadhwani' };
-    if (n.includes('bilawal') && !n.includes('alhaiya')) return { view: 'raga_bilawal', path: '/learn/raga-bilawal' };
-    if (n.includes('brindavani') || n.includes('sarang')) return { view: 'raga_brindavani_sarang', path: '/learn/raga-brindavani-sarang' };
-    if (n.includes('desh')) return { view: 'raga_desh', path: '/learn/raga-desh' };
-    if (n.includes('kafi')) return { view: 'raga_kafi', path: '/learn/raga-kafi' };
-    if (n.includes('bhimpalasi')) return { view: 'raga_bhimpalasi', path: '/learn/raga-bhimpalasi' };
-    if (n.includes('bageshree')) return { view: 'raga_bageshree', path: '/learn/raga-bageshree' };
-    if (n.includes('bhairav')) return { view: 'raga_bhairav', path: '/learn/raga-bhairav' };
-    if (n.includes('khamaj')) return { view: 'raga_khamaj', path: '/learn/raga-khamaj' };
-    if (n.includes('bihag')) return { view: 'raga_bihag', path: '/learn/raga-bihag' };
-    if (n.includes('malkauns')) return { view: 'raga_malkauns', path: '/learn/raga-malkauns' };
-    if (n.includes('marwa')) return { view: 'raga_marwa', path: '/learn/raga-marwa' };
-    if (n.includes('jog')) return { view: 'raga_jog', path: '/learn/raga-jog' };
-    if (n.includes('todi')) return { view: 'raga_todi', path: '/learn/raga-todi' };
-    if (n.includes('multani')) return { view: 'raga_multani', path: '/learn/raga-multani' };
-    if (n.includes('pahadi')) return { view: 'raga_pahadi', path: '/learn/raga-pahadi' };
-    if (n.includes('tilang')) return { view: 'raga_tilang', path: '/learn/raga-tilang' };
-    if (n.includes('malhar')) return { view: 'raga_miyan_ki_malhar', path: '/learn/raga-miyan-ki-malhar' };
-    if (n.includes('shivranjani')) return { view: 'raga_shivranjani', path: '/learn/raga-shivranjani' };
-    if (n.includes('jaunpuri')) return { view: 'raga_jaunpuri', path: '/learn/raga-jaunpuri' };
-    return null;
-  };
-
   return (
     <div className="w-full max-w-5xl mx-auto space-y-8" itemScope itemType="https://schema.org/LearningResource">
       
@@ -312,11 +284,11 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
           {/* Quick Stats Pills */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
             <div className="bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-sm">
-              <span className="text-2xl font-black text-amber-400 font-mono">20+</span>
+              <span className="text-2xl font-black text-amber-400 font-mono">23</span>
               <p className="text-xs text-amber-200/80 font-medium">Core Classical Raags</p>
             </div>
             <div className="bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-sm">
-              <span className="text-2xl font-black text-emerald-400 font-mono">20+</span>
+              <span className="text-2xl font-black text-emerald-400 font-mono">23</span>
               <p className="text-xs text-amber-200/80 font-medium">Full Flute Guides</p>
             </div>
             <div className="bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-sm">
@@ -598,7 +570,6 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
 
         <div className="grid gap-6">
           {filteredRaagas.map((raaga, idx) => {
-            const guideRoute = getGuideRouteForRaag(raaga.name);
             const isPlaying = playingRaagaName === raaga.name;
             const isMiddle = idx === Math.floor(filteredRaagas.length / 2);
 
@@ -699,12 +670,12 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
                   {raaga.description}
                 </p>
 
-                {/* Action Link for Full Guide if available */}
-                {guideRoute && (
+                {/* Action Link for Full Guide */}
+                {raaga.path && (
                   <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex justify-end">
                     <Link
-                      to={guideRoute.path}
-                      onClick={() => onViewChange?.(guideRoute.view)}
+                      to={raaga.path}
+                      onClick={() => onViewChange?.(raaga.link as AppView)}
                       className="bg-amber-700 hover:bg-amber-800 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition flex items-center gap-2 shadow-xs cursor-pointer group"
                     >
                       <span>Read Step-by-Step {raaga.name} Guide</span>
