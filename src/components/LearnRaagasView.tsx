@@ -270,8 +270,8 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
               <div className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-amber-400" />
                 <span className="text-amber-200/80">Updated:</span>
-                <time itemProp="dateModified" dateTime="2026-08-21T23:00:00Z" className="font-semibold text-white">
-                  August 21, 2026
+                <time itemProp="dateModified" dateTime="2026-09-11T00:00:00Z" className="font-semibold text-white">
+                  September 11, 2026
                 </time>
               </div>
             </div>

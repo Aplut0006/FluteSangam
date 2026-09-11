@@ -597,7 +597,22 @@ export function getRouteMetadata(path: string): RouteMetadata {
       description,
       canonicalUrl,
       component: LearnRaagasView,
-      jsonLd: createWebPageSchema(canonicalUrl, title, description)
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        '@id': `${canonicalUrl}#webpage`,
+        'url': canonicalUrl,
+        'name': title,
+        'description': description,
+        'datePublished': '2026-07-26T00:00:00Z',
+        'dateModified': '2026-09-11T00:00:00Z',
+        'isPartOf': {
+          '@type': 'WebSite',
+          '@id': `${DOMAIN}/#website`,
+          'name': 'FluteSangam',
+          'url': DOMAIN
+        }
+      }
     };
   }
 
