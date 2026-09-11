@@ -5,13 +5,13 @@ export const HEALTH_AND_BREATHING_FAQS: FaqItem[] = [
     id: 'health-diaphragmatic-breathing-explained',
     category: 'Health & Breathing',
     question: 'What is diaphragmatic breathing and how does it power the flute?',
-    answer: `Diaphragmatic breathing (commonly known as belly breathing) is the primary foundation of powerful, effortless air support for all wind instruments, particularly the bamboo bansuri.
+    answer: `Diaphragmatic breathing (often referred to as belly breathing) is a helpful foundation for steady air support when playing wind instruments like the bamboo bansuri.
 
-How Diaphragmatic Breathing Operates:
-• Inhalation Mechanics: As you inhale deeply, expand your lower abdomen outwards, allowing your dome-shaped diaphragm muscle to drop downwards and fill the lower lungs completely with air.
-• Exhalation Mechanics: As you blow into the blow hole, gently engage your lower abdominal core muscles inward to propel a steady, pressurized air column into the instrument.
-• Comparison with Shallow Chest Breathing: Shallow chest breathing expands only the upper ribcage, causing rapid physical fatigue, neck tightness, and unsteady, breathy air pressure.
-• Core Benefits: Supports pitch stability, extends comfortable note duration, and keeps your neck, upper chest, and shoulders relaxed.`,
+How Diaphragmatic Awareness Operates:
+• Inhalation: As you inhale deeply, allowing your lower abdomen to expand naturally can support deeper air intake without tensing the upper chest and shoulders.
+• Exhalation: As you blow into the flute, gently engaging your lower abdominal muscles can help release a steady, controlled stream of air into the instrument.
+• Comparison with Shallow Chest Breathing: Shallow chest breathing often involves raising the shoulders, which can contribute to neck tightness and inconsistent air pressure.
+• Practical Benefits: Supports pitch stability, helps sustain notes comfortably, and encourages a relaxed upper body during practice.`,
     relatedLink: { text: 'Read Bansuri Fundamentals & Breathing', view: 'learn_basics' },
     tags: ['diaphragmatic breathing', 'belly breathing', 'air support', 'stamina']
   },
@@ -19,13 +19,13 @@ How Diaphragmatic Breathing Operates:
     id: 'health-correct-sitting-and-standing-posture',
     category: 'Health & Breathing',
     question: 'What is the correct posture for sitting and standing while playing the bansuri?',
-    answer: `Maintaining optimal physical posture aligns your spine, vocal tract, and respiratory system, facilitating maximum lung expansion and uninhibited airflow.
+    answer: `Maintaining balanced physical posture can support comfortable breathing, reduce unnecessary strain, and allow freer airflow while playing.
 
 Ergonomic Posture Guidelines:
-• Cross-Legged Floor Seated (Sukhasana): Sit on a firm cushion with hips slightly elevated above knee level. Keep your spine erect but supple, with shoulders dropped naturally.
-• Chair Seated Posture: Sit on the front edge of a firm chair with both feet flat on the floor, knees at a 90-degree angle, and back unsupported to keep core muscles engaged.
-• Standing Posture: Stand with feet shoulder-width apart, knees slightly un-locked, and body weight evenly distributed across both feet.
-• Head & Jaw Alignment: Keep your chin parallel to the floor—never tilt your head downwards toward the flute, as doing so compresses your trachea and muffles tone projection.`,
+• Cross-Legged Floor Seated (Sukhasana): Sit on a firm cushion with hips slightly elevated if that feels comfortable. Keep your spine naturally upright without stiffening, with shoulders dropped.
+• Chair Seated Posture: Sit toward the front of a firm chair with both feet flat on the floor and spine upright so your breathing is unrestricted.
+• Standing Posture: Stand with feet shoulder-width apart, knees soft and un-locked, with body weight balanced evenly.
+• Head & Neck Alignment: Keep your chin roughly level. Avoid tilting your head sharply downward or twisting excessively toward the flute.`,
     relatedLink: { text: 'View Posture Guidelines', view: 'learn_basics' },
     tags: ['posture', 'sitting', 'standing', 'sukhasana', 'spine alignment']
   },
@@ -33,12 +33,12 @@ Ergonomic Posture Guidelines:
     id: 'health-preventing-lip-fatigue-and-soreness',
     category: 'Health & Breathing',
     question: 'Why do my lips feel sore or fatigued, and how do I build embouchure stamina safely?',
-    answer: `Experiencing lip muscle fatigue or mild soreness is completely normal for beginners as small facial muscles adapt to the novel demands of forming a precise lip embouchure.
+    answer: `Experiencing lip muscle fatigue or mild soreness is common for beginners as facial muscles adapt to forming an embouchure.
 
-Building Lip Stamina Safely:
-• Muscle Adaptation Process: The facial muscles surrounding your lips (orbicularis oris) work in unfamiliar ways to maintain a narrow, focused oval lip aperture.
-• Micro-Practice Strategy: Practice in 20-minute focused blocks rather than long, exhausting continuous marathons. Stop playing immediately if your lips begin trembling or feel numb.
-• Zero Squeezing Pressure: Never press the bamboo flute tube tightly against your lower lip. Use minimal contact pressure—pure tone resonance is generated by air stream velocity and focus, not physical contact pressure.`,
+Building Lip Stamina Comfortably:
+• Muscle Adaptation: The muscles surrounding your lips (orbicularis oris) are learning to maintain a focused aperture.
+• Pacing Practice: Practice in short, focused blocks (such as 15–20 minutes) rather than long, tiring sessions. Stop playing if your lips begin trembling or feel numb.
+• Light Contact Pressure: Avoid pressing the bamboo flute firmly against your lower lip. Tone quality develops through air velocity and focus rather than pressing hard against the face. Consult a healthcare professional if facial discomfort persists.`,
     relatedLink: { text: 'Read Embouchure Basics', view: 'learn_basics' },
     tags: ['lip fatigue', 'embouchure stamina', 'facial muscles', 'sore lips']
   },
@@ -46,12 +46,12 @@ Building Lip Stamina Safely:
     id: 'health-preventing-wrist-and-finger-pain',
     category: 'Health & Breathing',
     question: 'How do I prevent wrist soreness, finger joint stiffness, and RSI while practicing?',
-    answer: `Hand, wrist, and finger discomfort during flute practice stems from holding physical tension, squeezing the bamboo, or maintaining awkward joint angles.
+    answer: `Hand, wrist, and finger discomfort during flute practice may be related to excess muscle tension, pressing too hard on the tone holes, or holding awkward joint angles.
 
-Preventing Hand Strain & Repetitive Strain Injuries (RSI):
-• Flat Finger Pad Technique: Avoid curling fingers tightly into claws or pressing fingertips hard into wood. Use flat, relaxed finger pads (second phalange) over hole centers.
-• Natural Wrist Extension: Keep your wrists gently curved in a natural, straight extension of your forearms—avoid bending wrists at sharp 90-degree angles.
-• Frequent Rest Micro-Breaks: Rest for 5 minutes every 25 minutes. Lower your hands and gently shake out your fingers, wrists, and forearms to release accumulated muscle tension.`,
+Practices to Help Reduce Strain:
+• Flat Finger Pad Placement: Covering holes using the relaxed, soft pads of your fingers can help avoid the tension of curling fingers into tight claws.
+• Natural Wrist Angle: Keep wrists in a relatively straight, natural extension of your forearms rather than bending them at sharp angles.
+• Regular Breaks: Take brief rest breaks every 20–25 minutes. Lower your hands and gently shake out fingers and wrists to release tension. If joint pain or numbness persists, stop playing and consult a qualified healthcare professional.`,
     relatedLink: { text: 'Read Common Beginner Pitfalls', view: 'learn_common_mistakes' },
     tags: ['wrist pain', 'finger stiffness', 'rsi', 'hand ergonomics', 'relaxation']
   },
@@ -59,12 +59,12 @@ Preventing Hand Strain & Repetitive Strain Injuries (RSI):
     id: 'health-building-lung-capacity',
     category: 'Health & Breathing',
     question: 'How can flutists develop better breath control and avoid wasting air?',
-    answer: `While anatomical lung size is determined by genetics and body stature, wind players can dramatically improve how efficiently they use their available air through conscious breath pacing and embouchure focus.
+    answer: `While anatomical lung size is determined by individual physiology, wind players can improve how efficiently they use their available air through conscious pacing and embouchure focus.
 
 Practical Techniques for Musical Breath Efficiency:
-• Focused Lip Aperture: A smaller, elliptical lip opening concentrates the air stream directly onto the blowing edge, producing clear sound with far less air expulsion.
+• Focused Lip Aperture: A smaller, well-shaped lip opening concentrates the air stream directly onto the blowing edge, producing clear sound with less wasted air.
 • Gentle Diaphragmatic Awareness: Expanding the lower abdomen on inhalation encourages calm, unhurried air intake without raising the shoulders or straining the neck.
-• Sustained Note Practice (Kharaj Sadhana): Holding calm, steady notes in the lower octave against a drone trains the player to meter airflow smoothly, prolonging note duration naturally through musical practice.
+• Sustained Note Practice (Kharaj Sadhana): Holding calm, steady notes in the lower octave against a drone trains the player to meter airflow smoothly over time.
 
 Educational Note: Flute breathing exercises are designed strictly for musical tone production and do not constitute medical or pulmonary treatment.`,
     relatedLink: { text: 'Explore Daily Sadhana Guide', view: 'learn_daily_practice' },
@@ -74,12 +74,12 @@ Educational Note: Flute breathing exercises are designed strictly for musical to
     id: 'health-stopping-dizziness-and-lightheadedness',
     category: 'Health & Breathing',
     question: 'Why do I feel dizzy or lightheaded when playing, and how do I prevent it?',
-    answer: `Feeling lightheaded or dizzy during initial flute practice occurs when mild hyperventilation lowers carbon dioxide levels in your bloodstream due to improper blowing mechanics.
+    answer: `Dizziness during flute practice can have several causes, including blowing too forcefully or breathing too rapidly. Stop playing, sit safely and allow your breathing to return to normal. Seek medical advice if the problem recurs, is severe or occurs with other symptoms.
 
-Causes & Instant Prevention Strategies:
-• Common Root Cause: Beginners frequently expel air too rapidly or force breath without full diaphragmatic support, taking shallow, rapid inhalations.
-• Immediate Action Step: Stop playing immediately, sit down comfortably, and take slow, normal nasal breaths until your head clears completely.
-• Long-Term Solution: Focus on forming a smaller lip aperture to blow a thin, focused air stream, rather than dumping large volumes of loose air into the instrument.`,
+Tips for Managing Air Flow:
+• Common Factors: Expelling air too rapidly or taking rapid, shallow breaths can lead to feeling lightheaded.
+• Immediate Step: Stop playing immediately, sit comfortably, and breathe normally through your nose until you feel completely steady.
+• Technique Adjustment: Work on a smaller lip aperture to blow a gentle, focused air stream rather than expelling large amounts of air at once.`,
     relatedLink: { text: 'Read Beginners Troubleshooting', view: 'learn_basics' },
     tags: ['dizziness', 'lightheadedness', 'hyperventilation', 'air focus']
   },
@@ -87,12 +87,12 @@ Causes & Instant Prevention Strategies:
     id: 'health-preventing-neck-and-shoulder-tension',
     category: 'Health & Breathing',
     question: 'Why do my neck and shoulders hurt during practice, and how do I fix my alignment?',
-    answer: `Neck and shoulder tension is caused by hunching, raising shoulders toward your ears, or tilting your head sideways toward the flute.
+    answer: `Neck and shoulder discomfort during practice may be related to hunching, elevating shoulders, or tilting the head sideways to reach the flute.
 
-Correcting Neck & Shoulder Alignment:
-• Drop Your Shoulders: Periodically pause during practice and verify that your shoulders are dropped, relaxed, and resting away from your ears.
-• Bring Flute to Lips: Bring the flute up to meet your lower lip naturally—never lower your chin down or tilt your neck sideways to reach the flute.
-• Mirror Practice Checks: Practice in front of a mirror to catch shoulder elevation or neck tilting before it turns into chronic muscle strain.`,
+Suggestions for Balanced Alignment:
+• Check Shoulder Position: Periodically verify that your shoulders are relaxed and resting away from your ears.
+• Bring Flute to Your Lips: Bring the flute up to meet your lower lip naturally rather than dropping your chin down or tilting your neck sideways.
+• Use a Mirror: Practicing briefly in front of a mirror can help you notice whether your posture is remaining upright and neutral.`,
     relatedLink: { text: 'View Posture & Alignment Guide', view: 'learn_basics' },
     tags: ['neck pain', 'shoulder tension', 'posture check', 'mirror alignment']
   },
@@ -100,11 +100,11 @@ Correcting Neck & Shoulder Alignment:
     id: 'health-practice-warmup-and-cooldown',
     category: 'Health & Breathing',
     question: 'What is an effective physical warm-up and cool-down routine for flute players?',
-    answer: `Warming up and cooling down physical joints and respiratory muscles protects flutists from repetitive strain and enhances overall playing flexibility.
+    answer: `Gentle warm-ups and cool-downs can help relax joints and muscles before and after flute sessions, making practice feel more comfortable.
 
-Physical Warm-Up & Cool-Down Routine:
-• Pre-Practice Warm-Up (3 Minutes): Gently roll your shoulders backwards, stretch your neck side to side, flex and extend your wrists, and take 5 deep diaphragmatic breaths.
-• Post-Practice Cool-Down (2 Minutes): Drop your arms to your sides, gently shake out your hands, stretch your finger flexors, and lightly massage your cheeks and jaw muscles.`,
+Gentle Warm-Up & Cool-Down Routine:
+• Pre-Practice Warm-Up (2–3 Minutes): Gently roll shoulders, lightly stretch neck from side to side, move wrists in circles, and take a few slow, relaxed breaths.
+• Post-Practice Cool-Down (1–2 Minutes): Lower arms to your sides, gently shake out hands, and relax facial muscles. If you experience persistent pain or discomfort, consult a medical professional.`,
     relatedLink: { text: 'Read Daily Practice Routine', view: 'learn_daily_practice' },
     tags: ['warmup', 'cooldown', 'stretching', 'injury prevention']
   },
@@ -112,12 +112,12 @@ Physical Warm-Up & Cool-Down Routine:
     id: 'health-hydration-and-lip-care',
     category: 'Health & Breathing',
     question: 'How does body hydration affect flute playing and lip embouchure performance?',
-    answer: `Hydration directly impacts lip flexibility, air seal integrity, and facial comfort during flute practice sessions.
+    answer: `Hydration directly impacts lip flexibility, air seal comfort, and overall ease during flute practice sessions.
 
 Hydration & Lip Care Guidelines:
-• Effects of Dehydration: Dry or chapped lips create a rough contact surface against the blow hole, causing air leaks, skin irritation, and erratic pitch stability.
-• Sip Water Frequently: Keep a water bottle handy and sip water throughout practice sessions to stay hydrated.
-• Lip Balm Application: Apply a non-greasy, natural lip balm well before practice sessions so your lips remain soft, smooth, and supple without slipping on the bamboo blow hole.`,
+• Dry Lips: Chapped lips can make forming a comfortable embouchure harder and can cause irritation against the blow hole.
+• Keep Water Nearby: Take small sips of water throughout practice sessions to stay hydrated.
+• Lip Balm Application: Applying a non-greasy lip balm between sessions can help keep lips smooth without making the flute slip during play.`,
     relatedLink: { text: 'Explore Flute Care & Health Tips', view: 'learn_basics' },
     tags: ['hydration', 'lip care', 'chapped lips', 'embouchure']
   },
@@ -125,12 +125,12 @@ Hydration & Lip Care Guidelines:
     id: 'health-playing-with-colds-and-allergies',
     category: 'Health & Breathing',
     question: 'Should I practice the flute when I have a common cold, sore throat, or nasal congestion?',
-    answer: `Practicing while recovering from illness requires mindful self-awareness to protect your throat and general comfort.
+    answer: `Practicing while recovering from an illness requires listening to your body to avoid unnecessary fatigue or throat irritation.
 
-Practical Guidelines for Practicing When Unwell:
-• Sore Throat or Fever: Rest completely. Forcing air through inflamed throat tissues causes strain and delays recovery.
-• Mild Nasal Congestion: Gentle low-register note holding may feel manageable, but avoid pushing for speed or high-register playing. Listen to your body and stop if breathing feels laboured or uncomfortable.
-• Sanitize Your Flute: Always swab the embouchure hole thoroughly and keep the instrument clean after practicing while recovering.`,
+Practical Considerations:
+• Sore Throat or Fever: Rest until you feel better. Forcing airflow through an irritated throat can feel uncomfortable.
+• Mild Congestion: Gentle, short practice on low notes may feel manageable, but avoid strenuous high-register playing. Stop if breathing feels labored.
+• Instrument Hygiene: Wipe down the embouchure area and keep the flute dry and clean after use.`,
     relatedLink: { text: 'Read Flute Hygiene Guidelines', view: 'learn_basics' },
     tags: ['common cold', 'sore throat', 'health', 'hygiene']
   },
@@ -151,12 +151,12 @@ Practical Calming Strategies:
     id: 'health-ideal-practice-break-schedule',
     category: 'Health & Breathing',
     question: 'How often should I take breaks during long practice sessions to protect my body?',
-    answer: `Taking structured rest breaks maintains high mental sharpness, prevents physical fatigue, and protects joints from repetitive strain injuries.
+    answer: `Taking structured rest breaks helps maintain focus, reduces physical fatigue, and helps prevent repetitive strain.
 
 Recommended Practice Break Rhythm:
-• The 25/5 Pomodoro Rule: Practice attentively for 25 minutes, then take a mandatory 5-minute break completely away from the instrument.
-• Break Activities: Stand up, walk around, stretch your hands, sip water, and rest your eyes and ears.
-• Long Practice Sessions: If practicing for more than 90 minutes total daily, split your practice into distinct morning and evening sessions.`,
+• Paced Sessions: Practice attentively for 20–25 minutes, then take a 5-minute break away from the instrument.
+• Break Activities: Stand up, walk around, stretch your hands gently, sip water, and rest your eyes and ears.
+• Dividing Practice: If practicing for longer total times, splitting your sessions across morning and evening can be gentler on the body.`,
     relatedLink: { text: 'View Recommended Practice Schedules', view: 'learn_daily_practice' },
     tags: ['practice breaks', 'pomodoro', 'rest', 'stamina']
   },
@@ -169,7 +169,7 @@ Recommended Practice Break Rhythm:
 Accessible Breathing Drills for Flute Learners:
 1. Slow Belly Inhalation: Spend 2–3 minutes breathing in gently through your nose, letting the abdomen expand naturally without raising your shoulders.
 2. Even 'Sss' Exhalation: Exhale on a quiet, steady 'ssss' sound over 8–12 seconds to practice releasing air in an even, unhurried stream.
-3. Three-Part Breath Awareness: Inhale comfortably into the lower abdomen, ribs, and chest, then exhale gently in reverse. Note: Intense, forceful breathing drills (such as rapid abdominal pumping) are not necessary for flute playing and can induce hyperventilation; keep all breathing relaxed and natural.`,
+3. Three-Part Breath Awareness: Inhale comfortably into the lower abdomen, ribs, and chest, then exhale gently in reverse. Note: Intense, forceful breathing drills are not necessary for flute playing; keep all breathing relaxed and natural.`,
     relatedLink: { text: 'Read Breathing & Posture Guide', view: 'learn_basics' },
     tags: ['breathing exercises', 'breath support', 'diaphragm awareness', 'relaxed breathing']
   },
@@ -177,13 +177,13 @@ Accessible Breathing Drills for Flute Learners:
     id: 'health-preventing-repetitive-strain',
     category: 'Health & Breathing',
     question: 'How can I prevent wrist, thumb, and neck strain during long practice sessions?',
-    answer: `Adopting ergonomic holding principles protects your joints and muscles from repetitive strain and chronic soreness.
+    answer: `Adopting comfortable, ergonomic holding habits may help reduce unnecessary strain on joints and muscles.
 
 Ergonomic Holding Principles:
-• Relaxed Wrist Extension: Avoid hyper-extending or bending wrists at sharp 90-degree angles.
-• Gentle Thumb Support: Rest the flute tube gently on thumb pads—never pinch or squeeze the bamboo tightly.
-• Parallel Head Alignment: Keep your chin horizontal to the floor. Tilting your head downward compresses neck vertebrae and restricts airflow.
-• Wrist & Shoulder Stretches: Execute gentle wrist rotations and shoulder rolls before and after every practice session.`,
+• Relaxed Wrist Extension: Avoid hyper-extending or bending wrists at sharp angles.
+• Gentle Thumb Support: Rest the flute tube gently on thumb pads rather than pinching or squeezing the bamboo tightly.
+• Level Head Alignment: Keep your chin roughly horizontal. Tilting your head sharply downward can strain neck muscles.
+• Gentle Stretches: Light wrist rotations and shoulder rolls before and after practice can help keep muscles relaxed. Consult a healthcare provider if pain persists.`,
     relatedLink: { text: 'View Flute Posture & Holding Guide', view: 'learn_basics' },
     tags: ['repetitive strain', 'wrist pain', 'ergonomics', 'neck posture']
   },

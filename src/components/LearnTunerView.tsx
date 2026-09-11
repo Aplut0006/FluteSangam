@@ -35,15 +35,15 @@ interface FluteScaleInfo {
 
 const BANSURI_SCALES: FluteScaleInfo[] = [
   { name: 'E Bass', key: 'E', freq: 164.81, octave: 3, type: 'Bass', swara: 'Sa', description: 'Deep resonant tone, popular for Hindustani classical solos' },
-  { name: 'F Bass', key: 'F', freq: 174.61, octave: 3, type: 'Bass', swara: 'Sa', description: 'Rich low pitch, widely used by professional artists' },
+  { name: 'F Bass', key: 'F', freq: 174.61, octave: 3, type: 'Bass', swara: 'Sa', description: 'Rich low pitch, widely used in classical recitals' },
   { name: 'F# Bass', key: 'F#', freq: 185.00, octave: 3, type: 'Bass', swara: 'Sa', description: 'Deep warm sound, comfortable finger spacing' },
-  { name: 'G Bass', key: 'G', freq: 196.00, octave: 3, type: 'Bass', swara: 'Sa', description: 'Versatile bass scale, great for classical and meditative music' },
-  { name: 'A Medium', key: 'A', freq: 220.00, octave: 3, type: 'Medium', swara: 'Sa', description: 'Standard 440Hz reference scale, highly recommended for beginners' },
-  { name: 'B Medium', key: 'B', freq: 246.94, octave: 3, type: 'Medium', swara: 'Sa', description: 'Balanced medium scale with effortless finger reach' },
-  { name: 'C Natural', key: 'C', freq: 261.63, octave: 4, type: 'Medium', swara: 'Sa', description: 'Universal middle scale, perfect for kids, beginners & vocal accompaniment' },
-  { name: 'C# Medium', key: 'C#', freq: 277.18, octave: 4, type: 'Medium', swara: 'Sa', description: 'Warm medium pitch, popular in light classical & film music' },
-  { name: 'D Medium', key: 'D', freq: 293.66, octave: 4, type: 'Medium', swara: 'Sa', description: 'Bright crisp sound, easy for fast passages and alankaras' },
-  { name: 'E Medium', key: 'E', freq: 329.63, octave: 4, type: 'Medium', swara: 'Sa', description: 'Clear high-medium pitch, great for folk and devotional tunes' },
+  { name: 'G Bass', key: 'G', freq: 196.00, octave: 3, type: 'Bass', swara: 'Sa', description: 'Versatile bass scale, suitable for classical and contemplative melodies' },
+  { name: 'A Medium', key: 'A', freq: 220.00, octave: 3, type: 'Medium', swara: 'Sa', description: 'Standard 440Hz reference scale, commonly chosen by beginners' },
+  { name: 'B Medium', key: 'B', freq: 246.94, octave: 3, type: 'Medium', swara: 'Sa', description: 'Balanced medium scale with moderate finger reach' },
+  { name: 'C Natural', key: 'C', freq: 261.63, octave: 4, type: 'Medium', swara: 'Sa', description: 'Standard middle scale, commonly considered by beginners and for vocal accompaniment' },
+  { name: 'C# Medium', key: 'C#', freq: 277.18, octave: 4, type: 'Medium', swara: 'Sa', description: 'Warm medium pitch, popular in light classical and folk music' },
+  { name: 'D Medium', key: 'D', freq: 293.66, octave: 4, type: 'Medium', swara: 'Sa', description: 'Bright clear sound, easy for rapid passages and alankars' },
+  { name: 'E Medium', key: 'E', freq: 329.63, octave: 4, type: 'Medium', swara: 'Sa', description: 'Clear high-medium pitch, used in folk and devotional tunes' },
   { name: 'G Medium', key: 'G', freq: 392.00, octave: 4, type: 'Medium', swara: 'Sa', description: 'High medium scale, crisp blowing response' },
 ];
 
@@ -720,8 +720,8 @@ export default function LearnTunerView({ onViewChange }: LearnTunerViewProps) {
                 <th className="py-2.5 px-3 font-bold">Scale Name</th>
                 <th className="py-2.5 px-3 font-bold">Western Key</th>
                 <th className="py-2.5 px-3 font-bold">Fundamental (Sa) Hz</th>
-                <th className="py-2.5 px-3 font-bold">Category</th>
-                <th className="py-2.5 px-3 font-bold hidden sm:table-cell">Recommended For</th>
+                <th className="py-2.5 px-3 font-bold">Range / Category</th>
+                <th className="py-2.5 px-3 font-bold">Practical Note</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
@@ -744,7 +744,7 @@ export default function LearnTunerView({ onViewChange }: LearnTunerViewProps) {
                       {s.type}
                     </span>
                   </td>
-                  <td className="py-2.5 px-3 text-gray-500 hidden sm:table-cell">{s.description}</td>
+                  <td className="py-2.5 px-3 text-gray-600">{s.description}</td>
                 </tr>
               ))}
             </tbody>
@@ -775,10 +775,10 @@ export default function LearnTunerView({ onViewChange }: LearnTunerViewProps) {
           <div className="bg-white p-5 rounded-2xl border border-amber-200/60 space-y-2 shadow-2xs">
             <span className="font-bold text-bamboo-900 block text-sm">2. Temperature &amp; Warmup Calibration</span>
             <p>
-              Bamboo is a living organic acoustic material. Cold flutes naturally sound 10 to 20 cents flat because the speed of sound is slower in cold air.
+              A bansuri’s pitch can shift with temperature, playing technique and instrument construction. Warm the instrument briefly, then use the tuner to observe how your particular flute responds.
             </p>
             <p>
-              Always blow warm air through your bansuri for 2–3 minutes to stabilize the internal bore temperature before checking pitch on the tuner.
+              Gently blowing warm air through your bansuri for 1–2 minutes before tuning helps stabilize the internal air column.
             </p>
           </div>
         </div>
@@ -794,7 +794,7 @@ export default function LearnTunerView({ onViewChange }: LearnTunerViewProps) {
             The Science of Bansuri Acoustics, Shrutis &amp; Accurate Pitch Tuning
           </h2>
           <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-            Tuning an Indian bamboo flute differs fundamentally from tuning a guitar or piano. While modern Western instruments adhere strictly to 12-Tone Equal Temperament (12-TET), Hindustani classical bansuri is founded upon <strong>Just Intonation (Gandhar / Pancham Shrutis)</strong> and natural harmonic acoustic physics.
+            Intonation in Hindustani music can vary by raga, phrase, musical tradition and performance context. Players may adjust individual swaras by ear against a Tanpura or another reference pitch.
           </p>
         </div>
 
@@ -810,35 +810,35 @@ export default function LearnTunerView({ onViewChange }: LearnTunerViewProps) {
             f = v / (2 × (L + ΔL))
           </div>
           <p className="text-xs sm:text-sm leading-relaxed">
-            where <strong>v</strong> is the speed of sound in air, <strong>L</strong> is the acoustic length of the bamboo from the cork face to the open tone hole, and <strong>ΔL</strong> is the end-correction factor. Crucially, the velocity of sound varies directly with ambient temperature according to <em>v ≈ 331.3 + 0.6 × T (°C)</em>. This means that as room temperature rises from 20°C to 30°C, the speed of sound increases by over 6 m/s, causing the natural pitch of your flute to sharpen by approximately 15 to 20 cents without any change in fingering!
+            where <strong>v</strong> is the speed of sound in air, <strong>L</strong> is the acoustic length of the bamboo from the cork face to the open tone hole, and <strong>ΔL</strong> is the end-correction factor. The velocity of sound varies directly with ambient temperature according to <em>v ≈ 331.3 + 0.6 × T (°C)</em>. As temperature changes, the speed of sound shifts, which may cause the pitch of your flute to sharpen in warmer environments or flatten in cooler ones.
           </p>
         </div>
 
         {/* Subsection 2: Equal Temperament vs Just Intonation */}
         <div className="space-y-3">
           <h3 className="text-lg sm:text-xl font-bold text-bamboo-900">
-            2. Equal Temperament (12-TET) vs. Indian Just Intonation (Shruti Scale)
+            2. Equal Temperament (12-TET) vs. Indian Microtonal Nuances (Shrutis)
           </h3>
           <p className="text-xs sm:text-sm leading-relaxed">
-            When you blow into a standard chromatic guitar or keyboard tuner, it measures frequencies against the equal-tempered mathematical scale. However, Indian classical ragas utilize pure natural intervals (Swayambhu Swaras) relative to the Tanpura drone:
+            When you blow into a chromatic tuner, it measures frequencies against equal temperament (12-TET). In Indian classical music, intonation may be adjusted according to musical context, raga character, and lineage:
           </p>
           <div className="grid sm:grid-cols-3 gap-4 text-xs pt-1">
             <div className="p-4 rounded-2xl bg-amber-50/60 border border-amber-200/80 space-y-1.5">
               <strong className="block text-amber-900 text-sm">Shuddha Gandhar (Ga)</strong>
               <p className="text-gray-600">
-                In classical Ragas like Bhoopali and Yaman, pure Ga is tuned ~13.7 cents <em>lower</em> than equal-tempered major third (386 cents vs 400 cents). Do not force it sharp to match a piano!
+                In classical Ragas like Bhoopali and Yaman, players often shade Ga slightly lower by ear against the Tanpura drone to achieve harmonic warmth suited to the raga.
               </p>
             </div>
             <div className="p-4 rounded-2xl bg-amber-50/60 border border-amber-200/80 space-y-1.5">
               <strong className="block text-amber-900 text-sm">Pancham (Pa)</strong>
               <p className="text-gray-600">
-                Natural fifth is acoustically pure (702 cents vs 700 cents in 12-TET), creating a consonant, beat-free resonance with your Tanpura backdrop.
+                The fifth (Pa) produces reduced audible beating when the pitches are closely aligned against the Tanpura drone.
               </p>
             </div>
             <div className="p-4 rounded-2xl bg-amber-50/60 border border-amber-200/80 space-y-1.5">
               <strong className="block text-amber-900 text-sm">Komal Rishabh (Re)</strong>
               <p className="text-gray-600">
-                In Ragas like Bhairav and Todi, Komal Re is an emotional microtonal note that sits lower (Ati-Komal) than a Western minor second, achieved by half-covering the top hole.
+                In ragas like Bhairav and Todi, Komal Re carries a subtle microtonal placement achieved through half-hole fingering and gentle lip rolling.
               </p>
             </div>
           </div>
@@ -854,28 +854,28 @@ export default function LearnTunerView({ onViewChange }: LearnTunerViewProps) {
               <span className="w-6 h-6 rounded-full bg-bamboo-800 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</span>
               <div>
                 <strong className="text-bamboo-950 font-bold block mb-0.5">Warm the Bamboo Core:</strong>
-                <p className="text-gray-600">Play gentle sustained notes for 2 to 3 minutes. The human breath warms the inner bamboo wall to body temperature (~32°C–35°C), which stabilizes the acoustic column.</p>
+                <p className="text-gray-600">Play gentle sustained notes for 1 to 2 minutes. The warmth of your breath helps stabilize the internal air column.</p>
               </div>
             </li>
             <li className="flex items-start gap-3 p-3.5 rounded-xl bg-bamboo-50/50 border border-bamboo-100">
               <span className="w-6 h-6 rounded-full bg-bamboo-800 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</span>
               <div>
                 <strong className="text-bamboo-950 font-bold block mb-0.5">Set Your Fundamental Sa (3 Holes Closed):</strong>
-                <p className="text-gray-600">In Hindustani bansuri tradition, closing the top 3 holes establishes middle <em>Madhya Sa</em>. Blow with relaxed, steady breath pressure and check the meter on the tuner above. The needle should settle within ±5 cents.</p>
+                <p className="text-gray-600">In Hindustani bansuri tradition, closing the top 3 holes establishes middle <em>Madhya Sa</em>. Blow with relaxed, steady breath pressure and check the meter on the tuner above.</p>
               </div>
             </li>
             <li className="flex items-start gap-3 p-3.5 rounded-xl bg-bamboo-50/50 border border-bamboo-100">
               <span className="w-6 h-6 rounded-full bg-bamboo-800 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</span>
               <div>
                 <strong className="text-bamboo-950 font-bold block mb-0.5">Check Lower Mandra Pa (All 6 Holes Closed):</strong>
-                <p className="text-gray-600">Close all six tone holes completely. Ensure your finger pads seal the hole perimeters without leaking air. The lower Pancham should sound deep, full, and settle on the designated frequency without squeaking into the upper octave.</p>
+                <p className="text-gray-600">Close all six tone holes completely. Ensure your finger pads seal the holes without leaking air. The lower Pancham should sound full and stable.</p>
               </div>
             </li>
             <li className="flex items-start gap-3 p-3.5 rounded-xl bg-bamboo-50/50 border border-bamboo-100">
               <span className="w-6 h-6 rounded-full bg-bamboo-800 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">4</span>
               <div>
-                <strong className="text-bamboo-950 font-bold block mb-0.5">Harmonic Octave Overblowing (Taar Sa):</strong>
-                <p className="text-gray-600">Without altering your finger position, increase your air velocity and slightly tighten the lip aperture to sound higher octave <em>Taar Sa</em>. If it sounds sharp, roll the flute inward slightly to maintain pitch balance between octaves.</p>
+                <strong className="text-bamboo-950 font-bold block mb-0.5">Harmonic Octave Balance (Taar Sa):</strong>
+                <p className="text-gray-600">Without altering finger placement, slightly increase air velocity and lip focus to sound higher octave <em>Taar Sa</em>. If it sounds slightly sharp or flat, roll the flute subtly to balance pitch across octaves.</p>
               </div>
             </li>
           </ol>
@@ -890,13 +890,13 @@ export default function LearnTunerView({ onViewChange }: LearnTunerViewProps) {
             <div className="p-4 rounded-xl border border-bamboo-200 bg-white space-y-1">
               <strong className="text-bamboo-950 font-bold block text-sm">Can a bamboo flute go out of tune permanently?</strong>
               <p className="text-gray-600 leading-relaxed">
-                Bamboo does not stretch like guitar strings, so tone holes do not move. However, extreme dryness or moisture loss can slightly shrink the diameter or loosen the cork seal at the blow-hole. Regular oiling (mustard or walnut oil once every 3 months) prevents bore deformation.
+                Care requirements vary according to the instrument’s finish, climate and maker. Follow the flute maker’s instructions before applying oil, and avoid putting an unsuitable substance inside the bore.
               </p>
             </div>
             <div className="p-4 rounded-xl border border-bamboo-200 bg-white space-y-1">
               <strong className="text-bamboo-950 font-bold block text-sm">What is the difference between A=440 Hz and A=432 Hz?</strong>
               <p className="text-gray-600 leading-relaxed">
-                A=440 Hz is the international concert pitch standard used by all modern keyboards, tanpuras, and audio backing tracks. A=432 Hz is favored by some meditative acoustic traditions. For versatility and playing with others, standard A=440 Hz bansuris are recommended.
+                A=440 Hz is a widely used concert-pitch reference supported by many keyboards, tuners and accompaniment applications. Some musicians and recordings may use a different reference.
               </p>
             </div>
           </div>

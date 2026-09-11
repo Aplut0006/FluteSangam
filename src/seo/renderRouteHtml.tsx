@@ -136,7 +136,7 @@ export function getRouteMetadata(path: string): RouteMetadata {
   if (cleanPath === '' || cleanPath === '/' || cleanPath === '/community' || cleanPath === '/search') {
     return {
       title: 'FluteSangam | Learn Flute, Bansuri & Connect with Flutists',
-      description: 'Learn flute online with lessons, songs, ragas, techniques, practice guides, and connect with a global community of flutists to learn, share, perform, and grow together.',
+      description: 'Learn flute online with lessons, songs, ragas, techniques, practice guides, interactive tools, and Sargam notations for bamboo flute enthusiasts.',
       canonicalUrl: `${DOMAIN}/`,
       component: HomepageOverview,
       jsonLd: {
@@ -775,16 +775,15 @@ export function getRouteMetadata(path: string): RouteMetadata {
     };
   }
 
-  // 11. Notations Requests
+  // 11. Notations Requests (Indexable educational page)
   if (cleanPath === '/notations') {
-    const title = 'Sargam Song Notation Requests | FluteSangam';
-    const description = 'Browse and request Sargam notations for Bollywood, devotional, classical, and folk songs on the Indian bamboo flute.';
+    const title = 'Bansuri Song Notations & Practice Transcriptions | FluteSangam';
+    const description = 'Browse Sargam song notations and practice transcriptions for Indian bamboo flute, including classical, devotional, and popular melodies.';
     const canonicalUrl = `${DOMAIN}/notations`;
     return {
       title,
       description,
       canonicalUrl,
-      robots: 'noindex, follow',
       component: NotationRequestsView,
       jsonLd: createWebPageSchema(canonicalUrl, title, description)
     };

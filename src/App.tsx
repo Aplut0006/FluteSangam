@@ -245,12 +245,12 @@ export default function App() {
   // Dynamic SEO Title & Meta Description Management
   useEffect(() => {
     let title = 'FluteSangam | Learn Flute, Bansuri & Connect with Flutists';
-    let description = 'Learn flute online with lessons, songs, ragas, techniques, practice guides, and connect with a global community of flutists to learn, share, perform, and grow together.';
+    let description = 'Learn flute online with lessons, songs, ragas, techniques, practice guides, interactive tools, and Sargam notations for bamboo flute enthusiasts.';
 
     switch (currentView) {
       case 'community':
         title = 'FluteSangam | Learn Flute, Bansuri & Connect with Flutists';
-        description = 'Learn flute online with lessons, songs, ragas, techniques, practice guides, and connect with a global community of flutists to learn, share, perform, and grow together.';
+        description = 'Learn flute online with lessons, songs, ragas, techniques, practice guides, interactive tools, and Sargam notations for bamboo flute enthusiasts.';
         break;
       case 'chats':
         title = 'Direct Messages & Chat | FluteSangam Community';
@@ -424,8 +424,8 @@ export default function App() {
         description = 'Learn Raag Jaunpuri on Indian Bamboo Flute (Bansuri): Asavari Thaat, Komal Ga, Dha, Ni, Aaroh, Avaroh, Pakad, practice drills, and original learning piece.';
         break;
       case 'notation_requests':
-        title = 'Sargam Song Notation Requests | FluteSangam';
-        description = 'Browse and request Sargam notations for Bollywood, devotional, classical, and folk songs on the Indian bamboo flute.';
+        title = 'Bansuri Song Notations & Practice Transcriptions | FluteSangam';
+        description = 'Browse Sargam song notations and practice transcriptions for Indian bamboo flute, including classical, devotional, and popular melodies.';
         break;
       case 'community_members':
         title = 'Community Members | FluteSangam';
@@ -528,7 +528,7 @@ export default function App() {
     setMeta('meta[name="twitter:description"]', 'name', 'twitter:description', description);
 
     // Robots meta tag for search indexing vs 404/member soft-error prevention
-    if (currentView === 'not_found' || currentView === 'community_members' || currentView === 'user-profile' || currentView === 'chats' || currentView === 'notation_requests') {
+    if (currentView === 'not_found' || currentView === 'community_members' || currentView === 'user-profile' || currentView === 'chats') {
       setMeta('meta[name="robots"]', 'name', 'robots', 'noindex, follow');
     } else {
       setMeta('meta[name="robots"]', 'name', 'robots', 'index, follow, max-image-preview:large');

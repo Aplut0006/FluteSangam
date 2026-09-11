@@ -234,14 +234,14 @@ export default function LearnDashboard({ onViewChange }: LearnDashboardProps) {
             <div className="p-5 rounded-2xl bg-stone-50 border border-stone-200/70 space-y-2">
               <h3 className="font-bold text-bamboo-950 text-sm sm:text-base">Can I learn bansuri online without a physical teacher?</h3>
               <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                Yes. With modern high-fidelity audio, accurate fingering charts, digital tuners, and interactive alankar generators, thousands of students have learned to play bansuri independently. The key is to record yourself frequently, use a 440 Hz tuner or Tanpura to verify your intonation, and follow a structured curriculum without skipping foundational breath exercises.
+                Yes. Many self-directed learners study bansuri independently using instructional guides, fingering charts, digital tuners, and interactive alankar tools. Recording yourself frequently, practising with a Tanpura or reference pitch, and building consistent daily habits are helpful strategies.
               </p>
             </div>
 
             <div className="p-5 rounded-2xl bg-stone-50 border border-stone-200/70 space-y-2">
-              <h3 className="font-bold text-bamboo-950 text-sm sm:text-base">How many days does it take to produce the first clear sound on a flute?</h3>
+              <h3 className="font-bold text-bamboo-950 text-sm sm:text-base">How long does it take to produce the first clear sound on a flute?</h3>
               <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                Most students produce their first resonant note within 2 to 5 days of dedicated 15-minute practice sessions. The secret is to keep the lower lip covering approximately one-third of the blowing hole and gently blowing a thin, focused stream of air downward against the opposite inner edge of the embouchure hole.
+                Initial sound production varies by individual and practice consistency. Finding the right lip placement—covering approximately one-third of the blowing hole and directing a focused stream of air downward against the opposite inner edge—can take several practice sessions to feel comfortable.
               </p>
             </div>
 

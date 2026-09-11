@@ -173,7 +173,7 @@ export default function FounderView({ onViewChange }: FounderViewProps) {
             Beginners often struggled to answer basic questions: <em>Which scale flute should I buy? How do I practice long notes correctly? Where can I find reliable Sargam notations? How can I practice with a Tanpura drone or check my pitch accuracy?</em> Furthermore, there was no central, welcoming space where flute players could share their practice recordings, ask questions, or connect with peers.
           </p>
           <p className="font-semibold text-bamboo-950 bg-amber-100/70 p-4 rounded-2xl border border-amber-200/80">
-            I created FluteSangam to solve these exact problems—bringing together structured guides, interactive practice tools, classical Raga breakdowns, notations, and a global community in one open platform.
+            I created FluteSangam to solve these exact problems—bringing together structured guides, interactive practice tools, classical Raga breakdowns, notations, and community discussion in one open platform.
           </p>
         </div>
       </section>
@@ -259,7 +259,7 @@ export default function FounderView({ onViewChange }: FounderViewProps) {
           About FluteSangam
         </h2>
         <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-          FluteSangam is an open digital platform built for flute learners, players, teachers, and enthusiasts worldwide. It offers structured learning resources, interactive tools, classical Raga breakdowns, Sargam song notations, and a global community to support your musical journey.
+          FluteSangam is an open digital platform built for flute learners, players, teachers, and enthusiasts worldwide. It offers structured learning resources, interactive tools, classical Raga breakdowns, Sargam song notations, and community features to support your musical journey.
         </p>
         <div>
           <a

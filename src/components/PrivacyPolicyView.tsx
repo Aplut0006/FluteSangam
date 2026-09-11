@@ -67,7 +67,7 @@ export const PrivacyPolicyView: React.FC<PrivacyPolicyViewProps> = ({ onBackToCo
               <div>
                 <h2 className="font-bold font-display text-amber-950 text-base sm:text-lg">Our Privacy Commitment</h2>
                 <p className="text-xs sm:text-sm leading-relaxed mt-1 text-amber-900">
-                  At <strong>FluteSangam</strong>, your privacy and trust are fundamental. We are dedicated to protecting the personal information of our global community of flute learners, gurus, and artists. We <strong>never sell or rent</strong> your personal data to third parties under any circumstances.
+                  At <strong>FluteSangam</strong>, your privacy and trust are fundamental. We are dedicated to protecting the personal information of our learners, teachers, and platform visitors. We <strong>never sell or rent</strong> your personal data to third parties under any circumstances.
                 </p>
               </div>
             </div>

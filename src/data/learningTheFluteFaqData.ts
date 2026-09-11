@@ -231,12 +231,12 @@ In Hindustani classical music, playing left-handed is 100% accepted and recogniz
     id: 'learn-dizzy-when-blowing',
     category: 'Learning the Flute',
     question: 'Why do I feel lightheaded or dizzy when blowing the flute, and how can I prevent it?',
-    answer: `Feeling slightly lightheaded or dizzy during your first few weeks of flute practice is a very common physical experience caused by hyperventilation—expelling air too quickly or taking shallow, rapid chest gasps.
+    answer: `Dizziness during flute practice can have several causes, including blowing too forcefully or breathing too rapidly. Stop playing, sit safely and allow your breathing to return to normal. Seek medical advice if the problem recurs, is severe or occurs with other symptoms.
 
-How to Prevent Lightheadedness:
-1. Deep Diaphragmatic Inhalations: Inhale slowly and deeply through your nose or mouth corners down into your lower abdomen, rather than taking quick, shallow upper-chest gasps.
-2. Conserve Air at the Lips: Do not force all the air out of your lungs at once. Maintain a narrow lip aperture so air escapes in a controlled, economical stream.
-3. Take Immediate Rest Breaks: If you feel dizzy, immediately stop blowing, sit comfortably, take slow normal breaths through your nose for 1 to 2 minutes, and sip some water. As your respiratory system adapts over 2 weeks, lightheadedness will disappear entirely.`,
+Tips for Managing Airflow Comfortably:
+1. Relaxed Inhalations: Inhale gently and unhurriedly down into your lower abdomen rather than taking quick, shallow upper-chest breaths.
+2. Form a Focused Lip Aperture: Avoid forcing large volumes of air out at once. Maintain a small, focused aperture so air is released in a controlled, economical stream.
+3. Take Immediate Rest Breaks: If you feel dizzy or lightheaded, stop blowing immediately, sit comfortably, take slow normal breaths through your nose, and sip some water.`,
     relatedLink: { text: 'Read Breathing & Health Guide', view: 'learn_basics' },
     tags: ['dizziness', 'lightheadedness', 'hyperventilation', 'breathing technique']
   }

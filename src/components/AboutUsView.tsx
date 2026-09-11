@@ -49,7 +49,7 @@ export default function AboutUsView({ onViewChange }: AboutUsViewProps = {}) {
           About FluteSangam
         </h1>
         <p className="text-base sm:text-lg text-amber-900/80 max-w-2xl mx-auto font-medium">
-          A global community for people who love learning, playing, and exploring the flute.
+          An open platform for people who love learning, playing, and exploring the flute.
         </p>
       </div>
 
