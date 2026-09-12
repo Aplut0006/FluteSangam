@@ -970,8 +970,8 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
     id: 'maint_oil',
     question: 'How often should I oil my flute?',
     category: 'Maintenance',
-    answer: 'Apply a few drops of mustard oil or sweet almond oil on an inner swab once every 3 to 6 months to protect bamboo fibers.',
-    keywords: ['oil flute', 'oiling frequency', 'mustard oil', 'almond oil'],
+    answer: 'Oiling depends on the maker’s recommendations, flute finish, and climate. Some makers suggest light bore swabbing with food-grade oil, while others advise against oiling treated bamboo. Always follow your flute maker’s guidance.',
+    keywords: ['oil flute', 'oiling frequency', 'bamboo care', 'maker guidance'],
     relatedIds: ['maint_clean', 'maint_cracking']
   },
   {
