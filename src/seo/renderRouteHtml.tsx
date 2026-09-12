@@ -807,7 +807,7 @@ export function getRouteMetadata(path: string): RouteMetadata {
     };
   }
 
-  // 11. Notations Requests (noindex, follow - publicly accessible, self-referencing canonical)
+  // 11. Notations Requests (publicly accessible, indexed, self-referencing canonical)
   if (cleanPath === '/notations') {
     const title = 'Bansuri Song Notations & Practice Transcriptions | FluteSangam';
     const description = 'Browse Sargam song notations and practice transcriptions for Indian bamboo flute, including classical, devotional, and popular melodies.';
@@ -816,7 +816,6 @@ export function getRouteMetadata(path: string): RouteMetadata {
       title,
       description,
       canonicalUrl,
-      robots: 'noindex, follow',
       component: NotationRequestsView,
       jsonLd: createWebPageSchema(canonicalUrl, title, description)
     };

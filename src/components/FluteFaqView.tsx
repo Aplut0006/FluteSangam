@@ -493,7 +493,7 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
               <span>
                 {categoryMeta 
                   ? `${filteredFaqs.length} Category Questions`
-                  : `${FAQ_DATA.length} Detailed Q&A Topics`}
+                  : `Browse ${FAQ_DATA.length} Flute Questions & Practice Answers`}
               </span>
             </div>
           </div>

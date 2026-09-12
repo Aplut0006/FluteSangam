@@ -25,6 +25,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://flutesangam.com/notations</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://flutesangam.com/learn/basics</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>daily</changefreq>

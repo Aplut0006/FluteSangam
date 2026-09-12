@@ -36,7 +36,7 @@ export const FLUTE_TYPES_FAQS: FaqItem[] = [
   - Pros: Organic, rich, warm, resonant acoustic tone; authentic classical aesthetic.
   - Cons: Requires humidity care; can crack if dropped or exposed to sudden heat/dry weather.
 - PVC Flute:
-  - Pros: Unbreakable, 100% waterproof, immune to weather splits; extremely affordable.
+  - Pros: Highly durable, moisture-resistant, less sensitive to climate swings; affordable.
   - Cons: Synthetic plastic aesthetic; sound can lack a fraction of natural bamboo timber warmth.`,
     relatedLink: { text: 'Read Material Comparison Chart', view: 'learn_choose_flute' },
     tags: ['bamboo vs pvc', 'materials', 'durability', 'comparison']
@@ -212,7 +212,7 @@ export const FLUTE_TYPES_FAQS: FaqItem[] = [
     question: 'Are PVC synthetic flutes as good as natural Assam bamboo flutes?',
     answer: `Comparing PVC synthetic flutes and natural Assam bamboo:
 • Acoustic Warmth: Natural Assam bamboo has organic interior fibers that produce a warm, sweet, wooden harmonic tone cherished by many musicians.
-• Durability & Weather Resistance: PVC plastic flutes are 100% waterproof, highly durable, and immune to humidity or temperature cracking.
+• Durability & Weather Resistance: PVC flutes are moisture-resistant, durable, and less affected by humidity or moderate temperature shifts.
 • Recommendation: PVC flutes are great for beginners, children, outdoor practice, and travel. Assam bamboo remains the traditional preference for studio recordings and classical concert recitals.`,
     relatedLink: { text: 'Read Buyer Checklist for Flutes', view: 'learn_choose_flute' },
     tags: ['pvc vs bamboo', 'assam bamboo', 'synthetic flutes', 'tone quality']

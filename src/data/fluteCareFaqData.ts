@@ -5,103 +5,100 @@ export const FLUTE_CARE_FAQS: FaqItem[] = [
     id: 'care-how-to-clean-moisture-after-playing',
     category: 'Flute Care & Maintenance',
     question: 'How do I swab internal moisture out of my bamboo flute after playing?',
-    answer: `Swabbing internal moisture out of your bamboo flute after every practice session is essential to prevent mold growth, bamboo rotting, and micro-cracks caused by trapped water vapor.
+    answer: `Swabbing internal moisture out of your bamboo flute after practice helps remove accumulated condensation and keep the bore clean.
 
 Step-by-Step Swabbing Instructions:
 • Use a Soft Microfiber Swab: Wrap a soft, lint-free microfiber cloth or cotton fabric around a smooth wooden or plastic swabbing rod.
-• Gentle Insertion: Gently slide the swab rod through the open bottom end of the flute, pushing it up toward the internal cork stopper.
-• Wipe Internal Bore Walls: Rotate the swab rod gently against the interior bamboo walls to absorb all accumulated breath condensation.
-• Air-Dry Before Casing: Allow the flute to sit vertically in a cool, well-ventilated room for 10 to 15 minutes to air-dry completely before sealing it inside a padded hard case.`,
+• Gentle Insertion: Gently slide the swab rod through the open bottom end of the flute, guiding it toward the internal cork stopper without forcing it.
+• Wipe Internal Bore Walls: Rotate the swab rod gently against the interior bamboo walls to absorb accumulated breath moisture.
+• Air-Dry Before Casing: Allow the flute to sit in a well-ventilated space away from direct heat or drafts to air-dry before closing it in its case.`,
     relatedLink: { text: 'Read Flute Care Guidelines', view: 'learn_basics' },
     tags: ['moisture swabbing', 'internal cleaning', 'bamboo care', 'hygiene']
   },
   {
     id: 'care-oiling-bamboo-flute',
     category: 'Flute Care & Maintenance',
-    question: 'Should I oil my bamboo flute, which oils are safe, and how often?',
-    answer: `Oiling protects natural Assam bamboo from drying out, cracking, and absorbing excess atmospheric humidity during seasonal weather changes.
+    question: 'Should I oil my bamboo flute, and how should I maintain the bore?',
+    answer: `Whether a bansuri should be oiled depends on its finish, bamboo treatment, climate and the maker’s recommendations. Some makers advise occasional bore oiling, while others advise against it. Contact the maker before applying oil, glue or other substances.
 
-Safe Oiling Guidelines & Methods:
-• Safe Natural Oils: Use non-rancid, light natural oils such as Pure Mustard Oil, Sweet Almond Oil, or White Mineral Oil. Avoid heavy cooking vegetable oils that turn sticky and rancid over time.
-• Recommended Oiling Schedule: Oil the interior bore once every 2 to 3 months, or right before dry winter seasons and monsoon transitions.
-• Application Method: Apply 3 to 4 drops of oil onto a soft cotton cloth attached to a wooden swabbing rod, pulling it through the interior bore to coat the bamboo walls evenly. Keep oil away from the blow hole rim and internal cork stopper face.`,
+General Considerations:
+• Check with the Instrument Maker: Always follow the specific care instructions provided by your bansuri maker, as treatment methods vary across craftsmen and bamboo types.
+• Climate Factors: In very dry or rapidly shifting climates, some flutists follow maker-advised treatments, whereas in humid regions extra oiling may be unnecessary.
+• Protect Critical Parts: If oiling is advised by the maker, keep oil away from the blow hole edge and internal cork stopper.`,
     relatedLink: { text: 'View Flute Maintenance Guide', view: 'learn_basics' },
-    tags: ['oiling flute', 'mustard oil', 'almond oil', 'bamboo protection']
+    tags: ['oiling flute', 'bamboo care', 'maker guidance', 'maintenance']
   },
   {
     id: 'care-preventing-and-repairing-cracks',
     category: 'Flute Care & Maintenance',
     question: 'How do I prevent bamboo cracks, and what should I do if a crack develops?',
-    answer: `Natural Assam bamboo is a living organic material that reacts to sudden humidity drops, extreme temperatures, and physical stress.
+    answer: `Natural bamboo reacts to sudden humidity shifts, extreme temperatures, and physical stress.
 
-Crack Prevention & Emergency Repair:
-• Proactive Prevention: Keep thread bindings tight, oil the interior bore regularly, and never leave bamboo flutes in direct sunlight, hot parked cars, or directly under air conditioning vents.
-• Hairline Crack Repair: If a minor hairline crack appears, wrap high-tensile nylon thread tightly around the cracked section in tight adjacent turns. Secure the thread knots with a microscopic drop of quick-drying cyanoacrylate glue (super glue) over the outer thread.
-• Deep Structural Cracks: For severe split cracks affecting finger holes, consult an expert bansuri maker for professional re-binding or tube replacement.`,
+Crack Prevention & Guidance:
+• Handling & Environment: Store flutes in protective cases and avoid exposing them to direct sunlight, hot closed vehicles, or dry air drafts.
+• What to Do If a Crack Appears: Do not apply superglue or attempt structural repair unless advised by the maker. Keep the flute dry and protected, then consult an experienced instrument maker if a crack appears.`,
     relatedLink: { text: 'Explore Flute Care & Binding Guide', view: 'learn_basics' },
     tags: ['bamboo cracks', 'crack repair', 'thread binding', 'maintenance']
   },
   {
     id: 'care-thread-binding-maintenance',
     category: 'Flute Care & Maintenance',
-    question: 'What is thread binding (Dhaaga) on a bansuri, and how do I maintain or re-bind it?',
-    answer: `Thread bindings (nylon ring wraps placed along the bamboo tube) act as essential safety hoops that absorb physical stress and prevent natural bamboo splitting.
+    question: 'What is thread binding (Dhaaga) on a bansuri, and how do I maintain it?',
+    answer: `Thread bindings (ring wraps placed along the bamboo tube) provide reinforcement and help stabilize bamboo against seasonal physical stress.
 
 Thread Binding Function & Care:
-• Structural Safety Hoops: As bamboo expands and contracts with humidity, tight thread rings hold the bamboo fibers together, preventing cracks from developing or spreading.
-• Monthly Inspection: Check bindings monthly. If a thread knot unravels, push the threads tight and seal the loose end with a micro-drop of clear glue.
-• DIY Re-Binding: You can easily re-bind your flute using strong nylon fish-line thread or silk thread wrapped tightly in neat, adjacent turns around stress points.`,
+• Structural Reinforcement: As bamboo responds to changes in ambient humidity, tight thread rings offer mechanical support along the length of the tube.
+• Regular Check: Inspect bindings periodically. If a thread knot loosens, avoid aggressive modifications and consult your flute maker or experienced player for re-tying advice.`,
     relatedLink: { text: 'Read Bansuri Anatomy Guide', view: 'learn_basics' },
     tags: ['thread binding', 'dhaaga', 'reinforcement', 'bamboo protection']
   },
   {
     id: 'care-storing-flutes-safely',
     category: 'Flute Care & Maintenance',
-    question: 'How should I store my flutes at home to protect them from humidity and pests?',
-    answer: `Proper home storage preserves bamboo acoustics, protects fine tuning, and prevents insect damage over years of ownership.
+    question: 'How should I store my flutes at home to protect them from damage?',
+    answer: `Proper home storage helps protect bamboo instruments from accidental impacts, excessive dryness, and ambient moisture.
 
 Home Storage Best Practices:
-• Padded Hard Tube Case: Store flutes horizontally inside a padded, breathable hard tube case or padded gig bag.
-• Moisture Control with Silica Gel: Include 2 or 3 food-grade silica gel packets inside the case during humid monsoon seasons to absorb excess moisture.
-• Elevated Storage Location: Store flute cases on elevated shelves away from damp floors, direct sunlight, and heat radiators.
-• Ensure Dry Bamboo: Always ensure your flutes are 100% dry after practice before closing them inside zippered cases to prevent mold.`,
+• Protective Case: Store flutes horizontally inside a padded gig bag or hard travel tube in a stable, room-temperature room.
+• Dry Before Casing: Allow the flute to dry naturally after playing before sealing it inside a closed case.
+• Climate Awareness: Keep flutes away from direct sunlight, air conditioner vents, and heat radiators. Consult your flute maker regarding moisture control packs suitable for your local humidity.`,
     relatedLink: { text: 'Check Flute Accessories & Cases', view: 'learn_choose_flute' },
-    tags: ['storing flutes', 'silica gel', 'humidity control', 'flute case']
+    tags: ['storing flutes', 'case storage', 'humidity control', 'flute case']
   },
   {
     id: 'care-protecting-flute-during-travel',
     category: 'Flute Care & Maintenance',
     question: 'How do I protect my bamboo flutes during air travel and road trips?',
-    answer: `Traveling exposes bamboo flutes to rapid atmospheric pressure drops, extreme temperature shifts, and physical impacts that threaten delicate bamboo.
+    answer: `Traveling exposes bamboo instruments to temperature variations, pressure differences, and physical bumps.
 
 Travel Safety Guide:
-• Cabin Hand Luggage Only: Always carry valuable bamboo flutes inside cabin hand luggage when flying. Never check flutes into airplane cargo baggage where freezing temperatures and rough handling occur.
-• Padded PVC/Carbon-Fiber Case: Transport flutes in a rigid, padded PVC or carbon-fiber travel tube case capable of withstanding heavy external pressure.
-• Avoid Hot Parked Cars: Never leave bamboo flutes inside a parked car, as interior temperatures can exceed 60°C (140°F) within minutes and cause instant bamboo splitting.`,
+• Hand Luggage Preference: When flying, carrying valued flutes inside cabin hand luggage helps avoid extreme cargo hold temperatures and rough baggage handling.
+• Rigid Travel Case: Transport flutes in a rigid, padded travel tube or case that guards against external crushing and physical impacts.
+• Avoid Closed Car Heat: Do not leave bamboo flutes in hot parked vehicles, where rapid temperature spikes and dry air can stress natural bamboo.`,
     relatedLink: { text: 'Read Travel Protection Guide', view: 'learn_basics' },
-    tags: ['air travel', 'cabin luggage', 'travel tube', 'car heat']
+    tags: ['air travel', 'cabin luggage', 'travel tube', 'travel safety']
   },
   {
     id: 'care-temperature-and-weather-protection',
     category: 'Flute Care & Maintenance',
-    question: 'How do extreme temperature and humidity changes affect bamboo flutes?',
-    answer: `Assam bamboo is a hygroscopic material that absorbs atmospheric moisture in humid weather and contracts during cold, dry weather.
+    question: 'How do temperature and humidity changes affect bamboo flutes?',
+    answer: `Bamboo is a natural, porous material that responds to ambient environmental conditions.
 
 Managing Weather Impacts on Flutes:
-• Pitch Shifts: Cold weather contracts bamboo fibers, causing the flute to play slightly flat. Warm weather expands bamboo fibers, causing the flute to play slightly sharp.
-• Acclimatization Strategy: When moving a flute from cold outdoors into a warm indoor room, allow the flute to sit inside its case for 15 minutes to adjust to room temperature naturally before blowing warm air through it.`,
+• Pitch Variations: In cooler temperatures, the air column inside the flute vibrates slightly slower, which can cause the pitch to sound slightly flatter. In warmer rooms, pitch tends to rise slightly sharper.
+• Acclimatization: When moving a flute from a cold exterior into a heated room (or vice versa), allow the instrument to rest inside its case for 10 to 15 minutes to adjust gradually to room temperature before playing.`,
     relatedLink: { text: 'Read Flute Care Guidelines', view: 'learn_basics' },
     tags: ['temperature shifts', 'humidity', 'acclimatization', 'tuning']
   },
   {
     id: 'care-cleaning-finger-holes-and-blowhole',
     category: 'Flute Care & Maintenance',
-    question: 'How do I clean dust, oil, and debris from finger holes and blow hole without damaging pitch?',
-    answer: `Dust, skin oils, and lint accumulate along finger hole perimeters over time, affecting pitch accuracy and finger seal integrity.
+    question: 'How do I clean dust and debris from finger holes without damaging pitch?',
+    answer: `Dust and skin oils can collect around finger hole perimeters during regular use.
 
 Safe Cleaning Procedure:
-• Gentle Soft Swabbing: Use a soft, dry cotton Q-tip or a soft-bristled artist paintbrush to gently sweep dust out of finger holes.
-• Avoid Sharp Metal Tools: Never use metal pins, blades, or coarse sandpaper inside finger holes, as scraping bamboo hole edges alters hole diameter and ruins master tuning calibration.`,
+• Soft Brush or Swab: Use a dry, soft cotton Q-tip or a soft-bristled brush to gently sweep away dust from finger hole edges.
+• Avoid Metal Tools: Never use metal needles, blades, or abrasive sandpaper inside tone holes, as altering hole dimensions or beveling can affect pitch and intonation.`,
     relatedLink: { text: 'View Flute Maintenance Tips', view: 'learn_basics' },
     tags: ['finger hole cleaning', 'q-tip', 'dust removal', 'tuning safety']
   },
@@ -109,50 +106,50 @@ Safe Cleaning Procedure:
     id: 'care-pvc-flute-maintenance',
     category: 'Flute Care & Maintenance',
     question: 'How do I clean and maintain a PVC flute compared to a bamboo flute?',
-    answer: `PVC plastic flutes offer exceptional durability, waterproof convenience, and virtually zero maintenance compared to natural bamboo bansuris.
+    answer: `PVC plastic flutes offer moisture resistance and high durability compared to natural bamboo bansuris.
 
 PVC Care Guidelines:
-• 100% Water-Washable: Unlike bamboo, PVC flutes are completely waterproof. You can wash a PVC flute under lukewarm tap water with mild liquid soap anytime.
-• Zero Oiling Required: PVC requires no oiling and will never crack due to dry weather or rapid temperature swings.
-• Rugged Travel Option: Ideal for outdoor practice, rainy seasons, camping, and rugged travel routines.`,
+• Moisture Resistant: PVC is resistant to water and humidity, making it easy to rinse with lukewarm water and mild soap when needed.
+• Low Maintenance: Synthetic flutes do not require bore oiling and are less sensitive to dry weather shifts.
+• Practical for Outdoor Practice: Useful for rough travel, outdoor sessions, and beginners developing early finger habits.`,
     relatedLink: { text: 'Compare Bamboo vs PVC Flutes', view: 'learn_choose_flute' },
-    tags: ['pvc flute', 'waterproof', 'low maintenance', 'travel flute']
+    tags: ['pvc flute', 'moisture resistant', 'low maintenance', 'travel flute']
   },
   {
     id: 'care-cork-and-cork-positioning',
     category: 'Flute Care & Maintenance',
-    question: 'What is the internal cork (cork stopper) in a bansuri, and what if it moves?',
-    answer: `The internal cork stopper sits inside the head-joint of the flute, positioned just past the blow hole.
+    question: 'What is the internal cork in a bansuri, and what should I do if it shifts?',
+    answer: `The internal cork stopper is situated in the head section of the bansuri, just past the blow hole.
 
 Role & Calibration of the Cork Stopper:
-• Acoustic Function: Sets the internal acoustic chamber length, directly governing octave pitch alignment and harmonic balance across all registers.
-• Correct Factory Position: The cork face sits approximately one tube diameter length away from the center of the blow hole.
-• Re-positioning Method: Never push the cork blindly. Use a wooden rod marked with the exact factory depth to nudge the cork stopper gently back into alignment.`,
+• Acoustic Function: Establishes the head chamber length, influencing octave alignment and overall intonation.
+• Position: The cork face is placed by the maker at a specific depth relative to the blow hole center.
+• Adjustment: Avoid moving the cork unnecessarily. If you suspect the cork has shifted, consult your instrument maker or use a marked gauge to check alignment carefully.`,
     relatedLink: { text: 'Read Flute Anatomy Guide', view: 'learn_basics' },
     tags: ['cork stopper', 'head joint', 'tuning chamber', 'cork adjustment']
   },
   {
     id: 'care-lifespan-of-bamboo-flute',
     category: 'Flute Care & Maintenance',
-    question: 'What is the average lifespan of a seasoned Assam bamboo flute?',
-    answer: `A well-crafted bansuri made from seasoned Assam bamboo can last decades or even a lifetime with proper maintenance.
+    question: 'What is the expected lifespan of a seasoned bamboo flute?',
+    answer: `A well-crafted and carefully maintained bamboo bansuri can remain functional and playable for many years.
 
 Factors Influencing Longevity:
-• Bamboo Seasoning Quality: Properly aged and fire-treated bamboo resists cracking and humidity changes over long periods.
-• Sound Maturation over Time: As seasoned bamboo ages and matures through daily playing, its acoustic resonance sweetens, producing a warmer, richer, and more vibrant tone over years of ownership.`,
+• Bamboo Seasoning & Construction: Properly seasoned and treated bamboo provides a stable foundation for the instrument.
+• Ongoing Care: Consistent, mindful storage, avoiding physical drops, and keeping the instrument protected from rapid climatic swings contribute significantly to its longevity.`,
     relatedLink: { text: 'Explore Scale Selection Guide', view: 'learn_choose_flute' },
-    tags: ['flute lifespan', 'seasoned bamboo', 'longevity', 'aging sound']
+    tags: ['flute lifespan', 'seasoned bamboo', 'longevity', 'maintenance']
   },
   {
     id: 'care-sanitizing-flute-safely',
     category: 'Flute Care & Maintenance',
-    question: 'How do I safely sanitize my flute mouthpiece without harming natural bamboo or lacquer?',
-    answer: `Sanitizing the blow hole area preserves personal hygiene without damaging natural bamboo fibers or protective polish.
+    question: 'How do I safely sanitize my flute embouchure area without harming the instrument?',
+    answer: `Keeping the blow hole contact area clean supports personal hygiene while protecting the bamboo surface.
 
 Safe Hygiene Method:
-• Microfiber Wipe Application: Dampen a microfiber cloth with a 70% isopropyl alcohol spray and wipe only the outer lip contact area gently.
-• Avoid Liquid Immersion: Never submerge bamboo flutes in alcohol or water, as liquid penetration ruins thread glue and damages internal cork seals.`,
+• Damp Cloth Wipe: Lightly dampen a soft microfiber cloth with a small amount of mild alcohol or sanitizer solution and wipe only the exterior lip contact area.
+• Avoid Immersion: Do not submerge the bamboo flute in water or liquid solutions, as soaking can weaken thread bindings and affect the internal cork seal.`,
     relatedLink: { text: 'Read Flute Hygiene Guide', view: 'learn_basics' },
-    tags: ['sanitizing', 'hygiene', 'isopropyl alcohol', 'blow hole']
+    tags: ['sanitizing', 'hygiene', 'microfiber', 'blow hole']
   }
 ];

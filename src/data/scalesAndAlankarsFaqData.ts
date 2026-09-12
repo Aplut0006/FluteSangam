@@ -10,7 +10,7 @@ export const SCALES_AND_ALANKARS_FAQS: FaqItem[] = [
 Understanding Sargam & Flute Mechanics:
 • The Seven Shuddha Swaras: The natural notes are Sa (Shadja), Re (Rishabh), Ga (Gandhar), Ma (Madhyam), Pa (Pancham), Dha (Dhaivat), and Ni (Nishad).
 • Root Note (Sa) Determination: On an Indian bamboo bansuri, root Sa is produced when the top 3 finger holes are completely covered. Covering all 6 finger holes produces Mandra Pa (lower 5th).
-• Just Intonation vs. Equal Temperament: Bansuri scales are tuned according to pure natural acoustic intervals (Just Intonation) against a continuous Tanpura drone, resulting in rich, warm harmonic resonance.`,
+• Pitch & Intonation: On the bansuri, swaras are played against a continuous Tanpura drone, where flutists make subtle adjustments by ear to achieve harmonic alignment.`,
     relatedLink: { text: 'Read Music Theory Fundamentals', view: 'learn_basics' },
     tags: ['sargam', 'musical scale', 'shuddha swaras', 'sa re ga ma']
   },

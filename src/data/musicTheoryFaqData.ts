@@ -45,7 +45,7 @@ Classification of the 12 Swaras:
 Understanding Pitch Standards:
 • A=440Hz Standard Pitch: The widely accepted concert pitch standard worldwide. Professional bansuris are often tuned to A=440Hz at 25°C room temperature so they align with digital Tanpuras, studio recordings, keyboards, and acoustic accompaniment.
 • A=432Hz Alternative Tuning: A slightly lower tuning frequency favored by some solo flutists.
-• Practical Recommendation: FluteSangam recommends purchasing A=440Hz standard concert flutes to ensure full compatibility with accompaniment apps, digital Tanpura drones, and studio sessions.`,
+• Practical Recommendation: FluteSangam recommends purchasing A=440Hz standard concert flutes to ensure broad compatibility with accompaniment apps, digital Tanpura drones, and studio sessions.`,
     relatedLink: { text: 'Use Built-in Live Flute Tuner', view: 'learn_tuner' },
     tags: ['440hz', '432hz', 'concert pitch', 'tuning standard']
   },
@@ -53,11 +53,7 @@ Understanding Pitch Standards:
     id: 'theory-just-intonation-vs-equal-temperament',
     category: 'Music Theory & Notation',
     question: 'What is Just Intonation (pure harmonics) vs Equal Temperament, and why does it matter for bansuri?',
-    answer: `Understanding tuning systems reveals why the bamboo flute produces such a sweet, deeply resonant sound when played alongside a Tanpura.
-
-Comparing Tuning Systems:
-• Equal Temperament (Western Pianos/Keyboards): Divides the octave into 12 mathematically equal semitones. Highly versatile for chord modulations, but harmonic fifths and thirds carry slight acoustic dissonance.
-• Just Intonation (Pure Acoustic Harmonics): Bansuris are tuned according to pure mathematical acoustic intervals against a continuous Tanpura drone. Notes like Shuddha Ga or Pa lock into shimmering, vibration-free acoustic resonance with the drone overtones.`,
+    answer: `Equal temperament divides the octave into twelve equal semitones and is commonly used by keyboards and chromatic tuners. In Hindustani music, the placement of individual swaras may vary according to the raga, phrase, performer and musical tradition. Bansuri players often make small adjustments by ear against a Tanpura or reference pitch. Closely aligned pitches can produce reduced audible beating, but intonation is not identical in every musical context.`,
     relatedLink: { text: 'Read Acoustics & Intonation Guide', view: 'learn_basics' },
     tags: ['just intonation', 'equal temperament', 'harmonics', 'tanpura resonance']
   },

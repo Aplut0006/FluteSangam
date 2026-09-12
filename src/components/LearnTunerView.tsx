@@ -849,34 +849,22 @@ export default function LearnTunerView({ onViewChange }: LearnTunerViewProps) {
           <h3 className="text-lg sm:text-xl font-bold text-bamboo-900">
             3. Step-by-Step 4-Stage Protocol for Tuning Your Bansuri
           </h3>
-          <ol className="space-y-3 text-xs sm:text-sm">
-            <li className="flex items-start gap-3 p-3.5 rounded-xl bg-bamboo-50/50 border border-bamboo-100">
-              <span className="w-6 h-6 rounded-full bg-bamboo-800 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</span>
-              <div>
-                <strong className="text-bamboo-950 font-bold block mb-0.5">Warm the Bamboo Core:</strong>
-                <p className="text-gray-600">Play gentle sustained notes for 1 to 2 minutes. The warmth of your breath helps stabilize the internal air column.</p>
-              </div>
+          <ol className="list-decimal list-outside ml-5 space-y-3 text-xs sm:text-sm text-gray-700">
+            <li className="pl-2">
+              <strong className="text-bamboo-950 font-bold block mb-0.5">Warm the Bamboo Core:</strong>
+              <p className="text-gray-600">Play gentle sustained notes for 1 to 2 minutes. The warmth of your breath helps stabilize the internal air column.</p>
             </li>
-            <li className="flex items-start gap-3 p-3.5 rounded-xl bg-bamboo-50/50 border border-bamboo-100">
-              <span className="w-6 h-6 rounded-full bg-bamboo-800 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</span>
-              <div>
-                <strong className="text-bamboo-950 font-bold block mb-0.5">Set Your Fundamental Sa (3 Holes Closed):</strong>
-                <p className="text-gray-600">In Hindustani bansuri tradition, closing the top 3 holes establishes middle <em>Madhya Sa</em>. Blow with relaxed, steady breath pressure and check the meter on the tuner above.</p>
-              </div>
+            <li className="pl-2">
+              <strong className="text-bamboo-950 font-bold block mb-0.5">Set Your Fundamental Sa (3 Holes Closed):</strong>
+              <p className="text-gray-600">In Hindustani bansuri tradition, closing the top 3 holes establishes middle <em>Madhya Sa</em>. Blow with relaxed, steady breath pressure and check the meter on the tuner above.</p>
             </li>
-            <li className="flex items-start gap-3 p-3.5 rounded-xl bg-bamboo-50/50 border border-bamboo-100">
-              <span className="w-6 h-6 rounded-full bg-bamboo-800 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</span>
-              <div>
-                <strong className="text-bamboo-950 font-bold block mb-0.5">Check Lower Mandra Pa (All 6 Holes Closed):</strong>
-                <p className="text-gray-600">Close all six tone holes completely. Ensure your finger pads seal the holes without leaking air. The lower Pancham should sound full and stable.</p>
-              </div>
+            <li className="pl-2">
+              <strong className="text-bamboo-950 font-bold block mb-0.5">Check Lower Mandra Pa (All 6 Holes Closed):</strong>
+              <p className="text-gray-600">Close all six tone holes completely. Ensure your finger pads seal the holes without leaking air. The lower Pancham should sound full and stable.</p>
             </li>
-            <li className="flex items-start gap-3 p-3.5 rounded-xl bg-bamboo-50/50 border border-bamboo-100">
-              <span className="w-6 h-6 rounded-full bg-bamboo-800 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">4</span>
-              <div>
-                <strong className="text-bamboo-950 font-bold block mb-0.5">Harmonic Octave Balance (Taar Sa):</strong>
-                <p className="text-gray-600">Without altering finger placement, slightly increase air velocity and lip focus to sound higher octave <em>Taar Sa</em>. If it sounds slightly sharp or flat, roll the flute subtly to balance pitch across octaves.</p>
-              </div>
+            <li className="pl-2">
+              <strong className="text-bamboo-950 font-bold block mb-0.5">Harmonic Octave Balance (Taar Sa):</strong>
+              <p className="text-gray-600">Without altering finger placement, slightly increase air velocity and lip focus to sound higher octave <em>Taar Sa</em>. If it sounds slightly sharp or flat, roll the flute subtly to balance pitch across octaves.</p>
             </li>
           </ol>
         </div>
