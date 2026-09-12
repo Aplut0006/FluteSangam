@@ -255,7 +255,7 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
 
   const [selectedCategory, setSelectedCategory] = useState<string>(currentPathCategory);
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [expandedFaqId, setExpandedFaqId] = useState<string | null>('start-what-is-bamboo-flute');
+  const [collapsedFaqIds, setCollapsedFaqIds] = useState<Record<string, boolean>>({});
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [helpfulFeedback, setHelpfulFeedback] = useState<Record<string, 'yes' | 'no'>>({});
   const [visibleCount, setVisibleCount] = useState<number>(10);
@@ -404,7 +404,10 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
   };
 
   const toggleExpand = (id: string) => {
-    setExpandedFaqId(prev => (prev === id ? null : id));
+    setCollapsedFaqIds(prev => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
   };
 
   const handleCopyLink = (id: string, e: React.MouseEvent) => {
@@ -795,7 +798,7 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
               </div>
             )}
             {visibleFaqs.map((faq, index) => {
-              const isExpanded = expandedFaqId === faq.id;
+              const isExpanded = !collapsedFaqIds[faq.id];
 
               return (
                 <div

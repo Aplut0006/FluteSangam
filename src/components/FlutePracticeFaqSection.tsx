@@ -97,10 +97,10 @@ interface FlutePracticeFaqSectionProps {
 }
 
 export default function FlutePracticeFaqSection({ onViewChange }: FlutePracticeFaqSectionProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0); // First item open by default
+  const [collapsedIndices, setCollapsedIndices] = useState<Record<number, boolean>>({});
 
   const toggleFaq = (idx: number) => {
-    setOpenIndex(openIndex === idx ? null : idx);
+    setCollapsedIndices(prev => ({ ...prev, [idx]: !prev[idx] }));
   };
 
   return (
@@ -118,7 +118,7 @@ export default function FlutePracticeFaqSection({ onViewChange }: FlutePracticeF
 
       <div className="space-y-2 min-h-[220px]">
         {FLUTE_PRACTICE_FAQS.map((faq, idx) => {
-          const isOpen = openIndex === idx;
+          const isOpen = !collapsedIndices[idx];
           return (
             <div 
               key={idx} 
