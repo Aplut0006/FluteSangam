@@ -168,7 +168,7 @@ const FAQ_HUB_TOPICS = [
     category: 'Flute Care & Maintenance',
     icon: Shield,
     color: 'from-rose-600 to-rose-700',
-    description: 'Mustard oiling protocols, crack prevention, thread binding, bore cleaning, and climate humidity protection.',
+    description: 'Maker-specific oiling and bamboo-care guidance, crack prevention, thread binding, bore cleaning, and climate humidity protection.',
     questionCount: FAQ_DATA.filter(f => f.category === 'Flute Care & Maintenance').length
   },
   {
