@@ -14,7 +14,6 @@ import {
   Globe, 
   Heart,
   HelpCircle,
-  CheckCircle2,
   ExternalLink
 } from 'lucide-react';
 import { AppView } from '../types';
@@ -332,7 +331,7 @@ export default function AboutUsView({ onViewChange }: AboutUsViewProps = {}) {
             Start your journey today! Dive into our structured learning modules, practice tools, classical Raga guides, and community channels.
           </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 mb-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
             <a 
               href="/learn"
               onClick={handleNav('learn_dashboard')}
@@ -386,12 +385,6 @@ export default function AboutUsView({ onViewChange }: AboutUsViewProps = {}) {
               <Users className="w-5 h-5 text-teal-600" />
               <span>Community</span>
             </a>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-gray-600">
-            <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> 100% Free & Open Access</span>
-            <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Structured Music Resources</span>
-            <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Flute Community</span>
           </div>
         </section>
 

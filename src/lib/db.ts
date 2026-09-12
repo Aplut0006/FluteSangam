@@ -27,6 +27,17 @@ import { Post, Comment, UserProfile, AppNotification } from '../types';
 import { INITIAL_COMMUNITY_POSTS, MOCK_COMMENTS, INITIAL_MOCK_USERS, CARTOON_AVATARS } from '../data/mockPosts';
 
 // Seeding and user synchronization function
+const REMOVED_NON_REAL_AUTHORS = ['Hariprasad K.', 'Ananya Sharma', 'Rahul Verma', 'Vikram Sen'];
+const REMOVED_NON_REAL_AUTHOR_IDS = ['system_hariprasad', 'system_ananya', 'system_rahul', 'system_vikram'];
+const REMOVED_LEGACY_POST_IDS = ['morning-meditation', 'essential-breath-tips', 'shakur-c-natural-review', 'six-to-seven-hole-question'];
+
+export function isRemovedNonRealPost(post: { id?: string; authorName?: string; authorId?: string }): boolean {
+  if (post.id && REMOVED_LEGACY_POST_IDS.includes(post.id)) return true;
+  if (post.authorName && REMOVED_NON_REAL_AUTHORS.includes(post.authorName)) return true;
+  if (post.authorId && REMOVED_NON_REAL_AUTHOR_IDS.includes(post.authorId)) return true;
+  return false;
+}
+
 export async function syncMissingUsersToFirestore(): Promise<void> {
   // Do NOT auto-create user documents for deleted users or missing post authors in Firestore.
   return;
@@ -37,7 +48,17 @@ export async function seedDatabaseIfEmpty() {
     // 1. Sync missing members into Firestore
     await syncMissingUsersToFirestore();
 
-    // 2. Seed posts if empty
+    // 2. Clean up any legacy removed posts from Firestore
+    try {
+      for (const legacyPostId of REMOVED_LEGACY_POST_IDS) {
+        const postRef = doc(db, 'posts', legacyPostId);
+        await deleteDoc(postRef).catch(() => {});
+      }
+    } catch (e) {
+      // ignore
+    }
+
+    // 3. Seed posts if empty
     try {
       const postsCol = collection(db, 'posts');
       const q = query(postsCol);
@@ -47,16 +68,13 @@ export async function seedDatabaseIfEmpty() {
         console.log("Firestore database is empty. Seeding initial posts...");
         
         const ids = [
-          "morning-meditation",
-          "essential-breath-tips",
-          "shakur-c-natural-review",
-          "six-to-seven-hole-question",
           "bhimpalasi-deep-dive"
         ];
         
         for (let i = 0; i < INITIAL_COMMUNITY_POSTS.length; i++) {
           const mockPost = INITIAL_COMMUNITY_POSTS[i];
           const docId = ids[i];
+          if (!docId) continue;
           
           // Create the post document
           const postRef = doc(db, 'posts', docId);
@@ -79,17 +97,6 @@ export async function seedDatabaseIfEmpty() {
           }
         }
         console.log("Database seeded successfully!");
-      } else {
-        // Ensure legacy seeded post for Hariprasad K has videoUrl removed if it exists in Firestore
-        try {
-          const morningPostRef = doc(db, 'posts', 'morning-meditation');
-          const morningSnap = await getDoc(morningPostRef);
-          if (morningSnap.exists() && morningSnap.data().videoUrl) {
-            await updateDoc(morningPostRef, { videoUrl: deleteField() });
-          }
-        } catch (e) {
-          // ignore
-        }
       }
     } catch (postErr) {
       console.warn("Could not check/seed posts collection:", postErr);
@@ -316,13 +323,13 @@ export function subscribeToPosts(callback: (posts: Post[]) => void) {
     const posts: Post[] = [];
     snapshot.forEach((docSnap) => {
       const data = docSnap.data();
-      let videoUrl = data.videoUrl;
-      if (docSnap.id === 'morning-meditation' || data.authorName === 'Hariprasad K.' || data.authorId === 'system_hariprasad') {
-        videoUrl = undefined;
+      if (isRemovedNonRealPost({ id: docSnap.id, authorName: data.authorName, authorId: data.authorId })) {
+        deleteDoc(docSnap.ref).catch(() => {});
+        return;
       }
       posts.push({
         ...data,
-        videoUrl,
+        videoUrl: data.videoUrl,
         id: docSnap.id,
         createdAt: data.createdAt ? data.createdAt.toDate() : new Date()
       } as Post);
@@ -384,13 +391,12 @@ export async function getPost(postId: string): Promise<Post | null> {
     const snap = await getDoc(postRef);
     if (snap.exists()) {
       const data = snap.data();
-      let videoUrl = data.videoUrl;
-      if (snap.id === 'morning-meditation' || data.authorName === 'Hariprasad K.' || data.authorId === 'system_hariprasad') {
-        videoUrl = undefined;
+      if (isRemovedNonRealPost({ id: snap.id, authorName: data.authorName, authorId: data.authorId })) {
+        return null;
       }
       return {
         ...data,
-        videoUrl,
+        videoUrl: data.videoUrl,
         id: snap.id,
         createdAt: data.createdAt ? data.createdAt.toDate() : new Date()
       } as Post;
@@ -899,6 +905,15 @@ export function subscribeToAllUsers(callback: (users: UserProfile[]) => void) {
     const users: UserProfile[] = [];
     snapshot.forEach((docSnap) => {
       const data = docSnap.data() as UserProfile;
+      if (
+        data.displayName &&
+        REMOVED_NON_REAL_AUTHORS.includes(data.displayName)
+      ) {
+        return;
+      }
+      if (docSnap.id && REMOVED_NON_REAL_AUTHOR_IDS.includes(docSnap.id)) {
+        return;
+      }
       if (!data.isDeleted && data.status !== 'deleted') {
         users.push({
           ...data,
