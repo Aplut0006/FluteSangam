@@ -166,10 +166,10 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [activeRagaFilter, setActiveRagaFilter] = useState<string | null>(null);
-  const [visiblePostsCount, setVisiblePostsCount] = useState<number>(6);
+  const [visiblePostsCount, setVisiblePostsCount] = useState<number>(10);
 
   useEffect(() => {
-    setVisiblePostsCount(6);
+    setVisiblePostsCount(10);
   }, [searchQuery, activeCategory, activeRagaFilter]);
   
   // Active Tab for mobile (Feed vs Raga Sadhana vs Quick Tips vs Chats)
@@ -1558,7 +1558,7 @@ export default function App() {
                         {filteredPosts.length > visiblePostsCount && (
                           <div className="flex flex-col items-center justify-center pt-4 pb-2 text-center" id="load-more-posts-container">
                             <button
-                              onClick={() => setVisiblePostsCount(prev => prev + 6)}
+                              onClick={() => setVisiblePostsCount(prev => prev + 10)}
                               className="px-6 py-2.5 bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer group"
                               id="load-more-posts-btn"
                             >
