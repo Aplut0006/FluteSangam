@@ -273,8 +273,8 @@ export default function App() {
         description = 'Guide to choosing your first Indian bamboo flute: C Medium vs G Natural Base, key selection for beginners, finger stretch, and bamboo quality.';
         break;
       case 'learn_fingering_chart':
-        title = 'Bansuri Fingering Chart & Scale Helper | FluteSangam';
-        description = 'Interactive fingering chart for Indian bamboo flute (Bansuri). View hole coverage for Mandra, Madhya, and Tara Saptak swaras.';
+        title = 'Bansuri Fingering Chart: Sa Re Ga Ma for 6-Hole Flute';
+        description = 'Learn Sa Re Ga Ma finger positions with our interactive 6-hole bansuri fingering chart, including shuddh, komal and tivra swars across octaves.';
         break;
       case 'learn_tuner':
         title = 'Online Bansuri Pitch Tuner | FluteSangam';

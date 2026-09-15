@@ -498,8 +498,8 @@ export function getRouteMetadata(path: string): RouteMetadata {
   }
 
   if (cleanPath === '/learn/fingering-chart') {
-    const title = 'Bansuri Fingering Chart & Scale Helper | FluteSangam';
-    const description = 'Interactive fingering chart for Indian bamboo flute (Bansuri). View hole coverage for Mandra, Madhya, and Tara Saptak swaras.';
+    const title = 'Bansuri Fingering Chart: Sa Re Ga Ma for 6-Hole Flute';
+    const description = 'Learn Sa Re Ga Ma finger positions with our interactive 6-hole bansuri fingering chart, including shuddh, komal and tivra swars across octaves.';
     const canonicalUrl = `${DOMAIN}/learn/fingering-chart`;
     return {
       title,
