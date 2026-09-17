@@ -537,8 +537,8 @@ export function getRouteMetadata(path: string): RouteMetadata {
   }
 
   if (cleanPath === '/learn/daily-practice-guide') {
-    const title = 'Swar Sadhana & Daily Flute Practice Routine | FluteSangam';
-    const description = 'Step-by-step 30-minute daily Swar Sadhana routine for bansuri players: long note holding, tone purity, dynamic control, and pitch accuracy.';
+    const title = 'Daily Flute Practice Routine: Step-by-Step Bansuri Riyaz Guide';
+    const description = 'Follow a structured daily flute and bansuri practice routine for breath control, long notes, tone, fingering, alankars, rhythm and musical expression.';
     const canonicalUrl = `${DOMAIN}/learn/daily-practice-guide`;
     return {
       title,

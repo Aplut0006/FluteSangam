@@ -485,7 +485,7 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
           <div className="flex flex-wrap items-center gap-4 text-xs text-amber-200/90 pt-2 border-t border-amber-800/60">
             <div className="flex items-center gap-1.5">
               <Calendar className="w-3.5 h-3.5 text-amber-400" />
-              <span>Last Updated: August 2026</span>
+              <span>Last Updated: September 17, 2026</span>
             </div>
             <div className="flex items-center gap-1.5">
               <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />

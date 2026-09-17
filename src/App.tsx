@@ -296,8 +296,8 @@ export default function App() {
         }
         break;
       case 'learn_daily_practice':
-        title = 'Swar Sadhana & Daily Flute Practice Routine | FluteSangam';
-        description = 'Step-by-step 30-minute daily Swar Sadhana routine for bansuri players: long note holding, tone purity, dynamic control, and pitch accuracy.';
+        title = 'Daily Flute Practice Routine: Step-by-Step Bansuri Riyaz Guide';
+        description = 'Follow a structured daily flute and bansuri practice routine for breath control, long notes, tone, fingering, alankars, rhythm and musical expression.';
         break;
       case 'learn_scales_octaves':
         title = 'Bansuri Scales & Octaves Explained | FluteSangam';

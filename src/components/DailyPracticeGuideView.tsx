@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { 
-  BookOpen, Wind, Clock, Calendar, CheckCircle2, Play, Pause, 
+  BookOpen, Wind, Clock, Calendar, CheckCircle2, 
   Volume2, Copy, Check, Sparkles, Flame, ShieldAlert, Lightbulb, 
   Target, Repeat, Headphones, Heart, ArrowRight, Share2, Compass,
   Activity, Sliders, Radio, AlertCircle, Award
@@ -17,27 +17,6 @@ interface DailyPracticeGuideViewProps {
 export default function DailyPracticeGuideView({ onViewChange }: DailyPracticeGuideViewProps) {
   const [copiedSection, setCopiedSection] = useState<string | null>(null);
   const [activeStep, setActiveStep] = useState<number | null>(null);
-  const [isTimerRunning, setIsTimerRunning] = useState<boolean>(false);
-  const [timerSeconds, setTimerSeconds] = useState<number>(45 * 60);
-
-  // Timer Effect
-  useEffect(() => {
-    let interval: any = null;
-    if (isTimerRunning && timerSeconds > 0) {
-      interval = setInterval(() => {
-        setTimerSeconds(prev => prev - 1);
-      }, 1000);
-    } else if (timerSeconds === 0) {
-      setIsTimerRunning(false);
-    }
-    return () => clearInterval(interval);
-  }, [isTimerRunning, timerSeconds]);
-
-  const formatTimer = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-  };
 
   const copyToClipboard = (text: string, sectionName: string) => {
     navigator.clipboard.writeText(text);
@@ -52,7 +31,7 @@ export default function DailyPracticeGuideView({ onViewChange }: DailyPracticeGu
     'headline': 'Daily Flute Practice Guide – A Complete Routine for Steady Progress',
     'description': 'Master your daily bansuri flute practice routine. Step-by-step guide to improve tone, breath control, finger coordination, rhythm, scales, and musicality.',
     'datePublished': '2026-08-02T00:00:00Z',
-    'dateModified': '2026-08-02T00:00:00Z',
+    'dateModified': '2026-09-17T00:00:00Z',
     'author': {
       '@type': 'Person',
       'name': 'Aplut',
@@ -125,8 +104,8 @@ export default function DailyPracticeGuideView({ onViewChange }: DailyPracticeGu
             <span className="text-white font-bold">Daily Practice Guide</span>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-bamboo-800/80 pb-6">
-            <div className="space-y-3">
+          <div className="border-b border-bamboo-800/80 pb-6">
+            <div className="space-y-3 max-w-3xl">
               <div className="inline-flex items-center gap-2 bg-amber-500/20 text-amber-300 px-3 py-1 rounded-full text-xs font-semibold border border-amber-400/30">
                 <Sparkles className="w-3.5 h-3.5 text-amber-400" />
                 <span>Complete Practice Routine</span>
@@ -134,40 +113,9 @@ export default function DailyPracticeGuideView({ onViewChange }: DailyPracticeGu
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black font-display tracking-tight text-white leading-tight">
                 Daily Flute Practice Guide – A Complete Routine for Steady Progress
               </h1>
-              <p className="text-sm sm:text-base text-bamboo-100 max-w-2xl leading-relaxed font-sans">
-                Learning the flute is not about practicing for the longest number of hours. It is about practicing with attention, consistency, and purpose. Even 30–60 minutes of focused daily practice will produce better results than several hours of unfocused playing.
+              <p className="text-sm sm:text-base text-bamboo-100 leading-relaxed font-sans">
+                Consistent, focused practice is more valuable than practising for many unfocused hours. Choose a 30-minute, 60-minute or complete 95–115-minute routine according to your available time. Beginners can start with 30 minutes, while intermediate players can gradually follow the longer plan.
               </p>
-            </div>
-
-            {/* Quick Practice Timer Card */}
-            <div className="bg-bamboo-900/90 border border-bamboo-700/80 rounded-2xl p-4 sm:p-5 flex flex-col items-center justify-center shrink-0 min-w-[210px] shadow-inner">
-              <div className="text-xs text-bamboo-200 font-medium mb-1 flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-amber-400" />
-                <span>Session Companion Timer</span>
-              </div>
-              <div className="text-2xl sm:text-3xl font-mono font-bold text-amber-300 my-1">
-                {formatTimer(timerSeconds)}
-              </div>
-              <div className="flex gap-2 mt-2 w-full">
-                <button
-                  onClick={() => setIsTimerRunning(!isTimerRunning)}
-                  className={`flex-1 py-1.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1 cursor-pointer ${
-                    isTimerRunning ? 'bg-amber-500 text-bamboo-950 hover:bg-amber-400' : 'bg-emerald-600 text-white hover:bg-emerald-500'
-                  }`}
-                >
-                  {isTimerRunning ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
-                  <span>{isTimerRunning ? 'Pause' : 'Start Timer'}</span>
-                </button>
-                <button
-                  onClick={() => {
-                    setIsTimerRunning(false);
-                    setTimerSeconds(45 * 60);
-                  }}
-                  className="py-1.5 px-3 bg-bamboo-800 hover:bg-bamboo-700 text-bamboo-200 rounded-xl text-xs font-medium transition cursor-pointer"
-                >
-                  Reset
-                </button>
-              </div>
             </div>
           </div>
 
@@ -203,7 +151,7 @@ export default function DailyPracticeGuideView({ onViewChange }: DailyPracticeGu
               </span>
               <span className="flex items-center gap-1.5 bg-bamboo-900/60 px-3 py-1 rounded-lg border border-bamboo-800">
                 <Clock className="w-3.5 h-3.5 text-amber-400" />
-                <span>Updated: Aug 2, 2026</span>
+                <span>Updated: Sep 17, 2026</span>
               </span>
               <span className="flex items-center gap-1.5 bg-bamboo-900/60 px-3 py-1 rounded-lg border border-bamboo-800">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
@@ -262,13 +210,71 @@ export default function DailyPracticeGuideView({ onViewChange }: DailyPracticeGu
         </div>
       </section>
 
+      {/* Choose Your Daily Practice Duration & Duration Options */}
+      <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-bamboo-100 space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-gray-100 pb-4">
+          <div>
+            <h2 className="text-2xl font-bold font-display text-bamboo-950 flex items-center gap-2">
+              <Clock className="w-6 h-6 text-bamboo-700" />
+              <span>Choose Your Daily Practice Duration</span>
+            </h2>
+            <p className="text-xs sm:text-sm text-gray-600 mt-1">
+              Select a focused duration matching your daily schedule for consistent progress.
+            </p>
+          </div>
+        </div>
+
+        <div className="overflow-x-auto rounded-2xl border border-bamboo-100">
+          <table className="w-full text-left border-collapse">
+            <thead>
+              <tr className="bg-bamboo-900 text-white text-xs font-bold uppercase tracking-wider">
+                <th className="p-3.5 sm:p-4 w-40">Practice duration</th>
+                <th className="p-3.5 sm:p-4">Recommended activities</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-bamboo-100 text-xs sm:text-sm text-gray-800">
+              <tr className="bg-white hover:bg-amber-50/30 transition">
+                <td className="p-3.5 sm:p-4 font-bold text-bamboo-950 align-top">
+                  <span className="inline-block bg-amber-100 text-amber-900 px-2.5 py-1 rounded-lg text-xs font-black">
+                    30 minutes
+                  </span>
+                </td>
+                <td className="p-3.5 sm:p-4 text-gray-700 leading-relaxed">
+                  Breathing 3 min, long notes 7 min, fingering/scales 8 min, rhythm 5 min, melody 7 min
+                </td>
+              </tr>
+              <tr className="bg-bamboo-50/40 hover:bg-amber-50/30 transition">
+                <td className="p-3.5 sm:p-4 font-bold text-bamboo-950 align-top">
+                  <span className="inline-block bg-bamboo-200 text-bamboo-950 px-2.5 py-1 rounded-lg text-xs font-black">
+                    60 minutes
+                  </span>
+                </td>
+                <td className="p-3.5 sm:p-4 text-gray-700 leading-relaxed">
+                  Breathing 5 min, long notes 10 min, tone 5 min, fingering 10 min, scales 10 min, rhythm 5 min, ornamentation 5 min, melody 10 min
+                </td>
+              </tr>
+              <tr className="bg-white hover:bg-amber-50/30 transition">
+                <td className="p-3.5 sm:p-4 font-bold text-bamboo-950 align-top">
+                  <span className="inline-block bg-amber-500 text-bamboo-950 px-2.5 py-1 rounded-lg text-xs font-black">
+                    95–115 minutes
+                  </span>
+                </td>
+                <td className="p-3.5 sm:p-4 text-gray-700 leading-relaxed font-semibold text-bamboo-900">
+                  Follow the complete ten-step routine shown below
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       {/* 10-Step Detailed Practice Routine */}
       <section className="space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-gray-200 pb-4">
           <div>
             <h2 className="text-2xl sm:text-3xl font-black font-display text-bamboo-950 flex items-center gap-2">
               <ListNumberedIcon className="w-7 h-7 text-amber-600" />
-              <span>Step-by-Step Practice Routine</span>
+              <span>Complete 95–115 Minute Bansuri Practice Routine</span>
             </h2>
             <p className="text-xs sm:text-sm text-gray-600 mt-1">
               Follow these 10 structured steps in sequence during your daily practice sessions.
@@ -744,7 +750,7 @@ export default function DailyPracticeGuideView({ onViewChange }: DailyPracticeGu
             <span className="text-base sm:text-lg font-bold text-amber-300">Approximately 95–115 minutes</span>
           </div>
           <p className="text-xs text-bamboo-200/90 max-w-md text-center sm:text-right">
-            If you have less time (e.g., 30–45 mins), shorten each section proportionately while keeping the exact same sequence.
+            If you have limited time, do not rush through all ten steps. Select the focused 30-minute or 60-minute routine below and perform each exercise carefully.
           </p>
         </div>
       </section>

@@ -143,10 +143,10 @@ export const FAQ_CATEGORY_METADATA: Record<string, FaqCategoryMeta> = {
   'tuning-and-pitch': {
     slug: 'tuning-and-pitch',
     categoryName: 'Flute Tuning & Pitch',
-    h1: 'Flute Tuning and Pitch Questions',
+    h1: 'Flute and Bansuri Tuning & Pitch Questions',
     badge: 'Tuning & Pitch',
-    metaTitle: 'Flute Tuning & Pitch Calibration FAQ | A=440Hz & Tuner Tools | FluteSangam',
-    metaDescription: 'Frequently asked questions about flute tuning, pitch accuracy, A=440Hz standard, cents in music, breath pressure pitch shifts, and chromatic tuners.',
+    metaTitle: 'Flute & Bansuri Tuning FAQ: Pitch Problems and Answers',
+    metaDescription: 'Find answers to common flute and bansuri tuning questions, including sharp or flat notes, A=440 Hz, tuner use, breath pressure and pitch accuracy.',
     intro: 'Achieving accurate pitch on an Indian bamboo flute involves both instrument acoustics and player embouchure control. Unlike Western keyed flutes with fixed mechanical pitch, a bansuri\'s pitch naturally fluctuates with breath velocity, blowing angle, lip coverage, and ambient room temperature. This category answers critical questions on flute calibration: understanding the A=440Hz concert tuning standard, measuring pitch deviation in cents with chromatic tuner tools, adjusting your breath pressure to play in tune with a Tanpura drone, and distinguishing between Equal Temperament and Just Intonation intervals. These insights help you develop a refined musical ear and dependable intonation.',
     relatedSlugs: ['music-theory', 'choosing-the-right-flute', 'flute-care-and-maintenance', 'flute-types']
   },
