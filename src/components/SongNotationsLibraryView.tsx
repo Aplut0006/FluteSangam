@@ -27,18 +27,32 @@ export const SongNotationsLibraryView: React.FC<SongNotationsLibraryViewProps> =
   onNavigateToSong
 }) => {
   const [searchQuery, setSearchQuery] = React.useState('');
+  const [selectedCategory, setSelectedCategory] = React.useState<'All' | 'English' | 'Hindi/Bollywood'>('All');
+
+  const counts = React.useMemo(() => {
+    return {
+      all: PUBLISHED_SONG_NOTATIONS.length,
+      english: PUBLISHED_SONG_NOTATIONS.filter(item => item.category === 'English').length,
+      hindi: PUBLISHED_SONG_NOTATIONS.filter(item => item.category === 'Hindi/Bollywood').length
+    };
+  }, []);
 
   const filteredNotations = React.useMemo(() => {
+    let list = PUBLISHED_SONG_NOTATIONS;
+    if (selectedCategory !== 'All') {
+      list = list.filter(item => item.category === selectedCategory);
+    }
     const q = searchQuery.trim().toLowerCase();
-    if (!q) return PUBLISHED_SONG_NOTATIONS;
-    return PUBLISHED_SONG_NOTATIONS.filter(item => 
+    if (!q) return list;
+    return list.filter(item => 
       item.title.toLowerCase().includes(q) ||
       item.type.toLowerCase().includes(q) ||
+      item.category.toLowerCase().includes(q) ||
       item.difficulty.toLowerCase().includes(q) ||
       item.description.toLowerCase().includes(q) ||
       item.suggestedFlute.toLowerCase().includes(q)
     );
-  }, [searchQuery]);
+  }, [searchQuery, selectedCategory]);
 
   const handleSongClick = (e: React.MouseEvent, slug: string) => {
     if (e.ctrlKey || e.metaKey) return;
@@ -90,14 +104,15 @@ export const SongNotationsLibraryView: React.FC<SongNotationsLibraryViewProps> =
           </p>
         </header>
 
-        {/* 3. Search Bar */}
-        <section aria-label="Search song notations" className="bg-white rounded-2xl p-3 sm:p-4 border border-amber-200/80 shadow-xs">
+        {/* 3. Search Bar & Category Filter */}
+        <section aria-label="Filter and search song notations" className="bg-white rounded-2xl p-4 sm:p-5 border border-amber-200/80 shadow-xs space-y-4">
+          {/* Search Input */}
           <div className="relative flex items-center">
             <Search className="w-5 h-5 text-amber-600 absolute left-3.5 pointer-events-none" />
             <input
               type="search"
               aria-label="Search by song, singer or category"
-              placeholder="Search by song, singer or category"
+              placeholder="Search by song, title, singer or scale..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-11 pr-4 py-3 bg-amber-50/40 rounded-xl border border-amber-200/70 text-sm text-bamboo-950 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500 transition"
@@ -105,11 +120,65 @@ export const SongNotationsLibraryView: React.FC<SongNotationsLibraryViewProps> =
             {searchQuery && (
               <button 
                 onClick={() => setSearchQuery('')}
-                className="absolute right-3 text-xs font-bold text-gray-500 hover:text-amber-800 px-2 py-1 bg-amber-100 rounded-md"
+                className="absolute right-3 text-xs font-bold text-gray-500 hover:text-amber-800 px-2 py-1 bg-amber-100 rounded-md transition"
               >
                 Clear
               </button>
             )}
+          </div>
+
+          {/* Category Filter Tabs */}
+          <div className="flex flex-wrap items-center gap-2 pt-1 border-t border-amber-100/80">
+            <span className="text-xs font-bold text-bamboo-900 mr-1 flex items-center gap-1.5">
+              Category:
+            </span>
+            <button
+              onClick={() => setSelectedCategory('All')}
+              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition flex items-center gap-1.5 ${
+                selectedCategory === 'All'
+                  ? 'bg-amber-600 text-white shadow-xs'
+                  : 'bg-amber-50 text-bamboo-900 hover:bg-amber-100 border border-amber-200/60'
+              }`}
+            >
+              <span>All</span>
+              <span className={`text-[11px] px-1.5 py-0.2 rounded-full ${
+                selectedCategory === 'All' ? 'bg-amber-700 text-amber-100' : 'bg-white text-gray-600'
+              }`}>
+                {counts.all}
+              </span>
+            </button>
+
+            <button
+              onClick={() => setSelectedCategory('English')}
+              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition flex items-center gap-1.5 ${
+                selectedCategory === 'English'
+                  ? 'bg-amber-600 text-white shadow-xs'
+                  : 'bg-amber-50 text-bamboo-900 hover:bg-amber-100 border border-amber-200/60'
+              }`}
+            >
+              <span>English</span>
+              <span className={`text-[11px] px-1.5 py-0.2 rounded-full ${
+                selectedCategory === 'English' ? 'bg-amber-700 text-amber-100' : 'bg-white text-gray-600'
+              }`}>
+                {counts.english}
+              </span>
+            </button>
+
+            <button
+              onClick={() => setSelectedCategory('Hindi/Bollywood')}
+              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition flex items-center gap-1.5 ${
+                selectedCategory === 'Hindi/Bollywood'
+                  ? 'bg-amber-600 text-white shadow-xs'
+                  : 'bg-amber-50 text-bamboo-900 hover:bg-amber-100 border border-amber-200/60'
+              }`}
+            >
+              <span>Hindi / Bollywood</span>
+              <span className={`text-[11px] px-1.5 py-0.2 rounded-full ${
+                selectedCategory === 'Hindi/Bollywood' ? 'bg-amber-700 text-amber-100' : 'bg-white text-gray-600'
+              }`}>
+                {counts.hindi}
+              </span>
+            </button>
           </div>
         </section>
 
@@ -118,7 +187,7 @@ export const SongNotationsLibraryView: React.FC<SongNotationsLibraryViewProps> =
           <div className="flex items-center justify-between">
             <h2 className="text-lg font-bold font-display text-bamboo-950 flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-amber-600" />
-              Published Song Lessons
+              Published Song Lessons {selectedCategory !== 'All' && <span className="text-amber-700 font-normal">({selectedCategory})</span>}
             </h2>
             <span className="text-xs font-semibold text-gray-500 bg-white px-2.5 py-1 rounded-full border border-amber-100">
               {filteredNotations.length} {filteredNotations.length === 1 ? 'Notation' : 'Notations'}
@@ -129,13 +198,16 @@ export const SongNotationsLibraryView: React.FC<SongNotationsLibraryViewProps> =
             <div className="bg-white rounded-2xl p-8 sm:p-12 text-center space-y-3 border border-amber-200/80 shadow-xs">
               <Disc className="w-10 h-10 text-amber-500 mx-auto animate-spin-slow" />
               <p className="text-sm font-bold text-bamboo-950">
-                No matching notation is available yet. More FluteSangam song lessons will be added gradually.
+                No matching notation found in this category. More FluteSangam song lessons will be added gradually.
               </p>
               <button
-                onClick={() => setSearchQuery('')}
+                onClick={() => {
+                  setSearchQuery('');
+                  setSelectedCategory('All');
+                }}
                 className="text-xs font-bold text-amber-700 hover:text-amber-900 underline"
               >
-                Reset Search
+                Reset Filters
               </button>
             </div>
           ) : (
@@ -146,9 +218,18 @@ export const SongNotationsLibraryView: React.FC<SongNotationsLibraryViewProps> =
                   className="bg-white rounded-3xl p-6 sm:p-8 border border-amber-200 shadow-sm hover:shadow-md transition-all space-y-5"
                 >
                   <div className="flex flex-wrap items-center justify-between gap-2.5">
-                    <span className="text-xs font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
-                      Level: {song.difficulty}
-                    </span>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className={`text-xs font-bold px-3 py-1 rounded-full border ${
+                        song.category === 'Hindi/Bollywood' 
+                          ? 'bg-rose-50 border-rose-200 text-rose-800' 
+                          : 'bg-blue-50 border-blue-200 text-blue-800'
+                      }`}>
+                        {song.category}
+                      </span>
+                      <span className="text-xs font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
+                        Level: {song.difficulty}
+                      </span>
+                    </div>
                     <div className="flex items-center gap-1.5 text-xs text-gray-500 font-medium">
                       <Calendar className="w-3.5 h-3.5 text-amber-600" />
                       <span>Updated: Sep 19, 2026</span>

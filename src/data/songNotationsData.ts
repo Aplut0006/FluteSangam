@@ -17,6 +17,7 @@ export interface SongNotationItem {
   id: string;
   slug: string;
   title: string;
+  category: 'English' | 'Hindi/Bollywood';
   type: string;
   difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
   suggestedFlute: string;
@@ -58,6 +59,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
     id: 'jingle-bells-flute-notes',
     slug: 'jingle-bells-flute-notes',
     title: 'Jingle Bells Flute Notes',
+    category: 'English',
     type: 'Holiday & Celebration Melody',
     difficulty: 'Beginner',
     suggestedFlute: 'Any correctly tuned bansuri; C Medium is recommended for beginners',
@@ -255,6 +257,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
     id: 'happy-birthday-flute-notes',
     slug: 'happy-birthday-flute-notes',
     title: 'Happy Birthday Flute Notes',
+    category: 'English',
     type: 'Traditional Celebration Melody',
     difficulty: 'Beginner',
     suggestedFlute: 'Any correctly tuned bansuri; C Medium is convenient for beginners',
@@ -399,6 +402,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
     id: 'my-heart-will-go-on-flute-notes',
     slug: 'my-heart-will-go-on-flute-notes',
     title: 'Titanic Flute Notes – My Heart Will Go On',
+    category: 'English',
     type: 'Iconic Movie Theme & Ballad',
     difficulty: 'Beginner',
     suggestedFlute: 'Any correctly tuned bansuri (C Medium or E Bass are popular)',
@@ -670,6 +674,234 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       'Playing the G-MG ornament too abruptly instead of a smooth vocal-like glide',
       'Losing steady breath support during long sustained notes like held Pa (P) or Dha (D)',
       'Disconnecting the opening tune from the verse instead of maintaining a consistent tempo'
+    ],
+    usefulTools: [
+      { name: 'Interactive Bansuri Fingering Chart', url: '/learn/fingering-chart', viewKey: 'learn_fingering_chart' },
+      { name: 'Online Flute Tuner', url: '/tuner', viewKey: 'learn_tuner' },
+      { name: 'Flute Note and Key Converter', url: '/tools/flute-note-key-converter', viewKey: 'note_key_converter' },
+      { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' },
+      { name: 'How to Find the Scale of a Song on Flute', url: '/learn/how-to-find-scale-of-a-song-on-flute', viewKey: 'find_song_scale' },
+      { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
+    ]
+  },
+  {
+    id: 'tum-hi-ho-flute-notes',
+    slug: 'tum-hi-ho-flute-notes',
+    title: 'Tum Hi Ho Flute Notes – Easy Sargam for Bansuri',
+    category: 'Hindi/Bollywood',
+    type: 'Bollywood Romantic Melody',
+    difficulty: 'Beginner',
+    suggestedFlute: 'Any correctly tuned bansuri (C Medium, E Bass or G Bass recommended)',
+    startingSwar: 'Ga (G)',
+    highestSwar: 'Middle Dha (D)',
+    mainChallenge: 'Delicate G-MG ornament, lower octave (.P, .D, .N) transitions, and expressive emotional meends',
+    practiceSpeed: 'Slow, romantic and soulful',
+    notationFormats: 'Song Notation (Sargam & Western) with Lyrics',
+    description: 'Learn the main melody of Tum Hi Ho on flute or bansuri with easy Sargam notation, octave and breath guidance, phrase breakdowns and beginner playing tips.',
+    status: 'Song Notation',
+    publishedDate: '2026-09-19',
+    updatedDate: '2026-09-19',
+    canonicalUrl: 'https://flutesangam.com/notations/tum-hi-ho-flute-notes',
+    h1: 'Tum Hi Ho Flute Notes – Easy Sargam for Bansuri',
+    metaTitle: 'Tum Hi Ho Flute Notes: Easy Sargam for Bansuri',
+    metaDescription: 'Learn the main melody of Tum Hi Ho on flute or bansuri with easy Sargam notation, octave and breath guidance, phrase breakdowns and beginner playing tips.',
+    intro: 'Tum Hi Ho, the iconic love anthem from Aashiqui 2 composed by Mithoon and sung by Arijit Singh, is one of the most soul-stirring melodies to play on bansuri and flute. This easy beginner arrangement presents the complete mukhda and verse with lyric-aligned Sargam and Western notes, lower octave markings (.P, .D, .N), delicate ornament tips (G-MG), and phrase-by-phrase practice guidance.',
+    quickInfo: {
+      difficulty: 'Beginner',
+      melodyType: 'Bollywood Romantic Melody',
+      suggestedFlute: 'C Medium or any comfortable flute key',
+      startingSwar: 'Ga (G)',
+      highestSwar: 'Middle Dha (D)',
+      mainChallenge: 'Subtle G-MG touch/meend and smooth lower-octave (.P, .D, .N) shifts',
+      practiceSpeed: 'Slow, romantic and soulful'
+    },
+    legend: [
+      { symbol: '.P .D .N', meaning: 'lower octave note (Mandra Saptak)' },
+      { symbol: 'S R G M P D N', meaning: 'middle octave note (Madhya Saptak)' },
+      { symbol: '—', meaning: 'hold / sustain the preceding note' },
+      { symbol: 'G-MG', meaning: 'ornament / quick touch of Ma between Ga notes' },
+      { symbol: '|', meaning: 'phrase division' },
+      { symbol: '/', meaning: 'breathe' }
+    ],
+    phrases: [
+      {
+        phraseNumber: 1,
+        lyric: 'Hum Tere Bin Ab Reh Nehi Sakte',
+        sargamNotes: 'G- DP | PM MG | RS RM | GGG',
+        westernNotes: 'E- AG | GF FE | DC DF | EEE',
+        units: [
+          { lyric: 'Hum', sargam: 'G-', western: 'E-' },
+          { lyric: 'Tere', sargam: 'DP', western: 'AG' },
+          { lyric: 'Bin', sargam: 'PM', western: 'GF' },
+          { lyric: 'Ab', sargam: 'MG', western: 'FE' },
+          { lyric: 'Reh', sargam: 'RS', western: 'DC' },
+          { lyric: 'Nehi', sargam: 'RM', western: 'DF' },
+          { lyric: 'Sakte', sargam: 'GGG', western: 'EEE' }
+        ],
+        guidance: 'Start on a sustained Ga (G-), slide smoothly through DP, PM, MG, RS, lift lightly through RM and land gently on triple Ga (GGG).'
+      },
+      {
+        phraseNumber: 2,
+        lyric: 'Tere Bina Kya Wajood Mera,',
+        sargamNotes: 'RR SR R | S .NS.N | .D.P.D',
+        westernNotes: 'DD CD D | C .BC.B | .A.G.A',
+        units: [
+          { lyric: 'Tere', sargam: 'RR', western: 'DD' },
+          { lyric: 'Bina', sargam: 'SR', western: 'CD' },
+          { lyric: 'Kya', sargam: 'R', western: 'D' },
+          { lyric: 'Wajood', sargam: 'S .NS.N', western: 'C .BC.B' },
+          { lyric: 'Mera,', sargam: '.D.P.D', western: '.A.G.A' }
+        ],
+        guidance: 'Play steady Re (RR, SR, R), touch middle Sa and lower Ni (.NS.N) softly, and finish with a warm lower-octave descent on .D.P.D.'
+      },
+      {
+        phraseNumber: 3,
+        lyric: 'Tujhse Juda Agar Ho Jaayenge',
+        sargamNotes: 'GGD PP | MMG RS | RM GG',
+        westernNotes: 'EEA GG | FFE DC | DF EE',
+        units: [
+          { lyric: 'Tujhse', sargam: 'GGD', western: 'EEA' },
+          { lyric: 'Juda', sargam: 'PP', western: 'GG' },
+          { lyric: 'Agar', sargam: 'MMG', western: 'FFE' },
+          { lyric: 'Ho', sargam: 'RS', western: 'DC' },
+          { lyric: 'Jaayenge', sargam: 'RM GG', western: 'DF EE' }
+        ],
+        guidance: 'Jump cleanly from Ga to high Dha (GGD), settle on double Pa (PP), glide down MMG to RS, and resolve on RM GG.'
+      },
+      {
+        phraseNumber: 4,
+        lyric: 'Toh Khud Se Hi Ho Jaayenge Juda',
+        sargamNotes: 'S RR R S R | RS .NS.N | .D.P.D',
+        westernNotes: 'C DD D C D | DC .BC.B | .A.G.A',
+        units: [
+          { lyric: 'Toh', sargam: 'S', western: 'C' },
+          { lyric: 'Khud', sargam: 'RR', western: 'DD' },
+          { lyric: 'Se', sargam: 'R', western: 'D' },
+          { lyric: 'Hi', sargam: 'S', western: 'C' },
+          { lyric: 'Ho', sargam: 'R', western: 'D' },
+          { lyric: 'Jaayenge', sargam: 'RS .NS.N', western: 'DC .BC.B' },
+          { lyric: 'Juda', sargam: '.D.P.D', western: '.A.G.A' }
+        ],
+        guidance: 'Maintain steady rhythm across the repeated Re notes, use smooth finger articulation on RS .NS.N, and land softly on lower .D.P.D.'
+      },
+      {
+        phraseNumber: 5,
+        lyric: 'Kyunki Tum Hi Ho',
+        sargamNotes: 'SR G S R',
+        westernNotes: 'CD E C D',
+        units: [
+          { lyric: 'Kyunki', sargam: 'SR', western: 'CD' },
+          { lyric: 'Tum', sargam: 'G', western: 'E' },
+          { lyric: 'Hi', sargam: 'S', western: 'C' },
+          { lyric: 'Ho', sargam: 'R', western: 'D' }
+        ],
+        guidance: 'The iconic chorus hook: step cleanly from SR to Ga (G), drop back to Sa (S), and resolve on Re (R).'
+      },
+      {
+        phraseNumber: 6,
+        lyric: 'Ab Tum Hi Ho',
+        sargamNotes: 'SR G-MG S R--',
+        westernNotes: 'CD E-FE C D--',
+        units: [
+          { lyric: 'Ab', sargam: 'SR', western: 'CD' },
+          { lyric: 'Tum', sargam: 'G-MG', western: 'E-FE' },
+          { lyric: 'Hi', sargam: 'S', western: 'C' },
+          { lyric: 'Ho', sargam: 'R--', western: 'D--' }
+        ],
+        guidance: 'Practise the delicate G-MG touch/meend slowly so the Ma flick sounds effortless and expressive, holding the final Re (R--).'
+      },
+      {
+        phraseNumber: 7,
+        lyric: 'Zindagi Ab Tum Hi Ho O-O-O',
+        sargamNotes: '.N-RS- .N.D | .NS.N .P D | .N S R',
+        westernNotes: '.B-CD- .B.A | .BC.B .G A | .B C D',
+        units: [
+          { lyric: 'Zindagi', sargam: '.N-RS-', western: '.B-CD-' },
+          { lyric: 'Ab', sargam: '.N.D', western: '.B.A' },
+          { lyric: 'Tum', sargam: '.NS.N', western: '.BC.B' },
+          { lyric: 'Hi', sargam: '.P', western: '.G' },
+          { lyric: 'Ho', sargam: 'D', western: 'A' },
+          { lyric: 'O-O-O', sargam: '.N S R', western: '.B C D' }
+        ],
+        guidance: 'Begin on lower Ni (.N), touch RS smoothly, blow gently on lower .P, jump to Dha (D), and step smoothly up through .N S R.'
+      },
+      {
+        phraseNumber: 8,
+        lyric: 'Chain Bhi, Mera Dard Bhi,',
+        sargamNotes: 'G-S G , SR G-MG S R',
+        westernNotes: 'E-C E , CD E-FE C D',
+        units: [
+          { lyric: 'Chain', sargam: 'G-S', western: 'E-C' },
+          { lyric: 'Bhi,', sargam: 'G', western: 'E' },
+          { lyric: 'Mera', sargam: 'SR', western: 'CD' },
+          { lyric: 'Dard', sargam: 'G-MG', western: 'E-FE' },
+          { lyric: 'Bhi,', sargam: 'S R', western: 'C D' }
+        ],
+        guidance: 'Transition gracefully from G-S to Ga, followed by the expressive G-MG ornament on "Dard" before resolving on Sa Re.'
+      },
+      {
+        phraseNumber: 9,
+        lyric: 'Meri Aashiqui Ab Tum Hi Ho',
+        sargamNotes: 'RS .N-RS .N.D | .NS.N .P .D',
+        westernNotes: 'DC .B-CD .B.A | .BC.B .G .A',
+        units: [
+          { lyric: 'Meri', sargam: 'RS', western: 'DC' },
+          { lyric: 'Aashiqui', sargam: '.N-RS', western: '.B-CD' },
+          { lyric: 'Ab', sargam: '.N.D', western: '.B.A' },
+          { lyric: 'Tum', sargam: '.NS.N', western: '.BC.B' },
+          { lyric: 'Hi', sargam: '.P', western: '.G' },
+          { lyric: 'Ho', sargam: '.D', western: '.A' }
+        ],
+        guidance: 'Descend through RS and lower .N-RS .N.D, finishing with a deep, resonant Mandra Pa to Mandra Dha (.P .D) resolution.'
+      }
+    ],
+    sargamPhrases: [
+      { phraseNumber: 1, notes: 'G- DP | PM MG | RS RM | GGG', lyric: 'Hum Tere Bin Ab Reh Nehi Sakte' },
+      { phraseNumber: 2, notes: 'RR SR R | S .NS.N | .D.P.D', lyric: 'Tere Bina Kya Wajood Mera,' },
+      { phraseNumber: 3, notes: 'GGD PP | MMG RS | RM GG', lyric: 'Tujhse Juda Agar Ho Jaayenge' },
+      { phraseNumber: 4, notes: 'S RR R S R | RS .NS.N | .D.P.D', lyric: 'Toh Khud Se Hi Ho Jaayenge Juda' },
+      { phraseNumber: 5, notes: 'SR G S R', lyric: 'Kyunki Tum Hi Ho' },
+      { phraseNumber: 6, notes: 'SR G-MG S R--', lyric: 'Ab Tum Hi Ho' },
+      { phraseNumber: 7, notes: '.N-RS- .N.D | .NS.N .P D | .N S R', lyric: 'Zindagi Ab Tum Hi Ho O-O-O' },
+      { phraseNumber: 8, notes: 'G-S G , SR G-MG S R', lyric: 'Chain Bhi, Mera Dard Bhi,' },
+      { phraseNumber: 9, notes: 'RS .N-RS .N.D | .NS.N .P .D', lyric: 'Meri Aashiqui Ab Tum Hi Ho' }
+    ],
+    westernPhrases: [
+      { phraseNumber: 1, notes: 'E- AG | GF FE | DC DF | EEE', lyric: 'Hum Tere Bin Ab Reh Nehi Sakte' },
+      { phraseNumber: 2, notes: 'DD CD D | C .BC.B | .A.G.A', lyric: 'Tere Bina Kya Wajood Mera,' },
+      { phraseNumber: 3, notes: 'EEA GG | FFE DC | DF EE', lyric: 'Tujhse Juda Agar Ho Jaayenge' },
+      { phraseNumber: 4, notes: 'C DD D C D | DC .BC.B | .A.G.A', lyric: 'Toh Khud Se Hi Ho Jaayenge Juda' },
+      { phraseNumber: 5, notes: 'CD E C D', lyric: 'Kyunki Tum Hi Ho' },
+      { phraseNumber: 6, notes: 'CD E-FE C D--', lyric: 'Ab Tum Hi Ho' },
+      { phraseNumber: 7, notes: '.B-CD- .B.A | .BC.B .G A | .B C D', lyric: 'Zindagi Ab Tum Hi Ho O-O-O' },
+      { phraseNumber: 8, notes: 'E-C E , CD E-FE C D', lyric: 'Chain Bhi, Mera Dard Bhi,' },
+      { phraseNumber: 9, notes: 'DC .B-CD .B.A | .BC.B .G .A', lyric: 'Meri Aashiqui Ab Tum Hi Ho' }
+    ],
+    phraseGuidance: [
+      { phraseNumber: 1, guidance: 'Start on a sustained Ga (G-), slide smoothly through DP, PM, MG, RS, lift lightly through RM and land gently on triple Ga (GGG).' },
+      { phraseNumber: 2, guidance: 'Play steady Re (RR, SR, R), touch middle Sa and lower Ni (.NS.N) softly, and finish with a warm lower-octave descent on .D.P.D.' },
+      { phraseNumber: 3, guidance: 'Jump cleanly from Ga to high Dha (GGD), settle on double Pa (PP), glide down MMG to RS, and resolve on RM GG.' },
+      { phraseNumber: 4, guidance: 'Maintain steady rhythm across the repeated Re notes, use smooth finger articulation on RS .NS.N, and land softly on lower .D.P.D.' },
+      { phraseNumber: 5, guidance: 'The iconic chorus hook: step cleanly from SR to Ga (G), drop back to Sa (S), and resolve on Re (R).' },
+      { phraseNumber: 6, guidance: 'Practise the delicate G-MG touch/meend slowly so the Ma flick sounds effortless and expressive, holding the final Re (R--).' },
+      { phraseNumber: 7, guidance: 'Begin on lower Ni (.N), touch RS smoothly, blow gently on lower .P, jump to Dha (D), and step smoothly up through .N S R.' },
+      { phraseNumber: 8, guidance: 'Transition gracefully from G-S to Ga, followed by the expressive G-MG ornament on "Dard" before resolving on Sa Re.' },
+      { phraseNumber: 9, guidance: 'Descend through RS and lower .N-RS .N.D, finishing with a deep, resonant Mandra Pa to Mandra Dha (.P .D) resolution.' }
+    ],
+    practiceMethod: [
+      'Sing or hum the song lyrics to internalize the emotional phrasing and pauses before picking up the flute.',
+      'Practise the chorus hook (Phrases 5 and 6) first until "Kyunki Tum Hi Ho" flows naturally.',
+      'Work on the delicate G-MG ornament slowly—flick the Ma finger quickly without rushing the tempo.',
+      'Control your breath during lower octave passages (.P, .D, .N) by using warm, relaxed airflow to prevent accidental overblowing.',
+      'Practise the opening verse (Phrases 1 to 4) at a slow 60 BPM with a metronome or tanpura drone.',
+      'Connect all phrases sequentially, focusing on smooth meends (slides) between notes.'
+    ],
+    commonMistakes: [
+      'Blowing too forcefully on lower octave notes (.P, .D, .N), causing sudden squeaks or harsh tone',
+      'Over-accentuating the G-MG ornament, making it sound disjointed rather than a smooth vocal glide',
+      'Rushing the held notes like G- and R-- instead of sustaining them with steady breath support',
+      'Lifting fingers too far off the tone holes during fast shifts like .NS.N or .D.P.D',
+      'Neglecting the breath marks (/) and running out of air before finishing long phrases'
     ],
     usefulTools: [
       { name: 'Interactive Bansuri Fingering Chart', url: '/learn/fingering-chart', viewKey: 'learn_fingering_chart' },
