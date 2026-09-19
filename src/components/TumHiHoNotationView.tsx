@@ -117,7 +117,7 @@ export const TumHiHoNotationView: React.FC<TumHiHoNotationViewProps> = ({
             {song.intro}
           </p>
           <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-sans">
-            The complete notation is arranged under the <strong>Mukhda</strong> ("Hum Tere Bin..." into "Kyunki Tum Hi Ho..."). Each syllable is matched directly above its note with clear octave markers (<code className="font-mono font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">.P, .D, .N</code> for lower octave / Mandra Saptak), held notes (<code className="font-mono font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">—</code>), and phrase divisions (<code className="font-mono font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">|</code>).
+            The complete notation is arranged under the <strong>Mukhda</strong> ("Hum Tere Bin..." into "Kyunki Tum Hi Ho..."). Each syllable is matched directly above its note with clear octave markers (<code className="font-mono font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">.P, .D, .N</code> for lower octave / Mandra Saptak), held notes (<code className="font-mono font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">—</code>), phrase divisions (<code className="font-mono font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">|</code>), and breath pause indicators (<code className="font-mono font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">/</code>).
           </p>
         </section>
 

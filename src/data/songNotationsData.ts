@@ -720,14 +720,15 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       { symbol: 'S R G M P D N', meaning: 'middle octave note (Madhya Saptak)' },
       { symbol: '—', meaning: 'hold / sustain the preceding note' },
       { symbol: 'G-MG', meaning: 'ornament / quick touch of Ma between Ga notes' },
-      { symbol: '|', meaning: 'phrase division' }
+      { symbol: '|', meaning: 'phrase division' },
+      { symbol: '/', meaning: 'breathe / breath pause' }
     ],
     phrases: [
       {
         phraseNumber: 1,
         lyric: 'Hum Tere Bin Ab Reh Nehi Sakte',
-        sargamNotes: 'G- DP | PM MG | RS RM | GGG',
-        westernNotes: 'E- AG | GF FE | DC DF | EEE',
+        sargamNotes: 'G- DP | PM MG | RS RM | GGG /',
+        westernNotes: 'E- AG | GF FE | DC DF | EEE /',
         units: [
           { lyric: 'Hum', sargam: 'G-', western: 'E-' },
           { lyric: 'Tere', sargam: 'DP', western: 'AG' },
@@ -742,8 +743,8 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       {
         phraseNumber: 2,
         lyric: 'Tere Bina Kya Wajood Mera,',
-        sargamNotes: 'RR SR R | S .NS.N | .D.P.D',
-        westernNotes: 'DD CD D | C .BC.B | .A.G.A',
+        sargamNotes: 'RR SR R | S .NS.N | .D.P.D /',
+        westernNotes: 'DD CD D | C .BC.B | .A.G.A /',
         units: [
           { lyric: 'Tere', sargam: 'RR', western: 'DD' },
           { lyric: 'Bina', sargam: 'SR', western: 'CD' },
@@ -770,8 +771,8 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       {
         phraseNumber: 4,
         lyric: 'Toh Khud Se Hi Ho Jaayenge Juda',
-        sargamNotes: 'S RR R S R | RS .NS.N | .D.P.D',
-        westernNotes: 'C DD D C D | DC .BC.B | .A.G.A',
+        sargamNotes: 'S RR R S R | RS .NS.N | .D.P.D /',
+        westernNotes: 'C DD D C D | DC .BC.B | .A.G.A /',
         units: [
           { lyric: 'Toh', sargam: 'S', western: 'C' },
           { lyric: 'Khud', sargam: 'RR', western: 'DD' },
@@ -786,8 +787,8 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       {
         phraseNumber: 5,
         lyric: 'Kyunki Tum Hi Ho',
-        sargamNotes: 'SR G S R',
-        westernNotes: 'CD E C D',
+        sargamNotes: 'SR G S R /',
+        westernNotes: 'CD E C D /',
         units: [
           { lyric: 'Kyunki', sargam: 'SR', western: 'CD' },
           { lyric: 'Tum', sargam: 'G', western: 'E' },
@@ -799,8 +800,8 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       {
         phraseNumber: 6,
         lyric: 'Ab Tum Hi Ho',
-        sargamNotes: 'SR G-MG S R--',
-        westernNotes: 'CD E-FE C D--',
+        sargamNotes: 'SR G-MG S R-- /',
+        westernNotes: 'CD E-FE C D-- /',
         units: [
           { lyric: 'Ab', sargam: 'SR', western: 'CD' },
           { lyric: 'Tum', sargam: 'G-MG', western: 'E-FE' },
@@ -827,8 +828,8 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       {
         phraseNumber: 8,
         lyric: 'Chain Bhi, Mera Dard Bhi,',
-        sargamNotes: 'G-S G , SR G-MG S R',
-        westernNotes: 'E-C E , CD E-FE C D',
+        sargamNotes: 'G-S G , SR G-MG S R /',
+        westernNotes: 'E-C E , CD E-FE C D /',
         units: [
           { lyric: 'Chain', sargam: 'G-S', western: 'E-C' },
           { lyric: 'Bhi,', sargam: 'G', western: 'E' },
@@ -841,8 +842,8 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       {
         phraseNumber: 9,
         lyric: 'Meri Aashiqui Ab Tum Hi Ho',
-        sargamNotes: 'RS .N-RS .N.D | .NS.N .P .D',
-        westernNotes: 'DC .B-CD .B.A | .BC.B .G .A',
+        sargamNotes: 'RS .N-RS .N.D | .NS.N .P .D /',
+        westernNotes: 'DC .B-CD .B.A | .BC.B .G .A /',
         units: [
           { lyric: 'Meri', sargam: 'RS', western: 'DC' },
           { lyric: 'Aashiqui', sargam: '.N-RS', western: '.B-CD' },
@@ -855,26 +856,26 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       }
     ],
     sargamPhrases: [
-      { phraseNumber: 1, notes: 'G- DP | PM MG | RS RM | GGG', lyric: 'Hum Tere Bin Ab Reh Nehi Sakte' },
-      { phraseNumber: 2, notes: 'RR SR R | S .NS.N | .D.P.D', lyric: 'Tere Bina Kya Wajood Mera,' },
+      { phraseNumber: 1, notes: 'G- DP | PM MG | RS RM | GGG /', lyric: 'Hum Tere Bin Ab Reh Nehi Sakte' },
+      { phraseNumber: 2, notes: 'RR SR R | S .NS.N | .D.P.D /', lyric: 'Tere Bina Kya Wajood Mera,' },
       { phraseNumber: 3, notes: 'GGD PP | MMG RS | RM GG', lyric: 'Tujhse Juda Agar Ho Jaayenge' },
-      { phraseNumber: 4, notes: 'S RR R S R | RS .NS.N | .D.P.D', lyric: 'Toh Khud Se Hi Ho Jaayenge Juda' },
-      { phraseNumber: 5, notes: 'SR G S R', lyric: 'Kyunki Tum Hi Ho' },
-      { phraseNumber: 6, notes: 'SR G-MG S R--', lyric: 'Ab Tum Hi Ho' },
+      { phraseNumber: 4, notes: 'S RR R S R | RS .NS.N | .D.P.D /', lyric: 'Toh Khud Se Hi Ho Jaayenge Juda' },
+      { phraseNumber: 5, notes: 'SR G S R /', lyric: 'Kyunki Tum Hi Ho' },
+      { phraseNumber: 6, notes: 'SR G-MG S R-- /', lyric: 'Ab Tum Hi Ho' },
       { phraseNumber: 7, notes: '.N-RS- .N.D | .NS.N .P D | .N S R', lyric: 'Zindagi Ab Tum Hi Ho O-O-O' },
-      { phraseNumber: 8, notes: 'G-S G , SR G-MG S R', lyric: 'Chain Bhi, Mera Dard Bhi,' },
-      { phraseNumber: 9, notes: 'RS .N-RS .N.D | .NS.N .P .D', lyric: 'Meri Aashiqui Ab Tum Hi Ho' }
+      { phraseNumber: 8, notes: 'G-S G , SR G-MG S R /', lyric: 'Chain Bhi, Mera Dard Bhi,' },
+      { phraseNumber: 9, notes: 'RS .N-RS .N.D | .NS.N .P .D /', lyric: 'Meri Aashiqui Ab Tum Hi Ho' }
     ],
     westernPhrases: [
-      { phraseNumber: 1, notes: 'E- AG | GF FE | DC DF | EEE', lyric: 'Hum Tere Bin Ab Reh Nehi Sakte' },
-      { phraseNumber: 2, notes: 'DD CD D | C .BC.B | .A.G.A', lyric: 'Tere Bina Kya Wajood Mera,' },
+      { phraseNumber: 1, notes: 'E- AG | GF FE | DC DF | EEE /', lyric: 'Hum Tere Bin Ab Reh Nehi Sakte' },
+      { phraseNumber: 2, notes: 'DD CD D | C .BC.B | .A.G.A /', lyric: 'Tere Bina Kya Wajood Mera,' },
       { phraseNumber: 3, notes: 'EEA GG | FFE DC | DF EE', lyric: 'Tujhse Juda Agar Ho Jaayenge' },
-      { phraseNumber: 4, notes: 'C DD D C D | DC .BC.B | .A.G.A', lyric: 'Toh Khud Se Hi Ho Jaayenge Juda' },
-      { phraseNumber: 5, notes: 'CD E C D', lyric: 'Kyunki Tum Hi Ho' },
-      { phraseNumber: 6, notes: 'CD E-FE C D--', lyric: 'Ab Tum Hi Ho' },
+      { phraseNumber: 4, notes: 'C DD D C D | DC .BC.B | .A.G.A /', lyric: 'Toh Khud Se Hi Ho Jaayenge Juda' },
+      { phraseNumber: 5, notes: 'CD E C D /', lyric: 'Kyunki Tum Hi Ho' },
+      { phraseNumber: 6, notes: 'CD E-FE C D-- /', lyric: 'Ab Tum Hi Ho' },
       { phraseNumber: 7, notes: '.B-CD- .B.A | .BC.B .G A | .B C D', lyric: 'Zindagi Ab Tum Hi Ho O-O-O' },
-      { phraseNumber: 8, notes: 'E-C E , CD E-FE C D', lyric: 'Chain Bhi, Mera Dard Bhi,' },
-      { phraseNumber: 9, notes: 'DC .B-CD .B.A | .BC.B .G .A', lyric: 'Meri Aashiqui Ab Tum Hi Ho' }
+      { phraseNumber: 8, notes: 'E-C E , CD E-FE C D /', lyric: 'Chain Bhi, Mera Dard Bhi,' },
+      { phraseNumber: 9, notes: 'DC .B-CD .B.A | .BC.B .G .A /', lyric: 'Meri Aashiqui Ab Tum Hi Ho' }
     ],
     phraseGuidance: [
       { phraseNumber: 1, guidance: 'Start on a sustained Ga (G-), slide smoothly through DP, PM, MG, RS, lift lightly through RM and land gently on triple Ga (GGG).' },
