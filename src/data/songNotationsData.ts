@@ -720,8 +720,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       { symbol: 'S R G M P D N', meaning: 'middle octave note (Madhya Saptak)' },
       { symbol: '—', meaning: 'hold / sustain the preceding note' },
       { symbol: 'G-MG', meaning: 'ornament / quick touch of Ma between Ga notes' },
-      { symbol: '|', meaning: 'phrase division' },
-      { symbol: '/', meaning: 'breathe' }
+      { symbol: '|', meaning: 'phrase division' }
     ],
     phrases: [
       {
@@ -766,7 +765,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
           { lyric: 'Ho', sargam: 'RS', western: 'DC' },
           { lyric: 'Jaayenge', sargam: 'RM GG', western: 'DF EE' }
         ],
-        guidance: 'Jump cleanly from Ga to high Dha (GGD), settle on double Pa (PP), glide down MMG to RS, and resolve on RM GG.'
+        guidance: 'Jump cleanly from Ga to middle Dha (GGD), settle on double Pa (PP), glide down MMG to RS, and resolve on RM GG.'
       },
       {
         phraseNumber: 4,
@@ -880,7 +879,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
     phraseGuidance: [
       { phraseNumber: 1, guidance: 'Start on a sustained Ga (G-), slide smoothly through DP, PM, MG, RS, lift lightly through RM and land gently on triple Ga (GGG).' },
       { phraseNumber: 2, guidance: 'Play steady Re (RR, SR, R), touch middle Sa and lower Ni (.NS.N) softly, and finish with a warm lower-octave descent on .D.P.D.' },
-      { phraseNumber: 3, guidance: 'Jump cleanly from Ga to high Dha (GGD), settle on double Pa (PP), glide down MMG to RS, and resolve on RM GG.' },
+      { phraseNumber: 3, guidance: 'Jump cleanly from Ga to middle Dha (GGD), settle on double Pa (PP), glide down MMG to RS, and resolve on RM GG.' },
       { phraseNumber: 4, guidance: 'Maintain steady rhythm across the repeated Re notes, use smooth finger articulation on RS .NS.N, and land softly on lower .D.P.D.' },
       { phraseNumber: 5, guidance: 'The iconic chorus hook: step cleanly from SR to Ga (G), drop back to Sa (S), and resolve on Re (R).' },
       { phraseNumber: 6, guidance: 'Practise the delicate G-MG touch/meend slowly so the Ma flick sounds effortless and expressive, holding the final Re (R--).' },
@@ -901,7 +900,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       'Over-accentuating the G-MG ornament, making it sound disjointed rather than a smooth vocal glide',
       'Rushing the held notes like G- and R-- instead of sustaining them with steady breath support',
       'Lifting fingers too far off the tone holes during fast shifts like .NS.N or .D.P.D',
-      'Neglecting the breath marks (/) and running out of air before finishing long phrases'
+      'Rushing phrase divisions (|) and running out of air before finishing long musical lines'
     ],
     usefulTools: [
       { name: 'Interactive Bansuri Fingering Chart', url: '/learn/fingering-chart', viewKey: 'learn_fingering_chart' },

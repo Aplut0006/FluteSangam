@@ -120,7 +120,7 @@ export const TumHiHoNotationView: React.FC<TumHiHoNotationViewProps> = ({
             {song.intro}
           </p>
           <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-sans">
-            This notation is split into the <strong>Opening Verse ("Hum Tere Bin...")</strong> and the <strong>Chorus Hook ("Kyunki Tum Hi Ho...")</strong>. Each syllable is matched directly above its note with clear octave markers (<code className="font-mono font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">.P, .D, .N</code> for lower octave / Mandra Saptak), breath breaks (<code className="font-mono font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">/</code>) and held notes (<code className="font-mono font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">—</code>).
+            This notation is split into the <strong>Opening Verse ("Hum Tere Bin...")</strong> and the <strong>Chorus Hook ("Kyunki Tum Hi Ho...")</strong>. Each syllable is matched directly above its note with clear octave markers (<code className="font-mono font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">.P, .D, .N</code> for lower octave / Mandra Saptak), held notes (<code className="font-mono font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">—</code>), and phrase divisions (<code className="font-mono font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">|</code>).
           </p>
         </section>
 
@@ -203,7 +203,7 @@ export const TumHiHoNotationView: React.FC<TumHiHoNotationViewProps> = ({
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-amber-100 pb-3">
             <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950 flex items-center gap-2">
               <Music className="w-5 h-5 text-amber-600" />
-              Part 1: Opening Verse (Antara / Stanza)
+              Part 1: Opening Verse
             </h2>
             <span className="text-xs font-bold text-amber-900 bg-amber-100 px-3 py-1 rounded-full">
               Hum Tere Bin...
@@ -486,7 +486,7 @@ export const TumHiHoNotationView: React.FC<TumHiHoNotationViewProps> = ({
               <span>Educational Notice</span>
             </div>
             <p>
-              This song notation is transcribed and prepared strictly for educational and bansuri practice purposes. FluteSangam does not claim copyright on the original composition created by Mithoon and T-Series.
+              This independently prepared notation is provided for educational and bansuri-practice purposes. FluteSangam does not claim ownership of the original composition or lyrics. “Tum Hi Ho” was composed and written by Mithoon and performed by Arijit Singh. All underlying rights belong to their respective owners.
             </p>
           </div>
 
