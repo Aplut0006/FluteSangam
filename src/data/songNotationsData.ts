@@ -705,7 +705,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
     h1: 'Tum Hi Ho Flute Notes – Easy Sargam for Bansuri',
     metaTitle: 'Tum Hi Ho Flute Notes: Easy Sargam for Bansuri',
     metaDescription: 'Learn the main melody of Tum Hi Ho on flute or bansuri with easy Sargam notation, octave and breath guidance, phrase breakdowns and beginner playing tips.',
-    intro: 'Tum Hi Ho, the iconic love anthem from Aashiqui 2 composed by Mithoon and sung by Arijit Singh, is one of the most soul-stirring melodies to play on bansuri and flute. This easy beginner arrangement presents the complete mukhda and verse with lyric-aligned Sargam and Western notes, lower octave markings (.P, .D, .N), delicate ornament tips (G-MG), and phrase-by-phrase practice guidance.',
+    intro: 'Tum Hi Ho, the iconic love anthem from Aashiqui 2 composed by Mithoon and sung by Arijit Singh, is one of the most soul-stirring melodies to play on bansuri and flute. This easy beginner arrangement presents the complete Mukhda with lyric-aligned Sargam and Western notes, lower octave markings (.P, .D, .N), delicate ornament tips (G-MG), and phrase-by-phrase practice guidance.',
     quickInfo: {
       difficulty: 'Beginner',
       melodyType: 'Bollywood Romantic Melody',

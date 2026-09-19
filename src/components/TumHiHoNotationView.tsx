@@ -36,9 +36,6 @@ export const TumHiHoNotationView: React.FC<TumHiHoNotationViewProps> = ({
     }
   };
 
-  const versePhrases = song.phrases.filter(p => p.phraseNumber <= 4);
-  const chorusPhrases = song.phrases.filter(p => p.phraseNumber > 4);
-
   return (
     <div className="min-h-screen bg-sand-50/50 pb-20 pt-4 sm:pt-6 font-sans antialiased text-slate-800">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 space-y-10">
@@ -120,7 +117,7 @@ export const TumHiHoNotationView: React.FC<TumHiHoNotationViewProps> = ({
             {song.intro}
           </p>
           <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-sans">
-            This notation is split into the <strong>Opening Verse ("Hum Tere Bin...")</strong> and the <strong>Chorus Hook ("Kyunki Tum Hi Ho...")</strong>. Each syllable is matched directly above its note with clear octave markers (<code className="font-mono font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">.P, .D, .N</code> for lower octave / Mandra Saptak), held notes (<code className="font-mono font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">—</code>), and phrase divisions (<code className="font-mono font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">|</code>).
+            The complete notation is arranged under the <strong>Mukhda</strong> ("Hum Tere Bin..." into "Kyunki Tum Hi Ho..."). Each syllable is matched directly above its note with clear octave markers (<code className="font-mono font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">.P, .D, .N</code> for lower octave / Mandra Saptak), held notes (<code className="font-mono font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">—</code>), and phrase divisions (<code className="font-mono font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">|</code>).
           </p>
         </section>
 
@@ -198,24 +195,24 @@ export const TumHiHoNotationView: React.FC<TumHiHoNotationViewProps> = ({
           </div>
         </section>
 
-        {/* 6. Song Notation: Part 1 - Opening Verse */}
-        <section aria-label="Opening Verse Notation" className="bg-white rounded-3xl p-6 sm:p-8 border border-amber-200 shadow-sm space-y-6">
+        {/* 6. Song Notation: Mukhda */}
+        <section aria-label="Mukhda Sargam Notation" className="bg-white rounded-3xl p-6 sm:p-8 border border-amber-200 shadow-sm space-y-6">
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-amber-100 pb-3">
             <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950 flex items-center gap-2">
               <Music className="w-5 h-5 text-amber-600" />
-              Part 1: Opening Verse
+              Tum Hi Ho Flute Sargam Notation (Mukhda)
             </h2>
             <span className="text-xs font-bold text-amber-900 bg-amber-100 px-3 py-1 rounded-full">
-              Hum Tere Bin...
+              Full Mukhda
             </span>
           </div>
 
           <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-sans">
-            Sing along with the words while feeling the breath timing. Each lyric syllable is placed directly on top of its corresponding bansuri swar.
+            Sing along with the words while feeling the rhythm and timing. Each lyric syllable is placed directly on top of its corresponding bansuri swar.
           </p>
 
           <div className="space-y-6">
-            {versePhrases.map((phrase) => (
+            {song.phrases.map((phrase) => (
               <div 
                 key={phrase.phraseNumber}
                 className="bg-amber-50/50 rounded-2xl p-4 sm:p-6 border border-amber-200/90 space-y-4"
@@ -224,63 +221,6 @@ export const TumHiHoNotationView: React.FC<TumHiHoNotationViewProps> = ({
                 <div className="flex flex-wrap items-center justify-between gap-2 border-b border-amber-200/60 pb-2.5">
                   <span className="text-xs font-black uppercase tracking-wider text-amber-800 bg-amber-100/90 px-2.5 py-0.5 rounded-md">
                     Phrase {phrase.phraseNumber}
-                  </span>
-                  <span className="text-sm sm:text-base font-bold text-bamboo-950 italic">
-                    "{phrase.lyric}"
-                  </span>
-                </div>
-
-                {/* Syllable-by-Note Alignment Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2.5">
-                  {phrase.units.map((unit, uIdx) => (
-                    <div 
-                      key={uIdx} 
-                      className="bg-white rounded-xl p-3 border border-amber-200/80 text-center space-y-1.5 shadow-2xs hover:border-amber-400 transition"
-                    >
-                      <div className="text-xs font-bold text-amber-900/90 bg-amber-50/90 py-1 px-1.5 rounded-md border border-amber-100 truncate">
-                        {unit.lyric}
-                      </div>
-                      <div className="font-mono font-black text-lg sm:text-xl text-bamboo-950 tracking-wider">
-                        {unit.sargam}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Continuous Notation Sequence Bar */}
-                <div className="pt-1 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs text-gray-600 bg-white/70 p-2.5 rounded-xl border border-amber-200/60 font-mono">
-                  <span className="text-gray-500 font-sans font-semibold">Sargam line:</span>
-                  <span className="font-extrabold text-sm sm:text-base text-amber-950 tracking-wider">
-                    {phrase.sargamNotes}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* 7. Song Notation: Part 2 - Chorus (Mukhda Hook) */}
-        <section aria-label="Chorus Hook Notation" className="bg-white rounded-3xl p-6 sm:p-8 border border-amber-200 shadow-sm space-y-6">
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-amber-100 pb-3">
-            <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950 flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-amber-600" />
-              Part 2: Main Chorus Hook (Mukhda)
-            </h2>
-            <span className="text-xs font-bold text-rose-900 bg-rose-100 px-3 py-1 rounded-full">
-              Kyunki Tum Hi Ho...
-            </span>
-          </div>
-
-          <div className="space-y-6">
-            {chorusPhrases.map((phrase) => (
-              <div 
-                key={phrase.phraseNumber}
-                className="bg-amber-50/50 rounded-2xl p-4 sm:p-6 border border-amber-200/90 space-y-4"
-              >
-                {/* Phrase Header */}
-                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-amber-200/60 pb-2.5">
-                  <span className="text-xs font-black uppercase tracking-wider text-amber-800 bg-amber-100/90 px-2.5 py-0.5 rounded-md">
-                    Chorus – Phrase {phrase.phraseNumber}
                   </span>
                   <span className="text-sm sm:text-base font-bold text-bamboo-950 italic">
                     "{phrase.lyric}"
