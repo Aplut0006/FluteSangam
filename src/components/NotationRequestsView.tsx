@@ -671,24 +671,24 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
           </div>
         </div>
 
-        {/* Section 3: FEATURED SONG SARGAMS (PRACTICE TRANSCRIPTIONS) */}
+        {/* Section 3: FEATURED SONG NOTATIONS */}
         <div className="bg-white rounded-3xl p-6 sm:p-8 border border-bamboo-200 shadow-sm space-y-6">
           <div className="border-b border-bamboo-100 pb-4">
-            <span className="text-xs uppercase tracking-wider font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
-              Practice Transcriptions
+            <span className="text-xs uppercase tracking-wider font-bold text-amber-700 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
+              Song Notations
             </span>
             <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950 mt-2">
-              Featured Practice Transcriptions
+              Featured Song Notations
             </h2>
             <p className="text-xs sm:text-sm text-gray-600 mt-1.5 leading-relaxed">
-              Below are practice arrangements prepared for bansuri learners. Transcriptions can vary according to the recording, performer, tonic and musical interpretation.
+              Below are song notations prepared for bansuri learners. Notations can vary according to the recording, performer, tonic and musical interpretation.
             </p>
           </div>
 
           {/* Educational Notation Notice */}
           <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200 text-xs text-stone-600 leading-relaxed">
             <p>
-              <strong>Educational notation notice:</strong> These are independent practice transcriptions created or submitted for music-learning purposes. Song titles, lyrics and original compositions belong to their respective rights holders. FluteSangam is not affiliated with the artists, record labels or film producers. Transcriptions may vary by recording and tonic. Rights holders may{' '}
+              <strong>Educational notation notice:</strong> These song notations are created for music-learning and educational purposes. Song titles, lyrics and original compositions belong to their respective rights holders. FluteSangam is not affiliated with the artists, record labels or film producers. Rights holders may{' '}
               <a href="/contact" className="text-bamboo-800 underline font-medium hover:text-bamboo-950">
                 contact us
               </a>{' '}

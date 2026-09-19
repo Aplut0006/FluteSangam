@@ -518,18 +518,18 @@ export default function Navbar({
             </a>
           )}
           
-          {/* 5. Notation Requests */}
+          {/* 5. Song Notation */}
           <a
             href={VIEW_URLS['notation_requests'] || '/notations'}
             onClick={(e) => { e.preventDefault(); onViewChange?.('notation_requests'); }}
             className={`px-2.5 xl:px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
-              currentView === 'notation_requests'
+              currentView === 'notation_requests' || currentView === 'notation_happy_birthday' || currentView === 'notation_jingle_bells'
                 ? 'bg-amber-600 text-white shadow-xs'
                 : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
             }`}
           >
-            <Music className={`w-3.5 h-3.5 ${currentView === 'notation_requests' ? 'text-white' : 'text-amber-600'}`} />
-            <span>Notations</span>
+            <Music className={`w-3.5 h-3.5 ${currentView === 'notation_requests' || currentView === 'notation_happy_birthday' || currentView === 'notation_jingle_bells' ? 'text-white' : 'text-amber-600'}`} />
+            <span>Song Notation</span>
           </a>
 
           {/* 6. More Dropdown (Members & About Us) */}
@@ -729,13 +729,13 @@ export default function Navbar({
                   href={VIEW_URLS['notation_requests'] || '/notations'}
                   onClick={(e) => { e.preventDefault(); onViewChange?.('notation_requests'); setShowMobileMenu(false); }}
                   className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
-                    currentView === 'notation_requests'
+                    currentView === 'notation_requests' || currentView === 'notation_happy_birthday' || currentView === 'notation_jingle_bells'
                       ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
                       : 'bg-bamboo-50/60 text-gray-700 border-bamboo-100 hover:bg-bamboo-100/60'
                   }`}
                 >
-                  <Music className={`w-4 h-4 shrink-0 ${currentView === 'notation_requests' ? 'text-white' : 'text-amber-600'}`} />
-                  <span>Notations</span>
+                  <Music className={`w-4 h-4 shrink-0 ${currentView === 'notation_requests' || currentView === 'notation_happy_birthday' || currentView === 'notation_jingle_bells' ? 'text-white' : 'text-amber-600'}`} />
+                  <span>Song Notation</span>
                 </a>
 
                 <a

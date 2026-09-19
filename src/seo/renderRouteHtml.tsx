@@ -52,6 +52,9 @@ import { PrivacyPolicyView } from '../components/PrivacyPolicyView';
 import { TermsOfServiceView } from '../components/TermsOfServiceView';
 import FluteFaqView from '../components/FluteFaqView';
 import { NotationRequestsView } from '../components/NotationRequestsView';
+import { SongNotationsLibraryView } from '../components/SongNotationsLibraryView';
+import { HappyBirthdayNotationView } from '../components/HappyBirthdayNotationView';
+import { JingleBellsNotationView } from '../components/JingleBellsNotationView';
 import NotFoundView from '../components/NotFoundView';
 
 import Navbar from '../components/Navbar';
@@ -807,17 +810,171 @@ export function getRouteMetadata(path: string): RouteMetadata {
     };
   }
 
-  // 11. Notations Requests (publicly accessible, indexed, self-referencing canonical)
+  // 11. Notations Library (publicly accessible, indexed, self-referencing canonical)
   if (cleanPath === '/notations') {
-    const title = 'Bansuri Song Notations & Practice Transcriptions | FluteSangam';
-    const description = 'Browse Sargam song notations and practice transcriptions for Indian bamboo flute, including classical, devotional, and popular melodies.';
+    const title = 'Flute & Bansuri Song Notations: Easy Notes, Lyrics & Lessons';
+    const description = 'Explore FluteSangam’s flute and bansuri song notation library with song lyrics alongside Sargam notes, suggested flute scales, phrase breakdowns and practical playing tips.';
     const canonicalUrl = `${DOMAIN}/notations`;
     return {
       title,
       description,
       canonicalUrl,
-      component: NotationRequestsView,
-      jsonLd: createWebPageSchema(canonicalUrl, title, description)
+      component: SongNotationsLibraryView,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          createWebPageSchema(canonicalUrl, title, description),
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': DOMAIN
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Song Notation',
+                'item': canonicalUrl
+              }
+            ]
+          }
+        ]
+      }
+    };
+  }
+
+  // 12. Standalone Song Notation Pages
+  if (cleanPath === '/notations/jingle-bells-flute-notes') {
+    const title = 'Jingle Bells Flute Notes: Easy Sargam & Western Notes';
+    const description = 'Learn Jingle Bells on flute or bansuri with easy Sargam and Western notes for the chorus and verse, plus octave guidance and beginner practice tips.';
+    const canonicalUrl = `${DOMAIN}/notations/jingle-bells-flute-notes`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: JingleBellsNotationView,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          createWebPageSchema(canonicalUrl, title, description),
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': DOMAIN
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Song Notation',
+                'item': `${DOMAIN}/notations`
+              },
+              {
+                '@type': 'ListItem',
+                'position': 3,
+                'name': 'Jingle Bells Flute Notes',
+                'item': canonicalUrl
+              }
+            ]
+          },
+          {
+            '@type': 'Article',
+            '@id': `${canonicalUrl}#article`,
+            'headline': 'Jingle Bells Flute Notes – Easy Sargam & Western Notes',
+            'description': description,
+            'mainEntityOfPage': canonicalUrl,
+            'author': {
+              '@type': 'Person',
+              'name': 'Aplut',
+              'url': `${DOMAIN}/founder`
+            },
+            'publisher': {
+              '@type': 'Organization',
+              'name': 'FluteSangam',
+              'url': DOMAIN,
+              'logo': {
+                '@type': 'ImageObject',
+                'url': `${DOMAIN}/flutesangam_logo.png`
+              }
+            },
+            'datePublished': '2026-09-19T00:00:00Z',
+            'dateModified': '2026-09-19T00:00:00Z'
+          }
+        ]
+      }
+    };
+  }
+
+  if (cleanPath === '/notations/happy-birthday-flute-notes') {
+    const title = 'Happy Birthday Flute Notes: Easy Sargam & Western Notes';
+    const description = 'Play Happy Birthday on flute or bansuri with easy Sargam and Western notes, lyrics, octave guidance, breathing marks and beginner practice tips.';
+    const canonicalUrl = `${DOMAIN}/notations/happy-birthday-flute-notes`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: HappyBirthdayNotationView,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          createWebPageSchema(canonicalUrl, title, description),
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': DOMAIN
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Song Notation',
+                'item': `${DOMAIN}/notations`
+              },
+              {
+                '@type': 'ListItem',
+                'position': 3,
+                'name': 'Happy Birthday Flute Notes',
+                'item': canonicalUrl
+              }
+            ]
+          },
+          {
+            '@type': 'Article',
+            '@id': `${canonicalUrl}#article`,
+            'headline': 'Happy Birthday Flute Notes – Easy Sargam & Western Notes',
+            'description': description,
+            'mainEntityOfPage': canonicalUrl,
+            'author': {
+              '@type': 'Person',
+              'name': 'Aplut',
+              'url': `${DOMAIN}/founder`
+            },
+            'publisher': {
+              '@type': 'Organization',
+              'name': 'FluteSangam',
+              'url': DOMAIN,
+              'logo': {
+                '@type': 'ImageObject',
+                'url': `${DOMAIN}/flutesangam_logo.png`
+              }
+            },
+            'datePublished': '2026-09-19T00:00:00Z',
+            'dateModified': '2026-09-19T00:00:00Z'
+          }
+        ]
+      }
     };
   }
 

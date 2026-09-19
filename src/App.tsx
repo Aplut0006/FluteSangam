@@ -72,7 +72,9 @@ const AboutUsView = lazyWithRetry(() => import('./components/AboutUsView'));
 const FounderView = lazyWithRetry(() => import('./components/FounderView'));
 const ContactUsView = lazyWithRetry(() => import('./components/ContactUsView'));
 const FluteSangamChatbot = lazyWithRetry(() => import('./components/FluteSangamChatbot').then(m => ({ default: m.FluteSangamChatbot })));
-const NotationRequestsView = lazyWithRetry(() => import('./components/NotationRequestsView').then(m => ({ default: m.NotationRequestsView })));
+const SongNotationsLibraryView = lazyWithRetry(() => import('./components/SongNotationsLibraryView').then(m => ({ default: m.SongNotationsLibraryView })));
+const HappyBirthdayNotationView = lazyWithRetry(() => import('./components/HappyBirthdayNotationView').then(m => ({ default: m.HappyBirthdayNotationView })));
+const JingleBellsNotationView = lazyWithRetry(() => import('./components/JingleBellsNotationView').then(m => ({ default: m.JingleBellsNotationView })));
 const PrivacyPolicyView = lazyWithRetry(() => import('./components/PrivacyPolicyView'));
 const TermsOfServiceView = lazyWithRetry(() => import('./components/TermsOfServiceView'));
 const NotFoundView = lazyWithRetry(() => import('./components/NotFoundView'));
@@ -424,8 +426,16 @@ export default function App() {
         description = 'Learn Raag Jaunpuri on Indian Bamboo Flute (Bansuri): Asavari Thaat, Komal Ga, Dha, Ni, Aaroh, Avaroh, Pakad, practice drills, and original learning piece.';
         break;
       case 'notation_requests':
-        title = 'Bansuri Song Notations & Practice Transcriptions | FluteSangam';
-        description = 'Browse Sargam song notations and practice transcriptions for Indian bamboo flute, including classical, devotional, and popular melodies.';
+        title = 'Flute & Bansuri Song Notations: Easy Notes, Lyrics & Lessons';
+        description = 'Explore FluteSangam’s flute and bansuri song notation library with song lyrics alongside Sargam notes, suggested flute scales, phrase breakdowns and practical playing tips.';
+        break;
+      case 'notation_happy_birthday':
+        title = 'Happy Birthday Flute Notes: Easy Sargam & Western Notes';
+        description = 'Play Happy Birthday on flute or bansuri with easy Sargam and Western notes, lyrics, octave guidance, breathing marks and beginner practice tips.';
+        break;
+      case 'notation_jingle_bells':
+        title = 'Jingle Bells Flute Notes: Easy Sargam & Western Notes';
+        description = 'Learn Jingle Bells on flute or bansuri with easy Sargam and Western notes for the chorus and verse, plus octave guidance and beginner practice tips.';
         break;
       case 'community_members':
         title = 'Community Members | FluteSangam';
@@ -1332,7 +1342,20 @@ export default function App() {
             }} 
           />
         ) : currentView === 'notation_requests' ? (
-          <NotationRequestsView currentUser={currentUser} onOpenAuth={() => setAuthModalOpen(true)} />
+          <SongNotationsLibraryView 
+            onViewChange={handleViewChange} 
+            onNavigateToSong={(slug) => {
+              if (slug === 'happy-birthday-flute-notes') {
+                handleViewChange('notation_happy_birthday');
+              } else if (slug === 'jingle-bells-flute-notes') {
+                handleViewChange('notation_jingle_bells');
+              }
+            }}
+          />
+        ) : currentView === 'notation_happy_birthday' ? (
+          <HappyBirthdayNotationView onViewChange={handleViewChange} />
+        ) : currentView === 'notation_jingle_bells' ? (
+          <JingleBellsNotationView onViewChange={handleViewChange} />
         ) : currentView === 'community_members' ? (
           <MembersView 
             currentUser={currentUser} 

@@ -43,6 +43,8 @@ export const VIEW_URLS: Record<string, string> = {
   'contact_us': '/contact',
   'learn_dashboard': '/learn',
   'notation_requests': '/notations',
+  'notation_happy_birthday': '/notations/happy-birthday-flute-notes',
+  'notation_jingle_bells': '/notations/jingle-bells-flute-notes',
   'privacy_policy': '/privacy-policy',
   'terms_of_service': '/terms-of-service',
   'flute_faq': '/faq',

@@ -138,7 +138,7 @@ export default function Footer({ onViewChange, onSadhanaFeedClick }: FooterProps
               </li>
               <li>
                 <Link to="/notations" onClick={(e) => handleLinkClick('notation_requests', e)} className="hover:text-amber-300 transition">
-                  Song Notation Requests
+                  Song Notation
                 </Link>
               </li>
             </ul>
