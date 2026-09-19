@@ -56,6 +56,7 @@ import { SongNotationsLibraryView } from '../components/SongNotationsLibraryView
 import { HappyBirthdayNotationView } from '../components/HappyBirthdayNotationView';
 import { JingleBellsNotationView } from '../components/JingleBellsNotationView';
 import { TitanicNotationView } from '../components/TitanicNotationView';
+import { TumHiHoNotationView } from '../components/TumHiHoNotationView';
 import NotFoundView from '../components/NotFoundView';
 
 import Navbar from '../components/Navbar';
@@ -1020,6 +1021,71 @@ export function getRouteMetadata(path: string): RouteMetadata {
             '@type': 'Article',
             '@id': `${canonicalUrl}#article`,
             'headline': 'Titanic Flute Notes – My Heart Will Go On Sargam & Western Notes',
+            'description': description,
+            'mainEntityOfPage': canonicalUrl,
+            'author': {
+              '@type': 'Person',
+              'name': 'Aplut',
+              'url': `${DOMAIN}/founder`
+            },
+            'publisher': {
+              '@type': 'Organization',
+              'name': 'FluteSangam',
+              'url': DOMAIN,
+              'logo': {
+                '@type': 'ImageObject',
+                'url': `${DOMAIN}/flutesangam_logo.png`
+              }
+            },
+            'datePublished': '2026-09-19T00:00:00Z',
+            'dateModified': '2026-09-19T00:00:00Z'
+          }
+        ]
+      }
+    };
+  }
+
+  if (cleanPath === '/notations/tum-hi-ho-flute-notes') {
+    const title = 'Tum Hi Ho Flute Notes: Easy Sargam for Bansuri';
+    const description = 'Learn the main melody of Tum Hi Ho on flute or bansuri with easy Sargam notation, octave and breath guidance, phrase breakdowns and beginner playing tips.';
+    const canonicalUrl = `${DOMAIN}/notations/tum-hi-ho-flute-notes`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: TumHiHoNotationView,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          createWebPageSchema(canonicalUrl, title, description),
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': DOMAIN
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Song Notation',
+                'item': `${DOMAIN}/notations`
+              },
+              {
+                '@type': 'ListItem',
+                'position': 3,
+                'name': 'Tum Hi Ho Flute Notes',
+                'item': canonicalUrl
+              }
+            ]
+          },
+          {
+            '@type': 'Article',
+            '@id': `${canonicalUrl}#article`,
+            'headline': 'Tum Hi Ho Flute Notes – Easy Sargam for Bansuri',
             'description': description,
             'mainEntityOfPage': canonicalUrl,
             'author': {
