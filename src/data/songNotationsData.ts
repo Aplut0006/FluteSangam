@@ -318,15 +318,15 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       {
         phraseNumber: 3,
         lyric: 'Happy Birthday dear [Name]',
-        sargamNotes: '.P .P | P G | S .N .D — /',
-        westernNotes: 'G G | G E | C B A — /',
+        sargamNotes: '.P .P | P G | S | .N .D — /',
+        westernNotes: 'G G | G E | C | B A — /',
         units: [
           { lyric: 'Hap-py', sargam: '.P .P', western: 'G G' },
           { lyric: 'Birth-day', sargam: 'P G', western: 'G E' },
-          { lyric: 'dear', sargam: 'S .N', western: 'C B' },
-          { lyric: '[Name]', sargam: '.D —', western: 'A —' }
+          { lyric: 'dear', sargam: 'S', western: 'C' },
+          { lyric: '[Name]', sargam: '.N .D —', western: 'B A —' }
         ],
-        guidance: 'Jump cleanly from lower Pa (.P) to middle Pa (P) – the highest swar in this arrangement. Then descend smoothly through Ga (G), Sa (S), lower Ni (.N), and hold lower Dha (.D).'
+        guidance: 'Jump cleanly from lower Pa (.P) to middle Pa (P) – the highest swar in this arrangement. Then transition to Sa (S) on "dear", and descend from lower Ni (.N) into held lower Dha (.D) on "[Name]".'
       },
       {
         phraseNumber: 4,
@@ -345,13 +345,13 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
     sargamPhrases: [
       { phraseNumber: 1, notes: '.P .P | .D .P | S — .N — /', lyric: 'Happy Birthday to you' },
       { phraseNumber: 2, notes: '.P .P | .D .P | R — S — /', lyric: 'Happy Birthday to you' },
-      { phraseNumber: 3, notes: '.P .P | P G | S .N .D — /', lyric: 'Happy Birthday dear [Name]' },
+      { phraseNumber: 3, notes: '.P .P | P G | S | .N .D — /', lyric: 'Happy Birthday dear [Name]' },
       { phraseNumber: 4, notes: 'M M | G S | R — S —', lyric: 'Happy Birthday to you' }
     ],
     westernPhrases: [
       { phraseNumber: 1, notes: 'G G | A G | C — B — /', lyric: 'Happy Birthday to you' },
       { phraseNumber: 2, notes: 'G G | A G | D — C — /', lyric: 'Happy Birthday to you' },
-      { phraseNumber: 3, notes: 'G G | G E | C B A — /', lyric: 'Happy Birthday dear [Name]' },
+      { phraseNumber: 3, notes: 'G G | G E | C | B A — /', lyric: 'Happy Birthday dear [Name]' },
       { phraseNumber: 4, notes: 'F F | E C | D — C —', lyric: 'Happy Birthday to you' }
     ],
     phraseGuidance: [
@@ -365,7 +365,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       },
       {
         phraseNumber: 3,
-        guidance: 'Jump cleanly from lower Pa (.P) to middle Pa (P) – the highest swar in this arrangement. Then descend smoothly through Ga (G), Sa (S), lower Ni (.N), and hold lower Dha (.D).'
+        guidance: 'Jump cleanly from lower Pa (.P) to middle Pa (P) – the highest swar in this arrangement. Then transition to Sa (S) on "dear", and descend from lower Ni (.N) into held lower Dha (.D) on "[Name]".'
       },
       {
         phraseNumber: 4,
