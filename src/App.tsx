@@ -1172,19 +1172,6 @@ export default function App() {
                 <span>Home</span>
               </button>
 
-              <button
-                onClick={() => handleViewChange('flute_faq')}
-                className={`hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer shrink-0 ${
-                  currentView === 'flute_faq'
-                    ? 'text-amber-900 bg-amber-200/90 shadow-2xs'
-                    : 'text-amber-950 bg-amber-100/70 hover:bg-amber-200/80 border border-amber-300/60'
-                }`}
-                id="global-faq-btn"
-              >
-                <HelpCircle className="w-3.5 h-3.5 text-amber-700" />
-                <span>Flute FAQ</span>
-              </button>
-
               {(currentView.startsWith('learn_') || currentView.startsWith('raga_') || currentView === 'alankar_generator') && (
                 <button
                   onClick={() => handleViewChange('learn_dashboard')}
