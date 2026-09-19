@@ -260,7 +260,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
     suggestedFlute: 'Any correctly tuned bansuri; C Medium is convenient for beginners',
     startingSwar: 'Lower Pa (.P)',
     highestSwar: 'Middle Pa (P)',
-    mainChallenge: 'Tivra Ma (M^) half-hole/fingering and lower octave .P to middle P transitions',
+    mainChallenge: 'Lower octave .P to middle P transitions and clean rhythm',
     practiceSpeed: 'Slow and steady',
     notationFormats: 'Song Notation (Sargam & Western) with Lyrics',
     description: 'Learn to play Happy Birthday on flute or bansuri with beginner-friendly Sargam and Western notes. Follow the lyric-aligned phrases, octave markings, breathing guidance and practical tips to practise the complete melody.',
@@ -271,20 +271,19 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
     h1: 'Happy Birthday Flute Notes – Easy Sargam & Western Notes',
     metaTitle: 'Happy Birthday Flute Notes: Easy Sargam & Western Notes',
     metaDescription: 'Play Happy Birthday on flute or bansuri with easy Sargam and Western notes, lyrics, octave guidance, breathing marks and beginner practice tips.',
-    intro: 'Happy Birthday is a simple and familiar melody for practising note transitions, rhythm and breath control. This arrangement starts in the lower octave (.P) and extends to middle Pa (P) with Tivra Ma (M^), pairing each lyric syllable directly with its corresponding note.',
+    intro: 'Happy Birthday is a simple and familiar melody for practising note transitions, rhythm and breath control. This arrangement starts in the lower octave (.P) and extends to middle Pa (P), pairing each lyric syllable directly with its corresponding note.',
     quickInfo: {
       difficulty: 'Beginner',
       melodyType: 'Traditional celebration melody',
       suggestedFlute: 'C Medium or any comfortable flute key',
       startingSwar: 'Lower Pa (.P)',
       highestSwar: 'Middle Pa (P)',
-      mainChallenge: 'Tivra Ma (M^) and clean lower .P to middle P shifts',
+      mainChallenge: 'Clean lower .P to middle P shifts and steady breath control',
       practiceSpeed: 'Slow and steady'
     },
     legend: [
       { symbol: '.P .D .N', meaning: 'lower octave note' },
       { symbol: 'S R G M P D N', meaning: 'middle octave note' },
-      { symbol: 'M^', meaning: 'Tivra Ma (sharp / 4th)' },
       { symbol: '—', meaning: 'hold the preceding note' },
       { symbol: '|', meaning: 'phrase division' },
       { symbol: '/', meaning: 'breathe' }
@@ -332,28 +331,28 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       {
         phraseNumber: 4,
         lyric: 'Happy Birthday to you',
-        sargamNotes: 'M^ M^ | G S | R — S —',
-        westernNotes: 'F# F# | E C | D — C —',
+        sargamNotes: 'M M | G S | R — S —',
+        westernNotes: 'F F | E C | D — C —',
         units: [
-          { lyric: 'Hap-py', sargam: 'M^ M^', western: 'F# F#' },
+          { lyric: 'Hap-py', sargam: 'M M', western: 'F F' },
           { lyric: 'Birth-day', sargam: 'G S', western: 'E C' },
           { lyric: 'to', sargam: 'R —', western: 'D —' },
           { lyric: 'you', sargam: 'S —', western: 'C —' }
         ],
-        guidance: 'Play the two Tivra Ma (M^) notes with accurate fingering. Step down gracefully to Ga (G), Sa (S), Re (R), and conclude by holding Sa (S).'
+        guidance: 'Play the two Ma (M) notes cleanly. Step down gracefully to Ga (G), Sa (S), Re (R), and conclude by holding Sa (S).'
       }
     ],
     sargamPhrases: [
       { phraseNumber: 1, notes: '.P .P | .D .P | S — .N — /', lyric: 'Happy Birthday to you' },
       { phraseNumber: 2, notes: '.P .P | .D .P | R — S — /', lyric: 'Happy Birthday to you' },
       { phraseNumber: 3, notes: '.P .P | P G | S .N .D — /', lyric: 'Happy Birthday dear [Name]' },
-      { phraseNumber: 4, notes: 'M^ M^ | G S | R — S —', lyric: 'Happy Birthday to you' }
+      { phraseNumber: 4, notes: 'M M | G S | R — S —', lyric: 'Happy Birthday to you' }
     ],
     westernPhrases: [
       { phraseNumber: 1, notes: 'G G | A G | C — B — /', lyric: 'Happy Birthday to you' },
       { phraseNumber: 2, notes: 'G G | A G | D — C — /', lyric: 'Happy Birthday to you' },
       { phraseNumber: 3, notes: 'G G | G E | C B A — /', lyric: 'Happy Birthday dear [Name]' },
-      { phraseNumber: 4, notes: 'F# F# | E C | D — C —', lyric: 'Happy Birthday to you' }
+      { phraseNumber: 4, notes: 'F F | E C | D — C —', lyric: 'Happy Birthday to you' }
     ],
     phraseGuidance: [
       {
@@ -370,21 +369,20 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       },
       {
         phraseNumber: 4,
-        guidance: 'Play the two Tivra Ma (M^) notes with accurate fingering. Step down gracefully to Ga (G), Sa (S), Re (R), and conclude by holding Sa (S).'
+        guidance: 'Play the two Ma (M) notes cleanly. Step down gracefully to Ga (G), Sa (S), Re (R), and conclude by holding Sa (S).'
       }
     ],
     practiceMethod: [
       'Sing or hum the song lyrics while tapping the beat before playing.',
       'Practise each lyric phrase separately at a slow, comfortable tempo.',
       'Practise the interval jump between lower .P and middle P separately.',
-      'Pay special attention to fingering Tivra Ma (M^) cleanly in phrase 4.',
+      'Pay special attention to fingering Ma (M) cleanly in phrase 4.',
       'Connect phrases 1 and 2, then phrases 3 and 4.',
       'Play through all four phrases while sustaining held notes smoothly.'
     ],
     commonMistakes: [
       'Overblowing on lower octave .P, .D and .N causing pitch distortion',
       'Cutting held notes short without sustaining the full syllable duration',
-      'Fumbling the fingering on Tivra Ma (M^)',
       'Lifting fingers too far from the bansuri holes during the lower .P to middle P jump',
       'Rushing through phrase 3 without clear separation of descending notes',
       'Losing track of the song rhythm while concentrating on finger placement'
