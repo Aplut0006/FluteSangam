@@ -75,6 +75,7 @@ const FluteSangamChatbot = lazyWithRetry(() => import('./components/FluteSangamC
 const SongNotationsLibraryView = lazyWithRetry(() => import('./components/SongNotationsLibraryView').then(m => ({ default: m.SongNotationsLibraryView })));
 const HappyBirthdayNotationView = lazyWithRetry(() => import('./components/HappyBirthdayNotationView').then(m => ({ default: m.HappyBirthdayNotationView })));
 const JingleBellsNotationView = lazyWithRetry(() => import('./components/JingleBellsNotationView').then(m => ({ default: m.JingleBellsNotationView })));
+const TitanicNotationView = lazyWithRetry(() => import('./components/TitanicNotationView').then(m => ({ default: m.TitanicNotationView })));
 const PrivacyPolicyView = lazyWithRetry(() => import('./components/PrivacyPolicyView'));
 const TermsOfServiceView = lazyWithRetry(() => import('./components/TermsOfServiceView'));
 const NotFoundView = lazyWithRetry(() => import('./components/NotFoundView'));
@@ -436,6 +437,10 @@ export default function App() {
       case 'notation_jingle_bells':
         title = 'Jingle Bells Flute Notes: Easy Sargam & Western Notes';
         description = 'Learn Jingle Bells on flute or bansuri with easy Sargam and Western notes for the chorus and verse, plus octave guidance and beginner practice tips.';
+        break;
+      case 'notation_titanic':
+        title = 'Titanic Flute Notes: My Heart Will Go On Sargam & Western';
+        description = 'Learn the Titanic theme My Heart Will Go On on flute or bansuri with easy Sargam and Western notes, octave guidance, breath marks and beginner tips.';
         break;
       case 'community_members':
         title = 'Community Members | FluteSangam';
@@ -1336,6 +1341,8 @@ export default function App() {
                 handleViewChange('notation_happy_birthday');
               } else if (slug === 'jingle-bells-flute-notes') {
                 handleViewChange('notation_jingle_bells');
+              } else if (slug === 'my-heart-will-go-on-flute-notes') {
+                handleViewChange('notation_titanic');
               }
             }}
           />
@@ -1343,6 +1350,8 @@ export default function App() {
           <HappyBirthdayNotationView onViewChange={handleViewChange} />
         ) : currentView === 'notation_jingle_bells' ? (
           <JingleBellsNotationView onViewChange={handleViewChange} />
+        ) : currentView === 'notation_titanic' ? (
+          <TitanicNotationView onViewChange={handleViewChange} />
         ) : currentView === 'community_members' ? (
           <MembersView 
             currentUser={currentUser} 

@@ -55,6 +55,7 @@ import { NotationRequestsView } from '../components/NotationRequestsView';
 import { SongNotationsLibraryView } from '../components/SongNotationsLibraryView';
 import { HappyBirthdayNotationView } from '../components/HappyBirthdayNotationView';
 import { JingleBellsNotationView } from '../components/JingleBellsNotationView';
+import { TitanicNotationView } from '../components/TitanicNotationView';
 import NotFoundView from '../components/NotFoundView';
 
 import Navbar from '../components/Navbar';
@@ -954,6 +955,71 @@ export function getRouteMetadata(path: string): RouteMetadata {
             '@type': 'Article',
             '@id': `${canonicalUrl}#article`,
             'headline': 'Happy Birthday Flute Notes – Easy Sargam & Western Notes',
+            'description': description,
+            'mainEntityOfPage': canonicalUrl,
+            'author': {
+              '@type': 'Person',
+              'name': 'Aplut',
+              'url': `${DOMAIN}/founder`
+            },
+            'publisher': {
+              '@type': 'Organization',
+              'name': 'FluteSangam',
+              'url': DOMAIN,
+              'logo': {
+                '@type': 'ImageObject',
+                'url': `${DOMAIN}/flutesangam_logo.png`
+              }
+            },
+            'datePublished': '2026-09-19T00:00:00Z',
+            'dateModified': '2026-09-19T00:00:00Z'
+          }
+        ]
+      }
+    };
+  }
+
+  if (cleanPath === '/notations/my-heart-will-go-on-flute-notes') {
+    const title = 'Titanic Flute Notes: My Heart Will Go On Sargam & Western';
+    const description = 'Learn the Titanic theme My Heart Will Go On on flute or bansuri with easy Sargam and Western notes, octave guidance, breath marks and beginner tips.';
+    const canonicalUrl = `${DOMAIN}/notations/my-heart-will-go-on-flute-notes`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: TitanicNotationView,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          createWebPageSchema(canonicalUrl, title, description),
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': DOMAIN
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Song Notation',
+                'item': `${DOMAIN}/notations`
+              },
+              {
+                '@type': 'ListItem',
+                'position': 3,
+                'name': 'Titanic Flute Notes',
+                'item': canonicalUrl
+              }
+            ]
+          },
+          {
+            '@type': 'Article',
+            '@id': `${canonicalUrl}#article`,
+            'headline': 'Titanic Flute Notes – My Heart Will Go On Sargam & Western Notes',
             'description': description,
             'mainEntityOfPage': canonicalUrl,
             'author': {

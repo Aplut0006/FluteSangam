@@ -394,5 +394,290 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' },
       { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
     ]
+  },
+  {
+    id: 'my-heart-will-go-on-flute-notes',
+    slug: 'my-heart-will-go-on-flute-notes',
+    title: 'Titanic Flute Notes – My Heart Will Go On',
+    type: 'Iconic Movie Theme & Ballad',
+    difficulty: 'Beginner',
+    suggestedFlute: 'Any correctly tuned bansuri (C Medium or E Bass are popular)',
+    startingSwar: 'Middle Sa (S)',
+    highestSwar: 'Middle Dha (D)',
+    mainChallenge: 'Sustained breath control on held notes, smooth G-MG ornament and gentle lower octave .D .P descent',
+    practiceSpeed: 'Slow, lyrical and expressive',
+    notationFormats: 'Song Notation (Sargam & Western) with Lyrics & Opening Flute Tune',
+    description: 'Learn the Titanic theme My Heart Will Go On on flute or bansuri with easy Sargam and Western notes, octave guidance, breath marks and beginner tips.',
+    status: 'Song Notation',
+    publishedDate: '2026-09-19',
+    updatedDate: '2026-09-19',
+    canonicalUrl: 'https://flutesangam.com/notations/my-heart-will-go-on-flute-notes',
+    h1: 'Titanic Flute Notes – My Heart Will Go On Sargam & Western Notes',
+    metaTitle: 'Titanic Flute Notes: My Heart Will Go On Sargam & Western',
+    metaDescription: 'Learn the Titanic theme My Heart Will Go On on flute or bansuri with easy Sargam and Western notes, octave guidance, breath marks and beginner tips.',
+    intro: 'My Heart Will Go On, the timeless theme from Titanic originally performed by Celine Dion and composed by James Horner, is celebrated worldwide for its hauntingly beautiful tin whistle and flute melodies. This beginner-friendly arrangement provides the iconic opening flute tune as well as the full verse, written in clear Sargam and Western notes with lyric-by-lyric syllable alignment.',
+    quickInfo: {
+      difficulty: 'Beginner',
+      melodyType: 'Movie Theme & Ballad',
+      suggestedFlute: 'C Medium or any comfortable flute key',
+      startingSwar: 'Middle Sa (S)',
+      highestSwar: 'Middle Dha (D)',
+      mainChallenge: 'Sustained breath control on held notes and gentle lower octave .D .P resolution',
+      practiceSpeed: 'Slow, lyrical and steady'
+    },
+    legend: [
+      { symbol: '.P .D .N', meaning: 'lower octave note (Mandra Saptak)' },
+      { symbol: 'S R G M P D N', meaning: 'middle octave note (Madhya Saptak)' },
+      { symbol: '—', meaning: 'hold / sustain the preceding note' },
+      { symbol: '|', meaning: 'phrase division' },
+      { symbol: '/', meaning: 'breathe' }
+    ],
+    phrases: [
+      {
+        phraseNumber: 1,
+        lyric: 'Opening Tune: Part 1',
+        sargamNotes: 'S R R G — | M G R S | R P — /',
+        westernNotes: 'C D D E — | F E D C | D G — /',
+        units: [
+          { lyric: 'Intro', sargam: 'S R R G —', western: 'C D D E —' },
+          { lyric: 'Descent', sargam: 'M G R S', western: 'F E D C' },
+          { lyric: 'Rise', sargam: 'R P —', western: 'D G —' }
+        ],
+        guidance: 'Begin on Sa (S) and step to Re (R) and Ga (G) with smooth, gentle airflow. Descend gracefully from Ma (M) to Sa (S), then lift smoothly to middle Pa (P).'
+      },
+      {
+        phraseNumber: 2,
+        lyric: 'Opening Tune: Part 2',
+        sargamNotes: 'G P D — — | P — — | R — — /',
+        westernNotes: 'E G A — — | G — — | D — — /',
+        units: [
+          { lyric: 'High rise', sargam: 'G P D — —', western: 'E G A — —' },
+          { lyric: 'Held Pa', sargam: 'P — —', western: 'G — —' },
+          { lyric: 'Held Re', sargam: 'R — —', western: 'D — —' }
+        ],
+        guidance: 'Soar up through Ga (G) and Pa (P) to reach middle Dha (D). Sustain Dha warmly, step back to held Pa (P), and conclude the intro on a tranquil held Re (R).'
+      },
+      {
+        phraseNumber: 3,
+        lyric: 'Every night in my dreams',
+        sargamNotes: 'S S | S | S .N | S — /',
+        westernNotes: 'C C | C | C B | C — /',
+        units: [
+          { lyric: 'Ev-ery', sargam: 'S S', western: 'C C' },
+          { lyric: 'night', sargam: 'S', western: 'C' },
+          { lyric: 'in my', sargam: 'S .N', western: 'C B' },
+          { lyric: 'dreams', sargam: 'S —', western: 'C —' }
+        ],
+        guidance: 'Maintain a steady, soft airflow on the repeated Sa (S) notes. Dip gently down to lower Ni (.N) on "my" before sustaining Sa (S) on "dreams".'
+      },
+      {
+        phraseNumber: 4,
+        lyric: 'I see you',
+        sargamNotes: 'S | .N | S — /',
+        westernNotes: 'C | B | C — /',
+        units: [
+          { lyric: 'I', sargam: 'S', western: 'C' },
+          { lyric: 'see', sargam: '.N', western: 'B' },
+          { lyric: 'you', sargam: 'S —', western: 'C —' }
+        ],
+        guidance: 'A simple, expressive transition from middle Sa (S) down to lower Ni (.N) and returning smoothly to Sa (S).'
+      },
+      {
+        phraseNumber: 5,
+        lyric: 'I feel you',
+        sargamNotes: 'R | G — M G | R — /',
+        westernNotes: 'D | E — F E | D — /',
+        units: [
+          { lyric: 'I', sargam: 'R', western: 'D' },
+          { lyric: 'feel...', sargam: 'G — M G', western: 'E — F E' },
+          { lyric: 'you', sargam: 'R —', western: 'D —' }
+        ],
+        guidance: 'Step up to Re (R), rise to Ga (G) with a delicate touch of Ma (M) turning back into Ga (G-MG), and settle calmly on held Re (R).'
+      },
+      {
+        phraseNumber: 6,
+        lyric: 'That is how I know you',
+        sargamNotes: 'S S | S S | .N | S — /',
+        westernNotes: 'C C | C C | B | C — /',
+        units: [
+          { lyric: 'That is', sargam: 'S S', western: 'C C' },
+          { lyric: 'how I', sargam: 'S S', western: 'C C' },
+          { lyric: 'know', sargam: '.N', western: 'B' },
+          { lyric: 'you', sargam: 'S —', western: 'C —' }
+        ],
+        guidance: 'Play each syllable cleanly on Sa (S), stepping down lightly to lower Ni (.N) on "know" and holding Sa (S) on "you".'
+      },
+      {
+        phraseNumber: 7,
+        lyric: 'Go on',
+        sargamNotes: '.D | .P — — — /',
+        westernNotes: 'A | G — — — /',
+        units: [
+          { lyric: 'go', sargam: '.D', western: 'A' },
+          { lyric: 'on', sargam: '.P — — —', western: 'G — — —' }
+        ],
+        guidance: 'Drop softly into the lower octave: play lower Dha (.D) on "go" and sustain warm, deep lower Pa (.P) on "on". Avoid blowing too hard.'
+      },
+      {
+        phraseNumber: 8,
+        lyric: 'Far across the distance',
+        sargamNotes: 'S — | S S | S | .N S — /',
+        westernNotes: 'C — | C C | C | B C — /',
+        units: [
+          { lyric: 'Far', sargam: 'S —', western: 'C —' },
+          { lyric: 'a-cross', sargam: 'S S', western: 'C C' },
+          { lyric: 'the', sargam: 'S', western: 'C' },
+          { lyric: 'dis-tance', sargam: '.N S —', western: 'B C —' }
+        ],
+        guidance: 'Return to middle Sa (S) with a gentle breath. Sustain "Far" slightly, pulse repeated Sa on "across the", and bridge .N to S on "distance".'
+      },
+      {
+        phraseNumber: 9,
+        lyric: 'And spaces',
+        sargamNotes: 'S | .N S — /',
+        westernNotes: 'C | B C — /',
+        units: [
+          { lyric: 'and', sargam: 'S', western: 'C' },
+          { lyric: 'spa-ces', sargam: '.N S —', western: 'B C —' }
+        ],
+        guidance: 'Mirror the motif with a smooth shift from Sa (S) through lower Ni (.N) back to Sa (S).'
+      },
+      {
+        phraseNumber: 10,
+        lyric: 'Between us',
+        sargamNotes: 'R | G — M G | R — /',
+        westernNotes: 'D | E — F E | D — /',
+        units: [
+          { lyric: 'be-tween', sargam: 'R G — M G', western: 'D E — F E' },
+          { lyric: 'us', sargam: 'R —', western: 'D —' }
+        ],
+        guidance: 'Deliver the expressive G-MG ornament smoothly on "between" before resolving warmly on Re (R).'
+      },
+      {
+        phraseNumber: 11,
+        lyric: 'You have come to show you',
+        sargamNotes: 'S S | S S | .N | S — /',
+        westernNotes: 'C C | C C | B | C — /',
+        units: [
+          { lyric: 'You have', sargam: 'S S', western: 'C C' },
+          { lyric: 'come to', sargam: 'S S', western: 'C C' },
+          { lyric: 'show', sargam: '.N', western: 'B' },
+          { lyric: 'you', sargam: 'S —', western: 'C —' }
+        ],
+        guidance: 'Even rhythm on middle Sa (S), stepping down to lower Ni (.N) on "show" and resolving on Sa (S).'
+      },
+      {
+        phraseNumber: 12,
+        lyric: 'Go on',
+        sargamNotes: '.D | .P — — /',
+        westernNotes: 'A | G — — /',
+        units: [
+          { lyric: 'go', sargam: '.D', western: 'A' },
+          { lyric: 'on', sargam: '.P — —', western: 'G — —' }
+        ],
+        guidance: 'Descend gently to lower Dha (.D) and finish on held lower Pa (.P) with rich, calm resonance.'
+      }
+    ],
+    sargamPhrases: [
+      { phraseNumber: 1, notes: 'S R R G — | M G R S | R P — /', lyric: 'Opening Tune: Part 1' },
+      { phraseNumber: 2, notes: 'G P D — — | P — — | R — — /', lyric: 'Opening Tune: Part 2' },
+      { phraseNumber: 3, notes: 'S S | S | S .N | S — /', lyric: 'Every night in my dreams' },
+      { phraseNumber: 4, notes: 'S | .N | S — /', lyric: 'I see you' },
+      { phraseNumber: 5, notes: 'R | G — M G | R — /', lyric: 'I feel you' },
+      { phraseNumber: 6, notes: 'S S | S S | .N | S — /', lyric: 'That is how I know you' },
+      { phraseNumber: 7, notes: '.D | .P — — — /', lyric: 'Go on' },
+      { phraseNumber: 8, notes: 'S — | S S | S | .N S — /', lyric: 'Far across the distance' },
+      { phraseNumber: 9, notes: 'S | .N S — /', lyric: 'And spaces' },
+      { phraseNumber: 10, notes: 'R | G — M G | R — /', lyric: 'Between us' },
+      { phraseNumber: 11, notes: 'S S | S S | .N | S — /', lyric: 'You have come to show you' },
+      { phraseNumber: 12, notes: '.D | .P — — /', lyric: 'Go on' }
+    ],
+    westernPhrases: [
+      { phraseNumber: 1, notes: 'C D D E — | F E D C | D G — /', lyric: 'Opening Tune: Part 1' },
+      { phraseNumber: 2, notes: 'E G A — — | G — — | D — — /', lyric: 'Opening Tune: Part 2' },
+      { phraseNumber: 3, notes: 'C C | C | C B | C — /', lyric: 'Every night in my dreams' },
+      { phraseNumber: 4, notes: 'C | B | C — /', lyric: 'I see you' },
+      { phraseNumber: 5, notes: 'D | E — F E | D — /', lyric: 'I feel you' },
+      { phraseNumber: 6, notes: 'C C | C C | B | C — /', lyric: 'That is how I know you' },
+      { phraseNumber: 7, notes: 'A | G — — — /', lyric: 'Go on' },
+      { phraseNumber: 8, notes: 'C — | C C | C | B C — /', lyric: 'Far across the distance' },
+      { phraseNumber: 9, notes: 'C | B C — /', lyric: 'And spaces' },
+      { phraseNumber: 10, notes: 'D | E — F E | D — /', lyric: 'Between us' },
+      { phraseNumber: 11, notes: 'C C | C C | B | C — /', lyric: 'You have come to show you' },
+      { phraseNumber: 12, notes: 'A | G — — /', lyric: 'Go on' }
+    ],
+    phraseGuidance: [
+      {
+        phraseNumber: 1,
+        guidance: 'Begin on Sa (S) and step to Re (R) and Ga (G) with smooth, gentle airflow. Descend gracefully from Ma (M) to Sa (S), then lift smoothly to middle Pa (P).'
+      },
+      {
+        phraseNumber: 2,
+        guidance: 'Soar up through Ga (G) and Pa (P) to reach middle Dha (D). Sustain Dha warmly, step back to held Pa (P), and conclude the intro on a tranquil held Re (R).'
+      },
+      {
+        phraseNumber: 3,
+        guidance: 'Maintain a steady, soft airflow on the repeated Sa (S) notes. Dip gently down to lower Ni (.N) on "my" before sustaining Sa (S) on "dreams".'
+      },
+      {
+        phraseNumber: 4,
+        guidance: 'A simple, expressive transition from middle Sa (S) down to lower Ni (.N) and returning smoothly to Sa (S).'
+      },
+      {
+        phraseNumber: 5,
+        guidance: 'Step up to Re (R), rise to Ga (G) with a delicate touch of Ma (M) turning back into Ga (G-MG), and settle calmly on held Re (R).'
+      },
+      {
+        phraseNumber: 6,
+        guidance: 'Play each syllable cleanly on Sa (S), stepping down lightly to lower Ni (.N) on "know" and holding Sa (S) on "you".'
+      },
+      {
+        phraseNumber: 7,
+        guidance: 'Drop softly into the lower octave: play lower Dha (.D) on "go" and sustain warm, deep lower Pa (.P) on "on". Avoid blowing too hard.'
+      },
+      {
+        phraseNumber: 8,
+        guidance: 'Return to middle Sa (S) with a gentle breath. Sustain "Far" slightly, pulse repeated Sa on "across the", and bridge .N to S on "distance".'
+      },
+      {
+        phraseNumber: 9,
+        guidance: 'Mirror the motif with a smooth shift from Sa (S) through lower Ni (.N) back to Sa (S).'
+      },
+      {
+        phraseNumber: 10,
+        guidance: 'Deliver the expressive G-MG ornament smoothly on "between" before resolving warmly on Re (R).'
+      },
+      {
+        phraseNumber: 11,
+        guidance: 'Even rhythm on middle Sa (S), stepping down to lower Ni (.N) on "show" and resolving on Sa (S).'
+      },
+      {
+        phraseNumber: 12,
+        guidance: 'Descend gently to lower Dha (.D) and finish on held lower Pa (.P) with rich, calm resonance.'
+      }
+    ],
+    practiceMethod: [
+      'Listen to the iconic flute/tin whistle opening to absorb the lyrical timing and expression.',
+      'Practise the Opening Tune (Phrases 1 and 2) separately before tackling the verse lyrics.',
+      'On the verse lines, speak or hum the lyrics in rhythm before playing them on your flute.',
+      'Practise the subtle G-MG ornament in Phrases 5 and 10 slowly to make it fluid rather than rushed.',
+      'Focus on gentle, warm breath control during the lower octave descent to .D and .P on "Go on".',
+      'Connect all phrases at a slow tempo, keeping note transitions smooth and legato.'
+    ],
+    commonMistakes: [
+      'Overblowing on the lower octave notes (.P, .D, .N) leading to an accidental octave jump',
+      'Rushing the held notes (—) instead of letting them sustain for their full emotional length',
+      'Playing the G-MG ornament too abruptly instead of a smooth vocal-like glide',
+      'Losing steady breath support during long sustained notes like held Pa (P) or Dha (D)',
+      'Disconnecting the opening tune from the verse instead of maintaining a consistent tempo'
+    ],
+    usefulTools: [
+      { name: 'Interactive Bansuri Fingering Chart', url: '/learn/fingering-chart', viewKey: 'learn_fingering_chart' },
+      { name: 'Online Flute Tuner', url: '/tuner', viewKey: 'learn_tuner' },
+      { name: 'Flute Note and Key Converter', url: '/tools/flute-note-key-converter', viewKey: 'note_key_converter' },
+      { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' },
+      { name: 'How to Find the Scale of a Song on Flute', url: '/learn/how-to-find-scale-of-a-song-on-flute', viewKey: 'find_song_scale' },
+      { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
+    ]
   }
 ];
