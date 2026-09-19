@@ -120,7 +120,7 @@ export const TitanicNotationView: React.FC<TitanicNotationViewProps> = ({
             {song.intro}
           </p>
           <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-sans">
-            This lesson is divided into the <strong>Opening Flute Tune</strong> and the <strong>Full Verse ("Every night in my dreams...")</strong>. Each syllable is matched directly above its flute note with clear octave signs (<code className="font-mono font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">.P, .D, .N</code> for lower octave), breath pauses (<code className="font-mono font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">/</code>) and sustained beats (<code className="font-mono font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">—</code>).
+            This lesson is divided into the <strong>Opening Flute Tune</strong> and the <strong>Opening verse practice arrangement ("Every night in my dreams...")</strong>. Each syllable is matched directly above its flute note with clear octave signs (<code className="font-mono font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">.P, .D, .N</code> for lower octave), breath pauses (<code className="font-mono font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">/</code>) and sustained beats (<code className="font-mono font-bold text-amber-900 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">—</code>).
           </p>
         </section>
 

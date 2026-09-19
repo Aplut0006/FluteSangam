@@ -415,7 +415,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
     h1: 'Titanic Flute Notes – My Heart Will Go On Sargam & Western Notes',
     metaTitle: 'Titanic Flute Notes: My Heart Will Go On Sargam & Western',
     metaDescription: 'Learn the Titanic theme My Heart Will Go On on flute or bansuri with easy Sargam and Western notes, octave guidance, breath marks and beginner tips.',
-    intro: 'My Heart Will Go On, the timeless theme from Titanic originally performed by Celine Dion and composed by James Horner, is celebrated worldwide for its hauntingly beautiful tin whistle and flute melodies. This beginner-friendly arrangement provides the iconic opening flute tune as well as the full verse, written in clear Sargam and Western notes with lyric-by-lyric syllable alignment.',
+    intro: 'My Heart Will Go On, the timeless theme from Titanic originally performed by Celine Dion and composed by James Horner, is celebrated worldwide for its hauntingly beautiful tin whistle and flute melodies. This beginner-friendly arrangement provides the iconic opening flute tune as well as the Opening verse practice arrangement, written in clear Sargam and Western notes with lyric-by-lyric syllable alignment.',
     quickInfo: {
       difficulty: 'Beginner',
       melodyType: 'Movie Theme & Ballad',
@@ -660,7 +660,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       'Listen to the iconic flute/tin whistle opening to absorb the lyrical timing and expression.',
       'Practise the Opening Tune (Phrases 1 and 2) separately before tackling the verse lyrics.',
       'On the verse lines, speak or hum the lyrics in rhythm before playing them on your flute.',
-      'Practise the subtle G-MG ornament in Phrases 5 and 10 slowly to make it fluid rather than rushed.',
+      'Practise the subtle G-MG ornament in Phrases 3 and 8 slowly to make it fluid rather than rushed.',
       'Focus on gentle, warm breath control during the lower octave descent to .D and .P on "Go on".',
       'Connect all phrases at a slow tempo, keeping note transitions smooth and legato.'
     ],
