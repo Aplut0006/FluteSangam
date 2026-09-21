@@ -77,6 +77,7 @@ const HappyBirthdayNotationView = lazyWithRetry(() => import('./components/Happy
 const JingleBellsNotationView = lazyWithRetry(() => import('./components/JingleBellsNotationView').then(m => ({ default: m.JingleBellsNotationView })));
 const TitanicNotationView = lazyWithRetry(() => import('./components/TitanicNotationView').then(m => ({ default: m.TitanicNotationView })));
 const TumHiHoNotationView = lazyWithRetry(() => import('./components/TumHiHoNotationView').then(m => ({ default: m.TumHiHoNotationView })));
+const AchyutamKeshavamNotationView = lazyWithRetry(() => import('./components/AchyutamKeshavamNotationView').then(m => ({ default: m.AchyutamKeshavamNotationView })));
 const PrivacyPolicyView = lazyWithRetry(() => import('./components/PrivacyPolicyView'));
 const TermsOfServiceView = lazyWithRetry(() => import('./components/TermsOfServiceView'));
 const NotFoundView = lazyWithRetry(() => import('./components/NotFoundView'));
@@ -446,6 +447,10 @@ export default function App() {
       case 'notation_tum_hi_ho':
         title = 'Tum Hi Ho Flute Notes: Easy Sargam for Bansuri';
         description = 'Learn the main melody of Tum Hi Ho on flute or bansuri with easy Sargam notation, octave guidance, phrase breakdowns and beginner tips.';
+        break;
+      case 'notation_achyutam_keshavam':
+        title = 'Achyutam Keshavam Flute Notes: Easy Bansuri Sargam';
+        description = 'Learn Achyutam Keshavam on flute or bansuri with easy Sargam notation, octave guidance, breath marks, phrase-by-phrase notes and beginner playing tips.';
         break;
       case 'community_members':
         title = 'Community Members | FluteSangam';
@@ -1350,6 +1355,8 @@ export default function App() {
                 handleViewChange('notation_titanic');
               } else if (slug === 'tum-hi-ho-flute-notes') {
                 handleViewChange('notation_tum_hi_ho');
+              } else if (slug === 'achyutam-keshavam-flute-notes') {
+                handleViewChange('notation_achyutam_keshavam');
               }
             }}
           />
@@ -1361,6 +1368,8 @@ export default function App() {
           <TitanicNotationView onViewChange={handleViewChange} />
         ) : currentView === 'notation_tum_hi_ho' ? (
           <TumHiHoNotationView onViewChange={handleViewChange} />
+        ) : currentView === 'notation_achyutam_keshavam' ? (
+          <AchyutamKeshavamNotationView onViewChange={handleViewChange} />
         ) : currentView === 'community_members' ? (
           <MembersView 
             currentUser={currentUser} 

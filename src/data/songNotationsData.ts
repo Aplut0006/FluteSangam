@@ -17,7 +17,7 @@ export interface SongNotationItem {
   id: string;
   slug: string;
   title: string;
-  category: 'English' | 'Hindi/Bollywood';
+  category: 'English' | 'Hindi/Bollywood' | 'Devotional';
   type: string;
   difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
   suggestedFlute: string;
@@ -902,6 +902,141 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       'Rushing the held notes like G- and R-- instead of sustaining them with steady breath support',
       'Lifting fingers too far off the tone holes during fast shifts like .NS.N or .D.P.D',
       'Rushing phrase divisions (|) and running out of air before finishing long musical lines'
+    ],
+    usefulTools: [
+      { name: 'Interactive Bansuri Fingering Chart', url: '/learn/fingering-chart', viewKey: 'learn_fingering_chart' },
+      { name: 'Online Flute Tuner', url: '/tuner', viewKey: 'learn_tuner' },
+      { name: 'Flute Note and Key Converter', url: '/tools/flute-note-key-converter', viewKey: 'note_key_converter' },
+      { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' },
+      { name: 'How to Find the Scale of a Song on Flute', url: '/learn/how-to-find-scale-of-a-song-on-flute', viewKey: 'find_song_scale' },
+      { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
+    ]
+  },
+  {
+    id: 'achyutam-keshavam-flute-notes',
+    slug: 'achyutam-keshavam-flute-notes',
+    title: 'Achyutam Keshavam Flute Notes – Easy Sargam for Bansuri',
+    category: 'Devotional',
+    type: 'Bhajan / Devotional Krishna Stuti',
+    difficulty: 'Beginner',
+    suggestedFlute: 'Any correctly tuned bansuri (C Medium, G Medium, or E Bass recommended)',
+    startingSwar: 'Sa (S)',
+    highestSwar: 'Middle Ma (M)',
+    mainChallenge: 'Smooth descent to Mandra Saptak (.D, .N) and clean breath pauses (/) at phrase endings',
+    practiceSpeed: 'Slow, peaceful and meditative',
+    notationFormats: 'Song Notation (Sargam & Western) with Lyrics',
+    description: 'Learn Achyutam Keshavam on flute or bansuri with easy Sargam notation, octave guidance, breath marks, phrase-by-phrase notes and beginner playing tips.',
+    status: 'Song Notation',
+    publishedDate: '2026-09-21',
+    updatedDate: '2026-09-21',
+    canonicalUrl: 'https://flutesangam.com/notations/achyutam-keshavam-flute-notes',
+    h1: 'Achyutam Keshavam Flute Notes – Easy Sargam for Bansuri',
+    metaTitle: 'Achyutam Keshavam Flute Notes: Easy Bansuri Sargam',
+    metaDescription: 'Learn Achyutam Keshavam on flute or bansuri with easy Sargam notation, octave guidance, breath marks, phrase-by-phrase notes and beginner playing tips.',
+    intro: 'Achyutam Keshavam is a timeless devotional bhajan celebrating the divine names of Lord Krishna and Rama. This easy beginner arrangement presents the complete bhajan melody with lyric-aligned Sargam and Western notes, lower octave markings (.D, .N), breath pause indicators (/), and phrase-by-phrase practice guidance.',
+    quickInfo: {
+      difficulty: 'Beginner',
+      melodyType: 'Devotional Krishna Bhajan',
+      suggestedFlute: 'C Medium or any comfortable flute key',
+      startingSwar: 'Sa (S)',
+      highestSwar: 'Middle Ma (M)',
+      mainChallenge: 'Lower octave (.D, .N) breath control and clean phrase-ending breath pauses (/)',
+      practiceSpeed: 'Slow, peaceful and meditative'
+    },
+    legend: [
+      { symbol: '.D .N', meaning: 'lower octave note (Mandra Saptak)' },
+      { symbol: 'S R G M', meaning: 'middle octave note (Madhya Saptak)' },
+      { symbol: '—', meaning: 'hold / sustain the preceding note' },
+      { symbol: '|', meaning: 'phrase division' },
+      { symbol: '/', meaning: 'breathe / breath pause' }
+    ],
+    phrases: [
+      {
+        phraseNumber: 1,
+        lyric: 'Achyutam Keshavam Krishna Damodaram (×2)',
+        sargamNotes: 'SRG | G MGR | S.N | RRGR /',
+        westernNotes: 'CDE | E FED | C.B | DDED /',
+        units: [
+          { lyric: 'Achyutam', sargam: 'SRG', western: 'CDE' },
+          { lyric: 'Keshavam', sargam: 'G MGR', western: 'E FED' },
+          { lyric: 'Krishna', sargam: 'S.N', western: 'C.B' },
+          { lyric: 'Damodaram', sargam: 'RRGR /', western: 'DDED /' }
+        ],
+        guidance: 'Step smoothly up from SR to Ga (G) on "Achyutam", articulate G MGR with gentle touch, drop softly to lower Ni (S.N), and finish with a rhythmic bounce on RRGR with a relaxed breath pause (/).'
+      },
+      {
+        phraseNumber: 2,
+        lyric: 'Rama Narayanam Janaki Vallabham (×2)',
+        sargamNotes: 'S.N | .D.D.DR / | RR G- | S.NS /',
+        westernNotes: 'C.B | .A.A.AD / | DD E- | C.BC /',
+        units: [
+          { lyric: 'Rama', sargam: 'S.N', western: 'C.B' },
+          { lyric: 'Narayanam', sargam: '.D.D.DR /', western: '.A.A.AD /' },
+          { lyric: 'Janaki', sargam: 'RR G-', western: 'DD E-' },
+          { lyric: 'Vallabham', sargam: 'S.NS /', western: 'C.BC /' }
+        ],
+        guidance: 'Descend to lower Ni (S.N), sound the triple lower Dha (.D.D.D) with warm, gentle breath before stepping up to Re (.DR /), sustain Ga (G-) on Janaki, and resolve sweetly on S.NS /.'
+      },
+      {
+        phraseNumber: 3,
+        lyric: 'Kaun Kehte Hai Bhagwan Aate Nahi (×2)',
+        sargamNotes: 'SR | GG | M | GRS.N | RRGR /',
+        westernNotes: 'CD | EE | F | EDC.B | DDED /',
+        units: [
+          { lyric: 'Kaun', sargam: 'SR', western: 'CD' },
+          { lyric: 'Kehte', sargam: 'GG', western: 'EE' },
+          { lyric: 'Hai', sargam: 'M', western: 'F' },
+          { lyric: 'Bhagwan', sargam: 'GRS.N', western: 'EDC.B' },
+          { lyric: 'Aate Nahi', sargam: 'RRGR /', western: 'DDED /' }
+        ],
+        guidance: 'Ascend steadily through SR and GG, open middle Ma (M) clearly on "Hai", glide downward through GRS.N on "Bhagwan", and conclude joyfully on RRGR /.'
+      },
+      {
+        phraseNumber: 4,
+        lyric: 'Tum Meera Ke Jaise Bulate Nahi (×2)',
+        sargamNotes: 'S.N | .D.D.D | RR | RGS.NS /',
+        westernNotes: 'C.B | .A.A.A | DD | DEC.BC /',
+        units: [
+          { lyric: 'Tum', sargam: 'S.N', western: 'C.B' },
+          { lyric: 'Meera Ke', sargam: '.D.D.D', western: '.A.A.A' },
+          { lyric: 'Jaise', sargam: 'RR', western: 'DD' },
+          { lyric: 'Bulate Nahi', sargam: 'RGS.NS /', western: 'DEC.BC /' }
+        ],
+        guidance: 'Drop gently from Sa to lower Ni (S.N), play steady triple lower Dha (.D.D.D), transition cleanly into Re (RR), and conclude the stuti on RGS.NS with heartfelt devotion and a peaceful breath.'
+      }
+    ],
+    sargamPhrases: [
+      { phraseNumber: 1, notes: 'SRG | G MGR | S.N | RRGR /', lyric: 'Achyutam Keshavam Krishna Damodaram (×2)' },
+      { phraseNumber: 2, notes: 'S.N | .D.D.DR / | RR G- | S.NS /', lyric: 'Rama Narayanam Janaki Vallabham (×2)' },
+      { phraseNumber: 3, notes: 'SR | GG | M | GRS.N | RRGR /', lyric: 'Kaun Kehte Hai Bhagwan Aate Nahi (×2)' },
+      { phraseNumber: 4, notes: 'S.N | .D.D.D | RR | RGS.NS /', lyric: 'Tum Meera Ke Jaise Bulate Nahi (×2)' }
+    ],
+    westernPhrases: [
+      { phraseNumber: 1, notes: 'CDE | E FED | C.B | DDED /', lyric: 'Achyutam Keshavam Krishna Damodaram (×2)' },
+      { phraseNumber: 2, notes: 'C.B | .A.A.AD / | DD E- | C.BC /', lyric: 'Rama Narayanam Janaki Vallabham (×2)' },
+      { phraseNumber: 3, notes: 'CD | EE | F | EDC.B | DDED /', lyric: 'Kaun Kehte Hai Bhagwan Aate Nahi (×2)' },
+      { phraseNumber: 4, notes: 'C.B | .A.A.A | DD | DEC.BC /', lyric: 'Tum Meera Ke Jaise Bulate Nahi (×2)' }
+    ],
+    phraseGuidance: [
+      { phraseNumber: 1, guidance: 'Step smoothly up from SR to Ga (G) on "Achyutam", articulate G MGR with gentle touch, drop softly to lower Ni (S.N), and finish with a rhythmic bounce on RRGR with a relaxed breath pause (/).' },
+      { phraseNumber: 2, guidance: 'Descend to lower Ni (S.N), sound the triple lower Dha (.D.D.D) with warm, gentle breath before stepping up to Re (.DR /), sustain Ga (G-) on Janaki, and resolve sweetly on S.NS /.' },
+      { phraseNumber: 3, guidance: 'Ascend steadily through SR and GG, open middle Ma (M) clearly on "Hai", glide downward through GRS.N on "Bhagwan", and conclude joyfully on RRGR /.' },
+      { phraseNumber: 4, guidance: 'Drop gently from Sa to lower Ni (S.N), play steady triple lower Dha (.D.D.D), transition cleanly into Re (RR), and conclude the stuti on RGS.NS with heartfelt devotion and a peaceful breath.' }
+    ],
+    practiceMethod: [
+      'Sing or chant the bhajan lines with lyrics first to internalize the gentle devotional rhythm and natural breathing spots.',
+      'Practise Phrase 1 (Achyutam Keshavam...) slowly to master the step up from Sa to Ga (SRG) and the smooth descent to lower Ni (S.N).',
+      'Focus on Phrase 2 for deep, warm breath control on the lower Dha (.D.D.D) before leaping up to Re (.DR /).',
+      'Pay close attention to Phrase 3 on "Bhagwan" (GRS.N), ensuring your fingers seal the holes fully on the descent.',
+      'Play Phrase 4 with a peaceful, calm tone, articulating RGS.NS gently without rushing the ending breath pause (/).',
+      'Combine all 4 phrases in a loop with a tanpura drone or metronome at 60–70 BPM.'
+    ],
+    commonMistakes: [
+      'Overblowing on lower notes (.D, .N), causing squeaks or unwanted octave jumps',
+      'Skipping breath pauses (/) and running out of air mid-line',
+      'Rushing the held note G- on "Janaki", disturbing the meditative tempo',
+      'Lifting fingers unevenly during the rapid GRS.N glide on "Bhagwan"',
+      'Playing too loudly instead of cultivating a sweet, gentle devotional tone'
     ],
     usefulTools: [
       { name: 'Interactive Bansuri Fingering Chart', url: '/learn/fingering-chart', viewKey: 'learn_fingering_chart' },

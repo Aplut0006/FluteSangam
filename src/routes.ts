@@ -47,6 +47,7 @@ export const VIEW_URLS: Record<string, string> = {
   'notation_jingle_bells': '/notations/jingle-bells-flute-notes',
   'notation_titanic': '/notations/my-heart-will-go-on-flute-notes',
   'notation_tum_hi_ho': '/notations/tum-hi-ho-flute-notes',
+  'notation_achyutam_keshavam': '/notations/achyutam-keshavam-flute-notes',
   'privacy_policy': '/privacy-policy',
   'terms_of_service': '/terms-of-service',
   'flute_faq': '/faq',

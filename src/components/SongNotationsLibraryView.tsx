@@ -27,13 +27,14 @@ export const SongNotationsLibraryView: React.FC<SongNotationsLibraryViewProps> =
   onNavigateToSong
 }) => {
   const [searchQuery, setSearchQuery] = React.useState('');
-  const [selectedCategory, setSelectedCategory] = React.useState<'All' | 'English' | 'Hindi/Bollywood'>('All');
+  const [selectedCategory, setSelectedCategory] = React.useState<'All' | 'English' | 'Hindi/Bollywood' | 'Devotional'>('All');
 
   const counts = React.useMemo(() => {
     return {
       all: PUBLISHED_SONG_NOTATIONS.length,
       english: PUBLISHED_SONG_NOTATIONS.filter(item => item.category === 'English').length,
-      hindi: PUBLISHED_SONG_NOTATIONS.filter(item => item.category === 'Hindi/Bollywood').length
+      hindi: PUBLISHED_SONG_NOTATIONS.filter(item => item.category === 'Hindi/Bollywood').length,
+      devotional: PUBLISHED_SONG_NOTATIONS.filter(item => item.category === 'Devotional').length
     };
   }, []);
 
@@ -177,6 +178,22 @@ export const SongNotationsLibraryView: React.FC<SongNotationsLibraryViewProps> =
                 selectedCategory === 'Hindi/Bollywood' ? 'bg-amber-700 text-amber-100' : 'bg-white text-gray-600'
               }`}>
                 {counts.hindi}
+              </span>
+            </button>
+
+            <button
+              onClick={() => setSelectedCategory('Devotional')}
+              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition flex items-center gap-1.5 ${
+                selectedCategory === 'Devotional'
+                  ? 'bg-amber-600 text-white shadow-xs'
+                  : 'bg-amber-50 text-bamboo-900 hover:bg-amber-100 border border-amber-200/60'
+              }`}
+            >
+              <span>Devotional</span>
+              <span className={`text-[11px] px-1.5 py-0.2 rounded-full ${
+                selectedCategory === 'Devotional' ? 'bg-amber-700 text-amber-100' : 'bg-white text-gray-600'
+              }`}>
+                {counts.devotional}
               </span>
             </button>
           </div>

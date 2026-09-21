@@ -57,6 +57,7 @@ import { HappyBirthdayNotationView } from '../components/HappyBirthdayNotationVi
 import { JingleBellsNotationView } from '../components/JingleBellsNotationView';
 import { TitanicNotationView } from '../components/TitanicNotationView';
 import { TumHiHoNotationView } from '../components/TumHiHoNotationView';
+import { AchyutamKeshavamNotationView } from '../components/AchyutamKeshavamNotationView';
 import NotFoundView from '../components/NotFoundView';
 
 import Navbar from '../components/Navbar';
@@ -1104,6 +1105,71 @@ export function getRouteMetadata(path: string): RouteMetadata {
             },
             'datePublished': '2026-09-19T00:00:00Z',
             'dateModified': '2026-09-19T00:00:00Z'
+          }
+        ]
+      }
+    };
+  }
+
+  if (cleanPath === '/notations/achyutam-keshavam-flute-notes') {
+    const title = 'Achyutam Keshavam Flute Notes: Easy Bansuri Sargam';
+    const description = 'Learn Achyutam Keshavam on flute or bansuri with easy Sargam notation, octave guidance, breath marks, phrase-by-phrase notes and beginner playing tips.';
+    const canonicalUrl = `${DOMAIN}/notations/achyutam-keshavam-flute-notes`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: AchyutamKeshavamNotationView,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          createWebPageSchema(canonicalUrl, title, description),
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': DOMAIN
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Song Notation',
+                'item': `${DOMAIN}/notations`
+              },
+              {
+                '@type': 'ListItem',
+                'position': 3,
+                'name': 'Achyutam Keshavam Flute Notes',
+                'item': canonicalUrl
+              }
+            ]
+          },
+          {
+            '@type': 'Article',
+            '@id': `${canonicalUrl}#article`,
+            'headline': 'Achyutam Keshavam Flute Notes – Easy Sargam for Bansuri',
+            'description': description,
+            'mainEntityOfPage': canonicalUrl,
+            'author': {
+              '@type': 'Person',
+              'name': 'Aplut',
+              'url': `${DOMAIN}/founder`
+            },
+            'publisher': {
+              '@type': 'Organization',
+              'name': 'FluteSangam',
+              'url': DOMAIN,
+              'logo': {
+                '@type': 'ImageObject',
+                'url': `${DOMAIN}/flutesangam_logo.png`
+              }
+            },
+            'datePublished': '2026-09-21T00:00:00Z',
+            'dateModified': '2026-09-21T00:00:00Z'
           }
         ]
       }
