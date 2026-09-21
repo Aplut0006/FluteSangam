@@ -967,74 +967,74 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       {
         phraseNumber: 2,
         lyric: 'Rama Narayanam Janaki Vallabham (×2)',
-        sargamNotes: 'S.N | .D.D.DR / | RR G - | S.NS /',
-        westernNotes: 'C.B | .A.A.AD / | DD E - | C.BC /',
+        sargamNotes: 'S.N | .D.D.DR / | RR G— | S.NS /',
+        westernNotes: 'C.B | .A.A.AD / | DD E— | C.BC /',
         units: [
           { lyric: 'Rama', sargam: 'S.N', western: 'C.B' },
           { lyric: 'Narayanam', sargam: '.D.D.DR /', western: '.A.A.AD /' },
-          { lyric: 'Janaki', sargam: 'RR G -', western: 'DD E -' },
+          { lyric: 'Janaki', sargam: 'RR G—', western: 'DD E—' },
           { lyric: 'Vallabham', sargam: 'S.NS /', western: 'C.BC /' }
         ],
-        guidance: 'Descend to lower Ni (S.N), sound the triple lower Dha (.D.D.D) with warm, gentle breath before stepping up to Re (.DR /), step through Re to sustain Ga (RR G -) on Janaki, and resolve sweetly on S.NS /.'
+        guidance: 'Descend to lower Ni (S.N), sound the triple lower Dha (.D.D.D) with warm, gentle breath before stepping up to Re (.DR /), step through Re to sustain Ga (RR G—) on Janaki, and resolve sweetly on S.NS /.'
       },
       {
         phraseNumber: 3,
-        lyric: 'Kaun Kehte Hai Bhagwan Aate Nahi (×2)',
+        lyric: 'Kaun Kehte Hain Bhagwan Aate Nahi (×2)',
         sargamNotes: 'SR | GG | M | GRS.N | RRGR /',
         westernNotes: 'CD | EE | F | EDC.B | DDED /',
         units: [
           { lyric: 'Kaun', sargam: 'SR', western: 'CD' },
           { lyric: 'Kehte', sargam: 'GG', western: 'EE' },
-          { lyric: 'Hai', sargam: 'M', western: 'F' },
+          { lyric: 'Hain', sargam: 'M', western: 'F' },
           { lyric: 'Bhagwan', sargam: 'GRS.N', western: 'EDC.B' },
           { lyric: 'Aate Nahi', sargam: 'RRGR /', western: 'DDED /' }
         ],
-        guidance: 'Ascend steadily through SR and GG, open middle Ma (M) clearly on "Hai", glide downward through GRS.N on "Bhagwan", and conclude joyfully on RRGR /.'
+        guidance: 'Ascend steadily through SR and GG, open middle Ma (M) clearly on "Hain", glide downward through GRS.N on "Bhagwan", and conclude joyfully on RRGR /.'
       },
       {
         phraseNumber: 4,
         lyric: 'Tum Meera Ke Jaise Bulate Nahi (×2)',
-        sargamNotes: 'S.N | .D.D.D | RR | R GR S. - NS /',
-        westernNotes: 'C.B | .A.A.A | DD | D ED C. - BC /',
+        sargamNotes: 'S.N | .D.D.D | RR | R GR S— .NS /',
+        westernNotes: 'C.B | .A.A.A | DD | D ED C— .BC /',
         units: [
           { lyric: 'Tum', sargam: 'S.N', western: 'C.B' },
           { lyric: 'Meera Ke', sargam: '.D.D.D', western: '.A.A.A' },
           { lyric: 'Jaise', sargam: 'RR', western: 'DD' },
-          { lyric: 'Bulate Nahi', sargam: 'R GR S. - NS /', western: 'D ED C. - BC /' }
+          { lyric: 'Bulate Nahi', sargam: 'R GR S— .NS /', western: 'D ED C— .BC /' }
         ],
-        guidance: 'Drop gently from Sa to lower Ni (S.N), play steady triple lower Dha (.D.D.D), transition cleanly into Re (RR), and conclude the stuti on R GR S. - NS with heartfelt devotion and a peaceful breath.'
+        guidance: 'Drop gently from Sa to lower Ni (S.N), play steady triple lower Dha (.D.D.D), transition cleanly into Re (RR), and conclude the stuti on R GR S— .NS with heartfelt devotion and a peaceful breath.'
       }
     ],
     sargamPhrases: [
       { phraseNumber: 1, notes: 'SRG | G MGR | S.N | RRGR /', lyric: 'Achyutam Keshavam Krishna Damodaram (×2)' },
-      { phraseNumber: 2, notes: 'S.N | .D.D.DR / | RR G - | S.NS /', lyric: 'Rama Narayanam Janaki Vallabham (×2)' },
-      { phraseNumber: 3, notes: 'SR | GG | M | GRS.N | RRGR /', lyric: 'Kaun Kehte Hai Bhagwan Aate Nahi (×2)' },
-      { phraseNumber: 4, notes: 'S.N | .D.D.D | RR | R GR S. - NS /', lyric: 'Tum Meera Ke Jaise Bulate Nahi (×2)' }
+      { phraseNumber: 2, notes: 'S.N | .D.D.DR / | RR G— | S.NS /', lyric: 'Rama Narayanam Janaki Vallabham (×2)' },
+      { phraseNumber: 3, notes: 'SR | GG | M | GRS.N | RRGR /', lyric: 'Kaun Kehte Hain Bhagwan Aate Nahi (×2)' },
+      { phraseNumber: 4, notes: 'S.N | .D.D.D | RR | R GR S— .NS /', lyric: 'Tum Meera Ke Jaise Bulate Nahi (×2)' }
     ],
     westernPhrases: [
       { phraseNumber: 1, notes: 'CDE | E FED | C.B | DDED /', lyric: 'Achyutam Keshavam Krishna Damodaram (×2)' },
-      { phraseNumber: 2, notes: 'C.B | .A.A.AD / | DD E - | C.BC /', lyric: 'Rama Narayanam Janaki Vallabham (×2)' },
-      { phraseNumber: 3, notes: 'CD | EE | F | EDC.B | DDED /', lyric: 'Kaun Kehte Hai Bhagwan Aate Nahi (×2)' },
-      { phraseNumber: 4, notes: 'C.B | .A.A.A | DD | D ED C. - BC /', lyric: 'Tum Meera Ke Jaise Bulate Nahi (×2)' }
+      { phraseNumber: 2, notes: 'C.B | .A.A.AD / | DD E— | C.BC /', lyric: 'Rama Narayanam Janaki Vallabham (×2)' },
+      { phraseNumber: 3, notes: 'CD | EE | F | EDC.B | DDED /', lyric: 'Kaun Kehte Hain Bhagwan Aate Nahi (×2)' },
+      { phraseNumber: 4, notes: 'C.B | .A.A.A | DD | D ED C— .BC /', lyric: 'Tum Meera Ke Jaise Bulate Nahi (×2)' }
     ],
     phraseGuidance: [
       { phraseNumber: 1, guidance: 'Step smoothly up from SR to Ga (G) on "Achyutam", articulate G MGR with gentle touch, drop softly to lower Ni (S.N), and finish with a rhythmic bounce on RRGR with a relaxed breath pause (/).' },
-      { phraseNumber: 2, guidance: 'Descend to lower Ni (S.N), sound the triple lower Dha (.D.D.D) with warm, gentle breath before stepping up to Re (.DR /), step through Re to sustain Ga (RR G -) on Janaki, and resolve sweetly on S.NS /.' },
-      { phraseNumber: 3, guidance: 'Ascend steadily through SR and GG, open middle Ma (M) clearly on "Hai", glide downward through GRS.N on "Bhagwan", and conclude joyfully on RRGR /.' },
-      { phraseNumber: 4, guidance: 'Drop gently from Sa to lower Ni (S.N), play steady triple lower Dha (.D.D.D), transition cleanly into Re (RR), and conclude the stuti on R GR S. - NS with heartfelt devotion and a peaceful breath.' }
+      { phraseNumber: 2, guidance: 'Descend to lower Ni (S.N), sound the triple lower Dha (.D.D.D) with warm, gentle breath before stepping up to Re (.DR /), step through Re to sustain Ga (RR G—) on Janaki, and resolve sweetly on S.NS /.' },
+      { phraseNumber: 3, guidance: 'Ascend steadily through SR and GG, open middle Ma (M) clearly on "Hain", glide downward through GRS.N on "Bhagwan", and conclude joyfully on RRGR /.' },
+      { phraseNumber: 4, guidance: 'Drop gently from Sa to lower Ni (S.N), play steady triple lower Dha (.D.D.D), transition cleanly into Re (RR), and conclude the stuti on R GR S— .NS with heartfelt devotion and a peaceful breath.' }
     ],
     practiceMethod: [
       'Sing or chant the bhajan lines with lyrics first to internalize the gentle devotional rhythm and natural breathing spots.',
       'Practise Phrase 1 (Achyutam Keshavam...) slowly to master the step up from Sa to Ga (SRG) and the smooth descent to lower Ni (S.N).',
       'Focus on Phrase 2 for deep, warm breath control on the lower Dha (.D.D.D) before leaping up to Re (.DR /).',
       'Pay close attention to Phrase 3 on "Bhagwan" (GRS.N), ensuring your fingers seal the holes fully on the descent.',
-      'Play Phrase 4 with a peaceful, calm tone, articulating R GR S. - NS gently without rushing the ending breath pause (/).',
+      'Play Phrase 4 with a peaceful, calm tone, articulating R GR S— .NS gently without rushing the ending breath pause (/).',
       'Combine all 4 phrases in a loop with a tanpura drone or metronome at 60–70 BPM.'
     ],
     commonMistakes: [
       'Overblowing on lower notes (.D, .N), causing squeaks or unwanted octave jumps',
       'Skipping breath pauses (/) and running out of air mid-line',
-      'Rushing the held note G- on "Janaki", disturbing the meditative tempo',
+      'Rushing the held note G— on "Janaki", disturbing the meditative tempo',
       'Lifting fingers unevenly during the rapid GRS.N glide on "Bhagwan"',
       'Playing too loudly instead of cultivating a sweet, gentle devotional tone'
     ],
