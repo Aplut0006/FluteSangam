@@ -8,3 +8,6 @@
 /learn/daily-practice/          /learn/daily-practice-guide 301!
 /ragas                          /learn/raagas        301!
 /community                      /#recent-discussions-section 302!
+
+# SPA fallback rule for Cloudflare Pages and Netlify
+/*                              /index.html          200
