@@ -78,6 +78,7 @@ const JingleBellsNotationView = lazyWithRetry(() => import('./components/JingleB
 const TitanicNotationView = lazyWithRetry(() => import('./components/TitanicNotationView').then(m => ({ default: m.TitanicNotationView })));
 const TumHiHoNotationView = lazyWithRetry(() => import('./components/TumHiHoNotationView').then(m => ({ default: m.TumHiHoNotationView })));
 const AchyutamKeshavamNotationView = lazyWithRetry(() => import('./components/AchyutamKeshavamNotationView').then(m => ({ default: m.AchyutamKeshavamNotationView })));
+const RadhaKrishnaNotationView = lazyWithRetry(() => import('./components/RadhaKrishnaNotationView').then(m => ({ default: m.RadhaKrishnaNotationView })));
 const PrivacyPolicyView = lazyWithRetry(() => import('./components/PrivacyPolicyView'));
 const TermsOfServiceView = lazyWithRetry(() => import('./components/TermsOfServiceView'));
 const NotFoundView = lazyWithRetry(() => import('./components/NotFoundView'));
@@ -451,6 +452,10 @@ export default function App() {
       case 'notation_achyutam_keshavam':
         title = 'Achyutam Keshavam Flute Notes: Easy Bansuri Sargam';
         description = 'Learn Achyutam Keshavam on flute or bansuri with easy Sargam notation, octave guidance, breath marks, phrase-by-phrase notes and beginner playing tips.';
+        break;
+      case 'notation_radha_krishna':
+        title = 'Radha Krishna Flute Notes | Star Bharat Theme Tune';
+        description = 'Learn to play the Radha Krishna flute tune from the Star Bharat TV serial with easy flute notes. Explore the melody in Sargam and Western notes on FluteSangam.';
         break;
       case 'community_members':
         title = 'Community Members | FluteSangam';
@@ -1357,6 +1362,8 @@ export default function App() {
                 handleViewChange('notation_tum_hi_ho');
               } else if (slug === 'achyutam-keshavam-flute-notes') {
                 handleViewChange('notation_achyutam_keshavam');
+              } else if (slug === 'radha-krishna-flute-notes') {
+                handleViewChange('notation_radha_krishna');
               }
             }}
           />
@@ -1370,6 +1377,8 @@ export default function App() {
           <TumHiHoNotationView onViewChange={handleViewChange} />
         ) : currentView === 'notation_achyutam_keshavam' ? (
           <AchyutamKeshavamNotationView onViewChange={handleViewChange} />
+        ) : currentView === 'notation_radha_krishna' ? (
+          <RadhaKrishnaNotationView onViewChange={handleViewChange} />
         ) : currentView === 'community_members' ? (
           <MembersView 
             currentUser={currentUser} 

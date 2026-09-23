@@ -58,6 +58,7 @@ import { JingleBellsNotationView } from '../components/JingleBellsNotationView';
 import { TitanicNotationView } from '../components/TitanicNotationView';
 import { TumHiHoNotationView } from '../components/TumHiHoNotationView';
 import { AchyutamKeshavamNotationView } from '../components/AchyutamKeshavamNotationView';
+import { RadhaKrishnaNotationView } from '../components/RadhaKrishnaNotationView';
 import NotFoundView from '../components/NotFoundView';
 
 import Navbar from '../components/Navbar';
@@ -1170,6 +1171,71 @@ export function getRouteMetadata(path: string): RouteMetadata {
             },
             'datePublished': '2026-09-21T00:00:00Z',
             'dateModified': '2026-09-21T00:00:00Z'
+          }
+        ]
+      }
+    };
+  }
+
+  if (cleanPath === '/notations/radha-krishna-flute-notes') {
+    const title = 'Radha Krishna Flute Notes | Star Bharat Theme Tune';
+    const description = 'Learn to play the Radha Krishna flute tune from the Star Bharat TV serial with easy flute notes. Explore the melody in Sargam and Western notes on FluteSangam.';
+    const canonicalUrl = `${DOMAIN}/notations/radha-krishna-flute-notes`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: RadhaKrishnaNotationView,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          createWebPageSchema(canonicalUrl, title, description),
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': DOMAIN
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Song Notation',
+                'item': `${DOMAIN}/notations`
+              },
+              {
+                '@type': 'ListItem',
+                'position': 3,
+                'name': 'Radha Krishna Flute Notes',
+                'item': canonicalUrl
+              }
+            ]
+          },
+          {
+            '@type': 'Article',
+            '@id': `${canonicalUrl}#article`,
+            'headline': 'Radha Krishna Flute Notes – Star Bharat Theme Tune',
+            'description': description,
+            'mainEntityOfPage': canonicalUrl,
+            'author': {
+              '@type': 'Person',
+              'name': 'Aplut',
+              'url': `${DOMAIN}/founder`
+            },
+            'publisher': {
+              '@type': 'Organization',
+              'name': 'FluteSangam',
+              'url': DOMAIN,
+              'logo': {
+                '@type': 'ImageObject',
+                'url': `${DOMAIN}/flutesangam_logo.png`
+              }
+            },
+            'datePublished': '2026-09-23T00:00:00Z',
+            'dateModified': '2026-09-23T00:00:00Z'
           }
         ]
       }

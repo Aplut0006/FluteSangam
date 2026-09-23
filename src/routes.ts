@@ -48,6 +48,7 @@ export const VIEW_URLS: Record<string, string> = {
   'notation_titanic': '/notations/my-heart-will-go-on-flute-notes',
   'notation_tum_hi_ho': '/notations/tum-hi-ho-flute-notes',
   'notation_achyutam_keshavam': '/notations/achyutam-keshavam-flute-notes',
+  'notation_radha_krishna': '/notations/radha-krishna-flute-notes',
   'privacy_policy': '/privacy-policy',
   'terms_of_service': '/terms-of-service',
   'flute_faq': '/faq',

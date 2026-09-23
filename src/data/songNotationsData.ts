@@ -1046,5 +1046,170 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       { name: 'How to Find the Scale of a Song on Flute', url: '/learn/how-to-find-scale-of-a-song-on-flute', viewKey: 'find_song_scale' },
       { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
     ]
+  },
+  {
+    id: 'radha-krishna-flute-notes',
+    slug: 'radha-krishna-flute-notes',
+    title: 'Radha Krishna Flute Notes – Star Bharat Theme Tune',
+    category: 'Devotional',
+    type: 'Devotional TV Theme / Bansuri Instrumental',
+    difficulty: 'Intermediate',
+    suggestedFlute: 'D Medium (D Natural) or D Bass Bansuri',
+    startingSwar: 'Middle Re (R)',
+    highestSwar: 'Tara Saptak Re (R\') / Komal Ni (n)',
+    mainChallenge: 'Clean half-hole Komal Ga (g), Komal Ni (n), smooth meend glides (G)M, and lower Mandra Pa (.P) transitions',
+    practiceSpeed: '65 – 75 BPM (Soulful & Meditative)',
+    notationFormats: 'Sargam & Western Notations',
+    description: 'Learn to play the soulful Radha Krishna flute theme from the Star Bharat TV serial on Indian bamboo flute with phrase-by-phrase Sargam and Western notes.',
+    status: 'published',
+    publishedDate: '2026-09-23',
+    updatedDate: '2026-09-23',
+    canonicalUrl: 'https://flutesangam.com/notations/radha-krishna-flute-notes',
+    h1: 'Radha Krishna Flute Notes – Star Bharat Theme Tune',
+    metaTitle: 'Radha Krishna Flute Notes | Star Bharat Theme Tune',
+    metaDescription: 'Learn to play the Radha Krishna flute tune from the Star Bharat TV serial with easy flute notes. Explore the melody in Sargam and Western notes on FluteSangam.',
+    intro: 'Master the iconic, emotive flute melody from the popular Star Bharat TV serial RadhaKrishn on your bansuri. Featuring detailed Sargam swaras and Western notes, octave indicators, grace note (kan swar) ornaments, and practical finger placement tips.',
+    quickInfo: {
+      difficulty: 'Intermediate',
+      melodyType: 'Devotional, Classical-Inspired Melody',
+      suggestedFlute: 'D Scale (D Medium / D Bass)',
+      startingSwar: 'Madhya Re (R)',
+      highestSwar: 'Tara Saptak Re (R\')',
+      mainChallenge: 'Komal Ga (g), Komal Ni (n), and graceful meend ornamentation',
+      practiceSpeed: '65 – 75 BPM (Gentle & Meditative)'
+    },
+    legend: [
+      { symbol: 'S R G M P D N', meaning: 'Shuddh (Natural) Swaras in Madhya Saptak' },
+      { symbol: 'g, n', meaning: 'Komal (Flat) Swaras (Half-hole on bansuri)' },
+      { symbol: '.P .D .N', meaning: 'Mandra Saptak (Lower octave notes)' },
+      { symbol: 'S\' R\' G\'', meaning: 'Tara Saptak (Higher octave notes)' },
+      { symbol: '—', meaning: 'Hold / sustain note duration' },
+      { symbol: '(G)M', meaning: 'Kan Swar (Grace note / quick touch)' },
+      { symbol: '|', meaning: 'Musical phrase segment division' },
+      { symbol: '/', meaning: 'Breath pause / phrase conclusion' }
+    ],
+    phrases: [
+      {
+        phraseNumber: 1,
+        lyric: 'Opening Theme Hook – Part 1',
+        sargamNotes: 'R— SR— SR | S.N.D.NS g— Rg— Rg /',
+        westernNotes: 'D— CD— CD | C.B.A.BC D#— DD#— DD# /',
+        units: [
+          { lyric: 'Opening Hook', sargam: 'R— SR— SR', western: 'D— CD— CD' },
+          { lyric: 'Mandra Descent', sargam: 'S.N.D.NS', western: 'C.B.A.BC' },
+          { lyric: 'Komal Ga Movement', sargam: 'g— Rg— Rg /', western: 'D#— DD#— DD#' }
+        ],
+        guidance: 'Sustain Madhya Re (R—), play the quick step SR— SR, glide smoothly down into lower Mandra notes S.N.D.NS with warm breath, then play half-hole Komal Ga (g— Rg— Rg) with a gentle vibrato.'
+      },
+      {
+        phraseNumber: 2,
+        lyric: 'Opening Theme Hook – Part 2 (Lower Pa Attack)',
+        sargamNotes: '.P.PR— SR— SR | S.N.D.NS g— Rg— Rg /',
+        westernNotes: '.G.GD— CD— CD | C.B.A.BC D#— DD#— DD# /',
+        units: [
+          { lyric: 'Lower Pa Strike', sargam: '.P.PR—', western: '.G.GD—' },
+          { lyric: 'Ascending Turn', sargam: 'SR— SR', western: 'CD— CD' },
+          { lyric: 'Mandra Flow', sargam: 'S.N.D.NS', western: 'C.B.A.BC' },
+          { lyric: 'Komal Ga Resolution', sargam: 'g— Rg— Rg /', western: 'D#— DD#— DD#' }
+        ],
+        guidance: 'Start firmly from double Mandra Pa (.P.P) with warm air, leap up to Re (R—), repeat the flowing descent S.N.D.NS, and finish sweetly on g— Rg— Rg with a quiet breath pause (/).'
+      },
+      {
+        phraseNumber: 3,
+        lyric: 'High Peak Variation 1 (Pa-Dha-Komal Ni)',
+        sargamNotes: 'R— PP | R— DD | R nn— DPM(G)Mg /',
+        westernNotes: 'D— GG | D— AA | D A#A#— AGF(E)FE /',
+        units: [
+          { lyric: 'Re to Pa step', sargam: 'R— PP', western: 'D— GG' },
+          { lyric: 'Re to Dha step', sargam: 'R— DD', western: 'D— AA' },
+          { lyric: 'Re to Komal Ni leap', sargam: 'R nn—', western: 'D A#A#—' },
+          { lyric: 'Emotive Meend Descent', sargam: 'DPM(G)Mg /', western: 'AGF(E)FE /' }
+        ],
+        guidance: 'Play R— PP cleanly, step up to R— DD, hit the held Komal Ni (R nn—) with emotional intensity, and glide down through DPM with a delicate grace touch on (G) before landing on Komal Ga (g).'
+      },
+      {
+        phraseNumber: 4,
+        lyric: 'High Peak Variation 2 (Tara Saptak Re Climax)',
+        sargamNotes: 'R— PP | R— DD | R(S\')R\'S\'n— | DPM(G)Mg—',
+        westernNotes: 'D— GG | D— AA | D(C\')D\'C\'A#— | AGF(E)FE—',
+        units: [
+          { lyric: 'Re to Pa', sargam: 'R— PP', western: 'D— GG' },
+          { lyric: 'Re to Dha', sargam: 'R— DD', western: 'D— AA' },
+          { lyric: 'Tara Re Climax', sargam: 'R(S\')R\'S\'n—', western: 'D(C\')D\'C\'A#—' },
+          { lyric: 'Grand Melodic Landing', sargam: 'DPM(G)Mg—', western: 'AGF(E)FE—' }
+        ],
+        guidance: 'Build dynamic breath energy through R— PP and R— DD. Overblow cleanly into higher Tara Saptak Re R(S\')R\'S\'n—, and descend with graceful kan-swar ornament DPM(G)Mg—.'
+      },
+      {
+        phraseNumber: 5,
+        lyric: 'Lower Mandra Transition Bridge',
+        sargamNotes: 'S.D.NSR',
+        westernNotes: 'C.A.BCD',
+        units: [
+          { lyric: 'Connecting Bridge', sargam: 'S.D.NSR', western: 'C.A.BCD' }
+        ],
+        guidance: 'Connect the climax smoothly back to the opening motif by stepping softly from Sa (S) down to lower Dha (.D), lower Ni (.N), and rising through Sa to Re (SR).'
+      },
+      {
+        phraseNumber: 6,
+        lyric: 'Concluding Theme Hook',
+        sargamNotes: 'R— SR— SR— | S.N.D.NS g— Rg— Rg /',
+        westernNotes: 'D— CD— CD— | C.B.A.BC D#— DD#— DD# /',
+        units: [
+          { lyric: 'Sustained Hook', sargam: 'R— SR— SR—', western: 'D— CD— CD—' },
+          { lyric: 'Final Mandra Sweep', sargam: 'S.N.D.NS', western: 'C.B.A.BC' },
+          { lyric: 'Final Komal Ga Fade', sargam: 'g— Rg— Rg /', western: 'D#— DD#— DD#' }
+        ],
+        guidance: 'End the composition with a peaceful, resonant rendition of the primary theme, letting the final Komal Ga (g) fade out smoothly with natural reverberation.'
+      }
+    ],
+    sargamPhrases: [
+      { phraseNumber: 1, notes: 'R— SR— SR   S.N.D.NS g— Rg— Rg /', lyric: 'Opening Theme Hook – Part 1' },
+      { phraseNumber: 2, notes: '.P.PR—  SR—  SR  S.N.D.NS g— Rg— Rg /', lyric: 'Opening Theme Hook – Part 2' },
+      { phraseNumber: 3, notes: 'R— PP  R— DD  R nn— DPM(G)Mg /', lyric: 'High Peak Variation 1' },
+      { phraseNumber: 4, notes: 'R— PP  R— DD    R(S\')R\'S\'  n— DPM(G)Mg—', lyric: 'High Peak Variation 2 (Tara Re Climax)' },
+      { phraseNumber: 5, notes: 'S.D.NSR', lyric: 'Transition Bridge' },
+      { phraseNumber: 6, notes: 'R—  SR— SR—  S.N.D.NS g— Rg— Rg /', lyric: 'Concluding Theme Hook' }
+    ],
+    westernPhrases: [
+      { phraseNumber: 1, notes: 'D— CD— CD   C.B.A.BC D#— DD#— DD# /', lyric: 'Opening Theme Hook – Part 1' },
+      { phraseNumber: 2, notes: '.G.GD—  CD—  CD  C.B.A.BC D#— DD#— DD# /', lyric: 'Opening Theme Hook – Part 2' },
+      { phraseNumber: 3, notes: 'D— GG  D— AA  D A#A#— AGF(E)FE /', lyric: 'High Peak Variation 1' },
+      { phraseNumber: 4, notes: 'D— GG  D— AA    D(C\')D\'C\'  A#— AGF(E)FE—', lyric: 'High Peak Variation 2' },
+      { phraseNumber: 5, notes: 'C.A.BCD', lyric: 'Transition Bridge' },
+      { phraseNumber: 6, notes: 'D—  CD— CD—  C.B.A.BC D#— DD#— DD# /', lyric: 'Concluding Theme Hook' }
+    ],
+    phraseGuidance: [
+      { phraseNumber: 1, guidance: 'Sustain Madhya Re (R—), play the quick step SR— SR, glide smoothly down into lower Mandra notes S.N.D.NS with warm breath, then play half-hole Komal Ga (g— Rg— Rg) with a gentle vibrato.' },
+      { phraseNumber: 2, guidance: 'Start firmly from double Mandra Pa (.P.P) with warm air, leap up to Re (R—), repeat the flowing descent S.N.D.NS, and finish sweetly on g— Rg— Rg with a quiet breath pause (/).' },
+      { phraseNumber: 3, guidance: 'Play R— PP cleanly, step up to R— DD, hit the held Komal Ni (R nn—) with emotional intensity, and glide down through DPM with a delicate grace touch on (G) before landing on Komal Ga (g).' },
+      { phraseNumber: 4, guidance: 'Build dynamic breath energy through R— PP and R— DD. Overblow cleanly into higher Tara Saptak Re R(S\')R\'S\', catch Komal Ni (n—), and descend with graceful kan-swar ornament DPM(G)Mg—.' },
+      { phraseNumber: 5, guidance: 'Connect the climax smoothly back to the opening motif by stepping softly from Sa (S) down to lower Dha (.D), lower Ni (.N), and rising through Sa to Re (SR).' },
+      { phraseNumber: 6, guidance: 'End the composition with a peaceful, resonant rendition of the primary theme, letting the final Komal Ga (g) fade out smoothly with natural reverberation.' }
+    ],
+    practiceMethod: [
+      'Warm up with Swar Sadhana on lower octave notes (.P, .D, .N) and Komal Ga (g) half-hole finger control.',
+      'Practice Phrase 1 and 2 slowly with a metronome at 60 BPM until the descent S.N.D.NS is completely seamless.',
+      'Practice half-covering the third hole for Komal Ga (g) to ensure precise pitch without sounding flat or sharp.',
+      'Work on Phrase 4\'s transition into higher octave Tara Re (R\') using focused air speed rather than forceful blowing.',
+      'Incorporate the kan swar (G)M ornament on the DPM(G)Mg descent for that signature soulful expression.',
+      'Play all 6 phrases continuously with a soothing tanpura drone in C or E.'
+    ],
+    commonMistakes: [
+      'Overblowing on Mandra Pa (.P.P) causing the flute to jump into middle octave Pa unexpectedly',
+      'Inaccurate half-hole coverage on Komal Ga (g), resulting in pitch discrepancies',
+      'Rushing the sustained Re (R—) notes in the opening hook',
+      'Harsh air burst on Tara Saptak Re (R\') instead of a gentle, focused embouchure adjustment',
+      'Skipping the subtle meend glide on DPM(G)Mg'
+    ],
+    usefulTools: [
+      { name: 'Interactive Bansuri Fingering Chart', url: '/learn/fingering-chart', viewKey: 'learn_fingering_chart' },
+      { name: 'Online Flute Tuner', url: '/tuner', viewKey: 'learn_tuner' },
+      { name: 'Flute Note and Key Converter', url: '/tools/flute-note-key-converter', viewKey: 'note_key_converter' },
+      { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' },
+      { name: 'Raag Shivranjani Guide', url: '/learn/raga-shivranjani', viewKey: 'raga_shivranjani' },
+      { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
+    ]
   }
 ];
+
