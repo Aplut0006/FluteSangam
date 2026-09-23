@@ -1054,7 +1054,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
     category: 'Devotional',
     type: 'Devotional TV Theme / Bansuri Instrumental',
     difficulty: 'Intermediate',
-    suggestedFlute: 'D Medium (D Natural) or D Bass Bansuri',
+    suggestedFlute: 'D Middle (D Scale) Bansuri',
     startingSwar: 'Middle Re (R)',
     highestSwar: 'Tara Saptak Re (R\') / Komal Ni (n)',
     mainChallenge: 'Clean half-hole Komal Ga (g), Komal Ni (n), smooth meend glides (G)M, and lower Mandra Pa (.P) transitions',
@@ -1072,11 +1072,11 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
     quickInfo: {
       difficulty: 'Intermediate',
       melodyType: 'Devotional, Classical-Inspired Melody',
-      suggestedFlute: 'D Scale (D Medium / D Bass)',
+      suggestedFlute: 'D Middle (D Scale) Bansuri',
       startingSwar: 'Madhya Re (R)',
       highestSwar: 'Tara Saptak Re (R\')',
       mainChallenge: 'Komal Ga (g), Komal Ni (n), and graceful meend ornamentation',
-      practiceSpeed: '65 – 75 BPM (Gentle & Meditative)'
+      practiceSpeed: '65 – 75 BPM (Soulful & Meditative)'
     },
     legend: [
       { symbol: 'S R G M P D N', meaning: 'Shuddh (Natural) Swaras in Madhya Saptak' },
@@ -1189,11 +1189,11 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
     ],
     practiceMethod: [
       'Warm up with Swar Sadhana on lower octave notes (.P, .D, .N) and Komal Ga (g) half-hole finger control.',
-      'Practice Phrase 1 and 2 slowly with a metronome at 60 BPM until the descent S.N.D.NS is completely seamless.',
+      'Practice Phrase 1 and 2 slowly with a metronome at 65 – 75 BPM until the descent S.N.D.NS is completely seamless.',
       'Practice half-covering the third hole for Komal Ga (g) to ensure precise pitch without sounding flat or sharp.',
       'Work on Phrase 4\'s transition into higher octave Tara Re (R\') using focused air speed rather than forceful blowing.',
       'Incorporate the kan swar (G)M ornament on the DPM(G)Mg descent for that signature soulful expression.',
-      'Play all 6 phrases continuously with a soothing tanpura drone in C or E.'
+      'Play all 6 phrases continuously with a soothing tanpura drone in D or C.'
     ],
     commonMistakes: [
       'Overblowing on Mandra Pa (.P.P) causing the flute to jump into middle octave Pa unexpectedly',

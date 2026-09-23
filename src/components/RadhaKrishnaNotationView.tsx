@@ -258,15 +258,15 @@ export const RadhaKrishnaNotationView: React.FC<RadhaKrishnaNotationViewProps> =
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-3">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2">
               <Layers className="w-5 h-5 text-amber-700" />
-              Western Notes (Sa = C Equivalent)
+              Western Notes (Relative Key / Sa = C Pitch)
             </h2>
             <span className="text-xs font-bold text-slate-800 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
-              Key of C Standard
+              Western Flute &amp; Piano (C Root)
             </span>
           </div>
 
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            For Western concert flute players, keyboardists, and recorder learners, the melody transcriptions are arranged below phrase by phrase:
+            For Western concert flute players, keyboardists, and recorder learners, the melody transcriptions are transcribed relative to tonic C (where Sa = C, Re = D, Komal Ga = D#/Eb, Pa = G, Dha = A, Komal Ni = A#/Bb):
           </p>
 
           <div className="space-y-4">
