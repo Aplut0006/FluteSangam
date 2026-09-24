@@ -661,8 +661,8 @@ export function getRouteMetadata(path: string): RouteMetadata {
       comp: RagaDurgaView
     },
     'yaman': {
-      title: 'Raag Yaman — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
-      desc: 'Master Raag Yaman on Indian Bamboo Flute (Bansuri): Tivra Ma usage, Sampurna scale, Aaroh, Avaroh, Pakad, phrase movement, and classical compositions.',
+      title: 'Raag Yaman Flute Notes | Aroha, Avaroha & Alap',
+      desc: 'Learn Raag Yaman on flute with detailed notes, Aroha, Avaroha and Alap. Explore the important swaras, phrases and practice guidance for playing Raag Yaman.',
       comp: RagaYamanView
     },
     'hamsadhwani': {

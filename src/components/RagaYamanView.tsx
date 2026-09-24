@@ -245,7 +245,7 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
                 Hindustani Classical • Kalyan Thaat
               </div>
               <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold font-display tracking-tight text-amber-50 leading-tight" itemProp="headline">
-                Raag Yaman Guide
+                Raag Yaman Flute Notes – Aroha, Avaroha &amp; Alap
               </h1>
               <p className="text-amber-200/90 text-xs sm:text-lg font-medium leading-relaxed">
                 Notes, Aaroh, Avaroh, Pakad, 45-Min Practice Schedule &amp; Original Piece <em className="text-amber-300 font-serif">"Sandhya Prakash"</em>.

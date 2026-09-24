@@ -346,8 +346,8 @@ export default function App() {
         description = 'Learn Raag Durga on Indian Bamboo Flute (Bansuri): Audav-Audav scale omitting Ga and Ni, Aaroh, Avaroh, Pakad, Vadi, Samvadi, and compositions.';
         break;
       case 'raga_yaman':
-        title = 'Raag Yaman — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
-        description = 'Master Raag Yaman on Indian Bamboo Flute (Bansuri): Tivra Ma usage, Sampurna scale, Aaroh, Avaroh, Pakad, phrase movement, and classical compositions.';
+        title = 'Raag Yaman Flute Notes | Aroha, Avaroha & Alap';
+        description = 'Learn Raag Yaman on flute with detailed notes, Aroha, Avaroha and Alap. Explore the important swaras, phrases and practice guidance for playing Raag Yaman.';
         break;
       case 'raga_hamsadhwani':
         title = 'Raag Hamsadhwani — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';

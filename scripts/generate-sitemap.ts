@@ -27,7 +27,7 @@ const sitemapPath = path.join(publicDir, 'sitemap.xml');
 const ROUTE_MOD_DATES: Record<string, string> = {
   '': '2026-09-18',
   '/learn/intro': '2026-09-18',
-  '/learn/choose-flute': '2026-09-18',
+  '/learn/choose-flute': '2026-09-24',
   '/tuner': '2026-09-18',
   '/learn/basics': '2026-09-18',
   '/learn/fingering-chart': '2026-09-18',
@@ -39,7 +39,7 @@ const ROUTE_MOD_DATES: Record<string, string> = {
   '/learn/raagas': '2026-09-18',
   '/learn/raga-bhoopali': '2026-09-18',
   '/learn/raga-durga': '2026-09-18',
-  '/learn/raga-yaman': '2026-09-18',
+  '/learn/raga-yaman': '2026-09-24',
   '/learn/raga-hamsadhwani': '2026-09-18',
   '/learn/raga-bilawal': '2026-09-18',
   '/learn/raga-desh': '2026-09-18',
@@ -47,7 +47,7 @@ const ROUTE_MOD_DATES: Record<string, string> = {
   '/learn/raga-bageshree': '2026-09-18',
   '/learn/raga-bhimpalasi': '2026-09-18',
   '/learn/raga-brindavani-sarang': '2026-09-18',
-  '/learn/raga-khamaj': '2026-09-18',
+  '/learn/raga-khamaj': '2026-09-24',
   '/learn/raga-bhairav': '2026-09-18',
   '/learn/raga-bihag': '2026-09-18',
   '/learn/raga-malkauns': '2026-09-18',
@@ -90,7 +90,7 @@ const ROUTE_MOD_DATES: Record<string, string> = {
   '/faq/health-and-breathing': '2026-09-18',
   '/faq/children-and-beginners': '2026-09-18',
   '/faq/music-theory': '2026-09-18',
-  '/faq/tuning-and-pitch': '2026-09-18',
+  '/faq/tuning-and-pitch': '2026-09-24',
   '/faq/flute-accessories': '2026-09-18',
   '/faq/flute-types': '2026-09-18',
   '/faq/platform': '2026-09-18',
@@ -100,10 +100,6 @@ const ROUTE_MOD_DATES: Record<string, string> = {
 };
 
 const getRouteLastMod = (route: string): string => {
-  // ONLY radha-krishna-flute-notes is set to 2026-09-23
-  if (route === '/notations/radha-krishna-flute-notes') {
-    return '2026-09-23';
-  }
   return ROUTE_MOD_DATES[route] || '2026-09-18';
 };
 
