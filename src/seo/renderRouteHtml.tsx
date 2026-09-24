@@ -383,15 +383,40 @@ export function getRouteMetadata(path: string): RouteMetadata {
   }
 
   if (cleanPath === '/learn/choose-flute') {
-    const title = 'How to Choose Your First Bansuri | FluteSangam';
-    const description = 'Guide to choosing your first Indian bamboo flute: C Medium vs G Natural Base, key selection for beginners, finger stretch, and bamboo quality.';
+    const title = 'Best Bansuri Scale for Beginners | Flute Scale Guide';
+    const description = 'Wondering which bansuri scale is best for beginners? Learn how to choose the right flute scale, size, finger reach, and material for comfortable playing.';
     const canonicalUrl = `${DOMAIN}/learn/choose-flute`;
     return {
       title,
       description,
       canonicalUrl,
       component: LearnChooseFluteView,
-      jsonLd: createWebPageSchema(canonicalUrl, title, description)
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@type': 'LearningResource',
+        'headline': 'Which Bansuri Is Best for Beginners? Flute Scale & Size Guide',
+        'description': description,
+        'image': `${DOMAIN}/flutesangam_without_tagline_compressed.png`,
+        'datePublished': '2026-07-26T00:00:00Z',
+        'dateModified': '2026-07-27T10:00:00Z',
+        'author': {
+          '@type': 'Person',
+          'name': 'Aplut',
+          'url': `${DOMAIN}/founder`
+        },
+        'publisher': {
+          '@type': 'Organization',
+          'name': 'FluteSangam',
+          'logo': {
+            '@type': 'ImageObject',
+            'url': `${DOMAIN}/flutesangam_without_tagline_compressed.png`
+          }
+        },
+        'mainEntityOfPage': {
+          '@type': 'WebPage',
+          '@id': `${DOMAIN}/learn/choose-flute`
+        }
+      }
     };
   }
 
@@ -676,8 +701,8 @@ export function getRouteMetadata(path: string): RouteMetadata {
       comp: RagaBrindavaniSarangView
     },
     'khamaj': {
-      title: 'Raag Khamaj — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
-      desc: 'Learn Raag Khamaj on Indian Bamboo Flute (Bansuri): Shuddha & Komal Ni, Khamaj Thaat, Shadav-Sampurna scale, Aaroh, Avaroh, Pakad, and Thumri melodies.',
+      title: 'Raag Khamaj Notes | Aaroh, Avaroh & Pakad for Flute',
+      desc: 'Learn Raag Khamaj with detailed notes, Aaroh, Avaroh, Pakad and flute practice guidance. Explore the Khamaj scale, important phrases and notes for playing.',
       comp: RagaKhamajView
     },
     'bhairav': {

@@ -161,7 +161,7 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
         </div>
 
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-bamboo-950 tracking-tight leading-tight mb-4" itemProp="headline">
-          Raag Khamaj: Complete Guide, Notes, Aaroh, Avaroh &amp; Practice
+          Raag Khamaj Notes – Aaroh, Avaroh, Pakad &amp; Flute Practice
         </h1>
 
         <p className="text-base sm:text-lg text-amber-900/90 leading-relaxed max-w-3xl mb-6 font-normal" itemProp="description">

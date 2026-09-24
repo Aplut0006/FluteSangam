@@ -53,7 +53,7 @@ export default function LearnChooseFluteView({ onBackToLearn, onViewChange }: Le
               </div>
               <div>
                 <h1 className="text-2xl sm:text-4xl font-bold font-display text-bamboo-900 tracking-tight" itemProp="headline">
-                  Choose the Right Flute (Bansuri)
+                  Which Bansuri Is Best for Beginners? Flute Scale &amp; Size Guide
                 </h1>
                 <p className="text-xs sm:text-sm text-gray-500 mt-1">
                   A complete scale selection guide tailored for children, teenagers, and adults
@@ -84,6 +84,11 @@ export default function LearnChooseFluteView({ onBackToLearn, onViewChange }: Le
               </span>
             </div>
           </div>
+
+          {/* Introductory Overview immediately under H1 */}
+          <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
+            Choosing your first bansuri can be confusing, especially when you're deciding which scale to buy. This guide explains the commonly used flute scales, sizes, finger reach, and materials to help beginners choose a comfortable bansuri.
+          </p>
 
           {/* Core Question Quote */}
           <div className="bg-gradient-to-r from-amber-50/80 via-bamboo-50/60 to-amber-50/80 p-5 sm:p-6 rounded-2xl border-l-4 border-amber-500 mb-8 shadow-2xs">

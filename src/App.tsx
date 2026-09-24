@@ -275,8 +275,8 @@ export default function App() {
         description = 'Learn correct finger positioning, posture, embouchure hole alignment, and air pressure control on the bansuri.';
         break;
       case 'learn_choose_flute':
-        title = 'How to Choose Your First Bansuri | FluteSangam';
-        description = 'Guide to choosing your first Indian bamboo flute: C Medium vs G Natural Base, key selection for beginners, finger stretch, and bamboo quality.';
+        title = 'Best Bansuri Scale for Beginners | Flute Scale Guide';
+        description = 'Wondering which bansuri scale is best for beginners? Learn how to choose the right flute scale, size, finger reach, and material for comfortable playing.';
         break;
       case 'learn_fingering_chart':
         title = 'Bansuri Fingering Chart: Sa Re Ga Ma for 6-Hole Flute';
@@ -378,8 +378,8 @@ export default function App() {
         description = 'Master Raag Brindavani Sarang on Indian Bamboo Flute (Bansuri): Audav-Audav scale, Kafi Thaat, Aaroh, Avaroh, Pakad, and classical gat compositions.';
         break;
       case 'raga_khamaj':
-        title = 'Raag Khamaj — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
-        description = 'Learn Raag Khamaj on Indian Bamboo Flute (Bansuri): Shuddha & Komal Ni, Khamaj Thaat, Shadav-Sampurna scale, Aaroh, Avaroh, Pakad, and Thumri melodies.';
+        title = 'Raag Khamaj Notes | Aaroh, Avaroh & Pakad for Flute';
+        description = 'Learn Raag Khamaj with detailed notes, Aaroh, Avaroh, Pakad and flute practice guidance. Explore the Khamaj scale, important phrases and notes for playing.';
         break;
       case 'raga_bhairav':
         title = 'Raag Bhairav — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
