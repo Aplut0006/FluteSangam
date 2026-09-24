@@ -71,6 +71,7 @@ const ROUTE_MOD_DATES: Record<string, string> = {
   '/notations/tum-hi-ho-flute-notes': '2026-09-19',
   '/notations/achyutam-keshavam-flute-notes': '2026-09-21',
   '/notations/radha-krishna-flute-notes': '2026-09-23',
+  '/notations/jana-gana-mana-flute-notes': '2026-09-24',
   '/privacy-policy': '2026-09-18',
   '/terms-of-service': '2026-09-18',
   '/faq': '2026-09-18',

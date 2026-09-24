@@ -27,14 +27,15 @@ export const SongNotationsLibraryView: React.FC<SongNotationsLibraryViewProps> =
   onNavigateToSong
 }) => {
   const [searchQuery, setSearchQuery] = React.useState('');
-  const [selectedCategory, setSelectedCategory] = React.useState<'All' | 'English' | 'Hindi/Bollywood' | 'Devotional'>('All');
+  const [selectedCategory, setSelectedCategory] = React.useState<'All' | 'English' | 'Hindi/Bollywood' | 'Devotional' | 'Others'>('All');
 
   const counts = React.useMemo(() => {
     return {
       all: PUBLISHED_SONG_NOTATIONS.length,
       english: PUBLISHED_SONG_NOTATIONS.filter(item => item.category === 'English').length,
       hindi: PUBLISHED_SONG_NOTATIONS.filter(item => item.category === 'Hindi/Bollywood').length,
-      devotional: PUBLISHED_SONG_NOTATIONS.filter(item => item.category === 'Devotional').length
+      devotional: PUBLISHED_SONG_NOTATIONS.filter(item => item.category === 'Devotional').length,
+      others: PUBLISHED_SONG_NOTATIONS.filter(item => item.category === 'Others').length
     };
   }, []);
 
@@ -196,6 +197,22 @@ export const SongNotationsLibraryView: React.FC<SongNotationsLibraryViewProps> =
                 {counts.devotional}
               </span>
             </button>
+
+            <button
+              onClick={() => setSelectedCategory('Others')}
+              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition flex items-center gap-1.5 ${
+                selectedCategory === 'Others'
+                  ? 'bg-amber-600 text-white shadow-xs'
+                  : 'bg-amber-50 text-bamboo-900 hover:bg-amber-100 border border-amber-200/60'
+              }`}
+            >
+              <span>Others</span>
+              <span className={`text-[11px] px-1.5 py-0.2 rounded-full ${
+                selectedCategory === 'Others' ? 'bg-amber-700 text-amber-100' : 'bg-white text-gray-600'
+              }`}>
+                {counts.others}
+              </span>
+            </button>
           </div>
         </section>
 
@@ -239,6 +256,10 @@ export const SongNotationsLibraryView: React.FC<SongNotationsLibraryViewProps> =
                       <span className={`text-xs font-bold px-3 py-1 rounded-full border ${
                         song.category === 'Hindi/Bollywood' 
                           ? 'bg-rose-50 border-rose-200 text-rose-800' 
+                          : song.category === 'Devotional'
+                          ? 'bg-amber-50 border-amber-300 text-amber-900'
+                          : song.category === 'Others'
+                          ? 'bg-purple-50 border-purple-200 text-purple-800'
                           : 'bg-blue-50 border-blue-200 text-blue-800'
                       }`}>
                         {song.category}
@@ -249,7 +270,7 @@ export const SongNotationsLibraryView: React.FC<SongNotationsLibraryViewProps> =
                     </div>
                     <div className="flex items-center gap-1.5 text-xs text-gray-500 font-medium">
                       <Calendar className="w-3.5 h-3.5 text-amber-600" />
-                      <span>Updated: Sep 19, 2026</span>
+                      <span>Updated: {song.updatedDate}</span>
                     </div>
                   </div>
 

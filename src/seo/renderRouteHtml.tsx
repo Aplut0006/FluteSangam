@@ -59,6 +59,7 @@ import { TitanicNotationView } from '../components/TitanicNotationView';
 import { TumHiHoNotationView } from '../components/TumHiHoNotationView';
 import { AchyutamKeshavamNotationView } from '../components/AchyutamKeshavamNotationView';
 import { RadhaKrishnaNotationView } from '../components/RadhaKrishnaNotationView';
+import { JanaGanaManaNotationView } from '../components/JanaGanaManaNotationView';
 import NotFoundView from '../components/NotFoundView';
 
 import Navbar from '../components/Navbar';
@@ -1261,6 +1262,71 @@ export function getRouteMetadata(path: string): RouteMetadata {
             },
             'datePublished': '2026-09-23T00:00:00Z',
             'dateModified': '2026-09-23T00:00:00Z'
+          }
+        ]
+      }
+    };
+  }
+
+  if (cleanPath === '/notations/jana-gana-mana-flute-notes') {
+    const title = 'Jana Gana Mana Flute Notes | India’s National Anthem';
+    const description = 'Learn to play Jana Gana Mana on flute with easy Sargam and flute notes. Explore the National Anthem of India with clear notation for flute practice.';
+    const canonicalUrl = `${DOMAIN}/notations/jana-gana-mana-flute-notes`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: JanaGanaManaNotationView,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          createWebPageSchema(canonicalUrl, title, description),
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': DOMAIN
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Song Notation',
+                'item': `${DOMAIN}/notations`
+              },
+              {
+                '@type': 'ListItem',
+                'position': 3,
+                'name': 'Jana Gana Mana Flute Notes',
+                'item': canonicalUrl
+              }
+            ]
+          },
+          {
+            '@type': 'Article',
+            '@id': `${canonicalUrl}#article`,
+            'headline': 'Jana Gana Mana Flute Notes – India’s National Anthem',
+            'description': description,
+            'mainEntityOfPage': canonicalUrl,
+            'author': {
+              '@type': 'Person',
+              'name': 'Aplut',
+              'url': `${DOMAIN}/founder`
+            },
+            'publisher': {
+              '@type': 'Organization',
+              'name': 'FluteSangam',
+              'url': DOMAIN,
+              'logo': {
+                '@type': 'ImageObject',
+                'url': `${DOMAIN}/flutesangam_logo.png`
+              }
+            },
+            'datePublished': '2026-09-24T00:00:00Z',
+            'dateModified': '2026-09-24T00:00:00Z'
           }
         ]
       }

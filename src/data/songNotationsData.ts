@@ -17,7 +17,7 @@ export interface SongNotationItem {
   id: string;
   slug: string;
   title: string;
-  category: 'English' | 'Hindi/Bollywood' | 'Devotional';
+  category: 'English' | 'Hindi/Bollywood' | 'Devotional' | 'Others';
   type: string;
   difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
   suggestedFlute: string;
@@ -1208,6 +1208,257 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       { name: 'Flute Note and Key Converter', url: '/tools/flute-note-key-converter', viewKey: 'note_key_converter' },
       { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' },
       { name: 'Raag Shivranjani Guide', url: '/learn/raga-shivranjani', viewKey: 'raga_shivranjani' },
+      { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
+    ]
+  },
+  {
+    id: 'jana-gana-mana-flute-notes',
+    slug: 'jana-gana-mana-flute-notes',
+    title: 'Jana Gana Mana Flute Notes',
+    category: 'Others',
+    type: 'National Anthem of India',
+    difficulty: 'Beginner',
+    suggestedFlute: 'C Natural / C Medium bansuri, or any scale bansuri comfortable for you',
+    startingSwar: 'Sa (S)',
+    highestSwar: "Tara Sa (S')",
+    mainChallenge: 'Steady tempo (52 seconds standard), clean Mandra Ni (.N) reach, and gentle breath control on high Tara Sa (S\')',
+    practiceSpeed: 'Dignified & steady (approx. 52 seconds total rendition)',
+    notationFormats: 'Song Notation (Sargam & Western) with Lyrics',
+    description: 'Learn to play Jana Gana Mana on flute with easy Sargam and flute notes. Explore the National Anthem of India with clear notation for flute practice.',
+    status: 'Song Notation',
+    publishedDate: '2026-09-24',
+    updatedDate: '2026-09-24',
+    canonicalUrl: 'https://flutesangam.com/notations/jana-gana-mana-flute-notes',
+    h1: 'Jana Gana Mana Flute Notes – India’s National Anthem',
+    metaTitle: 'Jana Gana Mana Flute Notes | India’s National Anthem',
+    metaDescription: 'Learn to play Jana Gana Mana on flute with easy Sargam and flute notes. Explore the National Anthem of India with clear notation for flute practice.',
+    intro: 'Jana Gana Mana is the National Anthem of India, composed by Nobel laureate Rabindranath Tagore. Playing this sacred, uplifting anthem on the bansuri requires disciplined tempo, majestic expression, and clean note articulation. Below you will find the complete phrase-by-phrase Sargam and Western notations, along with octave guidance and flute playing tips.',
+    quickInfo: {
+      difficulty: 'Beginner',
+      melodyType: 'National Anthem of India',
+      suggestedFlute: 'C Medium / C Natural (or any comfortable key)',
+      startingSwar: 'Sa (S)',
+      highestSwar: "Tara Sa (S')",
+      mainChallenge: 'Clean lower octave Mandra Ni (.N) intonation and controlled Tara Sa (S\') sustained notes',
+      practiceSpeed: 'Dignified, steady rhythm (around 52 seconds duration)'
+    },
+    legend: [
+      { symbol: '.N', meaning: 'lower octave note (Mandra Saptak)' },
+      { symbol: 'S R G M P D N', meaning: 'middle octave note (Madhya Saptak)' },
+      { symbol: "S'", meaning: 'higher octave note (Tara Saptak)' },
+      { symbol: '—', meaning: 'hold / sustain preceding note' },
+      { symbol: '/', meaning: 'breath pause' }
+    ],
+    phrases: [
+      {
+        phraseNumber: 1,
+        lyric: 'Jana-gana-mana-adhinayaka  jaya he',
+        sargamNotes: 'SR   GG    GG    GGG— GG    RG  M—',
+        westernNotes: 'CD   EE    EE    EEE— EE    DE  F—',
+        units: [
+          { lyric: 'Jana-gana-mana-', sargam: 'SR GG GG', western: 'CD EE EE' },
+          { lyric: 'adhinayaka', sargam: 'GGG— GG', western: 'EEE— EE' },
+          { lyric: 'jaya he', sargam: 'RG M—', western: 'DE F—' }
+        ],
+        guidance: 'Begin with a crisp, clear Sa-Re (SR) opening. Sustain the dignified Ga (G) pulses evenly and glide into Shuddha Ma (M—) on "jaya he".'
+      },
+      {
+        phraseNumber: 2,
+        lyric: 'Bharata-bhagya-vidhata',
+        sargamNotes: 'GGG       RR    R.NRS—',
+        westernNotes: 'EEE       DD    D.BCD—',
+        units: [
+          { lyric: 'Bharata-', sargam: 'GGG', western: 'EEE' },
+          { lyric: 'bhagya-', sargam: 'RR', western: 'DD' },
+          { lyric: 'vidhata', sargam: 'R.NRS—', western: 'D.BCD—' }
+        ],
+        guidance: 'Descend smoothly from Ga (G) to Re (R). For R.NRS, lightly touch lower Mandra Ni (.N) with gentle breath before returning home to Sa (S—).'
+      },
+      {
+        phraseNumber: 3,
+        lyric: 'Panjaba-Sindhu-Gujarata-Maratha',
+        sargamNotes: 'SPP      PP     PPPP     PMDP',
+        westernNotes: 'CGG      GG     GGGG     GFAG',
+        units: [
+          { lyric: 'Panjaba-', sargam: 'SPP', western: 'CGG' },
+          { lyric: 'Sindhu-', sargam: 'PP', western: 'GG' },
+          { lyric: 'Gujarata-', sargam: 'PPPP', western: 'GGGG' },
+          { lyric: 'Maratha', sargam: 'PMDP', western: 'GFAG' }
+        ],
+        guidance: 'Leap cleanly from Sa to Pa (SPP) with steady airflow. Keep the repeated Pa notes well-timed and play PMDP with graceful finger lifts.'
+      },
+      {
+        phraseNumber: 4,
+        lyric: 'Dravida-Utkala-Banga',
+        sargamNotes: 'MMM      GGG    RMG /',
+        westernNotes: 'FFF      EEE    DEF /',
+        units: [
+          { lyric: 'Dravida-', sargam: 'MMM', western: 'FFF' },
+          { lyric: 'Utkala-', sargam: 'GGG', western: 'EEE' },
+          { lyric: 'Banga', sargam: 'RMG /', western: 'DEF /' }
+        ],
+        guidance: 'Step down with even tone from Shuddha Ma (MMM) to Ga (GGG), resolving cleanly through Re-Ga-Ma (RMG) followed by a short breath pause (/ ).'
+      },
+      {
+        phraseNumber: 5,
+        lyric: 'Vindhya-Himachala-Yamuna-Ganga',
+        sargamNotes: 'GG       GGGR      PPPM    MM',
+        westernNotes: 'EE       EEED      GGGF    FF',
+        units: [
+          { lyric: 'Vindhya-', sargam: 'GG', western: 'EE' },
+          { lyric: 'Himachala-', sargam: 'GGGR', western: 'EEED' },
+          { lyric: 'Yamuna-', sargam: 'PPPM', western: 'GGGF' },
+          { lyric: 'Ganga', sargam: 'MM', western: 'FF' }
+        ],
+        guidance: 'Keep the rhythm energetic. Play GGGR cleanly before lifting to PPPM and settling on double Ma (MM).'
+      },
+      {
+        phraseNumber: 6,
+        lyric: 'uchchala-jaladhi-taranga',
+        sargamNotes: 'GGG       RRR    R.NRS—',
+        westernNotes: 'EEE       DDD    D.BCD—',
+        units: [
+          { lyric: 'uchchala-', sargam: 'GGG', western: 'EEE' },
+          { lyric: 'jaladhi-', sargam: 'RRR', western: 'DDD' },
+          { lyric: 'taranga', sargam: 'R.NRS—', western: 'D.BCD—' }
+        ],
+        guidance: 'Mirror the second phrase resolution: cascade down from Ga to Re, lightly dip into Mandra Ni (.N), and rest firmly on Sa (S—).'
+      },
+      {
+        phraseNumber: 7,
+        lyric: 'Tava Subha name jage, tava subha asisa mange,',
+        sargamNotes: 'SR    GG   GG    RGM—  GM    PP   PMMG  RMG—',
+        westernNotes: 'CD    EE   EE    DEF—  EF    GG   GFFE  DEF—',
+        units: [
+          { lyric: 'Tava Subha', sargam: 'SR GG', western: 'CD EE' },
+          { lyric: 'name jage,', sargam: 'GG RGM—', western: 'EE DEF—' },
+          { lyric: 'tava subha', sargam: 'GM PP', western: 'EF GG' },
+          { lyric: 'asisa mange,', sargam: 'PMMG RMG—', western: 'GFFE DEF—' }
+        ],
+        guidance: 'Flow seamlessly across both sub-phrases. Accentuate the ascending lines and maintain warm, even tone across PMMG and RMG.'
+      },
+      {
+        phraseNumber: 8,
+        lyric: 'gahe tava jaya-gatha.',
+        sargamNotes: 'GG    RR   RR  .NRS /',
+        westernNotes: 'EE    DD   DD  .BCD /',
+        units: [
+          { lyric: 'gahe', sargam: 'GG', western: 'EE' },
+          { lyric: 'tava', sargam: 'RR', western: 'DD' },
+          { lyric: 'jaya-gatha.', sargam: 'RR .NRS /', western: 'DD .BCD /' }
+        ],
+        guidance: 'Play with serene devotion. The lower Mandra Ni (.N) should be soft and resonant without losing breath support.'
+      },
+      {
+        phraseNumber: 9,
+        lyric: 'Jana-gana-mangala-dayaka jaya he',
+        sargamNotes: 'PP   PP   PPP     PPP     MD  P',
+        westernNotes: 'GG   GG   GGG     GGG     FA  G',
+        units: [
+          { lyric: 'Jana-gana-', sargam: 'PP PP', western: 'GG GG' },
+          { lyric: 'mangala-dayaka', sargam: 'PPP PPP', western: 'GGG GGG' },
+          { lyric: 'jaya he', sargam: 'MD P', western: 'FA G' }
+        ],
+        guidance: 'Ascend to Pa (P) with celebratory energy. Keep the rapid repeated Pa strokes articulated and land cleanly on MD P.'
+      },
+      {
+        phraseNumber: 10,
+        lyric: 'Bharata-bhagya-vidhata.',
+        sargamNotes: 'MMM       GG     GRMG /',
+        westernNotes: 'FFF       EE     EDEF /',
+        units: [
+          { lyric: 'Bharata-', sargam: 'MMM', western: 'FFF' },
+          { lyric: 'bhagya-', sargam: 'GG', western: 'EE' },
+          { lyric: 'vidhata.', sargam: 'GRMG /', western: 'EDEF /' }
+        ],
+        guidance: 'Step down with grace through MMM and GG, then articulate GRMG softly before the grand climax.'
+      },
+      {
+        phraseNumber: 11,
+        lyric: 'Jaya he, Jaya he, Jaya he,',
+        sargamNotes: "S'NS'—     NDN—     DPD—",
+        westernNotes: "C'BC'—     BAB—     AGA—",
+        units: [
+          { lyric: 'Jaya he,', sargam: "S'NS'—", western: "C'BC'—" },
+          { lyric: 'Jaya he,', sargam: 'NDN—', western: 'BAB—' },
+          { lyric: 'Jaya he,', sargam: 'DPD—', western: 'AGA—' }
+        ],
+        guidance: "This is the majestic high climax of the anthem. Focus your lips and embouchure for a pure, sweet Tara Sa (S'). Step down stepwise: S'NS'— to NDN— to DPD—."
+      },
+      {
+        phraseNumber: 12,
+        lyric: 'jaya jaya jaya jaya he',
+        sargamNotes: 'SS     RR   GG    RG  M—',
+        westernNotes: 'CC     DD   EE    DE  F—',
+        units: [
+          { lyric: 'jaya', sargam: 'SS', western: 'CC' },
+          { lyric: 'jaya', sargam: 'RR', western: 'DD' },
+          { lyric: 'jaya', sargam: 'GG', western: 'EE' },
+          { lyric: 'jaya he', sargam: 'RG M—', western: 'DE F—' }
+        ],
+        guidance: 'Build up step-by-step from Sa (SS), Re (RR), Ga (GG) to RG M—, holding the final Shuddha Ma (M—) with resonant pride and devotion.'
+      }
+    ],
+    sargamPhrases: [
+      { phraseNumber: 1, notes: 'SR   GG    GG    GGG— GG    RG  M—', lyric: 'Jana-gana-mana-adhinayaka  jaya he' },
+      { phraseNumber: 2, notes: 'GGG       RR    R.NRS—', lyric: 'Bharata-bhagya-vidhata' },
+      { phraseNumber: 3, notes: 'SPP      PP     PPPP     PMDP', lyric: 'Panjaba-Sindhu-Gujarata-Maratha' },
+      { phraseNumber: 4, notes: 'MMM      GGG    RMG /', lyric: 'Dravida-Utkala-Banga' },
+      { phraseNumber: 5, notes: 'GG       GGGR      PPPM    MM', lyric: 'Vindhya-Himachala-Yamuna-Ganga' },
+      { phraseNumber: 6, notes: 'GGG       RRR    R.NRS—', lyric: 'uchchala-jaladhi-taranga' },
+      { phraseNumber: 7, notes: 'SR    GG   GG    RGM—  GM    PP   PMMG  RMG—', lyric: 'Tava Subha name jage, tava subha asisa mange,' },
+      { phraseNumber: 8, notes: 'GG    RR   RR  .NRS /', lyric: 'gahe tava jaya-gatha.' },
+      { phraseNumber: 9, notes: 'PP   PP   PPP     PPP     MD  P', lyric: 'Jana-gana-mangala-dayaka jaya he' },
+      { phraseNumber: 10, notes: 'MMM       GG     GRMG /', lyric: 'Bharata-bhagya-vidhata.' },
+      { phraseNumber: 11, notes: "S'NS'—     NDN—     DPD—", lyric: 'Jaya he, Jaya he, Jaya he,' },
+      { phraseNumber: 12, notes: 'SS     RR   GG    RG  M—', lyric: 'jaya jaya jaya jaya he' }
+    ],
+    westernPhrases: [
+      { phraseNumber: 1, notes: 'CD   EE    EE    EEE— EE    DE  F—', lyric: 'Jana-gana-mana-adhinayaka  jaya he' },
+      { phraseNumber: 2, notes: 'EEE       DD    D.BCD—', lyric: 'Bharata-bhagya-vidhata' },
+      { phraseNumber: 3, notes: 'CGG      GG     GGGG     GFAG', lyric: 'Panjaba-Sindhu-Gujarata-Maratha' },
+      { phraseNumber: 4, notes: 'FFF      EEE    DEF /', lyric: 'Dravida-Utkala-Banga' },
+      { phraseNumber: 5, notes: 'EE       EEED      GGGF    FF', lyric: 'Vindhya-Himachala-Yamuna-Ganga' },
+      { phraseNumber: 6, notes: 'EEE       DDD    D.BCD—', lyric: 'uchchala-jaladhi-taranga' },
+      { phraseNumber: 7, notes: 'CD    EE   EE    DEF—  EF    GG   GFFE  DEF—', lyric: 'Tava Subha name jage, tava subha asisa mange,' },
+      { phraseNumber: 8, notes: 'EE    DD   DD  .BCD /', lyric: 'gahe tava jaya-gatha.' },
+      { phraseNumber: 9, notes: 'GG   GG   GGG     GGG     FA  G', lyric: 'Jana-gana-mangala-dayaka jaya he' },
+      { phraseNumber: 10, notes: 'FFF       EE     EDEF /', lyric: 'Bharata-bhagya-vidhata.' },
+      { phraseNumber: 11, notes: "C'BC'—     BAB—     AGA—", lyric: 'Jaya he, Jaya he, Jaya he,' },
+      { phraseNumber: 12, notes: 'CC     DD   EE    DE  F—', lyric: 'jaya jaya jaya jaya he' }
+    ],
+    phraseGuidance: [
+      { phraseNumber: 1, guidance: 'Begin with a crisp, clear Sa-Re (SR) opening. Sustain the dignified Ga (G) pulses evenly and glide into Shuddha Ma (M—) on "jaya he".' },
+      { phraseNumber: 2, guidance: 'Descend smoothly from Ga (G) to Re (R). For R.NRS, lightly touch lower Mandra Ni (.N) with gentle breath before returning home to Sa (S—).' },
+      { phraseNumber: 3, guidance: 'Leap cleanly from Sa to Pa (SPP) with steady airflow. Keep the repeated Pa notes well-timed and play PMDP with graceful finger lifts.' },
+      { phraseNumber: 4, guidance: 'Step down with even tone from Shuddha Ma (MMM) to Ga (GGG), resolving cleanly through Re-Ga-Ma (RMG) followed by a short breath pause (/ ).' },
+      { phraseNumber: 5, guidance: 'Keep the rhythm energetic. Play GGGR cleanly before lifting to PPPM and settling on double Ma (MM).' },
+      { phraseNumber: 6, guidance: 'Mirror the second phrase resolution: cascade down from Ga to Re, lightly dip into Mandra Ni (.N), and rest firmly on Sa (S—).' },
+      { phraseNumber: 7, guidance: 'Flow seamlessly across both sub-phrases. Accentuate the ascending lines and maintain warm, even tone across PMMG and RMG.' },
+      { phraseNumber: 8, guidance: 'Play with serene devotion. The lower Mandra Ni (.N) should be soft and resonant without losing breath support.' },
+      { phraseNumber: 9, guidance: 'Ascend to Pa (P) with celebratory energy. Keep the rapid repeated Pa strokes articulated and land cleanly on MD P.' },
+      { phraseNumber: 10, guidance: 'Step down with grace through MMM and GG, then articulate GRMG softly before the grand climax.' },
+      { phraseNumber: 11, guidance: "This is the majestic high climax of the anthem. Focus your lips and embouchure for a pure, sweet Tara Sa (S'). Step down stepwise: S'NS'— to NDN— to DPD—." },
+      { phraseNumber: 12, guidance: 'Build up step-by-step from Sa (SS), Re (RR), Ga (GG) to RG M—, holding the final Shuddha Ma (M—) with resonant pride and devotion.' }
+    ],
+    practiceMethod: [
+      'Practice long tones (Swar Sadhana) on middle octave swaras (S, R, G, M, P, D, N) to build steady breath support and pure intonation.',
+      'Pay special attention to Mandra Ni (.N) in Phrases 2, 6, and 8. Ensure finger holes are sealed completely with finger pads.',
+      'Practice the climactic 11th phrase (S\'NS\'— NDN— DPD—) slowly to produce a clear, gentle high Tara Sa (S\') without overblowing forcefully.',
+      'Aim for the traditional official duration of approximately 52 seconds when playing the complete anthem.',
+      'Keep your tempo steady with a metronome at 72 – 80 BPM.'
+    ],
+    commonMistakes: [
+      'Rushing the tempo during repeated notes (like GGG or PPP) instead of keeping steady cadence',
+      'Overblowing forcefully on Tara Saptak Sa (S\') causing harsh screeching instead of focusing the air stream',
+      'Leaking air on Mandra Ni (.N) causing the lower note to fail or sound flat',
+      'Cutting off the sustained holding notes (—) abruptly instead of sustaining them with steady air support'
+    ],
+    usefulTools: [
+      { name: 'Interactive Bansuri Fingering Chart', url: '/learn/fingering-chart', viewKey: 'learn_fingering_chart' },
+      { name: 'Online Flute Tuner', url: '/tuner', viewKey: 'learn_tuner' },
+      { name: 'Flute Note and Key Converter', url: '/tools/flute-note-key-converter', viewKey: 'note_key_converter' },
+      { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' },
       { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
     ]
   }

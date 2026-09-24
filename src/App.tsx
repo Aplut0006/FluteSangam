@@ -79,6 +79,7 @@ const TitanicNotationView = lazyWithRetry(() => import('./components/TitanicNota
 const TumHiHoNotationView = lazyWithRetry(() => import('./components/TumHiHoNotationView').then(m => ({ default: m.TumHiHoNotationView })));
 const AchyutamKeshavamNotationView = lazyWithRetry(() => import('./components/AchyutamKeshavamNotationView').then(m => ({ default: m.AchyutamKeshavamNotationView })));
 const RadhaKrishnaNotationView = lazyWithRetry(() => import('./components/RadhaKrishnaNotationView').then(m => ({ default: m.RadhaKrishnaNotationView })));
+const JanaGanaManaNotationView = lazyWithRetry(() => import('./components/JanaGanaManaNotationView').then(m => ({ default: m.JanaGanaManaNotationView })));
 const PrivacyPolicyView = lazyWithRetry(() => import('./components/PrivacyPolicyView'));
 const TermsOfServiceView = lazyWithRetry(() => import('./components/TermsOfServiceView'));
 const NotFoundView = lazyWithRetry(() => import('./components/NotFoundView'));
@@ -456,6 +457,10 @@ export default function App() {
       case 'notation_radha_krishna':
         title = 'Radha Krishna Flute Notes | Star Bharat Theme Tune';
         description = 'Learn to play the Radha Krishna flute tune from the Star Bharat TV serial with easy flute notes. Explore the melody in Sargam and Western notes on FluteSangam.';
+        break;
+      case 'notation_jana_gana_mana':
+        title = 'Jana Gana Mana Flute Notes | India’s National Anthem';
+        description = 'Learn to play Jana Gana Mana on flute with easy Sargam and flute notes. Explore the National Anthem of India with clear notation for flute practice.';
         break;
       case 'community_members':
         title = 'Community Members | FluteSangam';
@@ -1364,6 +1369,8 @@ export default function App() {
                 handleViewChange('notation_achyutam_keshavam');
               } else if (slug === 'radha-krishna-flute-notes') {
                 handleViewChange('notation_radha_krishna');
+              } else if (slug === 'jana-gana-mana-flute-notes') {
+                handleViewChange('notation_jana_gana_mana');
               }
             }}
           />
@@ -1379,6 +1386,8 @@ export default function App() {
           <AchyutamKeshavamNotationView onViewChange={handleViewChange} />
         ) : currentView === 'notation_radha_krishna' ? (
           <RadhaKrishnaNotationView onViewChange={handleViewChange} />
+        ) : currentView === 'notation_jana_gana_mana' ? (
+          <JanaGanaManaNotationView onViewChange={handleViewChange} />
         ) : currentView === 'community_members' ? (
           <MembersView 
             currentUser={currentUser} 
