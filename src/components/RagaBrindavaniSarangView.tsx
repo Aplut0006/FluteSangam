@@ -214,7 +214,7 @@ Finish on: S`;
   ];
 
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-8" itemScope itemType="https://schema.org/LearningResource">
+    <div className="w-full max-w-6xl mx-auto space-y-8" itemScope itemType="https://schema.org/LearningResource">
       {/* Hero Header Banner */}
       <div className="bg-gradient-to-br from-amber-900 via-bamboo-900 to-amber-950 rounded-3xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden border border-amber-800/40">
         <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
@@ -396,7 +396,7 @@ Finish on: S`;
                 <span>{copiedSection === 'aaroh' ? 'Copied' : 'Copy'}</span>
               </button>
             </div>
-            <div className="text-2xl font-bold font-mono text-bamboo-950 tracking-wider">
+            <div className="text-base sm:text-base sm:text-2xl font-bold font-mono text-bamboo-950 tracking-wider break-words break-words">
               S  R  M  P  N  S'
             </div>
             <p className="text-xs text-gray-600">Ascends cleanly through 5 notes, skipping Ga and Dha completely.</p>
@@ -414,7 +414,7 @@ Finish on: S`;
                 <span>{copiedSection === 'avaroh' ? 'Copied' : 'Copy'}</span>
               </button>
             </div>
-            <div className="text-2xl font-bold font-mono text-bamboo-950 tracking-wider">
+            <div className="text-base sm:text-base sm:text-2xl font-bold font-mono text-bamboo-950 tracking-wider break-words break-words">
               S'  N  P  M  R  S
             </div>
             <p className="text-xs text-gray-600">Descends directly back to base Sa with smooth, sustained flow.</p>
@@ -432,7 +432,7 @@ Finish on: S`;
                 <span>{copiedSection === 'pakad' ? 'Copied' : 'Copy'}</span>
               </button>
             </div>
-            <div className="text-xl sm:text-2xl font-bold font-mono text-bamboo-950 tracking-wider">
+            <div className="text-xl sm:text-base sm:text-base sm:text-2xl font-bold font-mono text-bamboo-950 tracking-wider break-words break-words">
               R M P  —  N P  —  M R  —  S
             </div>
             <div className="pt-2 border-t border-emerald-200/60 text-xs text-gray-700 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
@@ -704,7 +704,7 @@ Finish on: S`;
                 {copiedSection === 'aalap' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
               </button>
             </div>
-            <pre className="font-mono text-sm sm:text-base font-bold text-bamboo-950 whitespace-pre-wrap leading-relaxed">
+            <pre className="font-mono text-sm sm:text-base font-bold text-bamboo-95 break-words0 break-words whitespace-pre-wrap leading-relaxed">
               {compositionAalap}
             </pre>
           </div>
@@ -720,7 +720,7 @@ Finish on: S`;
                 {copiedSection === 'mukhda' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
               </button>
             </div>
-            <pre className="font-mono text-sm sm:text-base font-bold text-bamboo-950 whitespace-pre-wrap leading-relaxed">
+            <pre className="font-mono text-sm sm:text-base font-bold text-bamboo-95 break-words0 break-words whitespace-pre-wrap leading-relaxed">
               {compositionMukhda}
             </pre>
           </div>
@@ -736,7 +736,7 @@ Finish on: S`;
                 {copiedSection === 'antara' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
               </button>
             </div>
-            <pre className="font-mono text-sm sm:text-base font-bold text-bamboo-950 whitespace-pre-wrap leading-relaxed">
+            <pre className="font-mono text-sm sm:text-base font-bold text-bamboo-95 break-words0 break-words whitespace-pre-wrap leading-relaxed">
               {compositionAntara}
             </pre>
           </div>
@@ -752,7 +752,7 @@ Finish on: S`;
                 {copiedSection === 'vistar' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
               </button>
             </div>
-            <pre className="font-mono text-sm sm:text-base font-bold text-bamboo-950 whitespace-pre-wrap leading-relaxed">
+            <pre className="font-mono text-sm sm:text-base font-bold text-bamboo-95 break-words0 break-words whitespace-pre-wrap leading-relaxed">
               {compositionVistar}
             </pre>
           </div>
@@ -768,7 +768,7 @@ Finish on: S`;
                 {copiedSection === 'conclusion' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
               </button>
             </div>
-            <pre className="font-mono text-sm font-bold text-bamboo-950 whitespace-pre-wrap">
+            <pre className="font-mono text-sm font-bold text-bamboo-95 break-words0 break-words whitespace-pre-wrap">
               {compositionConclusion}
             </pre>
           </div>

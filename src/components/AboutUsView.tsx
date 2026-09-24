@@ -36,7 +36,7 @@ export default function AboutUsView({ onViewChange }: AboutUsViewProps = {}) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
-      className="max-w-5xl mx-auto py-10 px-4 sm:px-6"
+      className="max-w-6xl mx-auto py-10 px-4 sm:px-6"
     >
       {/* 1. H1 Header */}
       <div className="text-center mb-12 sm:mb-16">

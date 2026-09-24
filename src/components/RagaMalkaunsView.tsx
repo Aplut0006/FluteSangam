@@ -259,7 +259,7 @@ g M d | M g | S`;
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -15 }}
       transition={{ duration: 0.25 }}
-      className="max-w-5xl mx-auto py-8 sm:py-12 px-4 sm:px-6"
+      className="max-w-6xl mx-auto py-8 sm:py-12 px-4 sm:px-6"
       id="raga-malkauns-view"
     >
       {/* Top Breadcrumb & Navigation */}
@@ -425,7 +425,7 @@ g M d | M g | S`;
           </div>
 
           <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200/80 text-amber-950 text-xs sm:text-sm font-medium">
-            <strong>Basic Swara Set:</strong> <span className="font-mono text-base font-bold text-purple-900 ml-2">S – g – M – d – n</span>
+            <strong>Basic Swara Set:</strong> <span className="font-mono text-base font-bold text-purple-90 break-words0 break-words ml-2">S – g – M – d – n</span>
             <p className="mt-1 text-xs text-amber-900">The three Komal swaras (g, d, n) are an essential part of the raga's deep character.</p>
           </div>
         </section>
@@ -446,7 +446,7 @@ g M d | M g | S`;
               <div className="flex items-center justify-between">
                 <div>
                   <span className="text-xs font-bold text-purple-900 uppercase tracking-widest block">Aaroh (Ascending)</span>
-                  <p className="font-mono text-lg font-bold text-purple-950 tracking-wider">S g M d n S'</p>
+                  <p className="font-mono text-lg font-bold text-purple-95 break-words0 break-words tracking-wider">S g M d n S'</p>
                 </div>
                 <button
                   onClick={() => playSequence(['S', 'g', 'M', 'd', 'n', "S'"], 'aaroh')}
@@ -478,7 +478,7 @@ g M d | M g | S`;
               <div className="flex items-center justify-between">
                 <div>
                   <span className="text-xs font-bold text-indigo-900 uppercase tracking-widest block">Avaroh (Descending)</span>
-                  <p className="font-mono text-lg font-bold text-indigo-950 tracking-wider">S' n d M g S</p>
+                  <p className="font-mono text-lg font-bold text-indigo-95 break-words0 break-words tracking-wider">S' n d M g S</p>
                 </div>
                 <button
                   onClick={() => playSequence(["S'", 'n', 'd', 'M', 'g', 'S'], 'avaroh')}
@@ -534,7 +534,7 @@ g M d | M g | S`;
 
           <div className="pt-4 border-t border-gray-100 space-y-3">
             <h3 className="font-bold text-gray-900 text-base">Chalan (Melodic Movement)</h3>
-            <div className="bg-purple-50/70 p-5 rounded-2xl border border-purple-200/80 font-mono text-xs sm:text-sm text-purple-950 space-y-2">
+            <div className="bg-purple-50/70 p-5 rounded-2xl border border-purple-200/80 font-mono text-xs sm:text-sm text-purple-95 break-words0 break-words space-y-2">
               <p>S g M</p>
               <p>M d n</p>
               <p>S'</p>
@@ -791,7 +791,7 @@ g M d | M g | S`;
                   onChange={(e) => setBpm(Number(e.target.value))}
                   className="w-20 accent-purple-700 cursor-pointer"
                 />
-                <span className="font-mono text-xs font-bold text-purple-950">{bpm}</span>
+                <span className="font-mono text-xs font-bold text-purple-95 break-words0 break-words">{bpm}</span>
               </div>
             </div>
           </div>

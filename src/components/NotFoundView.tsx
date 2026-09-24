@@ -71,7 +71,7 @@ export default function NotFoundView({ onViewChange, onSearchSubmit }: NotFoundV
   ];
 
   return (
-    <div className="max-w-4xl mx-auto px-3 sm:px-4 py-8 sm:py-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
+    <div className="max-w-6xl mx-auto px-3 sm:px-4 py-8 sm:py-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12 shadow-sm border border-bamboo-200 text-center relative overflow-hidden">
         
         {/* Background glow effects */}

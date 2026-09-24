@@ -306,7 +306,7 @@ export default function LearnScalesOctavesView({ onViewChange }: LearnScalesOcta
   ];
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-8" itemScope itemType="https://schema.org/LearningResource">
+    <div className="w-full max-w-6xl mx-auto space-y-8" itemScope itemType="https://schema.org/LearningResource">
       {/* Header Banner */}
       <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-bamboo-100 overflow-hidden relative">
         <div className="absolute top-0 right-0 w-72 h-72 bg-amber-500/10 rounded-full blur-3xl -mr-24 -mt-24 pointer-events-none"></div>
@@ -835,7 +835,7 @@ export default function LearnScalesOctavesView({ onViewChange }: LearnScalesOcta
             <p className="text-xs text-gray-700 leading-relaxed">
               One of the most useful exercises is to practice the same swara across registers. For example:
             </p>
-            <div className="bg-white p-3 rounded-xl border border-bamboo-200 font-mono text-xs font-bold text-amber-900 flex flex-wrap gap-2 justify-center">
+            <div className="bg-white p-3 rounded-xl border border-bamboo-200 font-mono text-xs font-bold text-amber-90 break-words0 break-words flex flex-wrap gap-2 justify-center">
               <span>Mạ → Ma → Ma'</span>
               <span className="text-gray-300">|</span>
               <span>Pạ → Pa → Pa'</span>
@@ -863,7 +863,7 @@ export default function LearnScalesOctavesView({ onViewChange }: LearnScalesOcta
                 <h3 className="font-bold text-amber-900">Exercise 1 — Straight Scale</h3>
                 <span className="text-xs bg-amber-100 text-amber-900 font-bold px-2.5 py-0.5 rounded-full">Straight</span>
               </div>
-              <div className="bg-white p-3 rounded-xl border border-amber-200 font-mono text-sm font-bold text-bamboo-900 text-center">
+              <div className="bg-white p-3 rounded-xl border border-amber-200 font-mono text-sm font-bold text-bamboo-90 break-words0 break-words text-center">
                 Sa Re Ga Ma | Pa Dha Ni Sa'<br />
                 <span className="text-amber-700">Sa' Ni Dha Pa | Ma Ga Re Sa</span>
               </div>
@@ -875,7 +875,7 @@ export default function LearnScalesOctavesView({ onViewChange }: LearnScalesOcta
                 <span className="text-xs bg-emerald-100 text-emerald-900 font-bold px-2.5 py-0.5 rounded-full">Finger Pair</span>
               </div>
               <p className="text-xs text-gray-600">This helps develop finger transitions.</p>
-              <div className="bg-white p-3 rounded-xl border border-emerald-200 font-mono text-sm font-bold text-bamboo-900 text-center">
+              <div className="bg-white p-3 rounded-xl border border-emerald-200 font-mono text-sm font-bold text-bamboo-90 break-words0 break-words text-center">
                 Sa Re | Re Ga | Ga Ma | Ma Pa | Pa Dha | Dha Ni | Ni Sa'<br />
                 <span className="text-emerald-700">Sa' Ni | Ni Dha | Dha Pa | Pa Ma | Ma Ga | Ga Re | Re Sa</span>
               </div>
@@ -887,7 +887,7 @@ export default function LearnScalesOctavesView({ onViewChange }: LearnScalesOcta
                 <span className="text-xs bg-rose-100 text-rose-900 font-bold px-2.5 py-0.5 rounded-full">Triplets</span>
               </div>
               <p className="text-xs text-gray-600">This type of movement prepares your fingers for more complex musical phrases.</p>
-              <div className="bg-white p-3 rounded-xl border border-rose-200 font-mono text-sm font-bold text-bamboo-900 text-center">
+              <div className="bg-white p-3 rounded-xl border border-rose-200 font-mono text-sm font-bold text-bamboo-90 break-words0 break-words text-center">
                 Sa Re Ga | Re Ga Ma | Ga Ma Pa | Ma Pa Dha | Pa Dha Ni | Dha Ni Sa'<br />
                 <span className="text-rose-700">Sa' Ni Dha | Ni Dha Pa | Dha Pa Ma | Pa Ma Ga | Ma Ga Re | Ga Re Sa</span>
               </div>
@@ -914,7 +914,7 @@ export default function LearnScalesOctavesView({ onViewChange }: LearnScalesOcta
             <p className="text-xs text-gray-700 leading-relaxed">
               Scales are useful, but Indian classical flute playing goes beyond simply running up and down a scale. A Raga uses a collection of swaras while emphasizing certain movements, phrases, and resting points.
             </p>
-            <div className="bg-white p-3 rounded-xl border border-stone-200 font-mono text-xs text-amber-900 text-center font-bold">
+            <div className="bg-white p-3 rounded-xl border border-stone-200 font-mono text-xs text-amber-90 break-words0 break-words text-center font-bold">
               Aroh → Avroh → Pakad → Characteristic Phrases → Raga Improvisation
             </div>
           </div>

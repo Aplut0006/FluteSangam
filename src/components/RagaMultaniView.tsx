@@ -346,7 +346,7 @@ N d P M^ | g r S — ||`;
     <div className="min-h-screen bg-gradient-to-b from-amber-50/70 via-orange-50/30 to-amber-50/50 pb-20">
       {/* Header / Breadcrumb */}
       <div className="bg-gradient-to-r from-amber-900 via-amber-800 to-orange-900 text-amber-50 py-8 px-4 sm:px-6 shadow-md border-b border-amber-700/50">
-        <div className="max-w-5xl mx-auto space-y-4">
+        <div className="max-w-6xl mx-auto space-y-4">
           <div className="flex items-center gap-2 text-xs sm:text-sm text-amber-200/90 font-medium">
             <button 
               onClick={() => onViewChange?.('learn_raagas')}
@@ -402,7 +402,7 @@ N d P M^ | g r S — ||`;
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-8 space-y-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-8 space-y-10">
 
         {/* Quick Reference Stats Bar */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
@@ -511,7 +511,7 @@ N d P M^ | g r S — ||`;
 
           <div className="p-4 bg-amber-50/80 rounded-xl border border-amber-200 text-sm text-gray-700 space-y-2">
             <div className="font-bold text-amber-950">Swara Notation Framework:</div>
-            <div className="font-mono text-base font-bold text-amber-900 tracking-wider">
+            <div className="font-mono text-base font-bold text-amber-90 break-words0 break-words tracking-wider">
               S r g M^ P d N S'
             </div>
             <p className="text-xs text-amber-800 leading-relaxed">
@@ -537,7 +537,7 @@ N d P M^ | g r S — ||`;
                   {isPlayingAaroh ? <Square className="w-4 h-4 fill-rose-900 text-rose-900" /> : <Play className="w-4 h-4 fill-amber-900" />}
                 </button>
               </div>
-              <div className="font-mono text-base font-bold text-amber-900 bg-amber-50/80 p-3 rounded-xl text-center border border-amber-200/80">
+              <div className="font-mono text-base font-bold text-amber-90 break-words0 break-words bg-amber-50/80 p-3 rounded-xl text-center border border-amber-200/80">
                 N S g M^ P N S'
               </div>
               <p className="text-xs text-gray-600 leading-relaxed">
@@ -568,7 +568,7 @@ N d P M^ | g r S — ||`;
                   {isPlayingAvaroh ? <Square className="w-4 h-4 fill-rose-900 text-rose-900" /> : <Play className="w-4 h-4 fill-amber-900" />}
                 </button>
               </div>
-              <div className="font-mono text-base font-bold text-amber-900 bg-amber-50/80 p-3 rounded-xl text-center border border-amber-200/80">
+              <div className="font-mono text-base font-bold text-amber-90 break-words0 break-words bg-amber-50/80 p-3 rounded-xl text-center border border-amber-200/80">
                 S' N d P M^ g r S
               </div>
               <p className="text-xs text-gray-600 leading-relaxed">
@@ -599,7 +599,7 @@ N d P M^ | g r S — ||`;
                   {isPlayingPakad ? <Square className="w-4 h-4 fill-rose-900 text-rose-900" /> : <Play className="w-4 h-4 fill-amber-900" />}
                 </button>
               </div>
-              <div className="font-mono text-sm font-bold text-amber-900 bg-amber-50/80 p-3 rounded-xl text-center border border-amber-200/80 space-y-1">
+              <div className="font-mono text-sm font-bold text-amber-90 break-words0 break-words bg-amber-50/80 p-3 rounded-xl text-center border border-amber-200/80 space-y-1">
                 <div>N S g M^ g r S</div>
                 <div className="text-amber-700 text-xs">and</div>
                 <div>N d P M^ g r S</div>
@@ -607,7 +607,7 @@ N d P M^ | g r S — ||`;
               <p className="text-xs text-gray-600 leading-relaxed">
                 Connect both phrases smoothly:
               </p>
-              <div className="text-xs bg-amber-50/50 p-2.5 rounded-lg border border-amber-200/50 font-mono text-amber-900 text-center font-bold">
+              <div className="text-xs bg-amber-50/50 p-2.5 rounded-lg border border-amber-200/50 font-mono text-amber-900 text-cente break-wordsr break-words font-bold">
                 N S g M^ g r S | N d P M^ g r S
               </div>
             </div>
@@ -787,7 +787,7 @@ N d P M^ | g r S — ||`;
                       )}
                     </button>
                   </div>
-                  <div className="font-mono text-xs sm:text-sm font-bold text-amber-900 bg-white p-2.5 rounded-lg border border-amber-200 my-2">
+                  <div className="font-mono text-xs sm:text-sm font-bold text-amber-90 break-words0 break-words bg-white p-2.5 rounded-lg border border-amber-200 my-2">
                     {ex.notes}
                   </div>
                   <p className="text-xs text-gray-600 leading-relaxed">{ex.desc}</p>
@@ -818,7 +818,7 @@ N d P M^ | g r S — ||`;
               <div key={aalap.id} className="p-4 bg-amber-50/50 rounded-xl border border-amber-200/70 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
                   <div className="text-xs font-bold text-amber-800 mb-1">Aalap {aalap.id}</div>
-                  <div className="font-mono text-sm sm:text-base font-bold text-amber-950">{aalap.text}</div>
+                  <div className="font-mono text-sm sm:text-base font-bold text-amber-95 break-words0 break-words">{aalap.text}</div>
                 </div>
                 <button
                   onClick={() => handlePlayAalap(idx)}

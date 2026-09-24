@@ -390,7 +390,7 @@ export default function LearnFingeringChartView({ onViewChange }: LearnFingering
   ];
 
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-6" itemScope itemType="https://schema.org/LearningResource">
+    <div className="w-full max-w-6xl mx-auto space-y-6" itemScope itemType="https://schema.org/LearningResource">
       {/* Top Header & Breadcrumb */}
       <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-xs border border-bamboo-100 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>

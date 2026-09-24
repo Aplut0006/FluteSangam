@@ -189,7 +189,7 @@ Finish on Sam: S`;
   ];
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-4 sm:space-y-8 px-2 sm:px-0" itemScope itemType="https://schema.org/LearningResource">
+    <div className="w-full max-w-6xl mx-auto space-y-4 sm:space-y-8 px-2 sm:px-0" itemScope itemType="https://schema.org/LearningResource">
       {/* Top Header Card */}
       <section className="bg-gradient-to-br from-amber-950 via-bamboo-950 to-amber-900 text-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-xl relative overflow-hidden border border-amber-800/40">
         <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -406,7 +406,7 @@ Finish on Sam: S`;
                 <span>Copy Aaroh</span>
               </button>
             </div>
-            <div className="bg-white p-3 sm:p-3.5 rounded-xl border border-amber-200 font-mono text-sm sm:text-lg font-bold text-bamboo-950 overflow-x-auto scrollbar-thin">
+            <div className="bg-white p-3 sm:p-3.5 rounded-xl border border-amber-200 font-mono text-sm sm:text-lg font-bold text-bamboo-95 break-words0 break-words overflow-x-auto scrollbar-thin">
               n. S g M P n S'
             </div>
             <p className="text-[11px] sm:text-xs text-amber-900/80 font-sans">
@@ -426,7 +426,7 @@ Finish on Sam: S`;
                 <span>Copy Avaroh</span>
               </button>
             </div>
-            <div className="bg-white p-3 sm:p-3.5 rounded-xl border border-amber-200 font-mono text-sm sm:text-lg font-bold text-bamboo-950 overflow-x-auto scrollbar-thin">
+            <div className="bg-white p-3 sm:p-3.5 rounded-xl border border-amber-200 font-mono text-sm sm:text-lg font-bold text-bamboo-95 break-words0 break-words overflow-x-auto scrollbar-thin">
               S' n D P M g R S
             </div>
             <p className="text-[11px] sm:text-xs text-amber-900/80 font-sans">
@@ -447,7 +447,7 @@ Finish on Sam: S`;
               <span>Copy Pakad</span>
             </button>
           </div>
-          <div className="bg-white p-3 sm:p-3.5 rounded-xl border border-amber-200 font-mono text-xs sm:text-base font-bold text-bamboo-950 space-y-2 overflow-x-auto scrollbar-thin">
+          <div className="bg-white p-3 sm:p-3.5 rounded-xl border border-amber-200 font-mono text-xs sm:text-base font-bold text-bamboo-95 break-words0 break-words space-y-2 overflow-x-auto scrollbar-thin">
             <p className="text-amber-950">n. S g M &nbsp;|&nbsp; P M &nbsp;|&nbsp; g R S</p>
             <div className="pt-2 border-t border-gray-100">
               <span className="text-[11px] font-sans text-gray-500 block mb-0.5">Alternative Variation:</span>
@@ -468,7 +468,7 @@ Finish on Sam: S`;
               <span>Copy Chalan</span>
             </button>
           </div>
-          <div className="bg-white p-3 sm:p-3.5 rounded-xl border border-bamboo-200 font-mono text-xs sm:text-sm font-bold text-bamboo-950 space-y-2 leading-relaxed overflow-x-auto scrollbar-thin">
+          <div className="bg-white p-3 sm:p-3.5 rounded-xl border border-bamboo-200 font-mono text-xs sm:text-sm font-bold text-bamboo-95 break-words0 break-words space-y-2 leading-relaxed overflow-x-auto scrollbar-thin">
             <p className="text-amber-950">n. S g M &nbsp;|&nbsp; P n S' &nbsp;|&nbsp; n D P &nbsp;|&nbsp; M g &nbsp;|&nbsp; R S</p>
             <p className="text-amber-900">S g M &nbsp;|&nbsp; P M &nbsp;|&nbsp; g R S</p>
           </div>
@@ -591,7 +591,7 @@ Finish on Sam: S`;
               <span>Copy Alankar 1</span>
             </button>
           </div>
-          <div className="bg-white p-3 sm:p-3.5 rounded-xl border border-amber-200 font-mono text-xs sm:text-sm font-bold text-bamboo-950 space-y-2 overflow-x-auto scrollbar-thin">
+          <div className="bg-white p-3 sm:p-3.5 rounded-xl border border-amber-200 font-mono text-xs sm:text-sm font-bold text-bamboo-95 break-words0 break-words space-y-2 overflow-x-auto scrollbar-thin">
             <div>
               <span className="text-[11px] font-sans text-gray-500 block mb-0.5">Ascending:</span>
               <p className="text-amber-950">S g &nbsp;|&nbsp; g M &nbsp;|&nbsp; M P &nbsp;|&nbsp; P n &nbsp;|&nbsp; n S'</p>
@@ -615,7 +615,7 @@ Finish on Sam: S`;
               <span>Copy Alankar 2</span>
             </button>
           </div>
-          <div className="bg-white p-3 sm:p-3.5 rounded-xl border border-amber-200 font-mono text-xs sm:text-sm font-bold text-bamboo-950 space-y-2 overflow-x-auto scrollbar-thin">
+          <div className="bg-white p-3 sm:p-3.5 rounded-xl border border-amber-200 font-mono text-xs sm:text-sm font-bold text-bamboo-95 break-words0 break-words space-y-2 overflow-x-auto scrollbar-thin">
             <div>
               <span className="text-[11px] font-sans text-gray-500 block mb-0.5">Ascending:</span>
               <p className="text-amber-950">S g M &nbsp;|&nbsp; g M P &nbsp;|&nbsp; M P n &nbsp;|&nbsp; P n S'</p>
@@ -639,7 +639,7 @@ Finish on Sam: S`;
               <span>Copy Alankar 3</span>
             </button>
           </div>
-          <div className="bg-white p-3 sm:p-3.5 rounded-xl border border-amber-200 font-mono text-xs sm:text-sm font-bold text-bamboo-950 space-y-2 overflow-x-auto scrollbar-thin">
+          <div className="bg-white p-3 sm:p-3.5 rounded-xl border border-amber-200 font-mono text-xs sm:text-sm font-bold text-bamboo-95 break-words0 break-words space-y-2 overflow-x-auto scrollbar-thin">
             <div>
               <span className="text-[11px] font-sans text-gray-500 block mb-0.5">Ascending:</span>
               <p className="text-amber-950">S g M g &nbsp;|&nbsp; g M P M &nbsp;|&nbsp; M P n P &nbsp;|&nbsp; P n S' n</p>
@@ -753,7 +753,7 @@ Finish on Sam: S`;
               >
                 -
               </button>
-              <span className="font-mono text-base sm:text-lg font-bold text-bamboo-950 min-w-[70px] text-center">{bpm} BPM</span>
+              <span className="font-mono text-base sm:text-lg font-bold text-bamboo-95 break-words0 break-words min-w-[70px] text-center">{bpm} BPM</span>
               <button
                 onClick={() => setBpm(Math.min(140, bpm + 5))}
                 className="w-9 h-9 bg-white border border-amber-200 rounded-lg text-sm font-bold active:scale-95 hover:bg-amber-100 flex items-center justify-center cursor-pointer touch-manipulation shadow-xs"
@@ -791,7 +791,7 @@ Finish on Sam: S`;
               </button>
             </div>
 
-            <div className="bg-white p-3 sm:p-4 rounded-xl border border-amber-200/60 font-mono text-xs sm:text-base font-bold text-bamboo-950 space-y-2 overflow-x-auto scrollbar-thin leading-relaxed">
+            <div className="bg-white p-3 sm:p-4 rounded-xl border border-amber-200/60 font-mono text-xs sm:text-base font-bold text-bamboo-95 break-words0 break-words space-y-2 overflow-x-auto scrollbar-thin leading-relaxed">
               <p>S  g  M  |  M  P</p>
               <p>n  S'  |  S'  n  D</p>
               <p>P  M  |  g  R  S</p>
@@ -813,7 +813,7 @@ Finish on Sam: S`;
               </button>
             </div>
 
-            <div className="bg-white p-3 sm:p-4 rounded-xl border border-amber-200/60 font-mono text-xs sm:text-base font-bold text-bamboo-950 space-y-2 overflow-x-auto scrollbar-thin leading-relaxed">
+            <div className="bg-white p-3 sm:p-4 rounded-xl border border-amber-200/60 font-mono text-xs sm:text-base font-bold text-bamboo-95 break-words0 break-words space-y-2 overflow-x-auto scrollbar-thin leading-relaxed">
               <p>| n  S  g  M | P  M  g  R |</p>
               <p>| S  -  -  - | S  g  M  - |</p>
             </div>
@@ -834,7 +834,7 @@ Finish on Sam: S`;
               </button>
             </div>
 
-            <div className="bg-white p-3 sm:p-4 rounded-xl border border-amber-200/60 font-mono text-xs sm:text-base font-bold text-bamboo-950 space-y-2 overflow-x-auto scrollbar-thin leading-relaxed">
+            <div className="bg-white p-3 sm:p-4 rounded-xl border border-amber-200/60 font-mono text-xs sm:text-base font-bold text-bamboo-95 break-words0 break-words space-y-2 overflow-x-auto scrollbar-thin leading-relaxed">
               <p>| M  P  n  S' | n  D  P  M |</p>
               <p>| g  R  S  - | -  -  -  - |</p>
             </div>
@@ -855,7 +855,7 @@ Finish on Sam: S`;
               </button>
             </div>
 
-            <div className="bg-white p-3 sm:p-4 rounded-xl border border-amber-200/60 font-mono text-xs sm:text-base font-bold text-bamboo-950 space-y-2 overflow-x-auto scrollbar-thin leading-relaxed">
+            <div className="bg-white p-3 sm:p-4 rounded-xl border border-amber-200/60 font-mono text-xs sm:text-base font-bold text-bamboo-95 break-words0 break-words space-y-2 overflow-x-auto scrollbar-thin leading-relaxed">
               <p>| S' n  D  P | M  g  R  S |</p>
               <p>| S  g  M  P | n  S' -  - |</p>
               <br />
@@ -879,7 +879,7 @@ Finish on Sam: S`;
               </button>
             </div>
 
-            <div className="bg-white p-3 sm:p-4 rounded-xl border border-bamboo-200/80 font-mono text-xs sm:text-base font-bold text-bamboo-950 space-y-2 overflow-x-auto scrollbar-thin">
+            <div className="bg-white p-3 sm:p-4 rounded-xl border border-bamboo-200/80 font-mono text-xs sm:text-base font-bold text-bamboo-95 break-words0 break-words space-y-2 overflow-x-auto scrollbar-thin">
               <p className="text-[11px] sm:text-xs font-sans text-gray-500 font-semibold uppercase">Repeat 3 times:</p>
               <p className="text-amber-900">g M P &nbsp;|&nbsp; M g R &nbsp;|&nbsp; S</p>
               <p className="text-[11px] sm:text-xs font-sans text-gray-500 font-semibold uppercase pt-2">Finish on Sam:</p>

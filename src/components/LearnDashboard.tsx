@@ -30,7 +30,7 @@ export default function LearnDashboard({ onViewChange }: LearnDashboardProps) {
     <motion.div 
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="max-w-4xl mx-auto py-8 sm:py-12 px-4 sm:px-6"
+      className="max-w-6xl mx-auto py-8 sm:py-12 px-4 sm:px-6"
     >
       <div className="text-center max-w-xl mx-auto mb-10">
         <h1 className="text-3xl sm:text-4xl font-display font-bold text-bamboo-900 mb-2">Learn Flute (Bansuri)</h1>

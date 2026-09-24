@@ -210,7 +210,7 @@ export default function RagaBilawalView({ onViewChange }: RagaBilawalViewProps) 
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -15 }}
-      className="max-w-5xl mx-auto py-4 sm:py-8 px-3 sm:px-6 space-y-6 sm:space-y-10"
+      className="max-w-6xl mx-auto py-4 sm:py-8 px-3 sm:px-6 space-y-6 sm:space-y-10"
     >
       <script
         type="application/ld+json"
@@ -442,7 +442,7 @@ export default function RagaBilawalView({ onViewChange }: RagaBilawalViewProps) 
         {/* Chalan Section */}
         <div className="space-y-3 bg-white p-4 sm:p-5 rounded-xl sm:rounded-2xl border border-bamboo-100">
           <h3 className="text-base sm:text-lg font-bold font-display text-bamboo-950">Chalan (Melodic Movement)</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono text-center text-xs sm:text-sm font-bold text-bamboo-900">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono text-center text-x break-wordss break-words sm:text-sm font-bold text-bamboo-900">
             <div className="bg-amber-50/80 p-2 sm:p-2.5 rounded-xl border border-amber-200">S R G M</div>
             <div className="bg-amber-50/80 p-2 sm:p-2.5 rounded-xl border border-amber-200">P D N S'</div>
             <div className="bg-amber-50/80 p-2 sm:p-2.5 rounded-xl border border-amber-200">N D P</div>

@@ -254,7 +254,7 @@ export default function HowToReadBansuriNotationView({ onViewChange }: HowToRead
       
       {/* 1. Breadcrumb & Progress Header */}
       <div className="border-b border-bamboo-200/60 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md sticky top-16 z-30">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between text-xs sm:text-sm">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between text-xs sm:text-sm">
           <nav className="flex items-center space-x-2 text-slate-500 dark:text-slate-400 overflow-x-auto whitespace-nowrap">
             <button 
               onClick={() => onViewChange?.('community')} 
@@ -296,7 +296,7 @@ export default function HowToReadBansuriNotationView({ onViewChange }: HowToRead
         </div>
       </div>
 
-      <article className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-12">
+      <article className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-12">
         
         {/* 2. Hero Header Section */}
         <header className="space-y-6">
@@ -778,7 +778,7 @@ export default function HowToReadBansuriNotationView({ onViewChange }: HowToRead
               </button>
             </div>
 
-            <div className="font-mono text-center sm:text-left text-sm sm:text-base bg-sand-100/70 dark:bg-slate-800 p-3 rounded-xl border border-bamboo-200/60 dark:border-slate-700 tracking-wider text-slate-900 dark:text-amber-200 font-bold">
+            <div className="font-mono text-center sm:text-left text-s break-wordsm break-words sm:text-base bg-sand-100/70 dark:bg-slate-800 p-3 rounded-xl border border-bamboo-200/60 dark:border-slate-700 tracking-wider text-slate-900 dark:text-amber-200 font-bold">
               P̣ Ḍ Ṇ S | R G M P | D N S'
             </div>
 
@@ -1002,7 +1002,7 @@ export default function HowToReadBansuriNotationView({ onViewChange }: HowToRead
               <span className="text-xs font-bold text-amber-400 uppercase tracking-wider">
                 Case Study: Example Line Decoding
               </span>
-              <h3 className="font-mono text-base sm:text-lg font-bold text-amber-200 mt-1">
+              <h3 className="font-mono text-base sm:text-lg font-bold text-amber-20 break-words0 break-words mt-1">
                 Ṇ S R g | M~P g R | S — — — ||
               </h3>
             </div>

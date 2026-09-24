@@ -166,7 +166,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-10" itemScope itemType="https://schema.org/Article">
+    <div className="w-full max-w-6xl mx-auto space-y-10" itemScope itemType="https://schema.org/Article">
       {/* Schema.org Microdata JSON-LD */}
       <script type="application/ld+json">
         {JSON.stringify({
@@ -516,7 +516,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
             Chalan (Melodic Progression)
           </h3>
 
-          <div className="font-mono text-sm sm:text-base text-amber-950 dark:text-amber-200 space-y-2 bg-white dark:bg-slate-900 p-4 rounded-xl border border-amber-200/80 dark:border-slate-800">
+          <div className="font-mono text-sm sm:text-base text-amber-95 break-words0 break-words dark:text-amber-200 space-y-2 bg-white dark:bg-slate-900 p-4 rounded-xl border border-amber-200/80 dark:border-slate-800">
             <p>S G M P — N S' — S' N D P — M G M G — R S</p>
             <p className="text-amber-800 dark:text-amber-300 font-semibold">Continue with:</p>
             <p>G M# P — M G — G R S</p>
@@ -756,7 +756,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
               {copiedSection === 'alankar1' ? 'Copied!' : 'Copy Alankar 1'}
             </button>
           </div>
-          <div className="font-mono text-sm text-amber-950 dark:text-amber-200 space-y-1">
+          <div className="font-mono text-sm text-amber-95 break-words0 break-words dark:text-amber-200 space-y-1">
             <p><strong>Ascending:</strong> S G | G M | M P | P N | N S'</p>
             <p><strong>Descending:</strong> S' N | N D | D P | P M | M G | G R | R S</p>
           </div>
@@ -774,7 +774,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
               {copiedSection === 'alankar2' ? 'Copied!' : 'Copy Alankar 2'}
             </button>
           </div>
-          <div className="font-mono text-sm text-amber-950 dark:text-amber-200 space-y-1">
+          <div className="font-mono text-sm text-amber-95 break-words0 break-words dark:text-amber-200 space-y-1">
             <p><strong>Ascending:</strong> S G M | G M P | M P N | P N S'</p>
             <p><strong>Descending:</strong> S' N D | N D P | D P M | P M G | M G R | G R S</p>
           </div>
@@ -797,7 +797,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
           <p className="text-xs text-slate-600 dark:text-slate-400">
             This exercise introduces the characteristic movement around Madhyam. Make sure Tivra Ma is clearly distinguished from Shuddha Ma.
           </p>
-          <div className="font-mono text-sm font-bold text-amber-950 dark:text-amber-200 bg-white dark:bg-slate-900 p-3 rounded-xl border border-amber-200 dark:border-slate-800">
+          <div className="font-mono text-sm font-bold text-amber-95 break-words0 break-words dark:text-amber-200 bg-white dark:bg-slate-900 p-3 rounded-xl border border-amber-200 dark:border-slate-800">
             G M P M | M G M G | G M# P M | M G R S
           </div>
         </div>
@@ -887,7 +887,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
             </button>
           </div>
           <p className="text-xs text-slate-500">Play freely without taal and keep phrases relaxed.</p>
-          <div className="font-mono text-sm text-amber-950 dark:text-amber-200 space-y-1 bg-white dark:bg-slate-900 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800">
+          <div className="font-mono text-sm text-amber-95 break-words0 break-words dark:text-amber-200 space-y-1 bg-white dark:bg-slate-900 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800">
             <p>S G M | M P N | S'</p>
             <p>S' N D | P M | G M G | R S</p>
             <p className="pt-1 text-xs text-slate-500">Continue with:</p>
@@ -907,7 +907,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
               {copiedSection === 'mukhda' ? 'Copied!' : 'Copy Mukhda'}
             </button>
           </div>
-          <div className="font-mono text-sm font-bold text-amber-950 dark:text-amber-200 space-y-1 bg-white dark:bg-slate-900 p-3.5 rounded-xl border border-amber-200 dark:border-slate-800">
+          <div className="font-mono text-sm font-bold text-amber-95 break-words0 break-words dark:text-amber-200 space-y-1 bg-white dark:bg-slate-900 p-3.5 rounded-xl border border-amber-200 dark:border-slate-800">
             <p>| S  G  M  P | N  S' N  D |</p>
             <p>| P  M  G  M | G  R  S  - |</p>
           </div>
@@ -925,7 +925,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
               {copiedSection === 'antara' ? 'Copied!' : 'Copy Antara'}
             </button>
           </div>
-          <div className="font-mono text-sm font-bold text-orange-950 dark:text-orange-200 space-y-1 bg-white dark:bg-slate-900 p-3.5 rounded-xl border border-orange-200 dark:border-slate-800">
+          <div className="font-mono text-sm font-bold text-orange-95 break-words0 break-words dark:text-orange-200 space-y-1 bg-white dark:bg-slate-900 p-3.5 rounded-xl border border-orange-200 dark:border-slate-800">
             <p>| G  M# P  M | G  M  P  N |</p>
             <p>| S' N  D  P | M  G  R  S |</p>
           </div>
@@ -943,7 +943,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
               {copiedSection === 'vistar' ? 'Copied!' : 'Copy Vistar'}
             </button>
           </div>
-          <div className="font-mono text-sm text-amber-950 dark:text-amber-200 space-y-1 bg-white dark:bg-slate-900 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800">
+          <div className="font-mono text-sm text-amber-95 break-words0 break-words dark:text-amber-200 space-y-1 bg-white dark:bg-slate-900 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800">
             <p>| G  M  P  N | S' N  D  P |</p>
             <p>| M  G  M  G | R  S  G  M |</p>
             <p>| G  M# P  M | G  R  S  G |</p>
@@ -955,7 +955,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
         <div className="bg-amber-100/50 dark:bg-amber-950/40 p-5 rounded-2xl border border-amber-300 dark:border-amber-700 space-y-2">
           <h3 className="font-bold text-amber-900 dark:text-amber-300 text-base">Concluding Phrase (Tihaai)</h3>
           <p className="text-xs text-slate-600 dark:text-slate-400">Repeat three times:</p>
-          <div className="font-mono text-sm font-bold text-amber-950 dark:text-amber-200">
+          <div className="font-mono text-sm font-bold text-amber-95 break-words0 break-words dark:text-amber-200">
             G M P — M G — R S (3x)
           </div>
           <p className="text-xs text-slate-600 dark:text-slate-400 pt-1">Finish clearly on: <strong>S</strong></p>

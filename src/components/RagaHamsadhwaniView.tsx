@@ -176,7 +176,7 @@ export default function RagaHamsadhwaniView({ onViewChange }: RagaHamsadhwaniVie
   ];
 
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-6 sm:space-y-8 pb-16" itemScope itemType="https://schema.org/LearningResource">
+    <div className="w-full max-w-6xl mx-auto space-y-6 sm:space-y-8 pb-16" itemScope itemType="https://schema.org/LearningResource">
       {/* Schema.org Article / LearningResource JSON-LD */}
       <script type="application/ld+json">
         {JSON.stringify({
@@ -495,7 +495,7 @@ export default function RagaHamsadhwaniView({ onViewChange }: RagaHamsadhwaniVie
           <p className="text-xs text-gray-600">
             Follow this signature sequence to understand how Raag Hamsadhwani glides smoothly across octaves:
           </p>
-          <div className="bg-white rounded-xl p-4 border border-emerald-200 font-mono text-xs sm:text-sm text-bamboo-950 space-y-2 leading-relaxed">
+          <div className="bg-white rounded-xl p-4 border border-emerald-200 font-mono text-xs sm:text-sm text-bamboo-95 break-words0 break-words space-y-2 leading-relaxed">
             <div className="flex flex-wrap items-center gap-2">
               <span className="bg-emerald-100/70 text-emerald-950 px-2.5 py-1 rounded-md font-bold">S R G</span>
               <span className="text-gray-400">→</span>
@@ -890,7 +890,7 @@ export default function RagaHamsadhwaniView({ onViewChange }: RagaHamsadhwaniVie
               </button>
             </div>
 
-            <div className="bg-white rounded-xl p-3 sm:p-4 border border-emerald-200 font-mono text-xs sm:text-sm text-bamboo-950 space-y-2 overflow-x-auto">
+            <div className="bg-white rounded-xl p-3 sm:p-4 border border-emerald-200 font-mono text-xs sm:text-sm text-bamboo-95 break-words0 break-words space-y-2 overflow-x-auto">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center font-bold">
                 <div className="bg-emerald-50 p-2 rounded-lg border border-emerald-100">| S &nbsp; R &nbsp; G &nbsp; P |</div>
                 <div className="bg-emerald-50 p-2 rounded-lg border border-emerald-100">| N &nbsp; P &nbsp; G &nbsp; R |</div>
@@ -925,7 +925,7 @@ export default function RagaHamsadhwaniView({ onViewChange }: RagaHamsadhwaniVie
               </button>
             </div>
 
-            <div className="bg-white rounded-xl p-3 sm:p-4 border border-emerald-200 font-mono text-xs sm:text-sm text-bamboo-950 space-y-2 overflow-x-auto">
+            <div className="bg-white rounded-xl p-3 sm:p-4 border border-emerald-200 font-mono text-xs sm:text-sm text-bamboo-95 break-words0 break-words space-y-2 overflow-x-auto">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center font-bold">
                 <div className="bg-amber-50 p-2 rounded-lg border border-amber-200">| S' N &nbsp; P &nbsp; N |</div>
                 <div className="bg-amber-50 p-2 rounded-lg border border-amber-200">| S' N &nbsp; P &nbsp; G |</div>
@@ -1004,7 +1004,7 @@ export default function RagaHamsadhwaniView({ onViewChange }: RagaHamsadhwaniVie
           ))}
           <div className="bg-emerald-100 border border-emerald-300 rounded-xl p-3 flex items-center justify-between font-bold text-bamboo-950 text-xs">
             <span>Total Practice Time</span>
-            <span className="font-mono text-emerald-900 text-sm">35 Minutes</span>
+            <span className="font-mono text-emerald-900 text-s break-wordsm break-words">35 Minutes</span>
           </div>
         </div>
 
@@ -1051,7 +1051,7 @@ export default function RagaHamsadhwaniView({ onViewChange }: RagaHamsadhwaniVie
               </tr>
               <tr className="bg-emerald-100/60 font-bold text-bamboo-950">
                 <td className="p-3">Total Recommended Daily Session</td>
-                <td className="p-3 text-center font-mono text-sm text-emerald-900">35 Minutes</td>
+                <td className="p-3 text-center font-mono text-sm text-emerald-90 break-words0 break-words">35 Minutes</td>
                 <td className="p-3 text-emerald-900">Optimal routine for consistent progress on bansuri</td>
               </tr>
             </tbody>

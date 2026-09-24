@@ -336,7 +336,7 @@ export const RagaJaunpuriView: React.FC<RagaJaunpuriViewProps> = ({ onViewChange
   ];
 
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-8 pb-16" itemScope itemType="https://schema.org/LearningResource">
+    <div className="w-full max-w-6xl mx-auto space-y-8 pb-16" itemScope itemType="https://schema.org/LearningResource">
       {/* Schema.org Article / LearningResource JSON-LD */}
       <script type="application/ld+json">
         {JSON.stringify({
@@ -577,7 +577,7 @@ export const RagaJaunpuriView: React.FC<RagaJaunpuriViewProps> = ({ onViewChange
                 <span className="text-xs font-bold uppercase tracking-wider text-amber-800 dark:text-amber-400">Aaroh (Ascent)</span>
                 <span className="text-[11px] text-slate-500 font-medium">6 Swaras (Ga omitted)</span>
               </div>
-              <div className="p-3 bg-amber-50 dark:bg-slate-800/70 rounded-xl border border-amber-100 dark:border-slate-700 font-mono text-base font-bold text-slate-900 dark:text-amber-100 tracking-wider">
+              <div className="p-3 bg-amber-50 dark:bg-slate-800/70 rounded-xl border border-amber-100 dark:border-slate-700 font-mono text-base font-bold text-slate-90 break-words0 break-words dark:text-amber-100 tracking-wider">
                 S R M P d n S'
               </div>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -604,7 +604,7 @@ export const RagaJaunpuriView: React.FC<RagaJaunpuriViewProps> = ({ onViewChange
                 <span className="text-xs font-bold uppercase tracking-wider text-amber-800 dark:text-amber-400">Avaroh (Descent)</span>
                 <span className="text-[11px] text-slate-500 font-medium">7 Swaras (Sampurna)</span>
               </div>
-              <div className="p-3 bg-amber-50 dark:bg-slate-800/70 rounded-xl border border-amber-100 dark:border-slate-700 font-mono text-base font-bold text-slate-900 dark:text-amber-100 tracking-wider">
+              <div className="p-3 bg-amber-50 dark:bg-slate-800/70 rounded-xl border border-amber-100 dark:border-slate-700 font-mono text-base font-bold text-slate-90 break-words0 break-words dark:text-amber-100 tracking-wider">
                 S' n d P M g R S
               </div>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -637,7 +637,7 @@ export const RagaJaunpuriView: React.FC<RagaJaunpuriViewProps> = ({ onViewChange
                   {copiedSection === 'pakad' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                 </button>
               </div>
-              <div className="p-3 bg-amber-50 dark:bg-slate-800/70 rounded-xl border border-amber-100 dark:border-slate-700 font-mono text-xs font-bold text-slate-900 dark:text-amber-100 tracking-wider">
+              <div className="p-3 bg-amber-50 dark:bg-slate-800/70 rounded-xl border border-amber-100 dark:border-slate-700 font-mono text-xs font-bold text-slate-90 break-words0 break-words dark:text-amber-100 tracking-wider">
                 M P d M P | M g R M | g R S
               </div>
               <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -897,7 +897,7 @@ export const RagaJaunpuriView: React.FC<RagaJaunpuriViewProps> = ({ onViewChange
                     {copiedSection === `drill-${idx}` ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                   </button>
                 </div>
-                <div className="font-mono text-xs sm:text-sm font-bold text-slate-800 dark:text-amber-100 bg-white dark:bg-slate-900 p-2.5 rounded-lg border border-amber-200/50 dark:border-slate-800">
+                <div className="font-mono text-xs sm:text-sm font-bold text-slate-80 break-words0 break-words dark:text-amber-100 bg-white dark:bg-slate-900 p-2.5 rounded-lg border border-amber-200/50 dark:border-slate-800">
                   {item.notes}
                 </div>
                 <p className="text-[11px] text-slate-600 dark:text-slate-400">{item.desc}</p>
@@ -965,7 +965,7 @@ export const RagaJaunpuriView: React.FC<RagaJaunpuriViewProps> = ({ onViewChange
             <div key={idx} className="p-3.5 rounded-xl bg-amber-50/40 dark:bg-slate-800/50 border border-amber-100 dark:border-slate-700 flex flex-col justify-between space-y-2.5">
               <div className="space-y-1">
                 <span className="text-xs font-bold text-amber-900 dark:text-amber-300">{phrase.name}</span>
-                <div className="font-mono text-xs font-bold text-slate-800 dark:text-amber-100 bg-white dark:bg-slate-900 p-2 rounded border border-amber-200/40 dark:border-slate-800">
+                <div className="font-mono text-xs font-bold text-slate-80 break-words0 break-words dark:text-amber-100 bg-white dark:bg-slate-900 p-2 rounded border border-amber-200/40 dark:border-slate-800">
                   {phrase.notation}
                 </div>
                 <p className="text-[11px] text-slate-500">{phrase.desc}</p>
@@ -1041,7 +1041,7 @@ export const RagaJaunpuriView: React.FC<RagaJaunpuriViewProps> = ({ onViewChange
                     {copiedSection === `aalap-${idx}` ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                   </button>
                 </div>
-                <div className="font-mono text-xs sm:text-sm font-bold text-slate-800 dark:text-amber-100">
+                <div className="font-mono text-xs sm:text-sm font-bold text-slate-80 break-words0 break-words dark:text-amber-100">
                   {aalap.notation}
                 </div>
                 <p className="text-[11px] text-slate-500">{aalap.desc}</p>
@@ -1063,7 +1063,7 @@ export const RagaJaunpuriView: React.FC<RagaJaunpuriViewProps> = ({ onViewChange
             <p>
               Meend brings significant expression to Jaunpuri when applied judiciously. Do not create a continuous slide on every note—use meend where it naturally unites the musical concept.
             </p>
-            <div className="p-3 bg-amber-50/70 dark:bg-slate-800 rounded-xl font-mono text-xs font-bold text-slate-800 dark:text-amber-200 space-y-1">
+            <div className="p-3 bg-amber-50/70 dark:bg-slate-800 rounded-xl font-mono text-xs font-bold text-slate-80 break-words0 break-words dark:text-amber-200 space-y-1">
               <div>M ~ g &nbsp;&nbsp;&nbsp;&nbsp; g ~ R</div>
               <div>P ~ d &nbsp;&nbsp;&nbsp;&nbsp; S' ~ n</div>
               <div>n ~ d ~ P</div>
@@ -1232,7 +1232,7 @@ export const RagaJaunpuriView: React.FC<RagaJaunpuriViewProps> = ({ onViewChange
                     {copiedSection === `piece-${idx}` ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                   </button>
                 </div>
-                <div className="font-mono text-xs font-bold text-amber-100 bg-white/5 p-2 rounded border border-white/10 whitespace-pre-line">
+                <div className="font-mono text-xs font-bold text-amber-10 break-words0 break-words bg-white/5 p-2 rounded border border-white/10 whitespace-pre-line">
                   {part.notes}
                 </div>
                 <p className="text-[11px] text-amber-200/70">{part.instruction}</p>

@@ -211,7 +211,7 @@ export const HowToFindSongScaleView: React.FC<HowToFindSongScaleViewProps> = ({ 
 
   return (
     <div className="min-h-screen bg-stone-50 text-stone-900 pb-20 pt-4 px-3 sm:px-6">
-      <div className="max-w-4xl mx-auto space-y-8 sm:space-y-12">
+      <div className="max-w-6xl mx-auto space-y-8 sm:space-y-12">
 
         {/* BREADCRUMB NAVIGATION */}
         <div className="flex items-center gap-2 text-xs sm:text-sm text-stone-500">
@@ -1011,7 +1011,7 @@ export const HowToFindSongScaleView: React.FC<HowToFindSongScaleViewProps> = ({ 
             </button>
           </div>
 
-          <div className="p-5 rounded-2xl bg-black/40 border border-amber-500/20 font-mono text-xs sm:text-sm text-amber-100/90 leading-relaxed space-y-2">
+          <div className="p-5 rounded-2xl bg-black/40 border border-amber-500/20 font-mono text-xs sm:text-sm text-amber-100/9 break-words0 break-words leading-relaxed space-y-2">
             <p className="text-amber-400 font-bold">Find the home note (Sa / Tonic)</p>
             <p className="text-stone-400">↓ Match it on your flute</p>
             <p className="text-stone-400">↓ Test the scale around it (Major vs Minor)</p>

@@ -17,7 +17,7 @@ export default function Footer({ onViewChange, onSadhanaFeedClick }: FooterProps
 
   return (
     <footer className="bg-bamboo-900 border-t border-bamboo-800 text-white pt-12 pb-10" id="flutesangam-global-footer">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <div className="w-full max-w-(--breakpoint-2xl) mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 space-y-10">
         
         {/* Brand & Community Banner */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-bamboo-700/60">

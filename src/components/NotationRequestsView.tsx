@@ -378,7 +378,7 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
   });
 
   return (
-    <div className="max-w-4xl mx-auto p-4 md:p-8">
+    <div className="max-w-6xl mx-auto p-4 md:p-8">
       {/* Header Banner */}
       <div className="bg-gradient-to-r from-bamboo-800 to-bamboo-900 text-white rounded-3xl p-6 md:p-8 mb-8 shadow-lg relative overflow-hidden flex flex-col sm:flex-row sm:items-center justify-between gap-6">
         <div className="relative z-10 flex-1">

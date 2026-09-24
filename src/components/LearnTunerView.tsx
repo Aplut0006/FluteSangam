@@ -349,7 +349,7 @@ export default function LearnTunerView({ onViewChange }: LearnTunerViewProps) {
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -12 }}
-      className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-10 space-y-8"
+      className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-10 space-y-8"
       id="learn-flute-tuner-container"
     >
       {/* Top Header & Navigation */}
@@ -806,7 +806,7 @@ export default function LearnTunerView({ onViewChange }: LearnTunerViewProps) {
           <p className="text-xs sm:text-sm leading-relaxed">
             The bansuri functions as an open-ended cylindrical acoustic resonator. The fundamental resonant frequency (<em>f</em>) produced by the tube is determined by the equation:
           </p>
-          <div className="p-4 bg-bamboo-50/70 rounded-2xl border border-bamboo-200 font-mono text-xs sm:text-sm text-bamboo-950 text-center font-bold">
+          <div className="p-4 bg-bamboo-50/70 rounded-2xl border border-bamboo-200 font-mono text-xs sm:text-sm text-bamboo-95 break-words0 break-words text-center font-bold">
             f = v / (2 × (L + ΔL))
           </div>
           <p className="text-xs sm:text-sm leading-relaxed">

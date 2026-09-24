@@ -293,7 +293,7 @@ r g M g | r S — — ||`;
     <div className="min-h-screen bg-gradient-to-br from-[#fdfbf7] via-[#fff4e6] to-[#fdebd0] text-bamboo-950 pb-20 font-sans">
       
       {/* Top Navigation Bar */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-4 sm:pt-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-4 sm:pt-6">
         <button
           onClick={() => onViewChange?.('learn_raagas')}
           className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-amber-900 hover:text-amber-700 transition bg-white/80 backdrop-blur-xs px-3.5 py-2 rounded-xl border border-amber-200/80 shadow-2xs cursor-pointer touch-manipulation"
@@ -304,7 +304,7 @@ r g M g | r S — — ||`;
       </div>
 
       {/* Main Container */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-4 sm:pt-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-4 sm:pt-6">
         
         {/* HERO HEADER - Light & Warm Banner */}
         <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-100/90 via-orange-50 to-amber-50 text-bamboo-950 p-6 sm:p-10 shadow-sm border border-amber-300/80 mb-8">
@@ -528,7 +528,7 @@ r g M g | r S — — ||`;
           </div>
 
           <div className="space-y-4">
-            <div className="bg-amber-50/70 p-4 sm:p-5 rounded-2xl border border-amber-200/80 font-mono text-base sm:text-lg font-extrabold text-amber-950 text-center tracking-wider">
+            <div className="bg-amber-50/70 p-4 sm:p-5 rounded-2xl border border-amber-200/80 font-mono text-base sm:text-lg font-extrabold text-amber-95 break-words0 break-words text-center tracking-wider">
               g r g r S | r g M g r S
             </div>
 
@@ -765,7 +765,7 @@ r g M g | r S — — ||`;
                     <span>{playingAalap === 1 ? 'Playing' : 'Listen'}</span>
                   </button>
                 </div>
-                <p className="font-mono text-sm font-bold text-bamboo-950">S — r g — | r S — — | r g M — | g r S — ||</p>
+                <p className="font-mono text-sm font-bold text-bamboo-95 break-words0 break-words">S — r g — | r S — — | r g M — | g r S — ||</p>
               </div>
 
               {/* Aalap 2 */}
@@ -781,7 +781,7 @@ r g M g | r S — — ||`;
                     <span>{playingAalap === 2 ? 'Playing' : 'Listen'}</span>
                   </button>
                 </div>
-                <p className="font-mono text-sm font-bold text-bamboo-950">S r g M | g r S — | r g M d | M g r S ||</p>
+                <p className="font-mono text-sm font-bold text-bamboo-95 break-words0 break-words">S r g M | g r S — | r g M d | M g r S ||</p>
               </div>
 
               {/* Aalap 3 */}
@@ -797,7 +797,7 @@ r g M g | r S — — ||`;
                     <span>{playingAalap === 3 ? 'Playing' : 'Listen'}</span>
                   </button>
                 </div>
-                <p className="font-mono text-sm font-bold text-bamboo-950">g M d — | P M g r | g M d N | S' — N d ||</p>
+                <p className="font-mono text-sm font-bold text-bamboo-95 break-words0 break-words">g M d — | P M g r | g M d N | S' — N d ||</p>
               </div>
 
               {/* Aalap 4 */}
@@ -813,7 +813,7 @@ r g M g | r S — — ||`;
                     <span>{playingAalap === 4 ? 'Playing' : 'Listen'}</span>
                   </button>
                 </div>
-                <p className="font-mono text-sm font-bold text-bamboo-950">S' N d P | M g r S | r g M g | r S — — ||</p>
+                <p className="font-mono text-sm font-bold text-bamboo-95 break-words0 break-words">S' N d P | M g r S | r g M g | r S — — ||</p>
               </div>
 
             </div>
@@ -949,7 +949,7 @@ r g M g | r S — — ||`;
 
               {/* Beat Counter */}
               {isMetronomeActive && (
-                <div className="flex items-center gap-1.5 bg-amber-400/20 border border-amber-400/40 px-3 py-2 rounded-2xl font-mono text-xs font-bold text-amber-300">
+                <div className="flex items-center gap-1.5 bg-amber-400/20 border border-amber-400/40 px-3 py-2 rounded-2xl font-mono text-xs font-bold text-amber-30 break-words0 break-words">
                   <Zap className="w-3.5 h-3.5 text-amber-400 animate-bounce" />
                   <span>Beat {currentBeat} / {beatsPerMeasure}</span>
                 </div>

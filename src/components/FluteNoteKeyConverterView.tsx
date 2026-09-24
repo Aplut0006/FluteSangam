@@ -240,7 +240,7 @@ export const FluteNoteKeyConverterView: React.FC<Props> = ({ onNavigate }) => {
       <div className="bg-gradient-to-b from-bamboo-950 via-bamboo-900 to-bamboo-800 text-amber-50 pt-10 pb-16 px-4 sm:px-6 relative overflow-hidden border-b border-amber-900/30">
         <div className="absolute inset-0 bg-[radial-gradient(#d97706_1px,transparent_1px)] [background-size:24px_24px] opacity-10" />
         
-        <div className="max-w-5xl mx-auto relative z-10 text-center space-y-3">
+        <div className="max-w-6xl mx-auto relative z-10 text-center space-y-3">
           <div className="inline-flex items-center gap-2 bg-amber-500/20 text-amber-300 border border-amber-400/30 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider backdrop-blur-xs">
             <Sparkles className="w-3.5 h-3.5 text-amber-400" />
             FluteSangam Interactive Musical Utility
@@ -256,11 +256,11 @@ export const FluteNoteKeyConverterView: React.FC<Props> = ({ onNavigate }) => {
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-6 -mb-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-6 -mb-6">
       </div>
 
       {/* Main Interactive Tool Container */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 -mt-8 relative z-20 space-y-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 -mt-8 relative z-20 space-y-8">
         
         {/* Tool Shell */}
         <div className="bg-white rounded-3xl shadow-xl border border-bamboo-100 p-5 sm:p-8 space-y-6">
@@ -949,11 +949,11 @@ export const FluteNoteKeyConverterView: React.FC<Props> = ({ onNavigate }) => {
       </div>
 
       {/* Native banner in the middle of Note & Key Converter */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 my-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 my-8">
       </div>
 
       {/* Educational Information Section */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 mt-16 space-y-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 mt-16 space-y-12">
         
         {/* Section Heading */}
         <div className="text-center space-y-2">

@@ -349,7 +349,7 @@ export const RagaShivranjaniView: React.FC<RagaShivranjaniViewProps> = ({ onView
   ];
 
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-8 pb-16" itemScope itemType="https://schema.org/LearningResource">
+    <div className="w-full max-w-6xl mx-auto space-y-8 pb-16" itemScope itemType="https://schema.org/LearningResource">
       {/* Schema.org Article / LearningResource JSON-LD */}
       <script type="application/ld+json">
         {JSON.stringify({
@@ -618,7 +618,7 @@ export const RagaShivranjaniView: React.FC<RagaShivranjaniViewProps> = ({ onView
                 <span>{isPlayingAaroh ? 'Stop Aaroh' : 'Listen Aaroh'}</span>
               </button>
             </div>
-            <div className="p-3 bg-white rounded-xl border border-stone-200 font-mono text-base sm:text-lg font-bold text-rose-900">
+            <div className="p-3 bg-white rounded-xl border border-stone-200 font-mono text-base sm:text-lg font-bold text-rose-90 break-words0 break-words">
               S R g P D S'
             </div>
             <p className="text-xs text-stone-600 leading-relaxed">
@@ -645,7 +645,7 @@ export const RagaShivranjaniView: React.FC<RagaShivranjaniViewProps> = ({ onView
                 <span>{isPlayingAvaroh ? 'Stop Avaroh' : 'Listen Avaroh'}</span>
               </button>
             </div>
-            <div className="p-3 bg-white rounded-xl border border-stone-200 font-mono text-base sm:text-lg font-bold text-rose-900">
+            <div className="p-3 bg-white rounded-xl border border-stone-200 font-mono text-base sm:text-lg font-bold text-rose-90 break-words0 break-words">
               S' D P g R S
             </div>
             <p className="text-xs text-stone-600 leading-relaxed">
@@ -677,7 +677,7 @@ export const RagaShivranjaniView: React.FC<RagaShivranjaniViewProps> = ({ onView
             </button>
           </div>
 
-          <div className="p-4 bg-white rounded-xl border border-rose-200 font-mono text-sm sm:text-base font-bold text-rose-900 flex flex-wrap items-center justify-between gap-2">
+          <div className="p-4 bg-white rounded-xl border border-rose-200 font-mono text-sm sm:text-base font-bold text-rose-90 break-words0 break-words flex flex-wrap items-center justify-between gap-2">
             <span>S R g R S | g P D P | g R S</span>
             <button
               onClick={() => copyToClipboard('S R g R S | g P D P | g R S', 'pakad')}
@@ -904,7 +904,7 @@ export const RagaShivranjaniView: React.FC<RagaShivranjaniViewProps> = ({ onView
                       <span>{isPlaying ? 'Stop' : 'Play'}</span>
                     </button>
                   </div>
-                  <div className="p-2.5 bg-white rounded-xl border border-stone-200 font-mono text-xs sm:text-sm font-bold text-rose-900">
+                  <div className="p-2.5 bg-white rounded-xl border border-stone-200 font-mono text-xs sm:text-sm font-bold text-rose-90 break-words0 break-words">
                     {ex.notation}
                   </div>
                   <p className="text-xs text-stone-600 leading-relaxed">{ex.desc}</p>
@@ -965,7 +965,7 @@ export const RagaShivranjaniView: React.FC<RagaShivranjaniViewProps> = ({ onView
               <div key={aal.id} className="p-4 bg-stone-50 rounded-2xl border border-stone-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:border-rose-300 transition">
                 <div className="space-y-1">
                   <span className="font-bold text-xs sm:text-sm text-bamboo-950">{aal.title}</span>
-                  <div className="font-mono text-xs sm:text-sm font-bold text-rose-900">
+                  <div className="font-mono text-xs sm:text-sm font-bold text-rose-90 break-words0 break-words">
                     {aal.notation}
                   </div>
                 </div>
@@ -1005,7 +1005,7 @@ export const RagaShivranjaniView: React.FC<RagaShivranjaniViewProps> = ({ onView
           Meend can add significant emotional expression to Shivranjani. Practice gentle continuous glides without breaking your air stream:
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 font-mono text-xs sm:text-sm font-bold text-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 font-mono text-xs sm:text-sm font-bold text-cente break-wordsr break-words">
           <div className="p-3 bg-stone-50 rounded-xl border border-stone-200 text-rose-950">R ~ g</div>
           <div className="p-3 bg-stone-50 rounded-xl border border-stone-200 text-rose-950">g ~ P</div>
           <div className="p-3 bg-stone-50 rounded-xl border border-stone-200 text-rose-950">P ~ D</div>
@@ -1183,7 +1183,7 @@ export const RagaShivranjaniView: React.FC<RagaShivranjaniViewProps> = ({ onView
                 </div>
               </div>
 
-              <pre className="p-3 bg-black/40 rounded-xl border border-rose-900 font-mono text-xs sm:text-sm text-amber-200 whitespace-pre-wrap leading-relaxed">
+              <pre className="p-3 bg-black/40 rounded-xl border border-rose-900 font-mono text-xs sm:text-sm text-amber-20 break-words0 break-words whitespace-pre-wrap leading-relaxed">
                 {sec.notation}
               </pre>
               <p className="text-xs text-rose-200/80 italic">{sec.instruction}</p>
@@ -1316,7 +1316,7 @@ export const RagaShivranjaniView: React.FC<RagaShivranjaniViewProps> = ({ onView
 
           {/* Interactive Countdown Timer */}
           <div className="flex items-center gap-2 self-start sm:self-auto bg-stone-100 p-1.5 rounded-2xl border border-stone-200">
-            <div className="font-mono text-sm font-bold text-bamboo-950 px-3 py-1 bg-white rounded-xl shadow-2xs">
+            <div className="font-mono text-sm font-bold text-bamboo-95 break-words0 break-words px-3 py-1 bg-white rounded-xl shadow-2xs">
               {formatTimer(timerSeconds)}
             </div>
             <button
@@ -1355,7 +1355,7 @@ export const RagaShivranjaniView: React.FC<RagaShivranjaniViewProps> = ({ onView
           ].map((step, idx) => (
             <div key={idx} className="p-3.5 bg-stone-50 rounded-xl border border-stone-200 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-4 hover:border-amber-300 transition">
               <div className="flex items-center gap-3">
-                <span className="font-mono text-xs font-bold text-rose-900 bg-rose-100 px-2.5 py-1 rounded-lg shrink-0">
+                <span className="font-mono text-xs font-bold text-rose-90 break-words0 break-words bg-rose-100 px-2.5 py-1 rounded-lg shrink-0">
                   {step.time}
                 </span>
                 <strong className="text-stone-800 text-xs sm:text-sm">{step.title}</strong>

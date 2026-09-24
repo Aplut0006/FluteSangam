@@ -189,7 +189,7 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
   ];
 
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-6 sm:space-y-8 pb-16" itemScope itemType="https://schema.org/LearningResource">
+    <div className="w-full max-w-6xl mx-auto space-y-6 sm:space-y-8 pb-16" itemScope itemType="https://schema.org/LearningResource">
       {/* Schema.org Article / LearningResource JSON-LD */}
       <script type="application/ld+json">
         {JSON.stringify({
@@ -508,7 +508,7 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
           <p className="text-xs text-gray-600">
             Follow this signature movement pattern to capture the authentic romantic and serene essence of Raag Yaman:
           </p>
-          <div className="bg-white rounded-xl p-4 border border-amber-200 font-mono text-xs sm:text-sm text-bamboo-950 space-y-2.5 leading-relaxed">
+          <div className="bg-white rounded-xl p-4 border border-amber-200 font-mono text-xs sm:text-sm text-bamboo-95 break-words0 break-words space-y-2.5 leading-relaxed">
             <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
               <span className="bg-amber-100/80 text-amber-950 px-2.5 py-1 rounded-md font-bold">'N R G</span>
               <span className="text-gray-400">→</span>

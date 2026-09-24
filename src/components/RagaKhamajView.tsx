@@ -152,7 +152,7 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
   };
 
   return (
-    <article className="max-w-5xl mx-auto px-4 py-8 text-amber-950 font-sans" itemScope itemType="https://schema.org/Article">
+    <article className="max-w-6xl mx-auto px-4 py-8 text-amber-950 font-sans" itemScope itemType="https://schema.org/Article">
       {/* Article Header & SEO Title */}
       <header className="mb-10 text-center sm:text-left border-b border-amber-200/80 pb-8">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100/80 text-amber-900 border border-amber-200 text-xs font-semibold uppercase tracking-wider mb-4">
@@ -413,7 +413,7 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
                   {copiedSection === 'aaroh' ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
                 </button>
               </div>
-              <div className="text-xl sm:text-2xl font-black text-bamboo-950 font-mono tracking-wide pt-1">
+              <div className="text-xl sm:text-base sm:text-base sm:text-2xl font-black text-bamboo-950 font-mono tracking-wide break-words break-words pt-1">
                 S G M P D N S'
               </div>
               <p className="text-xs text-amber-900/80">
@@ -433,7 +433,7 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
                   {copiedSection === 'avaroh' ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
                 </button>
               </div>
-              <div className="text-xl sm:text-2xl font-black text-bamboo-950 font-mono tracking-wide pt-1">
+              <div className="text-xl sm:text-base sm:text-base sm:text-2xl font-black text-bamboo-950 font-mono tracking-wide break-words break-words pt-1">
                 S' n D P M G R S
               </div>
               <p className="text-xs text-amber-900/80">
@@ -458,7 +458,7 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
               </button>
             </div>
 
-            <div className="bg-white p-4 rounded-xl border border-amber-200/80 font-mono text-base sm:text-lg font-bold text-amber-950 space-y-2">
+            <div className="bg-white p-4 rounded-xl border border-amber-200/80 font-mono text-base sm:text-lg font-bold text-amber-95 break-words0 break-words space-y-2">
               <p className="text-amber-900">G M P D M G</p>
               <p className="text-amber-900">R S</p>
               <p className="text-amber-900">n D P</p>
@@ -481,7 +481,7 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
               <span>Chalan (Key Melodic Progression)</span>
             </h3>
 
-            <div className="bg-amber-50/80 border border-amber-200 p-5 rounded-2xl space-y-3 font-mono text-sm sm:text-base font-bold text-amber-950">
+            <div className="bg-amber-50/80 border border-amber-200 p-5 rounded-2xl space-y-3 font-mono text-sm sm:text-base font-bold text-amber-95 break-words0 break-words">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="bg-white p-3 rounded-xl border border-amber-200/70">
                   <span className="text-[10px] uppercase font-sans text-amber-700 block mb-1">Ascending &amp; Upper Expansion</span>
@@ -507,7 +507,7 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
 
               <div className="bg-amber-100/70 p-3 rounded-xl text-xs font-sans text-amber-900 mt-2">
                 <strong>Expressive Movement Practice:</strong><br />
-                <span className="font-mono text-sm font-bold text-bamboo-950">G M P D  |  N D P  |  M G  |  R S  |  n D P  |  M G R S</span>
+                <span className="font-mono text-sm font-bold text-bamboo-95 break-words0 break-words">G M P D  |  N D P  |  M G  |  R S  |  n D P  |  M G R S</span>
               </div>
             </div>
           </div>
@@ -922,7 +922,7 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
             <div className="bg-amber-900/40 border border-amber-800/80 p-5 rounded-2xl space-y-3">
               <h3 className="text-lg font-bold text-amber-200">1. Aalap (Unmetered Intro)</h3>
               <p className="text-xs text-amber-300/80">Play freely without taal and keep the phrases slow and connected:</p>
-              <div className="bg-amber-950/90 p-4 rounded-xl border border-amber-800 font-mono text-sm text-amber-100 space-y-2">
+              <div className="bg-amber-950/90 p-4 rounded-xl border border-amber-800 font-mono text-sm text-amber-10 break-words0 break-words space-y-2">
                 <div>S G M  |  M P D  |  N S'  |  S' n D  |  P M  |  G R S</div>
                 <div>G M P  |  D N S'  |  n D P  |  M G R S</div>
               </div>
@@ -934,7 +934,7 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
             {/* Mukhda */}
             <div className="bg-amber-900/40 border border-amber-800/80 p-5 rounded-2xl space-y-3">
               <h3 className="text-lg font-bold text-amber-200">2. Mukhda (Main Theme - Teentaal)</h3>
-              <div className="bg-amber-950/90 p-4 rounded-xl border border-amber-800 font-mono text-sm sm:text-base text-amber-100 space-y-2">
+              <div className="bg-amber-950/90 p-4 rounded-xl border border-amber-800 font-mono text-sm sm:text-base text-amber-10 break-words0 break-words space-y-2">
                 <div>| S  G  M  P | D  N  S'  - |</div>
                 <div>| S' n  D  P | M  G  R  S  |</div>
               </div>
@@ -946,7 +946,7 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
             {/* Antara */}
             <div className="bg-amber-900/40 border border-amber-800/80 p-5 rounded-2xl space-y-3">
               <h3 className="text-lg font-bold text-amber-200">3. Antara (Upper Octave Section)</h3>
-              <div className="bg-amber-950/90 p-4 rounded-xl border border-amber-800 font-mono text-sm sm:text-base text-amber-100 space-y-2">
+              <div className="bg-amber-950/90 p-4 rounded-xl border border-amber-800 font-mono text-sm sm:text-base text-amber-10 break-words0 break-words space-y-2">
                 <div>| G  M  P  D | N  S' n  D |</div>
                 <div>| P  M  G  R | S  -  -  - |</div>
               </div>
@@ -958,7 +958,7 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
             {/* Vistar Practice */}
             <div className="bg-amber-900/40 border border-amber-800/80 p-5 rounded-2xl space-y-3">
               <h3 className="text-lg font-bold text-amber-200">4. Vistar Practice</h3>
-              <div className="bg-amber-950/90 p-4 rounded-xl border border-amber-800 font-mono text-sm sm:text-base text-amber-100 space-y-2">
+              <div className="bg-amber-950/90 p-4 rounded-xl border border-amber-800 font-mono text-sm sm:text-base text-amber-10 break-words0 break-words space-y-2">
                 <div>| G  M  P  D | N  D  P  M |</div>
                 <div>| G  R  S  G | M  P  D  N |</div>
                 <div className="pt-2">| S' n  D  P | M  G  R  S |</div>
@@ -973,13 +973,13 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
             <div className="bg-amber-900/40 border border-amber-800/80 p-5 rounded-2xl space-y-3">
               <h3 className="text-lg font-bold text-amber-200">5. Concluding Phrase (Tihaai / Ending)</h3>
               <p className="text-xs text-amber-300/80">Repeat three times:</p>
-              <div className="bg-amber-950/90 p-4 rounded-xl border border-amber-800 font-mono text-sm sm:text-base text-amber-100 space-y-1">
+              <div className="bg-amber-950/90 p-4 rounded-xl border border-amber-800 font-mono text-sm sm:text-base text-amber-10 break-words0 break-words space-y-1">
                 <div>G M P | M G R | S</div>
                 <div>G M P | M G R | S</div>
                 <div>G M P | M G R | S</div>
               </div>
               <p className="text-xs text-amber-300/90 font-bold">
-                Finish clearly on: <span className="font-mono text-base text-amber-100">S</span>
+                Finish clearly on: <span className="font-mono text-base text-amber-10 break-words0 break-words">S</span>
               </p>
             </div>
 
@@ -1066,7 +1066,7 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
 
           <div className="bg-amber-100/80 p-4 rounded-2xl border border-amber-300/80 text-xs font-bold text-amber-950 flex items-center justify-between">
             <span>Total Practice Time:</span>
-            <span className="font-mono text-base text-amber-900 font-black">45 Minutes / Session</span>
+            <span className="font-mono text-base text-amber-90 break-words0 break-words font-black">45 Minutes / Session</span>
           </div>
         </section>
 

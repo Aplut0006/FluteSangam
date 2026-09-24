@@ -74,7 +74,7 @@ export default function DailyPracticeGuideView({ onViewChange }: DailyPracticeGu
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -15 }}
-      className="max-w-5xl mx-auto py-8 px-4 sm:px-6 space-y-10"
+      className="max-w-6xl mx-auto py-8 px-4 sm:px-6 space-y-10"
     >
       <script
         type="application/ld+json"
@@ -384,7 +384,7 @@ export default function DailyPracticeGuideView({ onViewChange }: DailyPracticeGu
             <span className="text-xs font-bold text-gray-600 uppercase tracking-wider block">
               Example Note Sequence (Hold for 5s, 10s, or 15s per note):
             </span>
-            <div className="flex flex-wrap gap-2 font-mono text-sm font-bold text-bamboo-950">
+            <div className="flex flex-wrap gap-2 font-mono text-sm font-bold text-bamboo-95 break-words0 break-words">
               {['Sa', 'Re', 'Ga', 'Ma', 'Pa', 'Dha', 'Ni', "Sā"].map((note, idx) => (
                 <div key={idx} className="bg-bamboo-50 border border-bamboo-200 px-4 py-2 rounded-xl text-center shadow-3xs">
                   {note}
@@ -488,7 +488,7 @@ export default function DailyPracticeGuideView({ onViewChange }: DailyPracticeGu
 
           <div className="bg-amber-50/50 border border-amber-200/80 rounded-2xl p-4 space-y-3">
             <h4 className="text-xs font-bold text-amber-900 uppercase tracking-wider">Neighboring Note Transitions Exercise</h4>
-            <div className="flex flex-wrap gap-2 font-mono text-xs sm:text-sm font-bold text-bamboo-950">
+            <div className="flex flex-wrap gap-2 font-mono text-xs sm:text-sm font-bold text-bamboo-95 break-words0 break-words">
               {['Sa–Re', 'Re–Ga', 'Ga–Ma', 'Ma–Pa', 'Pa–Dha', 'Dha–Ni', 'Ni–Sa'].map((trans, idx) => (
                 <span key={idx} className="bg-white border border-amber-200 px-3 py-1.5 rounded-xl">
                   {trans}

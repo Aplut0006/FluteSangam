@@ -9,7 +9,7 @@ interface LearnIntroViewProps {
 
 export default function LearnIntroView({ onViewChange }: LearnIntroViewProps) {
   return (
-    <div className="max-w-4xl mx-auto px-3 sm:px-4 py-4 sm:py-8 animate-in fade-in slide-in-from-bottom-4 duration-500" itemScope itemType="https://schema.org/LearningResource">
+    <div className="max-w-6xl mx-auto px-3 sm:px-4 py-4 sm:py-8 animate-in fade-in slide-in-from-bottom-4 duration-500" itemScope itemType="https://schema.org/LearningResource">
       <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-10 shadow-xs border border-bamboo-100 overflow-hidden relative">
         {/* Abstract Background Element */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>

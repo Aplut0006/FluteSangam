@@ -245,7 +245,7 @@ export default function Navbar({
   return (
     <>
       <header className="sticky top-0 z-40 frosted-navbar shadow-3xs overflow-x-clip" id="app-navbar">
-        <div className="max-w-7xl mx-auto px-2.5 sm:px-4 lg:px-6 h-14 sm:h-16 flex items-center justify-between gap-1.5 sm:gap-3 lg:gap-4 xl:gap-6 min-w-0">
+        <div className="w-full max-w-(--breakpoint-2xl) mx-auto px-2.5 sm:px-4 lg:px-8 xl:px-10 h-14 sm:h-16 flex items-center justify-between gap-1.5 sm:gap-3 lg:gap-4 xl:gap-6 min-w-0">
         {/* Brand Logo & Name */}
         <a 
           href={VIEW_URLS['community'] || '/'}

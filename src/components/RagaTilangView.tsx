@@ -327,7 +327,7 @@ export const RagaTilangView: React.FC<RagaTilangViewProps> = ({ onViewChange }) 
     <div className="min-h-screen bg-stone-50/50 text-slate-800 font-sans pb-24">
       {/* Top Sticky Navigation Bar */}
       <div className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-stone-200/90 px-4 py-3 shadow-xs">
-        <div className="max-w-5xl mx-auto flex items-center justify-between">
+        <div className="max-w-6xl mx-auto flex items-center justify-between">
           <button 
             onClick={() => onViewChange ? onViewChange('learn_raagas') : window.history.back()}
             className="flex items-center gap-2 text-bamboo-800 hover:text-bamboo-950 font-bold text-sm transition-colors cursor-pointer"
@@ -352,7 +352,7 @@ export const RagaTilangView: React.FC<RagaTilangViewProps> = ({ onViewChange }) 
       </div>
 
       {/* Main Content Container */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-6 space-y-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-6 space-y-10">
         
         {/* HERO HEADER */}
         <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-50 via-orange-50/60 to-stone-50 p-6 sm:p-10 shadow-sm border border-amber-200/80">
@@ -923,7 +923,7 @@ export const RagaTilangView: React.FC<RagaTilangViewProps> = ({ onViewChange }) 
                     <span className="text-xs font-bold text-amber-900 bg-amber-100 px-2 py-0.5 rounded-md">Aalap {aalap.id}</span>
                     <span className="text-xs font-semibold text-stone-600">{aalap.title}</span>
                   </div>
-                  <div className="font-mono text-sm text-bamboo-950 font-bold tracking-wide pt-0.5">
+                  <div className="font-mono text-sm text-bamboo-95 break-words0 break-words font-bold tracking-wide pt-0.5">
                     {aalap.display}
                   </div>
                 </div>
@@ -1102,7 +1102,7 @@ G M P N | S' n P M | G M G S | S — — — ||`)}
                 <span className="text-xs font-bold text-amber-900 uppercase tracking-wider">1. Aalap (Slow &amp; Calm)</span>
                 <span className="text-xs text-stone-400">Opening</span>
               </div>
-              <div className="font-mono text-sm sm:text-base font-bold text-bamboo-950 p-3 bg-stone-50 rounded-xl border border-stone-100 leading-loose">
+              <div className="font-mono text-sm sm:text-base font-bold text-bamboo-95 break-words0 break-words p-3 bg-stone-50 rounded-xl border border-stone-100 leading-loose">
                 S G M P | M G S — |<br />
                 G M P — | M G S — ||
               </div>
@@ -1115,7 +1115,7 @@ G M P N | S' n P M | G M G S | S — — — ||`)}
                 <span className="text-xs font-bold text-amber-900 uppercase tracking-wider">2. Main Phrase (Ni Contrast)</span>
                 <span className="text-xs text-stone-400">Core Movement</span>
               </div>
-              <div className="font-mono text-sm sm:text-base font-bold text-bamboo-950 p-3 bg-stone-50 rounded-xl border border-stone-100 leading-loose">
+              <div className="font-mono text-sm sm:text-base font-bold text-bamboo-95 break-words0 break-words p-3 bg-stone-50 rounded-xl border border-stone-100 leading-loose">
                 S G M P | N S' n P |<br />
                 M G S — | G M P — ||
               </div>
@@ -1128,7 +1128,7 @@ G M P N | S' n P M | G M G S | S — — — ||`)}
                 <span className="text-xs font-bold text-amber-900 uppercase tracking-wider">3. Development</span>
                 <span className="text-xs text-stone-400">Upper Octave Extension</span>
               </div>
-              <div className="font-mono text-sm sm:text-base font-bold text-bamboo-950 p-3 bg-stone-50 rounded-xl border border-stone-100 leading-loose">
+              <div className="font-mono text-sm sm:text-base font-bold text-bamboo-95 break-words0 break-words p-3 bg-stone-50 rounded-xl border border-stone-100 leading-loose">
                 G M P N | S' N P M |<br />
                 G M P n | P M G S |<br />
                 S G M P | N S' n P |<br />
@@ -1143,7 +1143,7 @@ G M P N | S' n P M | G M G S | S — — — ||`)}
                 <span className="text-xs font-bold text-amber-900 uppercase tracking-wider">4. Variation</span>
                 <span className="text-xs text-stone-400">Advanced Phrasing</span>
               </div>
-              <div className="font-mono text-sm sm:text-base font-bold text-bamboo-950 p-3 bg-stone-50 rounded-xl border border-stone-100 leading-loose">
+              <div className="font-mono text-sm sm:text-base font-bold text-bamboo-95 break-words0 break-words p-3 bg-stone-50 rounded-xl border border-stone-100 leading-loose">
                 S G M P | N S' n P |<br />
                 G M P N | S' n P M |<br />
                 G M P n | P M G M |<br />
@@ -1158,7 +1158,7 @@ G M P N | S' n P M | G M G S | S — — — ||`)}
                 <span className="text-xs font-bold text-amber-900 uppercase tracking-wider">5. Ending</span>
                 <span className="text-xs text-stone-400">Resolution</span>
               </div>
-              <div className="font-mono text-sm sm:text-base font-bold text-bamboo-950 p-3 bg-stone-50 rounded-xl border border-stone-100 leading-loose">
+              <div className="font-mono text-sm sm:text-base font-bold text-bamboo-95 break-words0 break-words p-3 bg-stone-50 rounded-xl border border-stone-100 leading-loose">
                 G M P N | S' n P M |<br />
                 G M G S | S — — — ||
               </div>
@@ -1214,7 +1214,7 @@ G M P N | S' n P M | G M G S | S — — — ||`)}
             {/* Timer Badge */}
             <div className="flex items-center gap-2 bg-amber-50 px-3.5 py-1.5 rounded-xl border border-amber-200">
               <Clock className="w-4 h-4 text-amber-700" />
-              <span className="font-mono text-sm font-bold text-amber-950">{formatTimer(timerSeconds)}</span>
+              <span className="font-mono text-sm font-bold text-amber-95 break-words0 break-words">{formatTimer(timerSeconds)}</span>
               <button
                 onClick={() => setIsTimerRunning(!isTimerRunning)}
                 className="ml-1 text-[11px] font-bold text-amber-800 hover:text-amber-950 underline uppercase cursor-pointer"

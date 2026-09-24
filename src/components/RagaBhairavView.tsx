@@ -230,7 +230,7 @@ S`;
   }, []);
 
   return (
-    <div className="max-w-5xl mx-auto space-y-10 pb-16 font-sans text-gray-800">
+    <div className="max-w-6xl mx-auto space-y-10 pb-16 font-sans text-gray-800">
       
       {/* Breadcrumb Navigation */}
       <nav className="flex items-center space-x-2 text-xs text-gray-600 bg-white/80 backdrop-blur-sm px-4 py-2.5 rounded-xl border border-amber-200/60 shadow-2xs">
@@ -558,7 +558,7 @@ S`;
 
           <p className="text-xs text-gray-600">A useful introductory phrase establishing the soul of Raag Bhairav:</p>
           
-          <div className="bg-white p-4 rounded-xl border border-amber-200/80 font-mono text-sm sm:text-base font-bold text-bamboo-950 space-y-1 shadow-2xs">
+          <div className="bg-white p-4 rounded-xl border border-amber-200/80 font-mono text-sm sm:text-base font-bold text-bamboo-95 break-words0 break-words space-y-1 shadow-2xs">
             <div>S r G M</div>
             <div>G M r S</div>
             <div>d N S'</div>
@@ -567,7 +567,7 @@ S`;
           </div>
 
           <p className="text-xs text-gray-600 pt-2">Another key phrase for daily practice:</p>
-          <div className="bg-white p-4 rounded-xl border border-amber-200/80 font-mono text-sm font-bold text-bamboo-950 space-y-1 shadow-2xs">
+          <div className="bg-white p-4 rounded-xl border border-amber-200/80 font-mono text-sm font-bold text-bamboo-95 break-words0 break-words space-y-1 shadow-2xs">
             <div>G M P</div>
             <div>d P</div>
             <div>M G</div>
@@ -585,7 +585,7 @@ S`;
             <Repeat className="w-4 h-4 text-amber-600" /> Chalan (Melodic Movement Pattern)
           </h3>
 
-          <div className="bg-white p-4 rounded-xl border border-amber-200 font-mono text-xs sm:text-sm text-bamboo-950 leading-relaxed space-y-2 shadow-2xs">
+          <div className="bg-white p-4 rounded-xl border border-amber-200 font-mono text-xs sm:text-sm text-bamboo-95 break-words0 break-words leading-relaxed space-y-2 shadow-2xs">
             <div>S r G M</div>
             <div>G M P</div>
             <div>d N S'</div>
@@ -715,7 +715,7 @@ S`;
             <Volume2 className="w-4 h-4 text-amber-600" /> 1. Long Notes Practice
           </h3>
           <p className="text-xs text-gray-700">Begin with slow, sustained notes holding each swara for 8–10 seconds:</p>
-          <div className="font-mono text-sm font-bold text-amber-900 bg-white p-3 rounded-xl border border-amber-200 tracking-widest flex flex-wrap gap-3 justify-between">
+          <div className="font-mono text-sm font-bold text-amber-90 break-words0 break-words bg-white p-3 rounded-xl border border-amber-200 tracking-widest flex flex-wrap gap-3 justify-between">
             <span>S</span> <span>r</span> <span>G</span> <span>M</span> <span>P</span> <span>d</span> <span>N</span> <span>S'</span>
           </div>
           <p className="text-[11px] text-amber-900 italic">Pay particular attention to the pitch and expression of Komal Re (r) and Komal Dha (d).</p>
@@ -725,7 +725,7 @@ S`;
         <div className="bg-amber-50/50 p-5 rounded-2xl border border-amber-200/60 space-y-2">
           <h3 className="text-sm font-bold text-amber-950 uppercase tracking-wider">2. Aaroh–Avaroh Scale Practice</h3>
           <p className="text-xs text-gray-700">Repeat slowly 10–15 times:</p>
-          <div className="font-mono text-xs sm:text-sm font-bold text-bamboo-950 bg-white p-3.5 rounded-xl border border-amber-200 space-y-1">
+          <div className="font-mono text-xs sm:text-sm font-bold text-bamboo-95 break-words0 break-words bg-white p-3.5 rounded-xl border border-amber-200 space-y-1">
             <div>Aaroh: S r G M P d N S'</div>
             <div>Avaroh: S' N d P M G r S</div>
           </div>
@@ -949,7 +949,7 @@ S`;
             </button>
           </div>
           <p className="text-xs text-amber-100/80 font-sans">Play freely without taal and keep the phrases slow and spacious.</p>
-          <pre className="font-mono text-xs sm:text-sm text-amber-100 bg-black/40 p-4 rounded-xl border border-amber-800/60 leading-relaxed overflow-x-auto whitespace-pre-wrap">
+          <pre className="font-mono text-xs sm:text-sm text-amber-10 break-words0 break-words bg-black/40 p-4 rounded-xl border border-amber-800/60 leading-relaxed overflow-x-auto whitespace-pre-wrap">
 {compositionAalap}
           </pre>
         </div>
@@ -966,7 +966,7 @@ S`;
             </button>
           </div>
           <p className="text-xs text-amber-100/80 font-sans">Establishes the principal melodic idea of the learning piece.</p>
-          <pre className="font-mono text-xs sm:text-sm text-amber-200 font-bold bg-black/40 p-4 rounded-xl border border-amber-800/60 leading-relaxed overflow-x-auto whitespace-pre-wrap">
+          <pre className="font-mono text-xs sm:text-sm text-amber-20 break-words0 break-words font-bold bg-black/40 p-4 rounded-xl border border-amber-800/60 leading-relaxed overflow-x-auto whitespace-pre-wrap">
 {compositionMukhda}
           </pre>
         </div>
@@ -983,7 +983,7 @@ S`;
             </button>
           </div>
           <p className="text-xs text-amber-100/80 font-sans">Explores the upper register before returning toward Sa.</p>
-          <pre className="font-mono text-xs sm:text-sm text-amber-200 font-bold bg-black/40 p-4 rounded-xl border border-amber-800/60 leading-relaxed overflow-x-auto whitespace-pre-wrap">
+          <pre className="font-mono text-xs sm:text-sm text-amber-20 break-words0 break-words font-bold bg-black/40 p-4 rounded-xl border border-amber-800/60 leading-relaxed overflow-x-auto whitespace-pre-wrap">
 {compositionAntara}
           </pre>
         </div>
@@ -1000,7 +1000,7 @@ S`;
             </button>
           </div>
           <p className="text-xs text-amber-100/80 font-sans">Play the phrases slowly and allow the characteristic notes to retain their Bhairav character.</p>
-          <pre className="font-mono text-xs sm:text-sm text-amber-200 font-bold bg-black/40 p-4 rounded-xl border border-amber-800/60 leading-relaxed overflow-x-auto whitespace-pre-wrap">
+          <pre className="font-mono text-xs sm:text-sm text-amber-20 break-words0 break-words font-bold bg-black/40 p-4 rounded-xl border border-amber-800/60 leading-relaxed overflow-x-auto whitespace-pre-wrap">
 {compositionVistar}
           </pre>
         </div>
@@ -1016,7 +1016,7 @@ S`;
               <Copy className="w-3.5 h-3.5" /> Copy Conclusion
             </button>
           </div>
-          <pre className="font-mono text-xs sm:text-sm text-amber-200 font-bold bg-black/40 p-4 rounded-xl border border-amber-800/60 leading-relaxed overflow-x-auto whitespace-pre-wrap">
+          <pre className="font-mono text-xs sm:text-sm text-amber-20 break-words0 break-words font-bold bg-black/40 p-4 rounded-xl border border-amber-800/60 leading-relaxed overflow-x-auto whitespace-pre-wrap">
 {compositionConclusion}
           </pre>
         </div>
@@ -1087,7 +1087,7 @@ S`;
               </tr>
               <tr className="bg-amber-50 font-bold text-bamboo-950">
                 <td className="p-3.5">Total Practice Time</td>
-                <td className="p-3.5 font-mono text-amber-900 text-base">45 minutes</td>
+                <td className="p-3.5 font-mono text-amber-900 text-bas break-wordse break-words">45 minutes</td>
               </tr>
             </tbody>
           </table>

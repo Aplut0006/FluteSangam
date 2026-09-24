@@ -604,7 +604,7 @@ R G P G | R S — — ||
                       {isPlayingAaroh ? <Square className="w-4 h-4 fill-rose-900 text-rose-900" /> : <Play className="w-4 h-4 fill-emerald-900" />}
                     </button>
                   </div>
-                  <div className="font-mono text-base font-bold text-emerald-900 bg-white p-3 rounded-xl text-center border border-emerald-200/80">
+                  <div className="font-mono text-base font-bold text-emerald-90 break-words0 break-words bg-white p-3 rounded-xl text-center border border-emerald-200/80">
                     S R G P D S'
                   </div>
                   <p className="text-xs sm:text-sm text-emerald-900 leading-relaxed">
@@ -626,7 +626,7 @@ R G P G | R S — — ||
                       {isPlayingAvaroh ? <Square className="w-4 h-4 fill-rose-900 text-rose-900" /> : <Play className="w-4 h-4 fill-emerald-900" />}
                     </button>
                   </div>
-                  <div className="font-mono text-base font-bold text-emerald-900 bg-white p-3 rounded-xl text-center border border-emerald-200/80">
+                  <div className="font-mono text-base font-bold text-emerald-90 break-words0 break-words bg-white p-3 rounded-xl text-center border border-emerald-200/80">
                     S' N D P G R S
                   </div>
                   <p className="text-xs sm:text-sm text-emerald-900 leading-relaxed">
@@ -649,7 +649,7 @@ R G P G | R S — — ||
                     {isPlayingPakad ? <Square className="w-4 h-4 fill-rose-900 text-rose-900" /> : <Play className="w-4 h-4 fill-emerald-900" />}
                   </button>
                 </div>
-                <div className="font-mono text-sm font-bold text-emerald-900 bg-white p-3 rounded-xl text-center border border-emerald-200/80 space-y-1">
+                <div className="font-mono text-sm font-bold text-emerald-90 break-words0 break-words bg-white p-3 rounded-xl text-center border border-emerald-200/80 space-y-1">
                   <div>Phrase 1: S R G P | G R S</div>
                   <div>Phrase 2: P D S' | N D P | G R S</div>
                   <div>Phrase 3: G P D P | G R S</div>
@@ -812,7 +812,7 @@ R G P G | R S — — ||
                           )}
                         </button>
                       </div>
-                      <div className="font-mono text-xs sm:text-sm font-bold text-emerald-900 bg-white p-2.5 rounded-lg border border-emerald-200 my-2">
+                      <div className="font-mono text-xs sm:text-sm font-bold text-emerald-90 break-words0 break-words bg-white p-2.5 rounded-lg border border-emerald-200 my-2">
                         {ex.notes}
                       </div>
                     </div>
@@ -845,7 +845,7 @@ R G P G | R S — — ||
                   <div key={idx} className="p-4 bg-emerald-50/50 rounded-xl border border-emerald-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                     <div className="space-y-1">
                       <span className="font-bold text-emerald-950 text-xs sm:text-sm">{aalap.title}</span>
-                      <div className="font-mono text-xs sm:text-sm font-bold text-emerald-900 bg-white px-3 py-1.5 rounded-lg border border-emerald-200 inline-block">
+                      <div className="font-mono text-xs sm:text-sm font-bold text-emerald-90 break-words0 break-words bg-white px-3 py-1.5 rounded-lg border border-emerald-200 inline-block">
                         {aalap.notes}
                       </div>
                     </div>
@@ -882,7 +882,7 @@ R G P G | R S — — ||
                 <p className="text-xs sm:text-sm text-stone-700 leading-relaxed">
                   Pahadi sounds especially beautiful when played with gentle meend. Practice sliding smoothly between:
                 </p>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono text-xs sm:text-sm text-center font-bold text-emerald-900">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono text-xs sm:text-sm text-cente break-wordsr break-words font-bold text-emerald-900">
                   <div className="bg-white p-2 rounded-lg border border-emerald-200">R ~ G</div>
                   <div className="bg-white p-2 rounded-lg border border-emerald-200">G ~ P</div>
                   <div className="bg-white p-2 rounded-lg border border-emerald-200">P ~ D</div>

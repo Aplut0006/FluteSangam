@@ -1291,7 +1291,7 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-8" itemScope itemType="https://schema.org/LearningResource">
+    <div className="w-full max-w-6xl mx-auto space-y-8" itemScope itemType="https://schema.org/LearningResource">
       {/* Schema.org Json-LD */}
       <script type="application/ld+json">
         {JSON.stringify({
@@ -1549,7 +1549,7 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
                     </button>
                   </div>
 
-                  <div className="font-mono text-xs sm:text-sm font-semibold text-amber-950 bg-amber-50/70 p-3 sm:p-4 rounded-2xl border border-amber-200/80 overflow-x-auto whitespace-nowrap flex flex-col gap-1.5 leading-relaxed">
+                  <div className="font-mono text-xs sm:text-sm font-semibold text-amber-95 break-words0 break-words bg-amber-50/70 p-3 sm:p-4 rounded-2xl border border-amber-200/80 overflow-x-auto whitespace-nowrap flex flex-col gap-1.5 leading-relaxed">
                     {item.aroha.map((line, i) => (
                       <div key={i} className="tracking-wide">{line}</div>
                     ))}
@@ -1589,7 +1589,7 @@ export default function LearnAlankarasView({ onViewChange }: LearnAlankarasViewP
                     </button>
                   </div>
 
-                  <div className="font-mono text-xs sm:text-sm font-semibold text-emerald-950 bg-emerald-50/70 p-3 sm:p-4 rounded-2xl border border-emerald-200/80 overflow-x-auto whitespace-nowrap flex flex-col gap-1.5 leading-relaxed">
+                  <div className="font-mono text-xs sm:text-sm font-semibold text-emerald-95 break-words0 break-words bg-emerald-50/70 p-3 sm:p-4 rounded-2xl border border-emerald-200/80 overflow-x-auto whitespace-nowrap flex flex-col gap-1.5 leading-relaxed">
                     {item.avroha.map((line, i) => (
                       <div key={i} className="tracking-wide">{line}</div>
                     ))}

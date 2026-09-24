@@ -214,7 +214,7 @@ export const RagaJogView: React.FC<RagaJogViewProps> = ({ onViewChange }) => {
     <div className="min-h-screen bg-amber-50/40 text-slate-800 font-sans pb-24">
       {/* Top Sticky Navigation Bar */}
       <div className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-amber-200/80 px-4 py-3 shadow-xs">
-        <div className="max-w-5xl mx-auto flex items-center justify-between">
+        <div className="max-w-6xl mx-auto flex items-center justify-between">
           <button 
             onClick={() => onViewChange ? onViewChange('learn_raagas') : window.history.back()}
             className="flex items-center gap-2 text-amber-800 hover:text-amber-950 font-bold text-sm transition-colors cursor-pointer"
@@ -239,7 +239,7 @@ export const RagaJogView: React.FC<RagaJogViewProps> = ({ onViewChange }) => {
       </div>
 
       {/* Main Container */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 pt-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-6">
         
         {/* HERO HEADER - Light & Warm Banner */}
         <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-100/90 via-orange-50 to-amber-50 text-bamboo-950 p-6 sm:p-10 shadow-sm border border-amber-300/80 mb-8">
@@ -426,7 +426,7 @@ export const RagaJogView: React.FC<RagaJogViewProps> = ({ onViewChange }) => {
               </button>
             </div>
 
-            <div className="bg-amber-50 p-4 rounded-xl border border-amber-200 text-center font-mono text-lg text-amber-950 font-bold tracking-widest">
+            <div className="bg-amber-50 p-4 rounded-xl border border-amber-200 text-center font-mono text-lg text-amber-95 break-words0 break-words font-bold tracking-widest">
               S R G m P n S'
             </div>
 
@@ -452,7 +452,7 @@ export const RagaJogView: React.FC<RagaJogViewProps> = ({ onViewChange }) => {
               </button>
             </div>
 
-            <div className="bg-amber-50 p-4 rounded-xl border border-amber-200 text-center font-mono text-lg text-rose-950 font-bold tracking-widest">
+            <div className="bg-amber-50 p-4 rounded-xl border border-amber-200 text-center font-mono text-lg text-rose-95 break-words0 break-words font-bold tracking-widest">
               S' n P m G m g S
             </div>
 
@@ -493,7 +493,7 @@ export const RagaJogView: React.FC<RagaJogViewProps> = ({ onViewChange }) => {
             </div>
           </div>
 
-          <div className="bg-white p-5 rounded-xl border border-amber-300 font-mono text-xl sm:text-2xl text-center text-amber-950 font-extrabold tracking-widest my-2 shadow-2xs">
+          <div className="bg-white p-5 rounded-xl border border-amber-300 font-mono text-xl sm:text-2xl text-cente break-wordsr break-words text-amber-950 font-extrabold tracking-widest my-2 shadow-2xs">
             G m P n P | m G m g S
           </div>
 
@@ -579,7 +579,7 @@ export const RagaJogView: React.FC<RagaJogViewProps> = ({ onViewChange }) => {
             {/* Interactive Timer Widget */}
             <div className="flex items-center gap-3 bg-amber-50 px-4 py-2 rounded-xl border border-amber-300">
               <Clock className="w-4 h-4 text-amber-700" />
-              <span className="font-mono text-sm font-bold text-amber-950">{formatTimer(timerSeconds)}</span>
+              <span className="font-mono text-sm font-bold text-amber-95 break-words0 break-words">{formatTimer(timerSeconds)}</span>
               <button
                 onClick={() => setIsTimerRunning(!isTimerRunning)}
                 className="text-xs bg-amber-600 hover:bg-amber-700 text-white font-bold px-2.5 py-1 rounded transition-colors cursor-pointer"
@@ -658,7 +658,7 @@ export const RagaJogView: React.FC<RagaJogViewProps> = ({ onViewChange }) => {
                   </button>
                 </div>
 
-                <div className="font-mono text-xs text-amber-950 bg-white p-2.5 rounded-lg border border-amber-300 tracking-wider font-bold">
+                <div className="font-mono text-xs text-amber-95 break-words0 break-words bg-white p-2.5 rounded-lg border border-amber-300 tracking-wider font-bold">
                   {ex.notes.join('  ')}
                 </div>
                 <p className="text-xs text-slate-600 leading-relaxed">{ex.desc}</p>
@@ -723,7 +723,7 @@ export const RagaJogView: React.FC<RagaJogViewProps> = ({ onViewChange }) => {
                     {playingAalap === aalap.id ? <Pause className="w-3.5 h-3.5 text-amber-800 animate-pulse" /> : <Play className="w-3.5 h-3.5 text-amber-800" />}
                   </button>
                 </div>
-                <div className="font-mono text-xs text-amber-950 bg-white p-2 rounded border border-amber-300 font-bold">
+                <div className="font-mono text-xs text-amber-95 break-words0 break-words bg-white p-2 rounded border border-amber-300 font-bold">
                   {aalap.notationStr}
                 </div>
               </div>
@@ -886,7 +886,7 @@ m G m g | S — — — ||
             ].map((sec, idx) => (
               <div key={idx} className="p-4 rounded-xl bg-white border border-amber-200 space-y-2 shadow-2xs">
                 <h3 className="text-xs font-bold text-amber-900 uppercase tracking-wider">{sec.title}</h3>
-                <div className="font-mono text-sm text-amber-950 bg-amber-50/80 p-3 rounded-lg border border-amber-200 space-y-1 font-bold">
+                <div className="font-mono text-sm text-amber-95 break-words0 break-words bg-amber-50/80 p-3 rounded-lg border border-amber-200 space-y-1 font-bold">
                   {sec.lines.map((line, i) => (
                     <div key={i}>{line}</div>
                   ))}

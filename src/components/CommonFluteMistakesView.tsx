@@ -327,7 +327,7 @@ export default function CommonFluteMistakesView({ onViewChange }: CommonFluteMis
   ];
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-8" itemScope itemType="https://schema.org/EducationalArticle">
+    <div className="w-full max-w-6xl mx-auto space-y-8" itemScope itemType="https://schema.org/EducationalArticle">
       {/* Title & Header Banner */}
       <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-amber-200 overflow-hidden relative">
         <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />

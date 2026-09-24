@@ -226,7 +226,7 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-8" itemScope itemType="https://schema.org/LearningResource">
+    <div className="w-full max-w-6xl mx-auto space-y-8" itemScope itemType="https://schema.org/LearningResource">
       
       {/* Dynamic Animated Hero Banner */}
       <motion.div 

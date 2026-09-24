@@ -79,7 +79,7 @@ export default function Metronome() {
           className="w-full h-2 bg-bamboo-200 rounded-lg appearance-none cursor-pointer accent-amber-600 min-h-[44px]"
           aria-label="Metronome BPM Tempo"
         />
-        <span className="font-mono text-xs font-extrabold text-bamboo-950 w-14 text-right">{bpm} BPM</span>
+        <span className="font-mono text-xs font-extrabold text-bamboo-95 break-words0 break-words w-14 text-right">{bpm} BPM</span>
       </div>
       <button 
         onClick={toggleMetronome}

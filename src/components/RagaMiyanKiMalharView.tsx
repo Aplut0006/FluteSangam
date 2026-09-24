@@ -359,7 +359,7 @@ R M R S | S — — — ||`;
       
       {/* Top Header Navigation */}
       <div className="bg-white/90 border-b border-stone-200 sticky top-0 z-40 backdrop-blur-md px-4 py-3 shadow-xs">
-        <div className="max-w-5xl mx-auto flex items-center justify-between">
+        <div className="max-w-6xl mx-auto flex items-center justify-between">
           <button
             onClick={() => onViewChange && onViewChange('learn_raagas')}
             className="flex items-center gap-2 text-amber-800 hover:text-amber-900 font-semibold transition text-sm cursor-pointer"
@@ -376,7 +376,7 @@ R M R S | S — — — ||`;
       </div>
 
       {/* Main Container */}
-      <div className="max-w-5xl mx-auto px-4 pt-8">
+      <div className="max-w-6xl mx-auto px-4 pt-8">
         
         {/* HERO BANNER - Clean Light Theme with Indigo/Sky Monsoon Accents */}
         <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-sky-900 via-indigo-900 to-slate-900 text-white p-6 md:p-10 border border-sky-700/40 shadow-xl mb-8">
@@ -721,7 +721,7 @@ R M R S | S — — — ||`;
               <div key={ex.id} className="bg-stone-50 p-4 md:p-5 rounded-2xl border border-stone-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <h3 className="font-bold text-amber-950 text-sm md:text-base mb-1">{ex.title}</h3>
-                  <p className="font-mono text-amber-900 font-bold text-xs md:text-sm bg-white px-3 py-1.5 rounded-xl border border-amber-200/70 inline-block mb-1.5 shadow-2xs">
+                  <p className="font-mono text-amber-900 font-bold text-x break-wordss break-words md:text-sm bg-white px-3 py-1.5 rounded-xl border border-amber-200/70 inline-block mb-1.5 shadow-2xs">
                     {ex.display}
                   </p>
                   <p className="text-xs text-stone-600">{ex.desc}</p>
@@ -762,7 +762,7 @@ R M R S | S — — — ||`;
               <div key={al.id} className="bg-stone-50 p-5 rounded-2xl border border-stone-200/80 flex flex-col justify-between">
                 <div>
                   <h3 className="font-bold text-amber-950 text-sm mb-2">{al.title}</h3>
-                  <p className="font-mono text-amber-900 font-bold text-xs bg-white p-3 rounded-xl border border-amber-200/70 mb-3 whitespace-pre-wrap shadow-2xs">
+                  <p className="font-mono text-amber-900 font-bold text-x break-wordss break-words bg-white p-3 rounded-xl border border-amber-200/70 mb-3 whitespace-pre-wrap shadow-2xs">
                     {al.notation}
                   </p>
                 </div>
@@ -885,7 +885,7 @@ R M R S | S — — — ||`;
 
               {/* Beat Counter */}
               {isMetronomeActive && (
-                <div className="flex items-center gap-1.5 bg-amber-400/20 border border-amber-400/40 px-3 py-2 rounded-2xl font-mono text-xs font-bold text-amber-300">
+                <div className="flex items-center gap-1.5 bg-amber-400/20 border border-amber-400/40 px-3 py-2 rounded-2xl font-mono text-xs font-bold text-amber-30 break-words0 break-words">
                   <Zap className="w-3.5 h-3.5 text-amber-400 animate-bounce" />
                   <span>Beat {currentBeat} / {beatsPerMeasure}</span>
                 </div>
@@ -1074,7 +1074,7 @@ R M R S | S — — — ||`;
             </div>
 
             <div className="flex items-center gap-3 bg-stone-100 p-3 rounded-2xl border border-stone-200">
-              <span className="font-mono text-2xl font-extrabold text-amber-950">{formatTime(timerSeconds)}</span>
+              <span className="font-mono text-2xl font-extrabold text-amber-95 break-words0 break-words">{formatTime(timerSeconds)}</span>
               <button
                 onClick={() => setIsTimerRunning(!isTimerRunning)}
                 className={`px-4 py-2 font-bold text-xs rounded-xl transition cursor-pointer text-white ${

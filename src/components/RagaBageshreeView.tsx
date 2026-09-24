@@ -184,7 +184,7 @@ Finish on Sam: S`;
   ];
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-4 sm:space-y-8 px-1 sm:px-0" itemScope itemType="https://schema.org/LearningResource">
+    <div className="w-full max-w-6xl mx-auto space-y-4 sm:space-y-8 px-1 sm:px-0" itemScope itemType="https://schema.org/LearningResource">
       {/* Top Header Card */}
       <section className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-sm border border-bamboo-100 overflow-hidden relative">
         <div className="absolute top-0 right-0 w-72 h-72 bg-indigo-500/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
@@ -225,7 +225,7 @@ Finish on Sam: S`;
             <div className="bg-indigo-900 text-white rounded-xl sm:rounded-2xl p-3 sm:p-4 flex flex-row sm:flex-col items-center justify-between sm:justify-center shrink-0 w-full sm:w-auto sm:min-w-[180px] shadow-sm">
               <div className="text-left sm:text-center">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-indigo-200 block">Daily Practice Timer</span>
-                <span className="font-mono text-xl sm:text-2xl font-bold text-amber-300">{formatTimer(timerSeconds)}</span>
+                <span className="font-mono text-xl sm:text-2xl font-bold text-amber-30 break-words0 break-words">{formatTimer(timerSeconds)}</span>
               </div>
               <button
                 onClick={() => setIsTimerRunning(!isTimerRunning)}
@@ -418,7 +418,7 @@ Finish on Sam: S`;
               <span>Copy Pakad</span>
             </button>
           </div>
-          <div className="bg-white p-3 sm:p-3.5 rounded-xl border border-amber-200 font-mono text-xs sm:text-base font-bold text-bamboo-950 space-y-2 overflow-x-auto scrollbar-thin">
+          <div className="bg-white p-3 sm:p-3.5 rounded-xl border border-amber-200 font-mono text-xs sm:text-base font-bold text-bamboo-95 break-words0 break-words space-y-2 overflow-x-auto scrollbar-thin">
             <p className="text-indigo-950">g M D &nbsp;|&nbsp; n D M &nbsp;|&nbsp; g R S</p>
             <div className="pt-2 border-t border-gray-100">
               <span className="text-[11px] font-sans text-gray-500 block mb-0.5">Alternative Variation:</span>
@@ -439,7 +439,7 @@ Finish on Sam: S`;
               <span>Copy Chalan</span>
             </button>
           </div>
-          <div className="bg-white p-3 sm:p-3.5 rounded-xl border border-bamboo-200 font-mono text-xs sm:text-sm font-bold text-bamboo-950 space-y-2 leading-relaxed overflow-x-auto scrollbar-thin">
+          <div className="bg-white p-3 sm:p-3.5 rounded-xl border border-bamboo-200 font-mono text-xs sm:text-sm font-bold text-bamboo-95 break-words0 break-words space-y-2 leading-relaxed overflow-x-auto scrollbar-thin">
             <p className="text-indigo-950">S g M &nbsp;|&nbsp; D n S' &nbsp;|&nbsp; n D M &nbsp;|&nbsp; P M &nbsp;|&nbsp; g R &nbsp;|&nbsp; S</p>
             <p className="text-indigo-900">g M D &nbsp;|&nbsp; n D M &nbsp;|&nbsp; g R S</p>
           </div>
@@ -528,7 +528,7 @@ Finish on Sam: S`;
           <div className="bg-amber-50/50 border border-amber-200/80 rounded-2xl p-4 space-y-2">
             <h3 className="text-sm font-bold text-amber-900 uppercase tracking-wider">1. Long Notes Practice</h3>
             <p className="text-xs text-gray-600">Hold each note for 8–10 seconds while maintaining a steady tone:</p>
-            <p className="font-mono text-sm sm:text-base font-bold text-bamboo-950 bg-white p-2.5 rounded-xl border border-amber-200">
+            <p className="font-mono text-sm sm:text-base font-bold text-bamboo-95 break-words0 break-words bg-white p-2.5 rounded-xl border border-amber-200">
               S &nbsp; g &nbsp; M &nbsp; D &nbsp; n &nbsp; S'
             </p>
           </div>
@@ -536,7 +536,7 @@ Finish on Sam: S`;
           <div className="bg-indigo-50/50 border border-indigo-200/80 rounded-2xl p-4 space-y-2">
             <h3 className="text-sm font-bold text-indigo-900 uppercase tracking-wider">2. Aaroh–Avaroh Repetition</h3>
             <p className="text-xs text-gray-600">Practice slowly 10–15 times with tanpura drone:</p>
-            <div className="font-mono text-xs sm:text-sm font-bold text-bamboo-950 bg-white p-2.5 rounded-xl border border-indigo-200 space-y-1">
+            <div className="font-mono text-xs sm:text-sm font-bold text-bamboo-95 break-words0 break-words bg-white p-2.5 rounded-xl border border-indigo-200 space-y-1">
               <p>Ascending: S g M D n S'</p>
               <p>Descending: S' n D M P M g R S</p>
             </div>
@@ -556,7 +556,7 @@ Finish on Sam: S`;
               <span className="text-xs font-bold text-indigo-900 uppercase tracking-wider">FluteSangam Original Alankar 1</span>
               <span className="text-[11px] font-bold text-gray-500">2-Note Movement</span>
             </div>
-            <div className="bg-white p-3 rounded-xl border border-gray-200 font-mono text-xs sm:text-sm font-bold text-bamboo-950 space-y-1 overflow-x-auto scrollbar-thin">
+            <div className="bg-white p-3 rounded-xl border border-gray-200 font-mono text-xs sm:text-sm font-bold text-bamboo-95 break-words0 break-words space-y-1 overflow-x-auto scrollbar-thin">
               <p><span className="text-gray-500 font-sans font-normal">Ascending:</span> S g &nbsp;|&nbsp; g M &nbsp;|&nbsp; M D &nbsp;|&nbsp; D n &nbsp;|&nbsp; n S'</p>
               <p><span className="text-gray-500 font-sans font-normal">Descending:</span> S' n &nbsp;|&nbsp; n D &nbsp;|&nbsp; D M &nbsp;|&nbsp; M g &nbsp;|&nbsp; g R &nbsp;|&nbsp; R S</p>
             </div>
@@ -568,7 +568,7 @@ Finish on Sam: S`;
               <span className="text-xs font-bold text-indigo-900 uppercase tracking-wider">FluteSangam Original Alankar 2</span>
               <span className="text-[11px] font-bold text-gray-500">3-Note Triplet Pattern</span>
             </div>
-            <div className="bg-white p-3 rounded-xl border border-gray-200 font-mono text-xs sm:text-sm font-bold text-bamboo-950 space-y-1 overflow-x-auto scrollbar-thin">
+            <div className="bg-white p-3 rounded-xl border border-gray-200 font-mono text-xs sm:text-sm font-bold text-bamboo-95 break-words0 break-words space-y-1 overflow-x-auto scrollbar-thin">
               <p><span className="text-gray-500 font-sans font-normal">Ascending:</span> S g M &nbsp;|&nbsp; g M D &nbsp;|&nbsp; M D n &nbsp;|&nbsp; D n S'</p>
               <p><span className="text-gray-500 font-sans font-normal">Descending:</span> S' n D &nbsp;|&nbsp; n D M &nbsp;|&nbsp; D M g &nbsp;|&nbsp; M g R &nbsp;|&nbsp; g R S</p>
             </div>
@@ -580,7 +580,7 @@ Finish on Sam: S`;
               <span className="text-xs font-bold text-indigo-900 uppercase tracking-wider">FluteSangam Original Alankar 3</span>
               <span className="text-[11px] font-bold text-gray-500">4-Note Winding Pattern</span>
             </div>
-            <div className="bg-white p-3 rounded-xl border border-gray-200 font-mono text-xs sm:text-sm font-bold text-bamboo-950 space-y-1 overflow-x-auto scrollbar-thin">
+            <div className="bg-white p-3 rounded-xl border border-gray-200 font-mono text-xs sm:text-sm font-bold text-bamboo-95 break-words0 break-words space-y-1 overflow-x-auto scrollbar-thin">
               <p><span className="text-gray-500 font-sans font-normal">Ascending:</span> S g M g &nbsp;|&nbsp; g M D M &nbsp;|&nbsp; M D n D &nbsp;|&nbsp; D n S' n</p>
               <p><span className="text-gray-500 font-sans font-normal">Descending:</span> S' n D n &nbsp;|&nbsp; n D M D &nbsp;|&nbsp; D M g M &nbsp;|&nbsp; g R S</p>
             </div>
@@ -681,7 +681,7 @@ Finish on Sam: S`;
               >
                 -
               </button>
-              <span className="font-mono text-base sm:text-lg font-bold text-bamboo-950 min-w-[70px] text-center">{bpm} BPM</span>
+              <span className="font-mono text-base sm:text-lg font-bold text-bamboo-95 break-words0 break-words min-w-[70px] text-center">{bpm} BPM</span>
               <button
                 onClick={() => setBpm(Math.min(140, bpm + 5))}
                 className="w-9 h-9 bg-white border border-indigo-200 rounded-lg text-sm font-bold active:scale-95 hover:bg-indigo-100 flex items-center justify-center cursor-pointer touch-manipulation shadow-xs"
@@ -719,7 +719,7 @@ Finish on Sam: S`;
               </button>
             </div>
 
-            <div className="bg-white p-3 sm:p-4 rounded-xl border border-amber-200/60 font-mono text-xs sm:text-base font-bold text-bamboo-950 space-y-2 overflow-x-auto scrollbar-thin leading-relaxed">
+            <div className="bg-white p-3 sm:p-4 rounded-xl border border-amber-200/60 font-mono text-xs sm:text-base font-bold text-bamboo-95 break-words0 break-words space-y-2 overflow-x-auto scrollbar-thin leading-relaxed">
               <p>| S  g  M  D | n  D  M  g |</p>
               <p>| R  S  -  - | S  g  M  - |</p>
               <br />
@@ -743,7 +743,7 @@ Finish on Sam: S`;
               </button>
             </div>
 
-            <div className="bg-white p-3 sm:p-4 rounded-xl border border-indigo-200/60 font-mono text-xs sm:text-base font-bold text-bamboo-950 space-y-2 overflow-x-auto scrollbar-thin leading-relaxed">
+            <div className="bg-white p-3 sm:p-4 rounded-xl border border-indigo-200/60 font-mono text-xs sm:text-base font-bold text-bamboo-95 break-words0 break-words space-y-2 overflow-x-auto scrollbar-thin leading-relaxed">
               <p>| S' n  D  M | P  M  g  R |</p>
               <p>| S  g  M  D | n  S' -  - |</p>
               <br />
@@ -767,7 +767,7 @@ Finish on Sam: S`;
               </button>
             </div>
 
-            <div className="bg-white p-3 sm:p-4 rounded-xl border border-bamboo-200/80 font-mono text-xs sm:text-base font-bold text-bamboo-950 space-y-2 overflow-x-auto scrollbar-thin">
+            <div className="bg-white p-3 sm:p-4 rounded-xl border border-bamboo-200/80 font-mono text-xs sm:text-base font-bold text-bamboo-95 break-words0 break-words space-y-2 overflow-x-auto scrollbar-thin">
               <p className="text-[11px] sm:text-xs font-sans text-gray-500 font-semibold uppercase">Repeat 3 times:</p>
               <p className="text-indigo-900">g M D &nbsp;|&nbsp; M g R &nbsp;|&nbsp; S</p>
               <p className="text-[11px] sm:text-xs font-sans text-gray-500 font-semibold uppercase pt-2">Finish on Sam:</p>

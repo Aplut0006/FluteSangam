@@ -39,7 +39,7 @@ export default function FounderView({ onViewChange }: FounderViewProps) {
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -15 }}
-      className="max-w-4xl mx-auto py-8 sm:py-12 px-4 sm:px-6 space-y-10 sm:space-y-14"
+      className="max-w-6xl mx-auto py-8 sm:py-12 px-4 sm:px-6 space-y-10 sm:space-y-14"
     >
       {/* 1. H1 Header & Hero Card */}
       <section className="bg-gradient-to-br from-bamboo-950 via-bamboo-900 to-amber-950 text-white rounded-3xl p-6 sm:p-10 shadow-xl border border-bamboo-800/80 relative overflow-hidden">

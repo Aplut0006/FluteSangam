@@ -20,7 +20,7 @@ export default function LearnChooseFluteView({ onBackToLearn, onViewChange }: Le
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -15 }}
       transition={{ duration: 0.25 }}
-      className="max-w-4xl mx-auto py-6 sm:py-10 px-4 sm:px-6"
+      className="max-w-6xl mx-auto py-6 sm:py-10 px-4 sm:px-6"
       id="learn-choose-flute-view"
     >
       {/* Navigation header */}

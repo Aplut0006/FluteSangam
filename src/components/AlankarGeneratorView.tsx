@@ -859,7 +859,7 @@ Learn & practice on https://flutesangam.com`;
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-8 pb-12" itemScope itemType="https://schema.org/LearningResource">
+    <div className="w-full max-w-6xl mx-auto space-y-8 pb-12" itemScope itemType="https://schema.org/LearningResource">
       {/* Toast Feedback */}
       {toastMessage && (
         <div className="fixed top-20 right-4 z-50 bg-bamboo-900 text-white px-4 py-2.5 rounded-xl shadow-2xl border border-amber-400/40 text-xs font-bold flex items-center gap-2 animate-bounce">
@@ -1066,10 +1066,10 @@ Learn & practice on https://flutesangam.com`;
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs font-extrabold text-amber-900 bg-amber-100 px-2.5 py-1 rounded-lg border border-amber-300/80">
+                  <span className="font-mono text-xs font-extrabold text-amber-90 break-words0 break-words bg-amber-100 px-2.5 py-1 rounded-lg border border-amber-300/80">
                     {bpm} BPM
                   </span>
-                  <span className="font-mono text-xs font-extrabold text-bamboo-900 bg-amber-100 px-2.5 py-1 rounded-lg border border-amber-300/80">
+                  <span className="font-mono text-xs font-extrabold text-bamboo-90 break-words0 break-words bg-amber-100 px-2.5 py-1 rounded-lg border border-amber-300/80">
                     {beatsPerMeasure} {beatsPerMeasure === 1 ? 'Beat' : 'Beats'}
                   </span>
                   <button
@@ -1407,7 +1407,7 @@ function AlankarCard({
             <ArrowUpRight className="w-3.5 h-3.5" />
             <span>Aroha (Ascending Order)</span>
           </div>
-          <div className="font-mono text-xs sm:text-sm text-bamboo-950 bg-bamboo-50/70 p-3.5 rounded-xl border border-bamboo-100 overflow-x-auto whitespace-pre-wrap leading-relaxed">
+          <div className="font-mono text-xs sm:text-sm text-bamboo-95 break-words0 break-words bg-bamboo-50/70 p-3.5 rounded-xl border border-bamboo-100 overflow-x-auto whitespace-pre-wrap leading-relaxed">
             {item.aroha.map((line, i) => (
               <div key={i}>{line}</div>
             ))}
@@ -1421,7 +1421,7 @@ function AlankarCard({
               <ArrowDownRight className="w-3.5 h-3.5" />
               <span>Avroha (Descending Order)</span>
             </div>
-            <div className="font-mono text-xs sm:text-sm text-bamboo-950 bg-bamboo-50/70 p-3.5 rounded-xl border border-bamboo-100 overflow-x-auto whitespace-pre-wrap leading-relaxed">
+            <div className="font-mono text-xs sm:text-sm text-bamboo-95 break-words0 break-words bg-bamboo-50/70 p-3.5 rounded-xl border border-bamboo-100 overflow-x-auto whitespace-pre-wrap leading-relaxed">
               {item.avroha.map((line, i) => (
                 <div key={i}>{line}</div>
               ))}

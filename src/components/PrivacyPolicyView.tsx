@@ -21,7 +21,7 @@ export const PrivacyPolicyView: React.FC<PrivacyPolicyViewProps> = ({ onBackToCo
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -15 }}
       transition={{ duration: 0.25 }}
-      className="max-w-4xl mx-auto py-8 sm:py-12 px-4 sm:px-6"
+      className="max-w-6xl mx-auto py-8 sm:py-12 px-4 sm:px-6"
       id="privacy-policy-view"
     >
       {/* Top Navigation */}

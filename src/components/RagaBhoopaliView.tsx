@@ -177,7 +177,7 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
   ];
 
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-8 pb-16" itemScope itemType="https://schema.org/LearningResource">
+    <div className="w-full max-w-6xl mx-auto space-y-8 pb-16" itemScope itemType="https://schema.org/LearningResource">
       {/* Schema.org Article / LearningResource JSON-LD */}
       <script type="application/ld+json">
         {JSON.stringify({
@@ -639,7 +639,7 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
               </h3>
               <span className="text-[10px] sm:text-xs font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded-full shrink-0">10–15 Reps</span>
             </div>
-            <div className="bg-white p-2.5 sm:p-3.5 rounded-xl border border-amber-200 font-mono text-xs sm:text-base font-bold text-bamboo-950 space-y-1 text-center overflow-x-auto whitespace-nowrap">
+            <div className="bg-white p-2.5 sm:p-3.5 rounded-xl border border-amber-200 font-mono text-xs sm:text-base font-bold text-bamboo-95 break-words0 break-words space-y-1 text-center overflow-x-auto whitespace-nowrap">
               <div>Aaroh: S R G P D S'</div>
               <div className="text-amber-700">Avaroh: S' D P G R S</div>
             </div>
@@ -664,7 +664,7 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
                   <span>{copiedSection === 'a1' ? 'Copied' : 'Copy'}</span>
                 </button>
               </div>
-              <div className="font-mono text-xs sm:text-base font-semibold text-gray-800 bg-gray-50 p-2.5 sm:p-3 rounded-xl space-y-1 overflow-x-auto whitespace-nowrap">
+              <div className="font-mono text-xs sm:text-base font-semibold text-gray-80 break-words0 break-words bg-gray-50 p-2.5 sm:p-3 rounded-xl space-y-1 overflow-x-auto whitespace-nowrap">
                 <div><span className="text-amber-700 font-bold">Ascending:</span> S R | R G | G P | P D | D S'</div>
                 <div><span className="text-amber-700 font-bold">Descending:</span> S' D | D P | P G | G R | R S</div>
               </div>
@@ -682,7 +682,7 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
                   <span>{copiedSection === 'a2' ? 'Copied' : 'Copy'}</span>
                 </button>
               </div>
-              <div className="font-mono text-xs sm:text-base font-semibold text-gray-800 bg-gray-50 p-2.5 sm:p-3 rounded-xl space-y-1 overflow-x-auto whitespace-nowrap">
+              <div className="font-mono text-xs sm:text-base font-semibold text-gray-80 break-words0 break-words bg-gray-50 p-2.5 sm:p-3 rounded-xl space-y-1 overflow-x-auto whitespace-nowrap">
                 <div><span className="text-amber-700 font-bold">Ascending:</span> S R G | R G P | G P D | P D S'</div>
                 <div><span className="text-amber-700 font-bold">Descending:</span> S' D P | D P G | P G R | G R S</div>
               </div>
@@ -700,7 +700,7 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
                   <span>{copiedSection === 'a3' ? 'Copied' : 'Copy'}</span>
                 </button>
               </div>
-              <div className="font-mono text-xs sm:text-base font-semibold text-gray-800 bg-gray-50 p-2.5 sm:p-3 rounded-xl space-y-1 overflow-x-auto whitespace-nowrap">
+              <div className="font-mono text-xs sm:text-base font-semibold text-gray-80 break-words0 break-words bg-gray-50 p-2.5 sm:p-3 rounded-xl space-y-1 overflow-x-auto whitespace-nowrap">
                 <div><span className="text-amber-700 font-bold">Ascending:</span> S R G R | R G P G | G P D P | P D S' D</div>
                 <div><span className="text-amber-700 font-bold">Descending:</span> S' D P D | D P G P | P G R G | G R S</div>
               </div>
@@ -795,7 +795,7 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
             </div>
 
             {isPlayingComposition && (
-              <div className="flex items-center gap-1 font-mono text-xs font-bold text-amber-400 bg-amber-900/80 px-2 py-1 rounded">
+              <div className="flex items-center gap-1 font-mono text-xs font-bold text-amber-40 break-words0 break-words bg-amber-900/80 px-2 py-1 rounded">
                 Beat: {currentBeat}/16
               </div>
             )}
@@ -909,7 +909,7 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
           ))}
           <div className="bg-amber-100 border border-amber-300 rounded-xl p-3 flex items-center justify-between font-bold text-bamboo-950 text-xs">
             <span>Total Practice Time</span>
-            <span className="font-mono text-amber-900 text-sm">35 Minutes</span>
+            <span className="font-mono text-amber-900 text-s break-wordsm break-words">35 Minutes</span>
           </div>
         </div>
 
@@ -956,7 +956,7 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
               </tr>
               <tr className="bg-amber-100/50 font-bold text-bamboo-950">
                 <td className="p-3.5">Total Practice Time</td>
-                <td className="p-3.5 font-mono text-amber-900 text-base">35 Minutes</td>
+                <td className="p-3.5 font-mono text-amber-900 text-bas break-wordse break-words">35 Minutes</td>
                 <td className="p-3.5 text-amber-900">Optimal daily routine for steady bansuri progress</td>
               </tr>
             </tbody>

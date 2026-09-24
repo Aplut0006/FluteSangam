@@ -209,7 +209,7 @@ S`;
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -15 }}
-      className="max-w-5xl mx-auto py-4 sm:py-8 px-3 sm:px-6 space-y-6 sm:space-y-10"
+      className="max-w-6xl mx-auto py-4 sm:py-8 px-3 sm:px-6 space-y-6 sm:space-y-10"
     >
       <script
         type="application/ld+json"
@@ -458,7 +458,7 @@ S`;
                 <Play className="w-3 h-3" /> Play Root
               </button>
             </div>
-            <p className="text-lg sm:text-2xl font-bold font-mono text-bamboo-950 tracking-wider overflow-x-auto scrollbar-thin py-1">
+            <p className="text-lg sm:text-base sm:text-base sm:text-2xl font-bold font-mono text-bamboo-950 tracking-wider break-words break-words overflow-x-auto scrollbar-thin py-1">
               S R g M P D n S'
             </p>
             <p className="text-xs text-gray-600">Full 7-note ascending scale with Komal Ga (g) and Komal Ni (n).</p>
@@ -475,7 +475,7 @@ S`;
                 <Play className="w-3 h-3" /> Play Upper Sa
               </button>
             </div>
-            <p className="text-lg sm:text-2xl font-bold font-mono text-bamboo-950 tracking-wider overflow-x-auto scrollbar-thin py-1">
+            <p className="text-lg sm:text-base sm:text-base sm:text-2xl font-bold font-mono text-bamboo-950 tracking-wider break-words break-words overflow-x-auto scrollbar-thin py-1">
               S' n D P M g R S
             </p>
             <p className="text-xs text-gray-600">Full 7-note descending scale back to root Sa.</p>
@@ -495,13 +495,13 @@ S`;
             </button>
           </div>
 
-          <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-bamboo-200 space-y-1 font-mono text-sm sm:text-base font-bold text-bamboo-950 overflow-x-auto scrollbar-thin">
+          <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-bamboo-200 space-y-1 font-mono text-sm sm:text-base font-bold text-bamboo-95 break-words0 break-words overflow-x-auto scrollbar-thin">
             <p>S R g M &nbsp;|&nbsp; P D &nbsp;|&nbsp; n D P &nbsp;|&nbsp; M g R &nbsp;|&nbsp; S</p>
           </div>
 
           <div className="pt-2 border-t border-bamboo-200/60">
             <span className="text-[11px] sm:text-xs font-semibold text-gray-600 block mb-1">Alternative Pakad Phrase:</span>
-            <p className="font-mono text-xs sm:text-sm font-bold text-bamboo-800 overflow-x-auto scrollbar-thin">
+            <p className="font-mono text-xs sm:text-sm font-bold text-bamboo-80 break-words0 break-words overflow-x-auto scrollbar-thin">
               R g M &nbsp;|&nbsp; P M &nbsp;|&nbsp; g R &nbsp;|&nbsp; S
             </p>
           </div>
@@ -520,7 +520,7 @@ S`;
             </button>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 font-mono text-xs sm:text-sm font-bold text-bamboo-950">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 font-mono text-xs sm:text-sm font-bold text-bamboo-95 break-words0 break-words">
             <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-indigo-100 space-y-1 overflow-x-auto scrollbar-thin">
               <p className="text-[11px] font-sans text-indigo-700 font-semibold mb-1">Movement 1</p>
               <p>S R g M &nbsp;|&nbsp; P D n S' &nbsp;|&nbsp; n D P &nbsp;|&nbsp; M g R &nbsp;|&nbsp; S</p>
@@ -638,7 +638,7 @@ S`;
             <h3 className="text-sm font-bold text-amber-900 uppercase tracking-wider">
               1. Long Notes Practice (Hold each 8–10 sec)
             </h3>
-            <p className="font-mono text-base sm:text-lg font-bold text-bamboo-950 tracking-widest">
+            <p className="font-mono text-base sm:text-lg font-bold text-bamboo-95 break-words0 break-words tracking-widest">
               S &nbsp;&nbsp; R &nbsp;&nbsp; g &nbsp;&nbsp; M &nbsp;&nbsp; P &nbsp;&nbsp; D &nbsp;&nbsp; n &nbsp;&nbsp; S'
             </p>
             <p className="text-xs text-gray-600">Focus on clean intonation for Komal Ga (g) and Komal Ni (n).</p>
@@ -649,7 +649,7 @@ S`;
             <h3 className="text-sm font-bold text-emerald-900 uppercase tracking-wider">
               2. Aaroh–Avaroh Practice
             </h3>
-            <div className="font-mono text-base font-bold text-bamboo-950 space-y-1">
+            <div className="font-mono text-base font-bold text-bamboo-95 break-words0 break-words space-y-1">
               <p>S R g M P D n S'</p>
               <p>S' n D P M g R S</p>
             </div>
@@ -675,7 +675,7 @@ S`;
                   <span>Copy</span>
                 </button>
               </div>
-              <div className="font-mono text-xs sm:text-sm font-bold text-bamboo-950 space-y-1 bg-gray-50 p-3 rounded-xl">
+              <div className="font-mono text-xs sm:text-sm font-bold text-bamboo-95 break-words0 break-words space-y-1 bg-gray-50 p-3 rounded-xl">
                 <p><span className="text-indigo-700">Ascending:</span> S R | R g | g M | M P | P D | D n | n S'</p>
                 <p><span className="text-amber-700">Descending:</span> S' n | n D | D P | P M | M g | g R | R S</p>
               </div>
@@ -693,7 +693,7 @@ S`;
                   <span>Copy</span>
                 </button>
               </div>
-              <div className="font-mono text-xs sm:text-sm font-bold text-bamboo-950 space-y-1 bg-gray-50 p-3 rounded-xl">
+              <div className="font-mono text-xs sm:text-sm font-bold text-bamboo-95 break-words0 break-words space-y-1 bg-gray-50 p-3 rounded-xl">
                 <p><span className="text-indigo-700">Ascending:</span> S R g | R g M | g M P | M P D | P D n | D n S'</p>
                 <p><span className="text-amber-700">Descending:</span> S' n D | n D P | D P M | P M g | M g R | g R S</p>
               </div>
@@ -711,7 +711,7 @@ S`;
                   <span>Copy</span>
                 </button>
               </div>
-              <div className="font-mono text-xs sm:text-sm font-bold text-bamboo-950 space-y-1 bg-gray-50 p-3 rounded-xl">
+              <div className="font-mono text-xs sm:text-sm font-bold text-bamboo-95 break-words0 break-words space-y-1 bg-gray-50 p-3 rounded-xl">
                 <p><span className="text-indigo-700">Ascending:</span> S R g R | R g M g | g M P M | M P D P | P D n D | D n S' n</p>
                 <p><span className="text-amber-700">Descending:</span> S' n D n | n D P D | D P M P | P M g M | g R S</p>
               </div>
@@ -813,7 +813,7 @@ S`;
               >
                 -
               </button>
-              <span className="font-mono text-base sm:text-lg font-bold text-bamboo-950">{bpm} BPM</span>
+              <span className="font-mono text-base sm:text-lg font-bold text-bamboo-95 break-words0 break-words">{bpm} BPM</span>
               <button
                 onClick={() => setBpm(Math.min(140, bpm + 5))}
                 className="w-9 h-9 sm:w-8 sm:h-8 bg-white border border-indigo-200 rounded-lg text-sm font-bold hover:bg-indigo-100 flex items-center justify-center cursor-pointer touch-manipulation shadow-3xs"
@@ -851,7 +851,7 @@ S`;
               </button>
             </div>
 
-            <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-amber-200/60 font-mono text-xs sm:text-base font-bold text-bamboo-950 space-y-2 overflow-x-auto scrollbar-thin leading-relaxed">
+            <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-amber-200/60 font-mono text-xs sm:text-base font-bold text-bamboo-95 break-words0 break-words space-y-2 overflow-x-auto scrollbar-thin leading-relaxed">
               <p>| S &nbsp;R &nbsp;g &nbsp;M | P &nbsp;D &nbsp;n &nbsp;D |</p>
               <p>| P &nbsp;M &nbsp;g &nbsp;R | S &nbsp;- &nbsp;- &nbsp;- |</p>
               <br />
@@ -875,7 +875,7 @@ S`;
               </button>
             </div>
 
-            <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-indigo-200/60 font-mono text-xs sm:text-base font-bold text-bamboo-950 space-y-2 overflow-x-auto scrollbar-thin leading-relaxed">
+            <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-indigo-200/60 font-mono text-xs sm:text-base font-bold text-bamboo-95 break-words0 break-words space-y-2 overflow-x-auto scrollbar-thin leading-relaxed">
               <p>| S' n &nbsp;D &nbsp;P | M &nbsp;g &nbsp;R &nbsp;S |</p>
               <p>| R &nbsp;g &nbsp;M &nbsp;P | D &nbsp;n &nbsp;S' - |</p>
               <br />
@@ -899,7 +899,7 @@ S`;
               </button>
             </div>
 
-            <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-bamboo-200/80 font-mono text-xs sm:text-base font-bold text-bamboo-950 space-y-2 overflow-x-auto scrollbar-thin">
+            <div className="bg-white p-3.5 sm:p-4 rounded-xl border border-bamboo-200/80 font-mono text-xs sm:text-base font-bold text-bamboo-95 break-words0 break-words space-y-2 overflow-x-auto scrollbar-thin">
               <p className="text-[11px] font-sans text-gray-500 font-semibold uppercase">Repeat 3 times:</p>
               <p className="text-indigo-900">g M P &nbsp;|&nbsp; M g R &nbsp;|&nbsp; S</p>
               <p className="text-[11px] font-sans text-gray-500 font-semibold uppercase pt-1.5">Finish on Sam:</p>

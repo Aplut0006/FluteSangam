@@ -248,7 +248,7 @@ export default function RagaMarwaView({ onViewChange }: RagaMarwaViewProps) {
       {/* Hero Header Section */}
       <div className="relative overflow-hidden bg-gradient-to-br from-amber-100/90 via-orange-50 to-rose-50/70 text-bamboo-950 py-10 sm:py-12 px-4 sm:px-6 shadow-sm border-b border-amber-200">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-300/20 via-transparent to-transparent pointer-events-none"></div>
-        <div className="max-w-5xl mx-auto relative z-10 space-y-5">
+        <div className="max-w-6xl mx-auto relative z-10 space-y-5">
           <div className="flex flex-wrap items-center gap-2 text-xs font-bold tracking-wider uppercase">
             <span className="bg-rose-100 text-rose-900 border border-rose-200 px-3 py-1 rounded-full flex items-center gap-1.5 shadow-2xs">
               <Award className="w-3.5 h-3.5 text-rose-700" />
@@ -319,7 +319,7 @@ export default function RagaMarwaView({ onViewChange }: RagaMarwaViewProps) {
       </div>
 
       {/* Main Content Area */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10 space-y-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 space-y-12">
 
         {/* 1. Introduction Section */}
         <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-amber-200/80 space-y-4">
@@ -510,7 +510,7 @@ export default function RagaMarwaView({ onViewChange }: RagaMarwaViewProps) {
                   <Play className="w-3 h-3" /> Play
                 </button>
               </div>
-              <p className="font-mono text-lg font-bold text-amber-200 tracking-wider">
+              <p className="font-mono text-lg font-bold text-amber-20 break-words0 break-words tracking-wider">
                 r G M^ D | N D M^ G | r S
               </p>
               <p className="text-xs text-stone-400 leading-relaxed">
@@ -529,7 +529,7 @@ export default function RagaMarwaView({ onViewChange }: RagaMarwaViewProps) {
                   <Play className="w-3 h-3" /> Play
                 </button>
               </div>
-              <p className="font-mono text-lg font-bold text-amber-200 tracking-wider">
+              <p className="font-mono text-lg font-bold text-amber-20 break-words0 break-words tracking-wider">
                 G r S | r G M^ D | N D M^ G r
               </p>
               <p className="text-xs text-stone-400 leading-relaxed">
@@ -845,7 +845,7 @@ export default function RagaMarwaView({ onViewChange }: RagaMarwaViewProps) {
                 <span>1. Aalap</span>
                 <span className="text-[10px] text-stone-400 font-normal">Play slowly, allow notes to breathe</span>
               </div>
-              <div className="font-mono text-base font-bold text-amber-200 space-y-1.5 tracking-widest bg-stone-900 p-3 rounded-xl border border-stone-800">
+              <div className="font-mono text-base font-bold text-amber-20 break-words0 break-words space-y-1.5 tracking-widest bg-stone-900 p-3 rounded-xl border border-stone-800">
                 <p>S r G — | r S — — |</p>
                 <p>r G M^ — | G r S — ||</p>
               </div>
@@ -857,7 +857,7 @@ export default function RagaMarwaView({ onViewChange }: RagaMarwaViewProps) {
                 <span>2. Main Phrase</span>
                 <span className="text-[10px] text-stone-400 font-normal">Focus on Komal Re & Tivra Ma</span>
               </div>
-              <div className="font-mono text-base font-bold text-amber-200 space-y-1.5 tracking-widest bg-stone-900 p-3 rounded-xl border border-stone-800">
+              <div className="font-mono text-base font-bold text-amber-20 break-words0 break-words space-y-1.5 tracking-widest bg-stone-900 p-3 rounded-xl border border-stone-800">
                 <p>r G M^ D | N D M^ G |</p>
                 <p>r G M^ D | M^ G r S ||</p>
               </div>
@@ -869,7 +869,7 @@ export default function RagaMarwaView({ onViewChange }: RagaMarwaViewProps) {
                 <span>3. Development</span>
                 <span className="text-[10px] text-stone-400 font-normal">Upper register control without rushing</span>
               </div>
-              <div className="font-mono text-base font-bold text-amber-200 space-y-1.5 tracking-widest bg-stone-900 p-3 rounded-xl border border-stone-800">
+              <div className="font-mono text-base font-bold text-amber-20 break-words0 break-words space-y-1.5 tracking-widest bg-stone-900 p-3 rounded-xl border border-stone-800">
                 <p>G M^ D N | S' N D M^ |</p>
                 <p>G M^ D | M^ G r S ||</p>
               </div>
@@ -881,7 +881,7 @@ export default function RagaMarwaView({ onViewChange }: RagaMarwaViewProps) {
                 <span>4. Ending</span>
                 <span className="text-[10px] text-stone-400 font-normal">Resolve gently to Sa</span>
               </div>
-              <div className="font-mono text-base font-bold text-amber-200 space-y-1.5 tracking-widest bg-stone-900 p-3 rounded-xl border border-stone-800">
+              <div className="font-mono text-base font-bold text-amber-20 break-words0 break-words space-y-1.5 tracking-widest bg-stone-900 p-3 rounded-xl border border-stone-800">
                 <p>r G M^ D | N D M^ G |</p>
                 <p>r G M^ G r | S — — — ||</p>
               </div>
