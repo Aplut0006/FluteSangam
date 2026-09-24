@@ -1218,7 +1218,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
     category: 'Others',
     type: 'National Anthem of India',
     difficulty: 'Beginner',
-    suggestedFlute: 'C Natural / C Medium bansuri, or any scale bansuri comfortable for you',
+    suggestedFlute: 'C Middle (C Natural) — or transpose to your comfortable flute scale',
     startingSwar: 'Sa (S)',
     highestSwar: "Tara Sa (S')",
     mainChallenge: 'Steady tempo (52 seconds standard), clean Mandra Ni (.N) reach, and gentle breath control on high Tara Sa (S\')',
@@ -1232,11 +1232,11 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
     h1: 'Jana Gana Mana Flute Notes – India’s National Anthem',
     metaTitle: 'Jana Gana Mana Flute Notes | India’s National Anthem',
     metaDescription: 'Learn to play Jana Gana Mana on flute with easy Sargam and flute notes. Explore the National Anthem of India with clear notation for flute practice.',
-    intro: 'Jana Gana Mana is the National Anthem of India, composed by Nobel laureate Rabindranath Tagore. Playing this sacred, uplifting anthem on the bansuri requires disciplined tempo, majestic expression, and clean note articulation. Below you will find the complete phrase-by-phrase Sargam and Western notations, along with octave guidance and flute playing tips.',
+    intro: 'Jana Gana Mana is the National Anthem of India, composed by Nobel laureate Rabindranath Tagore. This page provides complete phrase-by-phrase Sargam and Western notation for playing the anthem on flute or bansuri, along with octave guidance and practical playing tips.',
     quickInfo: {
       difficulty: 'Beginner',
       melodyType: 'National Anthem of India',
-      suggestedFlute: 'C Medium / C Natural (or any comfortable key)',
+      suggestedFlute: 'C Middle (C Natural) — or transpose to your comfortable flute scale',
       startingSwar: 'Sa (S)',
       highestSwar: "Tara Sa (S')",
       mainChallenge: 'Clean lower octave Mandra Ni (.N) intonation and controlled Tara Sa (S\') sustained notes',
@@ -1445,8 +1445,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       'Practice long tones (Swar Sadhana) on middle octave swaras (S, R, G, M, P, D, N) to build steady breath support and pure intonation.',
       'Pay special attention to Mandra Ni (.N) in Phrases 2, 6, and 8. Ensure finger holes are sealed completely with finger pads.',
       'Practice the climactic 11th phrase (S\'NS\'— NDN— DPD—) slowly to produce a clear, gentle high Tara Sa (S\') without overblowing forcefully.',
-      'Aim for the traditional official duration of approximately 52 seconds when playing the complete anthem.',
-      'Keep your tempo steady with a metronome at 72 – 80 BPM.'
+      'Practice the anthem at a steady, dignified tempo. The complete National Anthem is traditionally performed in approximately 52 seconds.'
     ],
     commonMistakes: [
       'Rushing the tempo during repeated notes (like GGG or PPP) instead of keeping steady cadence',
