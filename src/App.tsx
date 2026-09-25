@@ -77,6 +77,7 @@ const HappyBirthdayNotationView = lazyWithRetry(() => import('./components/Happy
 const JingleBellsNotationView = lazyWithRetry(() => import('./components/JingleBellsNotationView').then(m => ({ default: m.JingleBellsNotationView })));
 const TitanicNotationView = lazyWithRetry(() => import('./components/TitanicNotationView').then(m => ({ default: m.TitanicNotationView })));
 const TumHiHoNotationView = lazyWithRetry(() => import('./components/TumHiHoNotationView').then(m => ({ default: m.TumHiHoNotationView })));
+const KalHoNaaHoNotationView = lazyWithRetry(() => import('./components/KalHoNaaHoNotationView').then(m => ({ default: m.KalHoNaaHoNotationView })));
 const AchyutamKeshavamNotationView = lazyWithRetry(() => import('./components/AchyutamKeshavamNotationView').then(m => ({ default: m.AchyutamKeshavamNotationView })));
 const RadhaKrishnaNotationView = lazyWithRetry(() => import('./components/RadhaKrishnaNotationView').then(m => ({ default: m.RadhaKrishnaNotationView })));
 const JanaGanaManaNotationView = lazyWithRetry(() => import('./components/JanaGanaManaNotationView').then(m => ({ default: m.JanaGanaManaNotationView })));
@@ -449,6 +450,10 @@ export default function App() {
       case 'notation_tum_hi_ho':
         title = 'Tum Hi Ho Flute Notes: Easy Sargam for Bansuri';
         description = 'Learn the main melody of Tum Hi Ho on flute or bansuri with easy Sargam notation, octave guidance, phrase breakdowns and beginner tips.';
+        break;
+      case 'notation_kal_ho_naa_ho':
+        title = 'Kal Ho Naa Ho Flute Notes | Sargam & Western Notes';
+        description = 'Learn Kal Ho Naa Ho flute notes with Sargam and Western notation. Play the song melody on flute with clear notes for each section and helpful practice guidance.';
         break;
       case 'notation_achyutam_keshavam':
         title = 'Achyutam Keshavam Flute Notes: Easy Bansuri Sargam';
@@ -1327,6 +1332,8 @@ export default function App() {
                 handleViewChange('notation_titanic');
               } else if (slug === 'tum-hi-ho-flute-notes') {
                 handleViewChange('notation_tum_hi_ho');
+              } else if (slug === 'kal-ho-naa-ho-flute-notes') {
+                handleViewChange('notation_kal_ho_naa_ho');
               } else if (slug === 'achyutam-keshavam-flute-notes') {
                 handleViewChange('notation_achyutam_keshavam');
               } else if (slug === 'radha-krishna-flute-notes') {
@@ -1344,6 +1351,8 @@ export default function App() {
           <TitanicNotationView onViewChange={handleViewChange} />
         ) : currentView === 'notation_tum_hi_ho' ? (
           <TumHiHoNotationView onViewChange={handleViewChange} />
+        ) : currentView === 'notation_kal_ho_naa_ho' ? (
+          <KalHoNaaHoNotationView onViewChange={handleViewChange} />
         ) : currentView === 'notation_achyutam_keshavam' ? (
           <AchyutamKeshavamNotationView onViewChange={handleViewChange} />
         ) : currentView === 'notation_radha_krishna' ? (

@@ -69,6 +69,7 @@ const ROUTE_MOD_DATES: Record<string, string> = {
   '/notations/jingle-bells-flute-notes': '2026-09-19',
   '/notations/my-heart-will-go-on-flute-notes': '2026-09-19',
   '/notations/tum-hi-ho-flute-notes': '2026-09-19',
+  '/notations/kal-ho-naa-ho-flute-notes': '2026-09-25',
   '/notations/achyutam-keshavam-flute-notes': '2026-09-21',
   '/notations/radha-krishna-flute-notes': '2026-09-23',
   '/notations/jana-gana-mana-flute-notes': '2026-09-24',

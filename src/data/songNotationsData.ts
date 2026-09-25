@@ -18,6 +18,8 @@ export interface SongNotationItem {
   slug: string;
   title: string;
   category: 'English' | 'Hindi/Bollywood' | 'Devotional' | 'Others';
+  movie?: string;
+  singer?: string;
   type: string;
   difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
   suggestedFlute: string;
@@ -689,6 +691,8 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
     slug: 'tum-hi-ho-flute-notes',
     title: 'Tum Hi Ho Flute Notes – Easy Sargam for Bansuri',
     category: 'Hindi/Bollywood',
+    movie: 'Aashiqui 2',
+    singer: 'Arijit Singh',
     type: 'Bollywood Romantic Melody',
     difficulty: 'Beginner',
     suggestedFlute: 'Any correctly tuned bansuri (C Medium, E Bass or G Bass recommended)',
@@ -902,6 +906,298 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       'Rushing the held notes like G- and R-- instead of sustaining them with steady breath support',
       'Lifting fingers too far off the tone holes during fast shifts like .NS.N or .D.P.D',
       'Rushing phrase divisions (|) and running out of air before finishing long musical lines'
+    ],
+    usefulTools: [
+      { name: 'Interactive Bansuri Fingering Chart', url: '/learn/fingering-chart', viewKey: 'learn_fingering_chart' },
+      { name: 'Online Flute Tuner', url: '/tuner', viewKey: 'learn_tuner' },
+      { name: 'Flute Note and Key Converter', url: '/tools/flute-note-key-converter', viewKey: 'note_key_converter' },
+      { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' },
+      { name: 'How to Find the Scale of a Song on Flute', url: '/learn/how-to-find-scale-of-a-song-on-flute', viewKey: 'find_song_scale' },
+      { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
+    ]
+  },
+  {
+    id: 'kal-ho-naa-ho-flute-notes',
+    slug: 'kal-ho-naa-ho-flute-notes',
+    title: 'Kal Ho Naa Ho Flute Notes — Sargam & Western Notes',
+    category: 'Hindi/Bollywood',
+    movie: 'Kal Ho Naa Ho',
+    singer: 'Sonu Nigam',
+    type: 'Bollywood Melody / Title Track',
+    difficulty: 'Intermediate',
+    suggestedFlute: 'Any correctly tuned bansuri (C Medium, E Bass or G Bass recommended)',
+    startingSwar: "Taar Sa (S')",
+    highestSwar: "Taar Ma (M')",
+    mainChallenge: "Higher octave switches (S', G', M', R'), komal ni (n), and heartfelt melodic sustains",
+    practiceSpeed: 'Moderate, expressive and rhythmic',
+    notationFormats: 'Song Notation (Sargam & Western) with Lyrics',
+    description: 'Learn Kal Ho Naa Ho flute notes with Sargam and Western notation. Play the song melody on flute with clear notes for each section and helpful practice guidance.',
+    status: 'Song Notation',
+    publishedDate: '2026-09-25',
+    updatedDate: '2026-09-25',
+    canonicalUrl: 'https://flutesangam.com/notations/kal-ho-naa-ho-flute-notes',
+    h1: 'Kal Ho Naa Ho Flute Notes — Sargam & Western Notes',
+    metaTitle: 'Kal Ho Naa Ho Flute Notes | Sargam & Western Notes',
+    metaDescription: 'Learn Kal Ho Naa Ho flute notes with Sargam and Western notation. Play the song melody on flute with clear notes for each section and helpful practice guidance.',
+    intro: 'Kal Ho Naa Ho, the iconic title track composed by Shankar-Ehsaan-Loy and sung with profound emotion by Sonu Nigam, is one of Indian cinema\'s most cherished melodies. This independently prepared flute guide presents the full melody with lyric-matched Sargam (Indian) and Western notation, higher-octave markings, komal swar notation, and step-by-step phrasing tips for bamboo flute and concert flute players.',
+    quickInfo: {
+      difficulty: 'Intermediate',
+      melodyType: 'Bollywood Melody / Title Track',
+      suggestedFlute: 'C Medium, E Bass, or any comfortable bansuri',
+      startingSwar: "Taar Sa (S')",
+      highestSwar: "Taar Ma (M')",
+      mainChallenge: "Smooth higher octave notes (S', G', M', R'), komal ni (n—), and rhythmic syncopation",
+      practiceSpeed: 'Moderate, expressive and rhythmic'
+    },
+    legend: [
+      { symbol: "S' R' G' M' P'", meaning: "higher octave note (Taar Saptak)" },
+      { symbol: 'S R G M P D N', meaning: 'middle octave note (Madhya Saptak)' },
+      { symbol: '.P .D .N', meaning: 'lower octave note (Mandra Saptak)' },
+      { symbol: 'r g d n', meaning: 'komal swaras (flat notes: r, g, d, n)' },
+      { symbol: 'M^', meaning: 'Tivra Ma (sharp 4th)' },
+      { symbol: '—', meaning: 'sustain / hold the note' },
+      { symbol: '(P)M', meaning: 'quick grace note or transition touch' },
+      { symbol: '|', meaning: 'phrase division' },
+      { symbol: '/', meaning: 'breath mark' }
+    ],
+    phrases: [
+      {
+        phraseNumber: 1,
+        lyric: 'Har ghadi badal rahi hai roop zindagi',
+        sargamNotes: "S'   NS'   NS'   NS'G'  R'S'   N—D    N—DN",
+        westernNotes: "C'   BC'   BC'   BC'E'  D'C'   B—A    B—AB",
+        units: [
+          { lyric: 'Har', sargam: "S'", western: "C'" },
+          { lyric: 'ghadi', sargam: "NS'", western: "BC'" },
+          { lyric: 'badal', sargam: "NS'", western: "BC'" },
+          { lyric: 'rahi', sargam: "NS'G'", western: "BC'E'" },
+          { lyric: 'hai', sargam: "R'S'", western: "D'C'" },
+          { lyric: 'roop', sargam: 'N—D', western: 'B—A' },
+          { lyric: 'zindagi', sargam: 'N—DN', western: 'B—AB' }
+        ],
+        guidance: "Start cleanly on Taar Sa (S') with focused air pressure. Flow through the quick NS' accents, touch Ga (G') on 'rahi', descend through R'S', and sustain the warm N—D and N—DN resolution."
+      },
+      {
+        phraseNumber: 2,
+        lyric: 'Chaanv hai kabhi, kabhi hai dhoop zindagi',
+        sargamNotes: "S'N     S'   NS' /   NS'G'     R'S'  N—D    N—DN",
+        westernNotes: "C'B     C'   BC' /   BC'E'     D'C'  B—A    B—AB",
+        units: [
+          { lyric: 'Chaanv', sargam: "S'N", western: "C'B" },
+          { lyric: 'hai', sargam: "S'", western: "C'" },
+          { lyric: 'kabhi,', sargam: "NS' /", western: "BC' /" },
+          { lyric: 'kabhi', sargam: "NS'G'", western: "BC'E'" },
+          { lyric: 'hai', sargam: "R'S'", western: "D'C'" },
+          { lyric: 'dhoop', sargam: 'N—D', western: 'B—A' },
+          { lyric: 'zindagi', sargam: 'N—DN', western: 'B—AB' }
+        ],
+        guidance: "Take a subtle breath (/) after 'kabhi,'. Match the gentle rhythmic bounce on NS'G' and mirror the descending phrase ending smoothly into middle octave Ni and Dha."
+      },
+      {
+        phraseNumber: 3,
+        lyric: 'Har pal yahaan.. jee bhar jiyo',
+        sargamNotes: "P   D    S'D—     M   P    DP—",
+        westernNotes: "G   A    C'A—     F   G    AG—",
+        units: [
+          { lyric: 'Har', sargam: 'P', western: 'G' },
+          { lyric: 'pal', sargam: 'D', western: 'A' },
+          { lyric: 'yahaan..', sargam: "S'D—", western: "C'A—" },
+          { lyric: 'jee', sargam: 'M', western: 'F' },
+          { lyric: 'bhar', sargam: 'P', western: 'G' },
+          { lyric: 'jiyo', sargam: 'DP—', western: 'AG—' }
+        ],
+        guidance: "Drop gracefully to middle Pa (P) and Dha (D), glide to Taar Sa (S') then back to Dha (D—), and land on the deep Shuddha Ma (M) before resolving on DP—."
+      },
+      {
+        phraseNumber: 4,
+        lyric: 'Jo hai samaa.. kal ho naa ho',
+        sargamNotes: "P   D   S'D——(P)M   M   n—   D   P",
+        westernNotes: "G   A   C'A——(G)F   F   A#—   A   G",
+        units: [
+          { lyric: 'Jo', sargam: 'P', western: 'G' },
+          { lyric: 'hai', sargam: 'D', western: 'A' },
+          { lyric: 'samaa..', sargam: "S'D——(P)M", western: "C'A——(G)F" },
+          { lyric: 'kal', sargam: 'M', western: 'F' },
+          { lyric: 'ho', sargam: 'n—', western: 'A#—' },
+          { lyric: 'naa', sargam: 'D', western: 'A' },
+          { lyric: 'ho', sargam: 'P', western: 'G' }
+        ],
+        guidance: "This is the signature hook line. Use a gentle touch of Pa as a grace note (P)M on 'samaa', play the Komal Ni (n—) clearly by half-covering the upper hole or using standard cross-fingering, and rest on Pa (P)."
+      },
+      {
+        phraseNumber: 5,
+        lyric: 'Chaahe jo tumhe poore dil se',
+        sargamNotes: "NS'    M'  G'R'—   ND    N   S'—",
+        westernNotes: "BC'    F'  E'D'—   BA    B   C'—",
+        units: [
+          { lyric: 'Chaahe', sargam: "NS'", western: "BC'" },
+          { lyric: 'jo', sargam: "M'", western: "F'" },
+          { lyric: 'tumhe', sargam: "G'R'—", western: "E'D'—" },
+          { lyric: 'poore', sargam: 'ND', western: 'BA' },
+          { lyric: 'dil', sargam: 'N', western: 'B' },
+          { lyric: 'se', sargam: "S'—", western: "C'—" }
+        ],
+        guidance: "Antara leap: Blow with supported embouchure up to Taar Tivra/Shuddha Ma (M'), slide downward to G' and R'—, then return grounded through ND and N S'—."
+      },
+      {
+        phraseNumber: 6,
+        lyric: 'Milta hai woh mushkil se e—e',
+        sargamNotes: "NS'M'  G'  R'—   NDN     S'DP",
+        westernNotes: "BC'F'  E'  D'—   BAB     C'AG",
+        units: [
+          { lyric: 'Milta', sargam: "NS'M'", western: "BC'F'" },
+          { lyric: 'hai', sargam: "G'", western: "E'" },
+          { lyric: 'woh', sargam: "R'—", western: "D'—" },
+          { lyric: 'mushkil', sargam: 'NDN', western: 'BAB' },
+          { lyric: 'se e—e', sargam: "S'DP", western: "C'AG" }
+        ],
+        guidance: "Ascend quickly through NS'M' with agility, sustain R'—, use a snappy NDN flick on 'mushkil', and finish with a cascading S'DP."
+      },
+      {
+        phraseNumber: 7,
+        lyric: 'Aisa jo koi kahin hai',
+        sargamNotes: "NS'M'  G'  R'—N   DN   S'—",
+        westernNotes: "BC'F'  E'  D'—B   AB   C'—",
+        units: [
+          { lyric: 'Aisa', sargam: "NS'M'", western: "BC'F'" },
+          { lyric: 'jo', sargam: "G'", western: "E'" },
+          { lyric: 'koi', sargam: "R'—N", western: "D'—B" },
+          { lyric: 'kahin', sargam: 'DN', western: 'AB' },
+          { lyric: 'hai', sargam: "S'—", western: "C'—" }
+        ],
+        guidance: "Jump dynamically to Taar Ga (G'), step into Taar Re dropping to Ni (R'—N), and resolve on DN S'—."
+      },
+      {
+        phraseNumber: 8,
+        lyric: 'Bas wohi sabse haseen hai e—e',
+        sargamNotes: "NS'  M'G'  R'R'—N    DN     S'DP /",
+        westernNotes: "BC'  F'E'  D'D'—B    AB     C'AG /",
+        units: [
+          { lyric: 'Bas', sargam: "NS'", western: "BC'" },
+          { lyric: 'wohi', sargam: "M'G'", western: "F'E'" },
+          { lyric: 'sabse', sargam: "R'R'—N", western: "D'D'—B" },
+          { lyric: 'haseen', sargam: 'DN', western: 'AB' },
+          { lyric: 'hai e—e', sargam: "S'DP /", western: "C'AG /" }
+        ],
+        guidance: "Expressive high phrase: Play M'G' connectedly, pulse double Re (R'R'—N), climb DN, and sweep through S'DP before taking a breath (/)."
+      },
+      {
+        phraseNumber: 9,
+        lyric: 'Uss haath ko tum thaam lo',
+        sargamNotes: "P   DS'   D—  M   P    DP—",
+        westernNotes: "G   AC'   A—  F   G    AG—",
+        units: [
+          { lyric: 'Uss', sargam: 'P', western: 'G' },
+          { lyric: 'haath', sargam: "DS'", western: "AC'" },
+          { lyric: 'ko', sargam: 'D—', western: 'A—' },
+          { lyric: 'tum', sargam: 'M', western: 'F' },
+          { lyric: 'thaam', sargam: 'P', western: 'G' },
+          { lyric: 'lo', sargam: 'DP—', western: 'AG—' }
+        ],
+        guidance: "Bridge back to the chorus: Smoothly transition from Pa to DS', hold D—, drop to warm Ma (M), and resolve into DP—."
+      },
+      {
+        phraseNumber: 10,
+        lyric: 'Woh meherbaan kal ho na ho',
+        sargamNotes: "P   D S'D——(P)M  M   n—   D   P",
+        westernNotes: "G   A C'A——(G)F  F   A#—   A   G",
+        units: [
+          { lyric: 'Woh', sargam: 'P', western: 'G' },
+          { lyric: 'meherbaan', sargam: "D S'D——(P)M", western: "A C'A——(G)F" },
+          { lyric: 'kal', sargam: 'M', western: 'F' },
+          { lyric: 'ho', sargam: 'n—', western: 'A#—' },
+          { lyric: 'na', sargam: 'D', western: 'A' },
+          { lyric: 'ho', sargam: 'P', western: 'G' }
+        ],
+        guidance: "Highlight the emotional weight of 'meherbaan' with the descending glide, follow with the tender Komal Ni (n—), and land calmly on Pa (P)."
+      },
+      {
+        phraseNumber: 11,
+        lyric: 'Har pal yahaan.. jee bhar jiyo',
+        sargamNotes: "P   D    S'D——     M   P    DP—",
+        westernNotes: "G   A    C'A——     F   G    AG—",
+        units: [
+          { lyric: 'Har', sargam: 'P', western: 'G' },
+          { lyric: 'pal', sargam: 'D', western: 'A' },
+          { lyric: 'yahaan..', sargam: "S'D——", western: "C'A——" },
+          { lyric: 'jee', sargam: 'M', western: 'F' },
+          { lyric: 'bhar', sargam: 'P', western: 'G' },
+          { lyric: 'jiyo', sargam: 'DP—', western: 'AG—' }
+        ],
+        guidance: "Reiterate the central message with fuller breath tone and deeply sustained Dha (S'D——)."
+      },
+      {
+        phraseNumber: 12,
+        lyric: 'Jo hai samaa.. kal hoooo naa ho',
+        sargamNotes: "P   D   S'D——(P)M  M   n——   D   P——",
+        westernNotes: "G   A   C'A——(G)F  F   A#——   A   G——",
+        units: [
+          { lyric: 'Jo', sargam: 'P', western: 'G' },
+          { lyric: 'hai', sargam: 'D', western: 'A' },
+          { lyric: 'samaa..', sargam: "S'D——(P)M", western: "C'A——(G)F" },
+          { lyric: 'kal', sargam: 'M', western: 'F' },
+          { lyric: 'hoooo', sargam: 'n——', western: 'A#——' },
+          { lyric: 'naa', sargam: 'D', western: 'A' },
+          { lyric: 'ho', sargam: 'P——', western: 'G——' }
+        ],
+        guidance: "Grand finale resolution: Sustain the Komal Ni (n——) with expressive vibrato or gentle breath fade, transition to Dha (D), and let the final Pa (P——) ring out with resonance."
+      }
+    ],
+    sargamPhrases: [
+      { phraseNumber: 1, notes: "S'   NS'   NS'   NS'G'  R'S'   N—D    N—DN", lyric: 'Har ghadi badal rahi hai roop zindagi' },
+      { phraseNumber: 2, notes: "S'N     S'   NS' /   NS'G'     R'S'  N—D    N—DN", lyric: 'Chaanv hai kabhi, kabhi hai dhoop zindagi' },
+      { phraseNumber: 3, notes: "P   D    S'D—     M   P    DP—", lyric: 'Har pal yahaan.. jee bhar jiyo' },
+      { phraseNumber: 4, notes: "P   D   S'D——(P)M   M   n—   D   P", lyric: 'Jo hai samaa.. kal ho naa ho' },
+      { phraseNumber: 5, notes: "NS'    M'  G'R'—   ND    N   S'—", lyric: 'Chaahe jo tumhe poore dil se' },
+      { phraseNumber: 6, notes: "NS'M'  G'  R'—   NDN     S'DP", lyric: 'Milta hai woh mushkil se e—e' },
+      { phraseNumber: 7, notes: "NS'M'  G'  R'—N   DN   S'—", lyric: 'Aisa jo koi kahin hai' },
+      { phraseNumber: 8, notes: "NS'  M'G'  R'R'—N    DN     S'DP /", lyric: 'Bas wohi sabse haseen hai e—e' },
+      { phraseNumber: 9, notes: "P   DS'   D—  M   P    DP—", lyric: 'Uss haath ko tum thaam lo' },
+      { phraseNumber: 10, notes: "P   D S'D——(P)M  M   n—   D   P", lyric: 'Woh meherbaan kal ho na ho' },
+      { phraseNumber: 11, notes: "P   D    S'D——     M   P    DP—", lyric: 'Har pal yahaan.. jee bhar jiyo' },
+      { phraseNumber: 12, notes: "P   D   S'D——(P)M  M   n——   D   P——", lyric: 'Jo hai samaa.. kal hoooo naa ho' }
+    ],
+    westernPhrases: [
+      { phraseNumber: 1, notes: "C'   BC'   BC'   BC'E'  D'C'   B—A    B—AB", lyric: 'Har ghadi badal rahi hai roop zindagi' },
+      { phraseNumber: 2, notes: "C'B     C'   BC' /   BC'E'     D'C'  B—A    B—AB", lyric: 'Chaanv hai kabhi, kabhi hai dhoop zindagi' },
+      { phraseNumber: 3, notes: "G   A    C'A—     F   G    AG—", lyric: 'Har pal yahaan.. jee bhar jiyo' },
+      { phraseNumber: 4, notes: "G   A   C'A——(G)F   F   A#—   A   G", lyric: 'Jo hai samaa.. kal ho naa ho' },
+      { phraseNumber: 5, notes: "BC'    F'  E'D'—   BA    B   C'—", lyric: 'Chaahe jo tumhe poore dil se' },
+      { phraseNumber: 6, notes: "BC'F'  E'  D'—   BAB     C'AG", lyric: 'Milta hai woh mushkil se e—e' },
+      { phraseNumber: 7, notes: "BC'F'  E  D'—B   AB   C'—", lyric: 'Aisa jo koi kahin hai' },
+      { phraseNumber: 8, notes: "BC'  F'E'  D'D'—B    AB     C'AG /", lyric: 'Bas wohi sabse haseen hai e—e' },
+      { phraseNumber: 9, notes: "G   AC'   A—  F   G    AG—", lyric: 'Uss haath ko tum thaam lo' },
+      { phraseNumber: 10, notes: "G   A C'A——(G)F  F   A#—   A   G", lyric: 'Woh meherbaan kal ho na ho' },
+      { phraseNumber: 11, notes: "G   A    C'A——     F   G    AG—", lyric: 'Har pal yahaan.. jee bhar jiyo' },
+      { phraseNumber: 12, notes: "G   A   C'A——(G)F  F   A#——   A   G——", lyric: 'Jo hai samaa.. kal hoooo naa ho' }
+    ],
+    phraseGuidance: [
+      { phraseNumber: 1, guidance: "Focus on stable air speed for Taar Sa (S') and clean finger lifting for the quick NS' embellishments." },
+      { phraseNumber: 2, guidance: "Observe the breath pause (/) after the first 'kabhi,' to keep your lungs relaxed and supported." },
+      { phraseNumber: 3, guidance: "Make the octave transition from P and D up to S' effortless without blowing overly hard." },
+      { phraseNumber: 4, guidance: "Accurately pitch the Komal Ni (n—) using half-hole technique or cross-fingering on your bansuri." },
+      { phraseNumber: 5, guidance: "Tighten your lips slightly and focus the air stream upwards for Taar Ma (M')." },
+      { phraseNumber: 6, guidance: "Keep your finger movements light on 'mushkil' (NDN) and resolve down smoothly on S'DP." },
+      { phraseNumber: 7, guidance: "Notice the shift to middle Ga (G) on 'jo' before returning to the higher octave on 'koi'." },
+      { phraseNumber: 8, guidance: "Sustain the emotional peak on M'G' and ensure clean tongue articulation on repeated Re (R'R')." },
+      { phraseNumber: 9, guidance: "Maintain smooth, singing legato phrasing between D and S' on the pickup phrase." },
+      { phraseNumber: 10, guidance: "Balance the grace touch (P)M on 'meherbaan' so it sounds natural like a vocal meend." },
+      { phraseNumber: 11, guidance: "Hold the Dha note on 'yahaan..' with full, resonant breath support." },
+      { phraseNumber: 12, guidance: "Extend the Komal Ni (n——) and conclude on a warm, decaying Pa (P——) note." }
+    ],
+    practiceMethod: [
+      'Sing or hum the Sargam syllables along with the original song track to master the cadence and timing before playing on bansuri.',
+      'Practice higher octave notes (S\', G\', M\', R\') independently with gentle, focused air pressure rather than over-blowing.',
+      'Work specifically on the Komal Ni (n) fingering to ensure it is accurately pitched relative to Shuddha Dha and Pa.',
+      'Practice the Mukhda (Phrases 1 to 4) at 50% tempo with a metronome or tanpura drone before increasing to performance speed.',
+      'Connect the Antara lines (Phrases 5 to 8) paying close attention to smooth breath pauses (/) at designated spots.'
+    ],
+    commonMistakes: [
+      'Over-blowing and creating a shrill tone on Taar Saptak notes like S\' and M\' instead of adjusting lip aperture and air angle.',
+      'Playing Komal Ni (n) too sharp or flat due to improper half-hole coverage or misaligned cross-fingering.',
+      'Rushing through the held notes (N—D, S\'D——, n——) which deprives the song of its iconic emotional depth.',
+      'Losing breath control during the Antara by not taking the quick breath mark (/) after Phrase 8.',
+      'Disjointed transitions on the ornamental grace notes like (P)M on \'samaa\' and \'meherbaan\'.'
     ],
     usefulTools: [
       { name: 'Interactive Bansuri Fingering Chart', url: '/learn/fingering-chart', viewKey: 'learn_fingering_chart' },

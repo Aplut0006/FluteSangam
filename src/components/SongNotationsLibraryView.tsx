@@ -8,7 +8,8 @@ import {
   ArrowRight,
   BookOpen,
   Sparkles,
-  Award
+  Award,
+  FileText
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { AppView } from '../types';
@@ -247,12 +248,25 @@ export const SongNotationsLibraryView: React.FC<SongNotationsLibraryViewProps> =
                     </p>
 
                     <div className="pt-2 border-t border-amber-100 flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] sm:text-xs text-gray-500 font-sans">
-                      <div>
-                        <span className="font-semibold text-gray-700">Flute:</span> {song.suggestedFlute}
-                      </div>
-                      <div>
-                        <span className="font-semibold text-gray-700">Starts on:</span> <span className="font-mono font-bold text-amber-900">{song.startingSwar}</span>
-                      </div>
+                      {song.category === 'Hindi/Bollywood' ? (
+                        <>
+                          <div>
+                            <span className="font-semibold text-gray-700">Movie:</span> {song.movie || 'Bollywood'}
+                          </div>
+                          <div>
+                            <span className="font-semibold text-gray-700">Singer:</span> {song.singer || 'Various Artists'}
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          <div>
+                            <span className="font-semibold text-gray-700">Flute:</span> {song.suggestedFlute}
+                          </div>
+                          <div>
+                            <span className="font-semibold text-gray-700">Starts on:</span> <span className="font-mono font-bold text-amber-900">{song.startingSwar}</span>
+                          </div>
+                        </>
+                      )}
                     </div>
                   </div>
 
@@ -272,7 +286,92 @@ export const SongNotationsLibraryView: React.FC<SongNotationsLibraryViewProps> =
           )}
         </section>
 
-        {/* 5. How to Practice Notations Guide Section */}
+        {/* 5. Notation Reading Guide */}
+        <section aria-label="Notation reading guide" className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-amber-200 shadow-sm space-y-3 sm:space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-amber-100 pb-2.5 sm:pb-3">
+            <div className="flex items-center gap-2">
+              <FileText className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600 shrink-0" />
+              <h2 className="text-base sm:text-xl font-bold font-display text-bamboo-950">
+                Bansuri &amp; Flute Notation Reading Guide
+              </h2>
+            </div>
+            <Link
+              to="/learn/how-to-read-bansuri-notation"
+              onClick={(e) => {
+                if (onViewChange && !e.ctrlKey && !e.metaKey) {
+                  e.preventDefault();
+                  onViewChange('how_to_read_bansuri_notation');
+                }
+              }}
+              className="text-xs font-bold text-amber-800 hover:text-amber-900 inline-flex items-center gap-1"
+            >
+              Full Detailed Guide <ChevronRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          <p className="text-xs sm:text-sm text-gray-600 font-sans leading-relaxed">
+            All notations on FluteSangam follow standard Indian classical Sargam conventions along with Western equivalents:
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-3 text-xs sm:text-sm">
+            <div className="flex items-center gap-2.5 sm:gap-3 p-2.5 sm:p-3 rounded-xl bg-amber-50/50 border border-amber-100">
+              <span className="font-mono font-bold text-amber-900 bg-white px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md border border-amber-200 min-w-14 sm:min-w-20 text-center text-xs sm:text-sm">
+                S' R' G' M' P'
+              </span>
+              <span className="text-gray-700 text-xs sm:text-sm">Higher octave (Taar Saptak)</span>
+            </div>
+            <div className="flex items-center gap-2.5 sm:gap-3 p-2.5 sm:p-3 rounded-xl bg-amber-50/50 border border-amber-100">
+              <span className="font-mono font-bold text-amber-900 bg-white px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md border border-amber-200 min-w-14 sm:min-w-20 text-center text-xs sm:text-sm">
+                S R G M P D N
+              </span>
+              <span className="text-gray-700 text-xs sm:text-sm">Middle octave (Madhya Saptak)</span>
+            </div>
+            <div className="flex items-center gap-2.5 sm:gap-3 p-2.5 sm:p-3 rounded-xl bg-amber-50/50 border border-amber-100">
+              <span className="font-mono font-bold text-amber-900 bg-white px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md border border-amber-200 min-w-14 sm:min-w-20 text-center text-xs sm:text-sm">
+                .P .D .N
+              </span>
+              <span className="text-gray-700 text-xs sm:text-sm">Lower octave (Mandra Saptak)</span>
+            </div>
+            <div className="flex items-center gap-2.5 sm:gap-3 p-2.5 sm:p-3 rounded-xl bg-amber-50/50 border border-amber-100">
+              <span className="font-mono font-bold text-amber-900 bg-white px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md border border-amber-200 min-w-14 sm:min-w-20 text-center text-xs sm:text-sm">
+                r g d n
+              </span>
+              <span className="text-gray-700 text-xs sm:text-sm">Komal swaras (Flat notes)</span>
+            </div>
+            <div className="flex items-center gap-2.5 sm:gap-3 p-2.5 sm:p-3 rounded-xl bg-amber-50/50 border border-amber-100">
+              <span className="font-mono font-bold text-amber-900 bg-white px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md border border-amber-200 min-w-14 sm:min-w-20 text-center text-xs sm:text-sm">
+                M^
+              </span>
+              <span className="text-gray-700 text-xs sm:text-sm">Tivra Ma (Sharp 4th)</span>
+            </div>
+            <div className="flex items-center gap-2.5 sm:gap-3 p-2.5 sm:p-3 rounded-xl bg-amber-50/50 border border-amber-100">
+              <span className="font-mono font-bold text-amber-900 bg-white px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md border border-amber-200 min-w-14 sm:min-w-20 text-center text-xs sm:text-sm">
+                —
+              </span>
+              <span className="text-gray-700 text-xs sm:text-sm">Sustain / hold the note</span>
+            </div>
+            <div className="flex items-center gap-2.5 sm:gap-3 p-2.5 sm:p-3 rounded-xl bg-amber-50/50 border border-amber-100">
+              <span className="font-mono font-bold text-amber-900 bg-white px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md border border-amber-200 min-w-14 sm:min-w-20 text-center text-xs sm:text-sm">
+                (P)M
+              </span>
+              <span className="text-gray-700 text-xs sm:text-sm">Grace note (kan-swar) / touch</span>
+            </div>
+            <div className="flex items-center gap-2.5 sm:gap-3 p-2.5 sm:p-3 rounded-xl bg-amber-50/50 border border-amber-100">
+              <span className="font-mono font-bold text-amber-900 bg-white px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md border border-amber-200 min-w-14 sm:min-w-20 text-center text-xs sm:text-sm">
+                / or |
+              </span>
+              <span className="text-gray-700 text-xs sm:text-sm">Breath mark (/) or phrase division (|)</span>
+            </div>
+            <div className="flex items-center gap-2.5 sm:gap-3 p-2.5 sm:p-3 rounded-xl bg-amber-50/50 border border-amber-100">
+              <span className="font-mono font-bold text-amber-900 bg-white px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md border border-amber-200 min-w-14 sm:min-w-20 text-center text-xs sm:text-sm">
+                ~
+              </span>
+              <span className="text-gray-700 text-xs sm:text-sm">Meend / smooth slide between swaras</span>
+            </div>
+          </div>
+        </section>
+
+        {/* 6. How to Practice Notations Guide Section */}
         <section aria-label="How to practice" className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-amber-200 shadow-sm space-y-3 sm:space-y-4">
           <div className="flex items-center gap-2">
             <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600 shrink-0" />
