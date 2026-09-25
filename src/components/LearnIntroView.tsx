@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Wind, Feather, Music, Heart, BookOpen, Calendar, Clock, CheckCircle2 } from 'lucide-react';
 import AboutAuthorSection from './AboutAuthorSection';
 import { AppView } from '../types';
@@ -8,6 +8,27 @@ interface LearnIntroViewProps {
 }
 
 export default function LearnIntroView({ onViewChange }: LearnIntroViewProps) {
+  useEffect(() => {
+    document.title = 'Bansuri Flute Guide | History, Types & Basics';
+    
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.setAttribute('name', 'description');
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute('content', 'Learn about the bansuri flute, its history, types, finger holes, Indian classical music traditions and how the bamboo flute developed into a concert instrument.');
+
+    const canonicalUrl = 'https://flutesangam.com/learn/intro';
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonicalLink);
+    }
+    canonicalLink.setAttribute('href', canonicalUrl);
+  }, []);
+
   return (
     <div className="max-w-6xl mx-auto px-3 sm:px-4 py-4 sm:py-8 animate-in fade-in slide-in-from-bottom-4 duration-500" itemScope itemType="https://schema.org/LearningResource">
       <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-10 shadow-xs border border-bamboo-100 overflow-hidden relative">
@@ -21,7 +42,7 @@ export default function LearnIntroView({ onViewChange }: LearnIntroViewProps) {
                 <Wind className="w-5 h-5 sm:w-7 sm:h-7 text-bamboo-700" />
               </div>
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold font-display text-bamboo-900 tracking-tight" itemProp="headline">
-                Introduction to Flute/Bansuri
+                Bansuri Flute – History, Types, Basics & Indian Classical Music
               </h1>
             </div>
 
@@ -53,8 +74,8 @@ export default function LearnIntroView({ onViewChange }: LearnIntroViewProps) {
             
             {/* Intro section */}
             <section>
-              <p className="text-base sm:text-xl leading-relaxed text-gray-600 font-medium border-l-4 border-amber-400 pl-4 sm:pl-6 py-1.5 sm:py-2 italic">
-                The Bansuri (Indian classical flute) is one of the world's oldest and most elegant musical instruments. Derived from the words bans (bamboo) and sur (musical note), it is a deceptively simple instrument—just a single piece of hollow bamboo with six or seven finger holes. Yet, in the hands of a master, it is capable of mimicking the microtones (shrutis) and emotional depth of the human voice.
+              <p className="text-base sm:text-xl leading-relaxed text-gray-600 font-medium border-l-4 border-amber-400 pl-4 sm:pl-6 py-1.5 sm:py-2">
+                The bansuri is a side-blown bamboo flute widely used in Indian music. This guide explains what a bansuri is, how it developed, its main types, how it differs from other flutes, and its role in Indian classical music.
               </p>
             </section>
 

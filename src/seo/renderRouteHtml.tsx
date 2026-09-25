@@ -371,8 +371,8 @@ export function getRouteMetadata(path: string): RouteMetadata {
   }
 
   if (cleanPath === '/learn/intro') {
-    const title = 'Introduction to Bansuri | FluteSangam';
-    const description = 'Beginner\'s guide to the Indian Bamboo Flute (Bansuri). Learn about history, anatomy, producing your first clean note, and embouchure technique.';
+    const title = 'Bansuri Flute Guide | History, Types & Basics';
+    const description = 'Learn about the bansuri flute, its history, types, finger holes, Indian classical music traditions and how the bamboo flute developed into a concert instrument.';
     const canonicalUrl = `${DOMAIN}/learn/intro`;
     return {
       title,

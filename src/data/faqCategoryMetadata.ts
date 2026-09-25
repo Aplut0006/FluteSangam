@@ -43,10 +43,10 @@ export const FAQ_CATEGORY_METADATA: Record<string, FaqCategoryMeta> = {
   'choosing-the-right-flute': {
     slug: 'choosing-the-right-flute',
     categoryName: 'Choosing the Right Flute',
-    h1: 'Choosing the Right Flute & Scale Questions',
+    h1: 'Choosing the Right Flute & Bansuri – Frequently Asked Questions',
     badge: 'Flute Selection',
-    metaTitle: 'Choosing the Right Flute FAQ | Bansuri Scale, Size & Material Guide | FluteSangam',
-    metaDescription: 'Frequently asked questions on choosing the right flute: C Medium vs G Medium scales, bamboo vs PVC flutes, finger reach, sound quality, and selecting your starter bansuri.',
+    metaTitle: 'Choosing the Right Flute & Bansuri FAQ | Scale & Size',
+    metaDescription: 'Get answers about choosing a flute or bansuri, including the best scale for beginners, flute size, finger reach, bamboo vs PVC and more.',
     intro: 'Selecting your first bansuri or expanding your instrument collection can feel confusing given the wide variety of scales, lengths, and materials. Indian bamboo flutes range from small, high-pitched treble flutes to large, resonant bass flutes. This guide provides practical guidance on choosing the right scale based on hand size, finger reach, and musical goals. Learn why a C Medium (approx. 19 inches) or G Medium is typically ideal for beginners, how tonic pitch (Sa) numbering works in Indian classical music, and the trade-offs between traditional Assam bamboo, synthetic PVC, and acrylic flutes. Use these answers to choose an instrument that feels comfortable and sounds in tune.',
     relatedSlugs: ['flute-types', 'getting-started', 'tuning-and-pitch', 'flute-accessories']
   },
@@ -123,20 +123,20 @@ export const FAQ_CATEGORY_METADATA: Record<string, FaqCategoryMeta> = {
   'children-and-beginners': {
     slug: 'children-and-beginners',
     categoryName: 'Children & Beginners',
-    h1: 'Bansuri for Children & Young Learners Questions',
+    h1: 'Flute for Children & Beginners – Frequently Asked Questions',
     badge: 'Young Learners',
-    metaTitle: 'Children & Beginners Flute FAQ | Bansuri for Kids & Novices | FluteSangam',
-    metaDescription: 'Frequently asked questions about children learning flute, best flute sizes for kids, beginner practice routines, first notes, and learning without prior music theory.',
+    metaTitle: 'Flute for Children & Beginners FAQ | Bansuri Guide',
+    metaDescription: 'Find answers about learning flute and bansuri as a beginner or child, including suitable age, flute size, finger reach and choosing the right flute.',
     intro: 'Introducing children and young novices to the bansuri nurtures creativity, concentration, ear training, and an early appreciation for Indian musical heritage. However, young learners require specialized guidance regarding instrument sizing and practice pacing. This category addresses key questions for parents and teachers: choosing the right small-scale bansuri (such as G Medium or A Medium) with manageable finger hole spacing, introducing playful Sargam rhymes, setting realistic 10-to-15 minute daily practice sessions, and keeping lessons joyful without overwhelming music theory. Learn how to foster a supportive learning environment that encourages curiosity and long-term musical enjoyment.',
     relatedSlugs: ['getting-started', 'choosing-the-right-flute', 'learning-the-flute', 'health-and-breathing']
   },
   'music-theory': {
     slug: 'music-theory',
     categoryName: 'Music Theory & Notation',
-    h1: 'Bansuri Music Theory and Notation Questions',
+    h1: 'Flute Music Theory & Sargam – Frequently Asked Questions',
     badge: 'Theory & Notation',
-    metaTitle: 'Music Theory & Notation FAQ | Swaras, Shrutis & Tanpura | FluteSangam',
-    metaDescription: 'Answers to music theory and notation questions: 12 Swaras, Bhatkhande notation, Tanpura tuning, microtones (Shrutis), and Western scale equivalents.',
+    metaTitle: 'Flute Music Theory FAQ | Sargam, Swaras & Notation',
+    metaDescription: 'Find answers about flute music theory, including Sa Re Ga Ma, swaras, shrutis, saptaks, taal, Sargam notation and Western note equivalents.',
     intro: 'Understanding the theoretical grammar of Indian classical music unlocks a deeper appreciation for melodic improvisation and musical composition. This section covers foundational music theory and notation concepts for bansuri players and students. Learn how the 12 Swaras (7 Shuddha, 4 Komal, 1 Tivra) relate to Western 12-tone chromatic equivalents, how to read and write Bhatkhande Sargam notation with octave dots and timing markers, and how the 22 microtonal Shrutis shape classical intonation. These clear, structured explanations demystify modal frameworks and help you read, transcribe, and practice flute compositions with theoretical confidence.',
     relatedSlugs: ['tuning-and-pitch', 'raagas', 'scales-and-alankars', 'flute-types']
   },
@@ -163,10 +163,10 @@ export const FAQ_CATEGORY_METADATA: Record<string, FaqCategoryMeta> = {
   'flute-types': {
     slug: 'flute-types',
     categoryName: 'Flute Types',
-    h1: 'Flute Types and Scales Questions',
+    h1: 'Types of Flutes & Bansuri – Frequently Asked Questions',
     badge: 'Types & Scales',
-    metaTitle: 'Flute Types & Scales FAQ | Bansuri, PVC, Western & Bass Flutes | FluteSangam',
-    metaDescription: 'Comprehensive answers to flute types questions: bamboo bansuri, PVC flutes, Western concert flutes, bass flutes, piccolos, key choices, and buying comparisons.',
+    metaTitle: 'Types of Flutes & Bansuri FAQ | Scales & Sizes',
+    metaDescription: 'Learn about different flute and bansuri types, including 6-hole and 7-hole flutes, medium and bass flutes, bamboo and PVC, and flute scales.',
     intro: 'The world of flutes spans a rich tapestry of acoustic designs, from traditional 6-hole and 7-hole North Indian Hindustani bansuris and South Indian 8-hole Carnatic Venu flutes to Western silver concert flutes, Irish whistles, and Japanese Shakuhachi. This category explores the acoustic, structural, and playing differences between these instruments. Understand how flute length and bore diameter influence octave range and tonal warmth, the distinct ergonomics of base flutes versus treble flutes, and how different traditions approach fingering, pitch articulation, and ornamentation. These comparisons help you appreciate the diversity of wind instruments and find the right flute for your musical interests.',
     relatedSlugs: ['choosing-the-right-flute', 'tuning-and-pitch', 'flute-accessories', 'music-theory']
   },

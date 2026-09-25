@@ -268,8 +268,8 @@ export default function App() {
         description = 'Comprehensive step-by-step learning modules for Indian Bamboo Flute (Bansuri): posture, embouchure, alankaras, raga guides, daily Swar Sadhana routines, and fingering charts.';
         break;
       case 'learn_intro':
-        title = 'Introduction to Bansuri | FluteSangam';
-        description = "Beginner's guide to the Indian Bamboo Flute (Bansuri). Learn about history, anatomy, producing your first clean note, and embouchure technique.";
+        title = 'Bansuri Flute Guide | History, Types & Basics';
+        description = 'Learn about the bansuri flute, its history, types, finger holes, Indian classical music traditions and how the bamboo flute developed into a concert instrument.';
         break;
       case 'learn_basics':
         title = 'Bansuri Basics & Holding Technique | FluteSangam';

@@ -231,7 +231,7 @@ export const SongNotationsLibraryView: React.FC<SongNotationsLibraryViewProps> =
                     <div>
                       <h3 className="text-base sm:text-xl font-bold font-display text-bamboo-950 group-hover:text-amber-800 transition leading-snug">
                         <Link 
-                          to={song.url}
+                          to={`/notations/${song.slug}`}
                           onClick={(e) => handleSongClick(e, song.slug)}
                         >
                           {song.title}
@@ -258,7 +258,7 @@ export const SongNotationsLibraryView: React.FC<SongNotationsLibraryViewProps> =
 
                   <div className="pt-2">
                     <Link
-                      to={song.url}
+                      to={`/notations/${song.slug}`}
                       onClick={(e) => handleSongClick(e, song.slug)}
                       className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 sm:py-2.5 rounded-xl bg-amber-50 group-hover:bg-amber-600 text-amber-900 group-hover:text-white font-bold text-xs sm:text-sm transition duration-150 border border-amber-200 group-hover:border-amber-600"
                     >
