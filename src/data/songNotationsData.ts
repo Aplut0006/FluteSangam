@@ -939,7 +939,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
     h1: 'Kal Ho Naa Ho Flute Notes — Sargam & Western Notes',
     metaTitle: 'Kal Ho Naa Ho Flute Notes | Sargam & Western Notes',
     metaDescription: 'Learn Kal Ho Naa Ho flute notes with Sargam and Western notation. Play the song melody on flute with clear notes for each section and helpful practice guidance.',
-    intro: 'Kal Ho Naa Ho, the iconic title track composed by Shankar-Ehsaan-Loy and sung with profound emotion by Sonu Nigam, is one of Indian cinema\'s most cherished melodies. This independently prepared flute guide presents the melody with lyric-matched Sargam (Indian) and Western notation, higher-octave markings, komal swar notation, and step-by-step phrasing tips for bamboo flute players.',
+    intro: 'Kal Ho Naa Ho, the iconic title track composed by Shankar-Ehsaan-Loy and sung by Sonu Nigam, is one of Indian cinema\'s beloved melodies. This independently prepared flute guide presents the melody with lyric-matched Sargam (Indian) and Western notation, higher-octave markings, komal swar notation, and step-by-step phrasing tips for bamboo flute players.',
     quickInfo: {
       difficulty: 'Beginner',
       melodyType: 'Bollywood Melody / Title Track',
