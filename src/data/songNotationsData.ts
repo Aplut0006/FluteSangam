@@ -950,15 +950,12 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       practiceSpeed: 'Moderate, expressive and rhythmic'
     },
     legend: [
-      { symbol: "S' R' G' M' P'", meaning: "higher octave note (Taar Saptak)" },
+      { symbol: "S' R' G' M'", meaning: "higher octave note (Taar Saptak)" },
       { symbol: 'S R G M P D N', meaning: 'middle octave note (Madhya Saptak)' },
-      { symbol: '.P .D .N', meaning: 'lower octave note (Mandra Saptak)' },
-      { symbol: 'r g d n', meaning: 'komal swaras (flat notes: r, g, d, n)' },
-      { symbol: 'M^', meaning: 'Tivra Ma (sharp 4th)' },
+      { symbol: 'n', meaning: 'komal Nishad (flat Ni)' },
       { symbol: '—', meaning: 'sustain / hold the note' },
-      { symbol: '(P)M', meaning: 'quick grace note or transition touch' },
-      { symbol: '|', meaning: 'phrase division' },
-      { symbol: '/', meaning: 'breath mark' }
+      { symbol: '(P)M', meaning: 'grace note (kan-swar) / quick touch' },
+      { symbol: '/', meaning: 'breathe / breath pause' }
     ],
     phrases: [
       {
