@@ -57,6 +57,7 @@ import { HappyBirthdayNotationView } from '../components/HappyBirthdayNotationVi
 import { JingleBellsNotationView } from '../components/JingleBellsNotationView';
 import { TitanicNotationView } from '../components/TitanicNotationView';
 import { TumHiHoNotationView } from '../components/TumHiHoNotationView';
+import { KalHoNaaHoNotationView } from '../components/KalHoNaaHoNotationView';
 import { AchyutamKeshavamNotationView } from '../components/AchyutamKeshavamNotationView';
 import { RadhaKrishnaNotationView } from '../components/RadhaKrishnaNotationView';
 import { JanaGanaManaNotationView } from '../components/JanaGanaManaNotationView';
@@ -1132,6 +1133,71 @@ export function getRouteMetadata(path: string): RouteMetadata {
             },
             'datePublished': '2026-09-19T00:00:00Z',
             'dateModified': '2026-09-19T00:00:00Z'
+          }
+        ]
+      }
+    };
+  }
+
+  if (cleanPath === '/notations/kal-ho-naa-ho-flute-notes') {
+    const title = 'Kal Ho Naa Ho Flute Notes | Sargam & Western Notes';
+    const description = 'Learn Kal Ho Naa Ho flute notes with Sargam and Western notation. Play the song melody on flute with clear notes for each section and helpful practice guidance.';
+    const canonicalUrl = `${DOMAIN}/notations/kal-ho-naa-ho-flute-notes`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: KalHoNaaHoNotationView,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          createWebPageSchema(canonicalUrl, title, description),
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': DOMAIN
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Song Notation',
+                'item': `${DOMAIN}/notations`
+              },
+              {
+                '@type': 'ListItem',
+                'position': 3,
+                'name': 'Kal Ho Naa Ho Flute Notes',
+                'item': canonicalUrl
+              }
+            ]
+          },
+          {
+            '@type': 'Article',
+            '@id': `${canonicalUrl}#article`,
+            'headline': 'Kal Ho Naa Ho Flute Notes – Sargam & Western Notes',
+            'description': description,
+            'mainEntityOfPage': canonicalUrl,
+            'author': {
+              '@type': 'Person',
+              'name': 'Aplut',
+              'url': `${DOMAIN}/founder`
+            },
+            'publisher': {
+              '@type': 'Organization',
+              'name': 'FluteSangam',
+              'url': DOMAIN,
+              'logo': {
+                '@type': 'ImageObject',
+                'url': `${DOMAIN}/flutesangam_logo.png`
+              }
+            },
+            'datePublished': '2026-09-25T00:00:00Z',
+            'dateModified': '2026-09-25T00:00:00Z'
           }
         ]
       }

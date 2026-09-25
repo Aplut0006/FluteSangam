@@ -85,7 +85,7 @@ export const KalHoNaaHoNotationView: React.FC<KalHoNaaHoNotationViewProps> = ({
               Bollywood Title Track
             </span>
             <span className="px-2 py-0.5 sm:px-2.5 rounded-full bg-emerald-500/30 backdrop-blur-md border border-emerald-300/30 text-emerald-200 text-[11px] sm:text-xs font-bold uppercase tracking-wider">
-              Level: Intermediate
+              Level: Beginner
             </span>
           </div>
 
@@ -226,9 +226,6 @@ export const KalHoNaaHoNotationView: React.FC<KalHoNaaHoNotationViewProps> = ({
               <Music className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600 shrink-0" />
               <span>Kal Ho Naa Ho Flute Sargam Notation</span>
             </h2>
-            <span className="text-[11px] sm:text-xs font-bold text-amber-900 bg-amber-100 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full">
-              Full Song (Mukhda &amp; Antara)
-            </span>
           </div>
 
           <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-sans">
@@ -316,7 +313,7 @@ export const KalHoNaaHoNotationView: React.FC<KalHoNaaHoNotationViewProps> = ({
           </div>
 
           <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-sans">
-            For Western concert flute, keyboard, and recorder learners playing in the key of C:
+            For flute, keyboard, and recorder learners playing in the key of C:
           </p>
 
           <div className="space-y-3 sm:space-y-6">
