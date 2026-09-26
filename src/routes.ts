@@ -51,6 +51,7 @@ export const VIEW_URLS: Record<string, string> = {
   'notation_achyutam_keshavam': '/notations/achyutam-keshavam-flute-notes',
   'notation_radha_krishna': '/notations/radha-krishna-flute-notes',
   'notation_jana_gana_mana': '/notations/jana-gana-mana-flute-notes',
+  'notation_mahabharat_krishna_theme': '/notations/mahabharat-krishna-theme-flute-notes',
   'privacy_policy': '/privacy-policy',
   'terms_of_service': '/terms-of-service',
   'flute_faq': '/faq',

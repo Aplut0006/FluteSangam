@@ -81,6 +81,7 @@ const KalHoNaaHoNotationView = lazyWithRetry(() => import('./components/KalHoNaa
 const AchyutamKeshavamNotationView = lazyWithRetry(() => import('./components/AchyutamKeshavamNotationView').then(m => ({ default: m.AchyutamKeshavamNotationView })));
 const RadhaKrishnaNotationView = lazyWithRetry(() => import('./components/RadhaKrishnaNotationView').then(m => ({ default: m.RadhaKrishnaNotationView })));
 const JanaGanaManaNotationView = lazyWithRetry(() => import('./components/JanaGanaManaNotationView').then(m => ({ default: m.JanaGanaManaNotationView })));
+const MahabharatKrishnaThemeNotationView = lazyWithRetry(() => import('./components/MahabharatKrishnaThemeNotationView').then(m => ({ default: m.MahabharatKrishnaThemeNotationView })));
 const PrivacyPolicyView = lazyWithRetry(() => import('./components/PrivacyPolicyView'));
 const TermsOfServiceView = lazyWithRetry(() => import('./components/TermsOfServiceView'));
 const NotFoundView = lazyWithRetry(() => import('./components/NotFoundView'));
@@ -1340,6 +1341,8 @@ export default function App() {
                 handleViewChange('notation_radha_krishna');
               } else if (slug === 'jana-gana-mana-flute-notes') {
                 handleViewChange('notation_jana_gana_mana');
+              } else if (slug === 'mahabharat-krishna-theme-flute-notes') {
+                handleViewChange('notation_mahabharat_krishna_theme');
               }
             }}
           />
@@ -1359,6 +1362,8 @@ export default function App() {
           <RadhaKrishnaNotationView onViewChange={handleViewChange} />
         ) : currentView === 'notation_jana_gana_mana' ? (
           <JanaGanaManaNotationView onViewChange={handleViewChange} />
+        ) : currentView === 'notation_mahabharat_krishna_theme' ? (
+          <MahabharatKrishnaThemeNotationView onViewChange={handleViewChange} />
         ) : currentView === 'community_members' ? (
           <MembersView 
             currentUser={currentUser} 

@@ -1753,6 +1753,183 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' },
       { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
     ]
+  },
+  {
+    id: 'mahabharat-krishna-theme-flute-notes',
+    slug: 'mahabharat-krishna-theme-flute-notes',
+    title: 'Mahabharat Krishna Theme Flute Notes – Sargam & Western Notes',
+    category: 'Devotional',
+    type: 'Devotional / Krishna Flute Theme Tune',
+    difficulty: 'Beginner',
+    suggestedFlute: 'Any correctly tuned bansuri (C Medium, E Bass or G Bass recommended)',
+    startingSwar: 'Mandra Pa (.P)',
+    highestSwar: "Taar Re (R')",
+    mainChallenge: 'Smooth rolling ornaments (.P.N S.N, .NR GR), clean Tivra Ma (M^) control, and expressive Taar Saptak touches',
+    practiceSpeed: 'Calm, meditative, and expressive',
+    notationFormats: 'Song Notation (Sargam & Western)',
+    description: 'Learn the Mahabharat Krishna Theme on flute with Sargam and Western notes. Explore the iconic Star Plus melody with octave markings and helpful flute practice tips.',
+    status: 'Song Notation',
+    publishedDate: '2026-09-26',
+    updatedDate: '2026-09-26',
+    canonicalUrl: 'https://flutesangam.com/notations/mahabharat-krishna-theme-flute-notes',
+    h1: 'Mahabharat Krishna Theme Flute Notes – Sargam & Western Notes',
+    metaTitle: 'Mahabharat Krishna Theme Flute Notes | Sargam & Western',
+    metaDescription: 'Learn the Mahabharat Krishna Theme on flute with Sargam and Western notes. Explore the iconic Star Plus melody with octave markings and helpful flute practice tips.',
+    intro: 'The Mahabharat Krishna Theme from Star Plus is a memorable Krishna flute melody loved by many listeners. This independently prepared Mahabharat Krishna Theme flute notes guide includes Sargam and Western notes, octave markings, and simple phrasing tips to help flute players learn and practice the melody.',
+    quickInfo: {
+      difficulty: 'Beginner',
+      melodyType: 'Devotional / Krishna Flute Theme Tune',
+      suggestedFlute: 'C Medium, E Bass, or any comfortable bansuri',
+      startingSwar: 'Mandra Pa (.P)',
+      highestSwar: "Taar Re (R')",
+      mainChallenge: 'Rolling Mandra notes (.P, .N, .R), Tivra Ma (M^) switch, and smooth meends',
+      practiceSpeed: 'Calm, meditative, and expressive'
+    },
+    legend: [
+      { symbol: "S' R' N'", meaning: 'higher octave note (Taar Saptak)' },
+      { symbol: 'S R G M P D N', meaning: 'middle octave note (Madhya Saptak)' },
+      { symbol: '.P .N .R', meaning: 'lower octave note (Mandra Saptak)' },
+      { symbol: 'M^', meaning: 'Tivra Ma (sharp 4th / F#)' },
+      { symbol: '—', meaning: 'sustain / hold the note' },
+      { symbol: "(N') / (D)", meaning: 'grace note (kan-swar) / quick touch' },
+      { symbol: '/', meaning: 'breathe / breath pause' }
+    ],
+    phrases: [
+      {
+        phraseNumber: 1,
+        lyric: 'Opening Wave Motif (x2 Times)',
+        sargamNotes: '.P.N  S.N  S.N | .P.N  S.N  S.N | .P.N  S.N /  (x2)',
+        westernNotes: '.G.B  C.B  C.B | .G.B  C.B  C.B | .G.B  C.B /  (x2)',
+        units: [
+          { lyric: 'Wave 1', sargam: '.P.N S.N S.N', western: '.G.B C.B C.B' },
+          { lyric: 'Wave 2', sargam: '.P.N S.N S.N', western: '.G.B C.B C.B' },
+          { lyric: 'Wave 3', sargam: '.P.N S.N /', western: '.G.B C.B /' },
+          { lyric: 'Repeat', sargam: '(x2 Times)', western: '(x2 Times)' }
+        ],
+        guidance: 'Play the signature opening rolling wave softly and continuously. Transition seamlessly from Mandra Pa (.P) to Mandra Ni (.N) and middle Sa (S).'
+      },
+      {
+        phraseNumber: 2,
+        lyric: 'Rising Wave Motif (x2 Times)',
+        sargamNotes: '.NR  GR  GR | .NR  GR  GR | .NR  GR /  (x2)',
+        westernNotes: '.BD  ED  ED | .BD  ED  ED | .BD  ED /  (x2)',
+        units: [
+          { lyric: 'Rise 1', sargam: '.NR GR GR', western: '.BD ED ED' },
+          { lyric: 'Rise 2', sargam: '.NR GR GR', western: '.BD ED ED' },
+          { lyric: 'Rise 3', sargam: '.NR GR /', western: '.BD ED /' },
+          { lyric: 'Repeat', sargam: '(x2 Times)', western: '(x2 Times)' }
+        ],
+        guidance: 'Shift from Mandra Ni (.N) into Re (R) and Ga (G) with gentle, relaxed finger lifts. Repeat the 3-wave cycle twice.'
+      },
+      {
+        phraseNumber: 3,
+        lyric: 'Lower Octave Rolling Flow (x2 Times)',
+        sargamNotes: '.P.NS  .P.NS  .NS  (x2)',
+        westernNotes: '.G.BC  .G.BC  .BC  (x2)',
+        units: [
+          { lyric: 'Roll 1', sargam: '.P.NS', western: '.G.BC' },
+          { lyric: 'Roll 2', sargam: '.P.NS', western: '.G.BC' },
+          { lyric: 'Ending', sargam: '.NS', western: '.BC' },
+          { lyric: 'Repeat', sargam: '(x2 Times)', western: '(x2 Times)' }
+        ],
+        guidance: 'A fluid triple ornament connecting Mandra Pa (.P), Mandra Ni (.N), and Sa (S). Keep your fingers close to the holes for speed and clarity.'
+      },
+      {
+        phraseNumber: 4,
+        lyric: 'Middle Octave Rolling Flow (x2 Times)',
+        sargamNotes: '.NRG  .NRG  RG  (x2)',
+        westernNotes: '.BDE  .BDE  DE  (x2)',
+        units: [
+          { lyric: 'Flow 1', sargam: '.NRG', western: '.BDE' },
+          { lyric: 'Flow 2', sargam: '.NRG', western: '.BDE' },
+          { lyric: 'Ending', sargam: 'RG', western: 'DE' },
+          { lyric: 'Repeat', sargam: '(x2 Times)', western: '(x2 Times)' }
+        ],
+        guidance: 'Mirrors the previous rolling motif on higher pitch (.NRG to RG). Maintain even airflow and consistent tone.'
+      },
+      {
+        phraseNumber: 5,
+        lyric: 'Descending Resolving Phrase',
+        sargamNotes: 'PM^R  MGR  S.NS—',
+        westernNotes: 'GF#D  FED  C.BC—',
+        units: [
+          { lyric: 'Tivra Ma Turn', sargam: 'PM^R', western: 'GF#D' },
+          { lyric: 'Shuddha Descent', sargam: 'MGR', western: 'FED' },
+          { lyric: 'Sa Sustain', sargam: 'S.NS—', western: 'C.BC—' }
+        ],
+        guidance: 'Crucial contrast: First play sharp Tivra Ma (M^) in PM^R, then transition cleanly into natural Shuddha Ma (M) on MGR, resting peacefully on S.NS—.'
+      },
+      {
+        phraseNumber: 6,
+        lyric: 'Taar Saptak Ascending Call',
+        sargamNotes: "NNS'—  S'(N')R'S'/",
+        westernNotes: "BBC'—  C'(B')D'C'/",
+        units: [
+          { lyric: 'High Climb', sargam: "NNS'—", western: "BBC'—" },
+          { lyric: 'Taar Grace', sargam: "S'(N')R'S'/", western: "C'(B')D'C'/" }
+        ],
+        guidance: 'Ascend into Taar Sa (S\'—) with focused, gentle air speed. Articulate the subtle Taar Ni grace note (N\') as you bounce from Taar Re (R\') back to Taar Sa (S\').'
+      },
+      {
+        phraseNumber: 7,
+        lyric: 'Expressive Meend & Final Resolution',
+        sargamNotes: "S'N(D)PM^M^—  M^DPP  M^R—M^GG",
+        westernNotes: "C'B(A)GF#F#—  F#AGG  F#D—F#EE",
+        units: [
+          { lyric: 'Meend Descent', sargam: "S'N(D)PM^M^—", western: "C'B(A)GF#F#—" },
+          { lyric: 'Tivra Pa Climax', sargam: 'M^DPP', western: 'F#AGG' },
+          { lyric: 'Final Melody Rest', sargam: 'M^R—M^GG', western: 'F#D—F#EE' }
+        ],
+        guidance: 'A deeply expressive conclusion: Glide down through S\'N(D)P into sustained Tivra Ma (M^M^—), rise to M^DPP, and conclude serenely on M^R—M^GG.'
+      }
+    ],
+    sargamPhrases: [
+      { phraseNumber: 1, notes: '.P.N  S.N  S.N | .P.N  S.N  S.N | .P.N  S.N /  (x2)', lyric: 'Opening Wave Motif' },
+      { phraseNumber: 2, notes: '.NR  GR  GR | .NR  GR  GR | .NR  GR /  (x2)', lyric: 'Rising Wave Motif' },
+      { phraseNumber: 3, notes: '.P.NS  .P.NS  .NS  (x2)', lyric: 'Lower Octave Rolling Flow' },
+      { phraseNumber: 4, notes: '.NRG  .NRG  RG  (x2)', lyric: 'Middle Octave Rolling Flow' },
+      { phraseNumber: 5, notes: 'PM^R  MGR  S.NS—', lyric: 'Descending Resolving Phrase' },
+      { phraseNumber: 6, notes: "NNS'—  S'(N')R'S'/", lyric: 'Taar Saptak Ascending Call' },
+      { phraseNumber: 7, notes: "S'N(D)PM^M^—  M^DPP  M^R—M^GG", lyric: 'Expressive Meend & Final Resolution' }
+    ],
+    westernPhrases: [
+      { phraseNumber: 1, notes: '.G.B  C.B  C.B | .G.B  C.B  C.B | .G.B  C.B /  (x2)', lyric: 'Opening Wave Motif' },
+      { phraseNumber: 2, notes: '.BD  ED  ED | .BD  ED  ED | .BD  ED /  (x2)', lyric: 'Rising Wave Motif' },
+      { phraseNumber: 3, notes: '.G.BC  .G.BC  .BC  (x2)', lyric: 'Lower Octave Rolling Flow' },
+      { phraseNumber: 4, notes: '.BDE  .BDE  DE  (x2)', lyric: 'Middle Octave Rolling Flow' },
+      { phraseNumber: 5, notes: 'GF#D  FED  C.BC—', lyric: 'Descending Resolving Phrase' },
+      { phraseNumber: 6, notes: "BBC'—  C'(B')D'C'/", lyric: 'Taar Saptak Ascending Call' },
+      { phraseNumber: 7, notes: "C'B(A)GF#F#—  F#AGG  F#D—F#EE", lyric: 'Expressive Meend & Final Resolution' }
+    ],
+    phraseGuidance: [
+      { phraseNumber: 1, guidance: 'Keep the air flow very relaxed on Mandra Pa (.P) and Mandra Ni (.N). Repeat the 3-wave cycle twice.' },
+      { phraseNumber: 2, guidance: 'Lift fingers smoothly from .N to R and G. Do not rush the repetitive GR GR ornaments.' },
+      { phraseNumber: 3, guidance: 'Practice the .P.NS roll slowly before matching standard speed. Keep finger holes fully covered.' },
+      { phraseNumber: 4, guidance: 'Keep the sound continuous and mellow between Mandra Ni (.N) and middle Ga (G).' },
+      { phraseNumber: 5, guidance: 'Be mindful of half-hole or cross-fingering for Tivra Ma (M^) in PM^R, then full open Shuddha Ma (M) in MGR.' },
+      { phraseNumber: 6, guidance: 'Use focused lip aperture for Taar Sa (S\') and Taar Re (R\') without increasing breath pressure excessively.' },
+      { phraseNumber: 7, guidance: 'Give full emotional expression to the descending meend S\'N(D)PM^M^— and end softly on Ga (GG).' }
+    ],
+    practiceMethod: [
+      'Begin by practicing the opening wave (.P.N S.N) on a Tanpura drone in Sa-Pa to establish steady pitch stability on lower notes.',
+      'Practice transitioning cleanly between Tivra Ma (M^) and Shuddha Ma (M) in Phrase 5.',
+      'Work on the rolling ornaments (.P.NS and .NRG) slowly at 50% tempo to develop crisp finger agility.',
+      'Practice the climactic Taar Saptak phrase (NNS\'— S\'(N\')R\'S\'/) with a soft, focused embouchure to avoid harshness.',
+      'Connect all phrases into a continuous meditative flow with steady, gentle breathing.'
+    ],
+    commonMistakes: [
+      'Blowing too hard on Mandra Pa (.P) causing it to jump to middle Pa (P)',
+      'Confusing Tivra Ma (M^ / F#) with Shuddha Ma (M / F) in the resolving fifth phrase',
+      'Rushing the wave repetitions instead of maintaining a soothing, meditative rhythm',
+      'Overblowing on the higher Taar Saptak notes (S\' and R\') instead of tightening lip aperture'
+    ],
+    usefulTools: [
+      { name: 'Interactive Bansuri Fingering Chart', url: '/learn/fingering-chart', viewKey: 'learn_fingering_chart' },
+      { name: 'Online Flute Tuner', url: '/tuner', viewKey: 'learn_tuner' },
+      { name: 'Flute Note and Key Converter', url: '/tools/flute-note-key-converter', viewKey: 'note_key_converter' },
+      { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' },
+      { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
+    ]
   }
 ];
 

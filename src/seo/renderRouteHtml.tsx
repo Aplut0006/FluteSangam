@@ -61,6 +61,7 @@ import { KalHoNaaHoNotationView } from '../components/KalHoNaaHoNotationView';
 import { AchyutamKeshavamNotationView } from '../components/AchyutamKeshavamNotationView';
 import { RadhaKrishnaNotationView } from '../components/RadhaKrishnaNotationView';
 import { JanaGanaManaNotationView } from '../components/JanaGanaManaNotationView';
+import { MahabharatKrishnaThemeNotationView } from '../components/MahabharatKrishnaThemeNotationView';
 import NotFoundView from '../components/NotFoundView';
 
 import Navbar from '../components/Navbar';
@@ -1393,6 +1394,71 @@ export function getRouteMetadata(path: string): RouteMetadata {
             },
             'datePublished': '2026-09-24T00:00:00Z',
             'dateModified': '2026-09-24T00:00:00Z'
+          }
+        ]
+      }
+    };
+  }
+
+  if (cleanPath === '/notations/mahabharat-krishna-theme-flute-notes') {
+    const title = 'Mahabharat Krishna Theme Flute Notes | Sargam & Western';
+    const description = 'Learn the Mahabharat Krishna Theme on flute with Sargam and Western notes. Explore the iconic Star Plus melody with octave markings and helpful flute practice tips.';
+    const canonicalUrl = `${DOMAIN}/notations/mahabharat-krishna-theme-flute-notes`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: MahabharatKrishnaThemeNotationView,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          createWebPageSchema(canonicalUrl, title, description),
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': DOMAIN
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Song Notation',
+                'item': `${DOMAIN}/notations`
+              },
+              {
+                '@type': 'ListItem',
+                'position': 3,
+                'name': 'Mahabharat Krishna Theme Flute Notes',
+                'item': canonicalUrl
+              }
+            ]
+          },
+          {
+            '@type': 'Article',
+            '@id': `${canonicalUrl}#article`,
+            'headline': 'Mahabharat Krishna Theme Flute Notes – Sargam & Western Notes',
+            'description': description,
+            'mainEntityOfPage': canonicalUrl,
+            'author': {
+              '@type': 'Person',
+              'name': 'Aplut',
+              'url': `${DOMAIN}/founder`
+            },
+            'publisher': {
+              '@type': 'Organization',
+              'name': 'FluteSangam',
+              'url': DOMAIN,
+              'logo': {
+                '@type': 'ImageObject',
+                'url': `${DOMAIN}/flutesangam_logo.png`
+              }
+            },
+            'datePublished': '2026-09-26T00:00:00Z',
+            'dateModified': '2026-09-26T00:00:00Z'
           }
         ]
       }
