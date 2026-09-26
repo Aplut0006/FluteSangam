@@ -1531,8 +1531,8 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       melodyType: 'National Anthem of India',
       suggestedFlute: 'C Middle (C Natural) — or transpose to your comfortable flute scale',
       startingSwar: 'Sa (S)',
-      highestSwar: "Tara Sa (S')",
-      mainChallenge: 'Clean lower octave Mandra Ni (.N) intonation and controlled Tara Sa (S\') sustained notes',
+      highestSwar: 'Shuddha Ni (N) / Sa (S)',
+      mainChallenge: 'Clean lower octave Mandra Ni (.N) intonation and steady breath control on held notes',
       practiceSpeed: 'Dignified, steady rhythm (around 52 seconds duration)'
     },
     legend: [
@@ -1669,14 +1669,14 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       {
         phraseNumber: 11,
         lyric: 'Jaya he, Jaya he, Jaya he,',
-        sargamNotes: "S'NS'—     NDN—     DPD—",
-        westernNotes: "C'BC'—     BAB—     AGA—",
+        sargamNotes: 'NNS—       NDN—     DPD—',
+        westernNotes: 'BBC—       BAB—     AGA—',
         units: [
-          { lyric: 'Jaya he,', sargam: "S'NS'—", western: "C'BC'—" },
+          { lyric: 'Jaya he,', sargam: 'NNS—', western: 'BBC—' },
           { lyric: 'Jaya he,', sargam: 'NDN—', western: 'BAB—' },
           { lyric: 'Jaya he,', sargam: 'DPD—', western: 'AGA—' }
         ],
-        guidance: "This is the majestic high climax of the anthem. Focus your lips and embouchure for a pure, sweet Tara Sa (S'). Step down stepwise: S'NS'— to NDN— to DPD—."
+        guidance: 'This is the majestic high climax of the anthem. Focus your lips and embouchure for a pure, sweet tone. Step down stepwise: NNS— to NDN— to DPD—.'
       },
       {
         phraseNumber: 12,
@@ -1703,7 +1703,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       { phraseNumber: 8, notes: 'GG    RR   RR  .NRS /', lyric: 'gahe tava jaya-gatha.' },
       { phraseNumber: 9, notes: 'PP   PP   PPP     PPP     MD  P', lyric: 'Jana-gana-mangala-dayaka jaya he' },
       { phraseNumber: 10, notes: 'MMM       GG     GRMG /', lyric: 'Bharata-bhagya-vidhata.' },
-      { phraseNumber: 11, notes: "S'NS'—     NDN—     DPD—", lyric: 'Jaya he, Jaya he, Jaya he,' },
+      { phraseNumber: 11, notes: 'NNS—       NDN—     DPD—', lyric: 'Jaya he, Jaya he, Jaya he,' },
       { phraseNumber: 12, notes: 'SS     RR   GG    RG  M—', lyric: 'jaya jaya jaya jaya he' }
     ],
     westernPhrases: [
@@ -1717,7 +1717,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       { phraseNumber: 8, notes: 'EE    DD   DD  .BCD /', lyric: 'gahe tava jaya-gatha.' },
       { phraseNumber: 9, notes: 'GG   GG   GGG     GGG     FA  G', lyric: 'Jana-gana-mangala-dayaka jaya he' },
       { phraseNumber: 10, notes: 'FFF       EE     EDEF /', lyric: 'Bharata-bhagya-vidhata.' },
-      { phraseNumber: 11, notes: "C'BC'—     BAB—     AGA—", lyric: 'Jaya he, Jaya he, Jaya he,' },
+      { phraseNumber: 11, notes: 'BBC—       BAB—     AGA—', lyric: 'Jaya he, Jaya he, Jaya he,' },
       { phraseNumber: 12, notes: 'CC     DD   EE    DE  F—', lyric: 'jaya jaya jaya jaya he' }
     ],
     phraseGuidance: [
@@ -1731,13 +1731,13 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       { phraseNumber: 8, guidance: 'Play with serene devotion. The lower Mandra Ni (.N) should be soft and resonant without losing breath support.' },
       { phraseNumber: 9, guidance: 'Ascend to Pa (P) with celebratory energy. Keep the rapid repeated Pa strokes articulated and land cleanly on MD P.' },
       { phraseNumber: 10, guidance: 'Step down with grace through MMM and GG, then articulate GRMG softly before the grand climax.' },
-      { phraseNumber: 11, guidance: "This is the majestic high climax of the anthem. Focus your lips and embouchure for a pure, sweet Tara Sa (S'). Step down stepwise: S'NS'— to NDN— to DPD—." },
+      { phraseNumber: 11, guidance: 'This is the majestic high climax of the anthem. Focus your lips and embouchure for a pure, sweet tone. Step down stepwise: NNS— to NDN— to DPD—.' },
       { phraseNumber: 12, guidance: 'Build up step-by-step from Sa (SS), Re (RR), Ga (GG) to RG M—, holding the final Shuddha Ma (M—) with resonant pride and devotion.' }
     ],
     practiceMethod: [
       'Practice long tones (Swar Sadhana) on middle octave swaras (S, R, G, M, P, D, N) to build steady breath support and pure intonation.',
       'Pay special attention to Mandra Ni (.N) in Phrases 2, 6, and 8. Ensure finger holes are sealed completely with finger pads.',
-      'Practice the climactic 11th phrase (S\'NS\'— NDN— DPD—) slowly to produce a clear, gentle high Tara Sa (S\') without overblowing forcefully.',
+      'Practice the climactic 11th phrase (NNS— NDN— DPD—) slowly with clean, smooth note transitions.',
       'Practice the anthem at a steady, dignified tempo. The complete National Anthem is traditionally performed in approximately 52 seconds.'
     ],
     commonMistakes: [
