@@ -1877,7 +1877,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
         westernNotes: "C'B(A)GF#F#—  F#AGG  F#D—F#EE",
         units: [
           { lyric: 'Meend Descent', sargam: "S'N(D)PM^M^—", western: "C'B(A)GF#F#—" },
-          { lyric: 'Tivra Pa Climax', sargam: 'M^DPP', western: 'F#AGG' },
+          { lyric: 'Tivra Ma Climax', sargam: 'M^DPP', western: 'F#AGG' },
           { lyric: 'Final Melody Rest', sargam: 'M^R—M^GG', western: 'F#D—F#EE' }
         ],
         guidance: 'A deeply expressive conclusion: Glide down through S\'N(D)P into sustained Tivra Ma (M^M^—), rise to M^DPP, and conclude serenely on M^R—M^GG.'
