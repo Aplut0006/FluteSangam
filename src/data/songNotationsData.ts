@@ -1938,7 +1938,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
     category: 'Devotional',
     type: 'Devotional Bhajan / Krishna Chants',
     difficulty: 'Beginner',
-    suggestedFlute: 'C Medium, E Bass, G Base, or any standard bansuri',
+    suggestedFlute: 'C Medium, E Bass, G Bass, or any comfortable bansuri',
     startingSwar: 'Mandra Pa (.P)',
     highestSwar: "Taar Sa (S')",
     mainChallenge: 'Clean lower Mandra note control (.P and .N), smooth ornament S(R)S, and gentle breath control on the Taar Sa peak in the Antara',
@@ -1956,7 +1956,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
     quickInfo: {
       difficulty: 'Beginner',
       melodyType: 'Devotional Bhajan / Krishna Chants',
-      suggestedFlute: 'C Medium, E Bass, G Base, or any comfortable flute',
+      suggestedFlute: 'C Medium, E Bass, G Bass, or any comfortable bansuri',
       startingSwar: 'Mandra Pa (.P)',
       highestSwar: "Taar Sa (S')",
       mainChallenge: 'Smooth transitions between Mandra notes (.P .N) and the Taar Sa (S\') Antara variation',

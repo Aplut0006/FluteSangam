@@ -274,9 +274,14 @@ export const JanaGanaManaNotationView: React.FC<JanaGanaManaNotationViewProps> =
             </span>
           </div>
 
-          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            For Western concert flute players, keyboardists, and recorder learners, the melody is transcribed relative to key of C (where Sa = C, Re = D, Ga = E, Ma = F, Pa = G, Dha = A, Ni = B):
-          </p>
+          <div className="bg-sand-50/80 border border-slate-200 rounded-xl p-3 sm:p-3.5 text-xs text-slate-700 space-y-1">
+            <p className="font-semibold text-slate-900">
+              Notation Reference: <span className="font-normal text-slate-700">Western notes are written with <strong>Sa = C</strong> for easy reference. You can transpose the melody to match your own flute&apos;s key (e.g. C Medium, E Bass, G Bass).</span>
+            </p>
+            <p className="text-[11px] text-slate-500">
+              Pitch mapping: Sa = C, Re = D, Ga = E, Ma = F, Tivra Ma = F#, Pa = G, Dha = A, Ni = B.
+            </p>
+          </div>
 
           <div className="space-y-3 sm:space-y-4">
             {song.phrases.map((phrase) => (

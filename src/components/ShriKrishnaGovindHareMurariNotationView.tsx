@@ -267,16 +267,21 @@ export const ShriKrishnaGovindHareMurariNotationView: React.FC<ShriKrishnaGovind
           <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3 border-b border-slate-200 pb-2.5 sm:pb-3">
             <h2 className="text-lg sm:text-2xl font-bold text-slate-900 flex items-center gap-1.5 sm:gap-2">
               <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-amber-700 shrink-0" />
-              <span>Western Notes (Relative Key / Sa = C Pitch)</span>
+              <span>Western Notes (Reference Key: Sa = C)</span>
             </h2>
             <span className="text-[11px] sm:text-xs font-bold text-slate-800 bg-slate-100 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-slate-200">
-              Western Flute &amp; Keyboard (C Root)
+              Reference Key: C Root
             </span>
           </div>
 
-          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            For Western concert flute players, keyboardists, and recorder learners, the melody is transcribed relative to key of C (where Sa = C, Re = D, Ga = E, Ma = F, Pa = G, Dha = A, Ni = B):
-          </p>
+          <div className="bg-slate-50 border border-slate-200/80 p-3 sm:p-4 rounded-xl sm:rounded-2xl text-xs sm:text-sm text-slate-700 space-y-1 leading-relaxed">
+            <p className="font-bold text-slate-900">
+              Notation Reference:
+            </p>
+            <p>
+              Western notes are written with <strong>Sa = C</strong> for easy reference (where Sa = C, Re = D, Ga = E, Ma = F, Pa = G, Dha = A, Ni = B). You can transpose the melody to match your own flute&apos;s natural root key (for example, on an E Bass or G Bass flute, your fingerings for Sa will sound as E or G respectively).
+            </p>
+          </div>
 
           <div className="space-y-3 sm:space-y-4">
             {song.phrases.map((phrase) => (
