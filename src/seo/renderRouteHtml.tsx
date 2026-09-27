@@ -62,6 +62,7 @@ import { AchyutamKeshavamNotationView } from '../components/AchyutamKeshavamNota
 import { RadhaKrishnaNotationView } from '../components/RadhaKrishnaNotationView';
 import { JanaGanaManaNotationView } from '../components/JanaGanaManaNotationView';
 import { MahabharatKrishnaThemeNotationView } from '../components/MahabharatKrishnaThemeNotationView';
+import { ShriKrishnaGovindHareMurariNotationView } from '../components/ShriKrishnaGovindHareMurariNotationView';
 import NotFoundView from '../components/NotFoundView';
 
 import Navbar from '../components/Navbar';
@@ -1459,6 +1460,71 @@ export function getRouteMetadata(path: string): RouteMetadata {
             },
             'datePublished': '2026-09-26T00:00:00Z',
             'dateModified': '2026-09-26T00:00:00Z'
+          }
+        ]
+      }
+    };
+  }
+
+  if (cleanPath === '/notations/shri-krishna-govind-hare-murari-flute-notes') {
+    const title = 'Shri Krishna Govind Hare Murari Flute Notes | Sargam & Western';
+    const description = 'Learn Shri Krishna Govind Hare Murari flute notes with Sargam and Western notation. Practice this popular Krishna bhajan with clear flute notes and playing guidance.';
+    const canonicalUrl = `${DOMAIN}/notations/shri-krishna-govind-hare-murari-flute-notes`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: ShriKrishnaGovindHareMurariNotationView,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          createWebPageSchema(canonicalUrl, title, description),
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': DOMAIN
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Song Notation',
+                'item': `${DOMAIN}/notations`
+              },
+              {
+                '@type': 'ListItem',
+                'position': 3,
+                'name': 'Shri Krishna Govind Hare Murari Flute Notes',
+                'item': canonicalUrl
+              }
+            ]
+          },
+          {
+            '@type': 'Article',
+            '@id': `${canonicalUrl}#article`,
+            'headline': 'Shri Krishna Govind Hare Murari Flute Notes – Sargam & Western Notes',
+            'description': description,
+            'mainEntityOfPage': canonicalUrl,
+            'author': {
+              '@type': 'Person',
+              'name': 'Aplut',
+              'url': `${DOMAIN}/founder`
+            },
+            'publisher': {
+              '@type': 'Organization',
+              'name': 'FluteSangam',
+              'url': DOMAIN,
+              'logo': {
+                '@type': 'ImageObject',
+                'url': `${DOMAIN}/flutesangam_logo.png`
+              }
+            },
+            'datePublished': '2026-09-27T00:00:00Z',
+            'dateModified': '2026-09-27T00:00:00Z'
           }
         ]
       }

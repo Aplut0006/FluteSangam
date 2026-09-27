@@ -74,6 +74,7 @@ const ROUTE_MOD_DATES: Record<string, string> = {
   '/notations/radha-krishna-flute-notes': '2026-09-23',
   '/notations/jana-gana-mana-flute-notes': '2026-09-26',
   '/notations/mahabharat-krishna-theme-flute-notes': '2026-09-26',
+  '/notations/shri-krishna-govind-hare-murari-flute-notes': '2026-09-27',
   '/privacy-policy': '2026-09-18',
   '/terms-of-service': '2026-09-18',
   '/faq': '2026-09-18',

@@ -1930,6 +1930,156 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' },
       { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
     ]
+  },
+  {
+    id: 'shri-krishna-govind-hare-murari-flute-notes',
+    slug: 'shri-krishna-govind-hare-murari-flute-notes',
+    title: 'Shri Krishna Govind Hare Murari Flute Notes – Sargam & Western Notes',
+    category: 'Devotional',
+    type: 'Devotional Bhajan / Krishna Chants',
+    difficulty: 'Beginner',
+    suggestedFlute: 'C Medium, E Bass, G Base, or any standard bansuri',
+    startingSwar: 'Mandra Pa (.P)',
+    highestSwar: "Taar Sa (S')",
+    mainChallenge: 'Clean lower Mandra note control (.P and .N), smooth ornament S(R)S, and gentle breath control on the Taar Sa peak in the Antara',
+    practiceSpeed: 'Steady, peaceful, and meditative',
+    notationFormats: 'Song Notation (Sargam & Western)',
+    description: 'Learn Shri Krishna Govind Hare Murari flute notes with Sargam and Western notation. Practice this popular Krishna bhajan with clear flute notes and playing guidance.',
+    status: 'Song Notation',
+    publishedDate: '2026-09-27',
+    updatedDate: '2026-09-27',
+    canonicalUrl: 'https://flutesangam.com/notations/shri-krishna-govind-hare-murari-flute-notes',
+    h1: 'Shri Krishna Govind Hare Murari Flute Notes – Sargam & Western Notes',
+    metaTitle: 'Shri Krishna Govind Hare Murari Flute Notes | Sargam & Western',
+    metaDescription: 'Learn Shri Krishna Govind Hare Murari flute notes with Sargam and Western notation. Practice this popular Krishna bhajan with clear flute notes and playing guidance.',
+    intro: 'Shri Krishna Govind Hare Murari is one of the most cherished and meditative Krishna bhajans in Indian devotional music. This independently prepared flute guide includes lyric-aligned Sargam and Western notations, octave markings, and step-by-step phrasing tips for bamboo flute and bansuri learners.',
+    quickInfo: {
+      difficulty: 'Beginner',
+      melodyType: 'Devotional Bhajan / Krishna Chants',
+      suggestedFlute: 'C Medium, E Bass, G Base, or any comfortable flute',
+      startingSwar: 'Mandra Pa (.P)',
+      highestSwar: "Taar Sa (S')",
+      mainChallenge: 'Smooth transitions between Mandra notes (.P .N) and the Taar Sa (S\') Antara variation',
+      practiceSpeed: 'Steady, peaceful, and meditative'
+    },
+    legend: [
+      { symbol: "S'", meaning: 'higher octave note (Taar Saptak)' },
+      { symbol: 'S R G M P D', meaning: 'middle octave note (Madhya Saptak)' },
+      { symbol: '.P .N', meaning: 'lower octave note (Mandra Saptak)' },
+      { symbol: '—', meaning: 'sustain / hold the note' },
+      { symbol: '(R) / (P)', meaning: 'grace note (kan-swar) / quick touch' },
+      { symbol: '/', meaning: 'breathe / breath pause' }
+    ],
+    phrases: [
+      {
+        phraseNumber: 1,
+        lyric: 'Shri Krishna Govinda Hare Murari',
+        sargamNotes: '.P  SS  SSS  SR  S(R)S.N.N—',
+        westernNotes: '.G  CC  CCC  CD  C(D)C.B.B—',
+        units: [
+          { lyric: 'Shri', sargam: '.P', western: '.G' },
+          { lyric: 'Krishna', sargam: 'SS', western: 'CC' },
+          { lyric: 'Govinda', sargam: 'SSS', western: 'CCC' },
+          { lyric: 'Hare', sargam: 'SR', western: 'CD' },
+          { lyric: 'Murari', sargam: 'S(R)S.N.N—', western: 'C(D)C.B.B—' }
+        ],
+        guidance: 'Start gently on Mandra Pa (.P), step firmly to middle Sa (SS), and execute the ornament S(R)S smoothly before landing on sustained Mandra Ni (.N.N—).'
+      },
+      {
+        phraseNumber: 2,
+        lyric: 'He Nath Narayan Vasudeva (x2 with Line 1)',
+        sargamNotes: 'R  RR  GP— GR  GR .NRS',
+        westernNotes: 'D  DD  EG— ED  ED .BCD',
+        units: [
+          { lyric: 'He', sargam: 'R', western: 'D' },
+          { lyric: 'Nath', sargam: 'RR', western: 'DD' },
+          { lyric: 'Narayan', sargam: 'GP— GR', western: 'EG— ED' },
+          { lyric: 'Vasudeva', sargam: 'GR .NRS', western: 'ED .BCD' }
+        ],
+        guidance: 'Play Re (R RR) with clean articulation, sustain Pa (GP—) before descending to GR, and resolve smoothly on .NRS. Repeat Lines 1 & 2 together.'
+      },
+      {
+        phraseNumber: 3,
+        lyric: 'Pitu Maat Swami Sakha Humare',
+        sargamNotes: 'GM  PP  PP  PD  PMGG',
+        westernNotes: 'EF  GG  GG  GA  GFEE',
+        units: [
+          { lyric: 'Pitu', sargam: 'GM', western: 'EF' },
+          { lyric: 'Maat', sargam: 'PP', western: 'GG' },
+          { lyric: 'Swami', sargam: 'PP', western: 'GG' },
+          { lyric: 'Sakha', sargam: 'PD', western: 'GA' },
+          { lyric: 'Humare', sargam: 'PMGG', western: 'GFEE' }
+        ],
+        guidance: 'Move gently from Ga-Ma (GM) into middle Pa (PP). Keep your tone calm and conclude the descent sweetly on PMGG.'
+      },
+      {
+        phraseNumber: 4,
+        lyric: 'Pitu Maat.. Swami Sakha.. Humare (Antara Variation)',
+        sargamNotes: "GM  (P)NS'NP  PP—  P(P)D  PMGG",
+        westernNotes: "EF  (G)BC'BG  GG—  G(G)A  GFEE",
+        units: [
+          { lyric: 'Pitu', sargam: 'GM', western: 'EF' },
+          { lyric: 'Maat..', sargam: "(P)NS'NP", western: "(G)BC'BG" },
+          { lyric: 'Swami', sargam: 'PP—', western: 'GG—' },
+          { lyric: 'Sakha..', sargam: 'P(P)D', western: 'G(G)A' },
+          { lyric: 'Humare', sargam: 'PMGG', western: 'GFEE' }
+        ],
+        guidance: 'The expressive high peak: Touch Taar Sa (S\') with a light, focused embouchure in (P)NS\'NP, hold the sustained Pa (PP—), and resolve through PMGG.'
+      },
+      {
+        phraseNumber: 5,
+        lyric: 'He Nath Narayan Vasudeva (Concluding Line)',
+        sargamNotes: 'R  RR  GP— GR  GR .NRS /',
+        westernNotes: 'D  DD  EG— ED  ED .BCD /',
+        units: [
+          { lyric: 'He', sargam: 'R', western: 'D' },
+          { lyric: 'Nath', sargam: 'RR', western: 'DD' },
+          { lyric: 'Narayan', sargam: 'GP— GR', western: 'EG— ED' },
+          { lyric: 'Vasudeva', sargam: 'GR .NRS /', western: 'ED .BCD /' }
+        ],
+        guidance: 'Reiterate the signature devotion hook with warm, meditative breath and finish cleanly on Sa with a peaceful breath pause (/).'
+      }
+    ],
+    sargamPhrases: [
+      { phraseNumber: 1, notes: '.P  SS  SSS  SR  S(R)S.N.N—', lyric: 'Shri Krishna Govinda Hare Murari' },
+      { phraseNumber: 2, notes: 'R  RR  GP— GR  GR .NRS', lyric: 'He Nath Narayan Vasudeva' },
+      { phraseNumber: 3, notes: 'GM  PP  PP  PD  PMGG', lyric: 'Pitu Maat Swami Sakha Humare' },
+      { phraseNumber: 4, notes: "GM  (P)NS'NP  PP—  P(P)D  PMGG", lyric: 'Pitu Maat.. Swami Sakha.. Humare (Antara Peak)' },
+      { phraseNumber: 5, notes: 'R  RR  GP— GR  GR .NRS /', lyric: 'He Nath Narayan Vasudeva (Ending)' }
+    ],
+    westernPhrases: [
+      { phraseNumber: 1, notes: '.G  CC  CCC  CD  C(D)C.B.B—', lyric: 'Shri Krishna Govinda Hare Murari' },
+      { phraseNumber: 2, notes: 'D  DD  EG— ED  ED .BCD', lyric: 'He Nath Narayan Vasudeva' },
+      { phraseNumber: 3, notes: 'EF  GG  GG  GA  GFEE', lyric: 'Pitu Maat Swami Sakha Humare' },
+      { phraseNumber: 4, notes: "EF  (G)BC'BG  GG—  G(G)A  GFEE", lyric: 'Pitu Maat.. Swami Sakha.. Humare (Antara Peak)' },
+      { phraseNumber: 5, notes: 'D  DD  EG— ED  ED .BCD /', lyric: 'He Nath Narayan Vasudeva (Ending)' }
+    ],
+    phraseGuidance: [
+      { phraseNumber: 1, guidance: 'Start gently on Mandra Pa (.P), step firmly to middle Sa (SS), and execute the ornament S(R)S smoothly before landing on sustained Mandra Ni (.N.N—).' },
+      { phraseNumber: 2, guidance: 'Play Re (R RR) with clean articulation, sustain Pa (GP—) before descending to GR, and resolve smoothly on .NRS. Repeat Lines 1 & 2 together.' },
+      { phraseNumber: 3, guidance: 'Move gently from Ga-Ma (GM) into middle Pa (PP). Keep your tone calm and conclude the descent sweetly on PMGG.' },
+      { phraseNumber: 4, guidance: 'The expressive high peak: Touch Taar Sa (S\') with a light, focused embouchure in (P)NS\'NP, hold the sustained Pa (PP—), and resolve through PMGG.' },
+      { phraseNumber: 5, guidance: 'Reiterate the signature devotion hook with warm, meditative breath and finish cleanly on Sa with a peaceful breath pause (/).' }
+    ],
+    practiceMethod: [
+      'Practice the opening Mandra phrase (.P SS SSS SR S(R)S.N.N—) slowly with a Tanpura drone in Sa-Pa to ensure low note stability.',
+      'Work on the ornament S(R)S: lightly flicker the Re finger hole without interrupting the breath stream.',
+      'Practice the Antara leap (P)NS\'NP at half speed, ensuring your embouchure narrows smoothly for Taar Sa (S\') without blowing harshly.',
+      'Combine the Mukhda (Lines 1 & 2) and Antara (Lines 3, 4, & 5) in a continuous devotional rhythm.'
+    ],
+    commonMistakes: [
+      'Blowing too aggressively on Mandra Pa (.P), which causes the note to crack into middle Pa',
+      'Rushing through the kan-swar ornament S(R)S rather than playing it as a gentle, graceful touch',
+      'Overblowing on the higher Taar Sa note (S\') instead of tightening the lip aperture',
+      'Not sustaining Mandra Ni (.N.N—) and Pa (GP—) for their full duration'
+    ],
+    usefulTools: [
+      { name: 'Interactive Bansuri Fingering Chart', url: '/learn/fingering-chart', viewKey: 'learn_fingering_chart' },
+      { name: 'Online Flute Tuner', url: '/tuner', viewKey: 'learn_tuner' },
+      { name: 'Flute Note and Key Converter', url: '/tools/flute-note-key-converter', viewKey: 'note_key_converter' },
+      { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' },
+      { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
+    ]
   }
 ];
 

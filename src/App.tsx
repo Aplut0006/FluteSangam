@@ -82,6 +82,7 @@ const AchyutamKeshavamNotationView = lazyWithRetry(() => import('./components/Ac
 const RadhaKrishnaNotationView = lazyWithRetry(() => import('./components/RadhaKrishnaNotationView').then(m => ({ default: m.RadhaKrishnaNotationView })));
 const JanaGanaManaNotationView = lazyWithRetry(() => import('./components/JanaGanaManaNotationView').then(m => ({ default: m.JanaGanaManaNotationView })));
 const MahabharatKrishnaThemeNotationView = lazyWithRetry(() => import('./components/MahabharatKrishnaThemeNotationView').then(m => ({ default: m.MahabharatKrishnaThemeNotationView })));
+const ShriKrishnaGovindHareMurariNotationView = lazyWithRetry(() => import('./components/ShriKrishnaGovindHareMurariNotationView').then(m => ({ default: m.ShriKrishnaGovindHareMurariNotationView })));
 const PrivacyPolicyView = lazyWithRetry(() => import('./components/PrivacyPolicyView'));
 const TermsOfServiceView = lazyWithRetry(() => import('./components/TermsOfServiceView'));
 const NotFoundView = lazyWithRetry(() => import('./components/NotFoundView'));
@@ -1343,6 +1344,8 @@ export default function App() {
                 handleViewChange('notation_jana_gana_mana');
               } else if (slug === 'mahabharat-krishna-theme-flute-notes') {
                 handleViewChange('notation_mahabharat_krishna_theme');
+              } else if (slug === 'shri-krishna-govind-hare-murari-flute-notes') {
+                handleViewChange('notation_shri_krishna_govind_hare_murari');
               }
             }}
           />
@@ -1364,6 +1367,8 @@ export default function App() {
           <JanaGanaManaNotationView onViewChange={handleViewChange} />
         ) : currentView === 'notation_mahabharat_krishna_theme' ? (
           <MahabharatKrishnaThemeNotationView onViewChange={handleViewChange} />
+        ) : currentView === 'notation_shri_krishna_govind_hare_murari' ? (
+          <ShriKrishnaGovindHareMurariNotationView onViewChange={handleViewChange} />
         ) : currentView === 'community_members' ? (
           <MembersView 
             currentUser={currentUser} 
