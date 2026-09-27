@@ -35,8 +35,8 @@ export default function Footer({ onViewChange, onSadhanaFeedClick }: FooterProps
               <span className="text-xl sm:text-2xl font-display font-extrabold text-white tracking-tight block">
                 Flute<span className="text-amber-400">Sangam</span>
               </span>
-              <span className="text-xs text-bamboo-300 block font-sans">
-                Indian Flute &amp; Bansuri Learning Community
+              <span className="text-xs text-bamboo-300 block font-sans mt-0.5">
+                Flute &amp; Bansuri Learning Community
               </span>
             </div>
           </Link>
