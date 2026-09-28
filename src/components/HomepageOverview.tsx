@@ -203,7 +203,7 @@ export default function HomepageOverview({
     },
     {
       title: 'Song Sargams & Notations',
-      description: 'Explore accurate flute sargam notations for Bollywood, devotional, patriotic, and classical songs.',
+      description: 'Explore FluteSangam notations for global, Bollywood, devotional, patriotic, and classical songs.',
       view: 'notation_requests' as AppView,
       icon: FileText,
       badge: 'Song Notations',
@@ -762,7 +762,7 @@ export default function HomepageOverview({
               <ArrowRight className="w-4 h-4 text-amber-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
             </div>
             <p className="text-amber-100/80 leading-relaxed">
-              Explore accurate flute Sargam notations for Bollywood songs, classical bandishes, devotional bhajans, and folk melodies.
+              Explore FluteSangam notations for global, Bollywood, devotional, patriotic, and classical songs.
             </p>
           </a>
 
