@@ -80,6 +80,62 @@ export default function HomepageOverview({
     },
   ];
 
+  // Featured Song Notations
+  const featuredSongNotations = [
+    {
+      title: 'Happy Birthday',
+      subtitle: 'Traditional Celebration Melody',
+      category: 'Celebration',
+      difficulty: 'Beginner',
+      badge: 'Celebration Classic',
+      suggestedFlute: 'C Medium / Any Key',
+      startingSwar: 'Lower Pa (.P)',
+      view: 'notation_happy_birthday' as AppView,
+      openingSargam: '.P .P | .D .P | S — .N —',
+      openingWestern: 'G(low) G(low) | A(low) G(low) | C — B(low) —',
+      tips: 'Gentle warm breath on lower octave notes with crisp rhythm'
+    },
+    {
+      title: 'Jingle Bells',
+      subtitle: 'Holiday & Celebration Melody',
+      category: 'Holiday',
+      difficulty: 'Beginner',
+      badge: 'Holiday Favorite',
+      suggestedFlute: 'C Medium / Any Key',
+      startingSwar: 'Ga (G)',
+      view: 'notation_jingle_bells' as AppView,
+      openingSargam: 'G G G — | G G G — | G P | S R G —',
+      openingWestern: 'E E E — | E E E — | E G | C D E —',
+      tips: 'Crisp repeated Ga (E) notes and smooth jump to Pa (G)'
+    },
+    {
+      title: 'Titanic Theme (My Heart Will Go On)',
+      subtitle: 'Celine Dion / James Horner',
+      category: 'Global',
+      difficulty: 'Intermediate',
+      badge: 'Global Melody',
+      suggestedFlute: 'C / G / A Bass',
+      startingSwar: 'Sa (S)',
+      view: 'notation_titanic' as AppView,
+      openingSargam: 'S S S S | .N S — | S .N S R',
+      openingWestern: 'C C C C | B C — | C B C D',
+      tips: 'Airy cinematic tone with sustained notes and gentle vibrato'
+    },
+    {
+      title: 'Radha Krishna Flute Tune',
+      subtitle: 'Star Bharat Serial Melody',
+      category: 'Devotional',
+      difficulty: 'Intermediate',
+      badge: 'Iconic Bansuri',
+      suggestedFlute: 'E / F / C Medium',
+      startingSwar: 'Pa (P)',
+      view: 'notation_radha_krishna' as AppView,
+      openingSargam: 'P D S\' — | N D P — | M P G —',
+      openingWestern: 'G A C\' — | B A G — | F G E —',
+      tips: 'Indian classical ornamentation with smooth meend and kan-swaras'
+    }
+  ];
+
   // Latest Articles & Guides Data
   const latestArticles = [
     {
@@ -295,6 +351,14 @@ export default function HomepageOverview({
                 >
                   <Music className="w-3.5 h-3.5 text-amber-300 transition-transform group-hover:scale-110 shrink-0" />
                   <span>Explore Raagas</span>
+                </a>
+
+                <a 
+                  href="#flute-notations-section" 
+                  className="px-3 py-2 bg-white/10 hover:bg-white/20 active:bg-white/25 text-amber-50 rounded-xl text-xs font-semibold border border-white/15 transition flex items-center justify-center gap-2 group whitespace-nowrap shrink-0"
+                >
+                  <FileText className="w-3.5 h-3.5 text-amber-300 transition-transform group-hover:scale-110 shrink-0" />
+                  <span>Flute Notations</span>
                 </a>
 
                 <a 
@@ -521,7 +585,117 @@ export default function HomepageOverview({
         </div>
       </section>
 
-      {/* SECTION 4: Daily Practice & Interactive Tools (Sadhana Hub) */}
+      {/* SECTION 4: Flute Notation (Song Notations & Sargam Library) */}
+      <section id="flute-notations-section" className="space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-bamboo-200/80 pb-4">
+          <div className="space-y-1">
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-900 bg-amber-100/90 px-3 py-1 rounded-full border border-amber-200">
+              <FileText className="w-3.5 h-3.5 text-amber-700" />
+              Flute Notations
+            </div>
+            <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950">
+              Flute Notation
+            </h2>
+            <p className="text-xs text-gray-600">
+              Learn popular songs and melodies on flute with clear Sargam and Western notes, octave markings, and practical playing tips.
+            </p>
+          </div>
+          <a
+            href={VIEW_URLS['notation_requests'] || '/notations'}
+            onClick={(e) => {
+              e.preventDefault();
+              onViewChange('notation_requests');
+            }}
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 text-xs font-bold rounded-xl transition self-start sm:self-center cursor-pointer shadow-2xs group"
+          >
+            <span>Browse All Notations</span>
+            <ArrowRight className="w-4 h-4 text-amber-700 group-hover:translate-x-1 transition-transform" />
+          </a>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {featuredSongNotations.map((song, idx) => {
+            const targetUrl = VIEW_URLS[song.view] || '/notations';
+            return (
+              <motion.a
+                key={song.title}
+                href={targetUrl}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: idx * 0.1 }}
+                whileHover={{ y: -5 }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onViewChange(song.view);
+                }}
+                className="bg-white rounded-2xl p-5 border border-amber-200/80 shadow-2xs hover:shadow-md hover:border-amber-400 transition-all cursor-pointer group space-y-4 flex flex-col justify-between relative overflow-hidden text-left"
+              >
+                {/* Header Badges */}
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider bg-amber-100/80 text-amber-900 px-2.5 py-0.5 rounded-full border border-amber-200">
+                      {song.badge}
+                    </span>
+                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md border ${
+                      song.difficulty === 'Beginner' ? 'bg-emerald-50 text-emerald-800 border-emerald-200' : 'bg-blue-50 text-blue-800 border-blue-200'
+                    }`}>
+                      {song.difficulty}
+                    </span>
+                  </div>
+
+                  <div>
+                    <h3 className="font-bold text-bamboo-950 text-lg group-hover:text-amber-900 transition-colors font-display leading-snug">
+                      {song.title}
+                    </h3>
+                    <p className="text-[11px] text-gray-500 font-medium mt-0.5">
+                      {song.subtitle}
+                    </p>
+                  </div>
+
+                  {/* Key Swar & Flute Info */}
+                  <div className="grid grid-cols-2 gap-2 text-[11px] bg-amber-50/70 p-2.5 rounded-xl border border-amber-100/80">
+                    <div>
+                      <span className="text-gray-500 block text-[10px] uppercase font-bold tracking-wider">Suggested Flute</span>
+                      <strong className="text-bamboo-950 font-semibold truncate block">{song.suggestedFlute}</strong>
+                    </div>
+                    <div>
+                      <span className="text-gray-500 block text-[10px] uppercase font-bold tracking-wider">Start Note</span>
+                      <strong className="text-bamboo-950 font-semibold truncate block">{song.startingSwar}</strong>
+                    </div>
+                  </div>
+
+                  {/* Notation Preview */}
+                  <div className="bg-bamboo-950 text-amber-200 p-2.5 rounded-xl text-[11px] font-mono space-y-1.5 border border-amber-800/40">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] text-amber-400/80 uppercase tracking-widest font-sans font-bold shrink-0">Sargam:</span>
+                      <span className="font-bold tracking-wider text-right truncate ml-2">{song.openingSargam}</span>
+                    </div>
+                    <div className="flex items-center justify-between border-t border-amber-900/60 pt-1.5">
+                      <span className="text-[10px] text-amber-400/80 uppercase tracking-widest font-sans font-bold shrink-0">Western:</span>
+                      <span className="font-bold tracking-wider text-right truncate ml-2 text-amber-300/90">{song.openingWestern}</span>
+                    </div>
+                  </div>
+
+                  <p className="text-[11px] text-gray-600 flex items-center gap-1.5 pt-1">
+                    <Sparkles className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                    <span className="line-clamp-1">{song.tips}</span>
+                  </p>
+                </div>
+
+                <div className="pt-3 border-t border-amber-100 flex items-center justify-between text-xs font-bold text-amber-800 group-hover:text-amber-950 transition-colors">
+                  <span>View Full Notation</span>
+                  <div className="p-1.5 rounded-lg bg-amber-100/60 text-amber-800 group-hover:bg-amber-800 group-hover:text-amber-100 transition-all">
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </div>
+              </motion.a>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* SECTION 5: Daily Practice & Interactive Tools (Sadhana Hub) */}
       <section id="daily-practice-section" className="space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-bamboo-200/80 pb-4">
           <div className="space-y-1">
@@ -691,7 +865,7 @@ export default function HomepageOverview({
           <div className="space-y-1">
             <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950 flex items-center gap-2">
               <ShieldCheck className="w-6 h-6 text-amber-600 shrink-0" />
-              Why FluteSangam? Educational Integrity &amp; Quality
+              Why FluteSangam?
             </h2>
             <p className="text-xs text-gray-600 max-w-2xl">
               FluteSangam provides practical learning resources for flute and bansuri players, including notation, raga guides, blowing exercises, and interactive practice tools.
