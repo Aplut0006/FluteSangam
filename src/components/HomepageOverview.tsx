@@ -24,15 +24,6 @@ export default function HomepageOverview({
 }: HomepageOverviewProps) {
   const [activeTab, setActiveTab] = useState<'all' | 'learn' | 'ragas' | 'practice' | 'articles'>('all');
 
-  const scrollToRecentDiscussions = () => {
-    const elem = document.getElementById('recent-discussions-section');
-    if (elem) {
-      elem.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      onViewChange('community');
-    }
-  };
-
   // Featured Raagas Data (Popular Ragas)
   const featuredRaagas = [
     { 
@@ -694,102 +685,7 @@ export default function HomepageOverview({
         </div>
       </section>
 
-      {/* SECTION 6: Community — Connect, Share & Practice */}
-      <section id="community-overview-section" className="bg-gradient-to-br from-bamboo-950 via-bamboo-900 to-amber-950 text-white rounded-3xl p-6 sm:p-8 border border-amber-800/50 shadow-xl space-y-6 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-        
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-amber-800/60 pb-5 relative z-10">
-          <div className="space-y-1">
-            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-300 bg-amber-400/20 px-3 py-1 rounded-full border border-amber-400/30">
-              <Users className="w-3.5 h-3.5 text-amber-300" />
-              Global Flutist Network
-            </div>
-            <h2 className="text-xl sm:text-2xl font-bold font-display text-white">
-              Connect, Share &amp; Practice with Flutists Worldwide
-            </h2>
-            <p className="text-xs text-amber-100/80 max-w-2xl">
-              Post audio recitals, ask technical questions on lip placement &amp; breath control, explore song notations, and receive feedback from fellow learners.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-2.5 shrink-0">
-            <button
-              onClick={scrollToRecentDiscussions}
-              className="px-4 py-2 bg-amber-400 hover:bg-amber-300 text-bamboo-950 font-bold text-xs rounded-xl transition shadow-md flex items-center gap-1.5 cursor-pointer"
-            >
-              <MessageSquare className="w-3.5 h-3.5" />
-              <span>Explore Community Discussions</span>
-            </button>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs relative z-10">
-          <a 
-            href={VIEW_URLS['community'] || '/community'}
-            onClick={(e) => {
-              e.preventDefault();
-              onViewChange('community');
-            }}
-            className="p-5 bg-white/10 backdrop-blur-md rounded-2xl border border-white/15 hover:border-amber-400/50 transition cursor-pointer space-y-2 group block"
-            title="Explore Flute Discussions & Sadhana Feed"
-          >
-            <div className="flex items-center justify-between">
-              <span className="font-bold text-amber-300 text-sm flex items-center gap-1.5">
-                <Flame className="w-4 h-4 text-amber-400" />
-                Daily Sadhana Feed
-              </span>
-              <ArrowRight className="w-4 h-4 text-amber-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-            </div>
-            <p className="text-amber-100/80 leading-relaxed">
-              Share your daily practice recordings, log long note minutes, and track your progress alongside fellow flute learners.
-            </p>
-          </a>
-
-          <a 
-            href={VIEW_URLS['notation_requests'] || '/notations'}
-            onClick={(e) => {
-              e.preventDefault();
-              onViewChange('notation_requests');
-            }}
-            className="p-5 bg-white/10 backdrop-blur-md rounded-2xl border border-white/15 hover:border-amber-400/50 transition cursor-pointer space-y-2 group block"
-            title="Browse Flute Song Notations"
-          >
-            <div className="flex items-center justify-between">
-              <span className="font-bold text-amber-300 text-sm flex items-center gap-1.5">
-                <FileText className="w-4 h-4 text-amber-400" />
-                Browse Notations
-              </span>
-              <ArrowRight className="w-4 h-4 text-amber-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-            </div>
-            <p className="text-amber-100/80 leading-relaxed">
-              Explore FluteSangam notations for global, Bollywood, devotional, patriotic, and classical songs.
-            </p>
-          </a>
-
-          <a 
-            href={VIEW_URLS['community_members'] || '/members'}
-            onClick={(e) => {
-              e.preventDefault();
-              onViewChange('community_members');
-            }}
-            className="p-5 bg-white/10 backdrop-blur-md rounded-2xl border border-white/15 hover:border-amber-400/50 transition cursor-pointer space-y-2 group block"
-            title="Browse Flute Learner Profiles"
-          >
-            <div className="flex items-center justify-between">
-              <span className="font-bold text-amber-300 text-sm flex items-center gap-1.5">
-                <Users className="w-4 h-4 text-amber-400" />
-                Flute Learner Profiles
-              </span>
-              <ArrowRight className="w-4 h-4 text-amber-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-            </div>
-            <p className="text-amber-100/80 leading-relaxed">
-              Discover fellow flute enthusiasts, connect with learning partners, and see who is learning and practicing on FluteSangam.
-            </p>
-          </a>
-        </div>
-      </section>
-
-      {/* SECTION 7: Quality & Trust Banner */}
+      {/* SECTION 6: Quality & Trust Banner */}
       <section className="bg-white rounded-3xl p-6 sm:p-8 border border-amber-200/80 shadow-2xs space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-gray-100 pb-4">
           <div className="space-y-1">
@@ -798,7 +694,7 @@ export default function HomepageOverview({
               Why FluteSangam? Educational Integrity &amp; Quality
             </h2>
             <p className="text-xs text-gray-600 max-w-2xl">
-              All music notations, raga details, and blowing exercises on FluteSangam are curated and organized for Indian bamboo flute (Bansuri) practitioners.
+              FluteSangam provides practical learning resources for flute and bansuri players, including notation, raga guides, blowing exercises, and interactive practice tools.
             </p>
           </div>
 
