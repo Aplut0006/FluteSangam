@@ -63,6 +63,7 @@ import { RadhaKrishnaNotationView } from '../components/RadhaKrishnaNotationView
 import { JanaGanaManaNotationView } from '../components/JanaGanaManaNotationView';
 import { MahabharatKrishnaThemeNotationView } from '../components/MahabharatKrishnaThemeNotationView';
 import { ShriKrishnaGovindHareMurariNotationView } from '../components/ShriKrishnaGovindHareMurariNotationView';
+import { CommunityFeedView } from '../components/CommunityFeedView';
 import NotFoundView from '../components/NotFoundView';
 
 import Navbar from '../components/Navbar';
@@ -160,8 +161,8 @@ export function getRouteMetadata(path: string): RouteMetadata {
     };
   }
 
-  // 1. Home / Search
-  if (cleanPath === '' || cleanPath === '/' || cleanPath === '/community' || cleanPath === '/search') {
+  // 1. Home
+  if (cleanPath === '' || cleanPath === '/' || cleanPath === '/search') {
     return {
       title: 'FluteSangam | Learn Flute, Bansuri & Connect with Flutists',
       description: 'Learn flute online with lessons, songs, ragas, techniques, practice guides, interactive tools, and Sargam notations for bamboo flute enthusiasts.',
@@ -181,6 +182,66 @@ export function getRouteMetadata(path: string): RouteMetadata {
           'url': DOMAIN,
           'logo': `${DOMAIN}/flutesangam_without_tagline_compressed.png`
         }
+      }
+    };
+  }
+
+  // 1b. Community Feed
+  if (cleanPath === '/community' || cleanPath === '/feed') {
+    const title = 'Flute Community & Practice Discussions | FluteSangam';
+    const description = 'Connect with flute and bansuri players worldwide. Share practice recordings, ask questions, discuss flute playing and classical ragas, and receive feedback.';
+    const canonicalUrl = `${DOMAIN}/community`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: CommunityFeedView,
+      componentProps: {
+        posts: [],
+        loading: false,
+        currentUser: null,
+        searchQuery: '',
+        setSearchQuery: () => {},
+        activeCategory: 'All',
+        setActiveCategory: () => {},
+        activeRagaFilter: null,
+        setActiveRagaFilter: () => {},
+        visiblePostsCount: 10,
+        setVisiblePostsCount: () => {},
+        onOpenAuth: () => {},
+        onOpenCreatePost: () => {},
+        onOpenShare: () => {},
+        onStartChat: () => {},
+        onPostClick: () => {},
+        onUserProfileClick: () => {},
+        onEditPost: () => {},
+        onDeletePost: () => {},
+        onOpenImage: () => {},
+        onViewChange: () => {}
+      },
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          createWebPageSchema(canonicalUrl, title, description),
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': DOMAIN
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Flute Community',
+                'item': canonicalUrl
+              }
+            ]
+          }
+        ]
       }
     };
   }

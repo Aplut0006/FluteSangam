@@ -23,7 +23,7 @@ export default function Footer({ onViewChange, onSadhanaFeedClick }: FooterProps
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-bamboo-700/60">
           <Link
             to="/"
-            onClick={(e) => handleLinkClick('community', e)}
+            onClick={(e) => handleLinkClick('home', e)}
             className="flex items-center gap-3 text-left group"
           >
             <img
@@ -151,19 +151,13 @@ export default function Footer({ onViewChange, onSadhanaFeedClick }: FooterProps
             </h3>
             <ul className="space-y-2 text-bamboo-200">
               <li>
-                <a 
-                  href="/#recent-discussions-section" 
-                  onClick={(e) => {
-                    if (onSadhanaFeedClick) {
-                      onSadhanaFeedClick(e);
-                    } else {
-                      handleLinkClick('community', e);
-                    }
-                  }} 
+                <Link 
+                  to="/community" 
+                  onClick={(e) => handleLinkClick('community', e)} 
                   className="hover:text-amber-300 transition cursor-pointer"
                 >
                   Sadhana Feed &amp; Recitals
-                </a>
+                </Link>
               </li>
               <li>
                 <Link to="/members" onClick={(e) => handleLinkClick('community_members', e)} className="hover:text-amber-300 transition">

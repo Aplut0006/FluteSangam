@@ -1,5 +1,6 @@
 export const VIEW_URLS: Record<string, string> = {
-  'community': '/',
+  'home': '/',
+  'community': '/community',
   'chats': '/chats',
   'post-detail': '/post',
   'user-profile': '/profile',

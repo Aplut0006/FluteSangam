@@ -266,20 +266,17 @@ export default function HomepageOverview({
                   <BookOpen className="w-4 h-4" />
                   <span>Explore Learning Hub</span>
                 </a>
-                <button
-                  onClick={() => {
-                    const el = document.getElementById('recent-discussions-section');
-                    if (el) {
-                      el.scrollIntoView({ behavior: 'smooth' });
-                    } else {
-                      onViewChange('community');
-                    }
+                <a
+                  href={VIEW_URLS['community'] || '/community'}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onViewChange('community');
                   }}
-                  className="w-full py-2 px-4 bg-white/15 hover:bg-white/25 text-white font-bold text-xs rounded-xl border border-white/20 transition flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-2 px-4 bg-white/15 hover:bg-white/25 text-white font-bold text-xs rounded-xl border border-white/20 transition flex items-center justify-center gap-2 cursor-pointer text-center"
                 >
                   <MessageSquare className="w-3.5 h-3.5 text-amber-300" />
-                  <span>Go to Discussions</span>
-                </button>
+                  <span>Explore Community Feed</span>
+                </a>
               </div>
             </div>
           </div>
@@ -739,13 +736,13 @@ export default function HomepageOverview({
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs relative z-10">
           <a 
-            href="/#recent-discussions-section"
+            href={VIEW_URLS['community'] || '/community'}
             onClick={(e) => {
               e.preventDefault();
-              scrollToRecentDiscussions();
+              onViewChange('community');
             }}
             className="p-5 bg-white/10 backdrop-blur-md rounded-2xl border border-white/15 hover:border-amber-400/50 transition cursor-pointer space-y-2 group block"
-            title="Jump to Recent Discussions & Sadhana Feed"
+            title="Explore Flute Discussions & Sadhana Feed"
           >
             <div className="flex items-center justify-between">
               <span className="font-bold text-amber-300 text-sm flex items-center gap-1.5">

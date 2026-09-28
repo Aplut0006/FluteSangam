@@ -248,10 +248,10 @@ export default function Navbar({
         <div className="w-full max-w-(--breakpoint-2xl) mx-auto px-2.5 sm:px-4 lg:px-8 xl:px-10 h-14 sm:h-16 flex items-center justify-between gap-1.5 sm:gap-3 lg:gap-4 xl:gap-6 min-w-0">
         {/* Brand Logo & Name */}
         <a 
-          href={VIEW_URLS['community'] || '/'}
+          href={VIEW_URLS['home'] || '/'}
           onClick={(e) => {
             e.preventDefault();
-            onViewChange?.('community');
+            onViewChange?.('home');
             setShowMobileMenu(false);
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
@@ -276,21 +276,13 @@ export default function Navbar({
         {/* Desktop View Selector */}
         <div className="hidden lg:flex items-center space-x-0.5 xl:space-x-1 bg-bamboo-50/80 p-1 rounded-xl border border-bamboo-100/50 shrink min-w-0">
           
-          {/* 1. Sadhana Feed */}
+          {/* 1. Community / Sadhana Feed */}
           <a
-            href="/#recent-discussions-section"
+            href={VIEW_URLS['community'] || '/community'}
             onClick={(e) => { 
               e.preventDefault(); 
-              if (currentView !== 'community') {
-                onViewChange?.('community'); 
-                setTimeout(() => {
-                  const el = document.getElementById('recent-discussions-section');
-                  if (el) el.scrollIntoView({ behavior: 'smooth' });
-                }, 100);
-              } else {
-                const el = document.getElementById('recent-discussions-section');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
-              }
+              onViewChange?.('community'); 
+              window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
             className={`px-2.5 xl:px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
               currentView === 'community' 
@@ -676,20 +668,12 @@ export default function Navbar({
               </span>
               <div className="grid grid-cols-2 gap-2">
                 <a
-                  href="/#recent-discussions-section"
+                  href={VIEW_URLS['community'] || '/community'}
                   onClick={(e) => { 
                     e.preventDefault(); 
-                    if (currentView !== 'community') {
-                      onViewChange?.('community'); 
-                      setTimeout(() => {
-                        const el = document.getElementById('recent-discussions-section');
-                        if (el) el.scrollIntoView({ behavior: 'smooth' });
-                      }, 100);
-                    } else {
-                      const el = document.getElementById('recent-discussions-section');
-                      if (el) el.scrollIntoView({ behavior: 'smooth' });
-                    }
+                    onViewChange?.('community'); 
                     setShowMobileMenu(false); 
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
                   className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
                     currentView === 'community'

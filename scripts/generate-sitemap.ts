@@ -6,8 +6,7 @@ import { CATEGORY_SLUGS } from '../src/data/allFaqData';
 const baseUrl = 'https://flutesangam.com';
 
 const baseRoutes = Object.values(VIEW_URLS)
-  .filter(p => !p.startsWith('/post') && !p.startsWith('/profile') && !p.startsWith('/chats') && p !== '/404' && p !== '/members')
-  .map(route => (route === '/community' ? '' : route));
+  .filter(p => !p.startsWith('/post') && !p.startsWith('/profile') && !p.startsWith('/chats') && p !== '/404' && p !== '/members');
 
 const faqCategoryRoutes = Object.values(CATEGORY_SLUGS)
   .filter(Boolean)
@@ -25,7 +24,8 @@ const sitemapPath = path.join(publicDir, 'sitemap.xml');
 
 // Explicit historic publication / update dates
 const ROUTE_MOD_DATES: Record<string, string> = {
-  '': '2026-09-18',
+  '/': '2026-09-28',
+  '/community': '2026-09-28',
   '/learn/intro': '2026-09-25',
   '/learn/choose-flute': '2026-09-24',
   '/tuner': '2026-09-18',
