@@ -202,12 +202,12 @@ export default function HomepageOverview({
       borderColor: 'border-amber-200'
     },
     {
-      title: 'Song Sargam Requests',
-      description: 'Request custom sargam sheet music for Bollywood, devotional, folk, or classical flute songs.',
+      title: 'Song Sargams & Notations',
+      description: 'Explore accurate flute sargam notations for Bollywood, devotional, patriotic, and classical songs.',
       view: 'notation_requests' as AppView,
       icon: FileText,
-      badge: 'Community Notation',
-      features: ['Bollywood & Devotional', 'Accurate Sargam Notes', 'Community Requests'],
+      badge: 'Song Notations',
+      features: ['Bollywood & Devotional', 'Accurate Sargam Notes', 'Scale & Octave Guides'],
       gradient: 'from-amber-500/15 via-bamboo-500/5 to-transparent',
       borderColor: 'border-amber-200'
     },
@@ -708,7 +708,7 @@ export default function HomepageOverview({
               Connect, Share &amp; Practice with Flutists Worldwide
             </h2>
             <p className="text-xs text-amber-100/80 max-w-2xl">
-              Post audio recitals, ask technical questions on lip placement &amp; breath control, request song notations, and receive feedback from fellow learners.
+              Post audio recitals, ask technical questions on lip placement &amp; breath control, explore song notations, and receive feedback from fellow learners.
             </p>
           </div>
 
@@ -720,17 +720,6 @@ export default function HomepageOverview({
               <MessageSquare className="w-3.5 h-3.5" />
               <span>Explore Community Discussions</span>
             </button>
-            <a
-              href={VIEW_URLS['notation_requests'] || '/notations'}
-              onClick={(e) => {
-                e.preventDefault();
-                onViewChange('notation_requests');
-              }}
-              className="px-4 py-2 bg-white/15 hover:bg-white/25 text-white font-bold text-xs rounded-xl border border-white/20 transition flex items-center gap-1.5 cursor-pointer"
-            >
-              <FileText className="w-3.5 h-3.5 text-amber-300" />
-              <span>Request Song Sargams</span>
-            </a>
           </div>
         </div>
 
@@ -763,17 +752,17 @@ export default function HomepageOverview({
               onViewChange('notation_requests');
             }}
             className="p-5 bg-white/10 backdrop-blur-md rounded-2xl border border-white/15 hover:border-amber-400/50 transition cursor-pointer space-y-2 group block"
-            title="Browse Community Notation Requests"
+            title="Browse Flute Song Notations"
           >
             <div className="flex items-center justify-between">
               <span className="font-bold text-amber-300 text-sm flex items-center gap-1.5">
                 <FileText className="w-4 h-4 text-amber-400" />
-                Community Notation Requests
+                Browse Notations
               </span>
               <ArrowRight className="w-4 h-4 text-amber-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
             </div>
             <p className="text-amber-100/80 leading-relaxed">
-              Browse and submit Sargam requests for Bollywood songs, classical bandishes, bhajans, and traditional folk melodies.
+              Explore accurate flute Sargam notations for Bollywood songs, classical bandishes, devotional bhajans, and folk melodies.
             </p>
           </a>
 

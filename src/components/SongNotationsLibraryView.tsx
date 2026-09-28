@@ -74,7 +74,7 @@ export const SongNotationsLibraryView: React.FC<SongNotationsLibraryViewProps> =
             onClick={(e) => {
               if (onViewChange && !e.ctrlKey && !e.metaKey) {
                 e.preventDefault();
-                onViewChange('community');
+                onViewChange('home');
               }
             }}
             className="hover:text-amber-700 transition shrink-0"
