@@ -378,7 +378,7 @@ export default function AboutUsView({ onViewChange }: AboutUsViewProps = {}) {
             </a>
 
             <a 
-              href="/#recent-discussions-section"
+              href="/community"
               onClick={handleNav('community')}
               className="p-3.5 bg-white hover:bg-teal-50 rounded-2xl border border-teal-200/80 font-bold text-teal-900 text-xs sm:text-sm flex flex-col items-center gap-2 transition shadow-xs hover:shadow-md cursor-pointer"
             >

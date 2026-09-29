@@ -30,7 +30,7 @@ export default function HomepageOverview({
       name: 'Raag Yaman', 
       thaat: 'Kalyan', 
       jati: 'Sampurna - Sampurna', 
-      time: 'Night (7-10 PM)', 
+      time: '1st quarter of night (6 PM – 9 PM)', 
       view: 'raga_yaman' as AppView, 
       difficulty: 'Beginner', 
       badge: 'Essential Classical',
@@ -43,7 +43,7 @@ export default function HomepageOverview({
       name: 'Raag Bhoopali', 
       thaat: 'Kalyan', 
       jati: 'Audav - Audav', 
-      time: 'First quarter of night (7-10 PM)', 
+      time: '1st quarter of night (6 PM – 9 PM)', 
       view: 'raga_bhoopali' as AppView, 
       difficulty: 'Beginner', 
       badge: 'Popular Starter',
@@ -56,7 +56,7 @@ export default function HomepageOverview({
       name: 'Raag Durga', 
       thaat: 'Bilaval', 
       jati: 'Audav - Audav', 
-      time: 'Late Night (10 PM-1 AM)', 
+      time: '2nd quarter of night (9 PM – 12 AM)', 
       view: 'raga_durga' as AppView, 
       difficulty: 'Beginner', 
       badge: 'Energetic Pentatonic',
@@ -69,7 +69,7 @@ export default function HomepageOverview({
       name: 'Raag Khamaj', 
       thaat: 'Khamaj', 
       jati: 'Shadav - Sampurna', 
-      time: 'Second quarter of night (10 PM-1 AM)', 
+      time: '2nd quarter of night (9 PM – 12 AM)', 
       view: 'raga_khamaj' as AppView, 
       difficulty: 'Intermediate', 
       badge: 'Romantic Classic',
@@ -379,6 +379,95 @@ export default function HomepageOverview({
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+
+      {/* SECTION: Why Learn the Flute & Connecting with Community */}
+      <section className="space-y-6 bg-linear-to-br from-amber-50/70 via-white to-bamboo-50/50 p-6 sm:p-8 rounded-3xl border border-amber-200/80 shadow-xs">
+        <div className="max-w-3xl space-y-2">
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-900 bg-amber-100 px-3 py-1 rounded-full border border-amber-200/90 shadow-2xs">
+            <Sparkles className="w-3.5 h-3.5 text-amber-700" />
+            The Art &amp; Science of Flute Playing
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-bold font-display text-bamboo-950 tracking-tight">
+            Why Learn the Flute/Bansuri?
+          </h2>
+          <p className="text-sm text-gray-700 leading-relaxed">
+            The flute—particularly the Indian bamboo Bansuri—is one of humanity's oldest and most evocative acoustic instruments. The music produced is an intimate sonic projection of your own breath (<span className="italic font-semibold text-amber-900">Prana</span>), making learning the flute both a fulfilling musical pursuit and a transformative mindfulness practice.
+          </p>
+        </div>
+
+        {/* 4 Core Benefits Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="bg-white/95 p-4 sm:p-5 rounded-2xl border border-amber-100 shadow-2xs hover:border-amber-300 transition-colors space-y-2.5">
+            <div className="w-9 h-9 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold">
+              <Wind className="w-5 h-5 text-amber-700" />
+            </div>
+            <h3 className="text-sm font-bold text-gray-900">Breath &amp; Yogic Health</h3>
+            <p className="text-xs text-gray-600 leading-relaxed">
+              Playing flute acts as active <span className="font-semibold text-amber-900">Pranayama</span>, expanding lung capacity, training steady diaphragmatic breathing, and inducing profound nervous system relaxation.
+            </p>
+          </div>
+
+          <div className="bg-white/95 p-4 sm:p-5 rounded-2xl border border-amber-100 shadow-2xs hover:border-amber-300 transition-colors space-y-2.5">
+            <div className="w-9 h-9 rounded-xl bg-bamboo-100 text-bamboo-800 flex items-center justify-center font-bold">
+              <Target className="w-5 h-5 text-bamboo-700" />
+            </div>
+            <h3 className="text-sm font-bold text-gray-900">Pitch &amp; Ear Mastery (Sur)</h3>
+            <p className="text-xs text-gray-600 leading-relaxed">
+              Without frets or fixed keys, pitch accuracy depends on micro-adjustments of your breath angle and half-hole finger placement, sharpening your musical ear and intonation (<span className="italic">Shruti</span>).
+            </p>
+          </div>
+
+          <div className="bg-white/95 p-4 sm:p-5 rounded-2xl border border-amber-100 shadow-2xs hover:border-amber-300 transition-colors space-y-2.5">
+            <div className="w-9 h-9 rounded-xl bg-orange-100 text-orange-800 flex items-center justify-center font-bold">
+              <Heart className="w-5 h-5 text-orange-700" />
+            </div>
+            <h3 className="text-sm font-bold text-gray-900">Meditative Riyaz &amp; Focus</h3>
+            <p className="text-xs text-gray-600 leading-relaxed">
+              Holding long sustained notes (<span className="font-semibold text-amber-900">Kharaj Sadhana</span>) quiets racing thoughts, sharpens neuro-cognitive focus, and relieves daily stress through acoustic vibration.
+            </p>
+          </div>
+
+          <div className="bg-white/95 p-4 sm:p-5 rounded-2xl border border-amber-100 shadow-2xs hover:border-amber-300 transition-colors space-y-2.5">
+            <div className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
+              <Music className="w-5 h-5 text-emerald-700" />
+            </div>
+            <h3 className="text-sm font-bold text-gray-900">Expressive Versatility</h3>
+            <p className="text-xs text-gray-600 leading-relaxed">
+              From evocative classical Ragas (<span className="italic">Meend, Gamak, Murki</span>) to serene devotional bhajans, folk songs, and popular film melodies, the flute adapts effortlessly to any genre.
+            </p>
+          </div>
+        </div>
+
+        {/* Community Connection & Shared Experience Spotlight */}
+        <div className="bg-gradient-to-r from-bamboo-900 via-amber-950 to-bamboo-950 text-amber-50 p-5 sm:p-6 rounded-2xl border border-amber-600/30 flex flex-col md:flex-row md:items-center justify-between gap-5">
+          <div className="space-y-2 max-w-2xl">
+            <div className="flex items-center gap-2">
+              <span className="p-1.5 bg-amber-400/20 text-amber-300 rounded-lg border border-amber-400/30">
+                <Users className="w-4 h-4" />
+              </span>
+              <h3 className="text-base font-bold text-amber-200">
+                Connecting with Other Flutists Accelerates Your Learning
+              </h3>
+            </div>
+            <p className="text-xs sm:text-sm text-amber-100/90 leading-relaxed">
+              Self-learning a wind instrument can feel isolating—subtle aspects like lip aperture angle, tonal airiness, or half-hole finger tension cannot be fully diagnosed alone. Exchanging real practice experiences, listening to peer audio recordings, and asking questions in a supportive community helps you troubleshoot sticking points quickly, stay motivated during long Riyaz cycles, and discover authentic styling nuances from practitioners worldwide.
+            </p>
+          </div>
+          <a
+            href={VIEW_URLS['community'] || '/community'}
+            onClick={(e) => {
+              e.preventDefault();
+              onViewChange('community');
+            }}
+            className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-bamboo-950 font-bold text-xs rounded-xl shadow-md transition self-start md:self-center shrink-0 cursor-pointer group"
+          >
+            <MessageSquare className="w-4 h-4 text-bamboo-900" />
+            <span>Join Community Sadhana Feed</span>
+            <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+          </a>
         </div>
       </section>
 

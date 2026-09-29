@@ -26,7 +26,7 @@ const sitemapPath = path.join(publicDir, 'sitemap.xml');
 
 // Explicit historic publication / update dates
 const ROUTE_MOD_DATES: Record<string, string> = {
-  '/': '2026-09-28',
+  '/': '2026-09-29',
   '/community': '2026-09-28',
   '/learn/intro': '2026-09-25',
   '/learn/choose-flute': '2026-09-24',

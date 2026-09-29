@@ -23,7 +23,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
     vadi: "Ga",
     samvadi: "Dha",
     pakad: "Ga Re Sa, Dha(lower) Sa, Re Ga, Pa Ga, Dha Pa Ga, Re Sa",
-    time: "First quarter of the night (7 PM - 10 PM)",
+    time: "First quarter of the night (6 PM - 9 PM)",
     mood: "Devotional, peaceful (Shanta, Bhakti)",
     link: "raga_bhoopali",
     path: "/learn/raga-bhoopali"
@@ -37,7 +37,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
     vadi: "Ma",
     samvadi: "Sa",
     pakad: "Dha(lower) Ma(lower) Re, Pa Dha Sa', Dha Pa Ma Re, Dha(lower) Sa",
-    time: "Late Evening (9 PM - 12 AM)",
+    time: "Second quarter of the night (9 PM - 12 AM)",
     mood: "Heroic, Peaceful, Auspicious (Veera, Shanta)",
     link: "raga_durga",
     path: "/learn/raga-durga"
@@ -303,7 +303,7 @@ export const LEARN_RAAGAS: RaagaDetails[] = [
     vadi: "Dha(komal)",
     samvadi: "Ga(komal)",
     pakad: "Re(komal) Ga(komal) Re(komal) Sa, Ma(tivra) Dha(komal) Pa, Ma(tivra) Ga(komal) Re(komal) Ga(komal) Re(komal) Sa",
-    time: "Morning (7 AM - 10 AM)",
+    time: "Late Morning (9 AM - 12 PM)",
     mood: "Profound Devotion, Pathos, Reverence (Karuna, Bhakti)",
     link: "raga_todi",
     path: "/learn/raga-todi"
