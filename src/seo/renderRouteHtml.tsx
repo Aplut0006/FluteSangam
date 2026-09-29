@@ -609,26 +609,38 @@ export function getRouteMetadata(path: string): RouteMetadata {
 
   if (cleanPath === '/learn/alankaras' || cleanPath.startsWith('/learn/alankaras/')) {
     const level = (cleanPath.split('/')[3] || 'overview').toLowerCase();
-    let title = 'Bansuri Alankar Practice Vault: 60 Sargam Paltas & Exercises | FluteSangam';
-    let description = 'Explore 60 complete bansuri alankars (paltas) for Indian bamboo flute across Beginner, Intermediate & Advanced levels. Features audio playback, swara notations, and interactive metronome.';
+    let title = 'Bansuri Alankar Practice Guide: 60 Sargam Paltas & Exercises | FluteSangam';
+    let description = 'Master Indian bamboo flute with our complete guide to 60 Bansuri Alankars (Paltas). Discover practice methodology, octave navigation, and structured exercises across all levels.';
+    let initialLevel: 'Beginner' | 'Intermediate' | 'Advanced' = 'Beginner';
+    let viewMode: 'hub' | 'level' = 'hub';
+    let canonicalUrl = `${DOMAIN}/learn/alankaras`;
 
     if (level === 'beginner') {
       title = 'Beginner Bansuri Alankar Exercises (20 Sargam Paltas) | FluteSangam';
       description = 'Master 20 beginner bansuri alankars (sargam paltas) on Indian bamboo flute. Practice fundamental Sa Re Ga Ma notes, double swaras, 3 & 4 note patterns, metronome timing, and finger agility.';
+      initialLevel = 'Beginner';
+      viewMode = 'level';
+      canonicalUrl = `${DOMAIN}/learn/alankaras/beginner`;
     } else if (level === 'intermediate') {
       title = 'Intermediate Bansuri Alankar Exercises (20 Swara Paltas) | FluteSangam';
       description = 'Master 20 intermediate bansuri alankars (sargam paltas) on Indian bamboo flute. Practice vakra cross-steps, double-skips, komal swaras, half-hole fingerings, speed variations, and rhythmic laya drills.';
+      initialLevel = 'Intermediate';
+      viewMode = 'level';
+      canonicalUrl = `${DOMAIN}/learn/alankaras/intermediate`;
     } else if (level === 'advanced') {
       title = 'Advanced Bansuri Alankar Exercises (20 Master Paltas) | FluteSangam';
       description = 'Master 20 advanced bansuri alankars (master paltas) on Indian bamboo flute. Practice fast drut taan sprints, khatka-murki ornaments, gamak oscillations, 3-octave leaps, and jhala speed drills.';
+      initialLevel = 'Advanced';
+      viewMode = 'level';
+      canonicalUrl = `${DOMAIN}/learn/alankaras/advanced`;
     }
 
-    const canonicalUrl = cleanPath.startsWith('/learn/alankaras/') ? `${DOMAIN}${cleanPath}` : `${DOMAIN}/learn/alankaras`;
     return {
       title,
       description,
       canonicalUrl,
       component: LearnAlankarasView,
+      componentProps: { initialLevel, viewMode },
       jsonLd: createWebPageSchema(canonicalUrl, title, description)
     };
   }

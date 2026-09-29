@@ -7,8 +7,23 @@ import './index.css';
 
 // Global error handling for unhandled promise rejections and third-party/iframe environment quirks
 window.addEventListener('unhandledrejection', (event) => {
-  const reason = event.reason?.toString() || '';
-  if (reason.includes('Failed to fetch dynamically imported module') || reason.includes('Importing a module script failed')) {
+  const reasonStr = event.reason?.message || event.reason?.toString() || '';
+  const reasonName = event.reason?.name || '';
+
+  // Suppress harmless abort signals (triggered by page navigation, component unmount, or cancelled requests)
+  if (
+    reasonName === 'AbortError' ||
+    reasonStr.includes('signal is aborted') ||
+    reasonStr.includes('The operation was aborted') ||
+    reasonStr.includes('user aborted a request') ||
+    reasonStr.includes('AbortError')
+  ) {
+    event.preventDefault();
+    event.stopPropagation();
+    return;
+  }
+
+  if (reasonStr.includes('Failed to fetch dynamically imported module') || reasonStr.includes('Importing a module script failed')) {
     console.warn('[FluteSangam] Dynamic import failed, auto-reloading page...');
     try {
       const pageHasBeenRefreshed = sessionStorage.getItem('flutesangam_chunk_refreshed');
@@ -22,9 +37,19 @@ window.addEventListener('unhandledrejection', (event) => {
   }
 });
 
-// Suppress harmless sandbox/iframe errors like getter-only fetch overrides
+// Suppress harmless sandbox/iframe errors like getter-only fetch overrides and abort DOMExceptions
 window.addEventListener('error', (event) => {
-  if (event.message && event.message.includes('Cannot set property fetch of #<Window>')) {
+  const msg = event.message || event.error?.message || '';
+  const errName = event.error?.name || '';
+
+  if (
+    msg.includes('Cannot set property fetch of #<Window>') ||
+    msg.includes('signal is aborted') ||
+    msg.includes('The operation was aborted') ||
+    msg.includes('user aborted a request') ||
+    msg.includes('AbortError') ||
+    errName === 'AbortError'
+  ) {
     event.preventDefault();
     event.stopPropagation();
     return false;

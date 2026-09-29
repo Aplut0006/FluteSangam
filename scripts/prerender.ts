@@ -22,9 +22,11 @@ const faqCategoryRoutes = Object.values(CATEGORY_SLUGS)
   .filter(Boolean)
   .map(slug => `/faq/${slug}`);
 
-const alankarLevelRoutes = ['beginner', 'intermediate', 'advanced'].map(
-  lvl => `/learn/alankaras/${lvl}`
-);
+const rankedAlankarRoutes = [
+  '/learn/alankaras/beginner',
+  '/learn/alankaras/intermediate',
+  '/learn/alankaras/advanced'
+];
 
 const raagList = [
   'bhoopali', 'durga', 'yaman', 'hamsadhwani', 'bilawal', 'desh', 'kafi',
@@ -53,7 +55,7 @@ const allRoutes = Array.from(new Set([
   '/',
   ...baseRoutes,
   ...faqCategoryRoutes,
-  ...alankarLevelRoutes,
+  ...rankedAlankarRoutes,
   ...raagAliasRoutes,
   ...extraAliases
 ]));

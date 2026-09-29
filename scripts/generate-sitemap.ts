@@ -12,12 +12,14 @@ const faqCategoryRoutes = Object.values(CATEGORY_SLUGS)
   .filter(Boolean)
   .map(slug => `/faq/${slug}`);
 
-const alankarLevelRoutes = ['beginner', 'intermediate', 'advanced'].map(
-  lvl => `/learn/alankaras/${lvl}`
-);
+const rankedAlankarRoutes = [
+  '/learn/alankaras/beginner',
+  '/learn/alankaras/intermediate',
+  '/learn/alankaras/advanced'
+];
 
-// Combine base routes, FAQ category routes, and Alankar level routes (ensuring no duplicates)
-const allRoutes = Array.from(new Set([...baseRoutes, ...faqCategoryRoutes, ...alankarLevelRoutes]));
+// Combine base routes, FAQ category routes, and ranked Alankar routes (ensuring no duplicates)
+const allRoutes = Array.from(new Set([...baseRoutes, ...faqCategoryRoutes, ...rankedAlankarRoutes]));
 
 const publicDir = path.join(process.cwd(), 'public');
 const sitemapPath = path.join(publicDir, 'sitemap.xml');
@@ -31,7 +33,10 @@ const ROUTE_MOD_DATES: Record<string, string> = {
   '/tuner': '2026-09-18',
   '/learn/basics': '2026-09-18',
   '/learn/fingering-chart': '2026-09-18',
-  '/learn/alankaras': '2026-09-18',
+  '/learn/alankaras': '2026-09-29',
+  '/learn/alankaras/beginner': '2026-09-18',
+  '/learn/alankaras/intermediate': '2026-09-18',
+  '/learn/alankaras/advanced': '2026-09-18',
   '/learn/daily-practice-guide': '2026-09-18',
   '/learn/flute-scales-octaves': '2026-09-18',
   '/learn/common-flute-mistakes': '2026-09-18',
@@ -97,10 +102,7 @@ const ROUTE_MOD_DATES: Record<string, string> = {
   '/faq/tuning-and-pitch': '2026-09-24',
   '/faq/flute-accessories': '2026-09-18',
   '/faq/flute-types': '2026-09-25',
-  '/faq/platform': '2026-09-18',
-  '/learn/alankaras/beginner': '2026-09-18',
-  '/learn/alankaras/intermediate': '2026-09-18',
-  '/learn/alankaras/advanced': '2026-09-18'
+  '/faq/platform': '2026-09-18'
 };
 
 const getRouteLastMod = (route: string): string => {
