@@ -251,19 +251,39 @@ export default function PostCard({
         )}
       </div>
 
-      {/* Media elements if present (shows a visual tag/thumbnail) */}
-      {(post.imageUrl || post.videoUrl) && (
-        <div className="flex items-center gap-2 text-gray-500 bg-gray-50/50 p-2 rounded-xl border border-gray-100 text-[10px] font-semibold">
-          {post.imageUrl && (
-            <span className="flex items-center gap-1 bg-white px-2 py-1 rounded-md border border-gray-100">
-              🖼️ Photo attachment
-            </span>
-          )}
-          {post.videoUrl && (
-            <span className="flex items-center gap-1 bg-white px-2 py-1 rounded-md border border-gray-100">
-              <Video className="w-3 h-3 text-amber-600" /> Performance clip
-            </span>
-          )}
+      {/* Attached Image - Visible Directly in Community Feed Card */}
+      {post.imageUrl && (
+        <div 
+          onClick={(e) => {
+            e.stopPropagation();
+            if (onOpenImage) {
+              onOpenImage(post.imageUrl!);
+            } else {
+              onPostClick(post);
+            }
+          }}
+          className="rounded-2xl overflow-hidden bg-sand-100/60 border border-amber-200/70 max-h-[420px] flex justify-center items-center relative group/img cursor-pointer hover:border-amber-400 transition shadow-2xs"
+          title="Click to view full-size photo"
+        >
+          <img
+            src={post.imageUrl}
+            alt={post.title || "Community post image"}
+            referrerPolicy="no-referrer"
+            className="w-full max-h-[420px] object-contain rounded-2xl bg-black/5 hover:scale-[1.01] transition-transform duration-200"
+            loading="lazy"
+          />
+          <div className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-xs text-white text-[10px] font-semibold px-2.5 py-1 rounded-lg opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center gap-1">
+            <span>🔍 View Full Image</span>
+          </div>
+        </div>
+      )}
+
+      {/* Video Attachment indicator if present */}
+      {post.videoUrl && (
+        <div className="flex items-center gap-2 text-gray-500 bg-gray-50/70 p-2 rounded-xl border border-gray-100 text-[10px] font-semibold">
+          <span className="flex items-center gap-1.5 bg-white px-2.5 py-1 rounded-lg border border-gray-200/80 text-amber-900 font-bold">
+            <Video className="w-3.5 h-3.5 text-amber-600" /> Performance clip included
+          </span>
         </div>
       )}
 

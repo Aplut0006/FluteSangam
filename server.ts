@@ -33,9 +33,6 @@ async function startServer() {
   app.get('/ragas', (req, res) => {
     res.redirect(301, '/learn/raagas');
   });
-  app.get('/community', (req, res) => {
-    res.redirect(302, '/#recent-discussions-section');
-  });
 
   // Specific static routes with explicit MIME and Cache-Control headers
   app.get('/sitemap.xml', (req, res) => {

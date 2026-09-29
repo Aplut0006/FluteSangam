@@ -253,23 +253,59 @@ export const CommunityFeedView: React.FC<CommunityFeedViewProps> = ({
                 ))}
               </div>
             ) : filteredPosts.length === 0 ? (
-              <div className="bg-white rounded-2xl p-8 sm:p-12 text-center border border-amber-200/80 shadow-2xs space-y-4">
-                <div className="w-14 h-14 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center mx-auto shadow-inner">
-                  <MessageSquare className="w-7 h-7 text-amber-700" />
+              <div className="space-y-6">
+                <div className="bg-white rounded-2xl p-6 sm:p-8 text-center border border-amber-200/80 shadow-2xs space-y-4">
+                  <div className="w-14 h-14 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center mx-auto shadow-inner">
+                    <MessageSquare className="w-7 h-7 text-amber-700" />
+                  </div>
+                  <div className="space-y-1">
+                    <h3 className="font-display font-bold text-slate-800 text-lg">Community Discussions &amp; Sadhana Feed</h3>
+                    <p className="text-xs sm:text-sm text-slate-600 max-w-lg mx-auto leading-relaxed">
+                      Connect with fellow flute and bansuri practitioners. Share recitals, ask technical questions on lip placement, discuss classical ragas, and receive feedback from experienced players.
+                    </p>
+                  </div>
+                  <button
+                    onClick={currentUser ? onOpenCreatePost : onOpenAuth}
+                    className="px-5 py-2.5 bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold rounded-xl transition shadow-sm cursor-pointer inline-flex items-center gap-2"
+                  >
+                    <Plus className="w-4 h-4" />
+                    <span>Start a New Discussion</span>
+                  </button>
                 </div>
-                <div className="space-y-1">
-                  <h3 className="font-display font-bold text-slate-800 text-lg">No Matching Discussions Found</h3>
-                  <p className="text-xs sm:text-sm text-slate-500 max-w-sm mx-auto leading-relaxed">
-                    We couldn&apos;t find any posts matching your search criteria. Be the first to share a recital, ask a question, or start a raga discussion!
-                  </p>
+
+                {/* Educational Topics Overview */}
+                <div className="bg-sand-50/70 rounded-2xl p-6 border border-amber-200/60 space-y-4">
+                  <h4 className="font-bold text-bamboo-950 text-sm flex items-center gap-2">
+                    <BookOpen className="w-4 h-4 text-amber-700" />
+                    Popular Discussion &amp; Learning Categories
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                    <div className="p-3.5 bg-white rounded-xl border border-amber-200/70 space-y-1">
+                      <strong className="text-bamboo-900 font-bold block">1. Embouchure &amp; Tone Refinement</strong>
+                      <p className="text-slate-600 text-[11px] leading-relaxed">
+                        Tips for blowing angle, lips positioning on blowhole, producing clean upper octave notes, and eliminating airy or whistling sounds.
+                      </p>
+                    </div>
+                    <div className="p-3.5 bg-white rounded-xl border border-amber-200/70 space-y-1">
+                      <strong className="text-bamboo-900 font-bold block">2. Classical Raga Bandishes &amp; Sargam</strong>
+                      <p className="text-slate-600 text-[11px] leading-relaxed">
+                        Explore Aaroh, Avroh, Pakad, and Chalan for popular Ragas like Yaman, Bhoopali, Desh, Kafi, and Bhairav with fellow learners.
+                      </p>
+                    </div>
+                    <div className="p-3.5 bg-white rounded-xl border border-amber-200/70 space-y-1">
+                      <strong className="text-bamboo-900 font-bold block">3. Flute Scale Selection &amp; Maintenance</strong>
+                      <p className="text-slate-600 text-[11px] leading-relaxed">
+                        Advice on choosing C Medium vs. E/G Bass flutes, bamboo oiling routines, thread binding, and protecting instruments from temperature changes.
+                      </p>
+                    </div>
+                    <div className="p-3.5 bg-white rounded-xl border border-amber-200/70 space-y-1">
+                      <strong className="text-bamboo-900 font-bold block">4. Daily Sadhana &amp; Alankar Riyaz</strong>
+                      <p className="text-slate-600 text-[11px] leading-relaxed">
+                        Structuring daily practice sessions with long-note breath holding, metronome tempo progression, and finger speed drills.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <button
-                  onClick={currentUser ? onOpenCreatePost : onOpenAuth}
-                  className="px-5 py-2.5 bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold rounded-xl transition shadow-sm cursor-pointer inline-flex items-center gap-2"
-                >
-                  <Plus className="w-4 h-4" />
-                  <span>Start a Discussion</span>
-                </button>
               </div>
             ) : (
               <>
