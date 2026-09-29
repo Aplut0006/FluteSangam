@@ -160,11 +160,6 @@ export default function Footer({ onViewChange, onSadhanaFeedClick }: FooterProps
                 </Link>
               </li>
               <li>
-                <Link to="/members" onClick={(e) => handleLinkClick('community_members', e)} className="hover:text-amber-300 transition">
-                  Flutists Directory
-                </Link>
-              </li>
-              <li>
                 <Link to="/faq/raagas" className="hover:text-amber-300 transition">
                   Raagas FAQ
                 </Link>
