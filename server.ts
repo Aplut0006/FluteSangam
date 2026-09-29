@@ -42,7 +42,7 @@ async function startServer() {
     
     if (fs.existsSync(targetPath)) {
       res.setHeader('Content-Type', 'application/xml; charset=utf-8');
-      res.setHeader('Cache-Control', 'public, max-age=3600');
+      res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
       return res.sendFile(targetPath);
     }
     res.status(404).send('Sitemap not found');
@@ -56,7 +56,7 @@ async function startServer() {
     
     if (fs.existsSync(targetPath)) {
       res.setHeader('Content-Type', 'text/plain; charset=utf-8');
-      res.setHeader('Cache-Control', 'public, max-age=3600');
+      res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
       return res.sendFile(targetPath);
     }
     res.status(404).send(`${filename} not found`);
@@ -69,7 +69,7 @@ async function startServer() {
     
     if (fs.existsSync(targetPath)) {
       res.setHeader('Content-Type', 'text/plain; charset=utf-8');
-      res.setHeader('Cache-Control', 'public, max-age=3600');
+      res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
       return res.sendFile(targetPath);
     }
     res.status(404).send('robots.txt not found');
