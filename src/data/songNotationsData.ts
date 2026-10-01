@@ -2080,6 +2080,280 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' },
       { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
     ]
+  },
+  {
+    id: 'hothon-se-chhoo-lo-tum-flute-notes',
+    slug: 'hothon-se-chhoo-lo-tum-flute-notes',
+    title: 'Hothon Se Chhu Lo Tum Flute Notes',
+    category: 'Hindi/Bollywood',
+    movie: 'Prem Geet (1981)',
+    singer: 'Jagjit Singh',
+    type: 'Bollywood Ghazal / Romantic Classic',
+    difficulty: 'Beginner',
+    suggestedFlute: 'Any correctly tuned bansuri (C Medium, E Bass, or G Bass recommended)',
+    startingSwar: 'Ga (G)',
+    highestSwar: 'Middle Dha (D)',
+    mainChallenge: 'Delicate grace touches (kan swaras) like (M) and (S), and gentle drop into lower Ni (.N)',
+    practiceSpeed: 'Slow, soulful, and expressive',
+    notationFormats: 'Song Notation (Sargam & Western) with Lyrics',
+    description: 'Learn Hothon Se Chhu Lo Tum flute notes with Sargam and Western notation. Practice Jagjit Singh’s timeless ghazal with easy flute notes and playing tips.',
+    status: 'Song Notation',
+    publishedDate: '2026-10-01',
+    updatedDate: '2026-10-01',
+    canonicalUrl: 'https://flutesangam.com/notations/hothon-se-chhoo-lo-tum-flute-notes',
+    h1: 'Hothon Se Chhu Lo Tum Flute Notes – Sargam & Western Notes',
+    metaTitle: 'Hothon Se Chhu Lo Tum Flute Notes | Sargam & Western',
+    metaDescription: 'Learn Hothon Se Chhu Lo Tum flute notes with Sargam and Western notation. Practice Jagjit Singh’s timeless ghazal with easy flute notes and playing tips.',
+    intro: 'Hothon Se Chhu Lo Tum is one of the most celebrated and timeless romantic ghazals composed and sung by Jagjit Singh for the film Prem Geet (1981), with unforgettable lyrics penned by Indeevar. This beginner-friendly flute arrangement presents the complete Sthayi and Antara with lyric-aligned Sargam and Western notes, lower octave markings (.N), kan swara ornaments like (M) and (S), and practical phrase-by-phrase practice tips.',
+    quickInfo: {
+      difficulty: 'Beginner',
+      melodyType: 'Bollywood Ghazal / Romantic Classic',
+      suggestedFlute: 'C Medium, E Bass, or G Bass bansuri',
+      startingSwar: 'Ga (G)',
+      highestSwar: 'Middle Dha (D)',
+      mainChallenge: 'Gentle breath control on lower Ni (.N) and smooth grace notes on (M)G and (S)R',
+      practiceSpeed: 'Slow, soulful, and expressive'
+    },
+    legend: [
+      { symbol: '.N', meaning: 'lower octave note (Mandra Saptak)' },
+      { symbol: 'S R G M P D N', meaning: 'middle octave note (Madhya Saptak)' },
+      { symbol: '—', meaning: 'hold / sustain the preceding note' },
+      { symbol: '(M)G', meaning: 'quick grace touch (kan swara) of Ma before Ga' },
+      { symbol: '(S)R', meaning: 'quick grace touch (kan swara) of Sa before Re' },
+      { symbol: '|', meaning: 'phrase division' },
+      { symbol: '/', meaning: 'breath pause' }
+    ],
+    phrases: [
+      {
+        phraseNumber: 1,
+        lyric: 'Honton se chhoo lo tum',
+        sargamNotes: 'GR GR | S S- | RS .N-',
+        westernNotes: 'ED ED | C C- | DC .B-',
+        units: [
+          { lyric: 'Honton', sargam: 'GR GR', western: 'ED ED' },
+          { lyric: 'se', sargam: 'S', western: 'C' },
+          { lyric: 'chhoo', sargam: 'S-', western: 'C-' },
+          { lyric: 'lo', sargam: 'RS', western: 'DC' },
+          { lyric: 'tum', sargam: '.N-', western: '.B-' }
+        ],
+        guidance: 'Open gently with soft grace from Ga to Re (GR GR). Settle softly on middle Sa (S S-) before sliding down into lower Ni (.N-).'
+      },
+      {
+        phraseNumber: 2,
+        lyric: 'Mera geet amar kar do (Repeat Lines 1 & 2 Couplet X2)',
+        sargamNotes: '.NS (.N)SRR | SG(M)G R | SS- [Repeat Lines 1 & 2 X2]',
+        westernNotes: '.BC (.B)CDD | CE(F)E D | CC- [Repeat Lines 1 & 2 X2]',
+        units: [
+          { lyric: 'Mera', sargam: '.NS', western: '.BC' },
+          { lyric: 'geet', sargam: '(.N)SRR', western: '(.B)CDD' },
+          { lyric: 'amar', sargam: 'SG(M)G', western: 'CE(F)E' },
+          { lyric: 'kar', sargam: 'R', western: 'D' },
+          { lyric: 'do', sargam: 'SS-', western: 'CC-' }
+        ],
+        guidance: 'Ascend from lower Ni (.NS) with a slight grace touch on (.N)SRR. Touch Ma gently on Ga (SG(M)G), then resolve on Re and sustain Sa (SS-). Repeat Lines 1 & 2 together twice (X2).'
+      },
+      {
+        phraseNumber: 3,
+        lyric: 'Ban jaao meet mere',
+        sargamNotes: 'GR GRS | S- | RS .N-',
+        westernNotes: 'ED EDC | C- | DC .B-',
+        units: [
+          { lyric: 'Ban', sargam: 'GR', western: 'ED' },
+          { lyric: 'jaao', sargam: 'GRS', western: 'EDC' },
+          { lyric: 'meet', sargam: 'S-', western: 'C-' },
+          { lyric: 'mere', sargam: 'RS .N-', western: 'DC .B-' }
+        ],
+        guidance: 'Glide down from Ga through Re to Sa smoothly (GR GRS). Sustain on Sa and drop gracefully into lower Ni (.N-).'
+      },
+      {
+        phraseNumber: 4,
+        lyric: 'Meri preet amar kar do',
+        sargamNotes: '.NS (.N)SRR | SG(M)G R | SS-',
+        westernNotes: '.BC (.B)CDD | CE(F)E D | CC-',
+        units: [
+          { lyric: 'Meri', sargam: '.NS', western: '.BC' },
+          { lyric: 'preet', sargam: '(.N)SRR', western: '(.B)CDD' },
+          { lyric: 'amar', sargam: 'SG(M)G', western: 'CE(F)E' },
+          { lyric: 'kar', sargam: 'R', western: 'D' },
+          { lyric: 'do', sargam: 'SS-', western: 'CC-' }
+        ],
+        guidance: 'Echo the mukhda resolution with warm breath support on SG(M)G and a peaceful landing on held Sa (SS-).'
+      },
+      {
+        phraseNumber: 5,
+        lyric: 'Honton se chhoo lo tum',
+        sargamNotes: 'GR GR | S S- | RS .N-',
+        westernNotes: 'ED ED | C C- | DC .B-',
+        units: [
+          { lyric: 'Honton', sargam: 'GR GR', western: 'ED ED' },
+          { lyric: 'se', sargam: 'S', western: 'C' },
+          { lyric: 'chhoo', sargam: 'S-', western: 'C-' },
+          { lyric: 'lo', sargam: 'RS', western: 'DC' },
+          { lyric: 'tum', sargam: '.N-', western: '.B-' }
+        ],
+        guidance: 'Revisit the signature opening hook with soft, heartfelt embouchure.'
+      },
+      {
+        phraseNumber: 6,
+        lyric: 'Mera geet amar kar do',
+        sargamNotes: '.NS (.N)SRR | SG(M)G R | SS-',
+        westernNotes: '.BC (.B)CDD | CE(F)E D | CC-',
+        units: [
+          { lyric: 'Mera', sargam: '.NS', western: '.BC' },
+          { lyric: 'geet', sargam: '(.N)SRR', western: '(.B)CDD' },
+          { lyric: 'amar', sargam: 'SG(M)G', western: 'CE(F)E' },
+          { lyric: 'kar', sargam: 'R', western: 'D' },
+          { lyric: 'do', sargam: 'SS-', western: 'CC-' }
+        ],
+        guidance: 'Close the Sthayi section with steady breath on the held Sa (SS-).'
+      },
+      {
+        phraseNumber: 7,
+        lyric: 'Na umr ki seema ho',
+        sargamNotes: 'GM (G)MPP | P | MDPM G-',
+        westernNotes: 'EF (E)FGG | G | GAFG E-',
+        units: [
+          { lyric: 'Na', sargam: 'GM', western: 'EF' },
+          { lyric: 'umr', sargam: '(G)MPP', western: '(E)FGG' },
+          { lyric: 'ki', sargam: 'P', western: 'G' },
+          { lyric: 'seema', sargam: 'MDPM', western: 'GAFG' },
+          { lyric: 'ho', sargam: 'G-', western: 'E-' }
+        ],
+        guidance: 'Shift into the Antara lifting through Ga-Ma to sustained Pa notes. Execute the smooth meend on MDPM before resting on warm Ga (G-).'
+      },
+      {
+        phraseNumber: 8,
+        lyric: 'Na janm ka ho bandhan (Repeat Lines 7 & 8 Couplet X2)',
+        sargamNotes: 'GM (G)MPP | G S- | R(S)RG [Repeat Lines 7 & 8 X2]',
+        westernNotes: 'EF (E)FGG | E C- | D(C)DE [Repeat Lines 7 & 8 X2]',
+        units: [
+          { lyric: 'Na', sargam: 'GM', western: 'EF' },
+          { lyric: 'janm', sargam: '(G)MPP', western: '(E)FGG' },
+          { lyric: 'ka', sargam: 'G', western: 'E' },
+          { lyric: 'ho', sargam: 'S-', western: 'C-' },
+          { lyric: 'bandhan', sargam: 'R(S)RG', western: 'D(C)DE' }
+        ],
+        guidance: 'Ascend cleanly to Pa, drop down to Ga and held Sa (S-), then weave the delicate ornamental turn R(S)RG. Repeat Lines 7 & 8 together twice (X2).'
+      },
+      {
+        phraseNumber: 9,
+        lyric: 'Jab pyaar kare koi',
+        sargamNotes: 'GM (G)MPP | PMD | PMG-',
+        westernNotes: 'EF (E)FGG | GAF | GFE-',
+        units: [
+          { lyric: 'Jab', sargam: 'GM', western: 'EF' },
+          { lyric: 'pyaar', sargam: '(G)MPP', western: '(E)FGG' },
+          { lyric: 'kare', sargam: 'PMD', western: 'GAF' },
+          { lyric: 'koi', sargam: 'PMG-', western: 'GFE-' }
+        ],
+        guidance: 'Rise up through Pa to upper Dha (PMD) and descend gracefully with a delicate glide back to Ga (PMG-).'
+      },
+      {
+        phraseNumber: 10,
+        lyric: 'To dekhe keval mann',
+        sargamNotes: 'GM (G)MPPG | S | R(S)RG',
+        westernNotes: 'EF (E)FGGE | C | D(C)DE',
+        units: [
+          { lyric: 'To', sargam: 'GM', western: 'EF' },
+          { lyric: 'dekhe', sargam: '(G)MPPG', western: '(E)FGGE' },
+          { lyric: 'keval', sargam: 'S', western: 'C' },
+          { lyric: 'mann', sargam: 'R(S)RG', western: 'D(C)DE' }
+        ],
+        guidance: 'Flow from Pa down to Ga, step into Sa, and ornament the turn on R(S)RG leading naturally back toward the sthayi.'
+      },
+      {
+        phraseNumber: 11,
+        lyric: 'Nayi reet chalaakar tum',
+        sargamNotes: 'GR GRS | SS- | RS .N-',
+        westernNotes: 'ED EDC | CC- | DC .B-',
+        units: [
+          { lyric: 'Nayi', sargam: 'GR', western: 'ED' },
+          { lyric: 'reet', sargam: 'GRS', western: 'EDC' },
+          { lyric: 'chalaakar', sargam: 'SS-', western: 'CC-' },
+          { lyric: 'tum', sargam: 'RS .N-', western: 'DC .B-' }
+        ],
+        guidance: 'A soulful descending phrase that mirrors the opening hook, ending with a soft breath on lower Ni (.N-).'
+      },
+      {
+        phraseNumber: 12,
+        lyric: 'Yeh reet amar kar do (Repeat Lines 11 & 12 Couplet X2)',
+        sargamNotes: '.NS (.N)SRR | SG(M)G R | SS- [Repeat Lines 11 & 12 X2]',
+        westernNotes: '.BC (.B)CDD | CE(F)E D | CC- [Repeat Lines 11 & 12 X2]',
+        units: [
+          { lyric: 'Yeh', sargam: '.NS', western: '.BC' },
+          { lyric: 'reet', sargam: '(.N)SRR', western: '(.B)CDD' },
+          { lyric: 'amar', sargam: 'SG(M)G', western: 'CE(F)E' },
+          { lyric: 'kar', sargam: 'R', western: 'D' },
+          { lyric: 'do', sargam: 'SS-', western: 'CC-' }
+        ],
+        guidance: 'The final concluding phrase; bring out the beauty of the (M) grace touch on Ga before concluding on sustained Sa (SS-). Repeat Lines 11 & 12 together twice (X2).'
+      }
+    ],
+    sargamPhrases: [
+      { phraseNumber: 1, notes: 'GR GR S S- RS .N-', lyric: 'Honton se chhoo lo tum' },
+      { phraseNumber: 2, notes: '.NS (.N)SRR SG(M)G R SS-', lyric: 'Mera geet amar kar do  --- [Repeat Lines 1 & 2 Couplet X2]' },
+      { phraseNumber: 3, notes: 'GR GRS S- RS .N-', lyric: 'Ban jaao meet mere' },
+      { phraseNumber: 4, notes: '.NS (.N)SRR SG(M)G R SS-', lyric: 'Meri preet amar kar do' },
+      { phraseNumber: 5, notes: 'GR GR S S- RS .N-', lyric: 'Honton se chhoo lo tum' },
+      { phraseNumber: 6, notes: '.NS (.N)SRR SG(M)G R SS-', lyric: 'Mera geet amar kar do' },
+      { phraseNumber: 7, notes: 'GM (G)MPP P MDPM G-', lyric: 'Na umr ki seema ho' },
+      { phraseNumber: 8, notes: 'GM (G)MPP G S- R(S)RG', lyric: 'Na janm ka ho bandhan  --- [Repeat Lines 7 & 8 Couplet X2]' },
+      { phraseNumber: 9, notes: 'GM (G)MPP PMD PMG-', lyric: 'Jab pyaar kare koi' },
+      { phraseNumber: 10, notes: 'GM (G)MPPG S R(S)RG', lyric: 'To dekhe keval mann' },
+      { phraseNumber: 11, notes: 'GR GRS SS- RS .N-', lyric: 'Nayi reet chalaakar tum' },
+      { phraseNumber: 12, notes: '.NS (.N)SRR SG(M)G R SS-', lyric: 'Yeh reet amar kar do  --- [Repeat Lines 11 & 12 Couplet X2]' }
+    ],
+    westernPhrases: [
+      { phraseNumber: 1, notes: 'ED ED C C- DC .B-', lyric: 'Honton se chhoo lo tum' },
+      { phraseNumber: 2, notes: '.BC (.B)CDD CE(F)E D CC-', lyric: 'Mera geet amar kar do  --- [Repeat Lines 1 & 2 Couplet X2]' },
+      { phraseNumber: 3, notes: 'ED EDC C- DC .B-', lyric: 'Ban jaao meet mere' },
+      { phraseNumber: 4, notes: '.BC (.B)CDD CE(F)E D CC-', lyric: 'Meri preet amar kar do' },
+      { phraseNumber: 5, notes: 'ED ED C C- DC .B-', lyric: 'Honton se chhoo lo tum' },
+      { phraseNumber: 6, notes: '.BC (.B)CDD CE(F)E D CC-', lyric: 'Mera geet amar kar do' },
+      { phraseNumber: 7, notes: 'EF (E)FGG G GAFG E-', lyric: 'Na umr ki seema ho' },
+      { phraseNumber: 8, notes: 'EF (E)FGG E C- D(C)DE', lyric: 'Na janm ka ho bandhan  --- [Repeat Lines 7 & 8 Couplet X2]' },
+      { phraseNumber: 9, notes: 'EF (E)FGG GAF GFE-', lyric: 'Jab pyaar kare koi' },
+      { phraseNumber: 10, notes: 'EF (E)FGGE C D(C)DE', lyric: 'To dekhe keval mann' },
+      { phraseNumber: 11, notes: 'ED EDC CC- DC .B-', lyric: 'Nayi reet chalaakar tum' },
+      { phraseNumber: 12, notes: '.BC (.B)CDD CE(F)E D CC-', lyric: 'Yeh reet amar kar do  --- [Repeat Lines 11 & 12 Couplet X2]' }
+    ],
+    phraseGuidance: [
+      { phraseNumber: 1, guidance: 'Open gently with soft grace on Ga to Re (GR GR). Settle softly on middle Sa (S S-) before sliding down into lower Ni (.N-).' },
+      { phraseNumber: 2, guidance: 'Ascend from lower Ni (.NS) with a slight touch on (.N)SRR. Use a delicate kan-swara of Ma on Ga: SG(M)G, then resolve cleanly on Re and sustain Sa (SS-).' },
+      { phraseNumber: 3, guidance: 'Glide down from Ga through Re to Sa smoothly (GR GRS). Sustain on Sa and drop gracefully into lower Ni (.N-).' },
+      { phraseNumber: 4, guidance: 'Echo the mukhda resolution with warm breath support on SG(M)G and a peaceful landing on held Sa (SS-).' },
+      { phraseNumber: 5, guidance: 'Revisit the signature opening hook with soft, heartfelt embouchure.' },
+      { phraseNumber: 6, guidance: 'Close the Sthayi section with steady breath on the held Sa (SS-).' },
+      { phraseNumber: 7, guidance: 'Shift into the Antara lifting through Ga-Ma to sustained Pa notes. Execute the smooth meend on MDPM before resting on warm Ga (G-).' },
+      { phraseNumber: 8, guidance: 'Ascend cleanly to Pa, drop down to Ga and held Sa (S-), then weave the delicate ornamental turn R(S)RG. Repeat this line twice.' },
+      { phraseNumber: 9, guidance: 'Rise up through Pa to upper Dha (PMD) and descend gracefully with a delicate glide back to Ga (PMG-).' },
+      { phraseNumber: 10, guidance: 'Flow from Pa down to Ga, step into Sa, and ornament the turn on R(S)RG leading naturally back toward the sthayi.' },
+      { phraseNumber: 11, guidance: 'A soulful descending phrase that mirrors the opening hook, ending with a soft breath on lower Ni (.N-).' },
+      { phraseNumber: 12, guidance: 'The final concluding phrase; bring out the beauty of the (M) grace touch on Ga before concluding on sustained Sa (SS-).' }
+    ],
+    practiceMethod: [
+      'Listen to Jagjit Singh’s classic recording from Prem Geet to absorb the calm, slow-tempo ghazal phrasing.',
+      'Practise Phrase 1 and Phrase 2 (Sthayi / Mukhda) slowly until the transition to lower Ni (.N) feels effortless and warm.',
+      'Pay close attention to the subtle grace touches (kan swaras): (M) on Ga and (S) on Re. Keep them swift and delicate.',
+      'On the Antara (Phrases 7-10), ensure the ascent to Pa and Dha remains pure and doesn’t sound harsh or overblown.',
+      'Sing or hum the ghazal lyrics while following the Sargam notes to internalize the emotional pauses and breath control.',
+      'Practise with a Tanpura drone set to your flute root key (Sa) at a relaxed tempo (approx. 55-65 BPM).'
+    ],
+    commonMistakes: [
+      'Blowing too aggressively on lower Ni (.N) which can cause the tone to crack or jump octave',
+      'Overemphasizing the grace notes (M) and (S) instead of keeping them subtle and vocal-like',
+      'Rushing the held notes (—) on "chhoo", "meet", and "amar" rather than giving them full emotional duration',
+      'Losing breath support during the descending phrase MDPM in the Antara',
+      'Playing at too fast a tempo; ghazals require spacious phrasing and relaxed breath control'
+    ],
+    usefulTools: [
+      { name: 'Interactive Bansuri Fingering Chart', url: '/learn/fingering-chart', viewKey: 'learn_fingering_chart' },
+      { name: 'Online Flute Tuner', url: '/tuner', viewKey: 'learn_tuner' },
+      { name: 'Flute Note and Key Converter', url: '/tools/flute-note-key-converter', viewKey: 'note_key_converter' },
+      { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' },
+      { name: 'How to Find the Scale of a Song on Flute', url: '/learn/how-to-find-scale-of-a-song-on-flute', viewKey: 'find_song_scale' },
+      { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
+    ]
   }
 ];
 

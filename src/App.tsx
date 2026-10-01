@@ -83,6 +83,7 @@ const RadhaKrishnaNotationView = lazyWithRetry(() => import('./components/RadhaK
 const JanaGanaManaNotationView = lazyWithRetry(() => import('./components/JanaGanaManaNotationView').then(m => ({ default: m.JanaGanaManaNotationView })));
 const MahabharatKrishnaThemeNotationView = lazyWithRetry(() => import('./components/MahabharatKrishnaThemeNotationView').then(m => ({ default: m.MahabharatKrishnaThemeNotationView })));
 const ShriKrishnaGovindHareMurariNotationView = lazyWithRetry(() => import('./components/ShriKrishnaGovindHareMurariNotationView').then(m => ({ default: m.ShriKrishnaGovindHareMurariNotationView })));
+const HothonSeChhuLoTumNotationView = lazyWithRetry(() => import('./components/HothonSeChhuLoTumNotationView').then(m => ({ default: m.HothonSeChhuLoTumNotationView })));
 const PrivacyPolicyView = lazyWithRetry(() => import('./components/PrivacyPolicyView'));
 const TermsOfServiceView = lazyWithRetry(() => import('./components/TermsOfServiceView'));
 const NotFoundView = lazyWithRetry(() => import('./components/NotFoundView'));
@@ -470,6 +471,18 @@ export default function App() {
       case 'notation_jana_gana_mana':
         title = 'Jana Gana Mana Flute Notes | India’s National Anthem';
         description = 'Learn to play Jana Gana Mana on flute with easy Sargam and flute notes. Explore the National Anthem of India with clear notation for flute practice.';
+        break;
+      case 'notation_mahabharat_krishna_theme':
+        title = 'Mahabharat Krishna Flute Theme Notes | Sargam & Western';
+        description = 'Learn Mahabharat Krishna Flute Theme notes with Sargam and Western notation. Master Star Plus Mahabharat flute tune with easy notes and playing tips.';
+        break;
+      case 'notation_shri_krishna_govind_hare_murari':
+        title = 'Shri Krishna Govind Hare Murari Flute Notes | Sargam & Western';
+        description = 'Learn Shri Krishna Govind Hare Murari flute notes with Sargam and Western notation. Master this peaceful Krishna bhajan on bansuri with easy notes and tips.';
+        break;
+      case 'notation_hothon_se_chhoo_lo_tum':
+        title = 'Hothon Se Chhu Lo Tum Flute Notes | Sargam & Western';
+        description = 'Learn Hothon Se Chhu Lo Tum flute notes with Sargam and Western notation. Practice Jagjit Singh’s timeless ghazal with easy flute notes and playing tips.';
         break;
       case 'community_members':
         title = 'Community Members | FluteSangam';
@@ -1344,6 +1357,8 @@ export default function App() {
                 handleViewChange('notation_mahabharat_krishna_theme');
               } else if (slug === 'shri-krishna-govind-hare-murari-flute-notes') {
                 handleViewChange('notation_shri_krishna_govind_hare_murari');
+              } else if (slug === 'hothon-se-chhoo-lo-tum-flute-notes') {
+                handleViewChange('notation_hothon_se_chhoo_lo_tum');
               }
             }}
           />
@@ -1367,6 +1382,8 @@ export default function App() {
           <MahabharatKrishnaThemeNotationView onViewChange={handleViewChange} />
         ) : currentView === 'notation_shri_krishna_govind_hare_murari' ? (
           <ShriKrishnaGovindHareMurariNotationView onViewChange={handleViewChange} />
+        ) : currentView === 'notation_hothon_se_chhoo_lo_tum' ? (
+          <HothonSeChhuLoTumNotationView onViewChange={handleViewChange} />
         ) : currentView === 'community_members' ? (
           <MembersView 
             currentUser={currentUser} 

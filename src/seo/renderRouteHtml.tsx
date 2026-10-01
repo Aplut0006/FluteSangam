@@ -63,6 +63,7 @@ import { RadhaKrishnaNotationView } from '../components/RadhaKrishnaNotationView
 import { JanaGanaManaNotationView } from '../components/JanaGanaManaNotationView';
 import { MahabharatKrishnaThemeNotationView } from '../components/MahabharatKrishnaThemeNotationView';
 import { ShriKrishnaGovindHareMurariNotationView } from '../components/ShriKrishnaGovindHareMurariNotationView';
+import { HothonSeChhuLoTumNotationView } from '../components/HothonSeChhuLoTumNotationView';
 import { CommunityFeedView } from '../components/CommunityFeedView';
 import NotFoundView from '../components/NotFoundView';
 
@@ -1597,6 +1598,71 @@ export function getRouteMetadata(path: string): RouteMetadata {
             },
             'datePublished': '2026-09-27T00:00:00Z',
             'dateModified': '2026-09-27T00:00:00Z'
+          }
+        ]
+      }
+    };
+  }
+
+  if (cleanPath === '/notations/hothon-se-chhoo-lo-tum-flute-notes') {
+    const title = 'Hothon Se Chhu Lo Tum Flute Notes | Sargam & Western';
+    const description = 'Learn Hothon Se Chhu Lo Tum flute notes with Sargam and Western notation. Practice Jagjit Singh’s timeless ghazal with easy flute notes and playing tips.';
+    const canonicalUrl = `${DOMAIN}/notations/hothon-se-chhoo-lo-tum-flute-notes`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: HothonSeChhuLoTumNotationView,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          createWebPageSchema(canonicalUrl, title, description),
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': DOMAIN
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Song Notation',
+                'item': `${DOMAIN}/notations`
+              },
+              {
+                '@type': 'ListItem',
+                'position': 3,
+                'name': 'Hothon Se Chhu Lo Tum Flute Notes',
+                'item': canonicalUrl
+              }
+            ]
+          },
+          {
+            '@type': 'Article',
+            '@id': `${canonicalUrl}#article`,
+            'headline': 'Hothon Se Chhu Lo Tum Flute Notes – Sargam & Western Notes',
+            'description': description,
+            'mainEntityOfPage': canonicalUrl,
+            'author': {
+              '@type': 'Person',
+              'name': 'Aplut',
+              'url': `${DOMAIN}/founder`
+            },
+            'publisher': {
+              '@type': 'Organization',
+              'name': 'FluteSangam',
+              'url': DOMAIN,
+              'logo': {
+                '@type': 'ImageObject',
+                'url': `${DOMAIN}/flutesangam_logo.png`
+              }
+            },
+            'datePublished': '2026-10-01T00:00:00Z',
+            'dateModified': '2026-10-01T00:00:00Z'
           }
         ]
       }
