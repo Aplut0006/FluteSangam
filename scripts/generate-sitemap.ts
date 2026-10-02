@@ -83,6 +83,7 @@ const ROUTE_MOD_DATES: Record<string, string> = {
   '/notations/hothon-se-chhoo-lo-tum-flute-notes': '2026-10-01',
   '/privacy-policy': '2026-09-18',
   '/terms-of-service': '2026-09-18',
+  '/copyright-policy': '2026-10-02',
   '/faq': '2026-09-18',
   '/tools/flute-note-key-converter': '2026-09-18',
   '/learn/how-to-find-scale-of-a-song-on-flute': '2026-09-18',

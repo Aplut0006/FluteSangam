@@ -218,6 +218,11 @@ export default function Footer({ onViewChange, onSadhanaFeedClick }: FooterProps
                   Terms of Service
                 </Link>
               </li>
+              <li>
+                <Link to="/copyright-policy" onClick={(e) => handleLinkClick('copyright_policy', e)} className="hover:text-amber-300 transition font-medium text-amber-200">
+                  Copyright Policy &amp; DMCA
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -239,6 +244,10 @@ export default function Footer({ onViewChange, onSadhanaFeedClick }: FooterProps
             <span>•</span>
             <Link to="/terms-of-service" className="hover:text-amber-300 transition underline underline-offset-2">
               Terms of Service
+            </Link>
+            <span>•</span>
+            <Link to="/copyright-policy" className="hover:text-amber-300 transition underline underline-offset-2">
+              Copyright Policy &amp; DMCA
             </Link>
           </div>
           <p className="text-[11px] text-bamboo-400">

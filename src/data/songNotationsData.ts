@@ -2082,8 +2082,8 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
     ]
   },
   {
-    id: 'hothon-se-chhoo-lo-tum-flute-notes',
-    slug: 'hothon-se-chhoo-lo-tum-flute-notes',
+    id: 'hothon-se-chhu-lo-tum-flute-notes',
+    slug: 'hothon-se-chhu-lo-tum-flute-notes',
     title: 'Hothon Se Chhu Lo Tum Flute Notes',
     category: 'Hindi/Bollywood',
     movie: 'Prem Geet (1981)',
@@ -2100,7 +2100,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
     status: 'Song Notation',
     publishedDate: '2026-10-01',
     updatedDate: '2026-10-01',
-    canonicalUrl: 'https://flutesangam.com/notations/hothon-se-chhoo-lo-tum-flute-notes',
+    canonicalUrl: 'https://flutesangam.com/notations/hothon-se-chhu-lo-tum-flute-notes',
     h1: 'Hothon Se Chhu Lo Tum Flute Notes – Sargam & Western Notes',
     metaTitle: 'Hothon Se Chhu Lo Tum Flute Notes | Sargam & Western',
     metaDescription: 'Learn Hothon Se Chhu Lo Tum flute notes with Sargam and Western notation. Practice Jagjit Singh’s timeless ghazal with easy flute notes and playing tips.',

@@ -50,6 +50,7 @@ import FounderView from '../components/FounderView';
 import ContactUsView from '../components/ContactUsView';
 import { PrivacyPolicyView } from '../components/PrivacyPolicyView';
 import { TermsOfServiceView } from '../components/TermsOfServiceView';
+import { CopyrightPolicyView } from '../components/CopyrightPolicyView';
 import FluteFaqView from '../components/FluteFaqView';
 import { NotationRequestsView } from '../components/NotationRequestsView';
 import { SongNotationsLibraryView } from '../components/SongNotationsLibraryView';
@@ -270,6 +271,20 @@ export function getRouteMetadata(path: string): RouteMetadata {
       description,
       canonicalUrl,
       component: TermsOfServiceView,
+      jsonLd: createWebPageSchema(canonicalUrl, title, description)
+    };
+  }
+
+  // 4. Copyright Policy & DMCA Notice
+  if (cleanPath === '/copyright-policy' || cleanPath === '/dmca') {
+    const title = 'Copyright Policy & DMCA Notice | FluteSangam';
+    const description = "Read FluteSangam's copyright policy and learn how copyright owners can report material, submit infringement concerns, and contact us.";
+    const canonicalUrl = `${DOMAIN}/copyright-policy`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: CopyrightPolicyView,
       jsonLd: createWebPageSchema(canonicalUrl, title, description)
     };
   }

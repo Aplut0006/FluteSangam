@@ -86,6 +86,7 @@ const ShriKrishnaGovindHareMurariNotationView = lazyWithRetry(() => import('./co
 const HothonSeChhuLoTumNotationView = lazyWithRetry(() => import('./components/HothonSeChhuLoTumNotationView').then(m => ({ default: m.HothonSeChhuLoTumNotationView })));
 const PrivacyPolicyView = lazyWithRetry(() => import('./components/PrivacyPolicyView'));
 const TermsOfServiceView = lazyWithRetry(() => import('./components/TermsOfServiceView'));
+const CopyrightPolicyView = lazyWithRetry(() => import('./components/CopyrightPolicyView'));
 const NotFoundView = lazyWithRetry(() => import('./components/NotFoundView'));
 const CommunityFeedView = lazyWithRetry(() => import('./components/CommunityFeedView').then(m => ({ default: m.CommunityFeedView })));
 import HomepageOverview from './components/HomepageOverview';
@@ -507,6 +508,10 @@ export default function App() {
       case 'terms_of_service':
         title = 'Terms of Service | FluteSangam';
         description = 'Terms of Service for FluteSangam: platform guidelines, community code of conduct, intellectual property, and user account terms.';
+        break;
+      case 'copyright_policy':
+        title = 'Copyright Policy & DMCA Notice | FluteSangam';
+        description = "Read FluteSangam's copyright policy and learn how copyright owners can report material, submit infringement concerns, and contact us.";
         break;
       case 'not_found':
         title = 'Page Not Found | FluteSangam';
@@ -1325,6 +1330,8 @@ export default function App() {
           <PrivacyPolicyView onBackToCommunity={() => handleViewChange('community')} />
         ) : currentView === 'terms_of_service' ? (
           <TermsOfServiceView onBackToCommunity={() => handleViewChange('community')} />
+        ) : currentView === 'copyright_policy' ? (
+          <CopyrightPolicyView onBackToHomepage={() => handleViewChange('home')} />
         ) : currentView === 'not_found' ? (
           <NotFoundView 
             onViewChange={handleViewChange} 

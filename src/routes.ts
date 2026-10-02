@@ -57,6 +57,7 @@ export const VIEW_URLS: Record<string, string> = {
   'notation_hothon_se_chhoo_lo_tum': '/notations/hothon-se-chhoo-lo-tum-flute-notes',
   'privacy_policy': '/privacy-policy',
   'terms_of_service': '/terms-of-service',
+  'copyright_policy': '/copyright-policy',
   'flute_faq': '/faq',
   'note_key_converter': '/tools/flute-note-key-converter',
   'find_song_scale': '/learn/how-to-find-scale-of-a-song-on-flute',
