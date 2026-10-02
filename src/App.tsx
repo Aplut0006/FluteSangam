@@ -1325,11 +1325,11 @@ export default function App() {
         ) : currentView === 'founder' ? (
           <FounderView onViewChange={handleViewChange} />
         ) : currentView === 'contact_us' ? (
-          <ContactUsView onBackToCommunity={() => handleViewChange('community')} />
+          <ContactUsView onBackToHomepage={() => handleViewChange('home')} />
         ) : currentView === 'privacy_policy' ? (
-          <PrivacyPolicyView onBackToCommunity={() => handleViewChange('community')} />
+          <PrivacyPolicyView onBackToHomepage={() => handleViewChange('home')} />
         ) : currentView === 'terms_of_service' ? (
-          <TermsOfServiceView onBackToCommunity={() => handleViewChange('community')} />
+          <TermsOfServiceView onBackToHomepage={() => handleViewChange('home')} />
         ) : currentView === 'copyright_policy' ? (
           <CopyrightPolicyView onBackToHomepage={() => handleViewChange('home')} />
         ) : currentView === 'not_found' ? (

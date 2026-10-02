@@ -5,15 +5,31 @@ import {
   CheckCircle2, Lock, Radio, Cookie, Eye, Compass, Copyright, 
   BookOpen, Link2, Ban, RefreshCw, HelpCircle, Mic
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface TermsOfServiceViewProps {
+  onBackToHomepage?: () => void;
   onBackToCommunity?: () => void;
 }
 
-export const TermsOfServiceView: React.FC<TermsOfServiceViewProps> = ({ onBackToCommunity }) => {
+export const TermsOfServiceView: React.FC<TermsOfServiceViewProps> = ({ 
+  onBackToHomepage,
+  onBackToCommunity 
+}) => {
   React.useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
+
+  const handleBack = (e: React.MouseEvent) => {
+    if (e.ctrlKey || e.metaKey) return;
+    if (onBackToHomepage) {
+      e.preventDefault();
+      onBackToHomepage();
+    } else if (onBackToCommunity) {
+      e.preventDefault();
+      onBackToCommunity();
+    }
+  };
 
   return (
     <motion.div 
@@ -25,16 +41,15 @@ export const TermsOfServiceView: React.FC<TermsOfServiceViewProps> = ({ onBackTo
       id="terms-of-service-view"
     >
       {/* Top Navigation */}
-      {onBackToCommunity && (
-        <button
-          onClick={onBackToCommunity}
-          className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-bamboo-800 hover:text-bamboo-900 bg-bamboo-50/80 hover:bg-bamboo-100 border border-bamboo-200/80 px-3.5 py-1.5 rounded-full mb-6 transition-all cursor-pointer"
-          id="terms-of-service-back-btn"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          Back to Community
-        </button>
-      )}
+      <Link
+        to="/"
+        onClick={handleBack}
+        className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-bamboo-800 hover:text-bamboo-900 bg-bamboo-50/80 hover:bg-bamboo-100 border border-bamboo-200/80 px-3.5 py-1.5 rounded-full mb-6 transition-all cursor-pointer"
+        id="terms-of-service-back-btn"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        Back to Homepage
+      </Link>
 
       {/* Main Container */}
       <div className="bg-white rounded-3xl shadow-xl border border-bamboo-100 overflow-hidden">
@@ -146,7 +161,7 @@ export const TermsOfServiceView: React.FC<TermsOfServiceViewProps> = ({ onBackTo
               <h2>Copyright Complaints</h2>
             </div>
             <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-              FluteSangam respects the intellectual property rights of others. If you believe that any material or user post on the website infringes upon your copyright, please send a notification to <a href="mailto:aplut0006@gmail.com" className="font-bold underline text-bamboo-800 hover:text-amber-700">aplut0006@gmail.com</a> containing details of the copyrighted work and the specific material location for prompt investigation and resolution.
+              FluteSangam respects the intellectual property rights of others. If you believe that any material or user post on the website infringes upon your copyright, please send a notification to <a href="mailto:flutesangam@gmail.com" className="font-bold underline text-bamboo-800 hover:text-amber-700">flutesangam@gmail.com</a> containing details of the copyrighted work and the specific material location for prompt investigation and resolution.
             </p>
           </section>
 
@@ -257,11 +272,11 @@ export const TermsOfServiceView: React.FC<TermsOfServiceViewProps> = ({ onBackTo
                 <p className="text-xs text-gray-600">Primary support contact for terms and account inquiries</p>
               </div>
               <a 
-                href="mailto:aplut0006@gmail.com"
+                href="mailto:flutesangam@gmail.com"
                 className="inline-flex items-center gap-2 bg-bamboo-700 hover:bg-bamboo-800 text-white font-semibold text-xs px-4 py-2 rounded-xl transition cursor-pointer shadow-3xs"
               >
                 <Mail className="w-4 h-4" />
-                aplut0006@gmail.com
+                flutesangam@gmail.com
               </a>
             </div>
           </section>

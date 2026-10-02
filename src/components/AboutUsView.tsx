@@ -150,7 +150,7 @@ export default function AboutUsView({ onViewChange }: AboutUsViewProps = {}) {
             <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 space-y-1.5">
               <h3 className="font-bold text-bamboo-950 text-base">Continuous Reader Corrections</h3>
               <p className="leading-relaxed">
-                We welcome community feedback. If you notice a typo in a swara sequence or have an alternative fingering to suggest, write to us directly at <a href="mailto:aplut0006@gmail.com" className="text-amber-800 font-bold underline">aplut0006@gmail.com</a>.
+                We welcome community feedback. If you notice a typo in a swara sequence or have an alternative fingering to suggest, write to us directly at <a href="mailto:flutesangam@gmail.com" className="text-amber-800 font-bold underline">flutesangam@gmail.com</a>.
               </p>
             </div>
           </div>

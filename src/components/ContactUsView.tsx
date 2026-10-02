@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Mail, Send, MessageSquare, HelpCircle, ArrowLeft, CheckCircle, Sparkles, MapPin, Globe } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface ContactUsViewProps {
+  onBackToHomepage?: () => void;
   onBackToCommunity?: () => void;
 }
 
-export default function ContactUsView({ onBackToCommunity }: ContactUsViewProps) {
+export default function ContactUsView({ 
+  onBackToHomepage,
+  onBackToCommunity 
+}: ContactUsViewProps) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,8 +25,19 @@ export default function ContactUsView({ onBackToCommunity }: ContactUsViewProps)
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
+  const handleBack = (e: React.MouseEvent) => {
+    if (e.ctrlKey || e.metaKey) return;
+    if (onBackToHomepage) {
+      e.preventDefault();
+      onBackToHomepage();
+    } else if (onBackToCommunity) {
+      e.preventDefault();
+      onBackToCommunity();
+    }
+  };
+
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('aplut0006@gmail.com');
+    navigator.clipboard.writeText('flutesangam@gmail.com');
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2500);
   };
@@ -35,7 +51,7 @@ export default function ContactUsView({ onBackToCommunity }: ContactUsViewProps)
     const mailtoBody = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nSubject: ${formData.subject}\n\nMessage:\n${formData.message}`);
     
     // Open email client
-    window.location.href = `mailto:aplut0006@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+    window.location.href = `mailto:flutesangam@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
     setSubmitted(true);
   };
 
@@ -49,16 +65,15 @@ export default function ContactUsView({ onBackToCommunity }: ContactUsViewProps)
       id="contact-us-view"
     >
       {/* Back Button */}
-      {onBackToCommunity && (
-        <button
-          onClick={onBackToCommunity}
-          className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-bamboo-800 hover:text-bamboo-900 bg-bamboo-50/80 hover:bg-bamboo-100 border border-bamboo-200/80 px-3.5 py-1.5 rounded-full mb-6 transition-all cursor-pointer shadow-3xs"
-          id="contact-us-back-btn"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          Back to Community
-        </button>
-      )}
+      <Link
+        to="/"
+        onClick={handleBack}
+        className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-bamboo-800 hover:text-bamboo-900 bg-bamboo-50/80 hover:bg-bamboo-100 border border-bamboo-200/80 px-3.5 py-1.5 rounded-full mb-6 transition-all cursor-pointer shadow-3xs"
+        id="contact-us-back-btn"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        Back to Homepage
+      </Link>
 
       {/* Hero Banner */}
       <div className="bg-gradient-to-r from-bamboo-900 via-bamboo-800 to-amber-900 text-white p-8 sm:p-12 rounded-3xl shadow-xl mb-12 relative overflow-hidden">
@@ -95,7 +110,7 @@ export default function ContactUsView({ onBackToCommunity }: ContactUsViewProps)
             </p>
           </div>
           <div>
-            <p className="text-sm font-bold text-bamboo-900 select-all mb-3 font-mono">aplut0006@gmail.com</p>
+            <p className="text-sm font-bold text-bamboo-900 select-all mb-3 font-mono">flutesangam@gmail.com</p>
             <button
               onClick={handleCopyEmail}
               className="w-full py-2 px-3 bg-bamboo-50 hover:bg-bamboo-100 text-bamboo-800 border border-bamboo-200/80 rounded-xl text-xs font-semibold transition cursor-pointer flex items-center justify-center gap-2"
@@ -169,7 +184,7 @@ export default function ContactUsView({ onBackToCommunity }: ContactUsViewProps)
             <CheckCircle className="w-12 h-12 text-emerald-600 mx-auto" />
             <h3 className="text-xl font-display font-bold">Message Drafted!</h3>
             <p className="text-xs sm:text-sm text-emerald-800 max-w-md mx-auto">
-              Your default email client should have opened. If it didn't open automatically, please send your message directly to <strong className="font-mono">aplut0006@gmail.com</strong>.
+              Your default email client should have opened. If it didn't open automatically, please send your message directly to <strong className="font-mono">flutesangam@gmail.com</strong>.
             </p>
             <button
               onClick={() => setSubmitted(false)}
@@ -281,7 +296,7 @@ export default function ContactUsView({ onBackToCommunity }: ContactUsViewProps)
           </div>
           <div className="p-4 rounded-xl bg-bamboo-50/60 border border-bamboo-100 space-y-1.5">
             <strong className="text-bamboo-900 block font-bold">3. Mentorship &amp; Lessons</strong>
-            <p className="text-gray-600">Flute teachers wishing to publish comprehensive Raga articles or Paltas can submit proposals directly to aplut0006@gmail.com with author accreditation.</p>
+            <p className="text-gray-600">Flute teachers wishing to publish comprehensive Raga articles or Paltas can submit proposals directly to flutesangam@gmail.com with author accreditation.</p>
           </div>
         </div>
       </div>
@@ -332,7 +347,7 @@ export default function ContactUsView({ onBackToCommunity }: ContactUsViewProps)
           <div className="bg-white p-5 rounded-2xl border border-bamboo-100 shadow-2xs">
             <h4 className="text-sm font-bold text-bamboo-900 mb-2">What is the typical response time for support inquiries?</h4>
             <p className="text-xs text-gray-600 leading-relaxed">
-              We respond to all direct email inquiries at <span className="font-semibold text-bamboo-800">aplut0006@gmail.com</span> within 24 to 48 business hours.
+              We respond to all direct email inquiries at <span className="font-semibold text-bamboo-800">flutesangam@gmail.com</span> within 24 to 48 business hours.
             </p>
           </div>
         </div>

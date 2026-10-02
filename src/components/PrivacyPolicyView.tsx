@@ -5,15 +5,31 @@ import {
   Cookie, BarChart3, Radio, FileText, CheckCircle2, HelpCircle,
   Database, Trash2, Baby, Globe, RefreshCw, Mic, Volume2
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface PrivacyPolicyViewProps {
+  onBackToHomepage?: () => void;
   onBackToCommunity?: () => void;
 }
 
-export const PrivacyPolicyView: React.FC<PrivacyPolicyViewProps> = ({ onBackToCommunity }) => {
+export const PrivacyPolicyView: React.FC<PrivacyPolicyViewProps> = ({ 
+  onBackToHomepage,
+  onBackToCommunity 
+}) => {
   React.useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
+
+  const handleBack = (e: React.MouseEvent) => {
+    if (e.ctrlKey || e.metaKey) return;
+    if (onBackToHomepage) {
+      e.preventDefault();
+      onBackToHomepage();
+    } else if (onBackToCommunity) {
+      e.preventDefault();
+      onBackToCommunity();
+    }
+  };
 
   return (
     <motion.div 
@@ -25,16 +41,15 @@ export const PrivacyPolicyView: React.FC<PrivacyPolicyViewProps> = ({ onBackToCo
       id="privacy-policy-view"
     >
       {/* Top Navigation */}
-      {onBackToCommunity && (
-        <button
-          onClick={onBackToCommunity}
-          className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-bamboo-800 hover:text-bamboo-900 bg-bamboo-50/80 hover:bg-bamboo-100 border border-bamboo-200/80 px-3.5 py-1.5 rounded-full mb-6 transition-all cursor-pointer"
-          id="privacy-policy-back-btn"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          Back to Community
-        </button>
-      )}
+      <Link
+        to="/"
+        onClick={handleBack}
+        className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-bamboo-800 hover:text-bamboo-900 bg-bamboo-50/80 hover:bg-bamboo-100 border border-bamboo-200/80 px-3.5 py-1.5 rounded-full mb-6 transition-all cursor-pointer"
+        id="privacy-policy-back-btn"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        Back to Homepage
+      </Link>
 
       {/* Main Container */}
       <div className="bg-white rounded-3xl shadow-xl border border-bamboo-100 overflow-hidden">
@@ -312,7 +327,7 @@ export const PrivacyPolicyView: React.FC<PrivacyPolicyViewProps> = ({ onBackToCo
               You have the right to delete your FluteSangam community account at any time. Account deletion removes your authentication credentials, member profile details, and private settings from our active database.
             </p>
             <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-              To request account deletion, navigate to <strong>Profile Settings</strong> in the app or contact us directly at <a href="mailto:aplut0006@gmail.com" className="font-bold underline text-bamboo-800 hover:text-amber-700">aplut0006@gmail.com</a> with your registered email address.
+              To request account deletion, navigate to <strong>Profile Settings</strong> in the app or contact us directly at <a href="mailto:flutesangam@gmail.com" className="font-bold underline text-bamboo-800 hover:text-amber-700">flutesangam@gmail.com</a> with your registered email address.
             </p>
           </section>
 
@@ -326,7 +341,7 @@ export const PrivacyPolicyView: React.FC<PrivacyPolicyViewProps> = ({ onBackToCo
               FluteSangam is a general audience educational website and is not directed to children under 13 years of age. We do not knowingly collect personal information from children under 13.
             </p>
             <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-              If you are a parent or guardian and believe your child under 13 has created an account or provided personal information, please contact us immediately at <a href="mailto:aplut0006@gmail.com" className="font-bold underline text-bamboo-800 hover:text-amber-700">aplut0006@gmail.com</a> so we can promptly delete that information.
+              If you are a parent or guardian and believe your child under 13 has created an account or provided personal information, please contact us immediately at <a href="mailto:flutesangam@gmail.com" className="font-bold underline text-bamboo-800 hover:text-amber-700">flutesangam@gmail.com</a> so we can promptly delete that information.
             </p>
           </section>
 
@@ -367,11 +382,11 @@ export const PrivacyPolicyView: React.FC<PrivacyPolicyViewProps> = ({ onBackToCo
                 <p className="text-xs text-gray-600">Official contact for data protection and privacy inquiries</p>
               </div>
               <a 
-                href="mailto:aplut0006@gmail.com"
+                href="mailto:flutesangam@gmail.com"
                 className="inline-flex items-center gap-2 bg-bamboo-700 hover:bg-bamboo-800 text-white font-semibold text-xs px-4 py-2 rounded-xl transition cursor-pointer shadow-3xs"
               >
                 <Mail className="w-4 h-4" />
-                aplut0006@gmail.com
+                flutesangam@gmail.com
               </a>
             </div>
           </section>
