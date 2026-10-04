@@ -219,6 +219,16 @@ export default function HomepageOverview({
   // Interactive Tools Data
   const interactiveTools = [
     {
+      title: 'Online Tanpura Drone',
+      description: 'Continuous authentic acoustic Tanpura drone in any scale (C to B) with real-time Jawari harmonics for Swar Sadhana.',
+      view: 'tanpura' as AppView,
+      icon: Radio,
+      badge: 'Swara Drone',
+      features: ['All 12 Roots (C to B)', 'Pa / Ma / Ni / Sa Modes', 'Endless Continuous Loop'],
+      gradient: 'from-amber-500/20 via-bamboo-500/10 to-transparent',
+      borderColor: 'border-amber-300'
+    },
+    {
       title: 'Interactive Alankar Generator',
       description: 'Generate customized sargam exercises for any scale with audio playback and speed controls.',
       view: 'alankar_generator' as AppView,

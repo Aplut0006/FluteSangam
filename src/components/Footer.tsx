@@ -127,6 +127,11 @@ export default function Footer({ onViewChange, onSadhanaFeedClick }: FooterProps
                 </Link>
               </li>
               <li>
+                <Link to="/tools/tanpura" onClick={(e) => handleLinkClick('tanpura', e)} className="hover:text-amber-300 transition font-bold text-amber-300">
+                  Online Tanpura Drone
+                </Link>
+              </li>
+              <li>
                 <Link to="/tools/flute-note-key-converter" onClick={(e) => handleLinkClick('note_key_converter', e)} className="hover:text-amber-300 transition font-bold text-amber-300">
                   Flute Note &amp; Key Converter
                 </Link>

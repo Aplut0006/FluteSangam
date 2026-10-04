@@ -64,6 +64,7 @@ const RagaTilangView = lazyWithRetry(() => import('./components/RagaTilangView')
 const RagaShivranjaniView = lazyWithRetry(() => import('./components/RagaShivranjaniView'));
 const RagaJaunpuriView = lazyWithRetry(() => import('./components/RagaJaunpuriView'));
 const FluteNoteKeyConverterView = lazyWithRetry(() => import('./components/FluteNoteKeyConverterView'));
+const TanpuraDroneView = lazyWithRetry(() => import('./components/TanpuraDroneView'));
 const HowToFindSongScaleView = lazyWithRetry(() => import('./components/HowToFindSongScaleView'));
 const HowToReadBansuriNotationView = lazyWithRetry(() => import('./components/HowToReadBansuriNotationView'));
 const MembersView = lazyWithRetry(() => import('./components/MembersView'));
@@ -328,6 +329,10 @@ export default function App() {
       case 'note_key_converter':
         title = 'Flute Note & Key Converter | Swara to Western Notes | FluteSangam';
         description = 'Convert Indian flute swaras to Western notes, translate Western notes to swaras, and explore note relationships across different flute keys with FluteSangam’s interactive converter.';
+        break;
+      case 'tanpura':
+        title = 'Free Online Tanpura for Riyaz & Flute | FluteSangam';
+        description = "Use FluteSangam's free online tanpura for flute, bansuri and vocal practice. Play a steady drone for sargam, alankars, ragas and daily riyaz.";
         break;
       case 'find_song_scale':
         title = 'How to Find the Scale or Key of a Song on Flute | FluteSangam';
@@ -641,6 +646,8 @@ export default function App() {
       breadcrumbItems.push({ '@type': 'ListItem', 'position': 3, 'name': title, 'item': `https://flutesangam.com/learn#${currentView}` });
     } else if (currentView === 'learn_tuner') {
       breadcrumbItems.push({ '@type': 'ListItem', 'position': 2, 'name': 'Bansuri Tuner', 'item': 'https://flutesangam.com/tuner' });
+    } else if (currentView === 'tanpura') {
+      breadcrumbItems.push({ '@type': 'ListItem', 'position': 2, 'name': 'Online Tanpura Drone', 'item': 'https://flutesangam.com/tools/tanpura' });
     } else if (currentView === 'note_key_converter') {
       breadcrumbItems.push({ '@type': 'ListItem', 'position': 2, 'name': 'Flute Note & Key Converter', 'item': 'https://flutesangam.com/tools/flute-note-key-converter' });
     } else if (currentView === 'flute_faq') {
@@ -1254,6 +1261,8 @@ export default function App() {
           <LearnChooseFluteView onViewChange={handleViewChange} />
         ) : currentView === 'learn_tuner' ? (
           <LearnTunerView onViewChange={handleViewChange} />
+        ) : currentView === 'tanpura' ? (
+          <TanpuraDroneView onViewChange={handleViewChange} onBackToHomepage={() => handleViewChange('home')} />
         ) : currentView === 'learn_alankaras' ? (
           <LearnAlankarasView onViewChange={handleViewChange} />
         ) : currentView === 'learn_daily_practice' ? (
@@ -1528,12 +1537,12 @@ export default function App() {
 
           <FluteSangamChatbot 
             onViewChange={handleViewChange}
-            isHidden={authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost || currentView === 'learn_tuner' || currentView === 'notation_requests'}
+            isHidden={authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost || currentView === 'learn_tuner' || currentView === 'tanpura' || currentView === 'notation_requests'}
             onOpenChange={setIsChatbotOpen}
           />
 
           <ScrollToTopButton 
-            isHidden={authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost || currentView === 'learn_tuner' || currentView === 'notation_requests' || isChatbotOpen}
+            isHidden={authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost || currentView === 'learn_tuner' || currentView === 'tanpura' || currentView === 'notation_requests' || isChatbotOpen}
           />
         </React.Suspense>
       </ErrorBoundary>

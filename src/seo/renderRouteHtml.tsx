@@ -41,6 +41,7 @@ import RagaTilangView from '../components/RagaTilangView';
 import RagaShivranjaniView from '../components/RagaShivranjaniView';
 import RagaJaunpuriView from '../components/RagaJaunpuriView';
 import FluteNoteKeyConverterView from '../components/FluteNoteKeyConverterView';
+import TanpuraDroneView from '../components/TanpuraDroneView';
 import HowToFindSongScaleView from '../components/HowToFindSongScaleView';
 import HowToReadBansuriNotationView from '../components/HowToReadBansuriNotationView';
 
@@ -510,6 +511,100 @@ export function getRouteMetadata(path: string): RouteMetadata {
       canonicalUrl,
       component: FluteNoteKeyConverterView,
       jsonLd: createWebPageSchema(canonicalUrl, title, description)
+    };
+  }
+
+  if (cleanPath === '/tools/tanpura' || cleanPath === '/tanpura') {
+    const title = 'Free Online Tanpura for Riyaz & Flute | FluteSangam';
+    const description = "Use FluteSangam's free online tanpura for flute, bansuri and vocal practice. Play a steady drone for sargam, alankars, ragas and daily riyaz.";
+    const canonicalUrl = `${DOMAIN}/tools/tanpura`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: TanpuraDroneView,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          createWebPageSchema(canonicalUrl, title, description),
+          {
+            '@type': 'WebApplication',
+            '@id': `${canonicalUrl}#app`,
+            'name': 'FluteSangam Free Online Tanpura',
+            'applicationCategory': 'MusicApplication',
+            'operatingSystem': 'All',
+            'browserRequirements': 'Requires Web Audio API support',
+            'offers': {
+              '@type': 'Offer',
+              'price': '0',
+              'priceCurrency': 'USD'
+            },
+            'description': description,
+            'featureList': [
+              '12-pitch root tonic (Sa) selection from C to B',
+              'First string tuning modes: Pa (Pancham), Ma (Madhyam), Ni (Nishad), Pure Sa',
+              'Male / Low Bass (Octave 3) and Female / Medium (Octave 4) registers',
+              '4-string visual vibration animation',
+              'Adjustable Jawari overtone buzz resonance',
+              'Fine tuning in cents and concert pitch (432Hz, 440Hz, 444Hz)'
+            ]
+          },
+          {
+            '@type': 'FAQPage',
+            '@id': `${canonicalUrl}#faq`,
+            'mainEntity': [
+              {
+                '@type': 'Question',
+                'name': 'Why is practicing with a Tanpura drone essential for Bansuri players?',
+                'acceptedAnswer': {
+                  '@type': 'Answer',
+                  'text': 'Unlike fretted or keyed instruments which use Equal Temperament, the Indian bamboo flute is played in pure Just Intonation (Gandhar and Pancham Bhava). The Tanpura produces an uninterrupted harmonic ocean of 16+ overtones, training your ear to recognize microtonal purity (Sur) and eliminate frequency beating.'
+                }
+              },
+              {
+                '@type': 'Question',
+                'name': 'Should I choose Pa, Ma, or Ni for the first string tuning mode?',
+                'acceptedAnswer': {
+                  '@type': 'Answer',
+                  'text': 'Use Pa (Pancham) for ~85% of ragas with natural Pancham. Use Ma (Shuddha Madhyam) when Pancham is omitted or when Madhyam is Vadi (Malkauns, Bageshree). Use Ni (Shuddha Nishad) for ragas that omit Pa and have a strong Nishad that leans toward Komal Re (Marwa, Puriya, Sohini).'
+                }
+              },
+              {
+                '@type': 'Question',
+                'name': 'What is the difference between Male (Octave 3) and Female (Octave 4) Tanpura registers?',
+                'acceptedAnswer': {
+                  '@type': 'Answer',
+                  'text': 'Male Tanpura (Octave 3, C3–B3, ~130 Hz) has a deeper Kharaj string and fuller lower body resonance for deep bass flutes (E Bass, F Bass, C Medium). Female Tanpura (Octave 4, C4–B4, ~260 Hz) provides a higher tonic pitch for medium and small high-pitch flutes (G Medium, A Base).'
+                }
+              }
+            ]
+          },
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': DOMAIN
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Practice Tools',
+                'item': `${DOMAIN}/learn`
+              },
+              {
+                '@type': 'ListItem',
+                'position': 3,
+                'name': 'Online Tanpura Drone',
+                'item': canonicalUrl
+              }
+            ]
+          }
+        ]
+      }
     };
   }
 

@@ -299,18 +299,32 @@ export default function Navbar({
             <button
               onClick={() => setShowToolsDropdown(!showToolsDropdown)}
               className={`px-2.5 xl:px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
-                currentView === 'learn_tuner' || currentView === 'alankar_generator' || currentView === 'note_key_converter'
+                currentView === 'learn_tuner' || currentView === 'tanpura' || currentView === 'alankar_generator' || currentView === 'note_key_converter'
                   ? 'bg-amber-600 text-white shadow-xs'
                   : 'text-amber-950 bg-amber-100/70 hover:bg-amber-200/80 border border-amber-300/60'
               }`}
             >
-              <Radio className={`w-3.5 h-3.5 ${currentView === 'learn_tuner' || currentView === 'alankar_generator' || currentView === 'note_key_converter' ? 'text-white' : 'text-amber-700 animate-pulse'}`} />
+              <Radio className={`w-3.5 h-3.5 ${currentView === 'learn_tuner' || currentView === 'tanpura' || currentView === 'alankar_generator' || currentView === 'note_key_converter' ? 'text-white' : 'text-amber-700 animate-pulse'}`} />
               <span>Practice Tools</span>
               <ChevronDown className="w-3.5 h-3.5 opacity-70" />
             </button>
             
             {showToolsDropdown && (
-              <div className="absolute top-full mt-2 left-0 w-60 bg-white rounded-xl shadow-xl border border-bamboo-100 py-1.5 z-50 overflow-hidden">
+              <div className="absolute top-full mt-2 left-0 w-64 bg-white rounded-xl shadow-xl border border-bamboo-100 py-1.5 z-50 overflow-hidden">
+                <a
+                  href={VIEW_URLS['tanpura'] || '/tools/tanpura'}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onViewChange?.('tanpura');
+                    setShowToolsDropdown(false);
+                  }}
+                  className="w-full text-left px-4 py-2.5 text-xs font-bold text-amber-950 bg-amber-50/80 hover:bg-amber-100 transition border-b border-bamboo-100 cursor-pointer flex items-center justify-between"
+                >
+                  <span className="flex items-center gap-2">
+                    <Radio className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
+                    <span>Tanpura Drone</span>
+                  </span>
+                </a>
                 <a
                   href={VIEW_URLS['learn_tuner'] || '/tuner'}
                   onClick={(e) => {
@@ -318,7 +332,7 @@ export default function Navbar({
                     onViewChange?.('learn_tuner');
                     setShowToolsDropdown(false);
                   }}
-                  className="w-full text-left px-4 py-2.5 text-xs font-bold text-amber-900 bg-amber-50/60 hover:bg-amber-100/70 transition border-b border-bamboo-100 cursor-pointer flex items-center justify-between"
+                  className="w-full text-left px-4 py-2.5 text-xs font-bold text-bamboo-900 hover:bg-bamboo-50 hover:text-amber-800 transition border-b border-bamboo-100 cursor-pointer flex items-center justify-between"
                 >
                   <span className="flex items-center gap-2">
                     <Radio className="w-3.5 h-3.5 text-amber-600" />
@@ -596,6 +610,30 @@ export default function Navbar({
                 Practice Tools
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <a
+                  href={VIEW_URLS['tanpura'] || '/tools/tanpura'}
+                  onClick={(e) => { e.preventDefault(); onViewChange?.('tanpura'); setShowMobileMenu(false); }}
+                  className={`w-full flex items-center justify-between p-3.5 border rounded-xl transition cursor-pointer text-left ${
+                    currentView === 'tanpura'
+                      ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
+                      : 'bg-gradient-to-r from-amber-500/15 via-amber-100/50 to-bamboo-100/40 border-amber-300/80 hover:bg-amber-100/80'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center shadow-2xs group-hover:scale-105 transition ${
+                      currentView === 'tanpura' ? 'bg-white/20 text-white' : 'bg-amber-600 text-white'
+                    }`}>
+                      <Radio className="w-5 h-5 animate-pulse" />
+                    </div>
+                    <div className="text-left">
+                      <div className={`text-xs font-extrabold flex items-center gap-1.5 ${currentView === 'tanpura' ? 'text-white' : 'text-bamboo-950'}`}>
+                        <span>Online Tanpura Drone</span>
+                      </div>
+                      <div className={`text-[11px] ${currentView === 'tanpura' ? 'text-amber-100' : 'text-gray-600'}`}>Acoustic drone for Swar Sadhana</div>
+                    </div>
+                  </div>
+                </a>
+
                 <a
                   href={VIEW_URLS['learn_tuner'] || '/tuner'}
                   onClick={(e) => { e.preventDefault(); onViewChange?.('learn_tuner'); setShowMobileMenu(false); }}

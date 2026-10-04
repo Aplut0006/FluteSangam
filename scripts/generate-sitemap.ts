@@ -85,6 +85,7 @@ const ROUTE_MOD_DATES: Record<string, string> = {
   '/terms-of-service': '2026-09-18',
   '/copyright-policy': '2026-10-02',
   '/faq': '2026-09-18',
+  '/tools/tanpura': '2026-10-04',
   '/tools/flute-note-key-converter': '2026-09-18',
   '/learn/how-to-find-scale-of-a-song-on-flute': '2026-09-18',
   '/learn/how-to-read-bansuri-notation': '2026-09-18',
