@@ -13,13 +13,13 @@ import {
   ShieldCheck,
   Radio,
   Sliders,
-  BookOpen
+  BookOpen,
+  ArrowRight
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Post, UserProfile, AppView } from '../types';
 import PostCard from './PostCard';
 import RagaGuide from './RagaGuide';
-import FlutePracticeFaqSection from './FlutePracticeFaqSection';
 import { VIEW_URLS } from '../routes';
 
 interface CommunityFeedViewProps {
@@ -433,8 +433,62 @@ export const CommunityFeedView: React.FC<CommunityFeedViewProps> = ({
             onViewChange={onViewChange}
           />
 
-          {/* FAQ Section */}
-          <FlutePracticeFaqSection onViewChange={onViewChange} />
+          {/* Community Guidelines & Riyaz Practice Resources */}
+          <div className="bg-white rounded-2xl border border-bamboo-200/80 p-5 shadow-xs space-y-4">
+            <div className="flex items-center gap-2 border-b border-bamboo-100 pb-3">
+              <Sparkles className="w-4 h-4 text-amber-600" />
+              <h3 className="font-display font-bold text-slate-800 text-sm">Community Guidelines &amp; Riyaz Hub</h3>
+            </div>
+            
+            <ul className="text-xs text-gray-600 space-y-2">
+              <li className="flex items-start gap-2">
+                <span className="text-amber-600 font-bold">•</span>
+                <span>Share your audio recordings and questions about flute tone, embouchure, or raga phrasing.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-600 font-bold">•</span>
+                <span>Provide constructive, encouraging feedback to fellow flute learners at all skill levels.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-600 font-bold">•</span>
+                <span>Keep discussions focused on bansuri learning, Hindustani classical music, sargam, and practice technique.</span>
+              </li>
+            </ul>
+
+            <div className="pt-2 border-t border-bamboo-100 space-y-2">
+              <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider block">Recommended Practice Guides:</span>
+              <div className="grid grid-cols-1 gap-1.5 text-xs font-semibold">
+                <button
+                  onClick={() => onViewChange?.('learn_daily_practice')}
+                  className="text-left py-1.5 px-2.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-bamboo-900 transition flex items-center justify-between cursor-pointer"
+                >
+                  <span>Daily 30-Minute Riyaz Guide</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-amber-600" />
+                </button>
+                <button
+                  onClick={() => onViewChange?.('learn_fingering_chart')}
+                  className="text-left py-1.5 px-2.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-950 transition flex items-center justify-between cursor-pointer"
+                >
+                  <span>Interactive Fingering Chart</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-emerald-600" />
+                </button>
+                <button
+                  onClick={() => onViewChange?.('note_key_converter')}
+                  className="text-left py-1.5 px-2.5 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-800 transition flex items-center justify-between cursor-pointer"
+                >
+                  <span>Flute Note &amp; Key Converter</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-stone-600" />
+                </button>
+                <button
+                  onClick={() => onViewChange?.('flute_faq')}
+                  className="text-left py-1.5 px-2.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-900 transition flex items-center justify-between cursor-pointer"
+                >
+                  <span>Browse Full FAQ Knowledge Base</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-amber-600" />
+                </button>
+              </div>
+            </div>
+          </div>
         </aside>
 
       </div>

@@ -158,28 +158,28 @@ export default function LearnDashboard({ onViewChange }: LearnDashboardProps) {
               </thead>
               <tbody className="divide-y divide-stone-200">
                 <tr className="bg-stone-50/60">
-                  <td className="p-3 font-bold text-bamboo-950">Adult Beginners</td>
+                  <td className="p-3 font-bold text-bamboo-950">Adult Beginners (Moderate Reach)</td>
                   <td className="p-3 font-bold text-amber-800">C Natural Medium</td>
                   <td className="p-3 text-stone-600">~19 inches (48 cm)</td>
-                  <td className="p-3 text-stone-700">Comfortable hole spacing, moderate breath volume requirement, and aligns with standard vocal keys.</td>
+                  <td className="p-3 text-stone-700">Comfortable hole spacing (~3.5 cm), moderate breath demand, and minimal finger stretch for beginners.</td>
                 </tr>
                 <tr className="bg-white">
-                  <td className="p-3 font-bold text-bamboo-950">Teens / Smaller Hands</td>
-                  <td className="p-3 font-bold text-amber-800">G Medium / A Medium</td>
-                  <td className="p-3 text-stone-600">~15–17 inches (38–43 cm)</td>
-                  <td className="p-3 text-stone-700">Compact finger reach, lightweight, and responds instantly to lighter breath pressure.</td>
+                  <td className="p-3 font-bold text-bamboo-950">Adult Beginners (Classical Reach)</td>
+                  <td className="p-3 font-bold text-amber-800">G Base / G Bass or A Base</td>
+                  <td className="p-3 text-stone-600">~24–26 inches (61–66 cm)</td>
+                  <td className="p-3 text-stone-700">Traditional Hindustani classical preference; rich, deep resonance for players comfortable with wider hole spacing.</td>
                 </tr>
                 <tr className="bg-stone-50/60">
-                  <td className="p-3 font-bold text-bamboo-950">Children (Under 10)</td>
-                  <td className="p-3 font-bold text-amber-800">C High / D High</td>
-                  <td className="p-3 text-stone-600">~11–13 inches (28–33 cm)</td>
-                  <td className="p-3 text-stone-700">Zero finger strain; ideal for cultivating the foundational embouchure habit early.</td>
+                  <td className="p-3 font-bold text-bamboo-950">Young Learners &amp; Compact Hands</td>
+                  <td className="p-3 font-bold text-amber-800">G Medium / A Medium</td>
+                  <td className="p-3 text-stone-600">~15–17 inches (38–43 cm)</td>
+                  <td className="p-3 text-stone-700">Close hole spacing (~2–2.5 cm) eliminates joint strain; chosen based on physical hand span rather than age alone.</td>
                 </tr>
                 <tr className="bg-white">
                   <td className="p-3 font-bold text-bamboo-950">Intermediate / Classical Soloists</td>
                   <td className="p-3 font-bold text-amber-800">E Bass / F# Bass</td>
                   <td className="p-3 text-stone-600">~28–30 inches (71–76 cm)</td>
-                  <td className="p-3 text-stone-700">Deep, meditative resonance favored by Pt. Hariprasad Chaurasia and traditional Hindustani concerts.</td>
+                  <td className="p-3 text-stone-700">Deep, meditative resonance favored in classical recitals; requires seasoned breath support and piper&apos;s grip.</td>
                 </tr>
               </tbody>
             </table>

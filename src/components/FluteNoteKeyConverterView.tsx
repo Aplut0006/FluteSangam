@@ -221,7 +221,7 @@ export const FluteNoteKeyConverterView: React.FC<Props> = ({ onNavigate }) => {
   const SWARA_PRESETS = [
     { label: 'Sargam (Bilawal)', value: 'Sa Re Ga Ma Pa Dha Ni Sa\'' },
     { label: 'Raag Bhoopali', value: 'Sa Re Ga Pa Dha Sa\'' },
-    { label: 'Raag Yaman', value: 'Sa Re Ga M\' Pa Dha Ni Sa\'' },
+    { label: 'Raag Yaman', value: 'Sa Re Ga M^ Pa Dha Ni Sa\'' },
     { label: 'Raag Bhairav', value: 'Sa r Ga Ma Pa d Ni Sa\'' },
     { label: 'Raag Kafi', value: 'Sa Re g Ma Pa Dha n Sa\'' },
     { label: 'Raag Malkauns', value: 'Sa g Ma d n Sa\'' },
@@ -534,7 +534,7 @@ export const FluteNoteKeyConverterView: React.FC<Props> = ({ onNavigate }) => {
                       {[
                         { label: 'Komal Re', token: 'r', sub: 'Komal Re (r)' },
                         { label: 'Komal Ga', token: 'g', sub: 'Komal Ga (g)' },
-                        { label: 'Tivra Ma', token: 'M\'', sub: 'Tivra Ma (M\')' },
+                        { label: 'Tivra Ma', token: 'M^', sub: 'Tivra Ma (M^)' },
                         { label: 'Komal Dha', token: 'd', sub: 'Komal Dha (d)' },
                         { label: 'Komal Ni', token: 'n', sub: 'Komal Ni (n)' },
                       ].map((item) => (
@@ -579,7 +579,7 @@ export const FluteNoteKeyConverterView: React.FC<Props> = ({ onNavigate }) => {
                     placeholder={
                       mode === 'change_flute_key'
                         ? "e.g. Sa Re Ga Pa Dha or C D E G A (accepts both Swaras & Western notes)"
-                        : "e.g. Sa Re Ga Ma Pa Dha Ni Sa' or r g M' d n"
+                        : "e.g. Sa Re Ga Ma Pa Dha Ni Sa' or r g M^ d n"
                     }
                     className="w-full bg-stone-50 border-2 border-stone-200 rounded-2xl p-3.5 text-sm sm:text-base font-mono text-gray-800 focus:bg-white focus:border-bamboo-600 focus:outline-hidden transition shadow-inner"
                   />
@@ -1053,10 +1053,10 @@ export const FluteNoteKeyConverterView: React.FC<Props> = ({ onNavigate }) => {
             <div className="p-5 rounded-2xl bg-white border border-amber-200/80 space-y-2.5">
               <strong className="text-bamboo-950 font-bold block text-sm">Scenario 1: Accompaniment with a Vocalist Singing in D#</strong>
               <p className="text-gray-600 leading-relaxed text-xs">
-                Suppose a vocalist sings in D# (Black 2) scale, but you only carry an A Base bansuri. By treating your A bansuri&apos;s <strong>Pancham (Pa)</strong> or <strong>Gandhar (Ga)</strong> as the singer&apos;s tonic root, you can accompany them harmoniously without purchasing a dedicated D# flute.
+                Suppose a vocalist sings with root tonic D# (Black 2), but you only carry an A Base bansuri. On an A bansuri, the pitch D# is produced by playing <strong>Tivra Ma (M^)</strong> (+6 semitones / augmented 4th). While sounding Tivra Ma matches their root note, accompanying the vocalist across a complete melody requires mapping all remaining notes relative to their D# tonic (for example, their Re becomes F, their Ga becomes G, their Pa becomes A#, and their Dha becomes C). This modal shift (Murchhana) demonstrates why accompanying a singer in a different tonic requires transposing the entire scale structure.
               </p>
               <div className="p-2.5 rounded-lg bg-amber-50 border border-amber-200 text-xs font-mono text-amber-900">
-                Formula: Vocalist Sa = D# &rarr; On A Flute, Komal Ga (g) = D#
+                Formula: Vocalist Sa = D# &rarr; On A Flute, Tivra Ma (M^) = D# (+6 semitones). Full accompaniment requires shifting all subsequent scale degrees accordingly.
               </div>
             </div>
 
@@ -1107,7 +1107,7 @@ export const FluteNoteKeyConverterView: React.FC<Props> = ({ onNavigate }) => {
                   { swara: 'Komal Ga (g)', interval: 'Minor 3rd (+3)', c: 'D# / Eb', d: 'F', e: 'G', f: 'G# / Ab', g: 'A# / Bb', a: 'C' },
                   { swara: 'Shuddha Ga', interval: 'Major 3rd (+4)', c: 'E', d: 'F#', e: 'G#', f: 'A', g: 'B', a: 'C#' },
                   { swara: 'Shuddha Ma', interval: 'Perfect 4th (+5)', c: 'F', d: 'G', e: 'A', f: 'A# / Bb', g: 'C', a: 'D' },
-                  { swara: 'Tivra Ma (M\')', interval: 'Aug 4th (+6)', c: 'F#', d: 'G#', e: 'A#', f: 'B', g: 'C#', a: 'D#' },
+                  { swara: 'Tivra Ma (M^)', interval: 'Aug 4th (+6)', c: 'F#', d: 'G#', e: 'A#', f: 'B', g: 'C#', a: 'D#' },
                   { swara: 'Pa', interval: 'Perfect 5th (+7)', c: 'G', d: 'A', e: 'B', f: 'C', g: 'D', a: 'E' },
                   { swara: 'Komal Dha (d)', interval: 'Minor 6th (+8)', c: 'G# / Ab', d: 'A# / Bb', e: 'C', f: 'C# / Db', g: 'D# / Eb', a: 'F' },
                   { swara: 'Shuddha Dha', interval: 'Major 6th (+9)', c: 'A', d: 'B', e: 'C#', f: 'D', g: 'E', a: 'F#' },

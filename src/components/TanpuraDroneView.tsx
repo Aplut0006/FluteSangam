@@ -56,7 +56,7 @@ interface RagaTanpuraPreset {
 const RAGA_PRESETS: RagaTanpuraPreset[] = [
   { name: 'Raga Yaman', firstString: 'Pa', recommendedSa: 'E', octave: 'low', mood: 'Peaceful & Devotional', viewKey: 'raga_yaman', reason: 'Pa is essential resting swara (Vadi/Samvadi Ga-Ni)' },
   { name: 'Raga Bhoopali', firstString: 'Pa', recommendedSa: 'C', octave: 'low', mood: 'Calm & Bright', viewKey: 'raga_bhoopali', reason: 'Pancham anchors the Audav pentatonic scale' },
-  { name: 'Raga Bhimpalasi', firstString: 'Pa', recommendedSa: 'D', octave: 'low', mood: 'Sweet & Longing', viewKey: 'raga_bhimpalasi', reason: 'Pa is Vadi swara for afternoon sadhana' },
+  { name: 'Raga Bhimpalasi', firstString: 'Pa', recommendedSa: 'D', octave: 'low', mood: 'Sweet & Longing', viewKey: 'raga_bhimpalasi', reason: 'Pa drone anchors the scale while Ma serves as the soulful Vadi swara' },
   { name: 'Raga Malkauns', firstString: 'Ma', recommendedSa: 'D#', octave: 'low', mood: 'Profound & Meditative', viewKey: 'raga_malkauns', reason: 'Pa is omitted (varjit); tuned to Shuddha Ma' },
   { name: 'Raga Bageshree', firstString: 'Ma', recommendedSa: 'D', octave: 'low', mood: 'Romantic & Deep', viewKey: 'raga_bageshree', reason: 'Madhyam (Ma) is the Vadi swara' },
   { name: 'Raga Marwa', firstString: 'Ni', recommendedSa: 'D', octave: 'low', mood: 'Twilight Sunset', viewKey: 'raga_marwa', reason: 'Pa is omitted; Shuddha Ni resolves to Komal Re' },

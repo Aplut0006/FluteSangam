@@ -1587,9 +1587,17 @@ export default function LearnAlankarasView({ initialLevel, viewMode, onViewChang
                 </p>
               </div>
               <div className="p-4 bg-amber-50/50 rounded-2xl border border-amber-200/70 space-y-2">
-                <strong className="text-amber-950 font-bold block text-sm">4. Multi-Speed Mastery (Laya Triad)</strong>
+                <strong className="text-amber-950 font-bold block text-sm">4. Multi-Speed Mastery (Layakari Subdivisions)</strong>
                 <p className="leading-relaxed text-gray-600">
-                  Always practice in three distinct speeds: <em>Ekgun</em> (1 note per beat at 60 BPM), <em>Dugun</em> (2 notes per beat at 120 BPM), and <em>Chaugun</em> (4 notes per beat at 240 BPM).
+                  Practice each alankar across classical subdivisions while keeping your metronome pulse constant (e.g. at a steady 60 BPM):
+                </p>
+                <ul className="text-xs text-gray-600 list-disc pl-5 space-y-1">
+                  <li><strong>Ekgun (Single Speed):</strong> 1 note per beat (1.0s per note). Focus on pure intonation and diaphragmatic breath support.</li>
+                  <li><strong>Dugun (Double Speed):</strong> 2 notes per beat (0.5s per note). Keep the metronome tempo unchanged at 60 BPM; only note density doubles.</li>
+                  <li><strong>Chaugun (Quadruple Speed):</strong> 4 notes per beat (0.25s per note). Metronome remains at 60 BPM while fingers articulate four even notes per beat.</li>
+                </ul>
+                <p className="text-xs text-amber-900 font-medium pt-1">
+                  💡 Note: Increasing the metronome pulse itself (e.g. 50 → 60 → 75 BPM) is a separate speed progression practiced once subdivisions are fully steady.
                 </p>
               </div>
             </div>
@@ -1714,32 +1722,53 @@ export default function LearnAlankarasView({ initialLevel, viewMode, onViewChang
           <section className="bg-white border border-bamboo-200 rounded-3xl p-6 md:p-8 shadow-sm space-y-4">
             <div className="flex items-center gap-3">
               <Clock className="w-6 h-6 text-amber-600" />
-              <h2 className="text-2xl font-bold text-bamboo-900 m-0">Laya (Tempo) Progression Reference Table</h2>
+              <h2 className="text-2xl font-bold text-bamboo-900 m-0">Laya (Tempo) &amp; Subdivision (Layakari) Reference</h2>
             </div>
             <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
-              In Bansuri riyaz, speed is a byproduct of relaxed accuracy, never muscle tension. Use this metric to measure your Palta speed benchmarks:
+              In Bansuri riyaz, speed has two distinct dimensions: <strong>Layakari (subdivision density per beat)</strong> and <strong>Tempo (metronome BPM)</strong>. Always master subdivision density (1, 2, and 4 notes per beat) at a constant pulse before accelerating the metronome BPM itself:
             </p>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center pt-1">
-              <div className="p-4 rounded-2xl bg-sand-50 border border-sand-200 space-y-1">
-                <span className="text-[10px] font-bold uppercase text-slate-500 block">Vilambit (Slow)</span>
-                <span className="text-lg font-black text-bamboo-950 block">40–60 BPM</span>
-                <span className="text-[11px] text-gray-600 block">1 Swara / Beat (Tone &amp; Breath)</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+              <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 space-y-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-800 block">Dimension 1: Layakari (Subdivision at Constant 60 BPM)</span>
+                <div className="grid grid-cols-3 gap-2 text-center text-xs">
+                  <div className="p-2.5 bg-white rounded-xl border border-amber-200">
+                    <span className="font-bold text-amber-950 block">Ekgun (1x)</span>
+                    <span className="text-[11px] text-gray-600 block">1 Note / Beat</span>
+                    <span className="text-[10px] text-amber-700 block">Tone &amp; Kharaj</span>
+                  </div>
+                  <div className="p-2.5 bg-white rounded-xl border border-amber-200">
+                    <span className="font-bold text-amber-950 block">Dugun (2x)</span>
+                    <span className="text-[11px] text-gray-600 block">2 Notes / Beat</span>
+                    <span className="text-[10px] text-amber-700 block">Finger Agility</span>
+                  </div>
+                  <div className="p-2.5 bg-white rounded-xl border border-amber-200">
+                    <span className="font-bold text-amber-950 block">Chaugun (4x)</span>
+                    <span className="text-[11px] text-gray-600 block">4 Notes / Beat</span>
+                    <span className="text-[10px] text-amber-700 block">Drut Taan Sprints</span>
+                  </div>
+                </div>
               </div>
-              <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 space-y-1">
-                <span className="text-[10px] font-bold uppercase text-amber-700 block">Madhya (Medium)</span>
-                <span className="text-lg font-black text-amber-950 block">80–120 BPM</span>
-                <span className="text-[11px] text-amber-900 block">2 Swaras / Beat (Dugun Laya)</span>
-              </div>
-              <div className="p-4 rounded-2xl bg-orange-50 border border-orange-200 space-y-1">
-                <span className="text-[10px] font-bold uppercase text-orange-700 block">Drut (Fast)</span>
-                <span className="text-lg font-black text-orange-950 block">140–200 BPM</span>
-                <span className="text-[11px] text-orange-900 block">4 Swaras / Beat (Chaugun Laya)</span>
-              </div>
-              <div className="p-4 rounded-2xl bg-purple-50 border border-purple-200 space-y-1">
-                <span className="text-[10px] font-bold uppercase text-purple-700 block">Ati-Drut (Virtuoso)</span>
-                <span className="text-lg font-black text-purple-950 block">240+ BPM</span>
-                <span className="text-[11px] text-purple-900 block">8 Swaras / Beat (Athgun Sprints)</span>
+
+              <div className="p-4 rounded-2xl bg-sand-50/80 border border-sand-200 space-y-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-bamboo-800 block">Dimension 2: Base Metronome Tempo Progression</span>
+                <div className="grid grid-cols-3 gap-2 text-center text-xs">
+                  <div className="p-2.5 bg-white rounded-xl border border-sand-200">
+                    <span className="font-bold text-bamboo-950 block">Vilambit</span>
+                    <span className="text-[11px] text-gray-600 block">40–60 BPM</span>
+                    <span className="text-[10px] text-bamboo-700 block">Slow &amp; Grounded</span>
+                  </div>
+                  <div className="p-2.5 bg-white rounded-xl border border-sand-200">
+                    <span className="font-bold text-bamboo-950 block">Madhya</span>
+                    <span className="text-[11px] text-gray-600 block">60–90 BPM</span>
+                    <span className="text-[10px] text-bamboo-700 block">Medium Concert</span>
+                  </div>
+                  <div className="p-2.5 bg-white rounded-xl border border-sand-200">
+                    <span className="font-bold text-bamboo-950 block">Drut</span>
+                    <span className="text-[11px] text-gray-600 block">90–120+ BPM</span>
+                    <span className="text-[10px] text-bamboo-700 block">Fast Flow</span>
+                  </div>
+                </div>
               </div>
             </div>
           </section>

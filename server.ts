@@ -33,6 +33,9 @@ async function startServer() {
   app.get('/ragas', (req, res) => {
     res.redirect(301, '/learn/raagas');
   });
+  app.get(['/notations/hothon-se-chhu-lo-tum-flute-notes', '/notations/hothon-se-chhu-lo-tum-flute-notes/'], (req, res) => {
+    res.redirect(301, '/notations/hothon-se-chhoo-lo-tum-flute-notes');
+  });
 
   // Specific static routes with explicit MIME and Cache-Control headers
   app.get('/sitemap.xml', (req, res) => {

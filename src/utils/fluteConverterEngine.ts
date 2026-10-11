@@ -71,7 +71,7 @@ export const SWARA_DEFINITIONS: SwaraDefinition[] = [
     semitoneOffset: 2,
     type: 'shuddha',
     westernIntervalName: 'Major 2nd (M2)',
-    aliases: ['re', 'r', 'rishabh', 'shuddha re', 'shuddha r', 'ree']
+    aliases: ['re', 'rishabh', 'shuddha re', 'shuddha r', 'ree']
   },
   {
     canonicalName: 'Komal Ga',
@@ -91,7 +91,7 @@ export const SWARA_DEFINITIONS: SwaraDefinition[] = [
     semitoneOffset: 4,
     type: 'shuddha',
     westernIntervalName: 'Major 3rd (M3)',
-    aliases: ['ga', 'g', 'gandhar', 'shuddha ga', 'shuddha g', 'gaa']
+    aliases: ['ga', 'gandhar', 'shuddha ga', 'shuddha g', 'gaa']
   },
   {
     canonicalName: 'Ma',
@@ -105,13 +105,13 @@ export const SWARA_DEFINITIONS: SwaraDefinition[] = [
   },
   {
     canonicalName: 'Tivra Ma',
-    shortSymbol: 'M\'',
-    displayName: 'Tivra Ma (M\')',
+    shortSymbol: 'M^',
+    displayName: 'Tivra Ma (M^)',
     devanagari: 'म॑',
     semitoneOffset: 6,
     type: 'tivra',
     westernIntervalName: 'Augmented 4th / Tritone (#4)',
-    aliases: ['tivra ma', 'teevra ma', 'tivra m', 'm\'', 'm#', 'ma\'', 'ma#', 'ma(tivra)', 'tivra_ma', 'ma(t)', 'mat']
+    aliases: ['tivra ma', 'teevra ma', 'tivra m', 'm^', 'm#', "m'", "ma'", 'ma#', 'ma(tivra)', 'tivra_ma', 'ma(t)', 'mat', 'ma^']
   },
   {
     canonicalName: 'Pa',
@@ -141,7 +141,7 @@ export const SWARA_DEFINITIONS: SwaraDefinition[] = [
     semitoneOffset: 9,
     type: 'shuddha',
     westernIntervalName: 'Major 6th (M6)',
-    aliases: ['dha', 'd', 'dhaivat', 'shuddha dha', 'shuddha d', 'dhaa']
+    aliases: ['dha', 'dhaivat', 'shuddha dha', 'dhaa']
   },
   {
     canonicalName: 'Komal Ni',
@@ -161,7 +161,7 @@ export const SWARA_DEFINITIONS: SwaraDefinition[] = [
     semitoneOffset: 11,
     type: 'shuddha',
     westernIntervalName: 'Major 7th (M7)',
-    aliases: ['ni', 'n', 'nishad', 'shuddha ni', 'shuddha n', 'nee']
+    aliases: ['ni', 'nishad', 'shuddha ni', 'nee']
   }
 ];
 
@@ -238,12 +238,119 @@ export const getFluteKeyConfig = (keyName: string): FluteKeyConfig => {
 };
 
 /**
+ * Unambiguously resolves a raw swara token into:
+ * - SwaraDefinition
+ * - Octave ('mandra' | 'madhya' | 'taar')
+ * - Standardized display format (e.g., "Sa", "Re", "M^", "Sa'", "M^'", ".M^", ".Sa")
+ */
+export const resolveSwaraToken = (rawToken: string): {
+  definition: SwaraDefinition;
+  octave: Octave;
+  formatted: string;
+} | null => {
+  let clean = rawToken.trim();
+  if (!clean) return null;
+
+  let octave: Octave = 'madhya';
+
+  // 1. Mandra Saptak decorators (.Sa, .M^, _Sa, Sa_mandra, etc.)
+  if (clean.startsWith('.') || clean.startsWith('_') || clean.includes('low') || clean.includes('mandra') || (clean.endsWith('.') && !clean.endsWith('..'))) {
+    octave = 'mandra';
+    clean = clean.replace(/^[._]|[\s._]+$|low|mandra/gi, '').trim();
+  }
+
+  // 2. Disambiguate Tivra Ma vs Taar Saptak:
+  // Legacy Bhatkhande notation: "M'" or "m'" is literally Tivra Ma in madhya octave!
+  if (/^m'$/i.test(clean)) {
+    const tivraDef = SWARA_DEFINITIONS.find(d => d.canonicalName === 'Tivra Ma')!;
+    const formatted = octave === 'mandra' ? '.M^' : 'M^';
+    return { definition: tivraDef, octave, formatted };
+  }
+
+  // Taar Tivra Ma representations: "M''", "m''", "M^'", "m^'", "M'^", "m'^"
+  if (/^(m''|m\^'|m'\^)$/i.test(clean)) {
+    const tivraDef = SWARA_DEFINITIONS.find(d => d.canonicalName === 'Tivra Ma')!;
+    return { definition: tivraDef, octave: 'taar', formatted: "M^'" };
+  }
+
+  // Explicit Tivra Ma in madhya or mandra: "M^", "m^", "M#", "m#"
+  if (/^(m\^|m#)$/i.test(clean)) {
+    const tivraDef = SWARA_DEFINITIONS.find(d => d.canonicalName === 'Tivra Ma')!;
+    const formatted = octave === 'mandra' ? '.M^' : 'M^';
+    return { definition: tivraDef, octave, formatted };
+  }
+
+  // Check Taar octave decorators (apostrophe, caret on non-M, plus, high, taar)
+  if (octave === 'madhya') {
+    if (clean.endsWith("''")) {
+      octave = 'taar';
+      clean = clean.slice(0, -2).trim();
+    } else if (clean.endsWith("'") || clean.endsWith("+") || clean.includes('high') || clean.includes('taar')) {
+      octave = 'taar';
+      clean = clean.replace(/['+]|high|taar/gi, '').trim();
+    } else if (clean.endsWith('^') && !clean.toLowerCase().startsWith('m')) {
+      octave = 'taar';
+      clean = clean.slice(0, -1).trim();
+    }
+  }
+
+  // Match against swara definitions
+  let def: SwaraDefinition | undefined;
+
+  // 1. Single letter case-sensitive match (Bhatkhande notation convention)
+  if (clean.length === 1) {
+    if (clean === 'r') def = SWARA_DEFINITIONS.find(d => d.canonicalName === 'Komal Re');
+    else if (clean === 'R') def = SWARA_DEFINITIONS.find(d => d.canonicalName === 'Re');
+    else if (clean === 'g') def = SWARA_DEFINITIONS.find(d => d.canonicalName === 'Komal Ga');
+    else if (clean === 'G') def = SWARA_DEFINITIONS.find(d => d.canonicalName === 'Ga');
+    else if (clean === 'm') def = SWARA_DEFINITIONS.find(d => d.canonicalName === 'Ma');
+    else if (clean === 'M') def = SWARA_DEFINITIONS.find(d => d.canonicalName === 'Ma');
+    else if (clean === 'd') def = SWARA_DEFINITIONS.find(d => d.canonicalName === 'Komal Dha');
+    else if (clean === 'D') def = SWARA_DEFINITIONS.find(d => d.canonicalName === 'Dha');
+    else if (clean === 'n') def = SWARA_DEFINITIONS.find(d => d.canonicalName === 'Komal Ni');
+    else if (clean === 'N') def = SWARA_DEFINITIONS.find(d => d.canonicalName === 'Ni');
+    else if (clean.toLowerCase() === 's') def = SWARA_DEFINITIONS.find(d => d.canonicalName === 'Sa');
+    else if (clean.toLowerCase() === 'p') def = SWARA_DEFINITIONS.find(d => d.canonicalName === 'Pa');
+  }
+
+  // 2. Full names, devanagari, or case-insensitive aliases
+  if (!def) {
+    const lowerClean = clean.toLowerCase();
+    def = SWARA_DEFINITIONS.find(d =>
+      d.canonicalName.toLowerCase() === lowerClean ||
+      d.shortSymbol.toLowerCase() === lowerClean ||
+      d.aliases.includes(lowerClean) ||
+      d.devanagari === clean
+    );
+  }
+
+  if (!def) return null;
+
+  // Format token cleanly: M^ for Tivra Ma, canonical name for Shuddha, short symbol for Komal
+  let baseSymbol = def.canonicalName;
+  if (def.canonicalName === 'Tivra Ma') {
+    baseSymbol = 'M^';
+  } else if (def.type === 'komal') {
+    baseSymbol = def.shortSymbol;
+  }
+
+  let formatted = baseSymbol;
+  if (octave === 'taar') {
+    formatted = `${baseSymbol}'`;
+  } else if (octave === 'mandra') {
+    formatted = `.${baseSymbol}`;
+  }
+
+  return { definition: def, octave, formatted };
+};
+
+/**
  * Parses an input string into recognized Swara tokens with octave markers.
  * Handles:
- * - Taar Saptak: "Sa'", "S'", "Sa^", "Sa+", "S2"
- * - Mandra Saptak: ".Sa", "Sa.", ".S", "S_", "S1"
- * - Madhya Saptak: "Sa", "Re", "Ga", "Ma", "Pa", "Dha", "Ni", etc.
- * - Komal / Tivra forms: "Komal Re", "r", "re̲", "Tivra Ma", "M'", "m#", etc.
+ * - Taar Saptak: "Sa'", "S'", "Sa+", "M^'"
+ * - Mandra Saptak: ".Sa", ".M^", "S_", ".r", ".g"
+ * - Madhya Saptak: "Sa", "Re", "Ga", "Ma", "M^", "Pa", "Dha", "Ni", etc.
+ * - Komal / Tivra forms: "Komal Re", "r", "Tivra Ma", "M^", legacy "M'", etc.
  */
 export const parseSwaraString = (input: string): { tokens: ParsedSwaraToken[]; invalidTokens: string[] } => {
   if (!input || !input.trim()) {
@@ -261,44 +368,14 @@ export const parseSwaraString = (input: string): { tokens: ParsedSwaraToken[]; i
   const invalidTokens: string[] = [];
 
   for (const part of rawParts) {
-    let clean = part;
-    let octave: Octave = 'madhya';
-
-    // Check octave decorators
-    if (clean.endsWith("'") || clean.endsWith("^") || clean.endsWith("+") || clean.includes("high") || clean.includes("taar")) {
-      octave = 'taar';
-      clean = clean.replace(/['^+]|high|taar/gi, '');
-    } else if (clean.startsWith(".") || clean.endsWith(".") || clean.startsWith("_") || clean.endsWith("_") || clean.includes("low") || clean.includes("mandra")) {
-      octave = 'mandra';
-      clean = clean.replace(/[._]|low|mandra/gi, '');
-    }
-
-    clean = clean.trim();
-    if (!clean) continue;
-
-    // Match with swara definition aliases
-    const lowerClean = clean.toLowerCase();
-    const def = SWARA_DEFINITIONS.find(d => 
-      d.canonicalName.toLowerCase() === lowerClean ||
-      d.shortSymbol.toLowerCase() === lowerClean ||
-      d.aliases.includes(lowerClean) ||
-      d.devanagari === clean
-    );
-
-    if (def) {
-      let formatted = def.canonicalName;
-      if (octave === 'taar') {
-        formatted = `${def.canonicalName}'`;
-      } else if (octave === 'mandra') {
-        formatted = `.${def.canonicalName}`;
-      }
-
+    const resolved = resolveSwaraToken(part);
+    if (resolved) {
       tokens.push({
         raw: part,
-        definition: def,
-        octave,
-        octaveLabel: `${def.canonicalName} (${octave.charAt(0).toUpperCase() + octave.slice(1)})`,
-        formatted
+        definition: resolved.definition,
+        octave: resolved.octave,
+        octaveLabel: `${resolved.definition.displayName} (${resolved.octave.charAt(0).toUpperCase() + resolved.octave.slice(1)})`,
+        formatted: resolved.formatted
       });
     } else {
       invalidTokens.push(part);
@@ -334,44 +411,15 @@ export const parseFlexibleMusicString = (
   let swaraCount = 0;
 
   for (const part of rawParts) {
-    let clean = part;
-    let octave: Octave = 'madhya';
-
-    // Check octave decorators
-    if (clean.endsWith("'") || clean.endsWith("^") || clean.endsWith("+") || clean.includes("high") || clean.includes("taar")) {
-      octave = 'taar';
-      clean = clean.replace(/['^+]|high|taar/gi, '');
-    } else if (clean.startsWith(".") || clean.endsWith(".") || clean.startsWith("_") || clean.endsWith("_") || clean.includes("low") || clean.includes("mandra")) {
-      octave = 'mandra';
-      clean = clean.replace(/[._]|low|mandra/gi, '');
-    }
-
-    clean = clean.trim();
-    if (!clean) continue;
-
     // 1. Check Indian Swara first
-    const lowerClean = clean.toLowerCase();
-    const swaraDef = SWARA_DEFINITIONS.find(d => 
-      d.canonicalName.toLowerCase() === lowerClean ||
-      d.shortSymbol.toLowerCase() === lowerClean ||
-      d.aliases.includes(lowerClean) ||
-      d.devanagari === clean
-    );
-
-    if (swaraDef) {
-      let formatted = swaraDef.canonicalName;
-      if (octave === 'taar') {
-        formatted = `${swaraDef.canonicalName}'`;
-      } else if (octave === 'mandra') {
-        formatted = `.${swaraDef.canonicalName}`;
-      }
-
+    const resolved = resolveSwaraToken(part);
+    if (resolved) {
       tokens.push({
         raw: part,
-        definition: swaraDef,
-        octave,
-        octaveLabel: `${swaraDef.canonicalName} (${octave.charAt(0).toUpperCase() + octave.slice(1)})`,
-        formatted,
+        definition: resolved.definition,
+        octave: resolved.octave,
+        octaveLabel: `${resolved.definition.displayName} (${resolved.octave.charAt(0).toUpperCase() + resolved.octave.slice(1)})`,
+        formatted: resolved.formatted,
         originalNotation: 'swara'
       });
       swaraCount++;
@@ -380,6 +428,7 @@ export const parseFlexibleMusicString = (
 
     // 2. Check Western Note (e.g. C, D#, Eb, F#4)
     let westernClean = part.trim();
+    let octave: Octave = 'madhya';
     let octaveNumber: number | undefined;
     const octaveMatch = westernClean.match(/^([a-zA-Z#b]+)(\d+)$/);
     if (octaveMatch) {
@@ -400,18 +449,25 @@ export const parseFlexibleMusicString = (
       const deltaSemitone = (westernPitch.semitone - sourceKey.semitone + 12) % 12;
       const mappedSwaraDef = SWARA_DEFINITIONS.find(d => d.semitoneOffset === deltaSemitone) || SWARA_DEFINITIONS[0];
 
-      let formatted = mappedSwaraDef.canonicalName;
+      let baseSymbol = mappedSwaraDef.canonicalName;
+      if (mappedSwaraDef.canonicalName === 'Tivra Ma') {
+        baseSymbol = 'M^';
+      } else if (mappedSwaraDef.type === 'komal') {
+        baseSymbol = mappedSwaraDef.shortSymbol;
+      }
+
+      let formatted = baseSymbol;
       if (octave === 'taar') {
-        formatted = `${mappedSwaraDef.canonicalName}'`;
+        formatted = `${baseSymbol}'`;
       } else if (octave === 'mandra') {
-        formatted = `.${mappedSwaraDef.canonicalName}`;
+        formatted = `.${baseSymbol}`;
       }
 
       tokens.push({
         raw: part,
         definition: mappedSwaraDef,
         octave,
-        octaveLabel: `${mappedSwaraDef.canonicalName} [${part}] (${octave.charAt(0).toUpperCase() + octave.slice(1)})`,
+        octaveLabel: `${mappedSwaraDef.displayName} [${part}] (${octave.charAt(0).toUpperCase() + octave.slice(1)})`,
         formatted,
         originalNotation: 'western',
         originalWesternName: westernPitch.primaryName
@@ -569,7 +625,14 @@ export const convertWesternToSwaras = (
     const deltaSemitone = (token.pitchClass.semitone - fluteKey.semitone + 12) % 12;
     const swaraDef = SWARA_DEFINITIONS.find(d => d.semitoneOffset === deltaSemitone) || SWARA_DEFINITIONS[0];
 
-    let outputLabel = swaraDef.canonicalName;
+    let baseLabel = swaraDef.canonicalName;
+    if (swaraDef.canonicalName === 'Tivra Ma') {
+      baseLabel = 'M^';
+    } else if (swaraDef.type === 'komal') {
+      baseLabel = swaraDef.shortSymbol;
+    }
+
+    let outputLabel = baseLabel;
     if (token.octaveNumber && token.octaveNumber >= 5) {
       outputLabel += '\'';
     } else if (token.octaveNumber && token.octaveNumber <= 3) {

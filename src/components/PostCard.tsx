@@ -239,15 +239,31 @@ export default function PostCard({
       {/* Title & Description preview */}
       <div className="space-y-1.5">
         <h3 className="font-display font-extrabold text-gray-900 text-base md:text-lg group-hover:text-bamboo-800 transition">
-          {post.title}
+          <a
+            href={`/post/${post.id}`}
+            onClick={(e) => {
+              e.preventDefault();
+              onPostClick(post);
+            }}
+            className="hover:underline text-inherit"
+          >
+            {post.title}
+          </a>
         </h3>
         <p className="text-gray-600 text-xs leading-relaxed whitespace-pre-line break-words">
           {getTruncatedText()}
         </p>
         {isLongDescription && (
-          <span className="text-[11px] font-bold text-bamboo-700 flex items-center gap-0.5 group-hover:translate-x-1 transition duration-150 mt-1">
+          <a
+            href={`/post/${post.id}`}
+            onClick={(e) => {
+              e.preventDefault();
+              onPostClick(post);
+            }}
+            className="text-[11px] font-bold text-bamboo-700 inline-flex items-center gap-0.5 group-hover:translate-x-1 transition duration-150 mt-1 hover:underline cursor-pointer"
+          >
             Read full post <ArrowRight className="w-3.5 h-3.5" />
-          </span>
+          </a>
         )}
       </div>
 

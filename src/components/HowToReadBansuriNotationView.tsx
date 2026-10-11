@@ -505,6 +505,10 @@ export default function HowToReadBansuriNotationView({ onViewChange }: HowToRead
               <p className="text-amber-800 dark:text-amber-300 font-medium pt-1">
                 The Western notes change with the instrument, but the <em>Sargam relationships remain identical</em>.
               </p>
+              <div className="pt-2 border-t border-amber-200/60 dark:border-slate-700 text-xs text-slate-600 dark:text-slate-400">
+                <strong className="text-amber-900 dark:text-amber-300 font-semibold block mb-0.5">Terminology Note: "Bass" vs. "Base" Flutes</strong>
+                In Indian bansuri markets and player communities, the musical word <strong>Bass</strong> is commonly written and spoken phonetically as <strong>Base</strong> (for example, <em>G Base</em> or <em>A Base</em>). Both spellings designate the exact same low-register, larger flute family.
+              </div>
             </div>
           </div>
         </section>

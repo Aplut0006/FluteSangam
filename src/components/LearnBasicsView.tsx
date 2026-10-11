@@ -111,6 +111,83 @@ export default function LearnBasicsView({ onViewChange }: LearnBasicsViewProps) 
                   <span className="text-sm">Practice this with all finger holes completely open. Trying to close finger holes while finding your embouchure introduces structural leaks, making it impossible to tell if the issue is your breath or your fingers.</span>
                 </div>
               </div>
+
+              {/* Diagnostic Sound Production & Troubleshooting Matrix */}
+              <div className="bg-sand-50/70 border border-sand-200 rounded-2xl p-6 space-y-4 my-6">
+                <h3 className="text-lg font-bold text-bamboo-900 flex items-center gap-2">
+                  <Wind className="w-5 h-5 text-emerald-700" />
+                  Diagnostic Tone Guide: How to Identify &amp; Fix Common Sound Failures
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
+                  When first blowing into the bansuri, every student experiences one of four specific tone failures. Use this diagnostic matrix to identify what you hear and apply the exact physical correction:
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-4 text-xs sm:text-sm">
+                  <div className="p-4 bg-white rounded-xl border border-sand-200 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <strong className="text-rose-900 font-bold">1. Pure Hiss with No Note</strong>
+                      <span className="text-[10px] bg-rose-100 text-rose-800 px-2 py-0.5 rounded-full font-semibold">Missing Edge</span>
+                    </div>
+                    <p className="text-gray-600 text-xs">
+                      <strong>Observation:</strong> You hear rushing air like wind through a tunnel, but zero musical pitch.
+                    </p>
+                    <p className="text-gray-600 text-xs">
+                      <strong>Cause:</strong> The airstream is overshooting the opposite wall or the blowing hole is covered too little.
+                    </p>
+                    <p className="text-bamboo-900 text-xs font-medium">
+                      <strong>Correction:</strong> Place the inner edge of the hole firmly against the lower lip margin. Slowly roll inward 5 degrees, narrow the lip aperture, and blow gently downward at a 45-degree angle.
+                    </p>
+                  </div>
+
+                  <div className="p-4 bg-white rounded-xl border border-sand-200 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <strong className="text-amber-900 font-bold">2. High Shrill Squeak / Overblow</strong>
+                      <span className="text-[10px] bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full font-semibold">Excess Force</span>
+                    </div>
+                    <p className="text-gray-600 text-xs">
+                      <strong>Observation:</strong> The flute screeches in the upper octave instead of producing a warm, low fundamental tone.
+                    </p>
+                    <p className="text-gray-600 text-xs">
+                      <strong>Cause:</strong> Air velocity is too high or lip aperture is pinched tight like a whistle.
+                    </p>
+                    <p className="text-bamboo-900 text-xs font-medium">
+                      <strong>Correction:</strong> Drop jaw slightly, relax the lip corners, and whisper the syllable &ldquo;Dhooo&rdquo;. Halve your blowing force—the bansuri requires air speed control, not brute air volume.
+                    </p>
+                  </div>
+
+                  <div className="p-4 bg-white rounded-xl border border-sand-200 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <strong className="text-blue-900 font-bold">3. Dizziness &amp; Breath Depletion in 3s</strong>
+                      <span className="text-[10px] bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-semibold">Wide Aperture</span>
+                    </div>
+                    <p className="text-gray-600 text-xs">
+                      <strong>Observation:</strong> You run out of breath after only 2 to 3 seconds and feel lightheaded.
+                    </p>
+                    <p className="text-gray-600 text-xs">
+                      <strong>Cause:</strong> The mouth opening is too wide, dumping your lung reserve without focusing into the hole.
+                    </p>
+                    <p className="text-bamboo-900 text-xs font-medium">
+                      <strong>Correction:</strong> Form an aperture the diameter of a coffee stirrer straw in the middle of your lips. A focused micro-stream will sustain a note for 10–15 seconds easily.
+                    </p>
+                  </div>
+
+                  <div className="p-4 bg-white rounded-xl border border-sand-200 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <strong className="text-purple-900 font-bold">4. Pitch Drifts Flat at Breath End</strong>
+                      <span className="text-[10px] bg-purple-100 text-purple-800 px-2 py-0.5 rounded-full font-semibold">Chest Collapse</span>
+                    </div>
+                    <p className="text-gray-600 text-xs">
+                      <strong>Observation:</strong> The note starts in tune, then sags flat and wavers as you exhale.
+                    </p>
+                    <p className="text-gray-600 text-xs">
+                      <strong>Cause:</strong> Collapsing the ribcage rather than supporting breath from the lower diaphragm.
+                    </p>
+                    <p className="text-bamboo-900 text-xs font-medium">
+                      <strong>Correction:</strong> Inhale by expanding your lower abdomen; keep shoulders still. Maintain slight abdominal engagement through the entire note to keep air speed steady.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </section>
 
             {/* Grip and Posture */}

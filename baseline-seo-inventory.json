@@ -1,0 +1,802 @@
+[
+  {
+    "route": "/",
+    "fullUrl": "undefined",
+    "title": "FluteSangam | Learn Flute, Bansuri & Connect with Flutists",
+    "description": "Learn flute online with lessons, songs, ragas, techniques, practice guides, interactive tools, and Sargam notations for bamboo flute enthusiasts.",
+    "canonicalUrl": "https://flutesangam.com/",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/community",
+    "fullUrl": "undefined/community",
+    "title": "Flute Community & Practice Discussions | FluteSangam",
+    "description": "Connect with flute and bansuri players worldwide. Share practice recordings, ask questions, discuss flute playing and classical ragas, and receive feedback.",
+    "canonicalUrl": "https://flutesangam.com/community",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/intro",
+    "fullUrl": "undefined/learn/intro",
+    "title": "Bansuri Flute Guide | History, Types & Basics",
+    "description": "Learn about the bansuri flute, its history, types, finger holes, Indian classical music traditions and how the bamboo flute developed into a concert instrument.",
+    "canonicalUrl": "https://flutesangam.com/learn/intro",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/choose-flute",
+    "fullUrl": "undefined/learn/choose-flute",
+    "title": "Best Bansuri Scale for Beginners | Flute Scale Guide",
+    "description": "Wondering which bansuri scale is best for beginners? Learn how to choose the right flute scale, size, finger reach, and material for comfortable playing.",
+    "canonicalUrl": "https://flutesangam.com/learn/choose-flute",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/tuner",
+    "fullUrl": "undefined/tuner",
+    "title": "Online Bansuri Pitch Tuner | FluteSangam",
+    "description": "FluteSangam Online Bansuri Pitch Tuner: Tune your Indian bamboo flute accurately with real-time frequency detection and precision cent measurement.",
+    "canonicalUrl": "https://flutesangam.com/tuner",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/basics",
+    "fullUrl": "undefined/learn/basics",
+    "title": "Bansuri Basics & Holding Technique | FluteSangam",
+    "description": "Learn correct finger positioning, posture, embouchure hole alignment, and air pressure control on the bansuri.",
+    "canonicalUrl": "https://flutesangam.com/learn/basics",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/fingering-chart",
+    "fullUrl": "undefined/learn/fingering-chart",
+    "title": "Bansuri Fingering Chart: Sa Re Ga Ma for 6-Hole Flute",
+    "description": "Learn Sa Re Ga Ma finger positions with our interactive 6-hole bansuri fingering chart, including shuddh, komal and tivra swars across octaves.",
+    "canonicalUrl": "https://flutesangam.com/learn/fingering-chart",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/alankaras",
+    "fullUrl": "undefined/learn/alankaras",
+    "title": "Bansuri Alankar Practice Guide: 60 Sargam Paltas & Exercises | FluteSangam",
+    "description": "Master Indian bamboo flute with our complete guide to 60 Bansuri Alankars (Paltas). Discover practice methodology, octave navigation, and structured exercises across all levels.",
+    "canonicalUrl": "https://flutesangam.com/learn/alankaras",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/daily-practice-guide",
+    "fullUrl": "undefined/learn/daily-practice-guide",
+    "title": "Daily Flute Practice Routine: Step-by-Step Bansuri Riyaz Guide",
+    "description": "Follow a structured daily flute and bansuri practice routine for breath control, long notes, tone, fingering, alankars, rhythm and musical expression.",
+    "canonicalUrl": "https://flutesangam.com/learn/daily-practice-guide",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/flute-scales-octaves",
+    "fullUrl": "undefined/learn/flute-scales-octaves",
+    "title": "Bansuri Scales & Octaves Explained | FluteSangam",
+    "description": "Understanding Mandra (Lower), Madhya (Middle), and Tara (Higher) Saptaks on the Indian bamboo flute, scale conversions, and pitch keys.",
+    "canonicalUrl": "https://flutesangam.com/learn/flute-scales-octaves",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/common-flute-mistakes",
+    "fullUrl": "undefined/learn/common-flute-mistakes",
+    "title": "15 Common Bansuri Mistakes & How to Fix Them | FluteSangam",
+    "description": "Avoid common flute playing pitfalls: airy sound, pitch sharpness, flat notes, finger leaks, shoulder tension, and improper embouchure.",
+    "canonicalUrl": "https://flutesangam.com/learn/common-flute-mistakes",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/alankar-generator",
+    "fullUrl": "undefined/alankar-generator",
+    "title": "Interactive Alankar Pattern Generator | FluteSangam",
+    "description": "Generate custom Alankar swar patterns in any scale, tempo, or rhythmic structure for bansuri finger practice.",
+    "canonicalUrl": "https://flutesangam.com/alankar-generator",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/raagas",
+    "fullUrl": "undefined/learn/raagas",
+    "title": "Hindustani Classical Raaga Guides for Bansuri | FluteSangam",
+    "description": "Explore comprehensive Raaga guides for Indian flute: Aaroh, Avaroh, Pakad, Vadi, Samvadi, time of day, and song compositions.",
+    "canonicalUrl": "https://flutesangam.com/learn/raagas",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/raga-bhoopali",
+    "fullUrl": "undefined/learn/raga-bhoopali",
+    "title": "Raag Bhoopali — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam",
+    "description": "Master Raag Bhoopali on Indian Bamboo Flute (Bansuri): Audav-Audav pentatonic scale, Aaroh, Avaroh, Pakad, Vadi, Samvadi, and classical compositions.",
+    "canonicalUrl": "https://flutesangam.com/learn/raga-bhoopali",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/raga-durga",
+    "fullUrl": "undefined/learn/raga-durga",
+    "title": "Raag Durga — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam",
+    "description": "Learn Raag Durga on Indian Bamboo Flute (Bansuri): Audav-Audav scale omitting Ga and Ni, Aaroh, Avaroh, Pakad, Vadi, Samvadi, and compositions.",
+    "canonicalUrl": "https://flutesangam.com/learn/raga-durga",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/raga-yaman",
+    "fullUrl": "undefined/learn/raga-yaman",
+    "title": "Raag Yaman Flute Notes | Aroha, Avaroha & Alap",
+    "description": "Learn Raag Yaman on flute with detailed notes, Aroha, Avaroha and Alap. Explore the important swaras, phrases and practice guidance for playing Raag Yaman.",
+    "canonicalUrl": "https://flutesangam.com/learn/raga-yaman",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/raga-hamsadhwani",
+    "fullUrl": "undefined/learn/raga-hamsadhwani",
+    "title": "Raag Hamsadhwani — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam",
+    "description": "Learn Raag Hamsadhwani on Indian Bamboo Flute (Bansuri): pentatonic scale with Shuddha Ga and Ni, Aaroh, Avaroh, Pakad, and flute compositions.",
+    "canonicalUrl": "https://flutesangam.com/learn/raga-hamsadhwani",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/raga-bilawal",
+    "fullUrl": "undefined/learn/raga-bilawal",
+    "title": "Raag Bilawal — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam",
+    "description": "Learn Raag Bilawal on Indian Bamboo Flute (Bansuri): all Shuddha swaras, Bilawal Thaat, Aaroh, Avaroh, Pakad, Vadi, Samvadi, and compositions.",
+    "canonicalUrl": "https://flutesangam.com/learn/raga-bilawal",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/raga-desh",
+    "fullUrl": "undefined/learn/raga-desh",
+    "title": "Raag Desh — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam",
+    "description": "Master Raag Desh on Indian Bamboo Flute (Bansuri): Khamaj Thaat, Shuddha & Komal Ni usage, Aaroh, Avaroh, Pakad, and popular melodies.",
+    "canonicalUrl": "https://flutesangam.com/learn/raga-desh",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/raga-kafi",
+    "fullUrl": "undefined/learn/raga-kafi",
+    "title": "Raag Kafi — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam",
+    "description": "Learn Raag Kafi on Indian Bamboo Flute (Bansuri): Komal Ga & Komal Ni swaras, Kafi Thaat, Aaroh, Avaroh, Pakad, and folk compositions.",
+    "canonicalUrl": "https://flutesangam.com/learn/raga-kafi",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/raga-bageshree",
+    "fullUrl": "undefined/learn/raga-bageshree",
+    "title": "Raag Bageshree — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam",
+    "description": "Master Raag Bageshree on Indian Bamboo Flute (Bansuri): midnight beauty, Komal Ga & Ni, Audav-Sampurna scale, Aaroh, Avaroh, Pakad, and compositions.",
+    "canonicalUrl": "https://flutesangam.com/learn/raga-bageshree",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/raga-bhimpalasi",
+    "fullUrl": "undefined/learn/raga-bhimpalasi",
+    "title": "Raag Bhimpalasi — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam",
+    "description": "Learn Raag Bhimpalasi on Indian Bamboo Flute (Bansuri): afternoon Raag, Komal Ga & Ni, Audav-Sampurna scale, Aaroh, Avaroh, Pakad, and gat compositions.",
+    "canonicalUrl": "https://flutesangam.com/learn/raga-bhimpalasi",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/raga-brindavani-sarang",
+    "fullUrl": "undefined/learn/raga-brindavani-sarang",
+    "title": "Raag Brindavani Sarang — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam",
+    "description": "Master Raag Brindavani Sarang on Indian Bamboo Flute (Bansuri): Audav-Audav scale, Kafi Thaat, Aaroh, Avaroh, Pakad, and classical gat compositions.",
+    "canonicalUrl": "https://flutesangam.com/learn/raga-brindavani-sarang",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/raga-khamaj",
+    "fullUrl": "undefined/learn/raga-khamaj",
+    "title": "Raag Khamaj Notes | Aaroh, Avaroh & Pakad for Flute",
+    "description": "Learn Raag Khamaj with detailed notes, Aaroh, Avaroh, Pakad and flute practice guidance. Explore the Khamaj scale, important phrases and notes for playing.",
+    "canonicalUrl": "https://flutesangam.com/learn/raga-khamaj",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/raga-bhairav",
+    "fullUrl": "undefined/learn/raga-bhairav",
+    "title": "Raag Bhairav — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam",
+    "description": "Master Raag Bhairav on Indian Bamboo Flute (Bansuri): morning Raag, Komal Re & Dha, Bhairav Thaat, Aaroh, Avaroh, Pakad, and devotional compositions.",
+    "canonicalUrl": "https://flutesangam.com/learn/raga-bhairav",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/raga-bihag",
+    "fullUrl": "undefined/learn/raga-bihag",
+    "title": "Raag Bihag — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam",
+    "description": "Learn Raag Bihag on Indian Bamboo Flute (Bansuri): Bilawal Thaat, Shuddha & Tivra Ma usage, Aaroh, Avaroh, Pakad, and night compositions.",
+    "canonicalUrl": "https://flutesangam.com/learn/raga-bihag",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/raga-malkauns",
+    "fullUrl": "undefined/learn/raga-malkauns",
+    "title": "Raag Malkauns — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam",
+    "description": "Master Raag Malkauns on Indian Bamboo Flute (Bansuri): deep midnight Raag, Komal Ga, Dha, Ni, Audav-Audav scale, Aaroh, Avaroh, Pakad, and compositions.",
+    "canonicalUrl": "https://flutesangam.com/learn/raga-malkauns",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/raga-marwa",
+    "fullUrl": "undefined/learn/raga-marwa",
+    "title": "Raag Marwa — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam",
+    "description": "Learn Raag Marwa on Indian Bamboo Flute (Bansuri): sunset Raag, Komal Re & Tivra Ma, Marwa Thaat, Aaroh, Avaroh, Pakad, and classical gat compositions.",
+    "canonicalUrl": "https://flutesangam.com/learn/raga-marwa",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/raga-jog",
+    "fullUrl": "undefined/learn/raga-jog",
+    "title": "Raag Jog — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam",
+    "description": "Master Raag Jog on Indian Bamboo Flute (Bansuri): meditative night Raag, dual Ga usage, Audav-Shadav scale, Aaroh, Avaroh, Pakad, and compositions.",
+    "canonicalUrl": "https://flutesangam.com/learn/raga-jog",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/raga-todi",
+    "fullUrl": "undefined/learn/raga-todi",
+    "title": "Raag Todi — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam",
+    "description": "Learn Raag Todi on Indian Bamboo Flute (Bansuri): morning Raag, Komal Re, Ga, Dha & Tivra Ma, Todi Thaat, Aaroh, Avaroh, Pakad, and classical compositions.",
+    "canonicalUrl": "https://flutesangam.com/learn/raga-todi",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/raga-multani",
+    "fullUrl": "undefined/learn/raga-multani",
+    "title": "Raag Multani — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam",
+    "description": "Learn Raag Multani with detailed notes, Aaroh, Avaroh, Pakad, characteristics, Aalap practice, flute tips, and an original FluteSangam learning piece.",
+    "canonicalUrl": "https://flutesangam.com/learn/raga-multani",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/raga-pahadi",
+    "fullUrl": "undefined/learn/raga-pahadi",
+    "title": "Raag Pahadi — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam",
+    "description": "Learn Raag Pahadi with detailed notes, Aaroh, Avaroh, Pakad, characteristics, Aalap practice, flute tips, and an original FluteSangam learning piece.",
+    "canonicalUrl": "https://flutesangam.com/learn/raga-pahadi",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/raga-miyan-ki-malhar",
+    "fullUrl": "undefined/learn/raga-miyan-ki-malhar",
+    "title": "Raag Miyan Ki Malhar — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam",
+    "description": "Master Raag Miyan Ki Malhar on Indian Bamboo Flute (Bansuri): rain Raag composed by Tansen, dual Ni & Komal Ga, Aaroh, Avaroh, Pakad, and compositions.",
+    "canonicalUrl": "https://flutesangam.com/learn/raga-miyan-ki-malhar",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/raga-tilang",
+    "fullUrl": "undefined/learn/raga-tilang",
+    "title": "Raag Tilang — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam",
+    "description": "Learn Raag Tilang on Indian Bamboo Flute (Bansuri): Khamaj Thaat, Shuddha & Komal Ni, Aaroh, Avaroh, Pakad, practice drills, and original FluteSangam learning piece.",
+    "canonicalUrl": "https://flutesangam.com/learn/raga-tilang",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/raga-shivranjani",
+    "fullUrl": "undefined/learn/raga-shivranjani",
+    "title": "Raag Shivranjani — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam",
+    "description": "Learn Raag Shivranjani on Indian Bamboo Flute (Bansuri): Kafi Thaat, Komal Ga (g), Audav-Audav pentatonic scale, Aaroh, Avaroh, Pakad, practice drills, and original learning piece.",
+    "canonicalUrl": "https://flutesangam.com/learn/raga-shivranjani",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/raga-jaunpuri",
+    "fullUrl": "undefined/learn/raga-jaunpuri",
+    "title": "Raag Jaunpuri — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam",
+    "description": "Learn Raag Jaunpuri on Indian Bamboo Flute (Bansuri): Asavari Thaat, Komal Ga, Dha, Ni, Aaroh, Avaroh, Pakad, practice drills, and original learning piece.",
+    "canonicalUrl": "https://flutesangam.com/learn/raga-jaunpuri",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/about",
+    "fullUrl": "undefined/about",
+    "title": "About FluteSangam - Mission, Vision & Community | FluteSangam",
+    "description": "FluteSangam is dedicated to making Indian Bamboo Flute (Bansuri) education accessible, structured, and enjoyable for musicians worldwide.",
+    "canonicalUrl": "https://flutesangam.com/about",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/founder",
+    "fullUrl": "undefined/founder",
+    "title": "Founder's Story - Aplut | FluteSangam",
+    "description": "Meet Aplut, founder of FluteSangam. Discover the story behind creating a global, welcoming platform for Indian flute (Bansuri) enthusiasts.",
+    "canonicalUrl": "https://flutesangam.com/founder",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/contact",
+    "fullUrl": "undefined/contact",
+    "title": "Contact Us & Support | FluteSangam",
+    "description": "Get in touch with the FluteSangam team for platform support, feedback, questions, or community collaboration.",
+    "canonicalUrl": "https://flutesangam.com/contact",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn",
+    "fullUrl": "undefined/learn",
+    "title": "Flute Learning Hub & Lessons | FluteSangam",
+    "description": "Comprehensive step-by-step learning modules for Indian Bamboo Flute (Bansuri): posture, embouchure, alankaras, raga guides, daily Swar Sadhana routines, and fingering charts.",
+    "canonicalUrl": "https://flutesangam.com/learn",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/notations",
+    "fullUrl": "undefined/notations",
+    "title": "Flute & Bansuri Song Notations: Easy Notes, Lyrics & Lessons",
+    "description": "Explore FluteSangam’s flute and bansuri song notation library with song lyrics alongside Sargam notes, suggested flute scales, phrase breakdowns and practical playing tips.",
+    "canonicalUrl": "https://flutesangam.com/notations",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/notations/happy-birthday-flute-notes",
+    "fullUrl": "undefined/notations/happy-birthday-flute-notes",
+    "title": "Happy Birthday Flute Notes: Easy Sargam & Western Notes",
+    "description": "Play Happy Birthday on flute or bansuri with easy Sargam and Western notes, lyrics, octave guidance, breathing marks and beginner practice tips.",
+    "canonicalUrl": "https://flutesangam.com/notations/happy-birthday-flute-notes",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/notations/jingle-bells-flute-notes",
+    "fullUrl": "undefined/notations/jingle-bells-flute-notes",
+    "title": "Jingle Bells Flute Notes: Easy Sargam & Western Notes",
+    "description": "Learn Jingle Bells on flute or bansuri with easy Sargam and Western notes for the chorus and verse, plus octave guidance and beginner practice tips.",
+    "canonicalUrl": "https://flutesangam.com/notations/jingle-bells-flute-notes",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/notations/my-heart-will-go-on-flute-notes",
+    "fullUrl": "undefined/notations/my-heart-will-go-on-flute-notes",
+    "title": "Titanic Flute Notes: My Heart Will Go On Sargam & Western",
+    "description": "Learn the Titanic theme My Heart Will Go On on flute or bansuri with easy Sargam and Western notes, octave guidance, breath marks and beginner tips.",
+    "canonicalUrl": "https://flutesangam.com/notations/my-heart-will-go-on-flute-notes",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/notations/tum-hi-ho-flute-notes",
+    "fullUrl": "undefined/notations/tum-hi-ho-flute-notes",
+    "title": "Tum Hi Ho Flute Notes: Easy Sargam for Bansuri",
+    "description": "Learn the main melody of Tum Hi Ho on flute or bansuri with easy Sargam notation, octave and breath guidance, phrase breakdowns and beginner playing tips.",
+    "canonicalUrl": "https://flutesangam.com/notations/tum-hi-ho-flute-notes",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/notations/kal-ho-naa-ho-flute-notes",
+    "fullUrl": "undefined/notations/kal-ho-naa-ho-flute-notes",
+    "title": "Kal Ho Naa Ho Flute Notes | Sargam & Western Notes",
+    "description": "Learn Kal Ho Naa Ho flute notes with Sargam and Western notation. Play the song melody on flute with clear notes for each section and helpful practice guidance.",
+    "canonicalUrl": "https://flutesangam.com/notations/kal-ho-naa-ho-flute-notes",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/notations/achyutam-keshavam-flute-notes",
+    "fullUrl": "undefined/notations/achyutam-keshavam-flute-notes",
+    "title": "Achyutam Keshavam Flute Notes: Easy Bansuri Sargam",
+    "description": "Learn Achyutam Keshavam on flute or bansuri with easy Sargam notation, octave guidance, breath marks, phrase-by-phrase notes and beginner playing tips.",
+    "canonicalUrl": "https://flutesangam.com/notations/achyutam-keshavam-flute-notes",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/notations/radha-krishna-flute-notes",
+    "fullUrl": "undefined/notations/radha-krishna-flute-notes",
+    "title": "Radha Krishna Flute Notes | Star Bharat Theme Tune",
+    "description": "Learn to play the Radha Krishna flute tune from the Star Bharat TV serial with easy flute notes. Explore the melody in Sargam and Western notes on FluteSangam.",
+    "canonicalUrl": "https://flutesangam.com/notations/radha-krishna-flute-notes",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/notations/jana-gana-mana-flute-notes",
+    "fullUrl": "undefined/notations/jana-gana-mana-flute-notes",
+    "title": "Jana Gana Mana Flute Notes | India’s National Anthem",
+    "description": "Learn to play Jana Gana Mana on flute with easy Sargam and flute notes. Explore the National Anthem of India with clear notation for flute practice.",
+    "canonicalUrl": "https://flutesangam.com/notations/jana-gana-mana-flute-notes",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/notations/mahabharat-krishna-theme-flute-notes",
+    "fullUrl": "undefined/notations/mahabharat-krishna-theme-flute-notes",
+    "title": "Mahabharat Krishna Theme Flute Notes | Sargam & Western",
+    "description": "Learn the Mahabharat Krishna Theme on flute with Sargam and Western notes. Explore the iconic Star Plus melody with octave markings and helpful flute practice tips.",
+    "canonicalUrl": "https://flutesangam.com/notations/mahabharat-krishna-theme-flute-notes",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/notations/shri-krishna-govind-hare-murari-flute-notes",
+    "fullUrl": "undefined/notations/shri-krishna-govind-hare-murari-flute-notes",
+    "title": "Shri Krishna Govind Hare Murari Flute Notes | Sargam & Western",
+    "description": "Learn Shri Krishna Govind Hare Murari flute notes with Sargam and Western notation. Practice this popular Krishna bhajan with clear flute notes and playing guidance.",
+    "canonicalUrl": "https://flutesangam.com/notations/shri-krishna-govind-hare-murari-flute-notes",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/notations/hothon-se-chhoo-lo-tum-flute-notes",
+    "fullUrl": "undefined/notations/hothon-se-chhoo-lo-tum-flute-notes",
+    "title": "Hothon Se Chhu Lo Tum Flute Notes | Sargam & Western",
+    "description": "Learn Hothon Se Chhu Lo Tum flute notes with Sargam and Western notation. Practice Jagjit Singh’s timeless ghazal with easy flute notes and playing tips.",
+    "canonicalUrl": "https://flutesangam.com/notations/hothon-se-chhoo-lo-tum-flute-notes",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/privacy-policy",
+    "fullUrl": "undefined/privacy-policy",
+    "title": "Privacy Policy | FluteSangam",
+    "description": "Privacy Policy for FluteSangam: data protection, security, user account safety, cookies, and privacy compliance for the global Indian flute community.",
+    "canonicalUrl": "https://flutesangam.com/privacy-policy",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/terms-of-service",
+    "fullUrl": "undefined/terms-of-service",
+    "title": "Terms of Service | FluteSangam",
+    "description": "Terms of Service for FluteSangam: platform guidelines, community code of conduct, intellectual property, and user account terms.",
+    "canonicalUrl": "https://flutesangam.com/terms-of-service",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/copyright-policy",
+    "fullUrl": "undefined/copyright-policy",
+    "title": "Copyright Policy & DMCA Notice | FluteSangam",
+    "description": "Read FluteSangam's copyright policy and learn how copyright owners can report material, submit infringement concerns, and contact us.",
+    "canonicalUrl": "https://flutesangam.com/copyright-policy",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/faq",
+    "fullUrl": "undefined/faq",
+    "title": "Flute FAQ | Common Questions & Answers for Flute Learners | FluteSangam",
+    "description": "Find answers to common flute questions about learning, practice, bamboo flutes, raagas, breathing, maintenance, and more. Explore the FluteSangam FAQ for helpful guidance.",
+    "canonicalUrl": "https://flutesangam.com/faq",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/tools/tanpura",
+    "fullUrl": "undefined/tools/tanpura",
+    "title": "Free Online Tanpura for Riyaz & Flute | FluteSangam",
+    "description": "Use FluteSangam's free online tanpura for flute, bansuri and vocal practice. Play a steady drone for sargam, alankars, ragas and daily riyaz.",
+    "canonicalUrl": "https://flutesangam.com/tools/tanpura",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/tools/flute-note-key-converter",
+    "fullUrl": "undefined/tools/flute-note-key-converter",
+    "title": "Flute Note & Key Converter | Swara to Western Notes | FluteSangam",
+    "description": "Convert Indian flute swaras to Western notes, translate Western notes to swaras, and explore note relationships across different flute keys with FluteSangam’s interactive converter.",
+    "canonicalUrl": "https://flutesangam.com/tools/flute-note-key-converter",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/how-to-find-scale-of-a-song-on-flute",
+    "fullUrl": "undefined/learn/how-to-find-scale-of-a-song-on-flute",
+    "title": "How to Find the Scale or Key of a Song on Flute | FluteSangam",
+    "description": "Learn how to find the scale or key of any song on flute, identify the tonic or Sa, test the melody, and choose a comfortable flute for playing by ear.",
+    "canonicalUrl": "https://flutesangam.com/learn/how-to-find-scale-of-a-song-on-flute",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/how-to-read-bansuri-notation",
+    "fullUrl": "undefined/learn/how-to-read-bansuri-notation",
+    "title": "How to Read Bansuri Notation | Beginner Guide",
+    "description": "Learn how to read bansuri notation step by step, including Sargam symbols, Komal and Tivra swaras, octaves, rhythm and basic ornaments.",
+    "canonicalUrl": "https://flutesangam.com/learn/how-to-read-bansuri-notation",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/faq/getting-started",
+    "fullUrl": "undefined/faq/getting-started",
+    "title": "Getting Started Flute FAQ | Beginner Bansuri Questions & Answers | FluteSangam",
+    "description": "Answers to common beginner questions on getting started with Indian bamboo flute (bansuri), initial posture, first notes, and learning tips.",
+    "canonicalUrl": "https://flutesangam.com/faq/getting-started",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/faq/learning-the-flute",
+    "fullUrl": "undefined/faq/learning-the-flute",
+    "title": "Learning the Flute FAQ | Bansuri Practice & Sound Production | FluteSangam",
+    "description": "Frequently asked questions about learning the flute, blowing techniques, fingering mastery, sound production, and posture on Indian bamboo flutes.",
+    "canonicalUrl": "https://flutesangam.com/faq/learning-the-flute",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/faq/adult-learners",
+    "fullUrl": "undefined/faq/adult-learners",
+    "title": "Adult Learners Flute FAQ | Starting Flute Later in Life | FluteSangam",
+    "description": "Comprehensive answers for adult flute learners: starting age, practice routines with full-time jobs, beginner scales, self-learning tips, and breath control.",
+    "canonicalUrl": "https://flutesangam.com/faq/adult-learners",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/faq/choosing-the-right-flute",
+    "fullUrl": "undefined/faq/choosing-the-right-flute",
+    "title": "Choosing the Right Flute & Bansuri FAQ | Scale & Size",
+    "description": "Get answers about choosing a flute or bansuri, including the best scale for beginners, flute size, finger reach, bamboo vs PVC and more.",
+    "canonicalUrl": "https://flutesangam.com/faq/choosing-the-right-flute",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/faq/playing-techniques",
+    "fullUrl": "undefined/faq/playing-techniques",
+    "title": "Playing Techniques Flute FAQ | Embouchure, Tone & Articulation | FluteSangam",
+    "description": "Frequently asked questions about bansuri playing techniques including embouchure clarity, eliminating airy hissing, Komal note fingering, and breath articulation.",
+    "canonicalUrl": "https://flutesangam.com/faq/playing-techniques",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/faq/advanced-techniques",
+    "fullUrl": "undefined/faq/advanced-techniques",
+    "title": "Advanced Flute Techniques FAQ | Meend, Gamak, Murki, Khatka & Kan Swar | FluteSangam",
+    "description": "Comprehensive answers to advanced flute questions covering Meend, Gamak, Murki, Khatka, Kan Swar ornamentation, vibrato, and performance mastery on bansuri.",
+    "canonicalUrl": "https://flutesangam.com/faq/advanced-techniques",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/faq/daily-practice",
+    "fullUrl": "undefined/faq/daily-practice",
+    "title": "Daily Flute Practice FAQ | Routines, Sadhana & Timing | FluteSangam",
+    "description": "Answers to daily practice questions: practice routines, holding sustained notes (Kharaj), timing, tanpura practice, and daily sargam drills.",
+    "canonicalUrl": "https://flutesangam.com/faq/daily-practice",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/faq/scales-and-alankars",
+    "fullUrl": "undefined/faq/scales-and-alankars",
+    "title": "Scales & Alankars Flute FAQ | Sargam Patterns & Finger Speed | FluteSangam",
+    "description": "Frequently asked questions about Alankar finger drills, sargam patterns, building finger speed, metronome practice, and scale transposing.",
+    "canonicalUrl": "https://flutesangam.com/faq/scales-and-alankars",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/faq/raagas",
+    "fullUrl": "undefined/faq/raagas",
+    "title": "Raagas & Sargam FAQ | Hindustani Raga Rules & Practice | FluteSangam",
+    "description": "Answers to classical raga questions: Aroh-Avroh, Pakad, Vadi-Samvadi, Chalan, Aalap, Bandish, Taans, and daily raga practice for bansuri.",
+    "canonicalUrl": "https://flutesangam.com/faq/raagas",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/faq/flute-care-and-maintenance",
+    "fullUrl": "undefined/faq/flute-care-and-maintenance",
+    "title": "Flute Care & Maintenance FAQ | Oiling, Storage & Bamboo Protection | FluteSangam",
+    "description": "Frequently asked questions about bamboo flute care, thread binding, oiling, crack prevention, temperature safety, and cleaning.",
+    "canonicalUrl": "https://flutesangam.com/faq/flute-care-and-maintenance",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/faq/health-and-breathing",
+    "fullUrl": "undefined/faq/health-and-breathing",
+    "title": "Health & Breathing Flute FAQ | Breath Control, Posture & Ergonomics | FluteSangam",
+    "description": "Frequently asked questions about breathing techniques, breath control, diaphragmatic support, posture alignment, lip fatigue, hand health, and practice habits for flute players.",
+    "canonicalUrl": "https://flutesangam.com/faq/health-and-breathing",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/faq/children-and-beginners",
+    "fullUrl": "undefined/faq/children-and-beginners",
+    "title": "Flute for Children & Beginners FAQ | Bansuri Guide",
+    "description": "Find answers about learning flute and bansuri as a beginner or child, including suitable age, flute size, finger reach and choosing the right flute.",
+    "canonicalUrl": "https://flutesangam.com/faq/children-and-beginners",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/faq/music-theory",
+    "fullUrl": "undefined/faq/music-theory",
+    "title": "Flute Music Theory FAQ | Sargam, Swaras & Notation",
+    "description": "Find answers about flute music theory, including Sa Re Ga Ma, swaras, shrutis, saptaks, taal, Sargam notation and Western note equivalents.",
+    "canonicalUrl": "https://flutesangam.com/faq/music-theory",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/faq/tuning-and-pitch",
+    "fullUrl": "undefined/faq/tuning-and-pitch",
+    "title": "Flute Tuning & Pitch FAQ | Bansuri Tuning Guide",
+    "description": "Learn how to tune a flute and bansuri, understand pitch, A=440 Hz and cents, fix sharp or flat notes, and improve intonation with practical tuning tips.",
+    "canonicalUrl": "https://flutesangam.com/faq/tuning-and-pitch",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/faq/flute-accessories",
+    "fullUrl": "undefined/faq/flute-accessories",
+    "title": "Flute Accessories & Gear FAQ | Cases, Stands, Tuners & Mics | FluteSangam",
+    "description": "Comprehensive answers to flute accessories questions: cases, covers, cleaning rods, microfiber cloths, stands, tanpura apps, tuners, and microphones.",
+    "canonicalUrl": "https://flutesangam.com/faq/flute-accessories",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/faq/flute-types",
+    "fullUrl": "undefined/faq/flute-types",
+    "title": "Types of Flutes & Bansuri FAQ | Scales & Sizes",
+    "description": "Learn about different flute and bansuri types, including 6-hole and 7-hole flutes, medium and bass flutes, bamboo and PVC, and flute scales.",
+    "canonicalUrl": "https://flutesangam.com/faq/flute-types",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/faq/platform",
+    "fullUrl": "undefined/faq/platform",
+    "title": "FluteSangam Platform FAQ | Community, Features & Tools | FluteSangam",
+    "description": "Frequently asked questions about FluteSangam: using the online tuner, accessing song notations, learning guides, and connecting with flutists.",
+    "canonicalUrl": "https://flutesangam.com/faq/platform",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/alankaras/beginner",
+    "fullUrl": "undefined/learn/alankaras/beginner",
+    "title": "Beginner Bansuri Alankar Exercises (20 Sargam Paltas) | FluteSangam",
+    "description": "Master 20 beginner bansuri alankars (sargam paltas) on Indian bamboo flute. Practice fundamental Sa Re Ga Ma notes, double swaras, 3 & 4 note patterns, metronome timing, and finger agility.",
+    "canonicalUrl": "https://flutesangam.com/learn/alankaras/beginner",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/alankaras/intermediate",
+    "fullUrl": "undefined/learn/alankaras/intermediate",
+    "title": "Intermediate Bansuri Alankar Exercises (20 Swara Paltas) | FluteSangam",
+    "description": "Master 20 intermediate bansuri alankars (sargam paltas) on Indian bamboo flute. Practice vakra cross-steps, double-skips, komal swaras, half-hole fingerings, speed variations, and rhythmic laya drills.",
+    "canonicalUrl": "https://flutesangam.com/learn/alankaras/intermediate",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  },
+  {
+    "route": "/learn/alankaras/advanced",
+    "fullUrl": "undefined/learn/alankaras/advanced",
+    "title": "Advanced Bansuri Alankar Exercises (20 Master Paltas) | FluteSangam",
+    "description": "Master 20 advanced bansuri alankars (master paltas) on Indian bamboo flute. Practice fast drut taan sprints, khatka-murki ornaments, gamak oscillations, 3-octave leaps, and jhala speed drills.",
+    "canonicalUrl": "https://flutesangam.com/learn/alankaras/advanced",
+    "headlineOrName": null,
+    "inSitemap": false,
+    "is404": false
+  }
+]

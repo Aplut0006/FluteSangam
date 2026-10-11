@@ -211,6 +211,7 @@ export default function App() {
     if (cleanPath === '/learn/alankaras' || cleanPath.startsWith('/learn/alankaras/')) return 'learn_alankaras';
     if (cleanPath === '/practice' || cleanPath === '/learn/daily-practice-guide' || cleanPath === '/learn/daily-practice') return 'learn_daily_practice';
     if (cleanPath === '/ragas' || cleanPath === '/learn/raagas') return 'learn_raagas';
+    if (cleanPath === '/notations/hothon-se-chhu-lo-tum-flute-notes') return 'notation_hothon_se_chhoo_lo_tum';
     if (cleanPath.startsWith('/post/')) return 'post-detail';
     if (cleanPath.startsWith('/profile/')) return 'user-profile';
     

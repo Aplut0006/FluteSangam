@@ -81,6 +81,11 @@
       "permanent": true
     },
     {
+      "source": "/notations/hothon-se-chhu-lo-tum-flute-notes",
+      "destination": "/notations/hothon-se-chhoo-lo-tum-flute-notes",
+      "permanent": true
+    },
+    {
       "source": "/community",
       "destination": "/#recent-discussions-section",
       "permanent": false

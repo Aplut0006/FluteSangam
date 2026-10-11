@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ShoppingBag, ArrowLeft, CheckCircle2, AlertTriangle, Lightbulb, Sparkles, User, Users, Baby, Music, Store, Check, ArrowRight, Radio, BookOpen, Calendar, Clock } from 'lucide-react';
+import { ShoppingBag, ArrowLeft, CheckCircle2, AlertTriangle, Lightbulb, Sparkles, User, Users, Baby, Music, Store, Check, ArrowRight, Radio, BookOpen, Calendar, Clock, Info } from 'lucide-react';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
 
@@ -160,59 +160,70 @@ export default function LearnChooseFluteView({ onBackToLearn, onViewChange }: Le
               </div>
 
               <div className="grid md:grid-cols-3 gap-6">
-                {/* Card 1: Children */}
+                {/* Card 1: Young Learners & Compact Hands */}
                 <div className="bg-white p-6 rounded-2xl border-2 border-amber-200/80 shadow-sm flex flex-col justify-between hover:border-amber-400 transition-all">
                   <div>
                     <div className="w-12 h-12 bg-amber-100 text-amber-800 rounded-2xl flex items-center justify-center mb-4 border border-amber-200/60">
                       <Baby className="w-6 h-6" />
                     </div>
-                    <span className="text-xs font-bold text-amber-700 uppercase tracking-wider block mb-1">Below 10 Years</span>
-                    <h3 className="text-lg font-bold text-bamboo-900 mb-3">👦 Children</h3>
+                    <span className="text-xs font-bold text-amber-700 uppercase tracking-wider block mb-1">Compact Hand Reach</span>
+                    <h3 className="text-lg font-bold text-bamboo-900 mb-3">Young Learners &amp; Small Hands</h3>
                     <div className="bg-amber-50 text-amber-900 font-bold text-sm px-3 py-2 rounded-xl border border-amber-200 mb-3 text-center">
-                      ✅ C Middle or D Middle Flute
+                      G Medium or A Medium Flute
                     </div>
                     <p className="text-xs text-gray-600 leading-relaxed">
-                      These flutes are smaller in length, lighter, and much easier for young children to hold, blow, and play comfortably without stretching fingers.
+                      Tone holes sit closely together (~2.0–2.5 cm apart), allowing comfortable coverage without overstretching fingers. Flute choice should always be determined by actual physical finger reach and comfort rather than age alone.
                     </p>
                   </div>
                 </div>
 
-                {/* Card 2: Teenagers */}
+                {/* Card 2: Adult Beginners - Moderate Reach */}
                 <div className="bg-white p-6 rounded-2xl border-2 border-bamboo-200/80 shadow-sm flex flex-col justify-between hover:border-bamboo-400 transition-all">
                   <div>
                     <div className="w-12 h-12 bg-bamboo-100 text-bamboo-800 rounded-2xl flex items-center justify-center mb-4 border border-bamboo-200/60">
                       <Users className="w-6 h-6" />
                     </div>
-                    <span className="text-xs font-bold text-bamboo-700 uppercase tracking-wider block mb-1">10 – 17 Years</span>
-                    <h3 className="text-lg font-bold text-bamboo-900 mb-3">🧒 Children & Teenagers</h3>
+                    <span className="text-xs font-bold text-bamboo-700 uppercase tracking-wider block mb-1">Standard Adult Reach</span>
+                    <h3 className="text-lg font-bold text-bamboo-900 mb-3">Adult Beginners (Balanced Spacing)</h3>
                     <div className="bg-bamboo-50 text-bamboo-900 font-bold text-sm px-3 py-2 rounded-xl border border-bamboo-200 mb-3 text-center">
-                      ✅ A Base or G Base Flute
+                      C Natural Medium (~19 in / 48 cm)
                     </div>
                     <p className="text-xs text-gray-600 leading-relaxed">
-                      Choose the scale that feels more natural based on hand size, finger stretch flexibility, and overall comfort while holding the flute.
+                      Recommended by many music academies because tone hole spacing (~3.5 cm) is accessible to almost every adult hand. Moderate air volume requirement lets you focus cleanly on embouchure.
                     </p>
                   </div>
                 </div>
 
-                {/* Card 3: Adults */}
+                {/* Card 3: Adult Beginners - Traditional Bass */}
                 <div className="bg-white p-6 rounded-2xl border-2 border-emerald-300 shadow-md flex flex-col justify-between relative overflow-hidden hover:border-emerald-500 transition-all">
                   <div className="absolute top-0 right-0 bg-emerald-600 text-white text-[10px] font-bold uppercase px-3 py-0.5 rounded-bl-xl shadow-2xs">
-                    Most Popular
+                    Classical Favorite
                   </div>
                   <div>
                     <div className="w-12 h-12 bg-emerald-100 text-emerald-800 rounded-2xl flex items-center justify-center mb-4 border border-emerald-200/60">
                       <User className="w-6 h-6" />
                     </div>
-                    <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider block mb-1">18+ Years</span>
-                    <h3 className="text-lg font-bold text-bamboo-900 mb-3">👨 Adults</h3>
+                    <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider block mb-1">Wider Finger Span</span>
+                    <h3 className="text-lg font-bold text-bamboo-900 mb-3">Adults (Classical Hindustani)</h3>
                     <div className="bg-emerald-50 text-emerald-900 font-bold text-sm px-3 py-2 rounded-xl border border-emerald-200 mb-3 text-center">
-                      ✅ G Base Flute
+                      G Base / G Bass or A Base Flute
                     </div>
                     <p className="text-xs text-gray-600 leading-relaxed">
-                      For most adult learners, the <strong>G Base flute</strong> is the ideal starting instrument. It provides comfortable finger spacing while producing a warm, rich, and beautiful bass tone.
+                      Favored in classical Hindustani traditions for its deep, meditative resonance. Requires a relaxed flat-finger piper&apos;s grip to span wider hole spacing (~5–6 cm) comfortably.
                     </p>
                   </div>
                 </div>
+              </div>
+
+              {/* Explaining Why Teacher Guidance Differs */}
+              <div className="bg-amber-50/70 border border-amber-200/80 rounded-2xl p-5 text-xs sm:text-sm text-gray-700 space-y-2 mt-4">
+                <strong className="text-bamboo-950 font-bold block text-sm flex items-center gap-1.5">
+                  <Info className="w-4 h-4 text-amber-700" />
+                  Why Do Teacher Recommendations Differ Between C Medium and G Bass?
+                </strong>
+                <p className="text-gray-600 leading-relaxed">
+                  Different schools of bansuri pedagogy emphasize different starting priorities: Hindustani classical masters often recommend <strong>G Bass</strong> because its deeper tone cultivates rich Kharaj swara sadhana from day one. In contrast, beginner pedagogues frequently suggest <strong>C Medium</strong> because its moderate hole spacing prevents wrist and forearm strain, allowing complete focus on breath control before tackling wider finger stretches. Both approaches are valid—choose based on your physical comfort, hand span, and your teacher&apos;s curriculum.
+                </p>
               </div>
             </section>
 
