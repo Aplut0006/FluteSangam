@@ -2099,7 +2099,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
     description: 'Learn Hothon Se Chhu Lo Tum flute notes with Sargam and Western notation. Practice Jagjit Singh’s timeless ghazal with easy flute notes and playing tips.',
     status: 'Song Notation',
     publishedDate: '2026-10-01',
-    updatedDate: '2026-10-01',
+    updatedDate: '2026-10-10',
     canonicalUrl: 'https://flutesangam.com/notations/hothon-se-chhoo-lo-tum-flute-notes',
     h1: 'Hothon Se Chhu Lo Tum Flute Notes – Sargam & Western Notes',
     metaTitle: 'Hothon Se Chhu Lo Tum Flute Notes | Sargam & Western',

@@ -479,7 +479,7 @@ export function getRouteMetadata(path: string): RouteMetadata {
         'description': description,
         'image': `${DOMAIN}/flutesangam_without_tagline_compressed.png`,
         'datePublished': '2026-07-26T00:00:00Z',
-        'dateModified': '2026-07-27T10:00:00Z',
+        'dateModified': '2026-10-10T00:00:00Z',
         'author': {
           '@type': 'Person',
           'name': 'Aplut',
@@ -656,7 +656,7 @@ export function getRouteMetadata(path: string): RouteMetadata {
         'description': 'Learn how to read bansuri notation step by step, including Sargam symbols, Komal and Tivra swaras, octaves, rhythm and basic ornaments.',
         'image': `${DOMAIN}/flutesangam_without_tagline_compressed.png`,
         'datePublished': '2026-09-01T00:00:00Z',
-        'dateModified': '2026-09-05T00:00:00Z',
+        'dateModified': '2026-10-10T00:00:00Z',
         'author': {
           '@type': 'Person',
           'name': 'Aplut',
@@ -1772,7 +1772,7 @@ export function getRouteMetadata(path: string): RouteMetadata {
               }
             },
             'datePublished': '2026-10-01T00:00:00Z',
-            'dateModified': '2026-10-01T00:00:00Z'
+            'dateModified': '2026-10-10T00:00:00Z'
           }
         ]
       }
