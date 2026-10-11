@@ -260,7 +260,7 @@ export default function Navbar({
           title="FluteSangam - Go to Home"
         >
           <img 
-            src="/flutesangam_without_tagline_compressed.png"
+            src="/flutesangam_icon_compressed.png"
             alt="FluteSangam Logo" 
             width="40"
             height="40"

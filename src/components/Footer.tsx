@@ -27,7 +27,7 @@ export default function Footer({ onViewChange, onSadhanaFeedClick }: FooterProps
             className="flex items-center gap-3 text-left group"
           >
             <img
-              src="/flutesangam_without_tagline_compressed.png"
+              src="/flutesangam_icon_compressed.png"
               alt="FluteSangam Logo"
               className="w-12 h-12 rounded-full border-2 border-amber-400/80 shadow-md group-hover:scale-105 transition-transform"
             />

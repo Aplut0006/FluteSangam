@@ -328,7 +328,7 @@ export default function HowToReadBansuriNotationView({ onViewChange }: HowToRead
           <div className="flex flex-wrap items-center gap-4 pt-2 pb-4 border-b border-slate-200 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
             <div className="flex items-center gap-3">
               <img 
-                src="/flutesangam_without_tagline_compressed.png" 
+                src="/flutesangam_icon_compressed.png" 
                 alt="FluteSangam" 
                 className="w-9 h-9 rounded-full border border-amber-300 dark:border-amber-700" 
               />
@@ -340,7 +340,7 @@ export default function HowToReadBansuriNotationView({ onViewChange }: HowToRead
                 <span className="text-slate-300 dark:text-slate-700">•</span>
                 <span className="flex items-center gap-1.5 font-medium">
                   <Clock className="w-3.5 h-3.5 text-amber-600" />
-                  Updated: <strong className="text-slate-900 dark:text-white">Oct 10, 2026</strong>
+                  Updated: <strong className="text-slate-900 dark:text-white">Oct 11, 2026</strong>
                 </span>
               </div>
             </div>

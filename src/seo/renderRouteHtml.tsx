@@ -182,7 +182,7 @@ export function getRouteMetadata(path: string): RouteMetadata {
           '@id': `${DOMAIN}/#organization`,
           'name': 'FluteSangam',
           'url': DOMAIN,
-          'logo': `${DOMAIN}/flutesangam_without_tagline_compressed.png`
+          'logo': `${DOMAIN}/flutesangam_icon_compressed.png`
         }
       }
     };
@@ -329,7 +329,7 @@ export function getRouteMetadata(path: string): RouteMetadata {
         '@id': `${DOMAIN}/#organization`,
         'name': 'FluteSangam',
         'url': DOMAIN,
-        'logo': `${DOMAIN}/flutesangam_without_tagline_compressed.png`,
+        'logo': `${DOMAIN}/flutesangam_icon_compressed.png`,
         'description': 'Global community and learning platform for Indian Bamboo Flute (Bansuri) practitioners.'
       }
     };
@@ -477,9 +477,9 @@ export function getRouteMetadata(path: string): RouteMetadata {
         '@type': 'LearningResource',
         'headline': 'Which Bansuri Is Best for Beginners? Flute Scale & Size Guide',
         'description': description,
-        'image': `${DOMAIN}/flutesangam_without_tagline_compressed.png`,
+        'image': `${DOMAIN}/flutesangam_icon_compressed.png`,
         'datePublished': '2026-07-26T00:00:00Z',
-        'dateModified': '2026-10-10T00:00:00Z',
+        'dateModified': '2026-10-11T00:00:00Z',
         'author': {
           '@type': 'Person',
           'name': 'Aplut',
@@ -490,7 +490,7 @@ export function getRouteMetadata(path: string): RouteMetadata {
           'name': 'FluteSangam',
           'logo': {
             '@type': 'ImageObject',
-            'url': `${DOMAIN}/flutesangam_without_tagline_compressed.png`
+            'url': `${DOMAIN}/flutesangam_icon_compressed.png`
           }
         },
         'mainEntityOfPage': {
@@ -632,7 +632,7 @@ export function getRouteMetadata(path: string): RouteMetadata {
           'name': 'FluteSangam',
           'logo': {
             '@type': 'ImageObject',
-            'url': `${DOMAIN}/flutesangam_without_tagline_compressed.png`
+            'url': `${DOMAIN}/flutesangam_icon_compressed.png`
           }
         },
         'mainEntityOfPage': {
@@ -654,9 +654,9 @@ export function getRouteMetadata(path: string): RouteMetadata {
         '@type': 'Article',
         'headline': 'How to Read Bansuri Notation: A Beginner’s Guide',
         'description': 'Learn how to read bansuri notation step by step, including Sargam symbols, Komal and Tivra swaras, octaves, rhythm and basic ornaments.',
-        'image': `${DOMAIN}/flutesangam_without_tagline_compressed.png`,
+        'image': `${DOMAIN}/flutesangam_icon_compressed.png`,
         'datePublished': '2026-09-01T00:00:00Z',
-        'dateModified': '2026-10-10T00:00:00Z',
+        'dateModified': '2026-10-11T00:00:00Z',
         'author': {
           '@type': 'Person',
           'name': 'Aplut',
@@ -667,7 +667,7 @@ export function getRouteMetadata(path: string): RouteMetadata {
           'name': 'FluteSangam',
           'logo': {
             '@type': 'ImageObject',
-            'url': `${DOMAIN}/flutesangam_without_tagline_compressed.png`
+            'url': `${DOMAIN}/flutesangam_icon_compressed.png`
           }
         },
         'mainEntityOfPage': {
@@ -1772,7 +1772,7 @@ export function getRouteMetadata(path: string): RouteMetadata {
               }
             },
             'datePublished': '2026-10-01T00:00:00Z',
-            'dateModified': '2026-10-10T00:00:00Z'
+            'dateModified': '2026-10-11T00:00:00Z'
           }
         ]
       }

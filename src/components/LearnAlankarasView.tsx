@@ -1414,8 +1414,8 @@ export default function LearnAlankarasView({ initialLevel, viewMode, onViewChang
                   <div className="flex items-center gap-1.5">
                     <Clock className="w-3.5 h-3.5 text-amber-600" />
                     <span className="text-gray-500">Updated:</span>
-                    <time itemProp="dateModified" dateTime="2026-10-10T00:00:00Z" className="font-semibold text-gray-900">
-                      Oct 10, 2026
+                    <time itemProp="dateModified" dateTime="2026-10-11T00:00:00Z" className="font-semibold text-gray-900">
+                      Oct 11, 2026
                     </time>
                   </div>
                   <span className="text-gray-300">•</span>
