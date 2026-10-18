@@ -20,11 +20,16 @@ interface HowToReadBansuriNotationViewProps {
 // Frequencies for audio synthesis (Key of C as root Sa = 261.63 Hz)
 const SWARA_FREQS: Record<string, number> = {
   // Mandra Saptak (Lower Octave)
-  'P̣': 196.00,  // G3
-  'ḍ': 207.65,  // G#3
-  'Ḍ': 220.00,  // A3
-  'ṇ': 233.08,  // A#3
-  'Ṇ': 246.94,  // B3
+  '.P': 196.00,  // G3
+  '.d': 207.65,  // G#3
+  '.D': 220.00,  // A3
+  '.n': 233.08,  // A#3
+  '.N': 246.94,  // B3
+  'P̣': 196.00,  // fallback
+  'ḍ': 207.65,  // fallback
+  'Ḍ': 220.00,  // fallback
+  'ṇ': 233.08,  // fallback
+  'Ṇ': 246.94,  // fallback
 
   // Madhya Saptak (Middle Octave)
   'S': 261.63,   // C4
@@ -243,9 +248,9 @@ export default function HowToReadBansuriNotationView({ onViewChange }: HowToRead
     },
     {
       name: 'Raag Yaman',
-      notesStr: "Ṇ R G M^ D N S'",
-      notesArray: ['Ṇ', 'R', 'G', 'M^', 'D', 'N', "S'"],
-      desc: 'Features Tivra Ma (M^) and Mandra Nishad (Ṇ) opening.'
+      notesStr: ".N R G M^ D N S'",
+      notesArray: ['.N', 'R', 'G', 'M^', 'D', 'N', "S'"],
+      desc: 'Features Tivra Ma (M^) and Mandra Nishad (.N) opening.'
     }
   ];
 
@@ -707,17 +712,17 @@ export default function HowToReadBansuriNotationView({ onViewChange }: HowToRead
                     Mandra Saptak
                   </td>
                   <td className="py-3 px-4 text-slate-600 dark:text-slate-300">
-                    Lower octave (deep, chest resonance)
+                    Lower octave (deep, chest resonance: .P .D .N)
                   </td>
                   <td className="py-3 px-4 text-center font-mono font-bold text-base text-amber-700 dark:text-amber-400">
-                    Ṇ (dot below)
+                    .N (dot before)
                   </td>
                   <td className="py-3 px-4 text-center">
                     <button
-                      onClick={() => playSwaraTone('Ṇ')}
+                      onClick={() => playSwaraTone('.N')}
                       className="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-medium hover:bg-amber-100"
                     >
-                      Play Ṇ
+                      Play .N
                     </button>
                   </td>
                 </tr>
@@ -770,7 +775,7 @@ export default function HowToReadBansuriNotationView({ onViewChange }: HowToRead
                 Full 3-Octave Progression Demonstration
               </span>
               <button
-                onClick={() => playSequence('octave-demo', ['P̣', 'Ḍ', 'Ṇ', 'S', 'R', 'G', 'M', 'P', 'D', 'N', "S'"], 0.45)}
+                onClick={() => playSequence('octave-demo', ['.P', '.D', '.N', 'S', 'R', 'G', 'M', 'P', 'D', 'N', "S'"], 0.45)}
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 transition cursor-pointer ${
                   playingSeqId === 'octave-demo'
                     ? 'bg-rose-600 text-white animate-pulse'
@@ -783,7 +788,7 @@ export default function HowToReadBansuriNotationView({ onViewChange }: HowToRead
             </div>
 
             <div className="font-mono text-center sm:text-left text-s break-wordsm break-words sm:text-base bg-sand-100/70 dark:bg-slate-800 p-3 rounded-xl border border-bamboo-200/60 dark:border-slate-700 tracking-wider text-slate-900 dark:text-amber-200 font-bold">
-              P̣ Ḍ Ṇ S | R G M P | D N S'
+              .P .D .N S | R G M P | D N S'
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-600 dark:text-slate-400">
@@ -982,7 +987,7 @@ export default function HowToReadBansuriNotationView({ onViewChange }: HowToRead
               { num: '1', title: 'Establish Sa', desc: 'Use a drone or tuner to establish your tonic pitch firmly in your ear.' },
               { num: '2', title: 'Identify Swara', desc: 'Spot whether it is Sa, Re, Ga, Ma, Pa, Dha or Ni.' },
               { num: '3', title: 'Check Its Form', desc: 'Determine whether it is Shuddha (natural), Komal (flat), or Tivra (sharp).' },
-              { num: '4', title: 'Check Octave', desc: 'Notice dots below for Mandra, apostrophes for Taar, or middle register.' },
+              { num: '4', title: 'Check Octave', desc: 'Notice dots before notes (.P, .D, .N) for Mandra, apostrophes (S\', R\') for Taar, or middle register.' },
               { num: '5', title: 'Count Rhythm', desc: 'Observe beat subdivisions, dashes (sustained counts), rests (0), and bar lines.' },
               { num: '6', title: 'Add Expression', desc: 'Add graceful Kan Swars and meends only after playing the plain phrase correctly.' },
             ].map((step) => (
@@ -1007,13 +1012,13 @@ export default function HowToReadBansuriNotationView({ onViewChange }: HowToRead
                 Case Study: Example Line Decoding
               </span>
               <h3 className="font-mono text-base sm:text-lg font-bold text-amber-20 break-words0 break-words mt-1">
-                Ṇ S R g | M~P g R | S — — — ||
+                .N S R g | M~P g R | S — — — ||
               </h3>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-amber-100/80">
               <div className="p-2.5 bg-black/30 rounded-lg border border-white/5">
-                • <strong className="text-white font-mono">Ṇ</strong> is lower Shuddha Ni (Mandra octave with dot below).
+                • <strong className="text-white font-mono">.N</strong> is lower Shuddha Ni (Mandra octave with dot before note).
               </div>
               <div className="p-2.5 bg-black/30 rounded-lg border border-white/5">
                 • <strong className="text-white font-mono">S</strong> and <strong className="text-white font-mono">R</strong> are middle Sa and Shuddha Re.
@@ -1377,7 +1382,10 @@ P = Pa
 d = Komal Dha      D = Shuddha Dha
 n = Komal Ni       N = Shuddha Ni
 
-Ṇ  = Lower Ni     N = Middle Ni     N' = Upper Ni
+.P .D .N  = Lower Octave (Mandra)
+S R G M P D N = Middle Octave (Madhya)
+S' R' G' M' P' = Higher Octave (Taar)
+
 —  = Hold the previous swara for one extra count
 0  = One count of silence
 |  = Phrase or beat-group divider
@@ -1401,7 +1409,10 @@ P = Pa
 d = Komal Dha      D = Shuddha Dha
 n = Komal Ni       N = Shuddha Ni
 
-Ṇ  = Lower Ni     N = Middle Ni     N' = Upper Ni
+.P .D .N  = Lower Octave (Mandra)
+S R G M P D N = Middle Octave (Madhya)
+S' R' G' M' P' = Higher Octave (Taar)
+
 —  = Hold the previous swara for one extra count
 0  = One count of silence
 |  = Phrase or beat-group divider

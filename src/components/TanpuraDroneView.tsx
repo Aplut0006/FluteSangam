@@ -849,7 +849,7 @@ export const TanpuraDroneView: React.FC<TanpuraDroneViewProps> = ({ onViewChange
                 </div>
                 <h3 className="font-bold text-sm text-bamboo-950 mt-2">Kharaj Sadhana (Mandra Register)</h3>
                 <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                  Descend below Madhya Sa into Mandra Saptak (.Ni, .Dha, .Pa, .Ma). Focus on warm, relaxed lower lip aperture and deep chest resonance matching the 4th string (Kharaj Sa).
+                  Descend below Madhya Sa into Mandra Saptak (.N, .D, .P, .M). Focus on warm, relaxed lower lip aperture and deep chest resonance matching the 4th string (Kharaj Sa).
                 </p>
               </div>
             </div>

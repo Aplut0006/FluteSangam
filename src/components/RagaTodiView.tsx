@@ -18,7 +18,14 @@ interface RagaTodiViewProps {
 // Swara Frequencies for C Natural Scale
 const SWARA_FREQS: Record<string, number> = {
   // Lower Octave (Mandra Saptak)
-  'S(lower)': 130.81,
+  '.S': 130.81,
+    '.r': 138.59,
+    '.g': 155.56,
+    '.M^': 184.99,
+    '.P': 196.00,
+    '.d': 207.65,
+    '.N': 246.94,
+    'S(lower)': 130.81,
   'r(lower)': 138.59,
   'g(lower)': 155.56,
   'M(lower)': 184.99,
@@ -33,7 +40,8 @@ const SWARA_FREQS: Record<string, number> = {
   'Re(komal)': 277.18,
   'g': 311.13,       // Komal Ga
   'Ga(komal)': 311.13,
-  'M': 369.99,       // Tivra Ma
+  'M^': 369.99,
+    'M': 369.99,       // Tivra Ma
   'Ma(tivra)': 369.99,
   'P': 392.00,       // Shuddha Pa
   'Pa': 392.00,
@@ -47,6 +55,7 @@ const SWARA_FREQS: Record<string, number> = {
   "Sa'": 523.25,
   "r'": 554.37,      // Komal Re
   "g'": 622.25,      // Komal Ga
+  "M^'": 739.99,     // Tivra Ma
   "M'": 739.99,      // Tivra Ma
   "P'": 783.99,
   "d'": 830.61,      // Komal Dha
@@ -140,7 +149,7 @@ export const RagaTodiView: React.FC<RagaTodiViewProps> = ({ onViewChange }) => {
   const handlePlayAaroh = () => {
     if (isPlayingAaroh) return;
     setIsPlayingAaroh(true);
-    const aarohNotes = ['S', 'r', 'g', 'M', 'P', 'd', 'N', "S'"];
+    const aarohNotes = ['S', 'r', 'g', 'M^', 'P', 'd', 'N', "S'"];
     playPhraseSequence(aarohNotes, 700, () => setIsPlayingAaroh(false));
   };
 
@@ -148,7 +157,7 @@ export const RagaTodiView: React.FC<RagaTodiViewProps> = ({ onViewChange }) => {
   const handlePlayAvaroh = () => {
     if (isPlayingAvaroh) return;
     setIsPlayingAvaroh(true);
-    const avarohNotes = ["S'", 'N', 'd', 'P', 'M', 'g', 'r', 'S'];
+    const avarohNotes = ["S'", 'N', 'd', 'P', 'M^', 'g', 'r', 'S'];
     playPhraseSequence(avarohNotes, 700, () => setIsPlayingAvaroh(false));
   };
 
@@ -156,7 +165,7 @@ export const RagaTodiView: React.FC<RagaTodiViewProps> = ({ onViewChange }) => {
   const handlePlayPakad = () => {
     if (isPlayingPakad) return;
     setIsPlayingPakad(true);
-    const pakadNotes = ['g', 'r', 'g', 'r', 'S', 'r', 'g', 'M', 'g', 'r', 'S'];
+    const pakadNotes = ['g', 'r', 'g', 'r', 'S', 'r', 'g', 'M^', 'g', 'r', 'S'];
     playPhraseSequence(pakadNotes, 650, () => setIsPlayingPakad(false));
   };
 
@@ -173,7 +182,7 @@ export const RagaTodiView: React.FC<RagaTodiViewProps> = ({ onViewChange }) => {
       // Aalap 3: g M d — | P M g r | g M d N | S' — N d
       ['g', 'M', 'd', 'P', 'M', 'g', 'r', 'g', 'M', 'd', 'N', "S'", 'N', 'd'],
       // Aalap 4: S' N d P | M g r S | r g M g | r S — —
-      ["S'", 'N', 'd', 'P', 'M', 'g', 'r', 'S', 'r', 'g', 'M', 'g', 'r', 'S']
+      ["S'", 'N', 'd', 'P', 'M^', 'g', 'r', 'S', 'r', 'g', 'M', 'g', 'r', 'S']
     ];
 
     const notes = aalapPhrases[index - 1] || [];
@@ -340,7 +349,7 @@ r g M g | r S — — ||`;
               </div>
               <div className="flex items-center gap-1.5 bg-white/90 border border-amber-200 px-3 py-1.5 rounded-lg shadow-2xs">
                 <RefreshCw className="w-3.5 h-3.5 text-rose-700" />
-                <span>Updated: <strong className="text-bamboo-950 font-semibold">August 10, 2026</strong></span>
+                <span>Updated: <strong className="text-bamboo-950 font-semibold">October 18, 2026</strong></span>
               </div>
               <div className="flex items-center gap-1.5 bg-white/90 border border-amber-200 px-3 py-1.5 rounded-lg shadow-2xs">
                 <Clock className="w-3.5 h-3.5 text-amber-700" />
@@ -411,7 +420,7 @@ r g M g | r S — — ||`;
 
           <div className="bg-stone-50 p-4 sm:p-5 rounded-2xl border border-stone-200/80 text-xs sm:text-sm space-y-2">
             <h4 className="font-bold text-bamboo-950 uppercase tracking-wider text-[11px]">Swara Notation Summary</h4>
-            <p className="font-mono text-amber-900 font-bold">S r g M P d N S'</p>
+            <p className="font-mono text-amber-900 font-bold">S r g M^ P d N S'</p>
             <ul className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-stone-600 pt-1">
               <li><strong>S</strong> = Sa</li>
               <li><strong>r</strong> = Komal Re</li>
@@ -448,7 +457,7 @@ r g M g | r S — — ||`;
                   <span className="text-xs font-bold uppercase tracking-wider text-amber-800 bg-amber-100 px-2.5 py-1 rounded-md">
                     Ascending (Aaroh)
                   </span>
-                  <h3 className="text-lg font-bold text-bamboo-950 mt-2">S r g M P d N S'</h3>
+                  <h3 className="text-lg font-bold text-bamboo-950 mt-2">S r g M^ P d N S'</h3>
                 </div>
                 <button
                   onClick={handlePlayAaroh}
@@ -465,7 +474,7 @@ r g M g | r S — — ||`;
               </p>
 
               <div className="bg-white/80 p-3 rounded-xl border border-amber-200/60 text-xs text-stone-700">
-                <strong>Slow Practice:</strong> <span className="font-mono text-amber-900 font-bold">S — r — g — M — P — d — N — S'</span>
+                <strong>Slow Practice:</strong> <span className="font-mono text-amber-900 font-bold">S — r — g — M^ — P — d — N — S'</span>
                 <p className="mt-1 text-stone-500">Pay particular attention to the pitch of the Komal swaras.</p>
               </div>
             </div>
@@ -477,7 +486,7 @@ r g M g | r S — — ||`;
                   <span className="text-xs font-bold uppercase tracking-wider text-rose-800 bg-rose-100 px-2.5 py-1 rounded-md">
                     Descending (Avaroh)
                   </span>
-                  <h3 className="text-lg font-bold text-bamboo-950 mt-2">S' N d P M g r S</h3>
+                  <h3 className="text-lg font-bold text-bamboo-950 mt-2">S' N d P M^ g r S</h3>
                 </div>
                 <button
                   onClick={handlePlayAvaroh}
@@ -494,7 +503,7 @@ r g M g | r S — — ||`;
               </p>
 
               <div className="bg-white/80 p-3 rounded-xl border border-rose-200/60 text-xs text-stone-700">
-                <strong>Slow Practice:</strong> <span className="font-mono text-rose-900 font-bold">S' — N d — P — M g r — S</span>
+                <strong>Slow Practice:</strong> <span className="font-mono text-rose-900 font-bold">S' — N d — P — M^ g r — S</span>
                 <p className="mt-1 text-stone-500">The descending movement is especially useful for developing the characteristic color of Todi. Keep the movement relaxed and controlled.</p>
               </div>
             </div>

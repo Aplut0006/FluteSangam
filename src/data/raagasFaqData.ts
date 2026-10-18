@@ -79,7 +79,7 @@ Recommended Starter Raagas:
     answer: `Raag Yaman (belonging to Kalyan Thaat) is widely considered an excellent foundational gateway to Hindustani classical music across vocal and instrumental traditions.
 
 Why Raag Yaman is the Ideal Foundation:
-• Musical Anatomy: Features Shuddha Re, Ga, Dha, Ni alongside Teevra Ma (sharp 4th). Sa and Pa are omitted in ascending motion (Aaroh: 'Ni Re Ga, Ma' Dha Ni Sa').
+• Musical Anatomy: Features Shuddha Re, Ga, Dha, Ni alongside Tivra Ma (sharp 4th: M^). Sa and Pa are omitted in ascending motion (Aaroh: .N R G M^ D N S').
 • Vadi & Samvadi: Vadi: Ga, Samvadi: Ni.
 • Pedagogical Value: Its serene, deeply soothing evening atmosphere is forgiving and emotionally satisfying. Playing Yaman teaches foundational concepts like omitted notes (Varjit Swaras), Teevra Ma half-hole execution, graceful Meends, and landing squarely on structural swaras.`,
     relatedLink: { text: 'Read Raag Yaman Guide & Notation', view: 'raga_yaman' },
@@ -145,8 +145,8 @@ Primary Rasas in Music:
     answer: `Exploring popular intermediate Raagas on the bamboo flute expands your repertoire and introduces expressive microtonal variations.
 
 Intermediate Raagas Characteristics:
-• Raag Khamaj: A sweet, romantic Raag (belonging to Khamaj Thaat) using Shuddha Ni in ascent and Komal Ni in descent ('Ni Dha Pa Ma Ga Re Sa'). Highly famous for Thumris and light classical melodies.
-• Raag Brindavani Sarang: An uplifting afternoon Raag (belonging to Kafi Thaat) using 5 notes in ascent and descent (Audav-Audav Jati). Features both Shuddha Ni and Komal Ni, creating a refreshing, sunny mood.`,
+• Raag Khamaj: A sweet, romantic Raag (belonging to Khamaj Thaat) using Shuddha Ni (N) in ascent and Komal Ni (n) in descent (Avaroh: S' n D P M G R S). Highly famous for Thumris and light classical melodies.
+• Raag Brindavani Sarang: An uplifting afternoon Raag (belonging to Kafi Thaat) using 5 notes in ascent and descent (Audav-Audav Jati). Features Shuddha Ni (N) in ascent and Komal Ni (n) in descent, creating a refreshing, sunny mood.`,
     relatedLink: { text: 'Read Complete Raag Khamaj Guide', view: 'raga_khamaj' },
     tags: ['raag khamaj', 'brindavani sarang', 'intermediate raagas']
   },

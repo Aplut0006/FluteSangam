@@ -37,15 +37,17 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
     'R': 293.66,     // Shuddha Re (D4)
     'G': 329.63,     // Shuddha Ga (E4)
     'M': 349.23,     // Shuddha Ma (F4)
-    'M#': 369.99,    // Tivra Ma (F#4)
+    'M^': 369.99,    // Tivra Ma (F#4)
     'm': 369.99,     // Tivra Ma shorthand
     'P': 392.00,     // Pa (G4)
     'D': 440.00,     // Shuddha Dha (A4)
     'N': 493.88,     // Shuddha Ni (B4)
     "S'": 523.25,    // Upper Sa (C5)
     "R'": 587.33,    // Upper Re (D5)
-    "N.": 246.94,    // Lower Ni (B3)
-    "D.": 220.00,    // Lower Dha (A3)
+    '.N': 246.94,
+    'N.': 246.94,    // Lower Ni (B3)
+    '.D': 220.00,
+    'D.': 220.00,    // Lower Dha (A3)
   };
 
   const getAudioContext = () => {
@@ -185,7 +187,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
             "url": "https://flutesangam.com"
           },
           "datePublished": "2026-08-07",
-          "dateModified": "2026-08-07",
+          "dateModified": "2026-10-18T00:00:00Z",
           "mainEntityOfPage": "https://flutesangam.com/learn/raga-bihag"
         })}
       </script>
@@ -231,9 +233,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
               <div className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-amber-400" />
                 <span className="text-amber-200/80">Updated:</span>
-                <time itemProp="dateModified" dateTime="2026-08-07T00:00:00Z" className="font-semibold text-white">
-                  Aug 7, 2026
-                </time>
+                <time itemProp="dateModified" dateTime="2026-10-18T00:00:00Z" className="font-semibold text-white">October 18, 2026</time>
               </div>
             </div>
           </div>
@@ -278,7 +278,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
         </p>
 
         <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
-          Bihag is especially interesting for flute players because it introduces a more nuanced treatment of Madhyam, including the use of <strong>Tivra Ma (M#)</strong> alongside <strong>Shuddha Ma (M)</strong> in commonly taught forms. The raga also encourages graceful movements around Ga, Ma, Pa, and Ni, making it an excellent exercise in phrasing and meend.
+          Bihag is especially interesting for flute players because it introduces a more nuanced treatment of Madhyam, including the use of <strong>Tivra Ma (M^)</strong> alongside <strong>Shuddha Ma (M)</strong> in commonly taught forms. The raga also encourages graceful movements around Ga, Ma, Pa, and Ni, making it an excellent exercise in phrasing and meend.
         </p>
 
         <div className="bg-amber-50 dark:bg-slate-800/60 border border-amber-200/80 dark:border-slate-700 rounded-2xl p-4 sm:p-5 text-sm text-slate-700 dark:text-slate-300 space-y-2">
@@ -371,7 +371,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
             { name: 'R', full: 'Shuddha Re', freq: '293.66 Hz', type: 'Restrained' },
             { name: 'G', full: 'Shuddha Ga (Vadi)', freq: '329.63 Hz', type: 'Vadi Note' },
             { name: 'M', full: 'Shuddha Ma', freq: '349.23 Hz', type: 'Primary' },
-            { name: 'M#', full: 'Tivra Ma', freq: '369.99 Hz', type: 'Distinctive Accent' },
+            { name: 'M^', full: 'Tivra Ma', freq: '369.99 Hz', type: 'Distinctive Accent' },
             { name: 'P', full: 'Pa', freq: '392.00 Hz', type: 'Primary' },
             { name: 'D', full: 'Shuddha Dha', freq: '440.00 Hz', type: 'Restrained' },
             { name: 'N', full: 'Shuddha Ni (Samvadi)', freq: '493.88 Hz', type: 'Samvadi Note' },
@@ -385,7 +385,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
                   ? 'bg-amber-600 text-white border-amber-700 shadow-md scale-105'
                   : sw.name === 'G' || sw.name === 'N'
                   ? 'bg-amber-50 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 border-amber-300 dark:border-amber-700 hover:bg-amber-100'
-                  : sw.name === 'M#'
+                  : sw.name === 'M^'
                   ? 'bg-orange-50 dark:bg-orange-950/40 text-orange-900 dark:text-orange-200 border-orange-300 dark:border-orange-700 hover:bg-orange-100'
                   : 'bg-slate-50 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border-slate-200 dark:border-slate-700 hover:border-amber-400'
               }`}
@@ -409,7 +409,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
 
           <div className="bg-amber-50/70 dark:bg-slate-800/50 p-4 rounded-2xl border border-amber-200 dark:border-slate-700 space-y-1.5">
             <h3 className="font-bold text-amber-900 dark:text-amber-300 flex items-center gap-1.5">
-              <Sparkles className="w-4 h-4 text-amber-600" /> Dual Madhyam Usage (M &amp; M#)
+              <Sparkles className="w-4 h-4 text-amber-600" /> Dual Madhyam Usage (M &amp; M^)
             </h3>
             <p>
               The use of both Shuddha Ma and Tivra Ma is one of the key features that gives Bihag its distinctive, romantic color.
@@ -501,7 +501,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
             <div className="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 space-y-1">
               <span className="text-xs font-bold text-orange-700 dark:text-orange-400">Tivra Ma Phrase Variant:</span>
               <div className="text-lg font-mono font-bold text-slate-900 dark:text-white">
-                G M# P — M G — G R S
+                G M^ P — M G — G R S
               </div>
             </div>
           </div>
@@ -519,7 +519,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
           <div className="font-mono text-sm sm:text-base text-amber-95 break-words0 break-words dark:text-amber-200 space-y-2 bg-white dark:bg-slate-900 p-4 rounded-xl border border-amber-200/80 dark:border-slate-800">
             <p>S G M P — N S' — S' N D P — M G M G — R S</p>
             <p className="text-amber-800 dark:text-amber-300 font-semibold">Continue with:</p>
-            <p>G M# P — M G — G R S</p>
+            <p>G M^ P — M G — G R S</p>
             <p>G M P — N D P — M G R S</p>
           </div>
           <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -544,7 +544,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
               'Ga (Vadi) and Ni (Samvadi) establish the raga identity.',
               'Re and Dha are generally used with restraint.',
               'The raga has a graceful and romantic character.',
-              'Phrases around G–M–P and G–M#–P create its characteristic color.',
+              'Phrases around G–M–P and G–M^–P create its characteristic color.',
               'Meend and smooth note connections are highly effective on bansuri.',
               'The raga should not be treated as a simple major-scale exercise.'
             ].map((char, idx) => (
@@ -719,7 +719,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
               Sustained tones: <strong>S — G — M — P — N — S'</strong>
             </p>
             <p className="text-slate-600 dark:text-slate-400 pt-1">
-              Separately practice the characteristic Madhyam notes: <strong>M — M#</strong>. Play both carefully and listen to the pitch difference.
+              Separately practice the characteristic Madhyam notes: <strong>M — M^</strong>. Play both carefully and listen to the pitch difference.
             </p>
           </div>
 
@@ -787,7 +787,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
               Alankar 3: Madhyam Movement (Shuddha &amp; Tivra Ma)
             </h3>
             <button
-              onClick={() => copyToClipboard("G M P M | M G M G | G M# P M | M G R S", 'alankar3')}
+              onClick={() => copyToClipboard("G M P M | M G M G | G M^ P M | M G R S", 'alankar3')}
               className="text-xs text-slate-500 hover:text-amber-700 flex items-center gap-1 cursor-pointer font-medium"
             >
               {copiedSection === 'alankar3' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
@@ -798,7 +798,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
             This exercise introduces the characteristic movement around Madhyam. Make sure Tivra Ma is clearly distinguished from Shuddha Ma.
           </p>
           <div className="font-mono text-sm font-bold text-amber-95 break-words0 break-words dark:text-amber-200 bg-white dark:bg-slate-900 p-3 rounded-xl border border-amber-200 dark:border-slate-800">
-            G M P M | M G M G | G M# P M | M G R S
+            G M P M | M G M G | G M^ P M | M G R S
           </div>
         </div>
       </div>
@@ -879,7 +879,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
           <div className="flex items-center justify-between">
             <h3 className="font-bold text-slate-900 dark:text-white text-base">Aalap (Free Rhythm)</h3>
             <button
-              onClick={() => copyToClipboard("S G M | M P N | S'\nS' N D | P M | G M G | R S\nG M# P | M G | G M P | N D P | M G R S", 'aalap')}
+              onClick={() => copyToClipboard("S G M | M P N | S'\nS' N D | P M | G M G | R S\nG M^ P | M G | G M P | N D P | M G R S", 'aalap')}
               className="text-xs text-slate-500 hover:text-amber-700 flex items-center gap-1 cursor-pointer font-medium"
             >
               {copiedSection === 'aalap' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
@@ -891,7 +891,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
             <p>S G M | M P N | S'</p>
             <p>S' N D | P M | G M G | R S</p>
             <p className="pt-1 text-xs text-slate-500">Continue with:</p>
-            <p>G M# P | M G | G M P | N D P | M G R S</p>
+            <p>G M^ P | M G | G M P | N D P | M G R S</p>
           </div>
         </div>
 
@@ -918,7 +918,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
           <div className="flex items-center justify-between">
             <h3 className="font-bold text-orange-900 dark:text-orange-300 text-base">Antara (Upper Register &amp; Tivra Ma)</h3>
             <button
-              onClick={() => copyToClipboard("| G M# P M | G M P N |\n| S' N D P | M G R S |", 'antara')}
+              onClick={() => copyToClipboard("| G M^ P M | G M P N |\n| S' N D P | M G R S |", 'antara')}
               className="text-xs text-slate-500 hover:text-amber-700 flex items-center gap-1 cursor-pointer font-medium"
             >
               {copiedSection === 'antara' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
@@ -926,7 +926,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
             </button>
           </div>
           <div className="font-mono text-sm font-bold text-orange-95 break-words0 break-words dark:text-orange-200 space-y-1 bg-white dark:bg-slate-900 p-3.5 rounded-xl border border-orange-200 dark:border-slate-800">
-            <p>| G  M# P  M | G  M  P  N |</p>
+            <p>| G  M^ P  M | G  M  P  N |</p>
             <p>| S' N  D  P | M  G  R  S |</p>
           </div>
         </div>
@@ -936,7 +936,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
           <div className="flex items-center justify-between">
             <h3 className="font-bold text-slate-900 dark:text-white text-base">Vistar Practice</h3>
             <button
-              onClick={() => copyToClipboard("| G M P N | S' N D P |\n| M G M G | R S G M |\n| G M# P M | G R S G |\n| M P N D | P M G - |", 'vistar')}
+              onClick={() => copyToClipboard("| G M P N | S' N D P |\n| M G M G | R S G M |\n| G M^ P M | G R S G |\n| M P N D | P M G - |", 'vistar')}
               className="text-xs text-slate-500 hover:text-amber-700 flex items-center gap-1 cursor-pointer font-medium"
             >
               {copiedSection === 'vistar' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
@@ -946,7 +946,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
           <div className="font-mono text-sm text-amber-95 break-words0 break-words dark:text-amber-200 space-y-1 bg-white dark:bg-slate-900 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800">
             <p>| G  M  P  N | S' N  D  P |</p>
             <p>| M  G  M  G | R  S  G  M |</p>
-            <p>| G  M# P  M | G  R  S  G |</p>
+            <p>| G  M^ P  M | G  R  S  G |</p>
             <p>| M  P  N  D | P  M  G  - |</p>
           </div>
         </div>
@@ -1031,7 +1031,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
             },
             {
               q: "Which forms of Ma are used in Bihag?",
-              a: "Both Shuddha Ma (M) and Tivra Ma (M#) are used in commonly taught versions of the raga."
+              a: "Both Shuddha Ma (M) and Tivra Ma (M^) are used in commonly taught versions of the raga."
             },
             {
               q: "Which notes are most important?",

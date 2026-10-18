@@ -90,9 +90,9 @@ Understanding the 22 Shrutis:
     answer: `Hindustani classical music spans three primary octave registers (Saptaks) across vocal and instrumental performances.
 
 The Three Primary Saptaks:
-1. Mandra Saptak (Lower Octave): Deep, warm, low-register notes. Notated with a dot below the swara letter (e.g., ṇi, ḏha, pa).
-2. Madhya Saptak (Middle Octave): Standard mid-range register where most compositions reside. Notated without dots (e.g., Sa, Re, Ga).
-3. Taar Saptak (Higher Octave): Bright, high-register notes. Notated with a dot above the swara letter (e.g., Ṡa, Ṙe, Ġa).`,
+1. Mandra Saptak (Lower Octave): Deep, warm, low-register notes (.P, .D, .N). Notated with a leading dot (.P .D .N).
+2. Madhya Saptak (Middle Octave): Standard mid-range register where most compositions reside (S R G M P D N). Notated without dots.
+3. Taar Saptak (Higher Octave): Bright, high-register notes (S', R', G', M', P'). Notated with a trailing apostrophe (S' R' G' M' P').`,
     relatedLink: { text: 'View Fingering Chart Across All Octaves', view: 'learn_fingering_chart' },
     tags: ['saptak', 'mandra saptak', 'madhya saptak', 'taar saptak', 'notation']
   },
@@ -181,12 +181,12 @@ Counting Key Rhythm Cycles:
     answer: `Quick reference guide to reading Bhatkhande notation symbols in song sheets:
 
 Notation Key Reference:
-• Standard Swaras (S, R, G, M, P, D, N): Middle octave Shuddha notes.
-• Dot Above (Ṡ, Ṙ): Higher octave (Taar Saptak) notes.
-• Dot Below (Ṣ, Ṛ): Lower octave (Mandra Saptak) notes.
-• Underlined Note (<u>R</u>, <u>G</u>, <u>D</u>, <u>N</u>): Komal (flat) swaras played half-hole.
-• Vertical Line Above (M'): Teevra Ma (sharp 4th).
-• Slur Curve (S~G): Meend (continuous vocalic glide).`,
+• Middle Octave (S, R, G, M, P, D, N): Natural middle octave (Madhya Saptak) notes.
+• Higher Octave (S', R', G', M', P'): Taar Saptak notes with trailing apostrophe.
+• Lower Octave (.P, .D, .N): Mandra Saptak notes with leading dot.
+• Komal Swaras (r, g, d, n): Flat notes shown in lowercase.
+• Tivra Ma (M^): Sharp 4th swara.
+• Slur Curve / Tilde (S~G): Meend (continuous vocalic glide).`,
     relatedLink: { text: 'Browse Free Song Sargam Notations', view: 'notation_requests' },
     tags: ['bhatkhande notation', 'sargam symbols', 'music notation', 'dots and underlines']
   },

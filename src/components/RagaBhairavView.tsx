@@ -42,6 +42,8 @@ export default function RagaBhairavView({ onViewChange }: RagaBhairavViewProps) 
     'N': 493.88,   // Shuddha Ni
     'S\'': 523.25,  // Upper Sa
     'r\'': 554.37,  // Upper Komal Re
+    '.d': 207.65,  // Lower Komal Dha (.d)
+    '.N': 246.94,  // Lower Shuddha Ni (.N)
     'd.': 207.65,  // Lower Komal Dha
     'N.': 246.94,  // Lower Shuddha Ni
   };
@@ -217,7 +219,7 @@ S`;
         }
       },
       "datePublished": "2026-08-07",
-      "dateModified": "2026-08-07"
+      "dateModified": "2026-10-18T00:00:00Z"
     });
     document.head.appendChild(script);
 
@@ -299,7 +301,7 @@ S`;
               </span>
               <span className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-amber-400" />
-                <span>Updated: <strong className="text-white" itemProp="dateModified" content="2026-08-07">August 7, 2026</strong></span>
+                <span>Updated: <strong className="text-white" itemProp="dateModified" content="2026-10-18">October 18, 2026</strong></span>
               </span>
               <span className="flex items-center gap-1.5">
                 <BookOpen className="w-3.5 h-3.5 text-amber-400" />

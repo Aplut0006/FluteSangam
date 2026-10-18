@@ -1458,8 +1458,8 @@ export const CHATBOT_QA_DATABASE: ChatbotQA[] = [
     id: 'sw_tivra_ma',
     question: 'What is Tivra Ma?',
     category: 'Notes & Scales',
-    answer: '**Tivra Ma** is the sharp Madhyam note raised by a semitone (half-step) above Shuddha Ma (denoted as M\' or M#).',
-    keywords: ['tivra ma', 'sharp ma', 'm\' swar'],
+    answer: '**Tivra Ma** is the sharp Madhyam note raised by a semitone (half-step) above Shuddha Ma (denoted as M^).',
+    keywords: ['tivra ma', 'sharp ma', 'm^ swar', 'm^'],
     relatedIds: ['sw_komal_swaras', 'th_komal_tivra']
   },
   {

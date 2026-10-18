@@ -18,7 +18,9 @@ interface RagaShivranjaniViewProps {
 // Swara Frequencies for C Natural Scale (Middle C = 261.63 Hz)
 const SWARA_FREQS: Record<string, number> = {
   // Lower Octave (Mandra Saptak)
-  'P(lower)': 196.00,
+  '.P': 196.00,
+    '.D': 220.00,
+    'P(lower)': 196.00,
   'P.': 196.00,
   'D(lower)': 220.00,
   'D.': 220.00,
@@ -366,7 +368,7 @@ export const RagaShivranjaniView: React.FC<RagaShivranjaniViewProps> = ({ onView
             "url": "https://flutesangam.com"
           },
           "datePublished": "2026-08-21T00:00:00Z",
-          "dateModified": "2026-08-21T23:00:00Z",
+          "dateModified": "2026-10-18T00:00:00Z",
           "inLanguage": "en",
           "keywords": ["Raag Shivranjani", "Shivranjani", "Learn Bansuri", "Komal Ga", "Flute Raga", "Hindustani Classical", "FluteSangam"]
         })}
@@ -420,7 +422,7 @@ export const RagaShivranjaniView: React.FC<RagaShivranjaniViewProps> = ({ onView
                 </div>
                 <div className="flex items-center gap-2 text-amber-200">
                   <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                  <span>Updated: <strong className="text-white">Aug 21, 2026</strong></span>
+                  <span>Updated: <strong className="text-white">Oct 18, 2026</strong></span>
                 </div>
               </div>
 

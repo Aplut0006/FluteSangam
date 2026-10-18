@@ -42,6 +42,10 @@ export default function RagaMalkaunsView({ onViewChange }: RagaMalkaunsViewProps
     "g'": 622.25,    // Upper Komal Ga (Eb5)
     "M'": 698.46,    // Upper Shuddha Ma (F5)
     "d'": 830.61,    // Upper Komal Dha (Ab5)
+    '.n': 233.08,
+    '.d': 207.65,
+    '.M': 174.61,
+    '.m': 174.61,
     "n.": 233.08,    // Lower Komal Ni (Bb3)
     "d.": 207.65,    // Lower Komal Dha (Ab3)
     "m.": 174.61,    // Lower Ma (F3)
@@ -315,9 +319,7 @@ g M d | M g | S`;
               <div className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-amber-700" />
                 <span className="text-stone-600">Updated:</span>
-                <time itemProp="dateModified" dateTime="2026-08-08T00:00:00Z" className="font-semibold text-bamboo-950">
-                  Aug 8, 2026
-                </time>
+                <time itemProp="dateModified" dateTime="2026-10-18T00:00:00Z" className="font-semibold text-bamboo-950">October 18, 2026</time>
               </div>
             </div>
           </div>

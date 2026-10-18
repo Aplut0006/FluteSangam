@@ -291,7 +291,7 @@ export default function Navbar({
             }`}
           >
             <Globe className={`w-3.5 h-3.5 ${currentView === 'community' ? 'text-white' : 'text-amber-600'}`} />
-            <span>Sadhana Feed</span>
+            <span>Community</span>
           </a>
 
           {/* 2. Practice Tools Dropdown */}
@@ -720,7 +720,7 @@ export default function Navbar({
                   }`}
                 >
                   <Globe className={`w-4 h-4 shrink-0 ${currentView === 'community' ? 'text-white' : 'text-amber-600'}`} />
-                  <span>Sadhana Feed</span>
+                  <span>Community</span>
                 </a>
 
                 {currentUser && (

@@ -18,7 +18,13 @@ interface RagaTilangViewProps {
 // Swara Frequencies for C Natural Scale (Hz)
 const SWARA_FREQS: Record<string, number> = {
   // Lower Octave (Mandra Saptak)
-  'S(lower)': 130.81,
+  '.S': 130.81,
+    '.G': 164.81,
+    '.M': 174.61,
+    '.P': 196.00,
+    '.n': 233.08,
+    '.N': 246.94,
+    'S(lower)': 130.81,
   'G(lower)': 164.81,
   'M(lower)': 174.61,
   'P(lower)': 196.00,
@@ -392,7 +398,7 @@ export const RagaTilangView: React.FC<RagaTilangViewProps> = ({ onViewChange }) 
               <span className="text-stone-300 hidden sm:inline">•</span>
               <div className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-amber-700" />
-                <span>Last Updated: <strong className="text-bamboo-950 font-semibold" itemProp="dateModified" content="2026-08-17">August 17, 2026</strong></span>
+                <span>Last Updated: <strong className="text-bamboo-950 font-semibold" itemProp="dateModified" content="2026-10-18">October 18, 2026</strong></span>
               </div>
             </div>
 

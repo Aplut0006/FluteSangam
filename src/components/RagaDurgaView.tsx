@@ -194,7 +194,7 @@ export default function RagaDurgaView({ onViewChange }: RagaDurgaViewProps) {
             "url": "https://flutesangam.com"
           },
           "datePublished": "2026-07-30T00:00:00Z",
-          "dateModified": "2026-07-30T10:00:00Z",
+          "dateModified": "2026-10-18T00:00:00Z",
           "inLanguage": "en",
           "keywords": ["Raag Durga", "Durga Raga", "Learn Bansuri", "Flute Raga", "Shant Dhara", "Hindustani Classical", "Sargam Notes"]
         })}
@@ -248,7 +248,7 @@ export default function RagaDurgaView({ onViewChange }: RagaDurgaViewProps) {
                 </div>
                 <div className="flex items-center gap-2 text-emerald-200">
                   <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                  <span>Updated: <strong className="text-white">Jul 30, 2026</strong></span>
+                  <span>Updated: <strong className="text-white">Oct 18, 2026</strong></span>
                 </div>
                 <div className="pt-1 border-t border-emerald-800/60 flex items-center gap-1.5 text-emerald-400 font-bold text-[10px] sm:text-[11px]">
                   <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />

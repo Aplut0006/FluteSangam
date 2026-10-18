@@ -38,8 +38,8 @@ export default function LearnBasicsView({ onViewChange }: LearnBasicsViewProps) 
               <div className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-emerald-600" />
                 <span className="text-gray-500">Updated:</span>
-                <time itemProp="dateModified" dateTime="2026-10-11T00:00:00Z" className="font-semibold text-gray-900">
-                  Oct 11, 2026
+                <time itemProp="dateModified" dateTime="2026-10-18T00:00:00Z" className="font-semibold text-gray-900">
+                  Oct 18, 2026
                 </time>
               </div>
               <span className="text-gray-300">•</span>
@@ -78,6 +78,28 @@ export default function LearnBasicsView({ onViewChange }: LearnBasicsViewProps) 
                 <p className="text-gray-600 m-0 text-base">
                   To create a clean note on a Bansuri, you must split a thin, focused stream of air right against the sharp, outer edge of the blowing hole. Half the air goes inside the flute (resonating the tube), and half goes over it.
                 </p>
+              </div>
+
+              {/* Video: How to Blow / Embouchure Demonstration */}
+              <div 
+                onContextMenu={(e) => e.preventDefault()}
+                className="my-6 max-w-xl mx-auto overflow-hidden rounded-2xl border border-bamboo-200/80 shadow-md bg-stone-900 p-2.5 space-y-2 select-none"
+              >
+                <div className="flex items-center gap-2 px-3 py-1.5 text-xs font-bold text-amber-200 bg-amber-950/60 rounded-xl border border-amber-800/40 w-fit">
+                  <Play className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400" />
+                  <span>Demonstration Video: How to Blow &amp; Produce Tone</span>
+                </div>
+                <video 
+                  controls 
+                  controlsList="nodownload"
+                  onContextMenu={(e) => e.preventDefault()}
+                  preload="metadata" 
+                  playsInline
+                  src="/how_to_blow.mp4" 
+                  className="w-full h-auto max-h-[380px] rounded-xl object-contain mx-auto bg-black"
+                >
+                  Your browser does not support the video tag.
+                </video>
               </div>
 
               <h3 className="text-xl font-bold text-bamboo-800 mt-8 mb-4">Step-by-Step Technique:</h3>
@@ -195,6 +217,14 @@ export default function LearnBasicsView({ onViewChange }: LearnBasicsViewProps) 
               <div className="flex items-center gap-3 border-b border-bamboo-100 pb-3">
                 <UserCheck className="w-6 h-6 text-emerald-600" />
                 <h2 className="text-2xl font-bold text-bamboo-900 m-0">2. Adopt the Correct Grip and Posture</h2>
+              </div>
+
+              <div className="my-5 max-w-md sm:max-w-lg mx-auto overflow-hidden rounded-2xl border border-bamboo-200/80 shadow-md bg-amber-50/30 p-1.5">
+                <img 
+                  src="/flute_posture.jpeg" 
+                  alt="Correct Indian Bamboo Flute (Bansuri) Grip and Posture Guide" 
+                  className="w-full h-auto max-h-[320px] object-contain mx-auto rounded-xl"
+                />
               </div>
               
               <p>

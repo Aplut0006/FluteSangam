@@ -194,7 +194,7 @@ export default function RagaHamsadhwaniView({ onViewChange }: RagaHamsadhwaniVie
             "url": "https://flutesangam.com"
           },
           "datePublished": "2026-07-30T00:00:00Z",
-          "dateModified": "2026-07-30T10:00:00Z",
+          "dateModified": "2026-10-18T00:00:00Z",
           "inLanguage": "en",
           "keywords": ["Raag Hamsadhwani", "Hamsadhwani Raga", "Learn Bansuri", "Flute Raga", "Udaya Sur", "Hindustani Classical", "Sargam Notes"]
         })}
@@ -248,7 +248,7 @@ export default function RagaHamsadhwaniView({ onViewChange }: RagaHamsadhwaniVie
                 </div>
                 <div className="flex items-center gap-2 text-emerald-200">
                   <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                  <span>Updated: <strong className="text-white">Jul 30, 2026</strong></span>
+                  <span>Updated: <strong className="text-white">Oct 18, 2026</strong></span>
                 </div>
                 <div className="pt-1 border-t border-emerald-800/60 flex items-center gap-1.5 text-emerald-400 font-bold text-[10px] sm:text-[11px]">
                   <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
