@@ -81,10 +81,14 @@ export default function LearnBasicsView({ onViewChange }: LearnBasicsViewProps) 
               </div>
 
               {/* Video: How to blow and produce initial sound */}
+
               <div 
-                className="my-6 rounded-2xl overflow-hidden border border-bamboo-200 shadow-md bg-white max-w-md sm:max-w-lg mx-auto select-none"
+                className="my-6 rounded-2xl overflow-hidden border-4 border-black shadow-md bg-white max-w-md sm:max-w-lg mx-auto select-none"
                 onContextMenu={(e) => e.preventDefault()}
               >
+                <div className="bg-black text-white px-4 py-2 text-center text-sm font-bold">
+                  Embouchure Technique
+                </div>
                 <video 
                   src="/how_to_blow.mp4" 
                   controls
@@ -101,7 +105,7 @@ export default function LearnBasicsView({ onViewChange }: LearnBasicsViewProps) 
                       video.pause();
                     }
                   }}
-                  className="w-full h-auto max-h-[340px] object-contain rounded-t-2xl block mx-auto cursor-pointer bg-black"
+                  className="w-full h-auto max-h-[340px] object-contain rounded-b-2xl block mx-auto cursor-pointer bg-black"
                 />
                 <p className="text-xs text-center text-gray-600 py-2.5 px-4 bg-bamboo-50/50 italic border-t border-bamboo-100/60 m-0">
                   Video Demonstration: How to position your lips and blow to produce a clean Bansuri sound. Click video to play or pause.

@@ -4,7 +4,7 @@ import {
   BookOpen, Wind, Clock, Calendar, CheckCircle2, 
   Volume2, Copy, Check, Sparkles, Flame, ShieldAlert, Lightbulb, 
   Target, Repeat, Headphones, Heart, ArrowRight, Share2, Compass,
-  Activity, Sliders, Radio, AlertCircle, Award, Play
+  Activity, Sliders, Radio, AlertCircle, Award
 } from 'lucide-react';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
@@ -31,7 +31,7 @@ export default function DailyPracticeGuideView({ onViewChange }: DailyPracticeGu
     'headline': 'Daily Flute Practice Guide – A Complete Routine for Steady Progress',
     'description': 'Master your daily bansuri flute practice routine. Step-by-step guide to improve tone, breath control, finger coordination, rhythm, scales, and musicality.',
     'datePublished': '2026-08-02T00:00:00Z',
-    'dateModified': '2026-10-18T00:00:00Z',
+    'dateModified': '2026-09-17T00:00:00Z',
     'author': {
       '@type': 'Person',
       'name': 'Aplut',
@@ -82,7 +82,7 @@ export default function DailyPracticeGuideView({ onViewChange }: DailyPracticeGu
       />
 
       {/* Header Banner */}
-      <section className="bg-gradient-to-br from-[#2a0b04] via-[#431407] to-[#1e0702] text-white rounded-3xl p-6 sm:p-10 shadow-xl border border-amber-900/60 relative overflow-hidden">
+      <section className="bg-gradient-to-br from-bamboo-950 via-bamboo-900 to-amber-950 text-white rounded-3xl p-6 sm:p-10 shadow-xl border border-bamboo-800/80 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
         <div className="relative z-10 space-y-4 sm:space-y-6">
           {/* Breadcrumb Navigation */}
@@ -151,7 +151,7 @@ export default function DailyPracticeGuideView({ onViewChange }: DailyPracticeGu
               </span>
               <span className="flex items-center gap-1.5 bg-bamboo-900/60 px-3 py-1 rounded-lg border border-bamboo-800">
                 <Clock className="w-3.5 h-3.5 text-amber-400" />
-                <span>Updated: Oct 18, 2026</span>
+                <span>Updated: Sep 17, 2026</span>
               </span>
               <span className="flex items-center gap-1.5 bg-bamboo-900/60 px-3 py-1 rounded-lg border border-bamboo-800">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
@@ -485,27 +485,15 @@ export default function DailyPracticeGuideView({ onViewChange }: DailyPracticeGu
           <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-sans">
             Good finger movement should be: <strong>Relaxed</strong>, <strong>Accurate</strong>, <strong>Silent</strong>, and <strong>Controlled</strong>. Lift fingers only as much as necessary. Avoid raising fingers too high above the holes.
           </p>
-
-          {/* Demonstration Video for Finger Coordination */}
-          <div 
-            onContextMenu={(e) => e.preventDefault()}
-            className="my-4 max-w-xl mx-auto overflow-hidden rounded-2xl border border-bamboo-200/80 shadow-md bg-stone-900 p-2.5 space-y-2 select-none"
-          >
-            <div className="flex items-center gap-2 px-3 py-1.5 text-xs font-bold text-amber-200 bg-amber-950/60 rounded-xl border border-amber-800/40 w-fit">
-              <Play className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400" />
-              <span>Demonstration Video: Finger Coordination &amp; Note Transitions</span>
-            </div>
+          <div className="my-6 rounded-2xl overflow-hidden border-4 border-black max-w-md sm:max-w-lg mx-auto">
+            <div className="bg-black text-white px-4 py-2 text-center text-sm font-bold">Finger Coordination</div>
             <video 
-              controls 
-              controlsList="nodownload"
-              onContextMenu={(e) => e.preventDefault()}
-              preload="metadata" 
-              playsInline
               src="/finger_coordination.mp4" 
-              className="w-full h-auto max-h-[380px] rounded-xl object-contain mx-auto bg-black"
-            >
-              Your browser does not support the video tag.
-            </video>
+              controls 
+              controlsList="nodownload" 
+              onContextMenu={(e) => e.preventDefault()}
+              className="w-full h-auto max-h-[340px]"
+            />
           </div>
 
           <div className="bg-amber-50/50 border border-amber-200/80 rounded-2xl p-4 space-y-3">
@@ -543,27 +531,15 @@ export default function DailyPracticeGuideView({ onViewChange }: DailyPracticeGu
           <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-sans">
             Scales improve finger memory, note accuracy, breath coordination, and smooth transitions.
           </p>
-
-          {/* Demonstration Video for Sargam / Scale Practice */}
-          <div 
-            onContextMenu={(e) => e.preventDefault()}
-            className="my-4 max-w-xl mx-auto overflow-hidden rounded-2xl border border-bamboo-200/80 shadow-md bg-stone-900 p-2.5 space-y-2 select-none"
-          >
-            <div className="flex items-center gap-2 px-3 py-1.5 text-xs font-bold text-amber-200 bg-amber-950/60 rounded-xl border border-amber-800/40 w-fit">
-              <Play className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400" />
-              <span>Demonstration Video: Sargam Scale Practice</span>
-            </div>
+          <div className="my-6 rounded-2xl overflow-hidden border-4 border-black max-w-md sm:max-w-lg mx-auto">
+            <div className="bg-black text-white px-4 py-2 text-center text-sm font-bold">Scale Practice (Sargam)</div>
             <video 
-              controls 
-              controlsList="nodownload"
-              onContextMenu={(e) => e.preventDefault()}
-              preload="metadata" 
-              playsInline
               src="/sargam_video.mp4" 
-              className="w-full h-auto max-h-[380px] rounded-xl object-contain mx-auto bg-black"
-            >
-              Your browser does not support the video tag.
-            </video>
+              controls 
+              controlsList="nodownload" 
+              onContextMenu={(e) => e.preventDefault()}
+              className="w-full h-auto max-h-[340px]"
+            />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">

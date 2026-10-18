@@ -107,13 +107,7 @@ export default function LearnAlankarasView({ initialLevel, viewMode, onViewChang
   };
 
   const SWARA_FREQS: Record<string, number> = {
-    // Standard notation
-    'S': 261.63, 'R': 293.66, 'r': 277.18, 'G': 329.63, 'g': 311.13, 'M': 349.23, 'M^': 369.99, 'P': 392.00, 'D': 440.00, 'd': 415.30, 'N': 493.88, 'n': 466.16,
-    "S'": 523.25, "R'": 587.33, "G'": 659.25, "M'": 698.46, "P'": 783.99,
-    '.P': 196.00, '.d': 207.65, '.D': 220.00, '.n': 233.08, '.N': 246.94,
-
-    // Full names & legacy formats
-    'Sa': 261.63, 'Re': 293.66, 're': 277.18, 'Ga': 329.63, 'ga': 311.13, 'Ma': 349.23, 'Ma#': 369.99, 'Ma^': 369.99, 'Pa': 392.00, 'Dha': 440.00, 'dha': 415.30, 'Ni': 493.88, 'ni': 466.16,
+    'Sa': 261.63, 'Re': 293.66, 're': 277.18, 'Ga': 329.63, 'ga': 311.13, 'Ma': 349.23, 'Ma#': 369.99, 'Pa': 392.00, 'Dha': 440.00, 'dha': 415.30, 'Ni': 493.88, 'ni': 466.16,
     'Sā': 523.25, 'Rā': 587.33, 'Gā': 659.25, 'Mā': 698.46,
     'N.': 246.94, 'n.': 233.08, 'D.': 220.00, 'd.': 207.65, 'P.': 196.00
   };
@@ -266,8 +260,8 @@ export default function LearnAlankarasView({ initialLevel, viewMode, onViewChang
     stopAudio();
 
     const fullText = lines.join(' ');
-    // Match swaras and swara pairs like Sa~Ga, S~G, M^, S', .P, etc.
-    const tokenRegex = /(S'|R'|G'|M'|P'|\.P|\.d|\.D|\.n|\.N|M\^|Sā|Rā|Gā|Mā|Sa|Re|re|Ga|ga|Ma#|Ma\^|Ma|Pa|Dha|dha|Ni|ni|N\.|n\.|D\.|d\.|P\.|S|R|r|G|g|M|P|D|d|N|n)(?:~(S'|R'|G'|M'|P'|\.P|\.d|\.D|\.n|\.N|M\^|Sā|Rā|Gā|Mā|Sa|Re|re|Ga|ga|Ma#|Ma\^|Ma|Pa|Dha|dha|Ni|ni|N\.|n\.|D\.|d\.|P\.|S|R|r|G|g|M|P|D|d|N|n))?/g;
+    // Match swaras and swara pairs like Sa~Ga
+    const tokenRegex = /(Sā|Rā|Gā|Mā|Sa|Re|re|Ga|ga|Ma#|Ma|Pa|Dha|dha|Ni|ni|N\.|n\.|D\.|d\.|P\.)(?:~(Sā|Rā|Gā|Mā|Sa|Re|re|Ga|ga|Ma#|Ma|Pa|Dha|dha|Ni|ni|N\.|n\.|D\.|d\.|P\.))?/gi;
     const tokens = fullText.match(tokenRegex);
 
     if (!tokens || tokens.length === 0) return;
@@ -1420,7 +1414,9 @@ export default function LearnAlankarasView({ initialLevel, viewMode, onViewChang
                   <div className="flex items-center gap-1.5">
                     <Clock className="w-3.5 h-3.5 text-amber-600" />
                     <span className="text-gray-500">Updated:</span>
-                    <time itemProp="dateModified" dateTime="2026-10-18T00:00:00Z" className="font-semibold text-gray-900">October 18, 2026</time>
+                    <time itemProp="dateModified" dateTime="2026-10-11T00:00:00Z" className="font-semibold text-gray-900">
+                      Oct 11, 2026
+                    </time>
                   </div>
                   <span className="text-gray-300">•</span>
                   <span className="inline-flex items-center gap-1 bg-amber-100 text-amber-900 font-bold px-2 py-0.5 rounded-md text-[10px] tracking-wide uppercase">
@@ -1564,30 +1560,19 @@ export default function LearnAlankarasView({ initialLevel, viewMode, onViewChang
             </div>
           </div>
 
-          {/* Demonstration Video for Alankaras & Finger Coordination */}
-          <div 
-            onContextMenu={(e) => e.preventDefault()}
-            className="my-6 max-w-xl mx-auto overflow-hidden rounded-2xl border border-bamboo-200/80 shadow-md bg-stone-900 p-2.5 space-y-2 select-none"
-          >
-            <div className="flex items-center gap-2 px-3 py-1.5 text-xs font-bold text-amber-200 bg-amber-950/60 rounded-xl border border-amber-800/40 w-fit">
-              <Play className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400" />
-              <span>Demonstration Video: Alankars &amp; Finger Coordination Practice</span>
-            </div>
-            <video 
-              controls 
-              controlsList="nodownload"
-              onContextMenu={(e) => e.preventDefault()}
-              preload="metadata" 
-              playsInline
-              src="/alankars.mp4" 
-              className="w-full h-auto max-h-[380px] rounded-xl object-contain mx-auto bg-black"
-            >
-              Your browser does not support the video tag.
-            </video>
-          </div>
-
           {/* THE 4 PILLARS OF ALANKAR SADHANA */}
           <section className="bg-white border border-bamboo-200 rounded-3xl p-6 md:p-8 shadow-sm space-y-6">
+
+            <div className="my-6 rounded-2xl overflow-hidden border-4 border-black max-w-md sm:max-w-lg mx-auto">
+              <div className="bg-black text-white px-4 py-2 text-center text-sm font-bold">Alankar Sadhana Demonstration</div>
+              <video 
+                src="/alankars.mp4" 
+                controls 
+                controlsList="nodownload" 
+                onContextMenu={(e) => e.preventDefault()}
+                className="w-full h-auto max-h-[340px]"
+              />
+            </div>
             <div className="flex items-center gap-3">
               <Lightbulb className="w-6 h-6 text-amber-500" />
               <h2 className="text-2xl font-bold text-bamboo-900 m-0">The 4 Pillars of Alankar Sadhana</h2>
@@ -1930,7 +1915,9 @@ export default function LearnAlankarasView({ initialLevel, viewMode, onViewChang
                   <div className="flex items-center gap-1.5">
                     <Clock className="w-3.5 h-3.5 text-amber-600" />
                     <span className="text-gray-500">Updated:</span>
-                    <time itemProp="dateModified" dateTime="2026-10-18T00:00:00Z" className="font-semibold text-gray-900">October 18, 2026</time>
+                    <time itemProp="dateModified" dateTime="2026-08-07T00:00:00Z" className="font-semibold text-gray-900">
+                      Aug 7, 2026
+                    </time>
                   </div>
                   <span className="text-gray-300">•</span>
                   <span className="inline-flex items-center gap-1 bg-amber-100 text-amber-900 font-bold px-2 py-0.5 rounded-md text-[10px] tracking-wide uppercase">
