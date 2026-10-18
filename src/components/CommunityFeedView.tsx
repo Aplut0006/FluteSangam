@@ -122,7 +122,7 @@ export const CommunityFeedView: React.FC<CommunityFeedViewProps> = ({
       </nav>
 
       {/* 2. Hero Banner */}
-      <header className="rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-[#2a0b04] via-[#431407] to-[#1e0702] text-white relative overflow-hidden shadow-md border border-amber-900/60">
+      <header className="rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-bamboo-950 via-bamboo-900 to-amber-950 text-white relative overflow-hidden shadow-md border border-amber-900/60">
         <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-5">
           <div className="space-y-2 max-w-2xl">
@@ -259,7 +259,7 @@ export const CommunityFeedView: React.FC<CommunityFeedViewProps> = ({
                     <MessageSquare className="w-7 h-7 text-amber-700" />
                   </div>
                   <div className="space-y-1">
-                    <h3 className="font-display font-bold text-slate-800 text-lg">Community Discussions &amp; Sadhana Feed</h3>
+                    <h3 className="font-display font-bold text-slate-800 text-lg">Community Discussions</h3>
                     <p className="text-xs sm:text-sm text-slate-600 max-w-lg mx-auto leading-relaxed">
                       Connect with fellow flute and bansuri practitioners. Share recitals, ask technical questions on lip placement, discuss classical ragas, and receive feedback from experienced players.
                     </p>

@@ -276,7 +276,7 @@ export default function Navbar({
         {/* Desktop View Selector */}
         <div className="hidden lg:flex items-center space-x-0.5 xl:space-x-1 bg-bamboo-50/80 p-1 rounded-xl border border-bamboo-100/50 shrink min-w-0">
           
-          {/* 1. Community / Sadhana Feed */}
+          {/* 1. Community */}
           <a
             href={VIEW_URLS['community'] || '/community'}
             onClick={(e) => { 
@@ -291,7 +291,7 @@ export default function Navbar({
             }`}
           >
             <Globe className={`w-3.5 h-3.5 ${currentView === 'community' ? 'text-white' : 'text-amber-600'}`} />
-            <span>Sadhana Feed</span>
+            <span>Community</span>
           </a>
 
           {/* 2. Practice Tools Dropdown */}
@@ -720,7 +720,7 @@ export default function Navbar({
                   }`}
                 >
                   <Globe className={`w-4 h-4 shrink-0 ${currentView === 'community' ? 'text-white' : 'text-amber-600'}`} />
-                  <span>Sadhana Feed</span>
+                  <span>Community</span>
                 </a>
 
                 {currentUser && (

@@ -274,7 +274,7 @@ export default function CommonFluteMistakesView({ onViewChange }: CommonFluteMis
       ],
       relatedAction: {
         targetView: 'community',
-        label: 'Join Community Sadhana Feed',
+        label: 'Join Community',
         icon: Compass
       }
     }
