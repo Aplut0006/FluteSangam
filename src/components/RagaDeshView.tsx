@@ -186,7 +186,7 @@ S`;
     'headline': 'Raag Desh: Complete Guide, Notes, Aaroh, Avaroh & Practice',
     'description': 'Master Raag Desh on Indian Bamboo Flute (Bansuri). Complete guide with Swara playback, Pakad, Chalan, original Alankars, and the practice piece "Sandhya Vihar".',
     'datePublished': '2026-08-02T00:00:00Z',
-    'dateModified': '2026-08-02T00:00:00Z',
+    'dateModified': '2026-10-18T00:00:00Z',
     'author': {
       '@type': 'Person',
       'name': 'Aplut',

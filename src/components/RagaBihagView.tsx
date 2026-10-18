@@ -185,7 +185,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
             "url": "https://flutesangam.com"
           },
           "datePublished": "2026-08-07",
-          "dateModified": "2026-08-07",
+          "dateModified": "2026-10-18",
           "mainEntityOfPage": "https://flutesangam.com/learn/raga-bihag"
         })}
       </script>
@@ -231,8 +231,8 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
               <div className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-amber-400" />
                 <span className="text-amber-200/80">Updated:</span>
-                <time itemProp="dateModified" dateTime="2026-08-07T00:00:00Z" className="font-semibold text-white">
-                  Aug 7, 2026
+                <time itemProp="dateModified" dateTime="2026-10-18T00:00:00Z" className="font-semibold text-white">
+                  Oct 18, 2026
                 </time>
               </div>
             </div>

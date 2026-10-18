@@ -45,25 +45,42 @@ export default function FounderView({ onViewChange }: FounderViewProps) {
       <section className="bg-gradient-to-br from-bamboo-950 via-bamboo-900 to-amber-950 text-white rounded-3xl p-6 sm:p-10 shadow-xl border border-bamboo-800/80 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
         
-        <div className="relative z-10 space-y-4">
-          <div className="inline-flex items-center gap-1.5 bg-amber-400/20 border border-amber-300/30 px-3 py-1 rounded-full text-amber-300 text-xs font-bold">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Founder & Creator</span>
+        <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start gap-6 sm:gap-8">
+          {/* Round Frame Founder Photo */}
+          <div className="shrink-0 relative">
+            <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-amber-400 shadow-2xl ring-4 ring-amber-500/20 bg-white flex items-center justify-center p-1.5 sm:p-2">
+              <img 
+                src="/founder_photo.jpeg" 
+                alt="Aplut - Founder of FluteSangam" 
+                className="w-full h-full object-contain object-top origin-top scale-110 rounded-full"
+              />
+            </div>
+            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-amber-500 text-bamboo-950 text-[10px] sm:text-xs font-extrabold px-3 py-1 rounded-full shadow-md border border-amber-300 whitespace-nowrap uppercase tracking-wider flex items-center gap-1">
+              <Sparkles className="w-3 h-3 text-bamboo-950" />
+              <span>Founder</span>
+            </div>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold tracking-tight text-white">
-            Meet the Founder
-          </h1>
+          <div className="space-y-4 flex-1 text-center md:text-left">
+            <div className="inline-flex items-center gap-1.5 bg-amber-400/20 border border-amber-300/30 px-3 py-1 rounded-full text-amber-300 text-xs font-bold">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Founder &amp; Creator</span>
+            </div>
 
-          <div className="pt-2">
-            <h2 className="text-xl sm:text-2xl font-semibold text-amber-300 font-display">
-              Aplut — Founder of FluteSangam
-            </h2>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold tracking-tight text-white">
+              Meet the Founder
+            </h1>
+
+            <div className="pt-1">
+              <h2 className="text-xl sm:text-2xl font-semibold text-amber-300 font-display">
+                Aplut — Founder of FluteSangam
+              </h2>
+            </div>
+
+            <p className="text-sm sm:text-base text-bamboo-100 leading-relaxed font-sans max-w-2xl">
+              Hello and welcome! I’m <strong>Aplut</strong>, a self-taught bansuri learner practising since 2022 and the founder of FluteSangam. With a passion for music and software engineering, I created FluteSangam to make flute learning accessible, structured, and enjoyable for fellow flute enthusiasts worldwide.
+            </p>
           </div>
-
-          <p className="text-sm sm:text-base text-bamboo-100 leading-relaxed font-sans max-w-3xl">
-            Hello and welcome! I’m <strong>Aplut</strong>, a self-taught bansuri learner practising since 2022 and the founder of FluteSangam. With a passion for music and software engineering, I created FluteSangam to make flute learning accessible, structured, and enjoyable for fellow flute enthusiasts worldwide.
-          </p>
         </div>
       </section>
 
@@ -143,7 +160,7 @@ export default function FounderView({ onViewChange }: FounderViewProps) {
           </div>
         </div>
 
-        <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200 space-y-2 text-xs sm:text-sm text-gray-700">
+        <div className="p-4 rounded-2xl bg-amber-50/50 border border-amber-200/60 space-y-2 text-xs sm:text-sm text-gray-700">
           <strong className="text-bamboo-950 block font-bold">💡 Advice for Adult Learners Balancing Careers:</strong>
           <p className="leading-relaxed">
             You do not need 3 hours of practice a day to make genuine progress. A focused <strong>20 to 25 minutes of daily morning Swar Sadhana</strong> with a Tanpura drone is far more powerful than an erratic 2-hour weekend marathon. Consistency builds neuromuscular memory; patience creates musical beauty.

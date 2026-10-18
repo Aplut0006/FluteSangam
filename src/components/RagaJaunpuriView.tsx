@@ -353,7 +353,7 @@ export const RagaJaunpuriView: React.FC<RagaJaunpuriViewProps> = ({ onViewChange
             "url": "https://flutesangam.com"
           },
           "datePublished": "2026-09-02T00:00:00Z",
-          "dateModified": "2026-09-02T12:00:00Z",
+          "dateModified": "2026-10-18T10:00:00Z",
           "inLanguage": "en",
           "keywords": ["Raag Jaunpuri", "Jaunpuri Bansuri", "Learn Bansuri", "Asavari Thaat", "Komal Ga", "Komal Dha", "Komal Ni", "Indian Flute Notations", "FluteSangam"]
         })}

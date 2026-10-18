@@ -17,8 +17,28 @@
   --color-bamboo-800: #9a3412; /* Deep Saffron */
   --color-bamboo-850: #6e240c;
   --color-bamboo-900: #431407; /* Dark Sand-brown */
-  --color-bamboo-950: #2a0b04;
+  --color-bamboo-950: #2a0b04; /* Dark Mahogany */
   
+  --color-saffron-500: #ea580c;
+  --color-saffron-600: #c2410c;
+  --color-saffron-700: #9a3412;
+}
+
+:root {
+  --color-bamboo-50: #fdfbf7;
+  --color-bamboo-100: #fff4e6;
+  --color-bamboo-200: #fdebd0;
+  --color-bamboo-300: #ffd8a8;
+  --color-bamboo-400: #ffa94d;
+  --color-bamboo-500: #ff922b;
+  --color-bamboo-600: #ea580c;
+  --color-bamboo-700: #c2410c;
+  --color-bamboo-750: #b03a0e;
+  --color-bamboo-800: #9a3412;
+  --color-bamboo-850: #6e240c;
+  --color-bamboo-900: #431407;
+  --color-bamboo-950: #2a0b04;
+
   --color-saffron-500: #ea580c;
   --color-saffron-600: #c2410c;
   --color-saffron-700: #9a3412;

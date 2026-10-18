@@ -283,9 +283,9 @@ export default function HomepageOverview({
   return (
     <div className="space-y-10 sm:space-y-14" itemScope itemType="https://schema.org/EducationalOrganization">
       {/* SECTION 1: Welcome Purpose Banner */}
-      <section className="rounded-3xl p-6 sm:p-8 lg:p-10 bg-gradient-to-br from-bamboo-950 via-bamboo-900 to-amber-950 text-white relative overflow-hidden shadow-md border border-amber-900/60">
+      <section className="rounded-3xl p-6 sm:p-8 lg:p-10 bg-gradient-to-br from-[#2a0b04] via-[#431407] to-[#1e0702] text-white relative overflow-hidden shadow-md border border-amber-900/60">
         <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-bamboo-600/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-700/20 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative space-y-6">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">

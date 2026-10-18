@@ -195,7 +195,7 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
             "url": "https://flutesangam.com"
           },
           "datePublished": "2026-07-30T00:00:00Z",
-          "dateModified": "2026-07-30T10:00:00Z",
+          "dateModified": "2026-10-18T10:00:00Z",
           "inLanguage": "en",
           "keywords": ["Raag Bhoopali", "Bhupali", "Learn Bansuri", "Flute Raga", "Prabhat Prerna", "Hindustani Classical"]
         })}

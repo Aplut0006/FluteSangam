@@ -38,8 +38,8 @@ export default function LearnBasicsView({ onViewChange }: LearnBasicsViewProps) 
               <div className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-emerald-600" />
                 <span className="text-gray-500">Updated:</span>
-                <time itemProp="dateModified" dateTime="2026-10-11T00:00:00Z" className="font-semibold text-gray-900">
-                  Oct 11, 2026
+                <time itemProp="dateModified" dateTime="2026-10-18T00:00:00Z" className="font-semibold text-gray-900">
+                  Oct 18, 2026
                 </time>
               </div>
               <span className="text-gray-300">•</span>
@@ -77,6 +77,34 @@ export default function LearnBasicsView({ onViewChange }: LearnBasicsViewProps) 
                 </h3>
                 <p className="text-gray-600 m-0 text-base">
                   To create a clean note on a Bansuri, you must split a thin, focused stream of air right against the sharp, outer edge of the blowing hole. Half the air goes inside the flute (resonating the tube), and half goes over it.
+                </p>
+              </div>
+
+              {/* Video: How to blow and produce initial sound */}
+              <div 
+                className="my-6 rounded-2xl overflow-hidden border border-bamboo-200 shadow-md bg-white max-w-md sm:max-w-lg mx-auto select-none"
+                onContextMenu={(e) => e.preventDefault()}
+              >
+                <video 
+                  src="/how_to_blow.mp4" 
+                  controls
+                  controlsList="nodownload"
+                  disablePictureInPicture
+                  preload="metadata"
+                  playsInline
+                  onContextMenu={(e) => e.preventDefault()}
+                  onClick={(e) => {
+                    const video = e.currentTarget;
+                    if (video.paused) {
+                      video.play();
+                    } else {
+                      video.pause();
+                    }
+                  }}
+                  className="w-full h-auto max-h-[340px] object-contain rounded-t-2xl block mx-auto cursor-pointer bg-black"
+                />
+                <p className="text-xs text-center text-gray-600 py-2.5 px-4 bg-bamboo-50/50 italic border-t border-bamboo-100/60 m-0">
+                  Video Demonstration: How to position your lips and blow to produce a clean Bansuri sound. Click video to play or pause.
                 </p>
               </div>
 
@@ -195,6 +223,18 @@ export default function LearnBasicsView({ onViewChange }: LearnBasicsViewProps) 
               <div className="flex items-center gap-3 border-b border-bamboo-100 pb-3">
                 <UserCheck className="w-6 h-6 text-emerald-600" />
                 <h2 className="text-2xl font-bold text-bamboo-900 m-0">2. Adopt the Correct Grip and Posture</h2>
+              </div>
+
+              {/* Flute Grip & Posture Illustration Image */}
+              <div className="my-6 rounded-2xl overflow-hidden border border-bamboo-200 shadow-md bg-white max-w-md sm:max-w-lg mx-auto">
+                <img 
+                  src="/flute_posture.jpeg" 
+                  alt="Adopt the Correct Bansuri Flute Grip and Posture" 
+                  className="w-full h-auto object-contain max-h-[320px] rounded-t-2xl mx-auto block"
+                />
+                <p className="text-xs text-center text-gray-500 py-2.5 px-4 bg-bamboo-50/50 italic border-t border-bamboo-100/60 m-0">
+                  Demonstration of the correct posture, finger placement using finger pads, and flute holding angle for playing Bansuri.
+                </p>
               </div>
               
               <p>

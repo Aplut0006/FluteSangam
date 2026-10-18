@@ -189,7 +189,7 @@ S`;
     'headline': 'Raag Kafi: Complete Guide, Notes, Aaroh, Avaroh & Practice',
     'description': 'Master Raag Kafi on Indian Bamboo Flute (Bansuri). Complete guide with Swara playback, Pakad, Chalan, original Alankars, and the practice piece "Komal Sur Lahari".',
     'datePublished': '2026-08-03T00:00:00Z',
-    'dateModified': '2026-08-03T00:00:00Z',
+    'dateModified': '2026-10-18T00:00:00Z',
     'author': {
       '@type': 'Person',
       'name': 'Aplut',

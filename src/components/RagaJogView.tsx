@@ -17,7 +17,16 @@ interface RagaJogViewProps {
 // Swara Frequencies for C Natural Scale
 const SWARA_FREQS: Record<string, number> = {
   // Lower Octave (Mandra Saptak)
-  'S(lower)': 130.81,
+  '.S': 130.81,
+    '.R': 146.83,
+    '.g': 155.56,
+    '.G': 164.81,
+    '.M': 174.61,
+    '.m': 174.61,
+    '.P': 196.00,
+    '.n': 233.08,
+    '.N': 246.94,
+    'S(lower)': 130.81,
   'R(lower)': 146.83,
   'G(lower)': 164.81,
   'g(lower)': 155.56,
@@ -138,7 +147,7 @@ export const RagaJogView: React.FC<RagaJogViewProps> = ({ onViewChange }) => {
   const handlePlayAaroh = () => {
     if (isPlayingAaroh) return;
     setIsPlayingAaroh(true);
-    const aarohNotes = ['S', 'R', 'G', 'm', 'P', 'n', "S'"];
+    const aarohNotes = ['S', 'G', 'M', 'P', 'n', "S'"];
     playPhraseSequence(aarohNotes, 650, () => setIsPlayingAaroh(false));
   };
 
@@ -275,7 +284,7 @@ export const RagaJogView: React.FC<RagaJogViewProps> = ({ onViewChange }) => {
               </div>
               <div className="flex items-center gap-1.5 bg-white/90 border border-amber-200 px-3 py-1.5 rounded-lg shadow-2xs">
                 <RefreshCw className="w-3.5 h-3.5 text-rose-700" />
-                <span>Updated: <strong className="text-bamboo-950 font-semibold">August 9, 2026</strong></span>
+                <span>Updated: <strong className="text-bamboo-950 font-semibold">October 18, 2026</strong></span>
               </div>
               <div className="flex items-center gap-1.5 bg-white/90 border border-amber-200 px-3 py-1.5 rounded-lg shadow-2xs">
                 <Clock className="w-3.5 h-3.5 text-amber-700" />
@@ -426,12 +435,12 @@ export const RagaJogView: React.FC<RagaJogViewProps> = ({ onViewChange }) => {
               </button>
             </div>
 
-            <div className="bg-amber-50 p-4 rounded-xl border border-amber-200 text-center font-mono text-lg text-amber-95 break-words0 break-words font-bold tracking-widest">
-              S R G m P n S'
+            <div className="bg-amber-50 p-4 rounded-xl border border-amber-200 text-center font-mono text-lg text-amber-950 font-bold tracking-widest">
+              S G M P n S'
             </div>
 
             <p className="text-slate-700 text-xs sm:text-sm leading-relaxed">
-              <strong>Swaras:</strong> Sa – Re – Shuddha Ga – Ma – Pa – Komal Ni – Taar Sa'. Practice slowly and hold each note steadily against a drone before attempting fast loops.
+              <strong>Swaras:</strong> Sa – Shuddha Ga – Ma – Pa – Komal Ni – Taar Sa'. Practice slowly and hold each note steadily against a drone before attempting fast loops.
             </p>
           </div>
 
@@ -452,8 +461,8 @@ export const RagaJogView: React.FC<RagaJogViewProps> = ({ onViewChange }) => {
               </button>
             </div>
 
-            <div className="bg-amber-50 p-4 rounded-xl border border-amber-200 text-center font-mono text-lg text-rose-95 break-words0 break-words font-bold tracking-widest">
-              S' n P m G m g S
+            <div className="bg-amber-50 p-4 rounded-xl border border-amber-200 text-center font-mono text-lg text-rose-950 font-bold tracking-widest">
+              S' n P M G M g S
             </div>
 
             <p className="text-slate-700 text-xs sm:text-sm leading-relaxed">
@@ -594,7 +603,7 @@ export const RagaJogView: React.FC<RagaJogViewProps> = ({ onViewChange }) => {
               {
                 id: 1,
                 title: 'Practice 1 — Basic Swara Familiarization',
-                notes: ['S', 'R', 'G', 'm', 'P', 'n', "S'"],
+                notes: ['S', 'G', 'M', 'P', 'n', "S'"],
                 desc: 'Play slowly up and down. Hold each note comfortably and check your pitch against a Tanpura drone before increasing tempo.'
               },
               {
@@ -934,7 +943,7 @@ m G m g | S — — — ||
             <div className="space-y-2 text-xs text-slate-700">
               <div className="p-2 bg-amber-50/60 rounded border border-amber-200 flex justify-between">
                 <span><strong>5 Min</strong> — Swara Practice & Scale</span>
-                <span className="text-amber-900 font-bold">S R G m P n S'</span>
+                <span className="text-amber-900 font-bold">S G M P n S'</span>
               </div>
               <div className="p-2 bg-amber-50/60 rounded border border-amber-200 flex justify-between">
                 <span><strong>5 Min</strong> — Ga Contrast Drill</span>

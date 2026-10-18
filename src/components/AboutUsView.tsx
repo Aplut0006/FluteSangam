@@ -90,28 +90,42 @@ export default function AboutUsView({ onViewChange }: AboutUsViewProps = {}) {
         {/* 4. Meet the Founder */}
         <section className="bg-gradient-to-r from-bamboo-950 via-bamboo-900 to-emerald-950 text-white p-8 sm:p-12 rounded-3xl shadow-xl relative overflow-hidden">
           <div className="absolute -right-10 -bottom-10 w-60 h-60 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="relative z-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 text-xs font-semibold mb-4 border border-amber-400/30">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Leadership & Vision</span>
+          <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start gap-6 sm:gap-8">
+            <div className="shrink-0 relative">
+              <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden border-3 border-amber-400 shadow-xl ring-4 ring-amber-500/20 bg-white flex items-center justify-center p-1 sm:p-1.5">
+                <img 
+                  src="/founder_photo.jpeg" 
+                  alt="Aplut - Founder of FluteSangam" 
+                  className="w-full h-full object-contain object-top origin-top scale-110 rounded-full"
+                />
+              </div>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-display font-bold mb-3">
-              Meet the Founder
-            </h2>
-            <h3 className="text-xl sm:text-2xl font-semibold text-amber-300 mb-4">
-              Aplut
-            </h3>
-            <p className="text-bamboo-100 leading-relaxed text-base sm:text-lg mb-6 max-w-3xl">
-              Written and practice-tested by <strong>Aplut</strong>, a self-taught bansuri learner practising since 2022. Driven by a deep appreciation for classical music and software craftsmanship, he built FluteSangam to provide structured lessons, interactive tools, and an encouraging space for fellow flute learners.
-            </p>
-            <a 
-              href="/founder"
-              onClick={handleNav('founder')}
-              className="inline-flex items-center gap-2.5 bg-amber-400 hover:bg-amber-300 text-bamboo-950 px-6 py-3 rounded-full font-extrabold text-sm transition-all shadow-md hover:shadow-lg cursor-pointer"
-            >
-              <span>Read Aplut's Full Story</span>
-              <ArrowRight className="w-4 h-4" />
-            </a>
+
+            <div className="space-y-3 text-center md:text-left flex-1">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 text-xs font-semibold border border-amber-400/30">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Leadership &amp; Vision</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-display font-bold">
+                Meet the Founder
+              </h2>
+              <h3 className="text-xl sm:text-2xl font-semibold text-amber-300">
+                Aplut
+              </h3>
+              <p className="text-bamboo-100 leading-relaxed text-base sm:text-lg max-w-3xl">
+                Written and practice-tested by <strong>Aplut</strong>, a self-taught bansuri learner practising since 2022. Driven by a deep appreciation for classical music and software craftsmanship, he built FluteSangam to provide structured lessons, interactive tools, and an encouraging space for fellow flute learners.
+              </p>
+              <div className="pt-2">
+                <a 
+                  href="/founder"
+                  onClick={handleNav('founder')}
+                  className="inline-flex items-center gap-2.5 bg-amber-400 hover:bg-amber-300 text-bamboo-950 px-6 py-3 rounded-full font-extrabold text-sm transition-all shadow-md hover:shadow-lg cursor-pointer"
+                >
+                  <span>Read Aplut's Full Story</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
           </div>
         </section>
 

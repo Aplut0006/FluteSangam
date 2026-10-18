@@ -366,7 +366,7 @@ export const RagaShivranjaniView: React.FC<RagaShivranjaniViewProps> = ({ onView
             "url": "https://flutesangam.com"
           },
           "datePublished": "2026-08-21T00:00:00Z",
-          "dateModified": "2026-08-21T23:00:00Z",
+          "dateModified": "2026-10-18T10:00:00Z",
           "inLanguage": "en",
           "keywords": ["Raag Shivranjani", "Shivranjani", "Learn Bansuri", "Komal Ga", "Flute Raga", "Hindustani Classical", "FluteSangam"]
         })}

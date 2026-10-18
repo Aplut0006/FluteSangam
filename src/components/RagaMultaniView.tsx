@@ -380,7 +380,7 @@ N d P M^ | g r S — ||`;
                 </div>
                 <div className="flex items-center gap-1.5 bg-amber-950/50 border border-amber-700/60 px-3 py-1 rounded-lg">
                   <RefreshCw className="w-3.5 h-3.5 text-orange-300" />
-                  <span>Updated: <strong className="text-amber-100 font-semibold" itemProp="dateModified">August 12, 2026</strong></span>
+                  <span>Updated: <strong className="text-amber-100 font-semibold" itemProp="dateModified" content="2026-10-18">October 18, 2026</strong></span>
                 </div>
                 <div className="flex items-center gap-1.5 bg-amber-950/50 border border-amber-700/60 px-3 py-1 rounded-lg">
                   <Clock className="w-3.5 h-3.5 text-amber-300" />

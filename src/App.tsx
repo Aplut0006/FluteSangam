@@ -559,9 +559,21 @@ export default function App() {
     let pubDate = '2026-07-26T00:00:00Z';
     let modDate = '2026-07-30T10:00:00Z';
 
-    if (currentView === 'raga_bhoopali' || currentView === 'raga_durga') {
-      pubDate = '2026-07-30T00:00:00Z';
-      modDate = '2026-07-30T10:00:00Z';
+    if (currentView.startsWith('raga_') || currentView === 'learn_raagas' || currentView === 'learn_scales_octaves') {
+      modDate = '2026-10-18T00:00:00Z';
+    } else if (
+      currentView === 'learn_basics' ||
+      currentView === 'learn_choose_flute' ||
+      currentView === 'learn_alankaras' ||
+      currentView === 'how_to_read_bansuri_notation' ||
+      currentView === 'note_key_converter' ||
+      currentView === 'tanpura' ||
+      currentView === 'community' ||
+      currentView === 'home' ||
+      currentView === 'learn_dashboard' ||
+      currentView === 'notation_hothon_se_chhoo_lo_tum'
+    ) {
+      modDate = '2026-10-11T00:00:00Z';
     } else if (currentView === 'post-detail' && selectedPost) {
       if (selectedPost.createdAt) {
         pubDate = selectedPost.createdAt.toDate

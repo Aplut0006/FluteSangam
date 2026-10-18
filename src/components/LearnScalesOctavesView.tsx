@@ -277,7 +277,7 @@ export default function LearnScalesOctavesView({ onViewChange }: LearnScalesOcta
     },
     {
       q: "How many swaras are commonly used in each octave on a standard 6-hole Bansuri?",
-      a: "On a standard 6-hole Indian bamboo flute, Mandra Saptak uses 4 lower swaras (Mạ Pạ Dhạ Nị), Madhya Saptak uses 7 middle swaras (Sa Re Ga Ma Pa Dha Ni), and Taar Saptak uses 5 upper swaras (Sa' Re' Ga' Ma' Pa')."
+      a: "On a standard 6-hole Indian bamboo flute, Mandra Saptak (Lower Octave) uses lower swaras (.M .P .D .N), Madhya Saptak (Middle Octave) uses 7 middle swaras (S R G M P D N), and Taar Saptak (Upper Octave) uses upper swaras (S' R' G' M' P')."
     },
     {
       q: "Should beginners practice all three octaves immediately?",
@@ -340,8 +340,8 @@ export default function LearnScalesOctavesView({ onViewChange }: LearnScalesOcta
               <div className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-amber-600" />
                 <span className="text-gray-500">Updated:</span>
-                <time itemProp="dateModified" dateTime="2026-08-07T00:00:00Z" className="font-semibold text-gray-900">
-                  Aug 7, 2026
+                <time itemProp="dateModified" dateTime="2026-10-18T00:00:00Z" className="font-semibold text-gray-900">
+                  Oct 18, 2026
                 </time>
               </div>
               <span className="text-gray-300">•</span>

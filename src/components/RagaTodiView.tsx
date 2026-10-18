@@ -136,27 +136,27 @@ export const RagaTodiView: React.FC<RagaTodiViewProps> = ({ onViewChange }) => {
     }, delay + 200);
   };
 
-  // Aaroh: S r g M P d N S'
+  // Aaroh: S r g M^ P d N S'
   const handlePlayAaroh = () => {
     if (isPlayingAaroh) return;
     setIsPlayingAaroh(true);
-    const aarohNotes = ['S', 'r', 'g', 'M', 'P', 'd', 'N', "S'"];
+    const aarohNotes = ['S', 'r', 'g', 'M^', 'P', 'd', 'N', "S'"];
     playPhraseSequence(aarohNotes, 700, () => setIsPlayingAaroh(false));
   };
 
-  // Avaroh: S' N d P M g r S
+  // Avaroh: S' N d P M^ g r S
   const handlePlayAvaroh = () => {
     if (isPlayingAvaroh) return;
     setIsPlayingAvaroh(true);
-    const avarohNotes = ["S'", 'N', 'd', 'P', 'M', 'g', 'r', 'S'];
+    const avarohNotes = ["S'", 'N', 'd', 'P', 'M^', 'g', 'r', 'S'];
     playPhraseSequence(avarohNotes, 700, () => setIsPlayingAvaroh(false));
   };
 
-  // Pakad: g r g r S | r g M g r S
+  // Pakad: g r g r S | r g M^ g r S
   const handlePlayPakad = () => {
     if (isPlayingPakad) return;
     setIsPlayingPakad(true);
-    const pakadNotes = ['g', 'r', 'g', 'r', 'S', 'r', 'g', 'M', 'g', 'r', 'S'];
+    const pakadNotes = ['g', 'r', 'g', 'r', 'S', 'r', 'g', 'M^', 'g', 'r', 'S'];
     playPhraseSequence(pakadNotes, 650, () => setIsPlayingPakad(false));
   };
 
@@ -340,7 +340,7 @@ r g M g | r S — — ||`;
               </div>
               <div className="flex items-center gap-1.5 bg-white/90 border border-amber-200 px-3 py-1.5 rounded-lg shadow-2xs">
                 <RefreshCw className="w-3.5 h-3.5 text-rose-700" />
-                <span>Updated: <strong className="text-bamboo-950 font-semibold">August 10, 2026</strong></span>
+                <span>Updated: <strong className="text-bamboo-950 font-semibold">October 18, 2026</strong></span>
               </div>
               <div className="flex items-center gap-1.5 bg-white/90 border border-amber-200 px-3 py-1.5 rounded-lg shadow-2xs">
                 <Clock className="w-3.5 h-3.5 text-amber-700" />
@@ -366,7 +366,7 @@ r g M g | r S — — ||`;
 
           <div className="space-y-4 text-sm sm:text-base text-stone-700 leading-relaxed">
             <p>
-              <strong>Raag Todi</strong>, commonly referring to <em>Miyan Ki Todi</em>, is a profound and highly expressive Hindustani classical raga. It is known for its serious, introspective, and contemplative character and is particularly distinguished by the combination of <strong>Komal Re</strong>, <strong>Komal Ga</strong>, <strong>Tivra Ma</strong>, and <strong>Komal Dha</strong>.
+              <strong>Raag Todi</strong>, commonly referring to <em>Miyan Ki Todi</em>, is a profound and highly expressive Hindustani classical raga. It is known for its serious, introspective, and contemplative character and is particularly distinguished by the combination of <strong>Komal Re</strong>, <strong>Komal Ga</strong>, <strong>Tivra Ma (M^)</strong>, and <strong>Komal Dha</strong>.
             </p>
             <p>
               For flute players, Todi is an excellent raga for developing fine pitch control, meend, breath management, slow Aalap, and expressive phrasing. It is not a raga that can be understood simply by playing its Aaroh and Avaroh. Its personality emerges from the treatment and relationship of its swaras.
@@ -377,7 +377,6 @@ r g M g | r S — — ||`;
           </div>
         </section>
 
-
         {/* SECTION 2: NOTES & SWARA NOTATION */}
         <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-xs border border-amber-200/80 mb-8 space-y-6">
           <div className="flex items-center justify-between border-b border-amber-100 pb-4 flex-wrap gap-2">
@@ -387,7 +386,7 @@ r g M g | r S — — ||`;
               </div>
               <div>
                 <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950">
-                  2. Swaras & Scale Structure
+                  2. Swaras &amp; Scale Structure
                 </h2>
                 <p className="text-xs text-stone-500">Click any note to hear the realistic Bansuri tone</p>
               </div>
@@ -395,14 +394,14 @@ r g M g | r S — — ||`;
           </div>
 
           <p className="text-sm sm:text-base text-stone-700">
-            Raag Todi uses all seven swaras. The combination of <strong>Komal Re</strong>, <strong>Komal Ga</strong>, <strong>Tivra Ma</strong>, and <strong>Komal Dha</strong> gives Todi its characteristic sound.
+            Raag Todi uses all seven swaras. The combination of <strong>Komal Re</strong>, <strong>Komal Ga</strong>, <strong>Tivra Ma (M^)</strong>, and <strong>Komal Dha</strong> gives Todi its characteristic sound.
           </p>
 
           <div className="grid grid-cols-4 sm:grid-cols-8 gap-2.5 sm:gap-3">
             <SwaraPill name="S" type="Shuddha" note="Sa" />
             <SwaraPill name="r" type="Komal" note="Re" />
             <SwaraPill name="g" type="Komal" note="Ga" />
-            <SwaraPill name="M" type="Tivra" note="Ma" />
+            <SwaraPill name="M^" type="Tivra" note="Ma" />
             <SwaraPill name="P" type="Shuddha" note="Pa" />
             <SwaraPill name="d" type="Komal" note="Dha" />
             <SwaraPill name="N" type="Shuddha" note="Ni" />
@@ -411,12 +410,12 @@ r g M g | r S — — ||`;
 
           <div className="bg-stone-50 p-4 sm:p-5 rounded-2xl border border-stone-200/80 text-xs sm:text-sm space-y-2">
             <h4 className="font-bold text-bamboo-950 uppercase tracking-wider text-[11px]">Swara Notation Summary</h4>
-            <p className="font-mono text-amber-900 font-bold">S r g M P d N S'</p>
+            <p className="font-mono text-amber-900 font-bold">S r g M^ P d N S'</p>
             <ul className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-stone-600 pt-1">
               <li><strong>S</strong> = Sa</li>
               <li><strong>r</strong> = Komal Re</li>
               <li><strong>g</strong> = Komal Ga</li>
-              <li><strong>M</strong> = Tivra Ma</li>
+              <li><strong>M^</strong> = Tivra Ma</li>
               <li><strong>P</strong> = Shuddha Pa</li>
               <li><strong>d</strong> = Komal Dha</li>
               <li><strong>N</strong> = Shuddha Ni</li>

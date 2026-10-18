@@ -41,7 +41,8 @@ export default function RagaBageshreeView({ onViewChange }: RagaBageshreeViewPro
     'N': 493.88,   // Shuddha Ni
     'S\'': 523.25,  // Upper Sa
     'R\'': 587.33,  // Upper Re
-    'g\'': 622.25,  // Upper Komal Ga
+    '.D': 220.00,  // Lower Dha (.D)
+    '.n': 233.08,  // Lower Komal Ni (.n)
     'D.': 220.00,  // Lower Dha
     'n.': 233.08,  // Lower Komal Ni
   };

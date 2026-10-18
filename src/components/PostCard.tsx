@@ -147,7 +147,7 @@ export default function PostCard({
   return (
     <div 
       onClick={() => onPostClick(post)}
-      className="frosted-panel rounded-2xl overflow-hidden hover:border-bamboo-300/80 hover:shadow-md transition-all duration-250 bg-white border border-bamboo-100/50 p-5 cursor-pointer flex flex-col space-y-4 group"
+      className="frosted-panel rounded-2xl overflow-hidden hover:border-[#AE7939]/40 hover:shadow-md transition-all duration-250 p-5 cursor-pointer flex flex-col space-y-4 group"
       id={`post-card-${post.id}`}
     >
       {/* Post Header */}

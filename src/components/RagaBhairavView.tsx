@@ -217,7 +217,7 @@ S`;
         }
       },
       "datePublished": "2026-08-07",
-      "dateModified": "2026-08-07"
+      "dateModified": "2026-10-18"
     });
     document.head.appendChild(script);
 
@@ -299,7 +299,7 @@ S`;
               </span>
               <span className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-amber-400" />
-                <span>Updated: <strong className="text-white" itemProp="dateModified" content="2026-08-07">August 7, 2026</strong></span>
+                <span>Updated: <strong className="text-white" itemProp="dateModified" content="2026-10-18">October 18, 2026</strong></span>
               </span>
               <span className="flex items-center gap-1.5">
                 <BookOpen className="w-3.5 h-3.5 text-amber-400" />

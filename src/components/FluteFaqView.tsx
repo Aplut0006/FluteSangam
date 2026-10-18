@@ -460,7 +460,7 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
       </nav>
 
       {/* Header Banner */}
-      <div className="bg-gradient-to-br from-bamboo-950 via-bamboo-900 to-amber-950 text-white rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden border border-amber-800/40">
+      <div className="bg-gradient-to-br from-[#2a0b04] via-[#431407] to-[#1e0702] text-white rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden border border-amber-800/40">
         <div className="absolute top-0 right-0 transform translate-x-12 -translate-y-12 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 transform -translate-x-12 translate-y-12 w-64 h-64 bg-bamboo-500/10 rounded-full blur-3xl pointer-events-none"></div>
 

@@ -53,6 +53,9 @@ const SWARA_FREQS: Record<string, number> = {
   "Sa'": 523.25,
   "R'": 587.33,
   "Re'": 587.33,
+  '.N': 246.94,
+  '.D': 220.00,
+  '.P': 196.00,
   'N_': 246.94,
   'N(lower)': 246.94,
   'D_': 220.00,
@@ -407,7 +410,7 @@ R M R S | S — — — ||`;
               <span className="text-sky-400/60">•</span>
               <div className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-sky-300" />
-                <span><strong>Last Updated:</strong> August 10, 2026</span>
+                <span><strong>Last Updated:</strong> October 18, 2026</span>
               </div>
             </div>
 
@@ -716,7 +719,7 @@ R M R S | S — — — ||`;
               { id: 3, title: 'Practice 3 — Komal Ga Placement', phrase: ['P', 'g', 'M', 'R', 'M', 'P', 'g', 'M', 'R', 'S'], display: 'P g M R → M P g M R S', desc: 'The Komal Ga should be accurately placed without flattening Sa.' },
               { id: 4, title: 'Practice 4 — Pa Movement', phrase: ['R', 'M', 'R', 'P', 'M', 'P', 'g', 'M', 'R', 'M', 'R', 'P', 'M', 'P'], display: 'R M R P → M P g M → R M R P M P', desc: 'Try to make these phrases sound connected rather than like separate notes.' },
               { id: 5, title: 'Practice 5 — Meend Phrasing', phrase: ['R', 'M', 'M', 'R', 'P', 'g', 'M', 'M', 'R', 'S'], display: 'R ~ M | M ~ R | P ~ g ~ M | M ~ R ~ S', desc: 'Practice gentle slides between notes to support the musical phrase.' },
-              { id: 6, title: 'Practice 6 — Complete Pakad Combination', phrase: ['R', 'M', 'R', 'P', 'M', 'P', 'g', 'M', 'R', 'S', 'N_', 'S', 'R', 'M', 'R', 'P', 'M', 'P', 'g', 'M', 'R'], display: 'R M R P | M P g M R S → N S R M R | P M P g M R', desc: 'Develops familiarity with characteristic phrase movement.' },
+              { id: 6, title: 'Practice 6 — Complete Pakad Combination', phrase: ['R', 'M', 'R', 'P', 'M', 'P', 'g', 'M', 'R', 'S', '.N', 'S', 'R', 'M', 'R', 'P', 'M', 'P', 'g', 'M', 'R'], display: 'R M R P | M P g M R S → .N S R M R | P M P g M R', desc: 'Develops familiarity with characteristic phrase movement.' },
             ].map((ex) => (
               <div key={ex.id} className="bg-stone-50 p-4 md:p-5 rounded-2xl border border-stone-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>

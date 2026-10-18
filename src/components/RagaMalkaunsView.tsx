@@ -315,8 +315,8 @@ g M d | M g | S`;
               <div className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-amber-700" />
                 <span className="text-stone-600">Updated:</span>
-                <time itemProp="dateModified" dateTime="2026-08-08T00:00:00Z" className="font-semibold text-bamboo-950">
-                  Aug 8, 2026
+                <time itemProp="dateModified" dateTime="2026-10-18T00:00:00Z" className="font-semibold text-bamboo-950">
+                  Oct 18, 2026
                 </time>
               </div>
             </div>

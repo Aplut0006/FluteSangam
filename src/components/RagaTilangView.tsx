@@ -392,7 +392,7 @@ export const RagaTilangView: React.FC<RagaTilangViewProps> = ({ onViewChange }) 
               <span className="text-stone-300 hidden sm:inline">•</span>
               <div className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-amber-700" />
-                <span>Last Updated: <strong className="text-bamboo-950 font-semibold" itemProp="dateModified" content="2026-08-17">August 17, 2026</strong></span>
+                <span>Last Updated: <strong className="text-bamboo-950 font-semibold" itemProp="dateModified" content="2026-10-18">October 18, 2026</strong></span>
               </div>
             </div>
 

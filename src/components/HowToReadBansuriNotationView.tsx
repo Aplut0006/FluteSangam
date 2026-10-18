@@ -340,7 +340,7 @@ export default function HowToReadBansuriNotationView({ onViewChange }: HowToRead
                 <span className="text-slate-300 dark:text-slate-700">•</span>
                 <span className="flex items-center gap-1.5 font-medium">
                   <Clock className="w-3.5 h-3.5 text-amber-600" />
-                  Updated: <strong className="text-slate-900 dark:text-white">Oct 11, 2026</strong>
+                  Updated: <strong className="text-slate-900 dark:text-white">Oct 18, 2026</strong>
                 </span>
               </div>
             </div>

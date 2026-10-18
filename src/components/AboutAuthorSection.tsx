@@ -39,11 +39,15 @@ export default function AboutAuthorSection({ onViewChange, className = '' }: Abo
       <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center gap-3.5 sm:gap-4">
         {/* Author Avatar / Badge */}
         <div className="flex-shrink-0 relative">
-          <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-tr from-bamboo-800 via-bamboo-700 to-amber-600 text-white flex items-center justify-center shadow-xs border border-white ring-2 ring-amber-300/40">
-            <User className="w-5 h-5 sm:w-6 sm:h-6 text-amber-200" />
+          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-amber-400 ring-2 ring-amber-300/40 bg-white shadow-sm flex items-center justify-center p-0.5 sm:p-1">
+            <img 
+              src="/founder_photo.jpeg" 
+              alt="Aplut - Founder & Author" 
+              className="w-full h-full object-contain object-top origin-top scale-110 rounded-full"
+            />
           </div>
-          <div className="absolute -bottom-1 -right-1 bg-amber-500 text-white text-[8px] font-extrabold px-1.5 py-0.5 rounded-md shadow-2xs uppercase tracking-wider flex items-center gap-0.5">
-            <Sparkles className="w-2 h-2" />
+          <div className="absolute -bottom-1 -right-1 bg-amber-500 text-bamboo-950 text-[8px] font-extrabold px-1.5 py-0.5 rounded-md shadow-2xs uppercase tracking-wider flex items-center gap-0.5 border border-amber-300">
+            <Sparkles className="w-2 h-2 text-bamboo-950" />
             Author
           </div>
         </div>

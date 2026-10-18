@@ -207,7 +207,7 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
             "url": "https://flutesangam.com"
           },
           "datePublished": "2026-07-30T00:00:00Z",
-          "dateModified": "2026-07-30T10:00:00Z",
+          "dateModified": "2026-10-18T10:00:00Z",
           "inLanguage": "en",
           "keywords": ["Raag Yaman", "Yaman Raga", "Tivra Madhyam", "Learn Bansuri", "Sandhya Prakash", "Hindustani Classical", "Flute Lessons"]
         })}

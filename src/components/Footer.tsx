@@ -161,7 +161,7 @@ export default function Footer({ onViewChange, onSadhanaFeedClick }: FooterProps
                   onClick={(e) => handleLinkClick('community', e)} 
                   className="hover:text-amber-300 transition cursor-pointer"
                 >
-                  Sadhana Feed &amp; Recitals
+                  Community &amp; Recitals
                 </Link>
               </li>
               <li>
