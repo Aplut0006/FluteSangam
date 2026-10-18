@@ -491,6 +491,7 @@ export default function DailyPracticeGuideView({ onViewChange }: DailyPracticeGu
               src="/finger_coordination.mp4" 
               controls 
               controlsList="nodownload" 
+              preload="metadata"
               onContextMenu={(e) => e.preventDefault()}
               className="w-full h-auto max-h-[340px]"
             />
@@ -537,6 +538,7 @@ export default function DailyPracticeGuideView({ onViewChange }: DailyPracticeGu
               src="/sargam_video.mp4" 
               controls 
               controlsList="nodownload" 
+              preload="metadata"
               onContextMenu={(e) => e.preventDefault()}
               className="w-full h-auto max-h-[340px]"
             />

@@ -1569,6 +1569,7 @@ export default function LearnAlankarasView({ initialLevel, viewMode, onViewChang
                 src="/alankars.mp4" 
                 controls 
                 controlsList="nodownload" 
+                preload="metadata"
                 onContextMenu={(e) => e.preventDefault()}
                 className="w-full h-auto max-h-[340px]"
               />
