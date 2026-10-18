@@ -18,13 +18,13 @@ interface RagaMultaniViewProps {
 // Swara Frequencies for C Natural Scale
 const SWARA_FREQS: Record<string, number> = {
   // Lower Octave (Mandra Saptak)
-  '.S': 130.81,
-  '.r': 138.59,
-  '.g': 155.56,
-  '.M^': 184.99,
-  '.P': 196.00,
-  '.d': 207.65,
-  '.N': 246.94,
+  'S(lower)': 130.81,
+  'r(lower)': 138.59,
+  'g(lower)': 155.56,
+  'M^(lower)': 184.99,
+  'P(lower)': 196.00,
+  'd(lower)': 207.65,
+  'N(lower)': 246.94,
 
   // Middle Octave (Madhya Saptak)
   'S': 261.63,
@@ -178,7 +178,7 @@ export const RagaMultaniView: React.FC<RagaMultaniViewProps> = ({ onViewChange }
       stopAllAudio();
       return;
     }
-    playSequence(['.N', 'S', 'g', 'M^', 'P', 'N', "S'"], setIsPlayingAaroh, 1.0);
+    playSequence(['N(lower)', 'S', 'g', 'M^', 'P', 'N', "S'"], setIsPlayingAaroh, 1.0);
   };
 
   const handlePlayAvaroh = () => {
@@ -195,19 +195,19 @@ export const RagaMultaniView: React.FC<RagaMultaniViewProps> = ({ onViewChange }
       return;
     }
     playSequence([
-      '.N', 'S', 'g', 'M^', 'g', 'r', 'S',
-      '.N', '.d', '.P', '.M^', 'g', 'r', 'S'
+      'N(lower)', 'S', 'g', 'M^', 'g', 'r', 'S',
+      'N(lower)', 'd(lower)', 'P(lower)', 'M^(lower)', 'g', 'r', 'S'
     ], setIsPlayingPakad, 0.9);
   };
 
   // Exercises Playback
   const EXERCISES_NOTES = [
     ['S', 'g', 'M^', 'P', 'N', "S'", "S'", 'N', 'd', 'P', 'M^', 'g', 'r', 'S'], // Practice 1
-    ['.N', 'S', '.N', 'S', 'g', '.N', 'S', 'g', 'M^'], // Practice 2
+    ['N(lower)', 'S', 'N(lower)', 'S', 'g', 'N(lower)', 'S', 'g', 'M^'], // Practice 2
     ['S', 'g', 'S', 'g', 'M^', 'g', 'M^', 'g', 'r', 'g', 'r', 'S'], // Practice 3
     ['g', 'M^', 'P', 'P', 'M^', 'g', 'g', 'M^', 'g', 'r'], // Practice 4
     ['N', 'd', 'P', "S'", 'N', 'd', 'P', 'N', 'd', 'P', 'M^', 'g'], // Practice 5
-    ['.N', 'S', 'g', 'M^', 'g', 'r', 'S', '.N', '.d', '.P', '.M^', 'g', 'r', 'S'] // Practice 6
+    ['N(lower)', 'S', 'g', 'M^', 'g', 'r', 'S', 'N(lower)', 'd(lower)', 'P(lower)', 'M^(lower)', 'g', 'r', 'S'] // Practice 6
   ];
 
   const handlePlayExercise = (index: number) => {
@@ -223,11 +223,11 @@ export const RagaMultaniView: React.FC<RagaMultaniViewProps> = ({ onViewChange }
 
   // Aalap Playback
   const AALAP_NOTES = [
-    ['.N', 'S', 'g', 'M^', 'g', 'r', 'S', '.N', 'S', 'g', 'M^'],
-    ['.N', 'S', 'g', 'M^', 'g', 'r', 'S', '.N', '.d', '.P', '.M^', 'g', 'r', 'S'],
-    ['.N', 'S', 'g', 'M^', 'P', 'M^', 'g', 'r', 'S', '.N', 'S', 'g', 'M^', 'g'],
-    ["S'", 'N', 'd', 'P', 'M^', 'g', 'r', 'S', '.N', 'S', 'g', 'M^', 'g', 'r', 'S'],
-    ['.N', 'S', 'g', 'M^', 'P', 'N', "S'", "S'", 'N', 'd', 'P', 'M^', 'g', 'r', 'S']
+    ['N(lower)', 'S', 'g', 'M^', 'g', 'r', 'S', 'N(lower)', 'S', 'g', 'M^'],
+    ['N(lower)', 'S', 'g', 'M^', 'g', 'r', 'S', 'N(lower)', 'd(lower)', 'P(lower)', 'M^(lower)', 'g', 'r', 'S'],
+    ['N(lower)', 'S', 'g', 'M^', 'P', 'M^', 'g', 'r', 'S', 'N(lower)', 'S', 'g', 'M^', 'g'],
+    ["S'", 'N', 'd', 'P', 'M^', 'g', 'r', 'S', 'N(lower)', 'S', 'g', 'M^', 'g', 'r', 'S'],
+    ['N(lower)', 'S', 'g', 'M^', 'P', 'N', "S'", "S'", 'N', 'd', 'P', 'M^', 'g', 'r', 'S']
   ];
 
   const handlePlayAalap = (index: number) => {
@@ -250,18 +250,18 @@ export const RagaMultaniView: React.FC<RagaMultaniViewProps> = ({ onViewChange }
     setIsPlayingPiece(true);
     const pieceNotes = [
       // Aalap
-      '.N', 'S', 'g', 'M^', 'g', 'r', 'S',
-      '.N', 'S', 'g', 'M^', 'g', 'r',
+      'N(lower)', 'S', 'g', 'M^', 'g', 'r', 'S',
+      'N(lower)', 'S', 'g', 'M^', 'g', 'r',
       // Main Phrase
-      '.N', 'S', 'g', 'M^', 'g', 'r', 'S',
-      '.N', '.d', '.P', '.M^', 'g', 'r', 'S',
+      'N(lower)', 'S', 'g', 'M^', 'g', 'r', 'S',
+      'N(lower)', 'd(lower)', 'P(lower)', 'M^(lower)', 'g', 'r', 'S',
       // Development
-      '.N', 'S', 'g', 'M^', 'P', 'N', "S'",
+      'N(lower)', 'S', 'g', 'M^', 'P', 'N', "S'",
       "S'", 'N', 'd', 'P', 'M^', 'g', 'r', 'S',
-      '.N', 'S', 'g', 'M^', 'g', 'r', 'S',
+      'N(lower)', 'S', 'g', 'M^', 'g', 'r', 'S',
       // Ending
-      '.N', 'S', 'g', 'M^', 'g', 'r', 'S',
-      '.N', '.d', '.P', '.M^', 'g', 'r', 'S'
+      'N(lower)', 'S', 'g', 'M^', 'g', 'r', 'S',
+      'N(lower)', 'd(lower)', 'P(lower)', 'M^(lower)', 'g', 'r', 'S'
     ];
     playSequence(pieceNotes, setIsPlayingPiece, 0.85);
   };
@@ -380,7 +380,7 @@ N d P M^ | g r S — ||`;
                 </div>
                 <div className="flex items-center gap-1.5 bg-amber-950/50 border border-amber-700/60 px-3 py-1 rounded-lg">
                   <RefreshCw className="w-3.5 h-3.5 text-orange-300" />
-                  <span>Updated: <strong className="text-amber-100 font-semibold" itemProp="dateModified">October 18, 2026</strong></span>
+                  <span>Updated: <strong className="text-amber-100 font-semibold" itemProp="dateModified">August 12, 2026</strong></span>
                 </div>
                 <div className="flex items-center gap-1.5 bg-amber-950/50 border border-amber-700/60 px-3 py-1 rounded-lg">
                   <Clock className="w-3.5 h-3.5 text-amber-300" />
@@ -544,7 +544,7 @@ N d P M^ | g r S — ||`;
                 This movement gives a better introduction to the character of Multani than simply running all seven swaras upward.
               </p>
               <div className="text-xs bg-amber-50/50 p-2.5 rounded-lg border border-amber-200/50 font-mono text-amber-900">
-                <div>.N — S — g — M^ —</div>
+                <div>N — S — g — M^ —</div>
                 <div>P — N — S'</div>
               </div>
             </div>
@@ -600,9 +600,9 @@ N d P M^ | g r S — ||`;
                 </button>
               </div>
               <div className="font-mono text-sm font-bold text-amber-90 break-words0 break-words bg-amber-50/80 p-3 rounded-xl text-center border border-amber-200/80 space-y-1">
-                <div>.N S g M^ g r S</div>
+                <div>N S g M^ g r S</div>
                 <div className="text-amber-700 text-xs">and</div>
-                <div>.N .d .P .M^ g r S</div>
+                <div>N d P M^ g r S</div>
               </div>
               <p className="text-xs text-gray-600 leading-relaxed">
                 Connect both phrases smoothly:
@@ -1042,7 +1042,7 @@ N d P M^ | g r S — ||`;
             <div className="flex items-start gap-3 p-3 bg-amber-50/50 rounded-xl border border-amber-200/50">
               <span className="w-6 h-6 rounded-full bg-amber-600 text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
               <div>
-                <strong className="text-amber-950">Step 2 — Learn the Main Phrase:</strong> Practice <code className="bg-amber-100 px-1 py-0.5 rounded font-mono text-amber-900 font-bold">.N S g M^ g r S</code> and <code className="bg-amber-100 px-1 py-0.5 rounded font-mono text-amber-900 font-bold">.N .d .P .M^ g r S</code> until natural.
+                <strong className="text-amber-950">Step 2 — Learn the Main Phrase:</strong> Practice <code className="bg-amber-100 px-1 py-0.5 rounded font-mono text-amber-900 font-bold">N S g M^ g r S</code> and <code className="bg-amber-100 px-1 py-0.5 rounded font-mono text-amber-900 font-bold">N d P M^ g r S</code> until natural.
               </div>
             </div>
             <div className="flex items-start gap-3 p-3 bg-amber-50/50 rounded-xl border border-amber-200/50">

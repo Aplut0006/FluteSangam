@@ -36,8 +36,6 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
     'P': 392.00,  // Pa (Pancham)
     'D': 440.00,  // Dha (Shuddha Dha)
     'S\'': 523.25, // Sa' (Upper Sa)
-    '.D': 220.00, // Lower Dha (.D)
-    '.P': 196.00, // Lower Pa (.P)
   };
 
   const getAudioContext = () => {
@@ -197,7 +195,7 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
             "url": "https://flutesangam.com"
           },
           "datePublished": "2026-07-30T00:00:00Z",
-          "dateModified": "2026-10-18T00:00:00Z",
+          "dateModified": "2026-07-30T10:00:00Z",
           "inLanguage": "en",
           "keywords": ["Raag Bhoopali", "Bhupali", "Learn Bansuri", "Flute Raga", "Prabhat Prerna", "Hindustani Classical"]
         })}
@@ -251,7 +249,7 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
                 </div>
                 <div className="flex items-center gap-2 text-amber-200">
                   <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                  <span>Updated: <strong className="text-white">Oct 18, 2026</strong></span>
+                  <span>Updated: <strong className="text-white">Jul 30, 2026</strong></span>
                 </div>
                 <div className="pt-1 border-t border-amber-800/60 flex items-center gap-1.5 text-emerald-400 font-bold text-[11px]">
                   <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
@@ -468,7 +466,7 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
             <span className="text-indigo-300">•</span>
             <span className="bg-indigo-50 px-2 py-1 rounded-lg border border-indigo-100">R S</span>
             <span className="text-indigo-300">•</span>
-            <span className="bg-indigo-50 px-2 py-1 rounded-lg border border-indigo-100">.D S</span>
+            <span className="bg-indigo-50 px-2 py-1 rounded-lg border border-indigo-100">D(lower) S</span>
             <span className="text-indigo-300">•</span>
             <span className="bg-indigo-50 px-2 py-1 rounded-lg border border-indigo-100">R G P</span>
             <span className="text-indigo-300">•</span>

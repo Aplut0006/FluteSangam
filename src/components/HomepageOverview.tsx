@@ -283,32 +283,32 @@ export default function HomepageOverview({
   return (
     <div className="space-y-10 sm:space-y-14" itemScope itemType="https://schema.org/EducationalOrganization">
       {/* SECTION 1: Welcome Purpose Banner */}
-      <section className="rounded-3xl p-6 sm:p-8 lg:p-10 bg-[#173E34] text-[#FFFEFA] relative overflow-hidden shadow-sm border border-[#102B24]">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#AE7939]/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#102B24]/40 rounded-full blur-3xl pointer-events-none" />
+      <section className="rounded-3xl p-6 sm:p-8 lg:p-10 bg-gradient-to-br from-bamboo-950 via-bamboo-900 to-amber-950 text-white relative overflow-hidden shadow-md border border-amber-900/60">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-bamboo-600/20 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative space-y-6">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div className="space-y-3 max-w-3xl">
-              <div className="inline-flex items-center gap-2 bg-[#AE7939]/20 text-[#D8B27F] border border-[#AE7939]/40 text-[11px] sm:text-xs font-bold px-3.5 py-1 rounded-full uppercase tracking-wider backdrop-blur-md">
-                <Wind className="w-3.5 h-3.5 text-[#D8B27F] shrink-0" />
+              <div className="inline-flex items-center gap-2 bg-amber-400/20 text-amber-200 border border-amber-400/30 text-[11px] sm:text-xs font-bold px-3.5 py-1 rounded-full uppercase tracking-wider backdrop-blur-md">
+                <Wind className="w-3.5 h-3.5 text-amber-300 shrink-0" />
                 <span>Your Flute Journey Starts Here</span>
               </div>
 
-              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight text-[#FFFEFA] leading-tight" itemProp="name">
+              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black font-display tracking-tight text-white leading-tight" itemProp="name">
                 Learn Flute, Connect with Flutists Worldwide
               </h1>
 
-              <p className="text-xs sm:text-base text-[#DEDFD4] leading-relaxed font-sans max-w-2xl" itemProp="description">
+              <p className="text-xs sm:text-base text-amber-100/90 leading-relaxed font-sans max-w-2xl" itemProp="description">
                 <strong>FluteSangam</strong> is an open platform for learning flute, exploring classical ragas, practicing sargam notations, using practice tools, and connecting with flutists worldwide. Explore practical guides, practice resources, and a growing collection of flute-related content for learners at different stages.
               </p>
             </div>
 
             {/* Quick Action Box */}
-            <div className="bg-[#102B24]/70 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-[#235246] shadow-md space-y-3 shrink-0 lg:w-72 text-center lg:text-left">
+            <div className="bg-white/10 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-white/20 shadow-lg space-y-3 shrink-0 lg:w-72 text-center lg:text-left">
               <div className="space-y-1">
-                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#D8B27F] block">Start Learning Now</span>
-                <p className="text-xs text-[#FFFEFA] font-semibold">Join a growing community of flute lovers</p>
+                <span className="text-[10px] font-extrabold uppercase tracking-widest text-amber-300 block">Start Learning Now</span>
+                <p className="text-xs text-white font-semibold">Join a growing community of flute lovers</p>
               </div>
 
               <div className="space-y-2">
@@ -318,7 +318,7 @@ export default function HomepageOverview({
                     e.preventDefault();
                     onViewChange('learn_dashboard');
                   }}
-                  className="w-full py-2.5 px-4 bg-[#AE7939] hover:bg-[#96672E] text-[#FFFEFA] font-bold text-xs rounded-xl transition shadow-md flex items-center justify-center gap-2 uppercase tracking-wide cursor-pointer text-center"
+                  className="w-full py-2.5 px-4 bg-amber-400 hover:bg-amber-300 text-bamboo-950 font-black text-xs rounded-xl transition shadow-md flex items-center justify-center gap-2 uppercase tracking-wide cursor-pointer text-center"
                 >
                   <BookOpen className="w-4 h-4" />
                   <span>Explore Learning Hub</span>
@@ -329,9 +329,9 @@ export default function HomepageOverview({
                     e.preventDefault();
                     onViewChange('community');
                   }}
-                  className="w-full py-2 px-4 bg-white/10 hover:bg-white/20 text-[#FFFEFA] font-bold text-xs rounded-xl border border-white/20 transition flex items-center justify-center gap-2 cursor-pointer text-center"
+                  className="w-full py-2 px-4 bg-white/15 hover:bg-white/25 text-white font-bold text-xs rounded-xl border border-white/20 transition flex items-center justify-center gap-2 cursor-pointer text-center"
                 >
-                  <MessageSquare className="w-3.5 h-3.5 text-[#D8B27F]" />
+                  <MessageSquare className="w-3.5 h-3.5 text-amber-300" />
                   <span>Explore Community Feed</span>
                 </a>
               </div>
@@ -339,51 +339,51 @@ export default function HomepageOverview({
           </div>
 
           {/* Quick Nav Pills Bar */}
-          <div className="pt-4 border-t border-[#235246]">
-            <div className="bg-[#102B24]/80 backdrop-blur-sm border border-[#235246] rounded-2xl p-3 sm:p-3.5 space-y-2.5 sm:space-y-0 sm:flex sm:items-center sm:justify-between sm:gap-3">
+          <div className="pt-4 border-t border-amber-800/60">
+            <div className="bg-black/25 backdrop-blur-sm border border-white/10 rounded-2xl p-3 sm:p-3.5 space-y-2.5 sm:space-y-0 sm:flex sm:items-center sm:justify-between sm:gap-3">
               <div className="flex items-center gap-2 shrink-0">
-                <span className="inline-block w-2 h-2 rounded-full bg-[#AE7939] animate-pulse"></span>
-                <span className="text-[11px] sm:text-xs font-bold text-[#D8B27F] uppercase tracking-widest font-serif whitespace-nowrap">Quick Navigation:</span>
+                <span className="inline-block w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                <span className="text-[11px] sm:text-xs font-bold text-amber-300 uppercase tracking-widest font-display whitespace-nowrap">Quick Navigation:</span>
               </div>
               
               <div className="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0 no-scrollbar w-full sm:w-auto flex-nowrap sm:flex-wrap">
                 <a 
                   href="#learn-flute-section" 
-                  className="px-3 py-2 bg-white/10 hover:bg-white/20 active:bg-white/25 text-[#FFFEFA] rounded-xl text-xs font-semibold border border-white/15 transition flex items-center justify-center gap-2 group whitespace-nowrap shrink-0"
+                  className="px-3 py-2 bg-white/10 hover:bg-white/20 active:bg-white/25 text-amber-50 rounded-xl text-xs font-semibold border border-white/15 transition flex items-center justify-center gap-2 group whitespace-nowrap shrink-0"
                 >
-                  <BookOpen className="w-3.5 h-3.5 text-[#D8B27F] transition-transform group-hover:scale-110 shrink-0" />
+                  <BookOpen className="w-3.5 h-3.5 text-amber-300 transition-transform group-hover:scale-110 shrink-0" />
                   <span>Learn Flute</span>
                 </a>
 
                 <a 
                   href="#explore-raagas-section" 
-                  className="px-3 py-2 bg-white/10 hover:bg-white/20 active:bg-white/25 text-[#FFFEFA] rounded-xl text-xs font-semibold border border-white/15 transition flex items-center justify-center gap-2 group whitespace-nowrap shrink-0"
+                  className="px-3 py-2 bg-white/10 hover:bg-white/20 active:bg-white/25 text-amber-50 rounded-xl text-xs font-semibold border border-white/15 transition flex items-center justify-center gap-2 group whitespace-nowrap shrink-0"
                 >
-                  <Music className="w-3.5 h-3.5 text-[#D8B27F] transition-transform group-hover:scale-110 shrink-0" />
+                  <Music className="w-3.5 h-3.5 text-amber-300 transition-transform group-hover:scale-110 shrink-0" />
                   <span>Explore Raagas</span>
                 </a>
 
                 <a 
                   href="#flute-notations-section" 
-                  className="px-3 py-2 bg-white/10 hover:bg-white/20 active:bg-white/25 text-[#FFFEFA] rounded-xl text-xs font-semibold border border-white/15 transition flex items-center justify-center gap-2 group whitespace-nowrap shrink-0"
+                  className="px-3 py-2 bg-white/10 hover:bg-white/20 active:bg-white/25 text-amber-50 rounded-xl text-xs font-semibold border border-white/15 transition flex items-center justify-center gap-2 group whitespace-nowrap shrink-0"
                 >
-                  <FileText className="w-3.5 h-3.5 text-[#D8B27F] transition-transform group-hover:scale-110 shrink-0" />
+                  <FileText className="w-3.5 h-3.5 text-amber-300 transition-transform group-hover:scale-110 shrink-0" />
                   <span>Flute Notations</span>
                 </a>
 
                 <a 
                   href="#daily-practice-section" 
-                  className="px-3 py-2 bg-white/10 hover:bg-white/20 active:bg-white/25 text-[#FFFEFA] rounded-xl text-xs font-semibold border border-white/15 transition flex items-center justify-center gap-2 group whitespace-nowrap shrink-0"
+                  className="px-3 py-2 bg-white/10 hover:bg-white/20 active:bg-white/25 text-amber-50 rounded-xl text-xs font-semibold border border-white/15 transition flex items-center justify-center gap-2 group whitespace-nowrap shrink-0"
                 >
-                  <Sliders className="w-3.5 h-3.5 text-[#D8B27F] transition-transform group-hover:scale-110 shrink-0" />
+                  <Sliders className="w-3.5 h-3.5 text-amber-300 transition-transform group-hover:scale-110 shrink-0" />
                   <span>Daily Practice</span>
                 </a>
 
                 <a 
                   href="#latest-articles-section" 
-                  className="px-3 py-2 bg-white/10 hover:bg-white/20 active:bg-white/25 text-[#FFFEFA] rounded-xl text-xs font-semibold border border-white/15 transition flex items-center justify-center gap-2 group whitespace-nowrap shrink-0"
+                  className="px-3 py-2 bg-white/10 hover:bg-white/20 active:bg-white/25 text-amber-50 rounded-xl text-xs font-semibold border border-white/15 transition flex items-center justify-center gap-2 group whitespace-nowrap shrink-0"
                 >
-                  <FileText className="w-3.5 h-3.5 text-[#D8B27F] transition-transform group-hover:scale-110 shrink-0" />
+                  <FileText className="w-3.5 h-3.5 text-amber-300 transition-transform group-hover:scale-110 shrink-0" />
                   <span>Flute Articles</span>
                 </a>
               </div>
@@ -394,75 +394,75 @@ export default function HomepageOverview({
 
 
       {/* SECTION: Why Learn the Flute & Connecting with Community */}
-      <section className="space-y-6 bg-[#FFFEFA] p-6 sm:p-8 rounded-3xl border border-[#DEDFD4] shadow-xs">
+      <section className="space-y-6 bg-linear-to-br from-amber-50/70 via-white to-bamboo-50/50 p-6 sm:p-8 rounded-3xl border border-amber-200/80 shadow-xs">
         <div className="max-w-3xl space-y-2">
-          <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#AE7939] bg-[#AE7939]/10 px-3 py-1 rounded-full border border-[#AE7939]/30 shadow-2xs">
-            <Sparkles className="w-3.5 h-3.5 text-[#AE7939]" />
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-900 bg-amber-100 px-3 py-1 rounded-full border border-amber-200/90 shadow-2xs">
+            <Sparkles className="w-3.5 h-3.5 text-amber-700" />
             The Art &amp; Science of Flute Playing
           </div>
-          <h2 className="text-2xl sm:text-3xl font-bold font-serif text-[#203D34] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-bold font-display text-bamboo-950 tracking-tight">
             Why Learn the Flute/Bansuri?
           </h2>
-          <p className="text-sm text-[#203D34] leading-relaxed">
-            The flute—particularly the Indian bamboo Bansuri—is one of humanity's oldest and most evocative acoustic instruments. The music produced is an intimate sonic projection of your own breath (<span className="italic font-semibold text-[#AE7939]">Prana</span>), making learning the flute both a fulfilling musical pursuit and a transformative mindfulness practice.
+          <p className="text-sm text-gray-700 leading-relaxed">
+            The flute—particularly the Indian bamboo Bansuri—is one of humanity's oldest and most evocative acoustic instruments. The music produced is an intimate sonic projection of your own breath (<span className="italic font-semibold text-amber-900">Prana</span>), making learning the flute both a fulfilling musical pursuit and a transformative mindfulness practice.
           </p>
         </div>
 
         {/* 4 Core Benefits Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="bg-[#FFFEFA] p-4 sm:p-5 rounded-2xl border border-[#DEDFD4] shadow-2xs hover:border-[#AE7939]/50 transition-colors space-y-2.5">
-            <div className="w-9 h-9 rounded-xl bg-[#173E34]/10 text-[#173E34] flex items-center justify-center font-bold">
-              <Wind className="w-5 h-5 text-[#173E34]" />
+          <div className="bg-white/95 p-4 sm:p-5 rounded-2xl border border-amber-100 shadow-2xs hover:border-amber-300 transition-colors space-y-2.5">
+            <div className="w-9 h-9 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold">
+              <Wind className="w-5 h-5 text-amber-700" />
             </div>
-            <h3 className="text-sm font-serif font-bold text-[#203D34]">Breath &amp; Yogic Health</h3>
-            <p className="text-xs text-[#68766B] leading-relaxed">
-              Playing flute acts as active <span className="font-semibold text-[#173E34]">Pranayama</span>, expanding lung capacity, training steady diaphragmatic breathing, and inducing profound nervous system relaxation.
+            <h3 className="text-sm font-bold text-gray-900">Breath &amp; Yogic Health</h3>
+            <p className="text-xs text-gray-600 leading-relaxed">
+              Playing flute acts as active <span className="font-semibold text-amber-900">Pranayama</span>, expanding lung capacity, training steady diaphragmatic breathing, and inducing profound nervous system relaxation.
             </p>
           </div>
 
-          <div className="bg-[#FFFEFA] p-4 sm:p-5 rounded-2xl border border-[#DEDFD4] shadow-2xs hover:border-[#AE7939]/50 transition-colors space-y-2.5">
-            <div className="w-9 h-9 rounded-xl bg-[#173E34]/10 text-[#173E34] flex items-center justify-center font-bold">
-              <Target className="w-5 h-5 text-[#173E34]" />
+          <div className="bg-white/95 p-4 sm:p-5 rounded-2xl border border-amber-100 shadow-2xs hover:border-amber-300 transition-colors space-y-2.5">
+            <div className="w-9 h-9 rounded-xl bg-bamboo-100 text-bamboo-800 flex items-center justify-center font-bold">
+              <Target className="w-5 h-5 text-bamboo-700" />
             </div>
-            <h3 className="text-sm font-serif font-bold text-[#203D34]">Pitch &amp; Ear Mastery (Sur)</h3>
-            <p className="text-xs text-[#68766B] leading-relaxed">
+            <h3 className="text-sm font-bold text-gray-900">Pitch &amp; Ear Mastery (Sur)</h3>
+            <p className="text-xs text-gray-600 leading-relaxed">
               Without frets or fixed keys, pitch accuracy depends on micro-adjustments of your breath angle and half-hole finger placement, sharpening your musical ear and intonation (<span className="italic">Shruti</span>).
             </p>
           </div>
 
-          <div className="bg-[#FFFEFA] p-4 sm:p-5 rounded-2xl border border-[#DEDFD4] shadow-2xs hover:border-[#AE7939]/50 transition-colors space-y-2.5">
-            <div className="w-9 h-9 rounded-xl bg-[#AE7939]/15 text-[#AE7939] flex items-center justify-center font-bold">
-              <Heart className="w-5 h-5 text-[#AE7939]" />
+          <div className="bg-white/95 p-4 sm:p-5 rounded-2xl border border-amber-100 shadow-2xs hover:border-amber-300 transition-colors space-y-2.5">
+            <div className="w-9 h-9 rounded-xl bg-orange-100 text-orange-800 flex items-center justify-center font-bold">
+              <Heart className="w-5 h-5 text-orange-700" />
             </div>
-            <h3 className="text-sm font-serif font-bold text-[#203D34]">Meditative Riyaz &amp; Focus</h3>
-            <p className="text-xs text-[#68766B] leading-relaxed">
-              Holding long sustained notes (<span className="font-semibold text-[#AE7939]">Kharaj Sadhana</span>) quiets racing thoughts, sharpens neuro-cognitive focus, and relieves daily stress through acoustic vibration.
+            <h3 className="text-sm font-bold text-gray-900">Meditative Riyaz &amp; Focus</h3>
+            <p className="text-xs text-gray-600 leading-relaxed">
+              Holding long sustained notes (<span className="font-semibold text-amber-900">Kharaj Sadhana</span>) quiets racing thoughts, sharpens neuro-cognitive focus, and relieves daily stress through acoustic vibration.
             </p>
           </div>
 
-          <div className="bg-[#FFFEFA] p-4 sm:p-5 rounded-2xl border border-[#DEDFD4] shadow-2xs hover:border-[#AE7939]/50 transition-colors space-y-2.5">
-            <div className="w-9 h-9 rounded-xl bg-[#173E34]/10 text-[#173E34] flex items-center justify-center font-bold">
-              <Music className="w-5 h-5 text-[#173E34]" />
+          <div className="bg-white/95 p-4 sm:p-5 rounded-2xl border border-amber-100 shadow-2xs hover:border-amber-300 transition-colors space-y-2.5">
+            <div className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
+              <Music className="w-5 h-5 text-emerald-700" />
             </div>
-            <h3 className="text-sm font-serif font-bold text-[#203D34]">Expressive Versatility</h3>
-            <p className="text-xs text-[#68766B] leading-relaxed">
+            <h3 className="text-sm font-bold text-gray-900">Expressive Versatility</h3>
+            <p className="text-xs text-gray-600 leading-relaxed">
               From evocative classical Ragas (<span className="italic">Meend, Gamak, Murki</span>) to serene devotional bhajans, folk songs, and popular film melodies, the flute adapts effortlessly to any genre.
             </p>
           </div>
         </div>
 
         {/* Community Connection & Shared Experience Spotlight */}
-        <div className="bg-[#173E34] text-[#FFFEFA] p-5 sm:p-6 rounded-2xl border border-[#102B24] flex flex-col md:flex-row md:items-center justify-between gap-5">
+        <div className="bg-gradient-to-r from-bamboo-900 via-amber-950 to-bamboo-950 text-amber-50 p-5 sm:p-6 rounded-2xl border border-amber-600/30 flex flex-col md:flex-row md:items-center justify-between gap-5">
           <div className="space-y-2 max-w-2xl">
             <div className="flex items-center gap-2">
-              <span className="p-1.5 bg-white/10 text-[#D8B27F] rounded-lg border border-white/15">
+              <span className="p-1.5 bg-amber-400/20 text-amber-300 rounded-lg border border-amber-400/30">
                 <Users className="w-4 h-4" />
               </span>
-              <h3 className="text-base font-serif font-bold text-[#FFFEFA]">
+              <h3 className="text-base font-bold text-amber-200">
                 Connecting with Other Flutists Accelerates Your Learning
               </h3>
             </div>
-            <p className="text-xs sm:text-sm text-[#DEDFD4] leading-relaxed">
+            <p className="text-xs sm:text-sm text-amber-100/90 leading-relaxed">
               Self-learning a wind instrument can feel isolating—subtle aspects like lip aperture angle, tonal airiness, or half-hole finger tension cannot be fully diagnosed alone. Exchanging real practice experiences, listening to peer audio recordings, and asking questions in a supportive community helps you troubleshoot sticking points quickly, stay motivated during long Riyaz cycles, and discover authentic styling nuances from practitioners worldwide.
             </p>
           </div>
@@ -472,9 +472,9 @@ export default function HomepageOverview({
               e.preventDefault();
               onViewChange('community');
             }}
-            className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#AE7939] hover:bg-[#96672E] text-[#FFFEFA] font-bold text-xs rounded-xl shadow-md transition self-start md:self-center shrink-0 cursor-pointer group"
+            className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-bamboo-950 font-bold text-xs rounded-xl shadow-md transition self-start md:self-center shrink-0 cursor-pointer group"
           >
-            <MessageSquare className="w-4 h-4 text-[#FFFEFA]" />
+            <MessageSquare className="w-4 h-4 text-bamboo-900" />
             <span>Join Community Sadhana Feed</span>
             <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
           </a>
@@ -484,16 +484,16 @@ export default function HomepageOverview({
 
       {/* SECTION 2: Learn Flute (Step-by-Step Fundamentals) */}
       <section id="learn-flute-section" className="space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#DEDFD4] pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-bamboo-200/80 pb-4">
           <div className="space-y-1">
-            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#AE7939] bg-[#AE7939]/10 px-3 py-1 rounded-full border border-[#AE7939]/30">
-              <BookOpen className="w-3.5 h-3.5 text-[#AE7939]" />
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-900 bg-amber-100/90 px-3 py-1 rounded-full border border-amber-200">
+              <BookOpen className="w-3.5 h-3.5 text-amber-700" />
               Structured Curriculum
             </div>
-            <h2 className="text-xl sm:text-2xl font-bold font-serif text-[#203D34]">
+            <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950">
               Learn Flute &amp; Bansuri Fundamentals
             </h2>
-            <p className="text-xs text-[#68766B]">
+            <p className="text-xs text-gray-600">
               Step-by-step learning modules designed for beginners, self-learners, and classical students.
             </p>
           </div>
@@ -503,10 +503,10 @@ export default function HomepageOverview({
               e.preventDefault();
               onViewChange('learn_dashboard');
             }}
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-[#FFFEFA] hover:bg-[#F2F0E6] text-[#203D34] border border-[#DEDFD4] text-xs font-bold rounded-xl transition self-start sm:self-center cursor-pointer shadow-2xs group"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 text-xs font-bold rounded-xl transition self-start sm:self-center cursor-pointer shadow-2xs group"
           >
             <span>View All Modules</span>
-            <ArrowRight className="w-4 h-4 text-[#AE7939] group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 text-amber-700 group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
 
@@ -527,44 +527,44 @@ export default function HomepageOverview({
                   e.preventDefault();
                   onViewChange(module.view);
                 }}
-                className="bg-[#FFFEFA] rounded-2xl p-5 border border-[#DEDFD4] shadow-2xs hover:shadow-md hover:border-[#AE7939]/60 transition-all cursor-pointer group flex flex-col justify-between space-y-4 relative overflow-hidden text-left"
+                className="bg-gradient-to-b from-white to-amber-50/30 rounded-2xl p-5 border border-amber-200/80 shadow-2xs hover:shadow-md hover:border-amber-400 transition-all cursor-pointer group flex flex-col justify-between space-y-4 relative overflow-hidden text-left"
               >
                 {/* Subtle background glow */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-[#AE7939]/5 rounded-full blur-xl group-hover:bg-[#AE7939]/15 transition-all pointer-events-none" />
+                <div className="absolute top-0 right-0 w-24 h-24 bg-amber-400/5 rounded-full blur-xl group-hover:bg-amber-400/15 transition-all pointer-events-none" />
 
                 <div className="space-y-3 relative">
                   <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-xl bg-[#173E34]/10 text-[#173E34] flex items-center justify-center font-bold text-sm border border-[#173E34]/20 group-hover:bg-[#173E34] group-hover:text-[#FFFEFA] transition-colors">
+                    <div className="w-10 h-10 rounded-xl bg-amber-100/80 text-amber-900 flex items-center justify-center font-bold text-sm border border-amber-200 group-hover:bg-amber-800 group-hover:text-amber-100 transition-colors">
                       <IconComp className="w-5 h-5" />
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#AE7939] bg-[#AE7939]/10 px-2.5 py-0.5 rounded-full border border-[#AE7939]/30">
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider text-amber-800 bg-amber-100/60 px-2.5 py-0.5 rounded-full border border-amber-200/60">
                       {module.badge}
                     </span>
                   </div>
 
                   <div>
-                    <h3 className="font-serif font-bold text-[#203D34] text-base group-hover:text-[#173E34] transition-colors leading-snug">
+                    <h3 className="font-bold text-bamboo-950 text-base group-hover:text-amber-900 transition-colors leading-snug">
                       {module.title}
                     </h3>
-                    <p className="text-xs text-[#68766B] leading-relaxed mt-1.5">
+                    <p className="text-xs text-gray-600 leading-relaxed mt-1.5">
                       {module.description}
                     </p>
                   </div>
 
                   {/* Highlights checklist */}
-                  <div className="pt-2 space-y-1.5 border-t border-[#DEDFD4]">
+                  <div className="pt-2 space-y-1.5 border-t border-amber-100/80">
                     {module.highlights.map((item, hIdx) => (
-                      <div key={hIdx} className="flex items-center gap-1.5 text-[11px] text-[#68766B] font-medium">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#173E34] shrink-0" />
+                      <div key={hIdx} className="flex items-center gap-1.5 text-[11px] text-gray-600 font-medium">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                         <span>{item}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-3 border-t border-[#DEDFD4] flex items-center justify-between text-xs font-bold text-[#173E34] group-hover:text-[#102B24] transition-colors">
+                <div className="pt-3 border-t border-amber-100 flex items-center justify-between text-xs font-bold text-amber-800 group-hover:text-amber-950 transition-colors">
                   <span>Explore Module</span>
-                  <div className="p-1.5 rounded-lg bg-[#173E34]/10 text-[#173E34] group-hover:bg-[#173E34] group-hover:text-[#FFFEFA] transition-all">
+                  <div className="p-1.5 rounded-lg bg-amber-100/60 text-amber-800 group-hover:bg-amber-800 group-hover:text-amber-100 transition-all">
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </div>
@@ -576,16 +576,16 @@ export default function HomepageOverview({
 
       {/* SECTION 3: Popular Ragas (Hindustani Classical Raga Directory) */}
       <section id="explore-raagas-section" className="space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#DEDFD4] pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-bamboo-200/80 pb-4">
           <div className="space-y-1">
-            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#AE7939] bg-[#AE7939]/10 px-3 py-1 rounded-full border border-[#AE7939]/30">
-              <Music className="w-3.5 h-3.5 text-[#AE7939]" />
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-900 bg-amber-100/90 px-3 py-1 rounded-full border border-amber-200">
+              <Music className="w-3.5 h-3.5 text-amber-700" />
               Popular Ragas
             </div>
-            <h2 className="text-xl sm:text-2xl font-bold font-serif text-[#203D34]">
+            <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950">
               Popular Classical Ragas
             </h2>
-            <p className="text-xs text-[#68766B]">
+            <p className="text-xs text-gray-600">
               In-depth guides featuring swara notes, Aaroh, Avaroh, Pakad, Chalan, Alankars, and practice compositions.
             </p>
           </div>
@@ -595,10 +595,10 @@ export default function HomepageOverview({
               e.preventDefault();
               onViewChange('learn_raagas');
             }}
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-[#FFFEFA] hover:bg-[#F2F0E6] text-[#203D34] border border-[#DEDFD4] text-xs font-bold rounded-xl transition self-start sm:self-center cursor-pointer shadow-2xs group"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 text-xs font-bold rounded-xl transition self-start sm:self-center cursor-pointer shadow-2xs group"
           >
             <span>View All Ragas</span>
-            <ArrowRight className="w-4 h-4 text-[#AE7939] group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 text-amber-700 group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
 
@@ -618,63 +618,63 @@ export default function HomepageOverview({
                   e.preventDefault();
                   onViewChange(raga.view);
                 }}
-                className="bg-[#FFFEFA] rounded-2xl p-5 border border-[#DEDFD4] shadow-2xs hover:shadow-md hover:border-[#AE7939]/60 transition-all cursor-pointer group space-y-4 flex flex-col justify-between relative overflow-hidden text-left"
+                className="bg-white rounded-2xl p-5 border border-amber-200/80 shadow-2xs hover:shadow-md hover:border-amber-400 transition-all cursor-pointer group space-y-4 flex flex-col justify-between relative overflow-hidden text-left"
               >
                 {/* Header Badge Strip */}
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-bold uppercase tracking-wider bg-[#AE7939]/10 text-[#AE7939] px-2.5 py-0.5 rounded-full border border-[#AE7939]/30">
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider bg-amber-100/80 text-amber-900 px-2.5 py-0.5 rounded-full border border-amber-200">
                       {raga.badge}
                     </span>
                     <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md border ${
-                      raga.difficulty === 'Beginner' ? 'bg-[#173E34]/10 text-[#173E34] border-[#173E34]/20' : 'bg-[#AE7939]/15 text-[#AE7939] border-[#AE7939]/30'
+                      raga.difficulty === 'Beginner' ? 'bg-emerald-50 text-emerald-800 border-emerald-200' : 'bg-blue-50 text-blue-800 border-blue-200'
                     }`}>
                       {raga.difficulty}
                     </span>
                   </div>
 
                   <div>
-                    <h3 className="font-serif font-bold text-[#203D34] text-xl group-hover:text-[#173E34] transition-colors">
+                    <h3 className="font-bold text-bamboo-950 text-xl group-hover:text-amber-900 transition-colors font-display">
                       {raga.name}
                     </h3>
-                    <p className="text-[11px] text-[#AE7939] font-medium italic mt-0.5">
+                    <p className="text-[11px] text-amber-800 font-medium italic mt-0.5">
                       Mood: {raga.mood}
                     </p>
                   </div>
 
                   {/* Raaga Quick Details Grid */}
-                  <div className="grid grid-cols-2 gap-2 text-[11px] bg-[#F8F7F1] p-3 rounded-xl border border-[#DEDFD4]">
+                  <div className="grid grid-cols-2 gap-2 text-[11px] bg-amber-50/70 p-3 rounded-xl border border-amber-100/80">
                     <div>
-                      <span className="text-[#68766B] block text-[10px] uppercase font-bold tracking-wider">Thaat</span>
-                      <strong className="text-[#203D34] font-semibold">{raga.thaat}</strong>
+                      <span className="text-gray-500 block text-[10px] uppercase font-bold tracking-wider">Thaat</span>
+                      <strong className="text-bamboo-950 font-semibold">{raga.thaat}</strong>
                     </div>
                     <div>
-                      <span className="text-[#68766B] block text-[10px] uppercase font-bold tracking-wider">Jati</span>
-                      <strong className="text-[#203D34] font-semibold">{raga.jati}</strong>
+                      <span className="text-gray-500 block text-[10px] uppercase font-bold tracking-wider">Jati</span>
+                      <strong className="text-bamboo-950 font-semibold">{raga.jati}</strong>
                     </div>
                   </div>
 
                   {/* Swara Notes Preview */}
-                  <div className="bg-[#173E34] text-[#FFFEFA] p-2.5 rounded-xl text-[11px] font-mono space-y-1.5 border border-[#102B24]">
+                  <div className="bg-bamboo-950 text-amber-200 p-2.5 rounded-xl text-[11px] font-mono space-y-1.5 border border-amber-800/40">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] text-[#D8B27F] uppercase tracking-widest font-sans font-bold shrink-0">Aaroh:</span>
+                      <span className="text-[10px] text-amber-400/80 uppercase tracking-widest font-sans font-bold shrink-0">Aaroh:</span>
                       <span className="font-bold tracking-wider text-right">{raga.notes}</span>
                     </div>
-                    <div className="flex items-center justify-between border-t border-[#235246] pt-1.5">
-                      <span className="text-[10px] text-[#D8B27F] uppercase tracking-widest font-sans font-bold shrink-0">Avaroh:</span>
+                    <div className="flex items-center justify-between border-t border-amber-900/60 pt-1.5">
+                      <span className="text-[10px] text-amber-400/80 uppercase tracking-widest font-sans font-bold shrink-0">Avaroh:</span>
                       <span className="font-bold tracking-wider text-right">{raga.avaroh}</span>
                     </div>
                   </div>
 
-                  <p className="text-[11px] text-[#68766B] flex items-center gap-1.5 pt-1">
-                    <Clock className="w-3.5 h-3.5 text-[#AE7939] shrink-0" />
+                  <p className="text-[11px] text-gray-600 flex items-center gap-1.5 pt-1">
+                    <Clock className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                     <span>{raga.time}</span>
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-[#DEDFD4] flex items-center justify-between text-xs font-bold text-[#173E34] group-hover:text-[#102B24] transition-colors">
+                <div className="pt-3 border-t border-amber-100 flex items-center justify-between text-xs font-bold text-amber-800 group-hover:text-amber-950 transition-colors">
                   <span>Explore {raga.name} Guide</span>
-                  <div className="p-1.5 rounded-lg bg-[#173E34]/10 text-[#173E34] group-hover:bg-[#173E34] group-hover:text-[#FFFEFA] transition-all">
+                  <div className="p-1.5 rounded-lg bg-amber-100/60 text-amber-800 group-hover:bg-amber-800 group-hover:text-amber-100 transition-all">
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </div>
@@ -686,16 +686,16 @@ export default function HomepageOverview({
 
       {/* SECTION 4: Flute Notation (Song Notations & Sargam Library) */}
       <section id="flute-notations-section" className="space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#DEDFD4] pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-bamboo-200/80 pb-4">
           <div className="space-y-1">
-            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#AE7939] bg-[#AE7939]/10 px-3 py-1 rounded-full border border-[#AE7939]/30">
-              <FileText className="w-3.5 h-3.5 text-[#AE7939]" />
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-900 bg-amber-100/90 px-3 py-1 rounded-full border border-amber-200">
+              <FileText className="w-3.5 h-3.5 text-amber-700" />
               Flute Notations
             </div>
-            <h2 className="text-xl sm:text-2xl font-bold font-serif text-[#203D34]">
+            <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950">
               Flute Notation
             </h2>
-            <p className="text-xs text-[#68766B]">
+            <p className="text-xs text-gray-600">
               Learn popular songs and melodies on flute with clear Sargam and Western notes, octave markings, and practical playing tips.
             </p>
           </div>
@@ -705,10 +705,10 @@ export default function HomepageOverview({
               e.preventDefault();
               onViewChange('notation_requests');
             }}
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-[#FFFEFA] hover:bg-[#F2F0E6] text-[#203D34] border border-[#DEDFD4] text-xs font-bold rounded-xl transition self-start sm:self-center cursor-pointer shadow-2xs group"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 text-xs font-bold rounded-xl transition self-start sm:self-center cursor-pointer shadow-2xs group"
           >
             <span>Browse All Notations</span>
-            <ArrowRight className="w-4 h-4 text-[#AE7939] group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 text-amber-700 group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
 

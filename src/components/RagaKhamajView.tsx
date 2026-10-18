@@ -40,9 +40,6 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
     'N': 493.88,   // Shuddha Ni
     'S\'': 523.25,  // Upper Sa
     'R\'': 587.33,  // Upper Re
-    '.N': 246.94,
-    '.n': 233.08,
-    '.D': 220.00,
     'N.': 246.94,  // Lower Shuddha Ni
     'n.': 233.08,  // Lower Komal Ni
     'D.': 220.00,  // Lower Shuddha Dha
@@ -180,7 +177,7 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
             </div>
             <div className="flex items-center gap-1.5">
               <Clock className="w-4 h-4 text-amber-300" />
-              <span>Updated: <strong className="text-amber-100" itemProp="dateModified" content="2026-10-18">October 18, 2026</strong></span>
+              <span>Updated: <strong className="text-amber-100" itemProp="dateModified" content="2026-08-07">August 7, 2026</strong></span>
             </div>
             <div className="flex items-center gap-1.5">
               <BookOpen className="w-4 h-4 text-amber-300" />

@@ -190,7 +190,7 @@ export default function RagaBilawalView({ onViewChange }: RagaBilawalViewProps) 
     'headline': 'Raag Bilawal: Complete Guide, Notes, Aaroh, Avaroh & Practice',
     'description': 'Master Raag Bilawal on Indian Bamboo Flute (Bansuri). Step-by-step guide featuring Swara playback, Pakad, Chalan, original Alankars, and the practice piece "Pratah Sur".',
     'datePublished': '2026-08-01T00:00:00Z',
-    'dateModified': '2026-10-18T00:00:00Z',
+    'dateModified': '2026-08-01T02:55:00Z',
     'author': {
       '@type': 'Person',
       'name': 'Aplut',
@@ -271,7 +271,7 @@ export default function RagaBilawalView({ onViewChange }: RagaBilawalViewProps) 
                 </div>
                 <div className="flex items-center gap-2 text-amber-200">
                   <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                  <span>Updated: <strong className="text-white" itemProp="dateModified">Oct 18, 2026</strong></span>
+                  <span>Updated: <strong className="text-white" itemProp="dateModified">Aug 2, 2026</strong></span>
                 </div>
                 <div className="pt-1.5 border-t border-amber-800/60 flex items-center gap-1.5 text-amber-400 font-bold text-[10px] sm:text-[11px]">
                   <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-400" />

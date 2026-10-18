@@ -1,63 +1,32 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-display: "Playfair Display", Georgia, Cambria, "Times New Roman", serif;
-  --font-serif: "Playfair Display", Georgia, Cambria, "Times New Roman", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-serif: "Playfair Display", serif;
   
-  /* Primary Theme Palette per Design Reference */
-  --color-ivory: #F8F7F1;
-  --color-card: #FFFEFA;
-  --color-forest: #173E34;
-  --color-forest-dark: #102B24;
-  --color-forest-light: #235246;
-  --color-text-main: #203D34;
-  --color-text-muted: #68766B;
-  --color-brass: #AE7939;
-  --color-brass-hover: #96672E;
-  --color-brass-light: #C49051;
-  --color-border-subtle: #DEDFD4;
-
-  /* Harmonized Bamboo Palette mapped to Forest & Ivory system */
-  --color-bamboo-50: #F8F7F1;
-  --color-bamboo-100: #F2F0E6;
-  --color-bamboo-200: #DEDFD4;
-  --color-bamboo-300: #C8CCC3;
-  --color-bamboo-400: #9AA39A;
-  --color-bamboo-500: #68766B;
-  --color-bamboo-600: #235246;
-  --color-bamboo-700: #1C483D;
-  --color-bamboo-750: #173E34;
-  --color-bamboo-800: #173E34;
-  --color-bamboo-850: #12332B;
-  --color-bamboo-900: #102B24;
-  --color-bamboo-950: #0B201B;
+  --color-bamboo-50: #fdfbf7;
+  --color-bamboo-100: #fff4e6;
+  --color-bamboo-200: #fdebd0;
+  --color-bamboo-300: #ffd8a8;
+  --color-bamboo-400: #ffa94d;
+  --color-bamboo-500: #ff922b;
+  --color-bamboo-600: #ea580c; /* Warm Orange */
+  --color-bamboo-700: #c2410c; /* Saffron Orange */
+  --color-bamboo-750: #b03a0e;
+  --color-bamboo-800: #9a3412; /* Deep Saffron */
+  --color-bamboo-850: #6e240c;
+  --color-bamboo-900: #431407; /* Dark Sand-brown */
+  --color-bamboo-950: #2a0b04;
   
-  /* Harmonized Saffron Palette mapped to Restrained Brass/Gold */
-  --color-saffron-300: #D8B27F;
-  --color-saffron-400: #C49051;
-  --color-saffron-500: #AE7939;
-  --color-saffron-600: #96672E;
-  --color-saffron-700: #7A5222;
-
-  /* Harmonized Amber Palette mapped to Brass & Warm Accents */
-  --color-amber-50: #FAF8F2;
-  --color-amber-100: #F4EDE0;
-  --color-amber-200: #E7DBC6;
-  --color-amber-300: #D7C3A0;
-  --color-amber-400: #C5A675;
-  --color-amber-500: #AE7939;
-  --color-amber-600: #AE7939;
-  --color-amber-700: #96672E;
-  --color-amber-800: #7A5222;
-  --color-amber-900: #553916;
-  --color-amber-950: #35230D;
+  --color-saffron-500: #ea580c;
+  --color-saffron-600: #c2410c;
+  --color-saffron-700: #9a3412;
 }
 
 html {
   scroll-padding-top: 5rem;
   scroll-behavior: smooth;
-  background-color: #F8F7F1;
 }
 
 [id] {
@@ -74,26 +43,14 @@ html {
 }
 
 body {
-  background-color: #F8F7F1;
-  color: #203D34;
+  background: linear-gradient(135deg, #fdfbf7 0%, #fff4e6 50%, #fdebd0 100%);
+  background-attachment: fixed;
+  color: #1a0f0a;
   font-family: var(--font-sans);
   touch-action: manipulation;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   overflow-x: hidden;
-}
-
-/* Elegant, readable serif styling for headings */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif);
-  color: #203D34;
-  letter-spacing: -0.015em;
-}
-
-/* Subtle focus indicators */
-:focus-visible {
-  outline: 2px solid #173E34;
-  outline-offset: 2px;
 }
 
 /* Prevent auto-zoom when focusing form inputs on mobile smartphones */
@@ -120,27 +77,29 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Off-white card surfaces, restrained shadows, light borders */
+/* Glassmorphism custom components */
 .frosted-panel {
-  background: #FFFEFA;
-  border: 1px solid #DEDFD4;
-  box-shadow: 0 4px 20px -2px rgba(23, 62, 52, 0.04);
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 32px 0 rgba(234, 88, 12, 0.04);
 }
 
 .frosted-panel-thick {
-  background: #FFFEFA;
-  border: 1px solid #DEDFD4;
-  box-shadow: 0 6px 24px -2px rgba(23, 62, 52, 0.06);
+  background: #ffffff;
+  border: 1px solid rgba(234, 88, 12, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(234, 88, 12, 0.06);
 }
 
 .frosted-navbar {
-  background: rgba(248, 247, 241, 0.94);
+  background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid #DEDFD4;
+  border-bottom: 1px solid rgba(234, 88, 12, 0.15);
 }
 
-/* Custom scrollbars with restrained forest theme */
+/* Custom scrollbars with saffron theme */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -149,9 +108,9 @@ h1, h2, h3, h4, h5, h6 {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(23, 62, 52, 0.2);
+  background: rgba(234, 88, 12, 0.25);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(23, 62, 52, 0.4);
+  background: rgba(234, 88, 12, 0.45);
 }

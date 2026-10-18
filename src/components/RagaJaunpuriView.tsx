@@ -18,10 +18,7 @@ interface RagaJaunpuriViewProps {
 // Swara Frequencies for C Natural Scale (Middle C = 261.63 Hz)
 const SWARA_FREQS: Record<string, number> = {
   // Lower Octave (Mandra Saptak)
-  '.P': 196.00,
-    '.d': 207.65,
-    '.n': 233.08,
-    'P(lower)': 196.00,
+  'P(lower)': 196.00,
   'P.': 196.00,
   'd(lower)': 207.65,
   'd.': 207.65,
@@ -356,7 +353,7 @@ export const RagaJaunpuriView: React.FC<RagaJaunpuriViewProps> = ({ onViewChange
             "url": "https://flutesangam.com"
           },
           "datePublished": "2026-09-02T00:00:00Z",
-          "dateModified": "2026-10-18T00:00:00Z",
+          "dateModified": "2026-09-02T12:00:00Z",
           "inLanguage": "en",
           "keywords": ["Raag Jaunpuri", "Jaunpuri Bansuri", "Learn Bansuri", "Asavari Thaat", "Komal Ga", "Komal Dha", "Komal Ni", "Indian Flute Notations", "FluteSangam"]
         })}
@@ -410,7 +407,7 @@ export const RagaJaunpuriView: React.FC<RagaJaunpuriViewProps> = ({ onViewChange
                 </div>
                 <div className="flex items-center gap-2 text-amber-200">
                   <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                  <span>Updated: <strong className="text-white">Oct 18, 2026</strong></span>
+                  <span>Updated: <strong className="text-white">Sep 2, 2026</strong></span>
                 </div>
               </div>
 

@@ -219,12 +219,12 @@ export const FluteNoteKeyConverterView: React.FC<Props> = ({ onNavigate }) => {
 
   // Presets
   const SWARA_PRESETS = [
-    { label: 'Sargam (Bilawal)', value: "S R G M P D N S'" },
-    { label: 'Raag Bhoopali', value: "S R G P D S'" },
-    { label: 'Raag Yaman', value: ".N R G M^ D N S'" },
-    { label: 'Raag Bhairav', value: "S r G M P d N S'" },
-    { label: 'Raag Kafi', value: "S R g M P D n S'" },
-    { label: 'Raag Malkauns', value: "S g M d n S'" },
+    { label: 'Sargam (Bilawal)', value: 'Sa Re Ga Ma Pa Dha Ni Sa\'' },
+    { label: 'Raag Bhoopali', value: 'Sa Re Ga Pa Dha Sa\'' },
+    { label: 'Raag Yaman', value: 'Sa Re Ga M^ Pa Dha Ni Sa\'' },
+    { label: 'Raag Bhairav', value: 'Sa r Ga Ma Pa d Ni Sa\'' },
+    { label: 'Raag Kafi', value: 'Sa Re g Ma Pa Dha n Sa\'' },
+    { label: 'Raag Malkauns', value: 'Sa g Ma d n Sa\'' },
   ];
 
   const WESTERN_PRESETS = [

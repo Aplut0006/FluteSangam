@@ -141,7 +141,7 @@ export const CommunityFeedView: React.FC<CommunityFeedViewProps> = ({
           <div className="flex flex-wrap items-center gap-2.5 shrink-0">
             <button
               onClick={currentUser ? onOpenCreatePost : onOpenAuth}
-              className="py-2.5 px-5 bg-[#AE7939] hover:bg-[#96672E] text-[#FFFEFA] font-bold text-xs sm:text-sm rounded-xl transition shadow-md flex items-center justify-center gap-2 uppercase tracking-wide cursor-pointer"
+              className="py-2.5 px-5 bg-amber-400 hover:bg-amber-300 text-bamboo-950 font-black text-xs sm:text-sm rounded-xl transition shadow-md flex items-center justify-center gap-2 uppercase tracking-wide cursor-pointer"
             >
               <Plus className="w-4 h-4" />
               <span>Create New Post</span>
@@ -157,22 +157,22 @@ export const CommunityFeedView: React.FC<CommunityFeedViewProps> = ({
         <div className="md:col-span-8 space-y-5" id="left-feed-container">
           
           {/* Search and Filters panel */}
-          <div className="bg-[#FFFEFA] rounded-2xl p-4 sm:p-5 border border-[#DEDFD4] shadow-xs space-y-4">
+          <div className="bg-white/90 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-amber-200/80 shadow-2xs space-y-4">
             <div className="flex flex-col sm:flex-row gap-3">
               {/* Search field */}
-              <div className="flex-1 flex items-center space-x-2 bg-[#F8F7F1] px-3.5 py-2.5 rounded-xl border border-[#DEDFD4] focus-within:ring-2 focus-within:ring-[#173E34] focus-within:border-transparent transition-all">
-                <Search className="w-4 h-4 text-[#68766B] shrink-0" />
+              <div className="flex-1 flex items-center space-x-2 bg-sand-50/80 px-3.5 py-2.5 rounded-xl border border-amber-200/60 focus-within:ring-2 focus-within:ring-amber-500 focus-within:border-transparent transition-all">
+                <Search className="w-4 h-4 text-slate-400 shrink-0" />
                 <input
                   type="text"
                   placeholder="Search discussions, ragas, techniques, or members..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-transparent text-xs sm:text-sm text-[#203D34] focus:outline-none placeholder-[#68766B]"
+                  className="w-full bg-transparent text-xs sm:text-sm text-slate-800 focus:outline-none placeholder-slate-400"
                 />
                 {searchQuery && (
                   <button 
                     onClick={() => setSearchQuery('')}
-                    className="text-[10px] text-[#68766B] hover:text-[#203D34] font-bold uppercase pr-1"
+                    className="text-[10px] text-slate-400 hover:text-slate-600 font-bold uppercase pr-1"
                   >
                     Clear
                   </button>
@@ -182,7 +182,7 @@ export const CommunityFeedView: React.FC<CommunityFeedViewProps> = ({
               {/* Create post button */}
               <button
                 onClick={currentUser ? onOpenCreatePost : onOpenAuth}
-                className="hidden sm:flex py-2.5 px-4 bg-[#173E34] hover:bg-[#235246] text-[#FFFEFA] text-xs font-bold rounded-xl transition items-center justify-center space-x-1.5 shadow-xs shrink-0 cursor-pointer"
+                className="hidden sm:flex py-2.5 px-4 bg-bamboo-700 hover:bg-bamboo-600 text-white text-xs font-bold rounded-xl transition items-center justify-center space-x-1.5 shadow-3xs shrink-0 cursor-pointer"
               >
                 <Plus className="w-4 h-4" />
                 <span>New Post</span>
@@ -254,19 +254,19 @@ export const CommunityFeedView: React.FC<CommunityFeedViewProps> = ({
               </div>
             ) : filteredPosts.length === 0 ? (
               <div className="space-y-6">
-                <div className="bg-[#FFFEFA] rounded-2xl p-6 sm:p-8 text-center border border-[#DEDFD4] shadow-xs space-y-4">
-                  <div className="w-14 h-14 rounded-2xl bg-[#AE7939]/15 text-[#AE7939] flex items-center justify-center mx-auto shadow-inner">
-                    <MessageSquare className="w-7 h-7 text-[#AE7939]" />
+                <div className="bg-white rounded-2xl p-6 sm:p-8 text-center border border-amber-200/80 shadow-2xs space-y-4">
+                  <div className="w-14 h-14 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center mx-auto shadow-inner">
+                    <MessageSquare className="w-7 h-7 text-amber-700" />
                   </div>
                   <div className="space-y-1">
-                    <h3 className="font-serif font-bold text-[#203D34] text-lg">Community Discussions &amp; Sadhana Feed</h3>
-                    <p className="text-xs sm:text-sm text-[#68766B] max-w-lg mx-auto leading-relaxed">
+                    <h3 className="font-display font-bold text-slate-800 text-lg">Community Discussions &amp; Sadhana Feed</h3>
+                    <p className="text-xs sm:text-sm text-slate-600 max-w-lg mx-auto leading-relaxed">
                       Connect with fellow flute and bansuri practitioners. Share recitals, ask technical questions on lip placement, discuss classical ragas, and receive feedback from experienced players.
                     </p>
                   </div>
                   <button
                     onClick={currentUser ? onOpenCreatePost : onOpenAuth}
-                    className="px-5 py-2.5 bg-[#173E34] hover:bg-[#235246] text-[#FFFEFA] text-xs font-bold rounded-xl transition shadow-xs cursor-pointer inline-flex items-center gap-2"
+                    className="px-5 py-2.5 bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold rounded-xl transition shadow-sm cursor-pointer inline-flex items-center gap-2"
                   >
                     <Plus className="w-4 h-4" />
                     <span>Start a New Discussion</span>
@@ -274,33 +274,33 @@ export const CommunityFeedView: React.FC<CommunityFeedViewProps> = ({
                 </div>
 
                 {/* Educational Topics Overview */}
-                <div className="bg-[#FFFEFA] rounded-2xl p-6 border border-[#DEDFD4] space-y-4 shadow-xs">
-                  <h4 className="font-bold font-serif text-[#203D34] text-sm flex items-center gap-2">
-                    <BookOpen className="w-4 h-4 text-[#AE7939]" />
+                <div className="bg-sand-50/70 rounded-2xl p-6 border border-amber-200/60 space-y-4">
+                  <h4 className="font-bold text-bamboo-950 text-sm flex items-center gap-2">
+                    <BookOpen className="w-4 h-4 text-amber-700" />
                     Popular Discussion &amp; Learning Categories
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                    <div className="p-3.5 bg-[#F8F7F1] rounded-xl border border-[#DEDFD4] space-y-1">
-                      <strong className="text-[#203D34] font-bold block">1. Embouchure &amp; Tone Refinement</strong>
-                      <p className="text-[#68766B] text-[11px] leading-relaxed">
+                    <div className="p-3.5 bg-white rounded-xl border border-amber-200/70 space-y-1">
+                      <strong className="text-bamboo-900 font-bold block">1. Embouchure &amp; Tone Refinement</strong>
+                      <p className="text-slate-600 text-[11px] leading-relaxed">
                         Tips for blowing angle, lips positioning on blowhole, producing clean upper octave notes, and eliminating airy or whistling sounds.
                       </p>
                     </div>
-                    <div className="p-3.5 bg-[#F8F7F1] rounded-xl border border-[#DEDFD4] space-y-1">
-                      <strong className="text-[#203D34] font-bold block">2. Classical Raga Bandishes &amp; Sargam</strong>
-                      <p className="text-[#68766B] text-[11px] leading-relaxed">
+                    <div className="p-3.5 bg-white rounded-xl border border-amber-200/70 space-y-1">
+                      <strong className="text-bamboo-900 font-bold block">2. Classical Raga Bandishes &amp; Sargam</strong>
+                      <p className="text-slate-600 text-[11px] leading-relaxed">
                         Explore Aaroh, Avroh, Pakad, and Chalan for popular Ragas like Yaman, Bhoopali, Desh, Kafi, and Bhairav with fellow learners.
                       </p>
                     </div>
-                    <div className="p-3.5 bg-[#F8F7F1] rounded-xl border border-[#DEDFD4] space-y-1">
-                      <strong className="text-[#203D34] font-bold block">3. Flute Scale Selection &amp; Maintenance</strong>
-                      <p className="text-[#68766B] text-[11px] leading-relaxed">
+                    <div className="p-3.5 bg-white rounded-xl border border-amber-200/70 space-y-1">
+                      <strong className="text-bamboo-900 font-bold block">3. Flute Scale Selection &amp; Maintenance</strong>
+                      <p className="text-slate-600 text-[11px] leading-relaxed">
                         Advice on choosing C Medium vs. E/G Bass flutes, bamboo oiling routines, thread binding, and protecting instruments from temperature changes.
                       </p>
                     </div>
-                    <div className="p-3.5 bg-[#F8F7F1] rounded-xl border border-[#DEDFD4] space-y-1">
-                      <strong className="text-[#203D34] font-bold block">4. Daily Sadhana &amp; Alankar Riyaz</strong>
-                      <p className="text-[#68766B] text-[11px] leading-relaxed">
+                    <div className="p-3.5 bg-white rounded-xl border border-amber-200/70 space-y-1">
+                      <strong className="text-bamboo-900 font-bold block">4. Daily Sadhana &amp; Alankar Riyaz</strong>
+                      <p className="text-slate-600 text-[11px] leading-relaxed">
                         Structuring daily practice sessions with long-note breath holding, metronome tempo progression, and finger speed drills.
                       </p>
                     </div>
@@ -330,13 +330,13 @@ export const CommunityFeedView: React.FC<CommunityFeedViewProps> = ({
                   <div className="flex flex-col items-center justify-center pt-4 pb-2 text-center" id="load-more-posts-container">
                     <button
                       onClick={() => setVisiblePostsCount(prev => prev + 10)}
-                      className="px-6 py-2.5 bg-[#173E34] hover:bg-[#235246] text-[#FFFEFA] font-bold text-xs rounded-xl shadow-xs hover:shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer group"
+                      className="px-6 py-2.5 bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer group"
                       id="load-more-posts-btn"
                     >
-                      <ChevronDown className="w-4 h-4 text-[#FFFEFA] group-hover:translate-y-0.5 transition-transform" />
+                      <ChevronDown className="w-4 h-4 text-white group-hover:translate-y-0.5 transition-transform" />
                       <span>Load More Discussions ({filteredPosts.length - visiblePostsCount} remaining)</span>
                     </button>
-                    <span className="text-[11px] text-[#68766B] font-medium mt-2">
+                    <span className="text-[11px] text-slate-500 font-medium mt-2">
                       Showing {Math.min(visiblePostsCount, filteredPosts.length)} of {filteredPosts.length} posts
                     </span>
                   </div>
@@ -350,31 +350,31 @@ export const CommunityFeedView: React.FC<CommunityFeedViewProps> = ({
         <aside className="md:col-span-4 space-y-6 block min-h-[450px]" id="right-sidebar-community">
           
           {/* Community Guidelines Card */}
-          <div className="bg-[#FFFEFA] p-5 rounded-2xl border border-[#DEDFD4] shadow-xs space-y-3">
+          <div className="bg-gradient-to-br from-amber-50 to-sand-100 p-5 rounded-2xl border border-amber-200 shadow-2xs space-y-3">
             <div className="flex items-center gap-2">
-              <ShieldCheck className="w-5 h-5 text-[#AE7939] shrink-0" />
-              <h3 className="font-serif font-bold text-[#203D34] text-sm">Community Guidelines</h3>
+              <ShieldCheck className="w-5 h-5 text-amber-700 shrink-0" />
+              <h3 className="font-bold text-amber-950 text-sm">Community Guidelines</h3>
             </div>
-            <ul className="text-[11px] text-[#68766B] space-y-1.5 leading-relaxed">
+            <ul className="text-[11px] text-slate-600 space-y-1.5 leading-relaxed">
               <li className="flex items-start gap-1.5">
-                <span className="text-[#AE7939] font-bold">•</span>
+                <span className="text-amber-600 font-bold">•</span>
                 <span>Constructive feedback: encourage beginners and share practical embouchure / fingering tips.</span>
               </li>
               <li className="flex items-start gap-1.5">
-                <span className="text-[#AE7939] font-bold">•</span>
+                <span className="text-amber-600 font-bold">•</span>
                 <span>Both classical bandishes and light / film / devotional songs are welcome.</span>
               </li>
               <li className="flex items-start gap-1.5">
-                <span className="text-[#AE7939] font-bold">•</span>
+                <span className="text-amber-600 font-bold">•</span>
                 <span>Mention your flute key (e.g. C Medium, E Bass) when sharing recitals or recordings.</span>
               </li>
             </ul>
           </div>
 
           {/* Quick Practice Tools Card */}
-          <div className="bg-[#FFFEFA] p-5 rounded-2xl border border-[#DEDFD4] shadow-xs space-y-3">
-            <h3 className="font-serif font-bold text-[#203D34] text-sm flex items-center gap-2">
-              <Radio className="w-4 h-4 text-[#AE7939]" />
+          <div className="bg-white p-5 rounded-2xl border border-amber-200/80 shadow-2xs space-y-3">
+            <h3 className="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <Radio className="w-4 h-4 text-amber-600" />
               <span>Interactive Practice Tools</span>
             </h3>
             <div className="space-y-2 text-xs">
@@ -386,10 +386,10 @@ export const CommunityFeedView: React.FC<CommunityFeedViewProps> = ({
                     onViewChange('learn_tuner');
                   }
                 }}
-                className="flex items-center justify-between p-2.5 rounded-xl bg-[#F8F7F1] hover:bg-[#F2F0E6] border border-[#DEDFD4] font-semibold text-[#203D34] transition group"
+                className="flex items-center justify-between p-2.5 rounded-xl bg-amber-50/60 hover:bg-amber-100/70 border border-amber-200/60 font-semibold text-amber-950 transition group"
               >
                 <span>Online Flute Tuner (440Hz)</span>
-                <ChevronRight className="w-3.5 h-3.5 text-[#AE7939] group-hover:translate-x-0.5 transition-transform" />
+                <ChevronRight className="w-3.5 h-3.5 text-amber-700 group-hover:translate-x-0.5 transition-transform" />
               </Link>
               <Link
                 to="/alankar-generator"
@@ -399,10 +399,10 @@ export const CommunityFeedView: React.FC<CommunityFeedViewProps> = ({
                     onViewChange('alankar_generator');
                   }
                 }}
-                className="flex items-center justify-between p-2.5 rounded-xl bg-[#F8F7F1] hover:bg-[#F2F0E6] border border-[#DEDFD4] font-semibold text-[#203D34] transition group"
+                className="flex items-center justify-between p-2.5 rounded-xl bg-amber-50/60 hover:bg-amber-100/70 border border-amber-200/60 font-semibold text-amber-950 transition group"
               >
                 <span>Alankar Practice Generator</span>
-                <ChevronRight className="w-3.5 h-3.5 text-[#AE7939] group-hover:translate-x-0.5 transition-transform" />
+                <ChevronRight className="w-3.5 h-3.5 text-amber-700 group-hover:translate-x-0.5 transition-transform" />
               </Link>
               <Link
                 to="/learn/fingering-chart"
@@ -412,10 +412,10 @@ export const CommunityFeedView: React.FC<CommunityFeedViewProps> = ({
                     onViewChange('learn_fingering_chart');
                   }
                 }}
-                className="flex items-center justify-between p-2.5 rounded-xl bg-[#F8F7F1] hover:bg-[#F2F0E6] border border-[#DEDFD4] font-semibold text-[#203D34] transition group"
+                className="flex items-center justify-between p-2.5 rounded-xl bg-amber-50/60 hover:bg-amber-100/70 border border-amber-200/60 font-semibold text-amber-950 transition group"
               >
                 <span>Interactive Fingering Chart</span>
-                <ChevronRight className="w-3.5 h-3.5 text-[#AE7939] group-hover:translate-x-0.5 transition-transform" />
+                <ChevronRight className="w-3.5 h-3.5 text-amber-700 group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </div>
           </div>
@@ -434,13 +434,13 @@ export const CommunityFeedView: React.FC<CommunityFeedViewProps> = ({
           />
 
           {/* Community Guidelines & Riyaz Practice Resources */}
-          <div className="bg-[#FFFEFA] rounded-2xl border border-[#DEDFD4] p-5 shadow-xs space-y-4">
-            <div className="flex items-center gap-2 border-b border-[#DEDFD4] pb-3">
-              <Sparkles className="w-4 h-4 text-[#AE7939]" />
-              <h3 className="font-serif font-bold text-[#203D34] text-sm">Community Guidelines &amp; Riyaz Hub</h3>
+          <div className="bg-white rounded-2xl border border-bamboo-200/80 p-5 shadow-xs space-y-4">
+            <div className="flex items-center gap-2 border-b border-bamboo-100 pb-3">
+              <Sparkles className="w-4 h-4 text-amber-600" />
+              <h3 className="font-display font-bold text-slate-800 text-sm">Community Guidelines &amp; Riyaz Hub</h3>
             </div>
             
-            <ul className="text-xs text-[#68766B] space-y-2">
+            <ul className="text-xs text-gray-600 space-y-2">
               <li className="flex items-start gap-2">
                 <span className="text-amber-600 font-bold">•</span>
                 <span>Share your audio recordings and questions about flute tone, embouchure, or raga phrasing.</span>

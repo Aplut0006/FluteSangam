@@ -42,8 +42,6 @@ export default function RagaBhimpalasiView({ onViewChange }: RagaBhimpalasiViewP
     'S\'': 523.25,  // Upper Sa
     'R\'': 587.33,  // Upper Re
     'g\'': 622.25,  // Upper Komal Ga
-    '.D': 220.00,  // Lower Dha (.D)
-    '.n': 233.08,  // Lower Komal Ni (.n)
     'D.': 220.00,  // Lower Dha
     'n.': 233.08,  // Lower Komal Ni
   };
@@ -226,7 +224,7 @@ Finish on Sam: S`;
             </div>
             <div className="flex items-center gap-1.5">
               <Clock className="w-3.5 h-3.5 text-amber-300 shrink-0" />
-              <span>Updated: <strong className="text-amber-100">October 18, 2026</strong></span>
+              <span>Updated: <strong className="text-amber-100">August 5, 2026</strong></span>
             </div>
             <div className="flex items-center gap-1.5">
               <BookOpen className="w-3.5 h-3.5 text-amber-300 shrink-0" />

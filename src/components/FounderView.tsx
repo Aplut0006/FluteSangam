@@ -45,37 +45,25 @@ export default function FounderView({ onViewChange }: FounderViewProps) {
       <section className="bg-gradient-to-br from-bamboo-950 via-bamboo-900 to-amber-950 text-white rounded-3xl p-6 sm:p-10 shadow-xl border border-bamboo-800/80 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
         
-        <div className="relative z-10 flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8">
-          {/* Round Founder Photo */}
-          <div className="shrink-0 relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 to-emerald-400 rounded-full blur-sm opacity-50 group-hover:opacity-80 transition duration-300"></div>
-            <img 
-              src="/founder_photo.jpeg" 
-              alt="Aplut — Founder of FluteSangam" 
-              className="relative w-36 h-36 sm:w-40 sm:h-40 lg:w-48 lg:h-48 rounded-full object-cover object-top border-4 border-amber-300/40 shadow-2xl ring-4 ring-amber-400/20"
-            />
+        <div className="relative z-10 space-y-4">
+          <div className="inline-flex items-center gap-1.5 bg-amber-400/20 border border-amber-300/30 px-3 py-1 rounded-full text-amber-300 text-xs font-bold">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Founder & Creator</span>
           </div>
 
-          <div className="space-y-3.5 text-center sm:text-left flex-1">
-            <div className="inline-flex items-center gap-1.5 bg-amber-400/20 border border-amber-300/30 px-3 py-1 rounded-full text-amber-300 text-xs font-bold">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Founder &amp; Creator</span>
-            </div>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold tracking-tight text-white">
+            Meet the Founder
+          </h1>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold tracking-tight text-white">
-              Meet the Founder
-            </h1>
-
-            <div>
-              <h2 className="text-xl sm:text-2xl font-semibold text-amber-300 font-display">
-                Aplut — Founder of FluteSangam
-              </h2>
-            </div>
-
-            <p className="text-sm sm:text-base text-bamboo-100 leading-relaxed font-sans max-w-2xl">
-              Hello and welcome! I’m <strong>Aplut</strong>, a self-taught bansuri learner practising since 2022 and the founder of FluteSangam. With a passion for music and software engineering, I created FluteSangam to make flute learning accessible, structured, and enjoyable for fellow flute enthusiasts worldwide.
-            </p>
+          <div className="pt-2">
+            <h2 className="text-xl sm:text-2xl font-semibold text-amber-300 font-display">
+              Aplut — Founder of FluteSangam
+            </h2>
           </div>
+
+          <p className="text-sm sm:text-base text-bamboo-100 leading-relaxed font-sans max-w-3xl">
+            Hello and welcome! I’m <strong>Aplut</strong>, a self-taught bansuri learner practising since 2022 and the founder of FluteSangam. With a passion for music and software engineering, I created FluteSangam to make flute learning accessible, structured, and enjoyable for fellow flute enthusiasts worldwide.
+          </p>
         </div>
       </section>
 

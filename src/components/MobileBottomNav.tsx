@@ -52,7 +52,7 @@ export default function MobileBottomNav({
 
   return (
     <div 
-      className="fixed bottom-0 inset-x-0 z-[999] md:hidden bg-[#FFFEFA]/98 border-t border-[#DEDFD4] shadow-[0_-4px_25px_rgba(23,62,52,0.08)] transition-transform duration-200 ease-out"
+      className="fixed bottom-0 inset-x-0 z-[999] md:hidden bg-white/98 border-t border-bamboo-200/80 shadow-[0_-4px_25px_rgba(0,0,0,0.1)] transition-transform duration-200 ease-out"
       style={{
         paddingBottom: 'max(0.5rem, env(safe-area-inset-bottom, 0px))',
         WebkitTransform: 'translateZ(0)',

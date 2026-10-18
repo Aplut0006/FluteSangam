@@ -41,8 +41,6 @@ export default function RagaDeshView({ onViewChange }: RagaDeshViewProps) {
     'n': 466.16,   // Komal Ni
     'S\'': 523.25,  // Upper Sa
     'R\'': 587.33,  // Upper Re
-    '.N': 246.94,
-    '.P': 196.00,
     'N_': 246.94,  // Lower Ni
     'P_': 196.00,  // Lower Pa
   };
@@ -188,7 +186,7 @@ S`;
     'headline': 'Raag Desh: Complete Guide, Notes, Aaroh, Avaroh & Practice',
     'description': 'Master Raag Desh on Indian Bamboo Flute (Bansuri). Complete guide with Swara playback, Pakad, Chalan, original Alankars, and the practice piece "Sandhya Vihar".',
     'datePublished': '2026-08-02T00:00:00Z',
-    'dateModified': '2026-10-18T00:00:00Z',
+    'dateModified': '2026-08-02T00:00:00Z',
     'author': {
       '@type': 'Person',
       'name': 'Aplut',
@@ -293,7 +291,7 @@ S`;
               </span>
               <span className="flex items-center gap-1.5 bg-indigo-900/60 px-2.5 py-1 rounded-lg border border-indigo-800">
                 <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                <span>Updated: Oct 18, 2026</span>
+                <span>Updated: Aug 2, 2026</span>
               </span>
               <span className="flex items-center gap-1.5 bg-indigo-900/60 px-2.5 py-1 rounded-lg border border-indigo-800">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />

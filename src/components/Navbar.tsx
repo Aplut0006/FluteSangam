@@ -291,7 +291,7 @@ export default function Navbar({
             }`}
           >
             <Globe className={`w-3.5 h-3.5 ${currentView === 'community' ? 'text-white' : 'text-amber-600'}`} />
-            <span>Community</span>
+            <span>Sadhana Feed</span>
           </a>
 
           {/* 2. Practice Tools Dropdown */}
@@ -681,18 +681,18 @@ export default function Navbar({
                   className={`w-full flex items-center justify-between p-3.5 border rounded-xl transition cursor-pointer text-left ${
                     currentView === 'note_key_converter'
                       ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
-                      : 'bg-amber-50/70 border-amber-200/80 hover:bg-amber-100/80'
+                      : 'bg-emerald-50/70 border-emerald-200/80 hover:bg-emerald-100/80'
                   }`}
                 >
                   <div className="flex items-center gap-3">
                     <div className={`w-9 h-9 rounded-xl flex items-center justify-center shadow-2xs group-hover:scale-105 transition ${
-                      currentView === 'note_key_converter' ? 'bg-white/20 text-white' : 'bg-amber-600 text-white'
+                      currentView === 'note_key_converter' ? 'bg-white/20 text-white' : 'bg-emerald-600 text-white'
                     }`}>
                       <Music className="w-5 h-5" />
                     </div>
                     <div className="text-left">
                       <div className={`text-xs font-extrabold ${currentView === 'note_key_converter' ? 'text-white' : 'text-bamboo-950'}`}>Note &amp; Key Converter</div>
-                      <div className={`text-[11px] ${currentView === 'note_key_converter' ? 'text-amber-100' : 'text-gray-600'}`}>Swaras ⇄ Western notes ⇄ Keys</div>
+                      <div className={`text-[11px] ${currentView === 'note_key_converter' ? 'text-emerald-100' : 'text-gray-600'}`}>Swaras ⇄ Western notes ⇄ Keys</div>
                     </div>
                   </div>
                 </a>
@@ -720,7 +720,7 @@ export default function Navbar({
                   }`}
                 >
                   <Globe className={`w-4 h-4 shrink-0 ${currentView === 'community' ? 'text-white' : 'text-amber-600'}`} />
-                  <span>Community</span>
+                  <span>Sadhana Feed</span>
                 </a>
 
                 {currentUser && (

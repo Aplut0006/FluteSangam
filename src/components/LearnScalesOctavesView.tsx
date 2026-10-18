@@ -15,63 +15,37 @@ interface LearnScalesOctavesViewProps {
 // Swara frequency definitions (Hz) based on middle C (Sa = 261.63 Hz)
 const SWARA_FREQS: Record<string, { freq: number; octave: 'Mandra' | 'Madhya' | 'Taar'; name: string; full: string }> = {
   // Mandra Saptak (Lower Octave - 4 notes on 6-hole Bansuri)
-  '.M': { freq: 174.61, octave: 'Mandra', name: '.M', full: 'Mandra Ma' },
-  '.P': { freq: 196.00, octave: 'Mandra', name: '.P', full: 'Mandra Pa' },
-  '.d': { freq: 207.65, octave: 'Mandra', name: '.d', full: 'Mandra Komal Dha' },
-  '.D': { freq: 220.00, octave: 'Mandra', name: '.D', full: 'Mandra Dha' },
-  '.n': { freq: 233.08, octave: 'Mandra', name: '.n', full: 'Mandra Komal Ni' },
-  '.N': { freq: 246.94, octave: 'Mandra', name: '.N', full: 'Mandra Ni' },
+  'Mạ': { freq: 174.61, octave: 'Mandra', name: 'Mạ', full: 'Mandra Ma' },
+  'Pạ': { freq: 196.00, octave: 'Mandra', name: 'Pạ', full: 'Mandra Pa' },
+  'Dhạ': { freq: 220.00, octave: 'Mandra', name: 'Dhạ', full: 'Mandra Dha' },
+  'Nị': { freq: 246.94, octave: 'Mandra', name: 'Nị', full: 'Mandra Ni' },
   // Aliases for Mandra
-  'Mạ': { freq: 174.61, octave: 'Mandra', name: '.M', full: 'Mandra Ma' },
-  'Pạ': { freq: 196.00, octave: 'Mandra', name: '.P', full: 'Mandra Pa' },
-  'Dhạ': { freq: 220.00, octave: 'Mandra', name: '.D', full: 'Mandra Dha' },
-  'Nị': { freq: 246.94, octave: 'Mandra', name: '.N', full: 'Mandra Ni' },
-  'M.': { freq: 174.61, octave: 'Mandra', name: '.M', full: 'Mandra Ma' },
-  'P.': { freq: 196.00, octave: 'Mandra', name: '.P', full: 'Mandra Pa' },
-  'D.': { freq: 220.00, octave: 'Mandra', name: '.D', full: 'Mandra Dha' },
-  'N.': { freq: 246.94, octave: 'Mandra', name: '.N', full: 'Mandra Ni' },
+  'M.': { freq: 174.61, octave: 'Mandra', name: 'Mạ', full: 'Mandra Ma' },
+  'P.': { freq: 196.00, octave: 'Mandra', name: 'Pạ', full: 'Mandra Pa' },
+  'D.': { freq: 220.00, octave: 'Mandra', name: 'Dhạ', full: 'Mandra Dha' },
+  'N.': { freq: 246.94, octave: 'Mandra', name: 'Nị', full: 'Mandra Ni' },
 
-  // Madhya Saptak (Middle Octave - 7 Shuddha notes + Komal/Tivra)
-  'S': { freq: 261.63, octave: 'Madhya', name: 'S', full: 'Madhya Sa' },
-  'r': { freq: 277.18, octave: 'Madhya', name: 'r', full: 'Komal Re' },
-  'R': { freq: 293.66, octave: 'Madhya', name: 'R', full: 'Madhya Re' },
-  'g': { freq: 311.13, octave: 'Madhya', name: 'g', full: 'Komal Ga' },
-  'G': { freq: 329.63, octave: 'Madhya', name: 'G', full: 'Madhya Ga' },
-  'M': { freq: 349.23, octave: 'Madhya', name: 'M', full: 'Madhya Ma' },
-  'M^': { freq: 369.99, octave: 'Madhya', name: 'M^', full: 'Tivra Ma' },
-  'P': { freq: 392.00, octave: 'Madhya', name: 'P', full: 'Madhya Pa' },
-  'd': { freq: 415.30, octave: 'Madhya', name: 'd', full: 'Komal Dha' },
-  'D': { freq: 440.00, octave: 'Madhya', name: 'D', full: 'Madhya Dha' },
-  'n': { freq: 466.16, octave: 'Madhya', name: 'n', full: 'Komal Ni' },
-  'N': { freq: 493.88, octave: 'Madhya', name: 'N', full: 'Madhya Ni' },
-  'Sa': { freq: 261.63, octave: 'Madhya', name: 'S', full: 'Madhya Sa' },
-  'Re': { freq: 293.66, octave: 'Madhya', name: 'R', full: 'Madhya Re' },
-  'Ga': { freq: 329.63, octave: 'Madhya', name: 'G', full: 'Madhya Ga' },
-  'Ma': { freq: 349.23, octave: 'Madhya', name: 'M', full: 'Madhya Ma' },
-  'Pa': { freq: 392.00, octave: 'Madhya', name: 'P', full: 'Madhya Pa' },
-  'Dha': { freq: 440.00, octave: 'Madhya', name: 'D', full: 'Madhya Dha' },
-  'Ni': { freq: 493.88, octave: 'Madhya', name: 'N', full: 'Madhya Ni' },
+  // Madhya Saptak (Middle Octave - 7 notes on 6-hole Bansuri)
+  'Sa': { freq: 261.63, octave: 'Madhya', name: 'Sa', full: 'Madhya Sa' },
+  'Re': { freq: 293.66, octave: 'Madhya', name: 'Re', full: 'Madhya Re' },
+  'Ga': { freq: 329.63, octave: 'Madhya', name: 'Ga', full: 'Madhya Ga' },
+  'Ma': { freq: 349.23, octave: 'Madhya', name: 'Ma', full: 'Madhya Ma' },
+  'Pa': { freq: 392.00, octave: 'Madhya', name: 'Pa', full: 'Madhya Pa' },
+  'Dha': { freq: 440.00, octave: 'Madhya', name: 'Dha', full: 'Madhya Dha' },
+  'Ni': { freq: 493.88, octave: 'Madhya', name: 'Ni', full: 'Madhya Ni' },
 
-  // Taar Saptak (Upper Octave - S' R' G' M' P' on 6-hole Bansuri)
-  "S'": { freq: 523.25, octave: 'Taar', name: "S'", full: 'Taar Sa' },
-  "r'": { freq: 554.37, octave: 'Taar', name: "r'", full: 'Taar Komal Re' },
-  "R'": { freq: 587.33, octave: 'Taar', name: "R'", full: 'Taar Re' },
-  "g'": { freq: 622.25, octave: 'Taar', name: "g'", full: 'Taar Komal Ga' },
-  "G'": { freq: 659.25, octave: 'Taar', name: "G'", full: 'Taar Ga' },
-  "M'": { freq: 698.46, octave: 'Taar', name: "M'", full: 'Taar Ma' },
-  "M^'": { freq: 739.99, octave: 'Taar', name: "M^'", full: 'Taar Tivra Ma' },
-  "P'": { freq: 783.99, octave: 'Taar', name: "P'", full: 'Taar Pa' },
-  "Sa'": { freq: 523.25, octave: 'Taar', name: "S'", full: 'Taar Sa' },
-  "Re'": { freq: 587.33, octave: 'Taar', name: "R'", full: 'Taar Re' },
-  "Ga'": { freq: 659.25, octave: 'Taar', name: "G'", full: 'Taar Ga' },
-  "Ma'": { freq: 698.46, octave: 'Taar', name: "M'", full: 'Taar Ma' },
-  "Pa'": { freq: 783.99, octave: 'Taar', name: "P'", full: 'Taar Pa' },
+  // Taar Saptak (Upper Octave - 5 notes on 6-hole Bansuri)
+  "Sa'": { freq: 523.25, octave: 'Taar', name: "Sa'", full: 'Taar Sa' },
+  "Re'": { freq: 587.33, octave: 'Taar', name: "Re'", full: 'Taar Re' },
+  "Ga'": { freq: 659.25, octave: 'Taar', name: "Ga'", full: 'Taar Ga' },
+  "Ma'": { freq: 698.46, octave: 'Taar', name: "Ma'", full: 'Taar Ma' },
+  "Pa'": { freq: 783.99, octave: 'Taar', name: "Pa'", full: 'Taar Pa' },
   // Aliases for Taar
-  'Sā': { freq: 523.25, octave: 'Taar', name: "S'", full: 'Taar Sa' },
-  'Rā': { freq: 587.33, octave: 'Taar', name: "R'", full: 'Taar Re' },
-  'Gā': { freq: 659.25, octave: 'Taar', name: "G'", full: 'Taar Ga' },
-  'Mā': { freq: 698.46, octave: 'Taar', name: "M'", full: 'Taar Ma' },
-  'Pā': { freq: 783.99, octave: 'Taar', name: "P'", full: 'Taar Pa' },
+  'Sā': { freq: 523.25, octave: 'Taar', name: "Sa'", full: 'Taar Sa' },
+  'Rā': { freq: 587.33, octave: 'Taar', name: "Re'", full: 'Taar Re' },
+  'Gā': { freq: 659.25, octave: 'Taar', name: "Ga'", full: 'Taar Ga' },
+  'Mā': { freq: 698.46, octave: 'Taar', name: "Ma'", full: 'Taar Ma' },
+  'Pā': { freq: 783.99, octave: 'Taar', name: "Pa'", full: 'Taar Pa' },
 };
 
 export default function LearnScalesOctavesView({ onViewChange }: LearnScalesOctavesViewProps) {
@@ -239,7 +213,7 @@ export default function LearnScalesOctavesView({ onViewChange }: LearnScalesOcta
     }
 
     let sequence: string[] = [];
-    if (register === 'Mandra') sequence = ['.M', '.P', '.D', '.N'];
+    if (register === 'Mandra') sequence = ['Mạ', 'Pạ', 'Dhạ', 'Nị'];
     if (register === 'Madhya') sequence = ['Sa', 'Re', 'Ga', 'Ma', 'Pa', 'Dha', 'Ni'];
     if (register === 'Taar') sequence = ["Sa'", "Re'", "Ga'", "Ma'", "Pa'"];
 
@@ -303,7 +277,7 @@ export default function LearnScalesOctavesView({ onViewChange }: LearnScalesOcta
     },
     {
       q: "How many swaras are commonly used in each octave on a standard 6-hole Bansuri?",
-      a: "On a standard 6-hole Indian bamboo flute, Mandra Saptak uses 4 lower swaras (.M .P .D .N), Madhya Saptak uses 7 middle swaras (S R G M P D N), and Taar Saptak uses 5 upper swaras (S' R' G' M' P')."
+      a: "On a standard 6-hole Indian bamboo flute, Mandra Saptak uses 4 lower swaras (Mạ Pạ Dhạ Nị), Madhya Saptak uses 7 middle swaras (Sa Re Ga Ma Pa Dha Ni), and Taar Saptak uses 5 upper swaras (Sa' Re' Ga' Ma' Pa')."
     },
     {
       q: "Should beginners practice all three octaves immediately?",
@@ -366,7 +340,9 @@ export default function LearnScalesOctavesView({ onViewChange }: LearnScalesOcta
               <div className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-amber-600" />
                 <span className="text-gray-500">Updated:</span>
-                <time itemProp="dateModified" dateTime="2026-10-18T00:00:00Z" className="font-semibold text-gray-900">October 18, 2026</time>
+                <time itemProp="dateModified" dateTime="2026-08-07T00:00:00Z" className="font-semibold text-gray-900">
+                  Aug 7, 2026
+                </time>
               </div>
               <span className="text-gray-300">•</span>
               <span className="inline-flex items-center gap-1 bg-amber-100 text-amber-900 font-bold px-2 py-0.5 rounded-md text-[10px] tracking-wide uppercase">
@@ -466,15 +442,15 @@ export default function LearnScalesOctavesView({ onViewChange }: LearnScalesOcta
               </div>
 
               <div className="text-xs space-y-1.5 text-amber-200/80 bg-amber-950/40 p-3 rounded-xl border border-amber-800/30">
-                <div><strong>4 Swaras:</strong> .M .P .D .N</div>
+                <div><strong>4 Swaras:</strong> Mạ Pạ Dhạ Nị</div>
                 <div><strong>Air Stream:</strong> Soft, warm & relaxed</div>
-                <div><strong>Notation:</strong> Dot before note (.P .D .N)</div>
+                <div><strong>Notation:</strong> Subscript dot below note</div>
               </div>
 
               <div className="space-y-2">
                 <span className="text-[11px] font-semibold text-amber-300/80 block">Touch Swara Note:</span>
                 <div className="grid grid-cols-4 gap-1.5">
-                  {['.M', '.P', '.D', '.N'].map((swara) => (
+                  {['Mạ', 'Pạ', 'Dhạ', 'Nị'].map((swara) => (
                     <button
                       key={swara}
                       onClick={() => playSwaraTone(swara)}
@@ -620,8 +596,8 @@ export default function LearnScalesOctavesView({ onViewChange }: LearnScalesOcta
             <tbody className="divide-y divide-gray-100 text-gray-700">
               <tr className="hover:bg-amber-50/30 transition">
                 <td className="p-3 font-bold text-amber-900">Mandra Saptak (Lower)</td>
-                <td className="p-3 font-mono font-bold text-amber-900">4 Notes: .M .P .D .N</td>
-                <td className="p-3 font-mono font-bold text-amber-800">.M .P .D .N (Dot before)</td>
+                <td className="p-3 font-mono font-bold text-amber-900">4 Notes: Mạ Pạ Dhạ Nị</td>
+                <td className="p-3 font-mono font-bold text-amber-800">Mạ Pạ Dhạ Nị (Dot below)</td>
                 <td className="p-3 font-mono text-gray-600">174.6 Hz – 246.9 Hz</td>
                 <td className="p-3">Soft, steady, low-velocity breath</td>
                 <td className="p-3 text-xs bg-amber-50/50 font-semibold rounded">Deep, woody, warm, resonant bass</td>
@@ -721,7 +697,7 @@ export default function LearnScalesOctavesView({ onViewChange }: LearnScalesOcta
           <div className="grid md:grid-cols-3 gap-4">
             <div className="p-4 rounded-2xl bg-amber-50/80 border border-amber-200">
               <h3 className="font-bold text-amber-900 mb-1">Lower Octave (Mandra Saptak)</h3>
-              <p className="text-xs text-amber-800">Contains 4 notes: .M .P .D .N below middle Sa. Requires controlled, steady airflow.</p>
+              <p className="text-xs text-amber-800">Contains 4 notes: Mạ Pạ Dhạ Nị below middle Sa. Requires controlled, steady airflow.</p>
             </div>
             <div className="p-4 rounded-2xl bg-emerald-50/80 border border-emerald-200">
               <h3 className="font-bold text-emerald-900 mb-1">Middle Octave (Madhya Saptak)</h3>
@@ -746,7 +722,7 @@ export default function LearnScalesOctavesView({ onViewChange }: LearnScalesOcta
 
           {/* Register 1: Mandra */}
           <div className="p-5 rounded-2xl border border-amber-200 bg-amber-50/40 space-y-3">
-            <h3 className="text-lg font-bold text-amber-900">1. Lower Octave — Mandra Saptak (4 Notes: .M .P .D .N)</h3>
+            <h3 className="text-lg font-bold text-amber-900">1. Lower Octave — Mandra Saptak (4 Notes: Mạ Pạ Dhạ Nị)</h3>
             <p className="text-sm text-gray-700 leading-relaxed">
               The lower register contains notes below the middle register. These notes generally require controlled, steady airflow and appropriate embouchure adjustment. For a beginner, lower-octave notes can initially feel less stable than middle-register notes.
             </p>
@@ -860,13 +836,13 @@ export default function LearnScalesOctavesView({ onViewChange }: LearnScalesOcta
               One of the most useful exercises is to practice the same swara across registers. For example:
             </p>
             <div className="bg-white p-3 rounded-xl border border-bamboo-200 font-mono text-xs font-bold text-amber-90 break-words0 break-words flex flex-wrap gap-2 justify-center">
-              <span>.M → M → M'</span>
+              <span>Mạ → Ma → Ma'</span>
               <span className="text-gray-300">|</span>
-              <span>.P → P → P'</span>
+              <span>Pạ → Pa → Pa'</span>
               <span className="text-gray-300">|</span>
-              <span>.D → D</span>
+              <span>Dhạ → Dha</span>
               <span className="text-gray-300">|</span>
-              <span>.N → N</span>
+              <span>Nị → Ni</span>
             </div>
             <p className="text-xs text-gray-600 italic">
               The goal isn't simply to reach the higher note. You want the transition to sound smooth, controlled, in tune, and free from unnecessary breath noise.

@@ -18,12 +18,7 @@ interface RagaPahadiViewProps {
 // Swara Frequencies for C Natural Scale (Approx Hz)
 const SWARA_FREQS: Record<string, number> = {
   // Lower Octave (Mandra Saptak)
-  '.M': 174.61,
-    '.m': 174.61,
-    '.P': 196.00,
-    '.D': 220.00,
-    '.N': 246.94,
-    'M(lower)': 174.61,
+  'M(lower)': 174.61,
   'm(lower)': 174.61,
   'P(lower)': 196.00,
   'D(lower)': 220.00,
@@ -423,7 +418,7 @@ R G P G | R S — — ||
                 </div>
                 <div className="flex items-center gap-1.5 bg-emerald-950/50 border border-emerald-700/60 px-3 py-1 rounded-lg">
                   <RefreshCw className="w-3.5 h-3.5 text-teal-300" />
-                  <span>Updated: <strong className="text-emerald-100 font-semibold" itemProp="dateModified">October 18, 2026</strong></span>
+                  <span>Updated: <strong className="text-emerald-100 font-semibold" itemProp="dateModified">August 13, 2026</strong></span>
                 </div>
                 <div className="flex items-center gap-1.5 bg-emerald-950/50 border border-emerald-700/60 px-3 py-1 rounded-lg">
                   <Clock className="w-3.5 h-3.5 text-emerald-300" />

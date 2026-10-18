@@ -43,9 +43,6 @@ export default function RagaMarwaView({ onViewChange }: RagaMarwaViewProps) {
     "G'": 659.25,    // Upper Shuddha Ga (E5)
     "M^'": 739.99,   // Upper Tivra Ma (F#5)
     "D'": 880.00,    // Upper Shuddha Dha (A5)
-    '.N': 246.94,
-    '.D': 220.00,
-    '.M^': 184.99,
     "N.": 246.94,    // Lower Shuddha Ni (B3)
     "D.": 220.00,    // Lower Shuddha Dha (A3)
     "M^.": 184.99,   // Lower Tivra Ma (F#3)
@@ -282,7 +279,7 @@ export default function RagaMarwaView({ onViewChange }: RagaMarwaViewProps) {
               </div>
               <div className="flex items-center gap-1.5 bg-white/90 border border-amber-200 px-3 py-1 rounded-lg shadow-2xs">
                 <RefreshCw className="w-3.5 h-3.5 text-rose-700" />
-                <span>Updated: <strong className="text-bamboo-950 font-semibold">October 18, 2026</strong></span>
+                <span>Updated: <strong className="text-bamboo-950 font-semibold">August 9, 2026</strong></span>
               </div>
               <div className="flex items-center gap-1.5 bg-white/90 border border-amber-200 px-3 py-1 rounded-lg shadow-2xs">
                 <Clock className="w-3.5 h-3.5 text-amber-700" />

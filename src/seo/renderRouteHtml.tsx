@@ -991,7 +991,7 @@ export function getRouteMetadata(path: string): RouteMetadata {
           }
         },
         'datePublished': '2026-08-17T00:00:00Z',
-        'dateModified': '2026-10-18T00:00:00Z',
+        'dateModified': '2026-08-17T00:00:00Z',
         'url': `${DOMAIN}/learn/raga-${raagSlug}`
       }
     };

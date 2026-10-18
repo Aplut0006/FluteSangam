@@ -4,7 +4,7 @@ import {
   BookOpen, Wind, Clock, Calendar, CheckCircle2, 
   Volume2, Copy, Check, Sparkles, Flame, ShieldAlert, Lightbulb, 
   Target, Repeat, Headphones, Heart, ArrowRight, Share2, Compass,
-  Activity, Sliders, Radio, AlertCircle, Award, Play
+  Activity, Sliders, Radio, AlertCircle, Award
 } from 'lucide-react';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
@@ -31,7 +31,7 @@ export default function DailyPracticeGuideView({ onViewChange }: DailyPracticeGu
     'headline': 'Daily Flute Practice Guide – A Complete Routine for Steady Progress',
     'description': 'Master your daily bansuri flute practice routine. Step-by-step guide to improve tone, breath control, finger coordination, rhythm, scales, and musicality.',
     'datePublished': '2026-08-02T00:00:00Z',
-    'dateModified': '2026-10-18T00:00:00Z',
+    'dateModified': '2026-09-17T00:00:00Z',
     'author': {
       '@type': 'Person',
       'name': 'Aplut',
@@ -151,7 +151,7 @@ export default function DailyPracticeGuideView({ onViewChange }: DailyPracticeGu
               </span>
               <span className="flex items-center gap-1.5 bg-bamboo-900/60 px-3 py-1 rounded-lg border border-bamboo-800">
                 <Clock className="w-3.5 h-3.5 text-amber-400" />
-                <span>Updated: Oct 18, 2026</span>
+                <span>Updated: Sep 17, 2026</span>
               </span>
               <span className="flex items-center gap-1.5 bg-bamboo-900/60 px-3 py-1 rounded-lg border border-bamboo-800">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
@@ -486,28 +486,6 @@ export default function DailyPracticeGuideView({ onViewChange }: DailyPracticeGu
             Good finger movement should be: <strong>Relaxed</strong>, <strong>Accurate</strong>, <strong>Silent</strong>, and <strong>Controlled</strong>. Lift fingers only as much as necessary. Avoid raising fingers too high above the holes.
           </p>
 
-          {/* Demonstration Video for Finger Coordination */}
-          <div 
-            onContextMenu={(e) => e.preventDefault()}
-            className="my-4 max-w-xl mx-auto overflow-hidden rounded-2xl border border-bamboo-200/80 shadow-md bg-stone-900 p-2.5 space-y-2 select-none"
-          >
-            <div className="flex items-center gap-2 px-3 py-1.5 text-xs font-bold text-amber-200 bg-amber-950/60 rounded-xl border border-amber-800/40 w-fit">
-              <Play className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400" />
-              <span>Demonstration Video: Finger Coordination &amp; Note Transitions</span>
-            </div>
-            <video 
-              controls 
-              controlsList="nodownload"
-              onContextMenu={(e) => e.preventDefault()}
-              preload="metadata" 
-              playsInline
-              src="/finger_coordination.mp4" 
-              className="w-full h-auto max-h-[380px] rounded-xl object-contain mx-auto bg-black"
-            >
-              Your browser does not support the video tag.
-            </video>
-          </div>
-
           <div className="bg-amber-50/50 border border-amber-200/80 rounded-2xl p-4 space-y-3">
             <h4 className="text-xs font-bold text-amber-900 uppercase tracking-wider">Neighboring Note Transitions Exercise</h4>
             <div className="flex flex-wrap gap-2 font-mono text-xs sm:text-sm font-bold text-bamboo-95 break-words0 break-words">
@@ -543,28 +521,6 @@ export default function DailyPracticeGuideView({ onViewChange }: DailyPracticeGu
           <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-sans">
             Scales improve finger memory, note accuracy, breath coordination, and smooth transitions.
           </p>
-
-          {/* Demonstration Video for Sargam / Scale Practice */}
-          <div 
-            onContextMenu={(e) => e.preventDefault()}
-            className="my-4 max-w-xl mx-auto overflow-hidden rounded-2xl border border-bamboo-200/80 shadow-md bg-stone-900 p-2.5 space-y-2 select-none"
-          >
-            <div className="flex items-center gap-2 px-3 py-1.5 text-xs font-bold text-amber-200 bg-amber-950/60 rounded-xl border border-amber-800/40 w-fit">
-              <Play className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400" />
-              <span>Demonstration Video: Sargam Scale Practice</span>
-            </div>
-            <video 
-              controls 
-              controlsList="nodownload"
-              onContextMenu={(e) => e.preventDefault()}
-              preload="metadata" 
-              playsInline
-              src="/sargam_video.mp4" 
-              className="w-full h-auto max-h-[380px] rounded-xl object-contain mx-auto bg-black"
-            >
-              Your browser does not support the video tag.
-            </video>
-          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div className="bg-bamboo-50 border border-bamboo-200 p-3.5 rounded-2xl text-center space-y-1">

@@ -115,13 +115,14 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
     return (
       <div className="flex flex-wrap gap-1.5 items-center">
         {tokens.map((token, i) => {
-          const isKomal = /(^|\.)[rgdn]('?)$/.test(token) || token.toLowerCase().includes('komal');
-          const isTivra = token.includes('^') || token.toLowerCase().includes('tivra') || token.toLowerCase().includes('m(tivra)');
+          const isKomal = token.toLowerCase().includes('komal');
+          const isTivra = token.toLowerCase().includes('tivra') || token.toLowerCase().includes('m(tivra)');
 
           let cleanName = token
             .replace(/\(komal\)/gi, '♭')
             .replace(/\(tivra\)/gi, '♯')
-            .replace(/\(lower\)/gi, '↓');
+            .replace(/\(lower\)/gi, '↓')
+            .replace(/'/g, '′');
 
           return (
             <span
@@ -163,65 +164,36 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
       // Map swara tokens to base frequency ratios relative to Sa = C4 (261.63 Hz)
       const baseSa = 261.63;
       const freqMap: Record<string, number> = {
-        // Lower octave (Mandra)
-        '.P': baseSa * 1.49831 * 0.5,
-        '.d': baseSa * 1.58740 * 0.5,
-        '.D': baseSa * 1.68179 * 0.5,
-        '.n': baseSa * 1.78180 * 0.5,
-        '.N': baseSa * 1.88775 * 0.5,
-        '.M^': baseSa * 1.41421 * 0.5,
-        '.M': baseSa * 1.33484 * 0.5,
-        '.m': baseSa * 1.33484 * 0.5,
-        // Middle octave (Madhya)
-        'S': baseSa,
-        'r': baseSa * 1.05946,
-        'R': baseSa * 1.12246,
-        'g': baseSa * 1.18921,
-        'G': baseSa * 1.25992,
-        'M': baseSa * 1.33484,
-        'm': baseSa * 1.33484,
-        'M^': baseSa * 1.41421,
-        'm^': baseSa * 1.41421,
-        'P': baseSa * 1.49831,
-        'd': baseSa * 1.58740,
-        'D': baseSa * 1.68179,
-        'n': baseSa * 1.78180,
-        'N': baseSa * 1.88775,
-        // Higher octave (Taar)
-        "S'": baseSa * 2.0,
-        "r'": baseSa * 1.05946 * 2.0,
-        "R'": baseSa * 1.12246 * 2.0,
-        "g'": baseSa * 1.18921 * 2.0,
-        "G'": baseSa * 1.25992 * 2.0,
-        "M'": baseSa * 1.33484 * 2.0,
-        "M^'": baseSa * 1.41421 * 2.0,
-        "P'": baseSa * 1.49831 * 2.0,
-        "d'": baseSa * 1.58740 * 2.0,
-        "D'": baseSa * 1.68179 * 2.0,
-        "n'": baseSa * 1.78180 * 2.0,
-        "N'": baseSa * 1.88775 * 2.0,
-        // Legacy verbose aliases
         'sa': baseSa,
+        're(komal)': baseSa * 1.05946,
         're': baseSa * 1.12246,
+        'ga(komal)': baseSa * 1.18921,
         'ga': baseSa * 1.25992,
         'ma': baseSa * 1.33484,
-        'pa': baseSa * 1.49831,
-        'dha': baseSa * 1.68179,
-        'ni': baseSa * 1.88775,
-        're(komal)': baseSa * 1.05946,
-        'ga(komal)': baseSa * 1.18921,
         'ma(tivra)': baseSa * 1.41421,
+        'pa': baseSa * 1.49831,
         'dha(komal)': baseSa * 1.58740,
+        'dha': baseSa * 1.68179,
         'ni(komal)': baseSa * 1.78180,
+        'ni': baseSa * 1.88775,
         "sa'": baseSa * 2.0,
+        // Short forms
+        's': baseSa,
+        'r': baseSa * 1.12246,
+        'g': baseSa * 1.25992,
+        'm': baseSa * 1.33484,
+        'p': baseSa * 1.49831,
+        'd': baseSa * 1.68179,
+        'n': baseSa * 1.88775,
+        "s'": baseSa * 2.0
       };
 
       const tokens = aarohStr.split(/[\s,]+/).filter(Boolean);
       let startTime = ctx.currentTime + 0.1;
 
       tokens.forEach((token, idx) => {
-        const cleanKey = token.trim();
-        const freq = freqMap[cleanKey] || freqMap[cleanKey.toLowerCase()] || baseSa * (1 + idx * 0.12);
+        const cleanKey = token.toLowerCase().trim();
+        const freq = freqMap[cleanKey] || baseSa * (1 + idx * 0.12);
 
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
