@@ -353,6 +353,18 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
   }, [selectedCategory, categoryMeta, activeSlug]);
 
   // Filter FAQs based on active category & live search text
+  const matchesCategory = (faqCategory: string, targetCategory: string) => {
+    if (targetCategory === 'All Categories') return true;
+    if (faqCategory === targetCategory) return true;
+    if ((targetCategory === 'Choosing a Flute' || targetCategory === 'Choosing the Right Flute') && (faqCategory === 'Choosing a Flute' || faqCategory === 'Choosing the Right Flute')) return true;
+    if ((targetCategory === 'Music Theory & Tuning' || targetCategory === 'Music Theory & Notation' || targetCategory === 'Music Theory') && (faqCategory === 'Music Theory & Tuning' || faqCategory === 'Music Theory & Notation' || faqCategory === 'Music Theory')) return true;
+    if ((targetCategory === 'Flute Types' || targetCategory === 'Flute Types & Scales') && (faqCategory === 'Flute Types' || faqCategory === 'Flute Types & Scales')) return true;
+    if ((targetCategory === 'Flute Tuning & Pitch' || targetCategory === 'Tuning & Pitch Calibration') && (faqCategory === 'Flute Tuning & Pitch' || faqCategory === 'Tuning & Pitch Calibration')) return true;
+    if ((targetCategory === 'Flute Accessories' || targetCategory === 'Flute Accessories & Gear') && (faqCategory === 'Flute Accessories' || faqCategory === 'Flute Accessories & Gear')) return true;
+    if ((targetCategory === 'Raagas' || targetCategory === 'Raagas & Sargam') && (faqCategory === 'Raagas' || faqCategory === 'Raagas & Sargam')) return true;
+    return false;
+  };
+
   const filteredFaqs = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
 
@@ -368,23 +380,7 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
       }
 
       // When there is no search query, filter by selected category
-      const matchesCategory =
-        selectedCategory === 'All Categories' ||
-        faq.category === selectedCategory ||
-        ((selectedCategory === 'Choosing a Flute' || selectedCategory === 'Choosing the Right Flute') &&
-         (faq.category === 'Choosing a Flute' || faq.category === 'Choosing the Right Flute')) ||
-        ((selectedCategory === 'Music Theory & Tuning' || selectedCategory === 'Music Theory & Notation' || selectedCategory === 'Music Theory') &&
-         (faq.category === 'Music Theory & Tuning' || faq.category === 'Music Theory & Notation' || faq.category === 'Music Theory')) ||
-        ((selectedCategory === 'Flute Types' || selectedCategory === 'Flute Types & Scales') &&
-         (faq.category === 'Flute Types' || faq.category === 'Flute Types & Scales')) ||
-        ((selectedCategory === 'Flute Tuning & Pitch' || selectedCategory === 'Tuning & Pitch Calibration') &&
-         (faq.category === 'Flute Tuning & Pitch' || faq.category === 'Tuning & Pitch Calibration')) ||
-        ((selectedCategory === 'Flute Accessories' || selectedCategory === 'Flute Accessories & Gear') &&
-         (faq.category === 'Flute Accessories' || faq.category === 'Flute Accessories & Gear')) ||
-        ((selectedCategory === 'Raagas' || selectedCategory === 'Raagas & Sargam') &&
-         (faq.category === 'Raagas' || faq.category === 'Raagas & Sargam'));
-
-      return matchesCategory;
+      return matchesCategory(faq.category, selectedCategory);
     });
   }, [selectedCategory, searchQuery]);
 
@@ -638,9 +634,7 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
               aria-label="Select FAQ Category"
             >
               {CATEGORIES.map((cat) => {
-                const count = cat === 'All Categories' 
-                  ? FAQ_DATA.length 
-                  : FAQ_DATA.filter(f => f.category === cat || ((cat === 'Choosing a Flute' || cat === 'Choosing the Right Flute') && (f.category === 'Choosing a Flute' || f.category === 'Choosing the Right Flute'))).length;
+                const count = FAQ_DATA.filter(f => matchesCategory(f.category, cat)).length;
                 return (
                   <option key={cat} value={cat}>
                     {cat} ({count} Q&amp;A)
@@ -660,15 +654,8 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
             <Filter className="w-3 h-3 text-amber-600" /> Filter:
           </span>
           {CATEGORIES.map((cat) => {
-            const count = cat === 'All Categories' 
-              ? FAQ_DATA.length 
-              : FAQ_DATA.filter(f => f.category === cat || ((cat === 'Choosing a Flute' || cat === 'Choosing the Right Flute') && (f.category === 'Choosing a Flute' || f.category === 'Choosing the Right Flute'))).length;
-            const isActive = selectedCategory === cat || 
-              ((cat === 'Raagas' || cat === 'Raagas & Sargam') && (selectedCategory === 'Raagas' || selectedCategory === 'Raagas & Sargam')) ||
-              ((cat === 'Music Theory & Notation' || cat === 'Music Theory & Tuning' || cat === 'Music Theory') && (selectedCategory === 'Music Theory & Notation' || selectedCategory === 'Music Theory & Tuning' || selectedCategory === 'Music Theory')) ||
-              ((cat === 'Flute Tuning & Pitch' || cat === 'Tuning & Pitch Calibration') && (selectedCategory === 'Flute Tuning & Pitch' || selectedCategory === 'Tuning & Pitch Calibration')) ||
-              ((cat === 'Flute Accessories' || cat === 'Flute Accessories & Gear') && (selectedCategory === 'Flute Accessories' || selectedCategory === 'Flute Accessories & Gear')) ||
-              ((cat === 'Flute Types' || cat === 'Flute Types & Scales') && (selectedCategory === 'Flute Types' || selectedCategory === 'Flute Types & Scales'));
+            const count = FAQ_DATA.filter(f => matchesCategory(f.category, cat)).length;
+            const isActive = matchesCategory(selectedCategory, cat);
 
             const catSlug = CATEGORY_SLUGS[cat] || '';
             const catHref = catSlug ? `/faq/${catSlug}` : '/faq';
@@ -799,6 +786,7 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
             )}
             {visibleFaqs.map((faq, index) => {
               const isExpanded = !collapsedFaqIds[faq.id];
+              const shouldShowFullAnswer = isExpanded || selectedCategory !== 'All Categories';
 
               return (
                 <div
