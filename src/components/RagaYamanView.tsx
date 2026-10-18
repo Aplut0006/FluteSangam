@@ -38,7 +38,7 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
     'D': 440.00,     // Shuddha Dha (440.00 Hz)
     'N': 493.88,     // Shuddha Ni (493.88 Hz) - Samvadi Swara
     "S'": 523.25,    // Upper Sa (523.25 Hz)
-    "'N": 246.94,    // Lower Ni
+    ".N": 246.94,    // Lower Ni
   };
 
   const getAudioContext = () => {
@@ -432,7 +432,7 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
               </button>
             </div>
             <div className="bg-white rounded-xl p-3 border border-amber-100 flex items-center justify-center gap-1.5 sm:gap-2.5 text-base sm:text-lg font-mono font-extrabold text-bamboo-950 flex-wrap">
-              {["'N", 'R', 'G', 'M^', 'D', 'N', "S'"].map((note, idx) => (
+              {['.N', 'R', 'G', 'M^', 'D', 'N', "S'"].map((note, idx) => (
                 <span key={idx} className={`px-2 py-1 rounded border transition cursor-pointer hover:bg-amber-200 ${note === 'M^' ? 'bg-rose-100 text-rose-950 border-rose-300 font-black' : 'bg-amber-50 border-amber-200'}`} onClick={() => playSwaraTone(note)}>
                   {note}
                 </span>
@@ -484,7 +484,7 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
           <div className="bg-white rounded-xl p-4 border border-amber-200 text-center space-y-2">
             <span className="text-[10px] font-bold text-amber-800 uppercase tracking-wide block">Classical Yaman Pakad Phrases</span>
             <div className="text-sm sm:text-lg font-mono font-bold text-bamboo-950 tracking-wide flex flex-wrap items-center justify-center gap-2">
-              <span className="bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-md">'N R G</span>
+              <span className="bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-md">.N R G</span>
               <span>|</span>
               <span className="bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-md">R G</span>
               <span>|</span>
@@ -510,7 +510,7 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
           </p>
           <div className="bg-white rounded-xl p-4 border border-amber-200 font-mono text-xs sm:text-sm text-bamboo-95 break-words0 break-words space-y-2.5 leading-relaxed">
             <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-              <span className="bg-amber-100/80 text-amber-950 px-2.5 py-1 rounded-md font-bold">'N R G</span>
+              <span className="bg-amber-100/80 text-amber-950 px-2.5 py-1 rounded-md font-bold">.N R G</span>
               <span className="text-gray-400">→</span>
               <span className="bg-rose-100/80 text-rose-950 px-2.5 py-1 rounded-md font-bold">M^</span>
               <span className="text-gray-400">→</span>
@@ -524,7 +524,7 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
               <span className="bg-amber-100/80 text-amber-950 px-2.5 py-1 rounded-md font-bold">R S</span>
             </div>
             <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-2 border-t border-gray-100">
-              <span className="bg-amber-100/80 text-amber-950 px-2.5 py-1 rounded-md font-bold">'N R G</span>
+              <span className="bg-amber-100/80 text-amber-950 px-2.5 py-1 rounded-md font-bold">.N R G</span>
               <span className="text-gray-400">→</span>
               <span className="bg-rose-100/80 text-rose-950 px-2.5 py-1 rounded-md font-bold">M^ D</span>
               <span className="text-gray-400">→</span>
@@ -672,7 +672,7 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
             Repeat slowly <strong>10 times</strong> at steady tempo:
           </p>
           <div className="bg-white rounded-xl p-3 border border-amber-200 space-y-1 text-center font-mono font-bold text-xs sm:text-sm text-bamboo-950">
-            <div>Ascending: 'N R G M^ D N S'</div>
+            <div>Ascending: .N R G M^ D N S'</div>
             <div className="text-amber-800">Descending: S' N D P M^ G R S</div>
           </div>
         </div>
