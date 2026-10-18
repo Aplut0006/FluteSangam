@@ -42,8 +42,6 @@ export default function RagaBhimpalasiView({ onViewChange }: RagaBhimpalasiViewP
     'S\'': 523.25,  // Upper Sa
     'R\'': 587.33,  // Upper Re
     'g\'': 622.25,  // Upper Komal Ga
-    '.D': 220.00,  // Lower Dha (.D)
-    '.n': 233.08,  // Lower Komal Ni (.n)
     'D.': 220.00,  // Lower Dha
     'n.': 233.08,  // Lower Komal Ni
   };
@@ -222,7 +220,7 @@ Finish on Sam: S`;
           <div className="flex flex-wrap items-center gap-y-2 gap-x-4 text-[11px] sm:text-xs text-amber-200/90 font-medium pt-2 border-t border-amber-800/60">
             <div className="flex items-center gap-1.5">
               <Calendar className="w-3.5 h-3.5 text-amber-300 shrink-0" />
-              <span>Published: <strong className="text-amber-100">August 5, 2026</strong></span>
+              <span>Published: <strong className="text-amber-100">October 18, 2026</strong></span>
             </div>
             <div className="flex items-center gap-1.5">
               <Clock className="w-3.5 h-3.5 text-amber-300 shrink-0" />

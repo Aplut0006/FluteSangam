@@ -142,7 +142,7 @@ export default function HomepageOverview({
       title: 'Flute Basics: Embouchure, Hand Grip & Clean Sound Production',
       excerpt: 'A foundational beginner guide covering lip placement, relaxed finger grip, blowing angle, and producing your first clean musical notes.',
       readTime: '8 min read',
-      date: 'August 5, 2026',
+      date: 'October 18, 2026',
       category: 'Beginner Basics',
       targetView: 'learn_basics' as AppView,
       highlights: ['Embouchure angle', 'Hand grip technique', 'Clean sound production']

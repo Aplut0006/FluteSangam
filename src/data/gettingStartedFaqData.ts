@@ -180,7 +180,7 @@ Starting on a 6-hole bansuri allows you to master foundational finger sealing, p
     id: 'start-defective-flute-vs-technique',
     category: 'Getting Started',
     question: 'How do I know if a sound problem is caused by my technique or a defective flute?',
-    answer: `When struggling to produce a clean sound, beginners often wonder if their instrument is defective. You can definitively diagnose whether the issue stems from your blowing technique or a flawed flute using this simple 3-step test:
+    answer: `When struggling to produce a clean sound, beginners often wonder if their instrument is defective. You can begin to troubleshoot whether an issue stems from your blowing technique or a flawed flute using these preliminary checks:
 
 1. Open Hole Blow Test: Blow across the open blow hole without closing any finger holes. If you produce a loud, clear, resonant tone, this is a strong initial indicator that the blowing edge (embouchure hole) is clear and the internal cork is positioned effectively for basic sound production.
 2. Sequential Finger Seal Check: Cover holes one by one from top to bottom. If squeaking or air leakage occurs at a specific hole, inspect the bamboo for hairline cracks, rough hole edges, or check if your finger pad is leaving an air gap.

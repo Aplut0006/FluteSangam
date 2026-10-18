@@ -460,7 +460,7 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
       </nav>
 
       {/* Header Banner */}
-      <div className="bg-gradient-to-br from-[#2a0b04] via-[#431407] to-[#1e0702] text-white rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden border border-amber-800/40">
+      <div className="bg-gradient-to-br from-bamboo-950 via-bamboo-900 to-amber-950 text-white rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden border border-amber-800/40">
         <div className="absolute top-0 right-0 transform translate-x-12 -translate-y-12 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 transform -translate-x-12 translate-y-12 w-64 h-64 bg-bamboo-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -829,6 +829,12 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
                       <h3 className="text-base sm:text-lg font-bold font-display text-bamboo-950 group-hover:text-amber-800 transition-colors leading-snug">
                         {index + 1}. {faq.question}
                       </h3>
+                      {/* Show preview if not expanded */}
+                      {!isExpanded && (
+                        <p className="text-xs text-gray-500 line-clamp-1 mt-1">
+                          {faq.answer.substring(0, 100)}...
+                        </p>
+                      )}
                     </div>
 
                     <div className={`p-2 rounded-xl transition-all shrink-0 ${
@@ -973,7 +979,7 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
             className="px-5 py-2.5 bg-bamboo-900 hover:bg-bamboo-950 text-white font-bold text-xs sm:text-sm rounded-xl shadow-md transition cursor-pointer flex items-center gap-2"
           >
             <BookOpen className="w-4 h-4 text-amber-400" />
-            <span>Join Community</span>
+            <Link to="/community" className="text-amber-600 hover:text-amber-800 font-bold">Join Community</Link>
           </Link>
         </div>
       </section>
