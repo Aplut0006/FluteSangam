@@ -119,7 +119,7 @@ Step-by-Step Fixes for Tone Purity:
 1. Narrow Lip Aperture: Reduce the size of your central lip opening so air escapes in a fine, concentrated jet rather than a broad, diffuse cloud.
 2. Centering the Air Jet: Verify in a mirror that the blow hole is centered on your lower lip and that your air stream hits the splitting edge at a 45-degree angle.
 3. Check Finger Hole Seals: Verify that all finger holes are completely covered by soft, flat finger pads without hairline gaps.
-4. Practice Daily Kharaj Long Blows: Holding single notes (Sa, Pa) for 15+ seconds daily trains your lip muscles to maintain focus and eliminates breathiness permanently.`,
+4. Practice Daily Kharaj Long Blows: Holding single notes (Sa, Pa) for 15+ seconds daily is a foundational exercise that helps train your lip muscles, improve air focus, and reduce breathiness over time as your embouchure strength develops.`,
     relatedLink: { text: 'Read Common Beginner Flute Fixes', view: 'learn_common_mistakes' },
     tags: ['airy sound', 'tone clarity', 'embouchure', 'troubleshooting']
   },
@@ -163,19 +163,6 @@ Keys to Master Deep Mandra Notes:
     tags: ['lower notes', 'mandra saptak', 'air velocity', 'finger seal']
   },
   {
-    id: 'tech-half-hole-komal-swaras',
-    category: 'Playing Techniques',
-    question: 'How do I accurately play Komal Swaras (flat notes) using half-hole coverage?',
-    answer: `Playing Komal Swaras (like Komal Re, Komal Ga, Komal Dha, Komal Ni) requires uncovering half of the tone hole while maintaining tone sweetness and pitch stability.
-
-Mastering Half-Hole Komal Swaras:
-1. Smooth Sliding Technique: Gently slide your finger pad backward along the bamboo tube until exactly 50% of the hole is open. Sliding maintains finger contact and ensures smooth tone transitions.
-2. Pitch Checking with Tanpura: Komal swaras require precise pitch placement. Use a live Tanpura drone or FluteSangam tuner to train your muscle memory for exact half-hole positioning.
-3. Air Angle Support: Slightly adjust air speed and roll the flute tube inward by a millimeter for extra pitch warmth on Komal notes.`,
-    relatedLink: { text: 'View Interactive Fingering Chart for Komal Swaras', view: 'learn_fingering_chart' },
-    tags: ['komal swaras', 'half hole', 'sliding finger', 'flat notes']
-  },
-  {
     id: 'tech-meend-smooth-glides',
     category: 'Playing Techniques',
     question: 'What is the secret to executing smooth, unbroken Meend (glides) between distant notes?',
@@ -188,17 +175,4 @@ Techniques for Executing Smooth Meend:
     relatedLink: { text: 'Read Advanced Meend & Ornamentation Guide', view: 'learn_daily_practice' },
     tags: ['meend', 'glides', 'unbroken air', 'ornamentation', 'bansuri meend']
   },
-  {
-    id: 'tech-tonguing-and-articulation',
-    category: 'Playing Techniques',
-    question: 'Should I tongue notes (single/double tonguing) on bansuri, or use breath staccato?',
-    answer: `In Hindustani bansuri playing, note articulation uses a rich blend of breath strokes, finger taps, and light tongue touches depending on musical style and tempo.
-
-Choosing Articulation Methods:
-• Abdominal Breath Strokes (Blow Staccato): For classical Raag Aalap and slow compositions, articulate notes using gentle abdominal air pulses (diaphragm strokes) to preserve the fluid, wooden vocal quality of bansuri music.
-• Light Tongue Taps ("Ta" or "Da"): Used in fast rhythm patterns (Jhala, Drut Gat) and lively folk/fusion pieces. Touch the tip of your tongue lightly to the roof of your mouth behind your front teeth.
-• Finger Tapping (Sparsh Swara): Tapping an upper finger hole briefly acts as an acoustic separator between identical repeated notes (e.g., Sa-Sa-Sa) without needing any tongue contact.`,
-    relatedLink: { text: 'Practice Alankar Articulation Drills', view: 'alankar_generator' },
-    tags: ['tonguing', 'articulation', 'staccato', 'finger taps', 'sparsh swara']
-  }
 ];

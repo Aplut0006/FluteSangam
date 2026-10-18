@@ -301,19 +301,6 @@ Starting with familiar tunes helps you spot pitch mistakes easily and keeps prac
     tags: ['beginner mistakes', 'pitfalls', 'finger pads', 'posture', 'blowing errors']
   },
   {
-    id: 'child-right-flute-size-for-kids',
-    category: 'Children & Beginners',
-    question: 'What size flute is best for a young learner?',
-    answer: `Flute size should be selected by testing comfortable finger-hole reach rather than age alone. A smaller flute may be easier for some children, but hand size, teacher guidance and instrument design should be considered.
-
-Key Considerations:
-• Manageable Hole Spacing: Medium flutes like G Medium or A Medium have closer tone hole intervals that may suit smaller hands and reduce finger strain.
-• Progression with Growth: Older learners with longer finger spans can comfortably adapt to a C Medium as their hand reach develops.
-• Testing Comfort: Before choosing, check if the student can cover the holes without hyper-extending the wrist or stretching fingers unnaturally.`,
-    relatedLink: { text: 'Read Beginner Scale Selection Matrix', view: 'learn_choose_flute' },
-    tags: ['flute size for kids', 'child flute', 'g medium', 'finger reach']
-  },
-  {
     id: 'child-making-practice-fun',
     category: 'Children & Beginners',
     question: 'How can parents make flute practice fun and engaging for young children?',
