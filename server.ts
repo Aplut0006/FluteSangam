@@ -96,7 +96,7 @@ async function startServer() {
   } else {
     vite = await createViteServer({
       server: { middlewareMode: true },
-      appType: "spa",
+      appType: "custom",
     });
     app.use(vite.middlewares);
   }
@@ -135,7 +135,9 @@ async function startServer() {
         }
       }
 
-      const templatePath = path.join(distPath, 'index.html');
+      const cleanTemplate = path.join(distPath, 'template.html');
+      const fallbackTemplate = path.join(distPath, 'index.html');
+      const templatePath = fs.existsSync(cleanTemplate) ? cleanTemplate : fallbackTemplate;
       if (fs.existsSync(templatePath)) {
         const templateHtml = fs.readFileSync(templatePath, 'utf-8');
         const { html, is404 } = await renderRouteHtml(cleanPath, templateHtml);

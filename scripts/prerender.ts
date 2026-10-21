@@ -14,9 +14,28 @@ if (!fs.existsSync(templatePath)) {
 
 const templateHtml = fs.readFileSync(templatePath, 'utf-8');
 
+import { db } from '../src/lib/firebase';
+import { collection, getDocs } from 'firebase/firestore';
+
+// Save unmodified template HTML for dynamic SSR routes
+const cleanTemplatePath = path.join(distDir, 'template.html');
+fs.writeFileSync(cleanTemplatePath, templateHtml, 'utf-8');
+
 // Collect all public indexable routes
 const baseRoutes = Object.values(VIEW_URLS)
   .filter(p => !p.startsWith('/post') && !p.startsWith('/profile') && !p.startsWith('/chats'));
+
+// Fetch all existing public community discussion posts from Firestore
+let postRoutes: string[] = [];
+try {
+  const postsSnapshot = await getDocs(collection(db, 'posts'));
+  postsSnapshot.forEach((docSnap) => {
+    postRoutes.push(`/post/${docSnap.id}`);
+  });
+  console.log(`[Prerender] Retrieved ${postRoutes.length} public community discussion posts for pre-rendering.`);
+} catch (err) {
+  console.warn('[Prerender Warning] Could not fetch posts from Firestore:', err);
+}
 
 const faqCategoryRoutes = Object.values(CATEGORY_SLUGS)
   .filter(Boolean)
@@ -54,6 +73,7 @@ const extraAliases = [
 const allRoutes = Array.from(new Set([
   '/',
   ...baseRoutes,
+  ...postRoutes,
   ...faqCategoryRoutes,
   ...rankedAlankarRoutes,
   ...raagAliasRoutes,
@@ -97,3 +117,4 @@ for (const route of allRoutes) {
 }
 
 console.log(`[Prerender Success] Successfully pre-rendered ${successCount}/${allRoutes.length} static HTML pages into dist/`);
+process.exit(0);
