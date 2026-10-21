@@ -67,6 +67,7 @@ import { MahabharatKrishnaThemeNotationView } from '../components/MahabharatKris
 import { ShriKrishnaGovindHareMurariNotationView } from '../components/ShriKrishnaGovindHareMurariNotationView';
 import { HothonSeChhuLoTumNotationView } from '../components/HothonSeChhuLoTumNotationView';
 import { CommunityFeedView } from '../components/CommunityFeedView';
+import PostDetailView from '../components/PostDetailView';
 import NotFoundView from '../components/NotFoundView';
 
 import Navbar from '../components/Navbar';
@@ -1776,6 +1777,36 @@ export function getRouteMetadata(path: string): RouteMetadata {
           }
         ]
       }
+    };
+  }
+
+  if (cleanPath.startsWith('/post/')) {
+    const postId = cleanPath.replace('/post/', '');
+    return {
+        title: 'Bansuri Community Discussion | FluteSangam',
+        description: 'Read and discuss bansuri flute techniques and performances on FluteSangam.',
+        canonicalUrl: `${DOMAIN}${cleanPath}`,
+        component: PostDetailView,
+        componentProps: {
+            post: {
+                id: postId,
+                authorId: 'system',
+                authorName: 'FluteSangam',
+                authorPhoto: '',
+                authorLevel: 'Beginner',
+                title: 'Bansuri Community Discussion',
+                description: 'Join the discussion on FluteSangam.',
+                category: 'Performance',
+                likes: [],
+                likeCount: 0,
+                commentsCount: 0,
+                createdAt: new Date(),
+            } as any,
+            currentUser: null,
+            onBack: () => {},
+            onOpenAuth: () => {},
+            onOpenShare: () => {}
+        }
     };
   }
 
