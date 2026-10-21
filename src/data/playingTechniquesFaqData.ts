@@ -53,7 +53,7 @@ Dynamic Control & Pitch Compensation Techniques:
 • Playing Louder (Forte): Pushing faster air through the flute increases sound volume but naturally drives pitch sharp. To compensate and stay perfectly in tune, subtly roll the flute tube inward toward your chin or lower your head angle slightly by a millimeter.
 • Playing Softer (Piano / Whisper Notes): Decreasing air pressure reduces volume but causes pitch to drop flat. To compensate, subtly roll the flute tube outward away from your chin or raise your chin slightly.
 • Unbroken Diaphragmatic Core Support: Never collapse your breath support when playing soft, quiet notes. Maintain steady, active diaphragmatic air support behind a narrowed lip opening to keep whisper notes vibrant and in tune.`,
-    relatedLink: { text: 'Read Advanced Tone & Dynamics', view: 'learn_daily_practice' },
+    relatedLink: { text: 'Read Daily Practice Guide', view: 'learn_daily_practice' },
     tags: ['volume control', 'dynamics', 'intonation', 'pitch compensation']
   },
   {

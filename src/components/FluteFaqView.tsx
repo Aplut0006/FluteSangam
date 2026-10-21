@@ -133,7 +133,7 @@ const FAQ_HUB_TOPICS = [
     icon: Compass,
     color: 'from-purple-600 to-purple-700',
     description: 'Assam bamboo Bansuri, PVC beginner flutes, Western silver concert flutes, bass flutes, and scale comparisons.',
-    questionCount: FAQ_DATA.filter(f => f.category === 'Flute Types' || f.category === 'Flute Types & Scales').length
+    questionCount: FAQ_DATA.filter(f => f.category === 'Flute Types' || f.category === 'Flute Types & Scales' || f.category === 'Choosing the Right Flute' || f.category === 'Choosing a Flute').length
   },
   {
     slug: 'getting-started',
@@ -840,12 +840,27 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
                     }`}
                   >
                     <div className="p-4 sm:p-6 space-y-4 text-xs sm:text-sm text-gray-800 leading-relaxed font-sans">
-                      {/* Body Answer Text formatted with paragraphs */}
-                      {faq.answer.split('\n\n').map((paragraph, pIdx) => (
-                        <p key={pIdx} className="leading-relaxed">
-                          {paragraph}
-                        </p>
-                      ))}
+                      {/* Body Answer Text - only show if not in All Categories or if expanded */}
+                      {shouldShowFullAnswer ? (
+                        faq.answer.split('\n\n').map((paragraph, pIdx) => (
+                          <p key={pIdx} className="leading-relaxed">
+                            {paragraph}
+                          </p>
+                        ))
+                      ) : (
+                        <div className="flex items-center justify-between pt-2 border-t border-amber-100">
+                          <p className="text-xs text-gray-500 italic">
+                            {faq.answer.substring(0, 100)}...
+                          </p>
+                          <Link
+                            to={`/faq/${CATEGORY_SLUGS[faq.category] || ''}`}
+                            onClick={() => handleCategorySelect(faq.category)}
+                            className="text-xs font-bold text-amber-700 hover:text-amber-900"
+                          >
+                            View in {faq.category}
+                          </Link>
+                        </div>
+                      )}
 
                       {/* Direct Action Link to Related App Tool */}
                       {faq.relatedLink && (
@@ -962,12 +977,12 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
           </Link>
 
           <Link
-            to="/"
+            to="/community"
             onClick={() => onViewChange?.('community')}
             className="px-5 py-2.5 bg-bamboo-900 hover:bg-bamboo-950 text-white font-bold text-xs sm:text-sm rounded-xl shadow-md transition cursor-pointer flex items-center gap-2"
           >
             <BookOpen className="w-4 h-4 text-amber-400" />
-            <Link to="/community" className="text-amber-600 hover:text-amber-800 font-bold">Join Community</Link>
+            <span className="text-amber-300 hover:text-white font-bold">Join Community</span>
           </Link>
         </div>
       </section>

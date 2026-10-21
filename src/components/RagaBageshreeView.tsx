@@ -18,6 +18,7 @@ export default function RagaBageshreeView({ onViewChange }: RagaBageshreeViewPro
   // Interactive Swara Audio Player using Web Audio API
   const [activeSwara, setActiveSwara] = useState<string | null>(null);
   const [isPlayingComposition, setIsPlayingComposition] = useState<boolean>(false);
+  const [isPlayingSequence, setIsPlayingSequence] = useState<boolean>(false);
   const [bpm, setBpm] = useState<number>(60);
   const [currentBeat, setCurrentBeat] = useState<number>(0);
   const [copiedSection, setCopiedSection] = useState<string | null>(null);
@@ -45,6 +46,15 @@ export default function RagaBageshreeView({ onViewChange }: RagaBageshreeViewPro
     '.n': 233.08,  // Lower Komal Ni (.n)
     'D.': 220.00,  // Lower Dha
     'n.': 233.08,  // Lower Komal Ni
+  };
+
+  const playSequence = async (sequence: string[]) => {
+    setIsPlayingSequence(true);
+    for (const swara of sequence) {
+      playSwaraTone(swara, 0.5);
+      await new Promise(resolve => setTimeout(resolve, 600));
+    }
+    setIsPlayingSequence(false);
   };
 
   const getAudioContext = () => {
@@ -243,8 +253,8 @@ Finish on Sam: S`;
             <div className="flex items-center gap-1">
               <Calendar className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
               <span>Published: </span>
-              <time itemProp="datePublished" dateTime="2026-08-04" className="font-bold text-gray-800">
-                Aug 4, 2026
+              <time itemProp="datePublished" dateTime="2026-10-21" className="font-bold text-gray-800">
+                Oct 21, 2026
               </time>
             </div>
             <span>•</span>
@@ -361,7 +371,10 @@ Finish on Sam: S`;
         <div className="bg-indigo-50/60 border border-indigo-200/80 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 space-y-2">
           <div className="flex items-center justify-between">
             <span className="text-[11px] sm:text-xs font-bold text-indigo-900 uppercase tracking-wider">Aaroh (Ascending Scale)</span>
-            <span className="text-[10px] sm:text-[11px] font-semibold text-indigo-700 bg-indigo-100 px-2 py-0.5 rounded-md">Audav (5 Notes)</span>
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] sm:text-[11px] font-semibold text-indigo-700 bg-indigo-100 px-2 py-0.5 rounded-md">Audav (5 Notes)</span>
+              <button onClick={() => playSequence(['S', 'g', 'M', 'D', 'n', "S'"])} className="text-[10px] bg-indigo-600 text-white px-2 py-0.5 rounded-md hover:bg-indigo-700">Play</button>
+            </div>
           </div>
           <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-1">
             {['S', 'g', 'M', 'D', 'n', "S'"].map((swara, idx) => (
@@ -386,7 +399,10 @@ Finish on Sam: S`;
         <div className="bg-emerald-50/60 border border-emerald-200/80 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 space-y-2">
           <div className="flex items-center justify-between">
             <span className="text-[11px] sm:text-xs font-bold text-emerald-900 uppercase tracking-wider">Avaroh (Descending Scale)</span>
-            <span className="text-[10px] sm:text-[11px] font-semibold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md">Sampurna (7 Notes)</span>
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] sm:text-[11px] font-semibold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md">Sampurna (7 Notes)</span>
+              <button onClick={() => playSequence(["S'", 'n', 'D', 'M', 'P', 'M', 'g', 'R', 'S'])} className="text-[10px] bg-emerald-600 text-white px-2 py-0.5 rounded-md hover:bg-emerald-700">Play</button>
+            </div>
           </div>
           <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-1">
             {["S'", 'n', 'D', 'M', 'P', 'M', 'g', 'R', 'S'].map((swara, idx) => (
@@ -697,7 +713,6 @@ Finish on Sam: S`;
                 isPlayingComposition ? 'bg-amber-500 text-bamboo-950 hover:bg-amber-400' : 'bg-indigo-700 text-white hover:bg-indigo-800'
               }`}
             >
-              {isPlayingComposition ? <Pause className="w-4 h-4 shrink-0" /> : <Play className="w-4 h-4 shrink-0" />}
               <span>{isPlayingComposition ? `Beat ${currentBeat} / 16` : 'Start Metronome'}</span>
             </button>
           </div>

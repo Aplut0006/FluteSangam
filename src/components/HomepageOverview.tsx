@@ -151,7 +151,7 @@ export default function HomepageOverview({
       title: 'Choosing Your First Bansuri: C-Middle vs G-Natural Base',
       excerpt: 'Comprehensive comparison guide on hole spacing, embouchure size, blowing resistance, and key pitch recommendations for beginners.',
       readTime: '6 min read',
-      date: 'October 18, 2026',
+      date: 'October 11, 2026',
       category: 'Buying Guide',
       targetView: 'learn_choose_flute' as AppView,
       highlights: ['Finger stretch check', 'Bansuri scale choice', 'Blowing hole size']
@@ -160,7 +160,7 @@ export default function HomepageOverview({
       title: 'Frequently Asked Questions: Bansuri Learning, Care & Practice FAQ',
       excerpt: 'Explore comprehensive answers to 100+ common questions on flute selection, daily practice pacing, child learners, tuning, and maintenance.',
       readTime: '7 min read',
-      date: 'August 3, 2026',
+      date: 'September 17, 2026',
       category: 'Knowledge Base',
       targetView: 'flute_faq' as AppView,
       highlights: ['Bansuri Q&A', 'Practice routines', 'Care & maintenance']
