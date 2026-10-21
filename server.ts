@@ -138,7 +138,7 @@ async function startServer() {
       const templatePath = path.join(distPath, 'index.html');
       if (fs.existsSync(templatePath)) {
         const templateHtml = fs.readFileSync(templatePath, 'utf-8');
-        const { html, is404 } = renderRouteHtml(cleanPath, templateHtml);
+        const { html, is404 } = await renderRouteHtml(cleanPath, templateHtml);
         return res.status(is404 ? 404 : 200).setHeader('Content-Type', 'text/html').send(html);
       }
     } else {
@@ -149,7 +149,7 @@ async function startServer() {
         if (vite) {
           templateHtml = await vite.transformIndexHtml(req.originalUrl || cleanPath, templateHtml);
         }
-        const { html, is404 } = renderRouteHtml(cleanPath, templateHtml);
+        const { html, is404 } = await renderRouteHtml(cleanPath, templateHtml);
         return res.status(is404 ? 404 : 200).setHeader('Content-Type', 'text/html').send(html);
       }
     }

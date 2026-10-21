@@ -125,7 +125,7 @@ export function isAdExcludedRoute(routePath: string, is404?: boolean): boolean {
   return AD_EXCLUDED_ROUTES.some(p => clean === p || clean.startsWith(p + '/'));
 }
 
-export function getRouteMetadata(path: string): RouteMetadata {
+export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
   // Normalize path
   let cleanPath = path.trim().split('?')[0].split('#')[0];
   if (cleanPath.length > 1 && cleanPath.endsWith('/')) {
@@ -1782,31 +1782,49 @@ export function getRouteMetadata(path: string): RouteMetadata {
 
   if (cleanPath.startsWith('/post/')) {
     const postId = cleanPath.replace('/post/', '');
-    return {
-        title: 'Bansuri Community Discussion | FluteSangam',
-        description: 'Read and discuss bansuri flute techniques and performances on FluteSangam.',
-        canonicalUrl: `${DOMAIN}${cleanPath}`,
-        component: PostDetailView,
-        componentProps: {
-            post: {
-                id: postId,
-                authorId: 'system',
-                authorName: 'FluteSangam',
-                authorPhoto: '',
-                authorLevel: 'Beginner',
-                title: 'Bansuri Community Discussion',
-                description: 'Join the discussion on FluteSangam.',
-                category: 'Performance',
-                likes: [],
-                likeCount: 0,
-                commentsCount: 0,
-                createdAt: new Date(),
-            } as any,
-            currentUser: null,
-            onBack: () => {},
-            onOpenAuth: () => {},
-            onOpenShare: () => {}
+    // Simple fetch check to see if post exists
+    try {
+        const response = await fetch(`https://firestore.googleapis.com/v1/projects/gen-lang-client-0699287191/databases/ai-studio-flutesangam-1ddb0191-a147-4a93-8968-cf11ac1d554d/documents/posts/${postId}`);
+        
+        if (response.status === 200) {
+            return {
+                title: 'Bansuri Community Discussion | FluteSangam',
+                description: 'Read and discuss bansuri flute techniques and performances on FluteSangam.',
+                canonicalUrl: `${DOMAIN}${cleanPath}`,
+                component: PostDetailView,
+                componentProps: {
+                    post: {
+                        id: postId,
+                        authorId: 'system',
+                        authorName: 'FluteSangam',
+                        authorPhoto: '',
+                        authorLevel: 'Beginner',
+                        title: 'Bansuri Community Discussion',
+                        description: 'Join the discussion on FluteSangam.',
+                        category: 'Performance',
+                        likes: [],
+                        likeCount: 0,
+                        commentsCount: 0,
+                        createdAt: new Date(),
+                    } as any,
+                    currentUser: null,
+                    onBack: () => {},
+                    onOpenAuth: () => {},
+                    onOpenShare: () => {}
+                }
+            };
         }
+    } catch (error) {
+        console.error('Error fetching post:', error);
+    }
+    
+    // Fallback for non-existent posts or error
+    return {
+        title: 'Page Not Found | FluteSangam',
+        description: 'The requested page could not be found on FluteSangam.',
+        canonicalUrl: `${DOMAIN}/404`,
+        component: NotFoundView,
+        is404: true
     };
   }
 
@@ -1820,14 +1838,14 @@ export function getRouteMetadata(path: string): RouteMetadata {
   };
 }
 
-export function renderRouteHtml(path: string, templateHtml: string): { 
+export async function renderRouteHtml(path: string, templateHtml: string): Promise<{ 
   html: string; 
   title: string; 
   description: string; 
   canonicalUrl: string;
   is404: boolean;
-} {
-  const meta = getRouteMetadata(path);
+}> {
+  const meta = await getRouteMetadata(path);
 
   // If this is an explicit 301/permanent redirect route
   if (meta.redirectUrl) {

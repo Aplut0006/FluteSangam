@@ -66,7 +66,7 @@ let successCount = 0;
 
 for (const route of allRoutes) {
   try {
-    const { html, title } = renderRouteHtml(route, templateHtml);
+    const { html, title } = await renderRouteHtml(route, templateHtml);
 
     if (route === '/') {
       // Overwrite root dist/index.html
