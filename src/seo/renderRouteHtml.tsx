@@ -71,7 +71,7 @@ import PostDetailView from '../components/PostDetailView';
 import NotFoundView from '../components/NotFoundView';
 import { Post } from '../types';
 
-const postCache = new Map<string, { exists: boolean; meta?: RouteMetadata; timestamp: number }>();
+const postCache = new Map<string, RouteMetadata>();
 
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -1785,99 +1785,90 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
 
   if (cleanPath.startsWith('/post/')) {
     const postId = cleanPath.replace('/post/', '').trim();
-    if (!postId) {
-      return {
-        title: 'Community Discussions | FluteSangam',
-        description: 'Read and discuss bansuri flute techniques and performances on FluteSangam.',
-        canonicalUrl: `${DOMAIN}/community`,
-        redirectUrl: `${DOMAIN}/community`,
-        component: CommunityFeedView
-      };
-    }
-
-    // Check in-memory cache first (5-minute TTL)
-    const cached = postCache.get(postId);
-    if (cached && Date.now() - cached.timestamp < 300000) {
-      if (cached.exists && cached.meta) {
-        return cached.meta;
-      } else {
-        return {
-          title: 'Page Not Found | FluteSangam',
-          description: 'The requested discussion could not be found on FluteSangam.',
-          canonicalUrl: `${DOMAIN}/404`,
-          component: NotFoundView,
-          is404: true
-        };
-      }
+    if (postCache.has(postId)) {
+      return postCache.get(postId)!;
     }
 
     try {
-      const response = await fetch(`https://firestore.googleapis.com/v1/projects/gen-lang-client-0699287191/databases/ai-studio-flutesangam-1ddb0191-a147-4a93-8968-cf11ac1d554d/documents/posts/${postId}`);
-      
+      const apiKey = 'AIzaSyA2N-RGtzr0j7RFL7O7i6c5ioj1UkuajAE';
+      const firestoreDb = 'ai-studio-flutesangam-1ddb0191-a147-4a93-8968-cf11ac1d554d';
+      const response = await fetch(
+        `https://firestore.googleapis.com/v1/projects/gen-lang-client-0699287191/databases/${firestoreDb}/documents/posts/${postId}?key=${apiKey}`
+      );
+
       if (response.status === 200) {
-        const postDoc = await response.json();
-        const f = postDoc.fields || {};
-        
-        const title = f.title?.stringValue?.trim() || 'Bansuri Community Discussion';
-        const description = f.description?.stringValue?.trim() || 'Join the flute practice and playing discussion on FluteSangam.';
-        const authorName = f.authorName?.stringValue?.trim() || 'Flute Community Member';
-        const authorPhoto = f.authorPhoto?.stringValue || '';
+        const doc = await response.json();
+        const f = doc.fields || {};
+
+        const title = f.title?.stringValue || 'Bansuri Community Discussion';
+        const description = f.description?.stringValue || 'Read and discuss bansuri flute techniques and performances on FluteSangam.';
+        const authorName = f.authorName?.stringValue || 'Flute Community Member';
+        const authorUsername = f.authorUsername?.stringValue || 'musician';
+        const authorPhoto = f.authorPhoto?.stringValue || 'https://api.dicebear.com/7.x/adventurer/svg?seed=Flute';
         const authorLevel = f.authorLevel?.stringValue || 'Beginner';
-        const authorId = f.authorId?.stringValue || 'community';
-        const category = f.category?.stringValue || 'Discussion';
-        const raga = f.raga?.stringValue;
-        const audioUrl = f.audioUrl?.stringValue;
-        const videoUrl = f.videoUrl?.stringValue;
-        const imageUrl = f.imageUrl?.stringValue;
+        const category = (f.category?.stringValue || 'Question') as any;
         const likeCount = parseInt(f.likeCount?.integerValue || '0', 10);
         const commentsCount = parseInt(f.commentsCount?.integerValue || '0', 10);
-        const createdAt = f.createdAt?.timestampValue ? new Date(f.createdAt.timestampValue) : new Date();
+        const createdAtRaw = f.createdAt?.timestampValue;
+        const createdAt = createdAtRaw ? new Date(createdAtRaw) : new Date();
+        const authorId = f.authorId?.stringValue || 'system';
+        const imageUrl = f.imageUrl?.stringValue;
+        const videoUrl = f.videoUrl?.stringValue;
+        const raga = f.raga?.stringValue;
 
-        const postMetaTitle = `${title} | Flute Community | FluteSangam`;
-        const postMetaDesc = description.length > 155 ? `${description.slice(0, 152).trim()}...` : description;
-        const postCanonical = `${DOMAIN}/post/${postId}`;
-
-        const postObj: Post = {
+        const post: Post = {
           id: postId,
           authorId,
           authorName,
+          authorUsername,
           authorPhoto,
-          authorLevel: authorLevel as any,
+          authorLevel,
           title,
           description,
-          category: category as any,
-          raga,
-          videoUrl,
-          imageUrl,
+          category,
           likes: [],
           likeCount,
           commentsCount,
-          createdAt
+          createdAt,
+          imageUrl,
+          videoUrl,
+          raga
         };
 
-        const postMetadata: RouteMetadata = {
-          title: postMetaTitle,
-          description: postMetaDesc,
-          canonicalUrl: postCanonical,
+        const pageTitle = `${title} | Flute Community | FluteSangam`;
+        const metaDesc = description.length > 155 ? `${description.slice(0, 152)}...` : description;
+        const canonicalUrl = `${DOMAIN}/post/${postId}`;
+
+        const postMeta: RouteMetadata = {
+          title: pageTitle,
+          description: metaDesc,
+          canonicalUrl,
           component: PostDetailView,
           componentProps: {
-            post: postObj,
+            post,
             currentUser: null,
             onBack: () => {},
             onOpenAuth: () => {},
             onOpenShare: () => {}
           },
+          is404: false,
           jsonLd: {
             '@context': 'https://schema.org',
             '@type': 'DiscussionForumPosting',
-            '@id': `${postCanonical}#posting`,
+            '@id': `${canonicalUrl}#posting`,
             'headline': title,
             'articleBody': description,
             'datePublished': createdAt.toISOString(),
-            'url': postCanonical,
+            'url': canonicalUrl,
             'author': {
               '@type': 'Person',
               'name': authorName
+            },
+            'publisher': {
+              '@type': 'Organization',
+              'name': 'FluteSangam',
+              'url': DOMAIN,
+              'logo': `${DOMAIN}/flutesangam_icon_compressed.png`
             },
             'interactionStatistic': [
               {
@@ -1890,26 +1881,18 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
                 'interactionType': 'https://schema.org/CommentAction',
                 'userInteractionCount': commentsCount
               }
-            ],
-            'publisher': {
-              '@type': 'Organization',
-              'name': 'FluteSangam',
-              'url': DOMAIN,
-              'logo': `${DOMAIN}/flutesangam_icon_compressed.png`
-            }
+            ]
           }
         };
 
-        postCache.set(postId, { exists: true, meta: postMetadata, timestamp: Date.now() });
-        return postMetadata;
-      } else {
-        postCache.set(postId, { exists: false, timestamp: Date.now() });
+        postCache.set(postId, postMeta);
+        return postMeta;
       }
     } catch (error) {
-      console.error('Error fetching post for SSR:', error);
+      console.error('Error fetching post from Firestore:', error);
     }
-    
-    // Fallback for genuinely non-existent posts or fetch failure
+
+    // Fallback for non-existent posts or error
     return {
       title: 'Page Not Found | FluteSangam',
       description: 'The requested discussion could not be found on FluteSangam.',

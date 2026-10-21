@@ -135,9 +135,7 @@ async function startServer() {
         }
       }
 
-      const cleanTemplate = path.join(distPath, 'template.html');
-      const fallbackTemplate = path.join(distPath, 'index.html');
-      const templatePath = fs.existsSync(cleanTemplate) ? cleanTemplate : fallbackTemplate;
+      const templatePath = path.join(distPath, 'index.html');
       if (fs.existsSync(templatePath)) {
         const templateHtml = fs.readFileSync(templatePath, 'utf-8');
         const { html, is404 } = await renderRouteHtml(cleanPath, templateHtml);

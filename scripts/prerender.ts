@@ -14,28 +14,9 @@ if (!fs.existsSync(templatePath)) {
 
 const templateHtml = fs.readFileSync(templatePath, 'utf-8');
 
-import { db } from '../src/lib/firebase';
-import { collection, getDocs } from 'firebase/firestore';
-
-// Save unmodified template HTML for dynamic SSR routes
-const cleanTemplatePath = path.join(distDir, 'template.html');
-fs.writeFileSync(cleanTemplatePath, templateHtml, 'utf-8');
-
 // Collect all public indexable routes
 const baseRoutes = Object.values(VIEW_URLS)
   .filter(p => !p.startsWith('/post') && !p.startsWith('/profile') && !p.startsWith('/chats'));
-
-// Fetch all existing public community discussion posts from Firestore
-let postRoutes: string[] = [];
-try {
-  const postsSnapshot = await getDocs(collection(db, 'posts'));
-  postsSnapshot.forEach((docSnap) => {
-    postRoutes.push(`/post/${docSnap.id}`);
-  });
-  console.log(`[Prerender] Retrieved ${postRoutes.length} public community discussion posts for pre-rendering.`);
-} catch (err) {
-  console.warn('[Prerender Warning] Could not fetch posts from Firestore:', err);
-}
 
 const faqCategoryRoutes = Object.values(CATEGORY_SLUGS)
   .filter(Boolean)
@@ -69,15 +50,48 @@ const extraAliases = [
   '/faq/flute-tuning-and-pitch'
 ];
 
+// Fetch all existing public discussions from Firestore to prerender them for crawlers and direct access
+const publicPostRoutes: string[] = [];
+try {
+  const apiKey = 'AIzaSyA2N-RGtzr0j7RFL7O7i6c5ioj1UkuajAE';
+  const firestoreDb = 'ai-studio-flutesangam-1ddb0191-a147-4a93-8968-cf11ac1d554d';
+  const postRes = await fetch(
+    `https://firestore.googleapis.com/v1/projects/gen-lang-client-0699287191/databases/${firestoreDb}/documents:runQuery?key=${apiKey}`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        structuredQuery: {
+          from: [{ collectionId: 'posts' }]
+        }
+      })
+    }
+  );
+  if (postRes.ok) {
+    const postData = (await postRes.json()) as any[];
+    for (const item of postData) {
+      if (item.document?.name) {
+        const postId = item.document.name.split('/').pop();
+        if (postId) {
+          publicPostRoutes.push(`/post/${postId}`);
+        }
+      }
+    }
+    console.log(`[Prerender] Retrieved ${publicPostRoutes.length} public discussions from Firestore.`);
+  }
+} catch (err) {
+  console.error('[Prerender Warning] Could not retrieve community posts for prerendering:', err);
+}
+
 // Combine all routes into a unique set
 const allRoutes = Array.from(new Set([
   '/',
   ...baseRoutes,
-  ...postRoutes,
   ...faqCategoryRoutes,
   ...rankedAlankarRoutes,
   ...raagAliasRoutes,
-  ...extraAliases
+  ...extraAliases,
+  ...publicPostRoutes
 ]));
 
 console.log(`[Prerender] Starting static HTML generation for ${allRoutes.length} public routes...`);
@@ -117,4 +131,3 @@ for (const route of allRoutes) {
 }
 
 console.log(`[Prerender Success] Successfully pre-rendered ${successCount}/${allRoutes.length} static HTML pages into dist/`);
-process.exit(0);
