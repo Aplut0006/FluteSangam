@@ -767,10 +767,13 @@ export default function App() {
     const pathname = window.location.pathname.toLowerCase();
     const isExcluded = 
       currentView === 'not_found' ||
+      currentView === 'post-detail' ||
       currentView === 'notation_requests' ||
       currentView === 'community_members' ||
       currentView === 'user-profile' ||
       currentView === 'chats' ||
+      pathname === '/post' ||
+      pathname.startsWith('/post/') ||
       pathname === '/notations' ||
       pathname.startsWith('/notations/') ||
       pathname === '/members' ||
