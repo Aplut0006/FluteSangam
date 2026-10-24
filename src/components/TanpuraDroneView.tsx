@@ -277,10 +277,10 @@ export const TanpuraDroneView: React.FC<TanpuraDroneViewProps> = ({ onViewChange
             </span>
           </div>
           <h1 className="text-2xl sm:text-4xl font-display font-black tracking-wide mb-1.5 sm:mb-2 text-white">
-            Free Online Tanpura
+            Online Tanpura
           </h1>
           <p className="text-bamboo-200 text-xs sm:text-sm max-w-2xl leading-relaxed">
-            Use FluteSangam&apos;s free online tanpura for flute, bansuri and vocal practice. Play a steady drone for sargam, alankars, ragas and daily riyaz.
+            Use FluteSangam&apos;s online tanpura for flute, bansuri and vocal practice. Play a steady drone for sargam, alankars, ragas and daily riyaz.
           </p>
         </div>
       </div>
@@ -1013,7 +1013,7 @@ export const TanpuraDroneView: React.FC<TanpuraDroneViewProps> = ({ onViewChange
         {/* Section 6: Practice Tools Cross-Links */}
         <section className="bg-gradient-to-br from-amber-500/10 via-bamboo-500/5 to-transparent rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-amber-200/80 space-y-3">
           <h3 className="text-sm sm:text-base font-display font-bold text-bamboo-950">
-            More Free Practice Tools on FluteSangam
+            More Practice Tools on FluteSangam
           </h3>
           <p className="text-xs text-slate-600">
             Combine the Tanpura drone with our interactive tuner, metronome, fingering chart, and alankar generator for a complete bansuri sadhana studio:

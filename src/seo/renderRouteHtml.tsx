@@ -602,8 +602,8 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
   }
 
   if (cleanPath === '/tools/tanpura' || cleanPath === '/tanpura') {
-    const title = 'Free Online Tanpura for Riyaz & Flute | FluteSangam';
-    const description = "Use FluteSangam's free online tanpura for flute, bansuri and vocal practice. Play a steady drone for sargam, alankars, ragas and daily riyaz.";
+    const title = 'Online Tanpura for Riyaz & Flute | FluteSangam';
+    const description = "Use FluteSangam's online tanpura for flute, bansuri and vocal practice. Play a steady drone for sargam, alankars, ragas and daily riyaz.";
     const canonicalUrl = `${DOMAIN}/tools/tanpura`;
     return {
       title,
@@ -617,7 +617,7 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
           {
             '@type': 'WebApplication',
             '@id': `${canonicalUrl}#app`,
-            'name': 'FluteSangam Free Online Tanpura',
+            'name': 'FluteSangam Online Tanpura',
             'applicationCategory': 'MusicApplication',
             'operatingSystem': 'All',
             'browserRequirements': 'Requires Web Audio API support',

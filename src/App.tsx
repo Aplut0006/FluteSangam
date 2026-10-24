@@ -332,8 +332,8 @@ export default function App() {
         description = 'Convert Indian flute swaras to Western notes, translate Western notes to swaras, and explore note relationships across different flute keys with FluteSangam’s interactive converter.';
         break;
       case 'tanpura':
-        title = 'Free Online Tanpura for Riyaz & Flute | FluteSangam';
-        description = "Use FluteSangam's free online tanpura for flute, bansuri and vocal practice. Play a steady drone for sargam, alankars, ragas and daily riyaz.";
+        title = 'Online Tanpura for Riyaz & Flute | FluteSangam';
+        description = "Use FluteSangam's online tanpura for flute, bansuri and vocal practice. Play a steady drone for sargam, alankars, ragas and daily riyaz.";
         break;
       case 'find_song_scale':
         title = 'How to Find the Scale or Key of a Song on Flute | FluteSangam';
