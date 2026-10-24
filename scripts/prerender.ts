@@ -47,7 +47,10 @@ const extraAliases = [
   '/practice',
   '/learn/daily-practice',
   '/faq/music-theory-and-tuning',
-  '/faq/flute-tuning-and-pitch'
+  '/faq/flute-tuning-and-pitch',
+  '/members',
+  '/chats',
+  '/profile'
 ];
 
 // Fetch all existing public discussions from Firestore to prerender them for crawlers and direct access

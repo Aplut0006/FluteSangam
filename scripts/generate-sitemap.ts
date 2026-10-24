@@ -3,8 +3,6 @@ import path from 'path';
 import { VIEW_URLS } from '../src/routes';
 import { CATEGORY_SLUGS } from '../src/data/allFaqData';
 
-import { db } from '../src/lib/firebase';
-import { collection, getDocs } from 'firebase/firestore';
 
 const baseUrl = 'https://flutesangam.com';
 
@@ -105,29 +103,8 @@ const ROUTE_MOD_DATES: Record<string, string> = {
   '/faq/platform': '2026-09-18'
 };
 
-// Fetch all existing public community discussion posts from Firestore
-let postRoutes: string[] = [];
-try {
-  const postsSnapshot = await getDocs(collection(db, 'posts'));
-  postsSnapshot.forEach((docSnap) => {
-    const pRoute = `/post/${docSnap.id}`;
-    postRoutes.push(pRoute);
-    const data = docSnap.data();
-    let modDate = '2026-10-21';
-    if (data.updatedAt?.toDate) {
-      modDate = data.updatedAt.toDate().toISOString().split('T')[0];
-    } else if (data.createdAt?.toDate) {
-      modDate = data.createdAt.toDate().toISOString().split('T')[0];
-    }
-    ROUTE_MOD_DATES[pRoute] = modDate;
-  });
-  console.log(`[Sitemap] Added ${postRoutes.length} discussion posts to sitemap.`);
-} catch (err) {
-  console.warn('[Sitemap Warning] Could not fetch posts from Firestore:', err);
-}
-
-// Combine base routes, FAQ category routes, ranked Alankar routes, and public discussion posts
-const allRoutes = Array.from(new Set([...baseRoutes, ...postRoutes, ...faqCategoryRoutes, ...rankedAlankarRoutes]));
+// Combine base routes, FAQ category routes, and ranked Alankar routes (post routes excluded from sitemap)
+const allRoutes = Array.from(new Set([...baseRoutes, ...faqCategoryRoutes, ...rankedAlankarRoutes]));
 
 const publicDir = path.join(process.cwd(), 'public');
 const sitemapPath = path.join(publicDir, 'sitemap.xml');

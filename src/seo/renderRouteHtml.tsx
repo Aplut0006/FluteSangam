@@ -46,6 +46,8 @@ import HowToFindSongScaleView from '../components/HowToFindSongScaleView';
 import HowToReadBansuriNotationView from '../components/HowToReadBansuriNotationView';
 
 import MembersView from '../components/MembersView';
+import UserProfileView from '../components/UserProfileView';
+import ChatSection from '../components/ChatSection';
 import AboutUsView from '../components/AboutUsView';
 import FounderView from '../components/FounderView';
 import ContactUsView from '../components/ContactUsView';
@@ -119,7 +121,10 @@ const AD_EXCLUDED_ROUTES = [
   '/profile',
   '/settings',
   '/admin',
-  '/404'
+  '/404',
+  '/post',
+  '/chats',
+  '/search'
 ];
 
 export function isAdExcludedRoute(routePath: string, is404?: boolean): boolean {
@@ -168,7 +173,7 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
   }
 
   // 1. Home
-  if (cleanPath === '' || cleanPath === '/' || cleanPath === '/search') {
+  if (cleanPath === '' || cleanPath === '/') {
     return {
       title: 'FluteSangam | Learn Flute, Bansuri & Connect with Flutists',
       description: 'Learn flute online with lessons, songs, ragas, techniques, practice guides, interactive tools, and Sargam notations for bamboo flute enthusiasts.',
@@ -189,6 +194,84 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
           'logo': `${DOMAIN}/flutesangam_icon_compressed.png`
         }
       }
+    };
+  }
+
+  // 1a. Search (Search results page: noindex, ad-excluded per Google AdSense policies)
+  if (cleanPath === '/search') {
+    const title = 'Search Flute Lessons, Ragas & Notations | FluteSangam';
+    const description = 'Search Indian bamboo flute tutorials, Sargam notes, classical ragas, and practice tools on FluteSangam.';
+    const canonicalUrl = `${DOMAIN}/search`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: HomepageOverview,
+      robots: 'noindex, follow',
+      is404: false
+    };
+  }
+
+  // 1b. Members Directory (Auth-gated / thin content protection for AdSense)
+  if (cleanPath === '/members') {
+    const title = 'FluteSangam Community Members Directory | FluteSangam';
+    const description = 'Meet flutists, learners, and contributors in the global FluteSangam community.';
+    const canonicalUrl = `${DOMAIN}/members`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: MembersView,
+      componentProps: {
+        currentUser: null,
+        onUserProfileClick: () => {},
+        onStartChat: () => {},
+        onOpenAuth: () => {}
+      },
+      robots: 'noindex, follow',
+      is404: false
+    };
+  }
+
+  // 1c. Chats & Messages (Private / Auth-gated protection for AdSense)
+  if (cleanPath === '/chats') {
+    const title = 'Direct Messages & Chat | FluteSangam Community';
+    const description = 'Connect and chat with Indian flute learners and practitioners worldwide.';
+    const canonicalUrl = `${DOMAIN}/chats`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: ChatSection as any,
+      componentProps: {
+        currentUser: null,
+        onProfileUpdated: () => {}
+      },
+      robots: 'noindex, follow',
+      is404: false
+    };
+  }
+
+  // 1d. User Profile (Private user account protection for AdSense)
+  if (cleanPath === '/profile' || cleanPath.startsWith('/profile/')) {
+    const userId = cleanPath.replace('/profile/', '').replace('/profile', '').trim();
+    const title = 'Flutist Member Profile | FluteSangam';
+    const description = 'View flutist profile, bansuri scale preferences, skill level, and community contributions.';
+    const canonicalUrl = `${DOMAIN}/profile`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: UserProfileView as any,
+      componentProps: {
+        userId,
+        currentUser: null,
+        onBack: () => {},
+        onStartChat: () => {},
+        onOpenAuth: () => {}
+      },
+      robots: 'noindex, follow',
+      is404: false
     };
   }
 
@@ -1852,6 +1935,7 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
             onOpenShare: () => {}
           },
           is404: false,
+          robots: 'noindex, follow',
           jsonLd: {
             '@context': 'https://schema.org',
             '@type': 'DiscussionForumPosting',

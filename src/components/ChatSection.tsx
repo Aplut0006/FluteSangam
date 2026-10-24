@@ -31,8 +31,8 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 
 interface ChatSectionProps {
-  currentUser: UserProfile;
-  onProfileUpdated: (updatedProfile: UserProfile) => void;
+  currentUser?: UserProfile | null;
+  onProfileUpdated?: (updatedProfile: UserProfile) => void;
   // Callback when starting chat with a specific user from external trigger (e.g. from feed)
   initialTargetUser?: {
     uid: string;
@@ -87,18 +87,20 @@ export default function ChatSection({
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const listEndRef = useRef<HTMLDivElement>(null);
 
-  const isBlocked = activeTargetUser ? (currentUser.blockedUsers?.includes(activeTargetUser.uid) || false) : false;
+  const isBlocked = (activeTargetUser && currentUser?.blockedUsers) ? currentUser.blockedUsers.includes(activeTargetUser.uid) : false;
 
   // 1. Subscribe to all user profiles
   useEffect(() => {
+    if (!currentUser) return;
     const unsubscribe = subscribeToAllUsers((users) => {
       setAllUsers(users);
     });
     return () => unsubscribe();
-  }, []);
+  }, [currentUser]);
 
   // 2. Subscribe to all direct messages involving the current user
   useEffect(() => {
+    if (!currentUser) return;
     const unsubscribe = subscribeToAllUserMessages(currentUser.uid, (msgs) => {
       // Sort messages ascending by creation date
       const sortedMsgs = [...msgs].sort((a, b) => {
@@ -109,7 +111,7 @@ export default function ChatSection({
       setAllMessages(sortedMsgs);
     });
     return () => unsubscribe();
-  }, [currentUser.uid]);
+  }, [currentUser?.uid]);
 
   // 3. Mark messages as read when active chat changes or new messages arrive in the active chat
   useEffect(() => {
@@ -120,7 +122,7 @@ export default function ChatSection({
 
   // 4. Handle initial external target user from post card clicks
   useEffect(() => {
-    if (initialTargetUser) {
+    if (initialTargetUser && currentUser) {
       const generatedChatId = getDirectChatId(currentUser.uid, initialTargetUser.uid);
       setActiveChatId(generatedChatId);
       setActiveTargetUser(initialTargetUser);
@@ -131,7 +133,7 @@ export default function ChatSection({
         onClearInitialTargetUser();
       }
     }
-  }, [initialTargetUser, currentUser.uid]);
+  }, [initialTargetUser, currentUser?.uid]);
 
   // 5. Scroll to bottom of message stream inside the chat box container only (prevents window scrolling)
   useEffect(() => {
@@ -139,6 +141,16 @@ export default function ChatSection({
       messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
     }
   }, [activeChatId, allMessages.length, chatImageUrl]);
+
+  if (!currentUser) {
+    return (
+      <div className="flex flex-col items-center justify-center p-12 text-center bg-white rounded-3xl border border-bamboo-100 shadow-sm max-w-lg mx-auto space-y-3 my-8">
+        <MessageSquare className="w-12 h-12 text-amber-600 mb-1" />
+        <h3 className="text-xl font-display font-bold text-bamboo-900">Sangam Direct Messages</h3>
+        <p className="text-xs text-gray-600 max-w-xs mx-auto">Please sign in to chat directly with flute learners and contributors.</p>
+      </div>
+    );
+  }
 
   // 6. Group messages into conversational threads
   const chatGroups: ChatGroup[] = React.useMemo(() => {
