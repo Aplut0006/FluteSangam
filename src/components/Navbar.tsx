@@ -794,22 +794,22 @@ export default function Navbar({
               <a
                 href={VIEW_URLS['note_key_converter'] || '/converter'}
                 onClick={(e) => { e.preventDefault(); onViewChange?.('note_key_converter'); setShowMobileMenu(false); }}
-                className={`w-full flex items-center gap-2.5 p-2.5 border rounded-xl transition cursor-pointer text-left ${
+                className={`w-full flex items-center gap-2 sm:gap-2.5 p-2 sm:p-2.5 min-h-[58px] sm:min-h-[62px] border rounded-xl transition cursor-pointer text-left ${
                   currentView === 'note_key_converter'
                     ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
                     : 'bg-emerald-50/70 border-emerald-200/80 hover:bg-emerald-100/80'
                 }`}
               >
-                <div className={`w-8 h-8 rounded-lg shrink-0 flex items-center justify-center shadow-2xs ${
+                <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg shrink-0 flex items-center justify-center shadow-2xs ${
                   currentView === 'note_key_converter' ? 'bg-white/20 text-white' : 'bg-emerald-600 text-white'
                 }`}>
-                  <Music className="w-4 h-4" />
+                  <Music className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <div className={`text-xs font-bold leading-tight truncate ${currentView === 'note_key_converter' ? 'text-white' : 'text-bamboo-950'}`}>
+                  <div className={`text-[11.5px] sm:text-xs font-bold leading-tight whitespace-normal break-words ${currentView === 'note_key_converter' ? 'text-white' : 'text-bamboo-950'}`}>
                     Note Converter
                   </div>
-                  <div className={`text-[10px] truncate ${currentView === 'note_key_converter' ? 'text-emerald-100' : 'text-gray-600'}`}>
+                  <div className={`text-[9.5px] sm:text-[10px] leading-tight truncate mt-0.5 ${currentView === 'note_key_converter' ? 'text-emerald-100' : 'text-gray-600'}`}>
                     Swaras ⇄ Keys
                   </div>
                 </div>
@@ -818,22 +818,22 @@ export default function Navbar({
               <a
                 href={VIEW_URLS['learn_tuner'] || '/tuner'}
                 onClick={(e) => { e.preventDefault(); onViewChange?.('learn_tuner'); setShowMobileMenu(false); }}
-                className={`w-full flex items-center gap-2.5 p-2.5 border rounded-xl transition cursor-pointer text-left ${
+                className={`w-full flex items-center gap-2 sm:gap-2.5 p-2 sm:p-2.5 min-h-[58px] sm:min-h-[62px] border rounded-xl transition cursor-pointer text-left ${
                   currentView === 'learn_tuner'
                     ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
                     : 'bg-gradient-to-br from-amber-500/10 via-amber-100/40 to-bamboo-100/30 border-amber-300/80 hover:bg-amber-100/70'
                 }`}
               >
-                <div className={`w-8 h-8 rounded-lg shrink-0 flex items-center justify-center shadow-2xs ${
+                <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg shrink-0 flex items-center justify-center shadow-2xs ${
                   currentView === 'learn_tuner' ? 'bg-white/20 text-white' : 'bg-amber-500 text-white'
                 }`}>
-                  <Radio className="w-4 h-4 animate-pulse" />
+                  <Radio className="w-3.5 h-3.5 sm:w-4 sm:h-4 animate-pulse" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <div className={`text-xs font-bold leading-tight truncate ${currentView === 'learn_tuner' ? 'text-white' : 'text-bamboo-950'}`}>
+                  <div className={`text-[11.5px] sm:text-xs font-bold leading-tight whitespace-normal break-words ${currentView === 'learn_tuner' ? 'text-white' : 'text-bamboo-950'}`}>
                     Flute Tuner
                   </div>
-                  <div className={`text-[10px] truncate ${currentView === 'learn_tuner' ? 'text-amber-100' : 'text-gray-500'}`}>
+                  <div className={`text-[9.5px] sm:text-[10px] leading-tight truncate mt-0.5 ${currentView === 'learn_tuner' ? 'text-amber-100' : 'text-gray-500'}`}>
                     Live Pitch A=440
                   </div>
                 </div>
@@ -842,22 +842,22 @@ export default function Navbar({
               <a
                 href={VIEW_URLS['alankar_generator'] || '/alankar-generator'}
                 onClick={(e) => { e.preventDefault(); onViewChange?.('alankar_generator'); setShowMobileMenu(false); }}
-                className={`w-full flex items-center gap-2.5 p-2.5 border rounded-xl transition cursor-pointer text-left ${
+                className={`w-full flex items-center gap-2 sm:gap-2.5 p-2 sm:p-2.5 min-h-[58px] sm:min-h-[62px] border rounded-xl transition cursor-pointer text-left ${
                   currentView === 'alankar_generator'
                     ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
                     : 'bg-amber-50/70 border-amber-200/80 hover:bg-amber-100/80'
                 }`}
               >
-                <div className={`w-8 h-8 rounded-lg shrink-0 flex items-center justify-center shadow-2xs ${
+                <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg shrink-0 flex items-center justify-center shadow-2xs ${
                   currentView === 'alankar_generator' ? 'bg-white/20 text-white' : 'bg-amber-500 text-white'
                 }`}>
-                  <Sliders className="w-4 h-4" />
+                  <Sliders className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <div className={`text-xs font-bold leading-tight truncate ${currentView === 'alankar_generator' ? 'text-white' : 'text-bamboo-950'}`}>
-                    Alankar Gen
+                  <div className={`text-[11.5px] sm:text-xs font-bold leading-tight whitespace-normal break-words ${currentView === 'alankar_generator' ? 'text-white' : 'text-bamboo-950'}`}>
+                    Alankar Generator
                   </div>
-                  <div className={`text-[10px] truncate ${currentView === 'alankar_generator' ? 'text-amber-100' : 'text-gray-500'}`}>
+                  <div className={`text-[9.5px] sm:text-[10px] leading-tight truncate mt-0.5 ${currentView === 'alankar_generator' ? 'text-amber-100' : 'text-gray-500'}`}>
                     Custom Patterns
                   </div>
                 </div>
@@ -866,22 +866,22 @@ export default function Navbar({
               <a
                 href={VIEW_URLS['tanpura'] || '/tools/tanpura'}
                 onClick={(e) => { e.preventDefault(); onViewChange?.('tanpura'); setShowMobileMenu(false); }}
-                className={`w-full flex items-center gap-2.5 p-2.5 border rounded-xl transition cursor-pointer text-left ${
+                className={`w-full flex items-center gap-2 sm:gap-2.5 p-2 sm:p-2.5 min-h-[58px] sm:min-h-[62px] border rounded-xl transition cursor-pointer text-left ${
                   currentView === 'tanpura'
                     ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
                     : 'bg-gradient-to-br from-amber-500/10 via-amber-100/40 to-bamboo-100/30 border-amber-300/80 hover:bg-amber-100/70'
                 }`}
               >
-                <div className={`w-8 h-8 rounded-lg shrink-0 flex items-center justify-center shadow-2xs ${
+                <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg shrink-0 flex items-center justify-center shadow-2xs ${
                   currentView === 'tanpura' ? 'bg-white/20 text-white' : 'bg-amber-600 text-white'
                 }`}>
-                  <Radio className="w-4 h-4 animate-pulse" />
+                  <Radio className="w-3.5 h-3.5 sm:w-4 sm:h-4 animate-pulse" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <div className={`text-xs font-bold leading-tight truncate ${currentView === 'tanpura' ? 'text-white' : 'text-bamboo-950'}`}>
+                  <div className={`text-[11.5px] sm:text-xs font-bold leading-tight whitespace-normal break-words ${currentView === 'tanpura' ? 'text-white' : 'text-bamboo-950'}`}>
                     Tanpura Drone
                   </div>
-                  <div className={`text-[10px] truncate ${currentView === 'tanpura' ? 'text-amber-100' : 'text-gray-500'}`}>
+                  <div className={`text-[9.5px] sm:text-[10px] leading-tight truncate mt-0.5 ${currentView === 'tanpura' ? 'text-amber-100' : 'text-gray-500'}`}>
                     Acoustic Swar
                   </div>
                 </div>
@@ -903,7 +903,7 @@ export default function Navbar({
                   setShowMobileMenu(false); 
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
+                className={`flex items-center gap-2 sm:gap-2.5 p-2 sm:p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
                   currentView === 'community'
                     ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
                     : 'bg-bamboo-50/60 text-gray-700 border-bamboo-100 hover:bg-bamboo-100/60'
@@ -921,7 +921,7 @@ export default function Navbar({
                     onViewChange?.('chats'); 
                     setShowMobileMenu(false); 
                   }}
-                  className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left relative cursor-pointer ${
+                  className={`flex items-center gap-2 sm:gap-2.5 p-2 sm:p-2.5 rounded-xl text-xs font-bold border transition text-left relative cursor-pointer ${
                     currentView === 'chats'
                       ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
                       : 'bg-bamboo-50/60 text-gray-700 border-bamboo-100 hover:bg-bamboo-100/60'
@@ -940,7 +940,7 @@ export default function Navbar({
               <a
                 href={VIEW_URLS['notation_requests'] || '/notations'}
                 onClick={(e) => { e.preventDefault(); onViewChange?.('notation_requests'); setShowMobileMenu(false); }}
-                className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
+                className={`flex items-center gap-2 sm:gap-2.5 p-2 sm:p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
                   currentView === 'notation_requests' || currentView === 'notation_happy_birthday' || currentView === 'notation_jingle_bells' || currentView?.startsWith('notation_')
                     ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
                     : 'bg-amber-100/70 text-amber-950 border-amber-300/80 hover:bg-amber-200/80'
@@ -953,7 +953,7 @@ export default function Navbar({
               <a
                 href={VIEW_URLS['flute_faq'] || '/faq'}
                 onClick={(e) => { e.preventDefault(); onViewChange?.('flute_faq'); setShowMobileMenu(false); }}
-                className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
+                className={`flex items-center gap-2 sm:gap-2.5 p-2 sm:p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
                   currentView === 'flute_faq'
                     ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
                     : 'bg-bamboo-50/60 text-gray-700 border-bamboo-100 hover:bg-bamboo-100/60'
@@ -967,7 +967,7 @@ export default function Navbar({
                 <a
                   href={VIEW_URLS['community_members'] || '/members'}
                   onClick={(e) => { e.preventDefault(); onViewChange?.('community_members'); setShowMobileMenu(false); }}
-                  className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
+                  className={`flex items-center gap-2 sm:gap-2.5 p-2 sm:p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
                     currentView === 'community_members'
                       ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
                       : 'bg-bamboo-50/60 text-gray-700 border-bamboo-100 hover:bg-bamboo-100/60'
