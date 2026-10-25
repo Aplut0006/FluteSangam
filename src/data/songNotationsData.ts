@@ -2366,7 +2366,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
     difficulty: 'Intermediate',
     suggestedFlute: 'C Medium, D Medium, or E Bass bansuri',
     startingSwar: 'Sa (S)',
-    highestSwar: 'Tara Ga (G\' / High E)',
+    highestSwar: 'Taar Pa (P\')',
     mainChallenge: 'Rapid double-tonguing ("tuku") on repeated notes, descending gamak oscillations from high octave, and energetic breath strokes',
     practiceSpeed: 'Moderate to brisk heroic tempo (approx. 90-110 BPM)',
     notationFormats: 'Song Notation (Sargam & Western) with Phrase Guidance',
@@ -2384,7 +2384,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       melodyType: 'Bollywood Superhero Theme / Instrumental',
       suggestedFlute: 'C Medium, D Medium, or E Bass bansuri',
       startingSwar: 'Sa (S)',
-      highestSwar: 'Tara Ga (G\' / High E)',
+      highestSwar: 'Taar Pa (P\')',
       mainChallenge: 'Rapid double-tonguing ("tuku") and descending gamak oscillations from high octave',
       practiceSpeed: 'Moderate to brisk heroic tempo (approx. 90-110 BPM)'
     },
