@@ -195,6 +195,7 @@ export default function App() {
   const [shareModalOpen, setShareModalOpen] = useState(false);
   const [activeSharePost, setActiveSharePost] = useState<Post | null>(null);
   const [isChatbotOpen, setIsChatbotOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Helper to determine initial view synchronously without flash
   const getInitialViewFromPathname = (path: string): AppView => {
@@ -1221,6 +1222,7 @@ export default function App() {
         unreadCount={unreadCount}
         onEditingProfile={setIsNavbarEditingProfile}
         onSelectPost={handleSelectPostById}
+        onMobileMenuToggle={setIsMobileMenuOpen}
       />
 
       {/* Main Layout Area */}
@@ -1559,12 +1561,12 @@ export default function App() {
 
           <FluteSangamChatbot 
             onViewChange={handleViewChange}
-            isHidden={authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost || currentView === 'learn_tuner' || currentView === 'tanpura' || currentView === 'notation_requests'}
+            isHidden={isMobileMenuOpen || authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost || currentView === 'learn_tuner' || currentView === 'tanpura' || currentView === 'notation_requests'}
             onOpenChange={setIsChatbotOpen}
           />
 
           <ScrollToTopButton 
-            isHidden={authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost || currentView === 'learn_tuner' || currentView === 'tanpura' || currentView === 'notation_requests' || isChatbotOpen}
+            isHidden={isMobileMenuOpen || authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost || currentView === 'learn_tuner' || currentView === 'tanpura' || currentView === 'notation_requests' || isChatbotOpen}
           />
         </React.Suspense>
       </ErrorBoundary>

@@ -17,6 +17,7 @@ interface NavbarProps {
   unreadCount?: number;
   onEditingProfile?: (isEditing: boolean) => void;
   onSelectPost?: (postId: string) => void;
+  onMobileMenuToggle?: (isOpen: boolean) => void;
 }
 
 export default function Navbar({ 
@@ -28,7 +29,8 @@ export default function Navbar({
   onViewChange,
   unreadCount = 0,
   onEditingProfile,
-  onSelectPost
+  onSelectPost,
+  onMobileMenuToggle
 }: NavbarProps) {
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -38,6 +40,10 @@ export default function Navbar({
   useEffect(() => {
     onEditingProfile?.(isEditingProfile);
   }, [isEditingProfile, onEditingProfile]);
+
+  useEffect(() => {
+    onMobileMenuToggle?.(showMobileMenu);
+  }, [showMobileMenu, onMobileMenuToggle]);
   
   // Editable fields
   const [editName, setEditName] = useState('');
@@ -92,8 +98,28 @@ export default function Navbar({
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const mobileMenuBtnRef = useRef<HTMLButtonElement>(null);
 
+  // Close mobile menus on route change
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
+    setShowMobileMenu(false);
+    setShowProfileDropdown(false);
+    setShowLearnDropdown(false);
+    setShowToolsDropdown(false);
+    setShowMoreDropdown(false);
+  }, [currentView]);
+
+  // Lock background body scroll when mobile menu is open on smartphones
+  useEffect(() => {
+    if (showMobileMenu) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [showMobileMenu]);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent | TouchEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setShowProfileDropdown(false);
       }
@@ -115,14 +141,26 @@ export default function Navbar({
       }
     }
 
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        setShowMobileMenu(false);
+        setShowProfileDropdown(false);
+        setShowLearnDropdown(false);
+        setShowToolsDropdown(false);
+        setShowMoreDropdown(false);
+      }
+    }
+
     if (showProfileDropdown || showLearnDropdown || showToolsDropdown || showMoreDropdown || showMobileMenu) {
       document.addEventListener('mousedown', handleClickOutside);
-    } else {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside, { passive: true });
+      document.addEventListener('keydown', handleKeyDown);
     }
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
     };
   }, [showProfileDropdown, showLearnDropdown, showToolsDropdown, showMoreDropdown, showMobileMenu]);
 
@@ -244,7 +282,7 @@ export default function Navbar({
 
   return (
     <>
-      <header className="sticky top-0 z-40 frosted-navbar shadow-3xs overflow-x-clip" id="app-navbar">
+      <header className={`sticky top-0 frosted-navbar shadow-3xs overflow-x-clip ${showMobileMenu ? 'z-50' : 'z-40'}`} id="app-navbar">
         <div className="w-full max-w-(--breakpoint-2xl) mx-auto px-2.5 sm:px-4 lg:px-8 xl:px-10 h-14 sm:h-16 flex items-center justify-between gap-1.5 sm:gap-3 lg:gap-4 xl:gap-6 min-w-0">
         {/* Brand Logo & Name */}
         <a 
@@ -312,18 +350,19 @@ export default function Navbar({
             {showToolsDropdown && (
               <div className="absolute top-full mt-2 left-0 w-64 bg-white rounded-xl shadow-xl border border-bamboo-100 py-1.5 z-50 overflow-hidden">
                 <a
-                  href={VIEW_URLS['tanpura'] || '/tools/tanpura'}
+                  href={VIEW_URLS['note_key_converter'] || '/tools/flute-note-key-converter'}
                   onClick={(e) => {
                     e.preventDefault();
-                    onViewChange?.('tanpura');
+                    onViewChange?.('note_key_converter');
                     setShowToolsDropdown(false);
                   }}
                   className="w-full text-left px-4 py-2.5 text-xs font-bold text-amber-950 bg-amber-50/80 hover:bg-amber-100 transition border-b border-bamboo-100 cursor-pointer flex items-center justify-between"
                 >
                   <span className="flex items-center gap-2">
-                    <Radio className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
-                    <span>Tanpura Drone</span>
+                    <Music className="w-3.5 h-3.5 text-amber-600" />
+                    <span>Note &amp; Key Converter</span>
                   </span>
+                  <span className="text-[9px] bg-emerald-100 text-emerald-900 font-black px-1.5 py-0.5 rounded-full">New</span>
                 </a>
                 <a
                   href={VIEW_URLS['learn_tuner'] || '/tuner'}
@@ -353,19 +392,18 @@ export default function Navbar({
                   <span>Alankar Generator</span>
                 </a>
                 <a
-                  href={VIEW_URLS['note_key_converter'] || '/tools/flute-note-key-converter'}
+                  href={VIEW_URLS['tanpura'] || '/tools/tanpura'}
                   onClick={(e) => {
                     e.preventDefault();
-                    onViewChange?.('note_key_converter');
+                    onViewChange?.('tanpura');
                     setShowToolsDropdown(false);
                   }}
                   className="w-full text-left px-4 py-2.5 text-xs font-bold text-bamboo-900 hover:bg-bamboo-50 hover:text-amber-800 transition cursor-pointer flex items-center justify-between"
                 >
                   <span className="flex items-center gap-2">
-                    <Music className="w-3.5 h-3.5 text-amber-600" />
-                    <span>Note &amp; Key Converter</span>
+                    <Radio className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
+                    <span>Tanpura Drone</span>
                   </span>
-                  <span className="text-[9px] bg-emerald-100 text-emerald-900 font-black px-1.5 py-0.5 rounded-full">New</span>
                 </a>
               </div>
             )}
@@ -492,11 +530,11 @@ export default function Navbar({
             className={`px-2.5 xl:px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
               currentView === 'flute_faq'
                 ? 'bg-amber-600 text-white shadow-xs'
-                : 'text-amber-950 bg-amber-50/90 hover:bg-amber-100/80 border border-amber-200/80'
+                : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
             }`}
             title="Flute FAQ Knowledge Base"
           >
-            <HelpCircle className={`w-3.5 h-3.5 ${currentView === 'flute_faq' ? 'text-white' : 'text-amber-700'}`} />
+            <HelpCircle className={`w-3.5 h-3.5 ${currentView === 'flute_faq' ? 'text-white' : 'text-amber-600'}`} />
             <span>Flute FAQ</span>
           </a>
 
@@ -524,17 +562,18 @@ export default function Navbar({
             </a>
           )}
           
-          {/* 5. Song Notation */}
+          {/* 6. Song Notation */}
           <a
             href={VIEW_URLS['notation_requests'] || '/notations'}
             onClick={(e) => { e.preventDefault(); onViewChange?.('notation_requests'); }}
             className={`px-2.5 xl:px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
-              currentView === 'notation_requests' || currentView === 'notation_happy_birthday' || currentView === 'notation_jingle_bells'
+              currentView === 'notation_requests' || currentView === 'notation_happy_birthday' || currentView === 'notation_jingle_bells' || currentView?.startsWith('notation_')
                 ? 'bg-amber-600 text-white shadow-xs'
-                : 'text-gray-600 hover:text-bamboo-800 hover:bg-bamboo-100/30'
+                : 'text-amber-950 bg-amber-50/90 hover:bg-amber-100/80 border border-amber-200/80'
             }`}
+            title="Song Notation Library"
           >
-            <Music className={`w-3.5 h-3.5 ${currentView === 'notation_requests' || currentView === 'notation_happy_birthday' || currentView === 'notation_jingle_bells' ? 'text-white' : 'text-amber-600'}`} />
+            <Music className={`w-3.5 h-3.5 ${currentView === 'notation_requests' || currentView?.startsWith('notation_') ? 'text-white' : 'text-amber-700'}`} />
             <span>Song Notation</span>
           </a>
 
@@ -591,299 +630,23 @@ export default function Navbar({
           <button
             ref={mobileMenuBtnRef}
             onClick={() => setShowMobileMenu(prev => !prev)}
-            className="p-2 text-bamboo-800 hover:bg-bamboo-50 rounded-xl transition cursor-pointer flex items-center justify-center"
-            aria-label="Toggle navigation menu"
+            className={`p-2 rounded-xl transition cursor-pointer flex items-center justify-center ${
+              showMobileMenu 
+                ? 'bg-amber-100 text-amber-900 border border-amber-300' 
+                : 'text-bamboo-800 hover:bg-bamboo-50 border border-transparent'
+            }`}
+            aria-label={showMobileMenu ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={showMobileMenu}
           >
-            <Menu className="w-6 h-6 text-bamboo-800" />
+            {showMobileMenu ? (
+              <X className="w-6 h-6 text-amber-900" />
+            ) : (
+              <Menu className="w-6 h-6 text-bamboo-800" />
+            )}
           </button>
         </div>
 
-        {/* Mobile Menu Overlay Drawer (Optimized for Smartphones) */}
-        {showMobileMenu && (
-          <div 
-            ref={mobileMenuRef}
-            className="absolute top-16 left-2 right-2 sm:left-4 sm:right-4 bg-white/98 backdrop-blur-xl border border-bamboo-200/90 shadow-2xl rounded-2xl p-4 z-50 lg:hidden max-h-[82vh] overflow-y-auto space-y-4 text-left"
-          >
-            {/* Quick Practice Tools */}
-            <div>
-              <span className="text-[10px] font-black uppercase tracking-wider text-amber-800/80 px-1 mb-1.5 block">
-                Practice Tools
-              </span>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                <a
-                  href={VIEW_URLS['tanpura'] || '/tools/tanpura'}
-                  onClick={(e) => { e.preventDefault(); onViewChange?.('tanpura'); setShowMobileMenu(false); }}
-                  className={`w-full flex items-center justify-between p-3.5 border rounded-xl transition cursor-pointer text-left ${
-                    currentView === 'tanpura'
-                      ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
-                      : 'bg-gradient-to-r from-amber-500/15 via-amber-100/50 to-bamboo-100/40 border-amber-300/80 hover:bg-amber-100/80'
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center shadow-2xs group-hover:scale-105 transition ${
-                      currentView === 'tanpura' ? 'bg-white/20 text-white' : 'bg-amber-600 text-white'
-                    }`}>
-                      <Radio className="w-5 h-5 animate-pulse" />
-                    </div>
-                    <div className="text-left">
-                      <div className={`text-xs font-extrabold flex items-center gap-1.5 ${currentView === 'tanpura' ? 'text-white' : 'text-bamboo-950'}`}>
-                        <span>Online Tanpura Drone</span>
-                      </div>
-                      <div className={`text-[11px] ${currentView === 'tanpura' ? 'text-amber-100' : 'text-gray-600'}`}>Acoustic drone for Swar Sadhana</div>
-                    </div>
-                  </div>
-                </a>
 
-                <a
-                  href={VIEW_URLS['learn_tuner'] || '/tuner'}
-                  onClick={(e) => { e.preventDefault(); onViewChange?.('learn_tuner'); setShowMobileMenu(false); }}
-                  className="w-full flex items-center justify-between p-3.5 bg-gradient-to-r from-amber-500/10 via-amber-100/40 to-bamboo-100/40 border border-amber-300/80 rounded-xl hover:bg-amber-100/70 transition group cursor-pointer"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-xl bg-amber-500 text-white flex items-center justify-center shadow-2xs group-hover:scale-105 transition">
-                      <Radio className="w-5 h-5 animate-pulse" />
-                    </div>
-                    <div className="text-left">
-                      <div className="text-xs font-extrabold text-bamboo-950 flex items-center gap-1.5">
-                        <span>Flute Tuner &amp; Scales</span>
-                        <span className="text-[9px] bg-amber-200 text-amber-950 font-bold px-1.5 py-0.2 rounded-full">A=440Hz</span>
-                      </div>
-                      <div className="text-[11px] text-gray-600">Interactive live frequency scale tuner</div>
-                    </div>
-                  </div>
-                </a>
-
-                <a
-                  href={VIEW_URLS['alankar_generator'] || '/alankar-generator'}
-                  onClick={(e) => { e.preventDefault(); onViewChange?.('alankar_generator'); setShowMobileMenu(false); }}
-                  className={`w-full flex items-center justify-between p-3.5 border rounded-xl transition cursor-pointer text-left ${
-                    currentView === 'alankar_generator'
-                      ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
-                      : 'bg-amber-50/70 border-amber-200/80 hover:bg-amber-100/80'
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center shadow-2xs group-hover:scale-105 transition ${
-                      currentView === 'alankar_generator' ? 'bg-white/20 text-white' : 'bg-amber-500 text-white'
-                    }`}>
-                      <Sliders className="w-5 h-5" />
-                    </div>
-                    <div className="text-left">
-                      <div className={`text-xs font-extrabold ${currentView === 'alankar_generator' ? 'text-white' : 'text-bamboo-950'}`}>Alankar Generator</div>
-                      <div className={`text-[11px] ${currentView === 'alankar_generator' ? 'text-amber-100' : 'text-gray-600'}`}>Create your own Alankars</div>
-                    </div>
-                  </div>
-                </a>
-
-                <a
-                  href={VIEW_URLS['note_key_converter'] || '/converter'}
-                  onClick={(e) => { e.preventDefault(); onViewChange?.('note_key_converter'); setShowMobileMenu(false); }}
-                  className={`w-full flex items-center justify-between p-3.5 border rounded-xl transition cursor-pointer text-left ${
-                    currentView === 'note_key_converter'
-                      ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
-                      : 'bg-emerald-50/70 border-emerald-200/80 hover:bg-emerald-100/80'
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center shadow-2xs group-hover:scale-105 transition ${
-                      currentView === 'note_key_converter' ? 'bg-white/20 text-white' : 'bg-emerald-600 text-white'
-                    }`}>
-                      <Music className="w-5 h-5" />
-                    </div>
-                    <div className="text-left">
-                      <div className={`text-xs font-extrabold ${currentView === 'note_key_converter' ? 'text-white' : 'text-bamboo-950'}`}>Note &amp; Key Converter</div>
-                      <div className={`text-[11px] ${currentView === 'note_key_converter' ? 'text-emerald-100' : 'text-gray-600'}`}>Swaras ⇄ Western notes ⇄ Keys</div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-
-            {/* Community Section */}
-            <div>
-              <span className="text-[10px] font-black uppercase tracking-wider text-gray-600 px-1 mb-1.5 block">
-                Community
-              </span>
-              <div className="grid grid-cols-2 gap-2">
-                <a
-                  href={VIEW_URLS['community'] || '/community'}
-                  onClick={(e) => { 
-                    e.preventDefault(); 
-                    onViewChange?.('community'); 
-                    setShowMobileMenu(false); 
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
-                  className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
-                    currentView === 'community'
-                      ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
-                      : 'bg-bamboo-50/60 text-gray-700 border-bamboo-100 hover:bg-bamboo-100/60'
-                  }`}
-                >
-                  <Globe className={`w-4 h-4 shrink-0 ${currentView === 'community' ? 'text-white' : 'text-amber-600'}`} />
-                  <span>Community</span>
-                </a>
-
-                {currentUser && (
-                  <a
-                    href={VIEW_URLS['chats'] || '/chats'}
-                    onClick={(e) => { 
-                      e.preventDefault();
-                      onViewChange?.('chats'); 
-                      setShowMobileMenu(false); 
-                    }}
-                    className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left relative cursor-pointer ${
-                      currentView === 'chats'
-                        ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
-                        : 'bg-bamboo-50/60 text-gray-700 border-bamboo-100 hover:bg-bamboo-100/60'
-                    }`}
-                  >
-                    <MessageSquare className={`w-4 h-4 shrink-0 ${currentView === 'chats' ? 'text-white' : 'text-amber-600'}`} />
-                    <span>Sangam Chats</span>
-                    {unreadCount > 0 && (
-                      <span className="ml-auto bg-yellow-400 text-amber-950 text-[9px] font-black px-1.5 py-0.5 rounded-full">
-                        {unreadCount}
-                      </span>
-                    )}
-                  </a>
-                )}
-
-                <a
-                  href={VIEW_URLS['notation_requests'] || '/notations'}
-                  onClick={(e) => { e.preventDefault(); onViewChange?.('notation_requests'); setShowMobileMenu(false); }}
-                  className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
-                    currentView === 'notation_requests' || currentView === 'notation_happy_birthday' || currentView === 'notation_jingle_bells'
-                      ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
-                      : 'bg-bamboo-50/60 text-gray-700 border-bamboo-100 hover:bg-bamboo-100/60'
-                  }`}
-                >
-                  <Music className={`w-4 h-4 shrink-0 ${currentView === 'notation_requests' || currentView === 'notation_happy_birthday' || currentView === 'notation_jingle_bells' ? 'text-white' : 'text-amber-600'}`} />
-                  <span>Song Notation</span>
-                </a>
-
-                <a
-                  href={VIEW_URLS['flute_faq'] || '/faq'}
-                  onClick={(e) => { e.preventDefault(); onViewChange?.('flute_faq'); setShowMobileMenu(false); }}
-                  className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
-                    currentView === 'flute_faq'
-                      ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
-                      : 'bg-amber-100/70 text-amber-950 border-amber-300/80 hover:bg-amber-200/80'
-                  }`}
-                >
-                  <HelpCircle className={`w-4 h-4 shrink-0 ${currentView === 'flute_faq' ? 'text-white' : 'text-amber-700'}`} />
-                  <span>Flute FAQ</span>
-                </a>
-
-                {currentUser && (
-                  <a
-                    href={VIEW_URLS['community_members'] || '/members'}
-                    onClick={(e) => { e.preventDefault(); onViewChange?.('community_members'); setShowMobileMenu(false); }}
-                    className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
-                      currentView === 'community_members'
-                        ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
-                        : 'bg-bamboo-50/60 text-gray-700 border-bamboo-100 hover:bg-bamboo-100/60'
-                    }`}
-                  >
-                    <Users className={`w-4 h-4 shrink-0 ${currentView === 'community_members' ? 'text-white' : 'text-amber-600'}`} />
-                    <span>Flutists</span>
-                  </a>
-                )}
-              </div>
-            </div>
-
-            {/* Learn Flute Section */}
-            <div>
-              <button
-                onClick={() => setShowMobileLearnMenu(!showMobileLearnMenu)}
-                className="w-full flex items-center justify-between p-3 bg-bamboo-50/80 border border-bamboo-100 rounded-xl text-xs font-bold text-bamboo-950 hover:bg-bamboo-100/80 transition cursor-pointer"
-              >
-                <span className="flex items-center gap-2">
-                  <BookOpen className="w-4 h-4 text-amber-600" />
-                  <span>Learn Bansuri Lessons</span>
-                </span>
-                <ChevronDown className={`w-4 h-4 text-bamboo-700 transition-transform ${showMobileLearnMenu ? 'rotate-180' : ''}`} />
-              </button>
-
-              {showMobileLearnMenu && (
-                <div className="mt-2 pl-3 pr-1 py-1 space-y-1 bg-white border border-bamboo-100 rounded-xl text-left">
-                  <a
-                    href={VIEW_URLS['learn_dashboard'] || '/learn'}
-                    onClick={(e) => { e.preventDefault(); onViewChange?.('learn_dashboard'); setShowMobileMenu(false); }}
-                    className="block w-full text-left text-xs font-bold text-bamboo-900 hover:text-amber-700 py-2 border-b border-bamboo-50 cursor-pointer"
-                  >
-                    📚 All Lessons Dashboard
-                  </a>
-                  <a
-                    href={VIEW_URLS['learn_intro'] || '/learn/introduction'}
-                    onClick={(e) => { e.preventDefault(); onViewChange?.('learn_intro'); setShowMobileMenu(false); }}
-                    className="block w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
-                  >
-                    1. Introduction to Bansuri
-                  </a>
-                  <a
-                    href={VIEW_URLS['learn_choose_flute'] || '/learn/choose-flute'}
-                    onClick={(e) => { e.preventDefault(); onViewChange?.('learn_choose_flute'); setShowMobileMenu(false); }}
-                    className="block w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
-                  >
-                    2. Choose the Right Flute
-                  </a>
-                  <a
-                    href={VIEW_URLS['learn_basics'] || '/learn/basics'}
-                    onClick={(e) => { e.preventDefault(); onViewChange?.('learn_basics'); setShowMobileMenu(false); }}
-                    className="block w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
-                  >
-                    3. The Basics &amp; Blowing
-                  </a>
-                  <a
-                    href={VIEW_URLS['learn_fingering_chart'] || '/learn/fingering-chart'}
-                    onClick={(e) => { e.preventDefault(); onViewChange?.('learn_fingering_chart'); setShowMobileMenu(false); }}
-                    className="flex items-center justify-between w-full text-left text-xs font-bold text-amber-800 hover:text-bamboo-900 py-2 border-b border-bamboo-50 cursor-pointer"
-                  >
-                    <span className="flex items-center gap-2">
-                      <CircleDot className="w-3.5 h-3.5 text-amber-600" />
-                      <span>Interactive Fingering Chart</span>
-                    </span>
-                    <span className="text-[9px] bg-amber-100 text-amber-800 font-bold px-1.5 py-0.5 rounded-full uppercase">Chart</span>
-                  </a>
-                  <a
-                    href={VIEW_URLS['learn_alankaras'] || '/learn/alankaras'}
-                    onClick={(e) => { e.preventDefault(); onViewChange?.('learn_alankaras'); setShowMobileMenu(false); }}
-                    className="block w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
-                  >
-                    4. Alankaras Practice
-                  </a>
-                  <a
-                    href={VIEW_URLS['learn_daily_practice'] || '/learn/daily-practice-guide'}
-                    onClick={(e) => { e.preventDefault(); onViewChange?.('learn_daily_practice'); setShowMobileMenu(false); }}
-                    className="block w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
-                  >
-                    5. Daily Flute Practice Guide
-                  </a>
-                  <a
-                    href={VIEW_URLS['learn_raagas'] || '/learn/raagas'}
-                    onClick={(e) => { e.preventDefault(); onViewChange?.('learn_raagas'); setShowMobileMenu(false); }}
-                    className="block w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 cursor-pointer"
-                  >
-                    6. Indian Classical Raagas
-                  </a>
-                </div>
-              )}
-            </div>
-
-            {/* About Section */}
-            <div className="pt-1 border-t border-bamboo-100">
-              <a
-                href={VIEW_URLS['about_us'] || '/about'}
-                onClick={(e) => { e.preventDefault(); onViewChange?.('about_us'); setShowMobileMenu(false); }}
-                className="w-full flex items-center justify-between p-2.5 text-xs font-semibold text-gray-600 hover:text-bamboo-900 transition cursor-pointer"
-              >
-                <span className="flex items-center gap-2">
-                  <Info className="w-4 h-4 text-amber-600" />
-                  <span>About FluteSangam</span>
-                </span>
-              </a>
-            </div>
-          </div>
-        )}
 
         {/* Global user stats and profile management */}
         <div className="flex items-center space-x-1.5 sm:space-x-3 shrink-0 min-w-0">
@@ -990,6 +753,317 @@ export default function Navbar({
         </div>
       </div>
     </header>
+
+      {/* Mobile Menu Backdrop */}
+      {showMobileMenu && (
+        <div 
+          className="fixed inset-0 bg-bamboo-950/45 backdrop-blur-[2px] z-45 lg:hidden transition-opacity"
+          onClick={() => setShowMobileMenu(false)}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* Mobile Menu Overlay Drawer (Optimized for Smartphones, safe distance above bottom nav bar) */}
+      {showMobileMenu && (
+        <div 
+          ref={mobileMenuRef}
+          className="fixed top-14 sm:top-16 left-2.5 right-2.5 sm:left-4 sm:right-4 max-h-[calc(100dvh-8.25rem-env(safe-area-inset-bottom,0px))] overflow-y-auto overscroll-contain bg-white/98 backdrop-blur-xl border border-bamboo-200/90 shadow-2xl rounded-2xl p-3 sm:p-4 z-50 lg:hidden space-y-3.5 text-left pb-8"
+          style={{
+            WebkitOverflowScrolling: 'touch',
+          }}
+        >
+          {/* Quick Practice Tools */}
+          <div>
+            <div className="flex items-center justify-between px-1 mb-1.5">
+              <span className="text-[10px] font-black uppercase tracking-wider text-amber-800/80">
+                Practice Tools
+              </span>
+              <span className="text-[10px] text-gray-500 font-medium">Quick Access</span>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <a
+                href={VIEW_URLS['note_key_converter'] || '/converter'}
+                onClick={(e) => { e.preventDefault(); onViewChange?.('note_key_converter'); setShowMobileMenu(false); }}
+                className={`w-full flex items-center gap-2.5 p-2.5 border rounded-xl transition cursor-pointer text-left ${
+                  currentView === 'note_key_converter'
+                    ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
+                    : 'bg-emerald-50/70 border-emerald-200/80 hover:bg-emerald-100/80'
+                }`}
+              >
+                <div className={`w-8 h-8 rounded-lg shrink-0 flex items-center justify-center shadow-2xs ${
+                  currentView === 'note_key_converter' ? 'bg-white/20 text-white' : 'bg-emerald-600 text-white'
+                }`}>
+                  <Music className="w-4 h-4" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className={`text-xs font-bold leading-tight truncate ${currentView === 'note_key_converter' ? 'text-white' : 'text-bamboo-950'}`}>
+                    Note Converter
+                  </div>
+                  <div className={`text-[10px] truncate ${currentView === 'note_key_converter' ? 'text-emerald-100' : 'text-gray-600'}`}>
+                    Swaras ⇄ Keys
+                  </div>
+                </div>
+              </a>
+
+              <a
+                href={VIEW_URLS['learn_tuner'] || '/tuner'}
+                onClick={(e) => { e.preventDefault(); onViewChange?.('learn_tuner'); setShowMobileMenu(false); }}
+                className={`w-full flex items-center gap-2.5 p-2.5 border rounded-xl transition cursor-pointer text-left ${
+                  currentView === 'learn_tuner'
+                    ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
+                    : 'bg-gradient-to-br from-amber-500/10 via-amber-100/40 to-bamboo-100/30 border-amber-300/80 hover:bg-amber-100/70'
+                }`}
+              >
+                <div className={`w-8 h-8 rounded-lg shrink-0 flex items-center justify-center shadow-2xs ${
+                  currentView === 'learn_tuner' ? 'bg-white/20 text-white' : 'bg-amber-500 text-white'
+                }`}>
+                  <Radio className="w-4 h-4 animate-pulse" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className={`text-xs font-bold leading-tight truncate ${currentView === 'learn_tuner' ? 'text-white' : 'text-bamboo-950'}`}>
+                    Flute Tuner
+                  </div>
+                  <div className={`text-[10px] truncate ${currentView === 'learn_tuner' ? 'text-amber-100' : 'text-gray-500'}`}>
+                    Live Pitch A=440
+                  </div>
+                </div>
+              </a>
+
+              <a
+                href={VIEW_URLS['alankar_generator'] || '/alankar-generator'}
+                onClick={(e) => { e.preventDefault(); onViewChange?.('alankar_generator'); setShowMobileMenu(false); }}
+                className={`w-full flex items-center gap-2.5 p-2.5 border rounded-xl transition cursor-pointer text-left ${
+                  currentView === 'alankar_generator'
+                    ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
+                    : 'bg-amber-50/70 border-amber-200/80 hover:bg-amber-100/80'
+                }`}
+              >
+                <div className={`w-8 h-8 rounded-lg shrink-0 flex items-center justify-center shadow-2xs ${
+                  currentView === 'alankar_generator' ? 'bg-white/20 text-white' : 'bg-amber-500 text-white'
+                }`}>
+                  <Sliders className="w-4 h-4" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className={`text-xs font-bold leading-tight truncate ${currentView === 'alankar_generator' ? 'text-white' : 'text-bamboo-950'}`}>
+                    Alankar Gen
+                  </div>
+                  <div className={`text-[10px] truncate ${currentView === 'alankar_generator' ? 'text-amber-100' : 'text-gray-500'}`}>
+                    Custom Patterns
+                  </div>
+                </div>
+              </a>
+
+              <a
+                href={VIEW_URLS['tanpura'] || '/tools/tanpura'}
+                onClick={(e) => { e.preventDefault(); onViewChange?.('tanpura'); setShowMobileMenu(false); }}
+                className={`w-full flex items-center gap-2.5 p-2.5 border rounded-xl transition cursor-pointer text-left ${
+                  currentView === 'tanpura'
+                    ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
+                    : 'bg-gradient-to-br from-amber-500/10 via-amber-100/40 to-bamboo-100/30 border-amber-300/80 hover:bg-amber-100/70'
+                }`}
+              >
+                <div className={`w-8 h-8 rounded-lg shrink-0 flex items-center justify-center shadow-2xs ${
+                  currentView === 'tanpura' ? 'bg-white/20 text-white' : 'bg-amber-600 text-white'
+                }`}>
+                  <Radio className="w-4 h-4 animate-pulse" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className={`text-xs font-bold leading-tight truncate ${currentView === 'tanpura' ? 'text-white' : 'text-bamboo-950'}`}>
+                    Tanpura Drone
+                  </div>
+                  <div className={`text-[10px] truncate ${currentView === 'tanpura' ? 'text-amber-100' : 'text-gray-500'}`}>
+                    Acoustic Swar
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          {/* Community Section */}
+          <div>
+            <span className="text-[10px] font-black uppercase tracking-wider text-gray-600 px-1 mb-1.5 block">
+              Community &amp; Resources
+            </span>
+            <div className="grid grid-cols-2 gap-2">
+              <a
+                href={VIEW_URLS['community'] || '/community'}
+                onClick={(e) => { 
+                  e.preventDefault(); 
+                  onViewChange?.('community'); 
+                  setShowMobileMenu(false); 
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
+                  currentView === 'community'
+                    ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
+                    : 'bg-bamboo-50/60 text-gray-700 border-bamboo-100 hover:bg-bamboo-100/60'
+                }`}
+              >
+                <Globe className={`w-4 h-4 shrink-0 ${currentView === 'community' ? 'text-white' : 'text-amber-600'}`} />
+                <span className="truncate">Feed</span>
+              </a>
+
+              {currentUser && (
+                <a
+                  href={VIEW_URLS['chats'] || '/chats'}
+                  onClick={(e) => { 
+                    e.preventDefault(); 
+                    onViewChange?.('chats'); 
+                    setShowMobileMenu(false); 
+                  }}
+                  className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left relative cursor-pointer ${
+                    currentView === 'chats'
+                      ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
+                      : 'bg-bamboo-50/60 text-gray-700 border-bamboo-100 hover:bg-bamboo-100/60'
+                  }`}
+                >
+                  <MessageSquare className={`w-4 h-4 shrink-0 ${currentView === 'chats' ? 'text-white' : 'text-amber-600'}`} />
+                  <span className="truncate">Sangam Chats</span>
+                  {unreadCount > 0 && (
+                    <span className="ml-auto bg-yellow-400 text-amber-950 text-[9px] font-black px-1.5 py-0.5 rounded-full">
+                      {unreadCount}
+                    </span>
+                  )}
+                </a>
+              )}
+
+              <a
+                href={VIEW_URLS['notation_requests'] || '/notations'}
+                onClick={(e) => { e.preventDefault(); onViewChange?.('notation_requests'); setShowMobileMenu(false); }}
+                className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
+                  currentView === 'notation_requests' || currentView === 'notation_happy_birthday' || currentView === 'notation_jingle_bells' || currentView?.startsWith('notation_')
+                    ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
+                    : 'bg-amber-100/70 text-amber-950 border-amber-300/80 hover:bg-amber-200/80'
+                }`}
+              >
+                <Music className={`w-4 h-4 shrink-0 ${currentView === 'notation_requests' || currentView?.startsWith('notation_') ? 'text-white' : 'text-amber-700'}`} />
+                <span className="truncate">Song Notation</span>
+              </a>
+
+              <a
+                href={VIEW_URLS['flute_faq'] || '/faq'}
+                onClick={(e) => { e.preventDefault(); onViewChange?.('flute_faq'); setShowMobileMenu(false); }}
+                className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
+                  currentView === 'flute_faq'
+                    ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
+                    : 'bg-bamboo-50/60 text-gray-700 border-bamboo-100 hover:bg-bamboo-100/60'
+                }`}
+              >
+                <HelpCircle className={`w-4 h-4 shrink-0 ${currentView === 'flute_faq' ? 'text-white' : 'text-amber-600'}`} />
+                <span className="truncate">Flute FAQ</span>
+              </a>
+
+              {currentUser && (
+                <a
+                  href={VIEW_URLS['community_members'] || '/members'}
+                  onClick={(e) => { e.preventDefault(); onViewChange?.('community_members'); setShowMobileMenu(false); }}
+                  className={`flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-bold border transition text-left cursor-pointer ${
+                    currentView === 'community_members'
+                      ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
+                      : 'bg-bamboo-50/60 text-gray-700 border-bamboo-100 hover:bg-bamboo-100/60'
+                  }`}
+                >
+                  <Users className={`w-4 h-4 shrink-0 ${currentView === 'community_members' ? 'text-white' : 'text-amber-600'}`} />
+                  <span className="truncate">Flutists</span>
+                </a>
+              )}
+            </div>
+          </div>
+
+          {/* Learn Flute Section */}
+          <div>
+            <button
+              onClick={() => setShowMobileLearnMenu(!showMobileLearnMenu)}
+              className="w-full flex items-center justify-between p-2.5 bg-bamboo-50/80 border border-bamboo-100 rounded-xl text-xs font-bold text-bamboo-950 hover:bg-bamboo-100/80 transition cursor-pointer"
+            >
+              <span className="flex items-center gap-2">
+                <BookOpen className="w-4 h-4 text-amber-600" />
+                <span>Learn Bansuri Lessons</span>
+              </span>
+              <ChevronDown className={`w-4 h-4 text-bamboo-700 transition-transform ${showMobileLearnMenu ? 'rotate-180' : ''}`} />
+            </button>
+
+            {showMobileLearnMenu && (
+              <div className="mt-2 pl-3 pr-2 py-1 space-y-1 bg-white border border-bamboo-100 rounded-xl text-left">
+                <a
+                  href={VIEW_URLS['learn_dashboard'] || '/learn'}
+                  onClick={(e) => { e.preventDefault(); onViewChange?.('learn_dashboard'); setShowMobileMenu(false); }}
+                  className="block w-full text-left text-xs font-bold text-bamboo-900 hover:text-amber-700 py-2 border-b border-bamboo-50 cursor-pointer"
+                >
+                  📚 All Lessons Dashboard
+                </a>
+                <a
+                  href={VIEW_URLS['learn_intro'] || '/learn/introduction'}
+                  onClick={(e) => { e.preventDefault(); onViewChange?.('learn_intro'); setShowMobileMenu(false); }}
+                  className="block w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
+                >
+                  1. Introduction to Bansuri
+                </a>
+                <a
+                  href={VIEW_URLS['learn_choose_flute'] || '/learn/choose-flute'}
+                  onClick={(e) => { e.preventDefault(); onViewChange?.('learn_choose_flute'); setShowMobileMenu(false); }}
+                  className="block w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
+                >
+                  2. Choose the Right Flute
+                </a>
+                <a
+                  href={VIEW_URLS['learn_basics'] || '/learn/basics'}
+                  onClick={(e) => { e.preventDefault(); onViewChange?.('learn_basics'); setShowMobileMenu(false); }}
+                  className="block w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
+                >
+                  3. The Basics &amp; Blowing
+                </a>
+                <a
+                  href={VIEW_URLS['learn_fingering_chart'] || '/learn/fingering-chart'}
+                  onClick={(e) => { e.preventDefault(); onViewChange?.('learn_fingering_chart'); setShowMobileMenu(false); }}
+                  className="flex items-center justify-between w-full text-left text-xs font-bold text-amber-800 hover:text-bamboo-900 py-2 border-b border-bamboo-50 cursor-pointer"
+                >
+                  <span className="flex items-center gap-2">
+                    <CircleDot className="w-3.5 h-3.5 text-amber-600" />
+                    <span>Interactive Fingering Chart</span>
+                  </span>
+                  <span className="text-[9px] bg-amber-100 text-amber-800 font-bold px-1.5 py-0.5 rounded-full uppercase">Chart</span>
+                </a>
+                <a
+                  href={VIEW_URLS['learn_alankaras'] || '/learn/alankaras'}
+                  onClick={(e) => { e.preventDefault(); onViewChange?.('learn_alankaras'); setShowMobileMenu(false); }}
+                  className="block w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
+                >
+                  4. Alankaras Practice
+                </a>
+                <a
+                  href={VIEW_URLS['learn_daily_practice'] || '/learn/daily-practice-guide'}
+                  onClick={(e) => { e.preventDefault(); onViewChange?.('learn_daily_practice'); setShowMobileMenu(false); }}
+                  className="block w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 border-b border-bamboo-50 cursor-pointer"
+                >
+                  5. Daily Flute Practice Guide
+                </a>
+                <a
+                  href={VIEW_URLS['learn_raagas'] || '/learn/raagas'}
+                  onClick={(e) => { e.preventDefault(); onViewChange?.('learn_raagas'); setShowMobileMenu(false); }}
+                  className="block w-full text-left text-xs text-gray-700 hover:text-bamboo-800 py-2 cursor-pointer"
+                >
+                  6. Indian Classical Raagas
+                </a>
+              </div>
+            )}
+          </div>
+
+          {/* About Section */}
+          <div className="pt-2 border-t border-bamboo-100">
+            <a
+              href={VIEW_URLS['about_us'] || '/about'}
+              onClick={(e) => { e.preventDefault(); onViewChange?.('about_us'); setShowMobileMenu(false); }}
+              className="w-full flex items-center justify-between p-2 text-xs font-semibold text-gray-600 hover:text-bamboo-900 transition cursor-pointer"
+            >
+              <span className="flex items-center gap-2">
+                <Info className="w-4 h-4 text-amber-600" />
+                <span>About FluteSangam</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      )}
 
       {/* Edit Profile Dialog Overlay (Absolute modal inside navbar/context for simplicity) */}
       {isEditingProfile && currentUser && (
