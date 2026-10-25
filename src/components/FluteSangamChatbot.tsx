@@ -35,20 +35,27 @@ interface FluteSangamChatbotProps {
 export const FluteSangamChatbot: React.FC<FluteSangamChatbotProps> = ({ onViewChange, isHidden, onOpenChange }) => {
   const mountTimeRef = useRef<number>(Date.now());
 
-  if (isHidden) return null;
-
   const [isOpen, setIsOpen] = useState(false);
-
-  // Notify parent component when chatbot open state changes
-  useEffect(() => {
-    onOpenChange?.(isOpen);
-  }, [isOpen, onOpenChange]);
   const [selectedCategory, setSelectedCategory] = useState<string>('Beginner');
   const [inputValue, setInputValue] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const chatbotWindowRef = useRef<HTMLDivElement>(null);
+
+  // If isHidden is toggled, ensure open state is closed
+  useEffect(() => {
+    if (isHidden) {
+      if (isOpen) setIsOpen(false);
+    } else {
+      mountTimeRef.current = Date.now();
+    }
+  }, [isHidden, isOpen]);
+
+  // Notify parent component when chatbot open state changes
+  useEffect(() => {
+    onOpenChange?.(isOpen);
+  }, [isOpen, onOpenChange]);
 
   // Close when clicking outside the chatbot window
   useEffect(() => {
@@ -96,6 +103,7 @@ export const FluteSangamChatbot: React.FC<FluteSangamChatbotProps> = ({ onViewCh
     }
   }, [messages, isOpen]);
 
+  // Early return safely placed AFTER all hooks have executed
   if (isHidden) return null;
 
   const getCategoryIcon = (iconName: string) => {
