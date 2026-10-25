@@ -133,6 +133,7 @@ export default function Navbar({
         setShowMoreDropdown(false);
       }
       if (
+        event.type !== 'touchstart' &&
         mobileMenuRef.current && 
         !mobileMenuRef.current.contains(event.target as Node) &&
         (!mobileMenuBtnRef.current || !mobileMenuBtnRef.current.contains(event.target as Node))
@@ -282,7 +283,7 @@ export default function Navbar({
 
   return (
     <>
-      <header className={`sticky top-0 frosted-navbar shadow-3xs overflow-x-clip ${showMobileMenu ? 'z-50' : 'z-40'}`} id="app-navbar">
+      <header className={`sticky top-0 frosted-navbar shadow-3xs overflow-x-clip ${showMobileMenu ? 'z-[1060]' : 'z-40'}`} id="app-navbar">
         <div className="w-full max-w-(--breakpoint-2xl) mx-auto px-2.5 sm:px-4 lg:px-8 xl:px-10 h-14 sm:h-16 flex items-center justify-between gap-1.5 sm:gap-3 lg:gap-4 xl:gap-6 min-w-0">
         {/* Brand Logo & Name */}
         <a 
@@ -757,8 +758,17 @@ export default function Navbar({
       {/* Mobile Menu Backdrop */}
       {showMobileMenu && (
         <div 
-          className="fixed inset-0 bg-bamboo-950/45 backdrop-blur-[2px] z-45 lg:hidden transition-opacity"
-          onClick={() => setShowMobileMenu(false)}
+          className="fixed inset-0 bg-bamboo-950/45 backdrop-blur-[2px] z-[1050] lg:hidden transition-opacity"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setShowMobileMenu(false);
+          }}
+          onTouchEnd={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setShowMobileMenu(false);
+          }}
           aria-hidden="true"
         />
       )}
@@ -767,7 +777,7 @@ export default function Navbar({
       {showMobileMenu && (
         <div 
           ref={mobileMenuRef}
-          className="fixed top-14 sm:top-16 left-2.5 right-2.5 sm:left-4 sm:right-4 max-h-[calc(100dvh-8.25rem-env(safe-area-inset-bottom,0px))] overflow-y-auto overscroll-contain bg-white/98 backdrop-blur-xl border border-bamboo-200/90 shadow-2xl rounded-2xl p-3 sm:p-4 z-50 lg:hidden space-y-3.5 text-left pb-8"
+          className="fixed top-14 sm:top-16 left-2.5 right-2.5 sm:left-4 sm:right-4 max-h-[calc(100dvh-8.25rem-env(safe-area-inset-bottom,0px))] overflow-y-auto overscroll-contain bg-white/98 backdrop-blur-xl border border-bamboo-200/90 shadow-2xl rounded-2xl p-3 sm:p-4 z-[1060] lg:hidden space-y-3.5 text-left pb-8"
           style={{
             WebkitOverflowScrolling: 'touch',
           }}

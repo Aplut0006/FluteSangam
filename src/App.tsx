@@ -196,6 +196,19 @@ export default function App() {
   const [activeSharePost, setActiveSharePost] = useState<Post | null>(null);
   const [isChatbotOpen, setIsChatbotOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isChatbotSuppressedForMobileNav, setIsChatbotSuppressedForMobileNav] = useState(false);
+
+  // Suppress chatbot mounting for 400ms after mobile nav closes to prevent ghost clicks
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      setIsChatbotSuppressedForMobileNav(true);
+    } else {
+      const timer = setTimeout(() => {
+        setIsChatbotSuppressedForMobileNav(false);
+      }, 400);
+      return () => clearTimeout(timer);
+    }
+  }, [isMobileMenuOpen]);
 
   // Helper to determine initial view synchronously without flash
   const getInitialViewFromPathname = (path: string): AppView => {
@@ -1561,12 +1574,12 @@ export default function App() {
 
           <FluteSangamChatbot 
             onViewChange={handleViewChange}
-            isHidden={isMobileMenuOpen || authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost || currentView === 'learn_tuner' || currentView === 'tanpura' || currentView === 'notation_requests'}
+            isHidden={isMobileMenuOpen || isChatbotSuppressedForMobileNav || authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost || currentView === 'learn_tuner' || currentView === 'tanpura' || currentView === 'notation_requests'}
             onOpenChange={setIsChatbotOpen}
           />
 
           <ScrollToTopButton 
-            isHidden={isMobileMenuOpen || authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost || currentView === 'learn_tuner' || currentView === 'tanpura' || currentView === 'notation_requests' || isChatbotOpen}
+            isHidden={isMobileMenuOpen || isChatbotSuppressedForMobileNav || authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost || currentView === 'learn_tuner' || currentView === 'tanpura' || currentView === 'notation_requests' || isChatbotOpen}
           />
         </React.Suspense>
       </ErrorBoundary>

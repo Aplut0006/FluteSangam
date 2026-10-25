@@ -33,6 +33,8 @@ interface FluteSangamChatbotProps {
 }
 
 export const FluteSangamChatbot: React.FC<FluteSangamChatbotProps> = ({ onViewChange, isHidden, onOpenChange }) => {
+  const mountTimeRef = useRef<number>(Date.now());
+
   if (isHidden) return null;
 
   const [isOpen, setIsOpen] = useState(false);
@@ -221,7 +223,15 @@ export const FluteSangamChatbot: React.FC<FluteSangamChatbotProps> = ({ onViewCh
       {/* Floating Chat Trigger Button - positioned above mobile bottom nav */}
       {!isOpen && (
         <button
-          onClick={() => setIsOpen(true)}
+          onClick={(e) => {
+            // Reject synthetic ghost clicks if button was recently unhidden/mounted within 500ms
+            if (Date.now() - mountTimeRef.current < 500) {
+              e.preventDefault();
+              e.stopPropagation();
+              return;
+            }
+            setIsOpen(true);
+          }}
           id="flute-chatbot-trigger-btn"
           className="fixed bottom-[calc(5.25rem+env(safe-area-inset-bottom,0px))] md:bottom-6 right-4 md:right-6 z-[1001] bg-white hover:bg-amber-50 text-bamboo-950 px-4 py-3 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center gap-2.5 border border-amber-300 group cursor-pointer"
           title="Ask FluteSangam Assistant"
