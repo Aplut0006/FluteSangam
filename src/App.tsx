@@ -85,6 +85,7 @@ const JanaGanaManaNotationView = lazyWithRetry(() => import('./components/JanaGa
 const MahabharatKrishnaThemeNotationView = lazyWithRetry(() => import('./components/MahabharatKrishnaThemeNotationView').then(m => ({ default: m.MahabharatKrishnaThemeNotationView })));
 const ShriKrishnaGovindHareMurariNotationView = lazyWithRetry(() => import('./components/ShriKrishnaGovindHareMurariNotationView').then(m => ({ default: m.ShriKrishnaGovindHareMurariNotationView })));
 const HothonSeChhuLoTumNotationView = lazyWithRetry(() => import('./components/HothonSeChhuLoTumNotationView').then(m => ({ default: m.HothonSeChhuLoTumNotationView })));
+const KrrishThemeNotationView = lazyWithRetry(() => import('./components/KrrishThemeNotationView').then(m => ({ default: m.KrrishThemeNotationView })));
 const PrivacyPolicyView = lazyWithRetry(() => import('./components/PrivacyPolicyView'));
 const TermsOfServiceView = lazyWithRetry(() => import('./components/TermsOfServiceView'));
 const CopyrightPolicyView = lazyWithRetry(() => import('./components/CopyrightPolicyView'));
@@ -225,7 +226,8 @@ export default function App() {
     if (cleanPath === '/learn/alankaras' || cleanPath.startsWith('/learn/alankaras/')) return 'learn_alankaras';
     if (cleanPath === '/practice' || cleanPath === '/learn/daily-practice-guide' || cleanPath === '/learn/daily-practice') return 'learn_daily_practice';
     if (cleanPath === '/ragas' || cleanPath === '/learn/raagas') return 'learn_raagas';
-    if (cleanPath === '/notations/hothon-se-chhu-lo-tum-flute-notes') return 'notation_hothon_se_chhoo_lo_tum';
+    if (cleanPath === '/notations/hothon-se-chhu-lo-tum-flute-notes' || cleanPath === '/notations/hothon-se-chhoo-lo-tum-flute-notes') return 'notation_hothon_se_chhoo_lo_tum';
+    if (cleanPath === '/notations/krrish-theme-flute-notes') return 'notation_krrish_theme';
     if (cleanPath.startsWith('/post/')) return 'post-detail';
     if (cleanPath.startsWith('/profile/')) return 'user-profile';
     
@@ -505,6 +507,10 @@ export default function App() {
         title = 'Hothon Se Chhu Lo Tum Flute Notes | Sargam & Western';
         description = 'Learn Hothon Se Chhu Lo Tum flute notes with Sargam and Western notation. Practice Jagjit Singh’s timeless ghazal with easy flute notes and playing tips.';
         break;
+      case 'notation_krrish_theme':
+        title = 'Krrish Theme Flute Notes | Sargam & Western';
+        description = 'Learn the Krrish theme tune on flute with Sargam and Western notes. Explore the iconic Bollywood melody with clear notation and practical flute-playing tips.';
+        break;
       case 'community_members':
         title = 'Community Members | FluteSangam';
         description = 'Meet flutists, learners, and contributors in the global FluteSangam community.';
@@ -585,7 +591,8 @@ export default function App() {
       currentView === 'community' ||
       currentView === 'home' ||
       currentView === 'learn_dashboard' ||
-      currentView === 'notation_hothon_se_chhoo_lo_tum'
+      currentView === 'notation_hothon_se_chhoo_lo_tum' ||
+      currentView === 'notation_krrish_theme'
     ) {
       modDate = '2026-10-11T00:00:00Z';
     } else if (currentView === 'post-detail' && selectedPost) {
@@ -1412,6 +1419,8 @@ export default function App() {
                 handleViewChange('notation_shri_krishna_govind_hare_murari');
               } else if (slug === 'hothon-se-chhoo-lo-tum-flute-notes') {
                 handleViewChange('notation_hothon_se_chhoo_lo_tum');
+              } else if (slug === 'krrish-theme-flute-notes') {
+                handleViewChange('notation_krrish_theme');
               }
             }}
           />
@@ -1437,6 +1446,8 @@ export default function App() {
           <ShriKrishnaGovindHareMurariNotationView onViewChange={handleViewChange} />
         ) : currentView === 'notation_hothon_se_chhoo_lo_tum' ? (
           <HothonSeChhuLoTumNotationView onViewChange={handleViewChange} />
+        ) : currentView === 'notation_krrish_theme' ? (
+          <KrrishThemeNotationView onViewChange={handleViewChange} />
         ) : currentView === 'community_members' ? (
           <MembersView 
             currentUser={currentUser} 

@@ -2354,6 +2354,224 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       { name: 'How to Find the Scale of a Song on Flute', url: '/learn/how-to-find-scale-of-a-song-on-flute', viewKey: 'find_song_scale' },
       { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
     ]
+  },
+  {
+    id: 'krrish-theme-flute-notes',
+    slug: 'krrish-theme-flute-notes',
+    title: 'Krrish Theme Flute Notes',
+    category: 'Hindi/Bollywood',
+    movie: 'Krrish (2006)',
+    singer: 'Rajesh Roshan (Theme Composition)',
+    type: 'Bollywood Heroic Theme / Instrumental',
+    difficulty: 'Intermediate',
+    suggestedFlute: 'C Medium, D Medium, or E Bass bansuri',
+    startingSwar: 'Sa (S)',
+    highestSwar: 'Tara Ga (G\' / High E)',
+    mainChallenge: 'Rapid double-tonguing ("tuku") on repeated notes, descending gamak oscillations from high octave, and energetic breath strokes',
+    practiceSpeed: 'Moderate to brisk heroic tempo (approx. 90-110 BPM)',
+    notationFormats: 'Song Notation (Sargam & Western) with Phrase Guidance',
+    description: 'Learn the iconic Krrish theme tune on flute and bansuri with beginner-to-intermediate Sargam and Western notes. Features double-tonguing (tuku) drills, rhythmic gamak pulsations, staccato strokes, and phrase-by-phrase practice tips.',
+    status: 'Song Notation',
+    publishedDate: '2026-10-25',
+    updatedDate: '2026-10-25',
+    canonicalUrl: 'https://flutesangam.com/notations/krrish-theme-flute-notes',
+    h1: 'Krrish Theme Flute Notes – Sargam & Western Notes',
+    metaTitle: 'Krrish Theme Flute Notes | Sargam & Western',
+    metaDescription: 'Learn the Krrish theme tune on flute with Sargam and Western notes. Explore the iconic Bollywood melody with clear notation and practical flute-playing tips.',
+    intro: 'The Krrish Theme is one of the most iconic, exhilarating, and instantly recognizable instrumental melodies in modern Bollywood cinema, composed by Rajesh Roshan for the superhero blockbuster Krrish (2006). Built around crisp double-tongued rhythmic pulses, dramatic cascading gamaks, and a soaring high-octave climax, this theme is a favorite among bansuri and flute players worldwide. This complete guide provides phrase-by-phrase Sargam and Western notations, articulation guidance ("tuku" tonguing, gamaks, and strokes), and practical riyaz tips.',
+    quickInfo: {
+      difficulty: 'Intermediate',
+      melodyType: 'Bollywood Superhero Theme / Instrumental',
+      suggestedFlute: 'C Medium, D Medium, or E Bass bansuri',
+      startingSwar: 'Sa (S)',
+      highestSwar: 'Tara Ga (G\' / High E)',
+      mainChallenge: 'Rapid double-tonguing ("tuku") and descending gamak oscillations from high octave',
+      practiceSpeed: 'Moderate to brisk heroic tempo (approx. 90-110 BPM)'
+    },
+    legend: [
+      { symbol: '.P .N .S .G .R', meaning: 'lower octave notes (Mandra Saptak)' },
+      { symbol: 'S R G M P D N', meaning: 'middle octave notes (Madhya Saptak)' },
+      { symbol: 'S\' R\' G\' P\'', meaning: 'higher octave notes (Tara Saptak)' },
+      { symbol: '—', meaning: 'hold / sustain the preceding note' },
+      { symbol: 'tuku', meaning: 'double-tonguing articulation (tu-ku / ta-ka)' },
+      { symbol: 'gamak', meaning: 'deep oscillatory pulsation / vocal-like gamak movement' },
+      { symbol: 'strokes', meaning: 'crisp rhythmic breath accents / staccato articulation' },
+      { symbol: '|', meaning: 'phrase division' }
+    ],
+    phrases: [
+      {
+        phraseNumber: 1,
+        lyric: 'Heroic Motif 1 (Fast Double Tonguing "tuku") [Repeat x3]',
+        sargamNotes: 'SSG | GGP | PPN | NNR\'   [x3 times repeat]',
+        westernNotes: 'CCE | EEG | GGB | BBD\'   [x3 times repeat]',
+        units: [
+          { lyric: 'SSG', sargam: 'SSG', western: 'CCE' },
+          { lyric: 'GGP', sargam: 'GGP', western: 'EEG' },
+          { lyric: 'PPN', sargam: 'PPN', western: 'GGB' },
+          { lyric: 'NNR\'', sargam: 'NNR\'', western: 'BBD\'' }
+        ],
+        guidance: 'Use rapid double-tonguing articulating "tu-ku" on each repeated note pair (SS, GG, PP, NN). Ascend crisply to Tara Re (R\'). Repeat this signature heroic phrase 3 times.'
+      },
+      {
+        phraseNumber: 2,
+        lyric: 'Cascading Gamak Descent [Repeat x2]',
+        sargamNotes: 'G\'R\'S\' | R\'S\'N | S\'NP | NPG | PGRS   [x2 times]',
+        westernNotes: 'E\'D\'C\' | D\'C\'B | C\'BG | BGE | GEDC   [x2 times]',
+        units: [
+          { lyric: 'G\'R\'S\'', sargam: 'G\'R\'S\'', western: 'E\'D\'C\'' },
+          { lyric: 'R\'S\'N', sargam: 'R\'S\'N', western: 'D\'C\'B' },
+          { lyric: 'S\'NP', sargam: 'S\'NP', western: 'C\'BG' },
+          { lyric: 'NPG', sargam: 'NPG', western: 'BGE' },
+          { lyric: 'PGRS', sargam: 'PGRS', western: 'GEDC' }
+        ],
+        guidance: 'A cascading waterfall descent from high Ga (G\') down to base Sa (S). Use resonant gamak oscillations across each group when coming down. Repeat twice.'
+      },
+      {
+        phraseNumber: 3,
+        lyric: 'Gamak Descent with Re Resolution',
+        sargamNotes: 'G\'R\'S\' | R\'S\'N | S\'NP | NPG | PGRS | R—',
+        westernNotes: 'E\'D\'C\' | D\'C\'B | C\'BG | BGE | GEDC | D—',
+        units: [
+          { lyric: 'G\'R\'S\'', sargam: 'G\'R\'S\'', western: 'E\'D\'C\'' },
+          { lyric: 'R\'S\'N', sargam: 'R\'S\'N', western: 'D\'C\'B' },
+          { lyric: 'S\'NP', sargam: 'S\'NP', western: 'C\'BG' },
+          { lyric: 'NPG', sargam: 'NPG', western: 'BGE' },
+          { lyric: 'PGRS', sargam: 'PGRS', western: 'GEDC' },
+          { lyric: 'R—', sargam: 'R—', western: 'D—' }
+        ],
+        guidance: 'Follow the same cascading gamak path, but instead of finishing on Sa, resolve with a sustained hold on Re (R—). Maintain steady breath support.'
+      },
+      {
+        phraseNumber: 4,
+        lyric: 'Lower Octave Bridge',
+        sargamNotes: '.N.N | S—',
+        westernNotes: '.B.B | C—',
+        units: [
+          { lyric: '.N.N', sargam: '.N.N', western: '.B.B' },
+          { lyric: 'S—', sargam: 'S—', western: 'C—' }
+        ],
+        guidance: 'Drop into the lower octave Mandra Ni (.N) with gentle articulation before resolving onto held middle Sa (S—).'
+      },
+      {
+        phraseNumber: 5,
+        lyric: 'Soaring Swara Wave [Repeat x2]',
+        sargamNotes: 'RGGG | S\'NS\'NS\' | PNGP   [x2 times]',
+        westernNotes: 'DEEE | C\'BC\'BC\' | GBEG   [x2 times]',
+        units: [
+          { lyric: 'RGGG', sargam: 'RGGG', western: 'DEEE' },
+          { lyric: 'S\'NS\'NS\'', sargam: 'S\'NS\'NS\'', western: 'C\'BC\'BC\'' },
+          { lyric: 'PNGP', sargam: 'PNGP', western: 'GBEG' }
+        ],
+        guidance: 'Punch triple Ga after Re (RGGG), leap cleanly into high Sa with rapid oscillation (S\'NS\'NS\'), then roll through PNGP. Repeat twice.'
+      },
+      {
+        phraseNumber: 6,
+        lyric: 'Rhythmic Transition',
+        sargamNotes: 'SRRR | NPN | PN | GPRG',
+        westernNotes: 'CDDD | BGB | GB | EGDG',
+        units: [
+          { lyric: 'SRRR', sargam: 'SRRR', western: 'CDDD' },
+          { lyric: 'NPN', sargam: 'NPN', western: 'BGB' },
+          { lyric: 'PN', sargam: 'PN', western: 'GB' },
+          { lyric: 'GPRG', sargam: 'GPRG', western: 'EGDG' }
+        ],
+        guidance: 'Crisp articulation on SRRR followed by energetic syncopated bounces on NPN and PN, resolving smoothly on GPRG.'
+      },
+      {
+        phraseNumber: 7,
+        lyric: 'Dramatic 3-Octave Ascent (Use Strokes)',
+        sargamNotes: '.P | .N | .S | .G | .R | P | N | S\' | R\' | G\'—',
+        westernNotes: '.G | .B | .C | .E | .D | G | B | C\' | D\' | E\'—',
+        units: [
+          { lyric: '.P .N', sargam: '.P .N', western: '.G .B' },
+          { lyric: '.S .G .R', sargam: '.S .G .R', western: '.C .E .D' },
+          { lyric: 'P N', sargam: 'P N', western: 'G B' },
+          { lyric: 'S\' R\'', sargam: 'S\' R\'', western: 'C\' D\'' },
+          { lyric: 'G\'—', sargam: 'G\'—', western: 'E\'—' }
+        ],
+        guidance: 'The thrilling climb! Play each note with firm rhythmic breath strokes (staccato articulation), ascending across octaves from lower Pa (.P) to sustained high Ga (G\'—).'
+      },
+      {
+        phraseNumber: 8,
+        lyric: 'Tara Saptak High Climax 1',
+        sargamNotes: 'R\'G\'P\'G\'— | R\'G\'P\'R\'— | NNS\'—',
+        westernNotes: 'D\'E\'G\'E\'— | D\'E\'G\'D\'— | BBC\'—',
+        units: [
+          { lyric: 'R\'G\'P\'G\'—', sargam: 'R\'G\'P\'G\'—', western: 'D\'E\'G\'E\'—' },
+          { lyric: 'R\'G\'P\'R\'—', sargam: 'R\'G\'P\'R\'—', western: 'D\'E\'G\'D\'—' },
+          { lyric: 'NNS\'—', sargam: 'NNS\'—', western: 'BBC\'—' }
+        ],
+        guidance: 'Heroic high octave mastery. Reach up into Tara Pa (P\'), hold Tara Ga (G\'—), sweep to Tara Re (R\'—), and anchor firmly on sustained high Sa (NNS\'—).'
+      },
+      {
+        phraseNumber: 9,
+        lyric: 'Grand Finale Climax',
+        sargamNotes: 'PNS\'R\'G\'— | R\'G\'P\'G\'— | R\'G\'P\'R\'— | NNS\'—',
+        westernNotes: 'GBC\'D\'E\'— | D\'E\'G\'E\'— | D\'E\'G\'D\'— | BBC\'—',
+        units: [
+          { lyric: 'PNS\'R\'G\'—', sargam: 'PNS\'R\'G\'—', western: 'GBC\'D\'E\'—' },
+          { lyric: 'R\'G\'P\'G\'—', sargam: 'R\'G\'P\'G\'—', western: 'D\'E\'G\'E\'—' },
+          { lyric: 'R\'G\'P\'R\'—', sargam: 'R\'G\'P\'R\'—', western: 'D\'E\'G\'D\'—' },
+          { lyric: 'NNS\'—', sargam: 'NNS\'—', western: 'BBC\'—' }
+        ],
+        guidance: 'The grand finale! Launch upward from middle Pa (PNS\'R\'G\'—), repeat the triumphant high octave motif, and sustain the final high Sa (S\'—) with power and fullness.'
+      }
+    ],
+    sargamPhrases: [
+      { phraseNumber: 1, notes: 'SSG GGP PPN NNR\' (use tounging "tuku") x3 times repeat', lyric: 'Heroic Motif 1 (Fast Double Tonguing)' },
+      { phraseNumber: 2, notes: 'G\'R\'S\' R\'S\'N S\'NP NPG PGRS x2 times (use gamak when coming down)', lyric: 'Cascading Gamak Descent' },
+      { phraseNumber: 3, notes: 'G\'R\'S\' R\'S\'N S\'NP NPG PGRS R— (use gamak)', lyric: 'Gamak Descent with Re Resolution' },
+      { phraseNumber: 4, notes: '.N.NS—', lyric: 'Lower Octave Bridge' },
+      { phraseNumber: 5, notes: 'RGGG S\'NS\'NS\' PNGP x2 times', lyric: 'Soaring Swara Wave' },
+      { phraseNumber: 6, notes: 'SRRR NPN PN GPRG', lyric: 'Rhythmic Transition' },
+      { phraseNumber: 7, notes: '.P .N .S .G .R P N S\' R\' G\'— (use strokes)', lyric: 'Dramatic 3-Octave Ascent' },
+      { phraseNumber: 8, notes: 'R\'G\'P\'G\'— R\'G\'P\'R\'— NNS\'—', lyric: 'Tara Saptak High Climax 1' },
+      { phraseNumber: 9, notes: 'PNS\'R\'G\'— R\'G\'P\'G\'— R\'G\'P\'R\'— NNS\'—', lyric: 'Grand Finale Climax' }
+    ],
+    westernPhrases: [
+      { phraseNumber: 1, notes: 'CCE EEG GGB BBD\' (use double tonguing) x3 times repeat', lyric: 'Heroic Motif 1 (Fast Double Tonguing)' },
+      { phraseNumber: 2, notes: 'E\'D\'C\' D\'C\'B C\'BG BGE GEDC x2 times (use gamak oscillations)', lyric: 'Cascading Gamak Descent' },
+      { phraseNumber: 3, notes: 'E\'D\'C\' D\'C\'B C\'BG BGE GEDC D— (use gamak)', lyric: 'Gamak Descent with D Resolution' },
+      { phraseNumber: 4, notes: '.B.BC—', lyric: 'Lower Octave Bridge' },
+      { phraseNumber: 5, notes: 'DEEE C\'BC\'BC\' GBEG x2 times', lyric: 'Soaring Swara Wave' },
+      { phraseNumber: 6, notes: 'CDDD BGB GB EGDG', lyric: 'Rhythmic Transition' },
+      { phraseNumber: 7, notes: '.G .B .C .E .D G B C\' D\' E\'— (use staccato strokes)', lyric: 'Dramatic 3-Octave Ascent' },
+      { phraseNumber: 8, notes: 'D\'E\'G\'E\'— D\'E\'G\'D\'— BBC\'—', lyric: 'Tara Saptak High Climax 1' },
+      { phraseNumber: 9, notes: 'GBC\'D\'E\'— D\'E\'G\'E\'— D\'E\'G\'D\'— BBC\'—', lyric: 'Grand Finale Climax' }
+    ],
+    phraseGuidance: [
+      { phraseNumber: 1, guidance: 'Use rapid double-tonguing articulating "tu-ku" on each repeated note pair (SS, GG, PP, NN). Ascend crisply to Tara Re (R\'). Repeat 3 times.' },
+      { phraseNumber: 2, guidance: 'A cascading waterfall descent from high Ga (G\') down to base Sa (S). Use resonant gamak oscillations across each group. Repeat twice.' },
+      { phraseNumber: 3, guidance: 'Follow the same cascading gamak path, but instead of finishing on Sa, resolve with a sustained hold on Re (R—).' },
+      { phraseNumber: 4, guidance: 'Drop into lower octave Mandra Ni (.N) with gentle articulation before resolving onto held middle Sa (S—).' },
+      { phraseNumber: 5, guidance: 'Punch triple Ga after Re (RGGG), leap cleanly into high Sa with rapid oscillation (S\'NS\'NS\'), then roll through PNGP. Repeat twice.' },
+      { phraseNumber: 6, guidance: 'Crisp articulation on SRRR followed by energetic syncopated bounces on NPN and PN, resolving smoothly on GPRG.' },
+      { phraseNumber: 7, guidance: 'Play each note with firm rhythmic breath strokes (staccato articulation), ascending across octaves from lower Pa (.P) to sustained high Ga (G\'—).' },
+      { phraseNumber: 8, guidance: 'Reach up into Tara Pa (P\'), hold Tara Ga (G\'—), sweep to Tara Re (R\'—), and anchor firmly on sustained high Sa (NNS\'—).' },
+      { phraseNumber: 9, guidance: 'Launch upward from middle Pa (PNS\'R\'G\'—), repeat the triumphant high octave motif, and sustain the final high Sa (S\'—) with power and fullness.' }
+    ],
+    practiceMethod: [
+      'Master the double-tonguing "tu-ku" articulation slowly (at approx 60-70 BPM) on repeated notes (SS, GG, PP, NN) before accelerating to performance speed.',
+      'Practice the cascading gamak descent (Lines 2 & 3) using resonant breath and finger pulsations without blowing hard or creating abrupt volume steps.',
+      'For the high octave climax (Lines 7, 8 & 9 reaching up to Tara Ga G\' and Tara Pa P\'), narrow your lip aperture and maintain fast, focused airspeed from the diaphragm.',
+      'Practice the dramatic climb in Line 7 (.P .N .S .G .R P N S\' R\' G\'—) with rhythmic breath strokes against a steady metronome.',
+      'Use an acoustic Tanpura drone tuned to your flute\'s root pitch (Sa) to verify pitch accuracy across all three octaves.'
+    ],
+    commonMistakes: [
+      'Slurring repeated notes in Line 1 instead of applying crisp "tu-ku" double tonguing',
+      'Overblowing aggressively on high notes (G\', P\') rather than tightening the embouchure, causing harsh or sharp pitch',
+      'Playing the cascading descent in Lines 2 & 3 flat and plain instead of infusing the swaras with expressive gamak oscillations',
+      'Dropping breath support during the held notes (G\'—, R\'—, S\'—) in the final climax',
+      'Hesitating on the lower octave transition (.P, .N) during the dramatic Line 7 ascent'
+    ],
+    usefulTools: [
+      { name: 'Interactive Bansuri Fingering Chart', url: '/learn/fingering-chart', viewKey: 'learn_fingering_chart' },
+      { name: 'Online Flute Tuner', url: '/tuner', viewKey: 'learn_tuner' },
+      { name: 'Flute Note and Key Converter', url: '/tools/flute-note-key-converter', viewKey: 'note_key_converter' },
+      { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' },
+      { name: 'How to Find the Scale of a Song on Flute', url: '/learn/how-to-find-scale-of-a-song-on-flute', viewKey: 'find_song_scale' },
+      { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
+    ]
   }
 ];
 
