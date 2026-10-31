@@ -186,10 +186,10 @@ S`;
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    'headline': 'Raag Kafi: Complete Guide, Notes, Aaroh, Avaroh & Practice',
-    'description': 'Master Raag Kafi on Indian Bamboo Flute (Bansuri). Complete guide with Swara playback, Pakad, Chalan, original Alankars, and the practice piece "Komal Sur Lahari".',
+    'headline': 'Raag Kafi Notes for Flute – Aaroh, Avaroh, Pakad & Sargam',
+    'description': 'Learn Raag Kafi notes for flute with Aaroh, Avaroh, Pakad, Komal Ga and Ni, Sargam notation, and practical alankars and flute exercises.',
     'datePublished': '2026-08-03T00:00:00Z',
-    'dateModified': '2026-10-18T00:00:00Z',
+    'dateModified': '2026-10-31T00:00:00Z',
     'author': {
       '@type': 'Person',
       'name': 'Aplut',
@@ -246,7 +246,7 @@ S`;
                 <span>2nd Quarter of Night (9 PM – 12 AM)</span>
               </div>
               <h1 className="text-2xl sm:text-4xl md:text-5xl font-black font-display tracking-tight text-bamboo-950 mb-2 sm:mb-3 leading-tight">
-                Raag Kafi Guide
+                Raag Kafi Notes for Flute – Aaroh, Avaroh, Pakad &amp; Sargam
               </h1>
               <p className="text-xs sm:text-base text-stone-700 max-w-2xl leading-relaxed font-sans">
                 Master Komal Ga (g) and Komal Ni (n), smooth meends, original Alankars, and the educational practice piece <span className="text-amber-900 font-semibold">"Komal Sur Lahari"</span> on Bansuri.
@@ -294,7 +294,7 @@ S`;
               </span>
               <span className="flex items-center gap-1.5 bg-indigo-900/60 px-2.5 sm:px-3 py-1 rounded-lg border border-indigo-800">
                 <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                <span>Updated: Aug 3, 2026</span>
+                <span>Updated: Oct 31, 2026</span>
               </span>
               <span className="flex items-center gap-1.5 bg-indigo-900/60 px-2.5 sm:px-3 py-1 rounded-lg border border-indigo-800">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />

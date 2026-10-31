@@ -957,8 +957,8 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
       comp: RagaDeshView
     },
     'kafi': {
-      title: 'Raag Kafi — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
-      desc: 'Learn Raag Kafi on Indian Bamboo Flute (Bansuri): Komal Ga & Komal Ni swaras, Kafi Thaat, Aaroh, Avaroh, Pakad, and folk compositions.',
+      title: 'Raag Kafi Notes for Flute | Aaroh, Avaroh & Pakad',
+      desc: 'Learn Raag Kafi notes for flute with Aaroh, Avaroh, Pakad, Komal Ga and Ni, Sargam notation, and practical alankars and flute exercises.',
       comp: RagaKafiView
     },
     'bageshree': {
@@ -1017,8 +1017,8 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
       comp: RagaMultaniView
     },
     'pahadi': {
-      title: 'Raag Pahadi — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam',
-      desc: 'Learn Raag Pahadi with detailed notes, Aaroh, Avaroh, Pakad, characteristics, Aalap practice, flute tips, and an original FluteSangam learning piece.',
+      title: 'Raag Pahadi Notes for Flute | Aaroh, Avaroh & Pakad',
+      desc: 'Learn Raag Pahadi on flute with notes, Aaroh, Avaroh, Pakad, Sargam exercises, Aalap and an original practice piece. Explore its expressive folk-style melodies.',
       comp: RagaPahadiView
     },
     'miyan-ki-malhar': {
@@ -1080,7 +1080,7 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
           }
         },
         'datePublished': '2026-08-17T00:00:00Z',
-        'dateModified': '2026-10-18T00:00:00Z',
+        'dateModified': (raagSlug === 'kafi' || raagSlug === 'pahadi') ? '2026-10-31T00:00:00Z' : '2026-10-18T00:00:00Z',
         'url': `${DOMAIN}/learn/raga-${raagSlug}`
       }
     };

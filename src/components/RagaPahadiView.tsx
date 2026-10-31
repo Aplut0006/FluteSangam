@@ -404,7 +404,7 @@ R G P G | R S — — ||
                 <span>Himalayan Folk & Lyrical Raga</span>
               </div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display tracking-tight text-white">
-                Raag Pahadi
+                Raag Pahadi Notes for Flute – Aaroh, Avaroh &amp; Pakad
               </h1>
               <p className="text-emerald-200/90 text-sm sm:text-base mt-2 max-w-2xl font-sans leading-relaxed">
                 A lyrical, folk-inspired Himalayan raga known for its sweet melodic phrases, open Ga-Pa leaps, and expressive vocal quality on the Bansuri.
@@ -418,7 +418,7 @@ R G P G | R S — — ||
                 </div>
                 <div className="flex items-center gap-1.5 bg-emerald-950/50 border border-emerald-700/60 px-3 py-1 rounded-lg">
                   <RefreshCw className="w-3.5 h-3.5 text-teal-300" />
-                  <span>Updated: <strong className="text-emerald-100 font-semibold" itemProp="dateModified" content="2026-10-18">October 18, 2026</strong></span>
+                  <span>Updated: <strong className="text-emerald-100 font-semibold" itemProp="dateModified" content="2026-10-31">October 31, 2026</strong></span>
                 </div>
                 <div className="flex items-center gap-1.5 bg-emerald-950/50 border border-emerald-700/60 px-3 py-1 rounded-lg">
                   <Clock className="w-3.5 h-3.5 text-emerald-300" />

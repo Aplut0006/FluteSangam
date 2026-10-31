@@ -394,8 +394,8 @@ export default function App() {
         description = 'Master Raag Desh on Indian Bamboo Flute (Bansuri): Khamaj Thaat, Shuddha & Komal Ni usage, Aaroh, Avaroh, Pakad, and popular melodies.';
         break;
       case 'raga_kafi':
-        title = 'Raag Kafi — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
-        description = 'Learn Raag Kafi on Indian Bamboo Flute (Bansuri): Komal Ga & Komal Ni swaras, Kafi Thaat, Aaroh, Avaroh, Pakad, and folk compositions.';
+        title = 'Raag Kafi Notes for Flute | Aaroh, Avaroh & Pakad';
+        description = 'Learn Raag Kafi notes for flute with Aaroh, Avaroh, Pakad, Komal Ga and Ni, Sargam notation, and practical alankars and flute exercises.';
         break;
       case 'raga_bageshree':
         title = 'Raag Bageshree — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
@@ -442,8 +442,8 @@ export default function App() {
         description = 'Learn Raag Multani with detailed notes, Aaroh, Avaroh, Pakad, characteristics, Aalap practice, flute tips, and an original FluteSangam learning piece.';
         break;
       case 'raga_pahadi':
-        title = 'Raag Pahadi — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
-        description = 'Learn Raag Pahadi with detailed notes, Aaroh, Avaroh, Pakad, characteristics, Aalap practice, flute tips, and an original FluteSangam learning piece.';
+        title = 'Raag Pahadi Notes for Flute | Aaroh, Avaroh & Pakad';
+        description = 'Learn Raag Pahadi on flute with notes, Aaroh, Avaroh, Pakad, Sargam exercises, Aalap and an original practice piece. Explore its expressive folk-style melodies.';
         break;
       case 'raga_miyan_ki_malhar':
         title = 'Raag Miyan Ki Malhar — Notes, Aaroh, Avaroh, Pakad & Practice | FluteSangam';
@@ -585,7 +585,9 @@ export default function App() {
     let pubDate = '2026-07-26T00:00:00Z';
     let modDate = '2026-07-30T10:00:00Z';
 
-    if (currentView.startsWith('raga_') || currentView === 'learn_raagas' || currentView === 'learn_scales_octaves') {
+    if (currentView === 'raga_kafi' || currentView === 'raga_pahadi') {
+      modDate = '2026-10-31T00:00:00Z';
+    } else if (currentView.startsWith('raga_') || currentView === 'learn_raagas' || currentView === 'learn_scales_octaves') {
       modDate = '2026-10-18T00:00:00Z';
     } else if (
       currentView === 'learn_basics' ||
