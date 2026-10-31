@@ -200,7 +200,7 @@ export const EnchantingFluteKrishnaAurKansNotationView: React.FC<EnchantingFlute
           </div>
 
           <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-            Each phrase is detailed below with musical units. Lower dots (<code className="bg-amber-100 px-1 py-0.5 rounded text-amber-900 font-bold">.P, .D, .N</code>) represent Mandra Saptak, curly braces (<code className="bg-amber-100 px-1 py-0.5 rounded text-amber-900 font-bold">&#123;N&#125;, &#123;D&#125;, &#123;R&#125;, &#123;G&#125;</code>) represent Kan swaras (grace notes), and apostrophes (<code className="bg-amber-100 px-1 py-0.5 rounded text-amber-900 font-bold">S&apos;</code>) mark Tara Saptak:
+            Each phrase is detailed below with musical units. Lower dots (<code className="bg-amber-100 px-1 py-0.5 rounded text-amber-900 font-bold">.P, .D, .N</code>) represent Mandra Saptak, curly braces (<code className="bg-amber-100 px-1 py-0.5 rounded text-amber-900 font-bold">&#123;N&#125;, &#123;D&#125;, &#123;P&#125;, &#123;R&#125;, &#123;G&#125;</code>) represent Kan swaras (grace notes), and apostrophes (<code className="bg-amber-100 px-1 py-0.5 rounded text-amber-900 font-bold">S&apos;</code>) mark Tara Saptak:
           </p>
 
           <div className="space-y-3 sm:space-y-4">

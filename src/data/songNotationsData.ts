@@ -2610,7 +2610,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       { symbol: 'S, R, G, M, P, D, N', meaning: 'Madhya Saptak (Middle Octave Shuddh Swaras)' },
       { symbol: '.P, .D, .N', meaning: 'Mandra Saptak (Lower Octave, dot before note)' },
       { symbol: "S'", meaning: 'Tara Saptak (Higher Octave, apostrophe after note)' },
-      { symbol: '{N}, {D}, {R}, {G}', meaning: 'Kan Swar (Grace note / rapid ornamental touch)' },
+      { symbol: '{N}, {D}, {P}, {R}, {G}', meaning: 'Kan Swar (Grace note / rapid ornamental touch)' },
       { symbol: '— (dash)', meaning: 'Sustain / hold note value' }
     ],
     phrases: [
@@ -2629,14 +2629,14 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       {
         phraseNumber: 2,
         lyric: 'Graceful Descent with Kan Swaras',
-        sargamNotes: "ND{N}S'N— | {D}P | PMR—",
-        westernNotes: "AB(B)C'B— | (A)G | GFD—",
+        sargamNotes: "ND{N}S'N— | {D}P | D{P}MR—",
+        westernNotes: "AB(B)C'B— | (A)G | A(G)FD—",
         units: [
           { lyric: "ND{N}S'N—", sargam: "ND{N}S'N—", western: "AB(B)C'B—" },
           { lyric: '{D}P', sargam: '{D}P', western: '(A)G' },
-          { lyric: 'PMR—', sargam: 'PMR—', western: 'GFD—' }
+          { lyric: 'D{P}MR—', sargam: 'D{P}MR—', western: 'A(G)FD—' }
         ],
-        guidance: "Leap to Nishad, grace high Tara Sa with kan swar {N}, touch Dhaivat {D} into Pancham, and resolve softly through PM into held Re (R—)."
+        guidance: "Leap to Nishad, grace high Tara Sa with kan swar {N}, touch Dhaivat {D} into Pancham, and resolve softly through D{P}MR into held Re (R—)."
       },
       {
         phraseNumber: 3,
@@ -2703,12 +2703,12 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       {
         phraseNumber: 8,
         lyric: 'Graceful Descent with Kan Swaras (Reprise)',
-        sargamNotes: "ND{N}S'N— | {D}P | PMR—",
-        westernNotes: "AB(B)C'B— | (A)G | GFD—",
+        sargamNotes: "ND{N}S'N— | {D}P | D{P}MR—",
+        westernNotes: "AB(B)C'B— | (A)G | A(G)FD—",
         units: [
           { lyric: "ND{N}S'N—", sargam: "ND{N}S'N—", western: "AB(B)C'B—" },
           { lyric: '{D}P', sargam: '{D}P', western: '(A)G' },
-          { lyric: 'PMR—', sargam: 'PMR—', western: 'GFD—' }
+          { lyric: 'D{P}MR—', sargam: 'D{P}MR—', western: 'A(G)FD—' }
         ],
         guidance: 'Re-create the delicate ornamental touches on {N} and {D}, easing gently into Re (R—).'
       },
@@ -2729,29 +2729,29 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
     ],
     sargamPhrases: [
       { phraseNumber: 1, notes: 'SR SRGP GPD— (use meend at D)', lyric: 'Opening Meend Call' },
-      { phraseNumber: 2, notes: "ND{N}S'N—  {D}P  PMR—", lyric: 'Graceful Descent with Kan Swaras' },
+      { phraseNumber: 2, notes: "ND{N}S'N—  {D}P  D{P}MR—", lyric: 'Graceful Descent with Kan Swaras' },
       { phraseNumber: 3, notes: 'SRGS.P  SGR—  S.N.DS  .NS  SR{.N}S—', lyric: 'Mandra Saptak Deep Cadence' },
       { phraseNumber: 4, notes: "S'ND— NP{R}G— (use gamak)", lyric: 'Gamak Wave Descent' },
       { phraseNumber: 5, notes: "S'ND—  NP{R}GPG—— M", lyric: 'Extended Gandhar to Madhyam' },
       { phraseNumber: 6, notes: "RGM—  RGM—  RGMDNS'N—  DPR{G}RS", lyric: 'Ascending Climax Run' },
       { phraseNumber: 7, notes: 'SR SRGP GPD— (use meend at D)', lyric: 'Opening Meend Call (Reprise)' },
-      { phraseNumber: 8, notes: "ND{N}S'N—  {D}P  PMR—", lyric: 'Graceful Descent with Kan Swaras (Reprise)' },
+      { phraseNumber: 8, notes: "ND{N}S'N—  {D}P  D{P}MR—", lyric: 'Graceful Descent with Kan Swaras (Reprise)' },
       { phraseNumber: 9, notes: 'SRGS.P  SGR—  S.N.DS  .NS  SR{.N}S—', lyric: 'Mandra Saptak Final Cadence (Reprise)' }
     ],
     westernPhrases: [
       { phraseNumber: 1, notes: 'CD CDEG EGA— (use meend at A)', lyric: 'Opening Meend Call' },
-      { phraseNumber: 2, notes: "AB(B)C'B—  (A)G  GFD—", lyric: 'Graceful Descent with Kan Swaras' },
+      { phraseNumber: 2, notes: "AB(B)C'B—  (A)G  A(G)FD—", lyric: 'Graceful Descent with Kan Swaras' },
       { phraseNumber: 3, notes: 'CDEC.G  CED—  C.B.AC  .BC  CD(.B)C—', lyric: 'Mandra Saptak Deep Cadence' },
       { phraseNumber: 4, notes: "C'BA— GB(D)E— (use gamak)", lyric: 'Gamak Wave Descent' },
       { phraseNumber: 5, notes: "C'BA—  GB(D)EGE—— F", lyric: 'Extended Gandhar to Madhyam' },
       { phraseNumber: 6, notes: "DEF—  DEF—  DEFABC'B—  AGD(E)DC", lyric: 'Ascending Climax Run' },
       { phraseNumber: 7, notes: 'CD CDEG EGA— (use meend at A)', lyric: 'Opening Meend Call (Reprise)' },
-      { phraseNumber: 8, notes: "AB(B)C'B—  (A)G  GFD—", lyric: 'Graceful Descent with Kan Swaras (Reprise)' },
+      { phraseNumber: 8, notes: "AB(B)C'B—  (A)G  A(G)FD—", lyric: 'Graceful Descent with Kan Swaras (Reprise)' },
       { phraseNumber: 9, notes: 'CDEC.G  CED—  C.B.AC  .BC  CD(.B)C—', lyric: 'Mandra Saptak Final Cadence (Reprise)' }
     ],
     phraseGuidance: [
       { phraseNumber: 1, guidance: 'Open gently on middle Sa and Re, flow into SRGP, then execute a sweet gliding meend upward to Dhaivat (GPD—) with smooth finger sliding.' },
-      { phraseNumber: 2, guidance: "Leap to Nishad, grace high Tara Sa with kan swar {N}, touch Dhaivat {D} into Pancham, and resolve softly through PM into held Re (R—)." },
+      { phraseNumber: 2, guidance: "Leap to Nishad, grace high Tara Sa with kan swar {N}, touch Dhaivat {D} into Pancham, and resolve softly through D{P}MR into held Re (R—)." },
       { phraseNumber: 3, guidance: 'Drop deep into Mandra Pancham (.P) with warm, relaxed breath. Weave through lower Ni and Dha (.N, .D) and resolve gracefully on middle Sa (SR{.N}S—).' },
       { phraseNumber: 4, guidance: "Attack high Tara Sa cleanly, step down through Ni to Dha (S'ND—), then apply resonant gamak breath oscillations touching {R} to land on Gandhar (G—)." },
       { phraseNumber: 5, guidance: 'Reiterate the Tara Sa descent, oscillate warmly on GPG—— with full breath support, and touch Shuddh Madhyam (M) on release.' },
