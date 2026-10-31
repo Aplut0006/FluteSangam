@@ -294,7 +294,7 @@ S`;
               </span>
               <span className="flex items-center gap-1.5 bg-indigo-900/60 px-2.5 sm:px-3 py-1 rounded-lg border border-indigo-800">
                 <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                <span>Updated: Oct 31, 2026</span>
+                <span>Updated: 2026-10-31</span>
               </span>
               <span className="flex items-center gap-1.5 bg-indigo-900/60 px-2.5 sm:px-3 py-1 rounded-lg border border-indigo-800">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />

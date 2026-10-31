@@ -1927,7 +1927,7 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
               }
             },
             'datePublished': '2026-10-25T00:00:00Z',
-            'dateModified': '2026-10-25T00:00:00Z'
+            'dateModified': '2026-10-31T00:00:00Z'
           }
         ]
       }
