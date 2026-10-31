@@ -2880,7 +2880,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       {
         phraseNumber: 5,
         lyric: 'Hum ko mili hain aaj ye-',
-        sargamNotes: 'Sa Pa | Ma^ Pa Ma^ | D{P}M MM',
+        sargamNotes: 'Sa Pa | M^ P M^ | D{P}M MM',
         westernNotes: 'C G | F# G F# | A(G)F FF',
         units: [
           { lyric: 'Hum ko', sargam: 'S P', western: 'C G' },
@@ -2942,7 +2942,7 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       { phraseNumber: 2, notes: 'GRG   RG-S—   SMGRR-   R{G}R .N{S}.N .D{.N}.D .P (use gamak)', lyric: 'Haseen raat, ho.. na ho.. ooo' },
       { phraseNumber: 3, notes: '.P.D   .D.D.N   .NR .N{S}.N .D{.N}.D .P', lyric: 'Shaayad, phir is janam mein-' },
       { phraseNumber: 4, notes: '.P.PPP—P{D}P   MP{D}P MG   MGR{G}RS', lyric: 'Mulaaqaat ho.. na ho.. oooo' },
-      { phraseNumber: 5, notes: 'Sa Pa   Ma^ Pa Ma^   D{P}M MM', lyric: 'Hum ko mili hain aaj ye-' },
+      { phraseNumber: 5, notes: 'Sa Pa   M^ P M^   D{P}M MM', lyric: 'Hum ko mili hain aaj ye-' },
       { phraseNumber: 6, notes: 'SMM   D MP{D}P MG', lyric: 'Ghadiyaan naseeb se,' },
       { phraseNumber: 7, notes: "Sa Pa   M^PM^   S'MM", lyric: 'Jee bhar ke dekh lijiye,' },
       { phraseNumber: 8, notes: 'SMM   D MP{D}P MG—', lyric: 'Hum ko, qareeb se.' },
