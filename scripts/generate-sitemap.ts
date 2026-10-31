@@ -79,6 +79,7 @@ const ROUTE_MOD_DATES: Record<string, string> = {
   '/notations/krrish-theme-flute-notes': '2026-10-31',
   '/notations/enchanting-flute-krishna-aur-kans-flute-notes': '2026-10-31',
   '/notations/lag-ja-gale-flute-notes': '2026-10-31',
+  '/notations/chhu-kar-mere-mann-ko-flute-notes': '2026-10-31',
   '/privacy-policy': '2026-09-18',
   '/terms-of-service': '2026-09-18',
   '/copyright-policy': '2026-10-02',

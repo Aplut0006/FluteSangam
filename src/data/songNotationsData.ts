@@ -2993,6 +2993,222 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' },
       { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
     ]
+  },
+  {
+    id: 'chhu-kar-mere-mann-ko-flute-notes',
+    slug: 'chhu-kar-mere-mann-ko-flute-notes',
+    title: 'Chhu Kar Mere Mann Ko Flute Notes – Sargam & Western Notes',
+    category: 'Hindi/Bollywood',
+    type: 'Bollywood Evergreen Classic / Romantic',
+    difficulty: 'Intermediate',
+    movie: 'Yaarana (1981)',
+    singer: 'Kishore Kumar | Composer: Rajesh Roshan | Lyrics: Anjaan',
+    suggestedFlute: 'C Natural Medium / D Natural Medium Bansuri',
+    startingSwar: 'Madhya Ga (G)',
+    highestSwar: "Tara Saptak Sa (S')",
+    mainChallenge: 'Komal Nishad (n) half-hole fingering, Mandra octave breath transitions (.P, .D, .N), and Kan swaras {D}, {S}, {N}',
+    practiceSpeed: '75 – 85 BPM (Smooth & Expressive)',
+    notationFormats: 'Sargam & Western Notations',
+    description: "Learn Chhu Kar Mere Mann Ko flute notes with Sargam and Western notation. Play Kishore Kumar's evergreen melody from Yaarana with octave markings and helpful flute-playing tips.",
+    status: 'published',
+    publishedDate: '2026-10-31',
+    updatedDate: '2026-10-31',
+    canonicalUrl: 'https://flutesangam.com/notations/chhu-kar-mere-mann-ko-flute-notes',
+    h1: 'Chhu Kar Mere Mann Ko Flute Notes – Sargam & Western Notes',
+    metaTitle: 'Chhu Kar Mere Mann Ko Flute Notes | Sargam & Western',
+    metaDescription: "Learn Chhu Kar Mere Mann Ko flute notes with Sargam and Western notation. Play Kishore Kumar's evergreen melody from Yaarana with octave markings and helpful flute-playing tips.",
+    intro: 'Master Kishore Kumar’s timeless romantic classic "Chhu Kar Mere Mann Ko" from Yaarana (1981), composed by Rajesh Roshan, on your Indian bamboo flute (bansuri). This guide provides Sargam swaras, Western notes, Mandra octave indicators, Komal Nishad half-hole techniques, and phrase-by-phrase practice tips.',
+    quickInfo: {
+      difficulty: 'Intermediate',
+      melodyType: 'Bollywood Classic Romantic Melody',
+      suggestedFlute: 'C Natural Medium or D Natural Medium',
+      startingSwar: 'Madhya Ga (G)',
+      highestSwar: "Taar Sa (S')",
+      mainChallenge: 'Komal Ni (n) half-hole fingering, Mandra notes (.P .D .N), and Kan swaras {D}, {S}, {N}',
+      practiceSpeed: '75 – 85 BPM'
+    },
+    legend: [
+      { symbol: 'S R G M P D N', meaning: 'Shuddh (Natural) Swaras in Madhya Saptak' },
+      { symbol: 'n', meaning: 'Komal Nishad (Flat B / Bb — half-hole on bansuri)' },
+      { symbol: '.P .D .N', meaning: 'Mandra Saptak (Lower octave notes)' },
+      { symbol: "S'", meaning: 'Tara Saptak (Higher octave Sa)' },
+      { symbol: '{D}, {S}, {N}', meaning: 'Kan Swar (Grace note / delicate touch)' },
+      { symbol: '—', meaning: 'Hold / sustain note duration' },
+      { symbol: '|', meaning: 'Musical phrase segment division' }
+    ],
+    phrases: [
+      {
+        phraseNumber: 1,
+        lyric: 'Chhookar mere man ko kiya toone kya ishaara',
+        sargamNotes: 'GG | RS | .NR | .P.D | .N.N | SR | GS',
+        westernNotes: 'EE | DC | .B D | .G.A | .B.B | CD | EC',
+        units: [
+          { lyric: 'Chhookar', sargam: 'GG', western: 'EE' },
+          { lyric: 'mere', sargam: 'RS', western: 'DC' },
+          { lyric: 'man ko', sargam: '.NR', western: '.B D' },
+          { lyric: 'kiya', sargam: '.P.D', western: '.G.A' },
+          { lyric: 'toone', sargam: '.N.N', western: '.B.B' },
+          { lyric: 'kya', sargam: 'SR', western: 'CD' },
+          { lyric: 'ishaara', sargam: 'GS', western: 'EC' }
+        ],
+        guidance: 'Open gently on Madhya Ga (GG), step down cleanly to Re-Sa (RS), drop breath pressure for the lower Mandra notes (.NR .P.D .N.N), and ascend gracefully through SR to GS.'
+      },
+      {
+        phraseNumber: 2,
+        lyric: 'Badla yeh mausam lage pyaara jag saara aa',
+        sargamNotes: "PPP P{D}P | MG MD | NNN N{S}N | DN S'S' | DS'",
+        westernNotes: "GGG G(A)G | EF EA | BBB B(C)B | AB C'C' | AC'",
+        units: [
+          { lyric: 'Badla', sargam: 'PPP P{D}P', western: 'GGG G(A)G' },
+          { lyric: 'yeh mausam', sargam: 'MG MD', western: 'EF EA' },
+          { lyric: 'lage pyaara', sargam: 'NNN N{S}N', western: 'BBB B(C)B' },
+          { lyric: 'jag saara', sargam: "DN S'S'", western: "AB C'C'" },
+          { lyric: 'aa', sargam: "DS'", western: "AC'" }
+        ],
+        guidance: "Ascend with steady air to middle Pa. Lightly tap Dhaivat as a kan swar P{D}P, step through MG MD, sound Shuddh Ni with quick {S} grace touch, and leap up into Taar Sa (S'S' DS') with crisp embouchure."
+      },
+      {
+        phraseNumber: 3,
+        lyric: '(Repeat Sthayi: Repeat first 2 lines again and then 1st line)',
+        sargamNotes: '(Repeat first 2 lines again and then 1st line)',
+        westernNotes: '(Repeat first 2 lines again and then 1st line)',
+        units: [
+          { lyric: 'Repeat cycle', sargam: 'Line 1 & 2', western: 'Line 1 & 2' },
+          { lyric: 'Mukhda close', sargam: 'Line 1', western: 'Line 1' }
+        ],
+        guidance: 'Play the first two lines again with increased emotional warmth, then conclude the opening section with Line 1 before transitioning to the Antara.'
+      },
+      {
+        phraseNumber: 4,
+        lyric: 'Tu jo kahe jeevan bhar tere liye maein gaoon',
+        sargamNotes: "GMMG | S.P G | GP PD | D{N}DP | PDDS'—",
+        westernNotes: "EFFE | C.G E | EG GA | A(B)AG | GAAC'—",
+        units: [
+          { lyric: 'Tu jo kahe', sargam: 'GMMG', western: 'EFFE' },
+          { lyric: 'jeevan bhar', sargam: 'S.P G', western: 'C.G E' },
+          { lyric: 'tere liye', sargam: 'GP PD', western: 'EG GA' },
+          { lyric: 'maein', sargam: 'D{N}DP', western: 'A(B)AG' },
+          { lyric: 'gaoon', sargam: "PDDS'—", western: "GAAC'—" }
+        ],
+        guidance: "Start the Antara with gentle Gandhar and Madhyam (GMMG), drop down to Mandra Pa (S.P G), then build upward momentum through GP PD with ornamental D{N}DP, holding the high Taar Sa (PDDS'—)."
+      },
+      {
+        phraseNumber: 5,
+        lyric: 'tere liye maein gaoon',
+        sargamNotes: 'PDnD | M | GRGP—',
+        westernNotes: 'GABbA | F | EDEG—',
+        units: [
+          { lyric: 'tere liye', sargam: 'PDnD', western: 'GABbA' },
+          { lyric: 'maein', sargam: 'M', western: 'F' },
+          { lyric: 'gaoon', sargam: 'GRGP—', western: 'EDEG—' }
+        ],
+        guidance: 'Half-cover the Ni finger hole to accurately produce Komal Nishad (n / Bb) in the motif PDnD. Move cleanly to Shuddh Ma (M) and glide down through GRGP— with sweet meend.'
+      },
+      {
+        phraseNumber: 6,
+        lyric: 'Geet tere bolon pe likhta chala jaoon',
+        sargamNotes: "GMMG | S.P G | GP PD | D{N}DP | PDDS'—",
+        westernNotes: "EFFE | C.G E | EG GA | A(B)AG | GAAC'—",
+        units: [
+          { lyric: 'Geet tere', sargam: 'GMMG', western: 'EFFE' },
+          { lyric: 'bolon pe', sargam: 'S.P G', western: 'C.G E' },
+          { lyric: 'likhta chala', sargam: 'GP PD D{N}DP', western: 'EG GA A(B)AG' },
+          { lyric: 'jaoon', sargam: "PDDS'—", western: "GAAC'—" }
+        ],
+        guidance: "The second phrase of the Antara mirrors Line 4. Keep your breath steady and sustain the climactic Taar Sa (PDDS'—) cleanly."
+      },
+      {
+        phraseNumber: 7,
+        lyric: 'likhta chala jaoon',
+        sargamNotes: 'PDnD M | GRGP',
+        westernNotes: 'GABbA F | EDEG',
+        units: [
+          { lyric: 'likhta chala', sargam: 'PDnD', western: 'GABbA' },
+          { lyric: 'jaoon', sargam: 'M GRGP', western: 'F EDEG' }
+        ],
+        guidance: 'Repeat the Komal Ni half-hole motif PDnD M with identical intonation, landing softly on GRGP.'
+      },
+      {
+        phraseNumber: 8,
+        lyric: 'Mere geeton mein tujhe dhoonde jag saara aa',
+        sargamNotes: "PP P{D}P | MG MD | NNN N{S}N | DN S'S' | DS'",
+        westernNotes: "GG G(A)G | EF EA | BBB B(C)B | AB C'C' | AC'",
+        units: [
+          { lyric: 'Mere', sargam: 'PP P{D}P', western: 'GG G(A)G' },
+          { lyric: 'geeton mein', sargam: 'MG MD', western: 'EF EA' },
+          { lyric: 'tujhe dhoonde', sargam: 'NNN N{S}N', western: 'BBB B(C)B' },
+          { lyric: 'jag saara', sargam: "DN S'S'", western: "AB C'C'" },
+          { lyric: 'aa', sargam: "DS'", western: "AC'" }
+        ],
+        guidance: "Re-introduce the joyful secondary hook of the song, carrying the melody to Taar Sa (S'S' DS') to seamlessly prepare for the Sthayi reprise."
+      },
+      {
+        phraseNumber: 9,
+        lyric: '(Reprise: Again Repeat line 1 and 2)',
+        sargamNotes: '(Again Repeat line 1 and 2)',
+        westernNotes: '(Again Repeat line 1 and 2)',
+        units: [
+          { lyric: 'Final reprise', sargam: 'Line 1 & 2', western: 'Line 1 & 2' }
+        ],
+        guidance: 'Return gracefully to the opening hook "Chhookar mere man ko kiya toone kya ishaara" and conclude peacefully.'
+      }
+    ],
+    sargamPhrases: [
+      { phraseNumber: 1, notes: 'GG   RS   .NR   .P.D   .N.N   SR   GS', lyric: 'Chhookar mere  man ko kiya   toone kya ishaara' },
+      { phraseNumber: 2, notes: "PPP P{D}P   MG MD   NNN N{S}N   DN S'S'   DS'", lyric: 'Badla   yeh mausam   lage pyaara   jag saara   aa' },
+      { phraseNumber: 3, notes: '(Repeat first 2 lines again and then 1st line)', lyric: 'Sthayi Repeat' },
+      { phraseNumber: 4, notes: "GMMG   S.P G   GP PD D{N}DP   PDDS'—", lyric: 'Tu jo kahe   jeevan bhar   tere liye maein   gaoon' },
+      { phraseNumber: 5, notes: 'PDnD   M GRGP—', lyric: 'tere liye   maein gaoon' },
+      { phraseNumber: 6, notes: "GMMG   S.P G   GP PD D{N}DP   PDDS'—", lyric: 'Geet tere   bolon pe   likhta chala   jaoon' },
+      { phraseNumber: 7, notes: 'PDnD M   GRGP', lyric: 'likhta chala jaoon' },
+      { phraseNumber: 8, notes: "PP P{D}P   MG MD   NNN N{S}N   DN S'S'   DS'", lyric: 'Mere   geeton mein   tujhe dhoonde   jag saara   aa' },
+      { phraseNumber: 9, notes: '(Again Repeat line 1 and 2)', lyric: 'Reprise to Sthayi' }
+    ],
+    westernPhrases: [
+      { phraseNumber: 1, notes: 'EE   DC   .B D   .G.A   .B.B   CD   EC', lyric: 'Chhookar mere  man ko kiya   toone kya ishaara' },
+      { phraseNumber: 2, notes: "GGG G(A)G   EF EA   BBB B(C)B   AB C'C'   AC'", lyric: 'Badla   yeh mausam   lage pyaara   jag saara   aa' },
+      { phraseNumber: 3, notes: '(Repeat first 2 lines again and then 1st line)', lyric: 'Sthayi Repeat' },
+      { phraseNumber: 4, notes: "EFFE   C.G E   EG GA A(B)AG   GAAC'—", lyric: 'Tu jo kahe   jeevan bhar   tere liye maein   gaoon' },
+      { phraseNumber: 5, notes: 'GABbA   F EDEG—', lyric: 'tere liye   maein gaoon' },
+      { phraseNumber: 6, notes: "EFFE   C.G E   EG GA A(B)AG   GAAC'—", lyric: 'Geet tere   bolon pe   likhta chala   jaoon' },
+      { phraseNumber: 7, notes: 'GABbA F   EDEG', lyric: 'likhta chala jaoon' },
+      { phraseNumber: 8, notes: "GG G(A)G   EF EA   BBB B(C)B   AB C'C'   AC'", lyric: 'Mere   geeton mein   tujhe dhoonde   jag saara   aa' },
+      { phraseNumber: 9, notes: '(Again Repeat line 1 and 2)', lyric: 'Reprise to Sthayi' }
+    ],
+    phraseGuidance: [
+      { phraseNumber: 1, guidance: 'Start softly on Madhya Ga, step down through RS, drop breath pressure smoothly for Mandra .NR .P.D .N.N, and resolve on GS.' },
+      { phraseNumber: 2, guidance: 'Keep air pressure steady on middle Pa, apply a gentle flick on Dhaivat {D}, and soar cleanly into high Taar Sa.' },
+      { phraseNumber: 3, guidance: 'Repeat lines 1 & 2 once to establish the vocal character, ending with Line 1.' },
+      { phraseNumber: 4, guidance: 'Anchor the Antara on GMMG, dip down softly to Mandra Pa, and escalate breath airspeed to reach high Taar Sa cleanly.' },
+      { phraseNumber: 5, guidance: 'Focus on clean half-hole fingering for Komal Ni (n / Bb) in PDnD, dropping through Shuddh Ma to GRGP— with sweet meend.' },
+      { phraseNumber: 6, guidance: 'Deliver the second verse with identical emotional phrasing and strong breath support on high Taar Sa.' },
+      { phraseNumber: 7, guidance: 'Re-articulate the Komal Ni motif cleanly without rushing into the resolution.' },
+      { phraseNumber: 8, guidance: 'Connect the Antara climax back to the main hook through the uplifting Pa-Dha-Ni-Sa movement.' },
+      { phraseNumber: 9, guidance: 'Close the rendition with a soulful, relaxed repeat of the primary mukhda.' }
+    ],
+    practiceMethod: [
+      'Begin by practicing the Mandra octave sequence (.NR .P.D .N.N) slowly with warm, gentle breath and relaxed lips so the lower notes ring with full resonance.',
+      'Calibrate the half-hole fingering for Komal Nishad (n / Bb) in Line 5 against an online Tanpura drone or tuner until the pitch is perfectly centered.',
+      'Practice the quick kan swaras {D}, {S}, and {N} as light finger taps rather than stressed notes to retain Kishore Kumar’s playful, romantic expression.',
+      'Work on the smooth downward meend glide on GRGP— in Lines 5 and 7, connecting Re and Ga without abrupt breath breaks.',
+      "For the Taar Saptak Sa (S'S') notes in Lines 2 and 8, narrow your lip aperture slightly and direct the airstream slightly higher rather than blowing forcefully.",
+      'Play along with a steady Tanpura drone set to C or D at 75-80 BPM, focusing on smooth transitions between the Mandra, Madhya, and Taar octaves.'
+    ],
+    commonMistakes: [
+      'Blowing too hard on the lower notes (.P, .D, .N) in Line 1, which causes octave cracking or harsh tone',
+      'Uncovering too much or too little of the hole for Komal Ni (n), making the crucial romantic hook in Line 5 sound sharp or flat',
+      'Overemphasizing the grace notes {D} and {S} into full beats instead of delicate ornamentation',
+      "Straining or forcing the breath when hitting Taar Sa (S') in the Antara, resulting in shrill tone",
+      'Rushing the tempo during the transition from Mandra notes back up to Madhya Ga'
+    ],
+    usefulTools: [
+      { name: 'Online Tanpura Drone', url: '/tools/tanpura', viewKey: 'tanpura' },
+      { name: 'Online Bansuri Pitch Tuner', url: '/tuner', viewKey: 'learn_tuner' },
+      { name: 'Interactive Bansuri Fingering Chart', url: '/learn/fingering-chart', viewKey: 'learn_fingering_chart' },
+      { name: 'Flute Note and Key Converter', url: '/tools/flute-note-key-converter', viewKey: 'note_key_converter' },
+      { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' },
+      { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
+    ]
   }
 ];
 

@@ -88,6 +88,7 @@ const HothonSeChhuLoTumNotationView = lazyWithRetry(() => import('./components/H
 const KrrishThemeNotationView = lazyWithRetry(() => import('./components/KrrishThemeNotationView').then(m => ({ default: m.KrrishThemeNotationView })));
 const EnchantingFluteKrishnaAurKansNotationView = lazyWithRetry(() => import('./components/EnchantingFluteKrishnaAurKansNotationView').then(m => ({ default: m.EnchantingFluteKrishnaAurKansNotationView })));
 const LagJaGaleNotationView = lazyWithRetry(() => import('./components/LagJaGaleNotationView').then(m => ({ default: m.LagJaGaleNotationView })));
+const ChhuKarMereMannKoNotationView = lazyWithRetry(() => import('./components/ChhuKarMereMannKoNotationView').then(m => ({ default: m.ChhuKarMereMannKoNotationView })));
 const PrivacyPolicyView = lazyWithRetry(() => import('./components/PrivacyPolicyView'));
 const TermsOfServiceView = lazyWithRetry(() => import('./components/TermsOfServiceView'));
 const CopyrightPolicyView = lazyWithRetry(() => import('./components/CopyrightPolicyView'));
@@ -1441,6 +1442,8 @@ export default function App() {
                 handleViewChange('notation_enchanting_flute_krishna_aur_kans');
               } else if (slug === 'lag-ja-gale-flute-notes') {
                 handleViewChange('notation_lag_ja_gale');
+              } else if (slug === 'chhu-kar-mere-mann-ko-flute-notes') {
+                handleViewChange('notation_chhu_kar_mere_mann_ko');
               }
             }}
           />
@@ -1472,6 +1475,8 @@ export default function App() {
           <EnchantingFluteKrishnaAurKansNotationView onViewChange={handleViewChange} />
         ) : currentView === 'notation_lag_ja_gale' ? (
           <LagJaGaleNotationView onViewChange={handleViewChange} />
+        ) : currentView === 'notation_chhu_kar_mere_mann_ko' ? (
+          <ChhuKarMereMannKoNotationView onViewChange={handleViewChange} />
         ) : currentView === 'community_members' ? (
           <MembersView 
             currentUser={currentUser} 

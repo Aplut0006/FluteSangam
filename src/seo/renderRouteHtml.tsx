@@ -71,6 +71,7 @@ import { HothonSeChhuLoTumNotationView } from '../components/HothonSeChhuLoTumNo
 import { KrrishThemeNotationView } from '../components/KrrishThemeNotationView';
 import { EnchantingFluteKrishnaAurKansNotationView } from '../components/EnchantingFluteKrishnaAurKansNotationView';
 import { LagJaGaleNotationView } from '../components/LagJaGaleNotationView';
+import { ChhuKarMereMannKoNotationView } from '../components/ChhuKarMereMannKoNotationView';
 import { CommunityFeedView } from '../components/CommunityFeedView';
 import PostDetailView from '../components/PostDetailView';
 import NotFoundView from '../components/NotFoundView';
@@ -2040,6 +2041,71 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
             '@type': 'Article',
             '@id': `${canonicalUrl}#article`,
             'headline': 'Lag Ja Gale Flute Notes – Sargam & Western Notes',
+            'description': description,
+            'mainEntityOfPage': canonicalUrl,
+            'author': {
+              '@type': 'Person',
+              'name': 'Aplut',
+              'url': `${DOMAIN}/founder`
+            },
+            'publisher': {
+              '@type': 'Organization',
+              'name': 'FluteSangam',
+              'url': DOMAIN,
+              'logo': {
+                '@type': 'ImageObject',
+                'url': `${DOMAIN}/flutesangam_logo.png`
+              }
+            },
+            'datePublished': '2026-10-31T00:00:00Z',
+            'dateModified': '2026-10-31T00:00:00Z'
+          }
+        ]
+      }
+    };
+  }
+
+  if (cleanPath === '/notations/chhu-kar-mere-mann-ko-flute-notes') {
+    const title = 'Chhu Kar Mere Mann Ko Flute Notes | Sargam & Western';
+    const description = "Learn Chhu Kar Mere Mann Ko flute notes with Sargam and Western notation. Play Kishore Kumar's evergreen melody from Yaarana with octave markings and helpful flute-playing tips.";
+    const canonicalUrl = `${DOMAIN}/notations/chhu-kar-mere-mann-ko-flute-notes`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: ChhuKarMereMannKoNotationView,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          createWebPageSchema(canonicalUrl, title, description),
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': DOMAIN
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Song Notation',
+                'item': `${DOMAIN}/notations`
+              },
+              {
+                '@type': 'ListItem',
+                'position': 3,
+                'name': 'Chhu Kar Mere Mann Ko Flute Notes',
+                'item': canonicalUrl
+              }
+            ]
+          },
+          {
+            '@type': 'Article',
+            '@id': `${canonicalUrl}#article`,
+            'headline': 'Chhu Kar Mere Mann Ko Flute Notes – Sargam & Western Notes',
             'description': description,
             'mainEntityOfPage': canonicalUrl,
             'author': {
