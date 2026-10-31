@@ -86,6 +86,7 @@ const MahabharatKrishnaThemeNotationView = lazyWithRetry(() => import('./compone
 const ShriKrishnaGovindHareMurariNotationView = lazyWithRetry(() => import('./components/ShriKrishnaGovindHareMurariNotationView').then(m => ({ default: m.ShriKrishnaGovindHareMurariNotationView })));
 const HothonSeChhuLoTumNotationView = lazyWithRetry(() => import('./components/HothonSeChhuLoTumNotationView').then(m => ({ default: m.HothonSeChhuLoTumNotationView })));
 const KrrishThemeNotationView = lazyWithRetry(() => import('./components/KrrishThemeNotationView').then(m => ({ default: m.KrrishThemeNotationView })));
+const EnchantingFluteKrishnaAurKansNotationView = lazyWithRetry(() => import('./components/EnchantingFluteKrishnaAurKansNotationView').then(m => ({ default: m.EnchantingFluteKrishnaAurKansNotationView })));
 const PrivacyPolicyView = lazyWithRetry(() => import('./components/PrivacyPolicyView'));
 const TermsOfServiceView = lazyWithRetry(() => import('./components/TermsOfServiceView'));
 const CopyrightPolicyView = lazyWithRetry(() => import('./components/CopyrightPolicyView'));
@@ -228,6 +229,7 @@ export default function App() {
     if (cleanPath === '/ragas' || cleanPath === '/learn/raagas') return 'learn_raagas';
     if (cleanPath === '/notations/hothon-se-chhu-lo-tum-flute-notes' || cleanPath === '/notations/hothon-se-chhoo-lo-tum-flute-notes') return 'notation_hothon_se_chhoo_lo_tum';
     if (cleanPath === '/notations/krrish-theme-flute-notes') return 'notation_krrish_theme';
+    if (cleanPath === '/notations/enchanting-flute-krishna-aur-kans-flute-notes') return 'notation_enchanting_flute_krishna_aur_kans';
     if (cleanPath.startsWith('/post/')) return 'post-detail';
     if (cleanPath.startsWith('/profile/')) return 'user-profile';
     
@@ -511,6 +513,10 @@ export default function App() {
         title = 'Krrish Theme Flute Notes | Sargam & Western';
         description = 'Learn the Krrish theme tune on flute with Sargam and Western notes. Explore the iconic Bollywood melody with clear notation and practical flute-playing tips.';
         break;
+      case 'notation_enchanting_flute_krishna_aur_kans':
+        title = 'Enchanting Flute Krishna Aur Kans Flute Notes | Sargam';
+        description = 'Learn Enchanting Flute from Krishna Aur Kans with Sargam and Western notes. Explore this beautiful Krishna-themed instrumental melody with flute notation and practical playing tips.';
+        break;
       case 'community_members':
         title = 'Community Members | FluteSangam';
         description = 'Meet flutists, learners, and contributors in the global FluteSangam community.';
@@ -592,7 +598,8 @@ export default function App() {
       currentView === 'home' ||
       currentView === 'learn_dashboard' ||
       currentView === 'notation_hothon_se_chhoo_lo_tum' ||
-      currentView === 'notation_krrish_theme'
+      currentView === 'notation_krrish_theme' ||
+      currentView === 'notation_enchanting_flute_krishna_aur_kans'
     ) {
       modDate = '2026-10-11T00:00:00Z';
     } else if (currentView === 'post-detail' && selectedPost) {
@@ -1421,6 +1428,8 @@ export default function App() {
                 handleViewChange('notation_hothon_se_chhoo_lo_tum');
               } else if (slug === 'krrish-theme-flute-notes') {
                 handleViewChange('notation_krrish_theme');
+              } else if (slug === 'enchanting-flute-krishna-aur-kans-flute-notes') {
+                handleViewChange('notation_enchanting_flute_krishna_aur_kans');
               }
             }}
           />
@@ -1448,6 +1457,8 @@ export default function App() {
           <HothonSeChhuLoTumNotationView onViewChange={handleViewChange} />
         ) : currentView === 'notation_krrish_theme' ? (
           <KrrishThemeNotationView onViewChange={handleViewChange} />
+        ) : currentView === 'notation_enchanting_flute_krishna_aur_kans' ? (
+          <EnchantingFluteKrishnaAurKansNotationView onViewChange={handleViewChange} />
         ) : currentView === 'community_members' ? (
           <MembersView 
             currentUser={currentUser} 

@@ -2572,6 +2572,217 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       { name: 'How to Find the Scale of a Song on Flute', url: '/learn/how-to-find-scale-of-a-song-on-flute', viewKey: 'find_song_scale' },
       { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
     ]
+  },
+  {
+    id: 'enchanting-flute-krishna-aur-kans',
+    slug: 'enchanting-flute-krishna-aur-kans-flute-notes',
+    title: 'Enchanting Flute (Krishna Aur Kans) Flute Notes',
+    category: 'Devotional',
+    movie: 'Krishna Aur Kans (2012)',
+    singer: 'Rakesh Chaurasia / Shantanu Moitra',
+    type: 'Krishna Devotional / Animated Movie Instrumental Melody',
+    difficulty: 'Intermediate',
+    suggestedFlute: 'C Natural Medium, D Natural Medium, or E Bass',
+    startingSwar: 'Sa (S / C)',
+    highestSwar: "Taar Sa (S' / High C)",
+    mainChallenge: 'Executing smooth meends at Dhaivat, subtle kan swaras ({N}, {D}, {R}, {G}), Mandra dive down to .P, and expressive gamak oscillations.',
+    practiceSpeed: '70 – 80 BPM (Soulful, lyrical & expressive)',
+    notationFormats: 'Sargam (Indian) & Western Sheet',
+    description: 'Learn Enchanting Flute from Krishna Aur Kans with Sargam and Western notes. Explore this beautiful Krishna-themed instrumental melody with flute notation and practical playing tips.',
+    status: 'Published',
+    publishedDate: 'October 2026',
+    updatedDate: 'October 2026',
+    canonicalUrl: 'https://flutesangam.com/notations/enchanting-flute-krishna-aur-kans-flute-notes',
+    h1: 'Enchanting Flute (Krishna Aur Kans) Flute Notes – Sargam & Western Notes',
+    metaTitle: 'Enchanting Flute Krishna Aur Kans Flute Notes | Sargam',
+    metaDescription: 'Learn Enchanting Flute from Krishna Aur Kans with Sargam and Western notes. Explore this beautiful Krishna-themed instrumental melody with flute notation and practical playing tips.',
+    intro: 'Master the iconic and soul-stirring "Enchanting Flute" theme from the animated film Krishna Aur Kans (composed by Shantanu Moitra and rendered by Rakesh Chaurasia). This guide provides Sargam swaras, Western note equivalents, phrase-by-phrase guidance, ornamental techniques including meend and gamak, and dedicated riyaz routines.',
+    quickInfo: {
+      difficulty: 'Intermediate',
+      melodyType: 'Krishna Devotional / Movie Soundtrack',
+      suggestedFlute: 'C Natural Medium, D Natural Medium, or E Bass',
+      startingSwar: 'Sa (S / C)',
+      highestSwar: "Tara Sa (S' / High C)",
+      mainChallenge: 'Graceful meend at Dhaivat, gentle kan swaras, Mandra breath control (.P), and gamak oscillations',
+      practiceSpeed: '70 – 80 BPM'
+    },
+    legend: [
+      { symbol: 'S, R, G, M, P, D, N', meaning: 'Madhya Saptak (Middle Octave Shuddh Swaras)' },
+      { symbol: '.P, .D, .N', meaning: 'Mandra Saptak (Lower Octave, dot before note)' },
+      { symbol: "S'", meaning: 'Tara Saptak (Higher Octave, apostrophe after note)' },
+      { symbol: '{N}, {D}, {R}, {G}', meaning: 'Kan Swar (Grace note / rapid ornamental touch)' },
+      { symbol: '— (dash)', meaning: 'Sustain / hold note value' }
+    ],
+    phrases: [
+      {
+        phraseNumber: 1,
+        lyric: 'Opening Meend Call',
+        sargamNotes: 'SR | SRGP | GPD— (use meend at D)',
+        westernNotes: 'CD | CDEG | EGA— (use meend at A)',
+        units: [
+          { lyric: 'SR', sargam: 'SR', western: 'CD' },
+          { lyric: 'SRGP', sargam: 'SRGP', western: 'CDEG' },
+          { lyric: 'GPD— (meend)', sargam: 'GPD—', western: 'EGA—' }
+        ],
+        guidance: 'Open gently on middle Sa and Re, flow into SRGP, then execute a sweet gliding meend upward to Dhaivat (GPD—) with smooth finger sliding.'
+      },
+      {
+        phraseNumber: 2,
+        lyric: 'Graceful Descent with Kan Swaras',
+        sargamNotes: "ND{N}S'N— | {D}P | PMR—",
+        westernNotes: "AB(B)C'B— | (A)G | GFD—",
+        units: [
+          { lyric: "ND{N}S'N—", sargam: "ND{N}S'N—", western: "AB(B)C'B—" },
+          { lyric: '{D}P', sargam: '{D}P', western: '(A)G' },
+          { lyric: 'PMR—', sargam: 'PMR—', western: 'GFD—' }
+        ],
+        guidance: "Leap to Nishad, grace high Tara Sa with kan swar {N}, touch Dhaivat {D} into Pancham, and resolve softly through PM into held Re (R—)."
+      },
+      {
+        phraseNumber: 3,
+        lyric: 'Mandra Saptak Deep Cadence',
+        sargamNotes: 'SRGS.P | SGR— | S.N.DS | .NS | SR{.N}S—',
+        westernNotes: 'CDEC.G | CED— | C.B.AC | .BC | CD(.B)C—',
+        units: [
+          { lyric: 'SRGS.P', sargam: 'SRGS.P', western: 'CDEC.G' },
+          { lyric: 'SGR—', sargam: 'SGR—', western: 'CED—' },
+          { lyric: 'S.N.DS', sargam: 'S.N.DS', western: 'C.B.AC' },
+          { lyric: '.NS', sargam: '.NS', western: '.BC' },
+          { lyric: 'SR{.N}S—', sargam: 'SR{.N}S—', western: 'CD(.B)C—' }
+        ],
+        guidance: 'Drop deep into Mandra Pancham (.P) with warm, relaxed breath. Weave through lower Ni and Dha (.N, .D) and resolve gracefully on middle Sa (SR{.N}S—).'
+      },
+      {
+        phraseNumber: 4,
+        lyric: 'Gamak Wave Descent',
+        sargamNotes: "S'ND— | NP{R}G— (use gamak)",
+        westernNotes: "C'BA— | GB(D)E— (use gamak)",
+        units: [
+          { lyric: "S'ND—", sargam: "S'ND—", western: "C'BA—" },
+          { lyric: 'NP{R}G— (gamak)', sargam: 'NP{R}G—', western: 'GB(D)E—' }
+        ],
+        guidance: "Attack high Tara Sa cleanly, step down through Ni to Dha (S'ND—), then apply resonant gamak breath oscillations touching {R} to land on Gandhar (G—)."
+      },
+      {
+        phraseNumber: 5,
+        lyric: 'Extended Gandhar to Madhyam',
+        sargamNotes: "S'ND— | NP{R}GPG—— | M",
+        westernNotes: "C'BA— | GB(D)EGE—— | F",
+        units: [
+          { lyric: "S'ND—", sargam: "S'ND—", western: "C'BA—" },
+          { lyric: 'NP{R}GPG——', sargam: 'NP{R}GPG——', western: 'GB(D)EGE——' },
+          { lyric: 'M', sargam: 'M', western: 'F' }
+        ],
+        guidance: 'Reiterate the Tara Sa descent, oscillate warmly on GPG—— with full breath support, and touch Shuddh Madhyam (M) on release.'
+      },
+      {
+        phraseNumber: 6,
+        lyric: 'Ascending Climax Run',
+        sargamNotes: "RGM— | RGM— | RGMDNS'N— | DPR{G}RS",
+        westernNotes: "DEF— | DEF— | DEFABC'B— | AGD(E)DC",
+        units: [
+          { lyric: 'RGM—', sargam: 'RGM—', western: 'DEF—' },
+          { lyric: 'RGM—', sargam: 'RGM—', western: 'DEF—' },
+          { lyric: "RGMDNS'N—", sargam: "RGMDNS'N—", western: "DEFABC'B—" },
+          { lyric: 'DPR{G}RS', sargam: 'DPR{G}RS', western: 'AGD(E)DC' }
+        ],
+        guidance: "Play two rising pulses on RGM—, then sprint across the scale RGMDNS'N— peaking at high Tara Sa before cascading gracefully down DPR{G}RS to resolve on Sa."
+      },
+      {
+        phraseNumber: 7,
+        lyric: 'Opening Meend Call (Reprise)',
+        sargamNotes: 'SR | SRGP | GPD— (use meend at D)',
+        westernNotes: 'CD | CDEG | EGA— (use meend at A)',
+        units: [
+          { lyric: 'SR', sargam: 'SR', western: 'CD' },
+          { lyric: 'SRGP', sargam: 'SRGP', western: 'CDEG' },
+          { lyric: 'GPD— (meend)', sargam: 'GPD—', western: 'EGA—' }
+        ],
+        guidance: 'Return to the enchanting first theme with smooth sliding meend up to Dhaivat.'
+      },
+      {
+        phraseNumber: 8,
+        lyric: 'Graceful Descent with Kan Swaras (Reprise)',
+        sargamNotes: "ND{N}S'N— | {D}P | PMR—",
+        westernNotes: "AB(B)C'B— | (A)G | GFD—",
+        units: [
+          { lyric: "ND{N}S'N—", sargam: "ND{N}S'N—", western: "AB(B)C'B—" },
+          { lyric: '{D}P', sargam: '{D}P', western: '(A)G' },
+          { lyric: 'PMR—', sargam: 'PMR—', western: 'GFD—' }
+        ],
+        guidance: 'Re-create the delicate ornamental touches on {N} and {D}, easing gently into Re (R—).'
+      },
+      {
+        phraseNumber: 9,
+        lyric: 'Mandra Saptak Final Cadence (Reprise)',
+        sargamNotes: 'SRGS.P | SGR— | S.N.DS | .NS | SR{.N}S—',
+        westernNotes: 'CDEC.G | CED— | C.B.AC | .BC | CD(.B)C—',
+        units: [
+          { lyric: 'SRGS.P', sargam: 'SRGS.P', western: 'CDEC.G' },
+          { lyric: 'SGR—', sargam: 'SGR—', western: 'CED—' },
+          { lyric: 'S.N.DS', sargam: 'S.N.DS', western: 'C.B.AC' },
+          { lyric: '.NS', sargam: '.NS', western: '.BC' },
+          { lyric: 'SR{.N}S—', sargam: 'SR{.N}S—', western: 'CD(.B)C—' }
+        ],
+        guidance: 'Conclude the piece peacefully with the warm lower octave descent (.P, .D, .N) and final sustained resolution on middle Sa (S—).'
+      }
+    ],
+    sargamPhrases: [
+      { phraseNumber: 1, notes: 'SR SRGP GPD— (use meend at D)', lyric: 'Opening Meend Call' },
+      { phraseNumber: 2, notes: "ND{N}S'N—  {D}P  PMR—", lyric: 'Graceful Descent with Kan Swaras' },
+      { phraseNumber: 3, notes: 'SRGS.P  SGR—  S.N.DS  .NS  SR{.N}S—', lyric: 'Mandra Saptak Deep Cadence' },
+      { phraseNumber: 4, notes: "S'ND— NP{R}G— (use gamak)", lyric: 'Gamak Wave Descent' },
+      { phraseNumber: 5, notes: "S'ND—  NP{R}GPG—— M", lyric: 'Extended Gandhar to Madhyam' },
+      { phraseNumber: 6, notes: "RGM—  RGM—  RGMDNS'N—  DPR{G}RS", lyric: 'Ascending Climax Run' },
+      { phraseNumber: 7, notes: 'SR SRGP GPD— (use meend at D)', lyric: 'Opening Meend Call (Reprise)' },
+      { phraseNumber: 8, notes: "ND{N}S'N—  {D}P  PMR—", lyric: 'Graceful Descent with Kan Swaras (Reprise)' },
+      { phraseNumber: 9, notes: 'SRGS.P  SGR—  S.N.DS  .NS  SR{.N}S—', lyric: 'Mandra Saptak Final Cadence (Reprise)' }
+    ],
+    westernPhrases: [
+      { phraseNumber: 1, notes: 'CD CDEG EGA— (use meend at A)', lyric: 'Opening Meend Call' },
+      { phraseNumber: 2, notes: "AB(B)C'B—  (A)G  GFD—", lyric: 'Graceful Descent with Kan Swaras' },
+      { phraseNumber: 3, notes: 'CDEC.G  CED—  C.B.AC  .BC  CD(.B)C—', lyric: 'Mandra Saptak Deep Cadence' },
+      { phraseNumber: 4, notes: "C'BA— GB(D)E— (use gamak)", lyric: 'Gamak Wave Descent' },
+      { phraseNumber: 5, notes: "C'BA—  GB(D)EGE—— F", lyric: 'Extended Gandhar to Madhyam' },
+      { phraseNumber: 6, notes: "DEF—  DEF—  DEFABC'B—  AGD(E)DC", lyric: 'Ascending Climax Run' },
+      { phraseNumber: 7, notes: 'CD CDEG EGA— (use meend at A)', lyric: 'Opening Meend Call (Reprise)' },
+      { phraseNumber: 8, notes: "AB(B)C'B—  (A)G  GFD—", lyric: 'Graceful Descent with Kan Swaras (Reprise)' },
+      { phraseNumber: 9, notes: 'CDEC.G  CED—  C.B.AC  .BC  CD(.B)C—', lyric: 'Mandra Saptak Final Cadence (Reprise)' }
+    ],
+    phraseGuidance: [
+      { phraseNumber: 1, guidance: 'Open gently on middle Sa and Re, flow into SRGP, then execute a sweet gliding meend upward to Dhaivat (GPD—) with smooth finger sliding.' },
+      { phraseNumber: 2, guidance: "Leap to Nishad, grace high Tara Sa with kan swar {N}, touch Dhaivat {D} into Pancham, and resolve softly through PM into held Re (R—)." },
+      { phraseNumber: 3, guidance: 'Drop deep into Mandra Pancham (.P) with warm, relaxed breath. Weave through lower Ni and Dha (.N, .D) and resolve gracefully on middle Sa (SR{.N}S—).' },
+      { phraseNumber: 4, guidance: "Attack high Tara Sa cleanly, step down through Ni to Dha (S'ND—), then apply resonant gamak breath oscillations touching {R} to land on Gandhar (G—)." },
+      { phraseNumber: 5, guidance: 'Reiterate the Tara Sa descent, oscillate warmly on GPG—— with full breath support, and touch Shuddh Madhyam (M) on release.' },
+      { phraseNumber: 6, guidance: "Play two rising pulses on RGM—, then sprint across the scale RGMDNS'N— peaking at high Tara Sa before cascading gracefully down DPR{G}RS to resolve on Sa." },
+      { phraseNumber: 7, guidance: 'Return to the enchanting first theme with smooth sliding meend up to Dhaivat.' },
+      { phraseNumber: 8, guidance: 'Re-create the delicate ornamental touches on {N} and {D}, easing gently into Re (R—).' },
+      { phraseNumber: 9, guidance: 'Conclude the piece peacefully with the warm lower octave descent (.P, .D, .N) and final sustained resolution on middle Sa (S—).' }
+    ],
+    practiceMethod: [
+      'Begin by mastering the foundational notes in the middle octave (S R G M P D N) with clean tone clarity before adding ornaments.',
+      'Practice the opening meend on GPD— by slowly sliding your left ring finger over the Dhaivat hole, avoiding abrupt finger lifting.',
+      'Drill the Mandra Saptak transition in Line 3 (.P .D .N) by dropping airspeed velocity and angling your breath slightly lower into the embouchure hole.',
+      'Isolate the gamak oscillation in Line 4 (NP{R}G—) with rhythmic breath pulses and subtle finger flutter on the Gandhar hole.',
+      'Practice the ascending run in Line 6 (RGMDNS\'N—) slowly with a metronome at 60 BPM, gradually building up to performance speed (75-80 BPM).',
+      'Practice against a continuous Tanpura drone tuned to your root pitch (Sa) to keep the delicate kan swaras in perfect pitch.'
+    ],
+    commonMistakes: [
+      'Jumping abruptly from Pancham to Dhaivat in Line 1 instead of executing a smooth, continuous meend glide',
+      'Overblowing the lower Mandra notes (.P, .D, .N) in Line 3, causing them to crack into the middle octave',
+      'Rushing through the kan swaras ({N}, {D}, {R}, {G}) so fast that they sound unintentional or out of pitch',
+      'Playing the gamak phrase in Line 4 flat without expressive breath pulsations and ornament warmth',
+      "Losing breath control during the rapid ascent in Line 6 (RGMDNS'N—) causing the high Tara Sa (S') to sound thin or shrill"
+    ],
+    usefulTools: [
+      { name: 'Online Tanpura Drone', url: '/tools/tanpura', viewKey: 'tanpura' },
+      { name: 'Online Bansuri Pitch Tuner', url: '/tuner', viewKey: 'learn_tuner' },
+      { name: 'Interactive Bansuri Fingering Chart', url: '/learn/fingering-chart', viewKey: 'learn_fingering_chart' },
+      { name: 'Flute Note and Key Converter', url: '/tools/flute-note-key-converter', viewKey: 'note_key_converter' },
+      { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' },
+      { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
+    ]
   }
 ];
 

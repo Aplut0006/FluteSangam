@@ -56,6 +56,7 @@ export const VIEW_URLS: Record<string, string> = {
   'notation_shri_krishna_govind_hare_murari': '/notations/shri-krishna-govind-hare-murari-flute-notes',
   'notation_hothon_se_chhoo_lo_tum': '/notations/hothon-se-chhoo-lo-tum-flute-notes',
   'notation_krrish_theme': '/notations/krrish-theme-flute-notes',
+  'notation_enchanting_flute_krishna_aur_kans': '/notations/enchanting-flute-krishna-aur-kans-flute-notes',
   'privacy_policy': '/privacy-policy',
   'terms_of_service': '/terms-of-service',
   'copyright_policy': '/copyright-policy',

@@ -77,6 +77,7 @@ const ROUTE_MOD_DATES: Record<string, string> = {
   '/notations/shri-krishna-govind-hare-murari-flute-notes': '2026-10-18',
   '/notations/hothon-se-chhoo-lo-tum-flute-notes': '2026-10-18',
   '/notations/krrish-theme-flute-notes': '2026-10-25',
+  '/notations/enchanting-flute-krishna-aur-kans-flute-notes': '2026-10-31',
   '/privacy-policy': '2026-09-18',
   '/terms-of-service': '2026-09-18',
   '/copyright-policy': '2026-10-02',

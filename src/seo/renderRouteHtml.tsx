@@ -69,6 +69,7 @@ import { MahabharatKrishnaThemeNotationView } from '../components/MahabharatKris
 import { ShriKrishnaGovindHareMurariNotationView } from '../components/ShriKrishnaGovindHareMurariNotationView';
 import { HothonSeChhuLoTumNotationView } from '../components/HothonSeChhuLoTumNotationView';
 import { KrrishThemeNotationView } from '../components/KrrishThemeNotationView';
+import { EnchantingFluteKrishnaAurKansNotationView } from '../components/EnchantingFluteKrishnaAurKansNotationView';
 import { CommunityFeedView } from '../components/CommunityFeedView';
 import PostDetailView from '../components/PostDetailView';
 import NotFoundView from '../components/NotFoundView';
@@ -1926,6 +1927,71 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
             },
             'datePublished': '2026-10-25T00:00:00Z',
             'dateModified': '2026-10-25T00:00:00Z'
+          }
+        ]
+      }
+    };
+  }
+
+  if (cleanPath === '/notations/enchanting-flute-krishna-aur-kans-flute-notes') {
+    const title = 'Enchanting Flute Krishna Aur Kans Flute Notes | Sargam';
+    const description = 'Learn Enchanting Flute from Krishna Aur Kans with Sargam and Western notes. Explore this beautiful Krishna-themed instrumental melody with flute notation and practical playing tips.';
+    const canonicalUrl = `${DOMAIN}/notations/enchanting-flute-krishna-aur-kans-flute-notes`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: EnchantingFluteKrishnaAurKansNotationView,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          createWebPageSchema(canonicalUrl, title, description),
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': DOMAIN
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Song Notation',
+                'item': `${DOMAIN}/notations`
+              },
+              {
+                '@type': 'ListItem',
+                'position': 3,
+                'name': 'Enchanting Flute (Krishna Aur Kans) Flute Notes',
+                'item': canonicalUrl
+              }
+            ]
+          },
+          {
+            '@type': 'Article',
+            '@id': `${canonicalUrl}#article`,
+            'headline': 'Enchanting Flute (Krishna Aur Kans) Flute Notes – Sargam & Western Notes',
+            'description': description,
+            'mainEntityOfPage': canonicalUrl,
+            'author': {
+              '@type': 'Person',
+              'name': 'Aplut',
+              'url': `${DOMAIN}/founder`
+            },
+            'publisher': {
+              '@type': 'Organization',
+              'name': 'FluteSangam',
+              'url': DOMAIN,
+              'logo': {
+                '@type': 'ImageObject',
+                'url': `${DOMAIN}/flutesangam_logo.png`
+              }
+            },
+            'datePublished': '2026-10-31T00:00:00Z',
+            'dateModified': '2026-10-31T00:00:00Z'
           }
         ]
       }
