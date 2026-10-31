@@ -87,6 +87,7 @@ const ShriKrishnaGovindHareMurariNotationView = lazyWithRetry(() => import('./co
 const HothonSeChhuLoTumNotationView = lazyWithRetry(() => import('./components/HothonSeChhuLoTumNotationView').then(m => ({ default: m.HothonSeChhuLoTumNotationView })));
 const KrrishThemeNotationView = lazyWithRetry(() => import('./components/KrrishThemeNotationView').then(m => ({ default: m.KrrishThemeNotationView })));
 const EnchantingFluteKrishnaAurKansNotationView = lazyWithRetry(() => import('./components/EnchantingFluteKrishnaAurKansNotationView').then(m => ({ default: m.EnchantingFluteKrishnaAurKansNotationView })));
+const LagJaGaleNotationView = lazyWithRetry(() => import('./components/LagJaGaleNotationView').then(m => ({ default: m.LagJaGaleNotationView })));
 const PrivacyPolicyView = lazyWithRetry(() => import('./components/PrivacyPolicyView'));
 const TermsOfServiceView = lazyWithRetry(() => import('./components/TermsOfServiceView'));
 const CopyrightPolicyView = lazyWithRetry(() => import('./components/CopyrightPolicyView'));
@@ -230,6 +231,7 @@ export default function App() {
     if (cleanPath === '/notations/hothon-se-chhu-lo-tum-flute-notes' || cleanPath === '/notations/hothon-se-chhoo-lo-tum-flute-notes') return 'notation_hothon_se_chhoo_lo_tum';
     if (cleanPath === '/notations/krrish-theme-flute-notes') return 'notation_krrish_theme';
     if (cleanPath === '/notations/enchanting-flute-krishna-aur-kans-flute-notes') return 'notation_enchanting_flute_krishna_aur_kans';
+    if (cleanPath === '/notations/lag-ja-gale-flute-notes') return 'notation_lag_ja_gale';
     if (cleanPath.startsWith('/post/')) return 'post-detail';
     if (cleanPath.startsWith('/profile/')) return 'user-profile';
     
@@ -517,6 +519,10 @@ export default function App() {
         title = 'Enchanting Flute Krishna Aur Kans Flute Notes | Sargam';
         description = 'Learn Enchanting Flute from Krishna Aur Kans with Sargam and Western notes. Explore this beautiful Krishna-themed instrumental melody with flute notation and practical playing tips.';
         break;
+      case 'notation_lag_ja_gale':
+        title = 'Lag Ja Gale Flute Notes | Sargam & Western';
+        description = "Learn Lag Ja Gale flute notes with Sargam and Western notation. Practice Lata Mangeshkar's timeless melody with octave markings and helpful flute-playing tips.";
+        break;
       case 'community_members':
         title = 'Community Members | FluteSangam';
         description = 'Meet flutists, learners, and contributors in the global FluteSangam community.';
@@ -601,7 +607,8 @@ export default function App() {
       currentView === 'learn_dashboard' ||
       currentView === 'notation_hothon_se_chhoo_lo_tum' ||
       currentView === 'notation_krrish_theme' ||
-      currentView === 'notation_enchanting_flute_krishna_aur_kans'
+      currentView === 'notation_enchanting_flute_krishna_aur_kans' ||
+      currentView === 'notation_lag_ja_gale'
     ) {
       modDate = '2026-10-11T00:00:00Z';
     } else if (currentView === 'post-detail' && selectedPost) {
@@ -1432,6 +1439,8 @@ export default function App() {
                 handleViewChange('notation_krrish_theme');
               } else if (slug === 'enchanting-flute-krishna-aur-kans-flute-notes') {
                 handleViewChange('notation_enchanting_flute_krishna_aur_kans');
+              } else if (slug === 'lag-ja-gale-flute-notes') {
+                handleViewChange('notation_lag_ja_gale');
               }
             }}
           />
@@ -1461,6 +1470,8 @@ export default function App() {
           <KrrishThemeNotationView onViewChange={handleViewChange} />
         ) : currentView === 'notation_enchanting_flute_krishna_aur_kans' ? (
           <EnchantingFluteKrishnaAurKansNotationView onViewChange={handleViewChange} />
+        ) : currentView === 'notation_lag_ja_gale' ? (
+          <LagJaGaleNotationView onViewChange={handleViewChange} />
         ) : currentView === 'community_members' ? (
           <MembersView 
             currentUser={currentUser} 

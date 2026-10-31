@@ -2783,6 +2783,216 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' },
       { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
     ]
+  },
+  {
+    id: 'lag-ja-gale',
+    slug: 'lag-ja-gale-flute-notes',
+    title: 'Lag Ja Gale Flute Notes',
+    category: 'Hindi/Bollywood',
+    movie: 'Woh Kaun Thi? (1964)',
+    singer: 'Lata Mangeshkar / Madan Mohan',
+    type: 'Bollywood Classic Romantic Melody',
+    difficulty: 'Intermediate',
+    suggestedFlute: 'C Natural Medium, D Natural Medium, or E Bass',
+    startingSwar: 'Mandra Pa (.P / Lower G)',
+    highestSwar: "Tara Sa (S' / High C)",
+    mainChallenge: 'Expressive opening gamaks on Ga, rapid descending kan swaras in the Mandra octave, and clean half-hole fingering on Tivra Madhyam (M^).',
+    practiceSpeed: '65 – 75 BPM (Soulful, slow & expressive)',
+    notationFormats: 'Sargam (Indian) & Western Sheet',
+    description: "Learn Lag Ja Gale flute notes with Sargam and Western notation. Practice Lata Mangeshkar's timeless melody with octave markings and helpful flute-playing tips.",
+    status: 'Published',
+    publishedDate: 'October 2026',
+    updatedDate: 'October 2026',
+    canonicalUrl: 'https://flutesangam.com/notations/lag-ja-gale-flute-notes',
+    h1: 'Lag Ja Gale Flute Notes – Sargam & Western Notes',
+    metaTitle: 'Lag Ja Gale Flute Notes | Sargam & Western',
+    metaDescription: "Learn Lag Ja Gale flute notes with Sargam and Western notation. Practice Lata Mangeshkar's timeless melody with octave markings and helpful flute-playing tips.",
+    intro: 'Lag Ja Gale is universally hailed as one of the greatest Bollywood melodies of all time. Composed by Madan Mohan, written by Raja Mehdi Ali Khan, and immortalized by the golden voice of Lata Mangeshkar for the 1964 film Woh Kaun Thi?, this hauntingly poignant love song features soulful gamak oscillations, delicate Mandra saptak descents, and elegant Tivra Madhyam (M^) touches. This comprehensive guide provides lyric-aligned Sargam and Western notes, octave markings, and practical playing tips for flute and bansuri players.',
+    quickInfo: {
+      difficulty: 'Intermediate',
+      melodyType: 'Bollywood Classic / Romantic Melody',
+      suggestedFlute: 'C Natural Medium, D Natural Medium, or E Bass',
+      startingSwar: 'Mandra Pa (.P / Lower G)',
+      highestSwar: "Tara Sa (S' / High C)",
+      mainChallenge: 'Gamak on Gandhar, Mandra kan swaras, and Tivra Ma (M^) control',
+      practiceSpeed: '65 – 75 BPM'
+    },
+    legend: [
+      { symbol: 'S, R, G, M, P, D, N', meaning: 'Madhya Saptak (Middle Octave Shuddh Swaras)' },
+      { symbol: 'M^ / Ma^', meaning: 'Tivra Madhyam (Sharp F / F#)' },
+      { symbol: '.P, .D, .N', meaning: 'Mandra Saptak (Lower Octave, dot before note)' },
+      { symbol: "S'", meaning: 'Tara Saptak (Higher Octave, apostrophe after note)' },
+      { symbol: '{G}, {S}, {.N}, {D}, {P}', meaning: 'Kan Swar (Grace note / rapid ornamental touch)' },
+      { symbol: '— (dash)', meaning: 'Sustain / hold note value' }
+    ],
+    phrases: [
+      {
+        phraseNumber: 1,
+        lyric: 'Lag jaa.. gale, ki phirr ye (use gamak)',
+        sargamNotes: '.P.PG— | RG | G | RG | RG',
+        westernNotes: '.G.GE— | DE | E | DE | DE',
+        units: [
+          { lyric: 'Lag jaa..', sargam: '.P.PG—', western: '.G.GE—' },
+          { lyric: 'gale,', sargam: 'RG', western: 'DE' },
+          { lyric: 'ki', sargam: 'G', western: 'E' },
+          { lyric: 'phirr', sargam: 'RG', western: 'DE' },
+          { lyric: 'ye,', sargam: 'RG', western: 'DE' }
+        ],
+        guidance: 'Open smoothly from lower Mandra Pa (.P) gliding with gentle breath into Ga (G—). Apply a subtle gamak oscillation on the repeated Gandhar notes.'
+      },
+      {
+        phraseNumber: 2,
+        lyric: 'Haseen raat, ho.. na ho.. ooo (use gamak)',
+        sargamNotes: 'GRG | RG-S— | SMGRR- | R{G}R .N{S}.N .D{.N}.D .P',
+        westernNotes: 'EDE | DE-C— | CFEDD- | D(E)D .B(C).B .A(.B).A .G',
+        units: [
+          { lyric: 'Haseen', sargam: 'GRG', western: 'EDE' },
+          { lyric: 'raat,', sargam: 'RG-S—', western: 'DE-C—' },
+          { lyric: 'ho.. na ho..', sargam: 'SMGRR-', western: 'CFEDD-' },
+          { lyric: 'ooo (gamak)', sargam: 'R{G}R .N{S}.N .D{.N}.D .P', western: 'D(E)D .B(C).B .A(.B).A .G' }
+        ],
+        guidance: 'Flow gracefully from Ga down to Sa (GRG RG-S—). Rise to Ma and descend through SMGRR-, then execute the signature cascading gamak through Mandra Ni, Dha, and Pa with delicate finger touches.'
+      },
+      {
+        phraseNumber: 3,
+        lyric: 'Shaayad, phir is janam mein-',
+        sargamNotes: '.P.D | .D.D.N | .NR .N{S}.N .D{.N}.D .P',
+        westernNotes: '.G.A | .A.A.B | .BD .B(C).B .A(.B).A .G',
+        units: [
+          { lyric: 'Shaayad,', sargam: '.P.D', western: '.G.A' },
+          { lyric: 'phir is', sargam: '.D.D.N', western: '.A.A.B' },
+          { lyric: 'janam mein-', sargam: '.NR .N{S}.N .D{.N}.D .P', western: '.BD .B(C).B .A(.B).A .G' }
+        ],
+        guidance: 'Stay anchored in the lower Mandra octave. Articulate .P.D and .D.D.N with warm, relaxed breath, resolving down through the ornamental kan swaras back to lower Pa.'
+      },
+      {
+        phraseNumber: 4,
+        lyric: 'Mulaaqaat ho.. na ho.. oooo',
+        sargamNotes: '.P.PPP—P{D}P | MP{D}P MG | MGR{G}RS',
+        westernNotes: '.G.GGG—G(A)G | FG(A)G FE | FED(E)DC',
+        units: [
+          { lyric: 'Mulaaqaat', sargam: '.P.PPP—P{D}P', western: '.G.GGG—G(A)G' },
+          { lyric: 'ho.. na ho..', sargam: 'MP{D}P MG', western: 'FG(A)G FE' },
+          { lyric: 'oooo', sargam: 'MGR{G}RS', western: 'FED(E)DC' }
+        ],
+        guidance: 'Transition from lower Pa to middle Pa with steady breath support. Touch Dhaivat with kan swar {D}, step down through MG, and resolve smoothly into home Sa (MGR{G}RS).'
+      },
+      {
+        phraseNumber: 5,
+        lyric: 'Hum ko mili hain aaj ye-',
+        sargamNotes: 'Sa Pa | Ma^ Pa Ma^ | D{P}M MM',
+        westernNotes: 'C G | F# G F# | A(G)F FF',
+        units: [
+          { lyric: 'Hum ko', sargam: 'S P', western: 'C G' },
+          { lyric: 'mili hain', sargam: 'M^ P M^', western: 'F# G F#' },
+          { lyric: 'aaj ye-', sargam: 'D{P}M MM', western: 'A(G)F FF' }
+        ],
+        guidance: 'Leap directly from Sa to middle Pa. Half-cover the Madhyam hole to sound pure Tivra Ma (M^ / F#), then grace through Dhaivat {P} into Shuddha Ma (MM).'
+      },
+      {
+        phraseNumber: 6,
+        lyric: 'Ghadiyaan naseeb se,',
+        sargamNotes: 'SMM | D MP{D}P MG',
+        westernNotes: 'CFF | A FG(A)G FE',
+        units: [
+          { lyric: 'Ghadiyaan', sargam: 'SMM', western: 'CFF' },
+          { lyric: 'naseeb se,', sargam: 'D MP{D}P MG', western: 'A FG(A)G FE' }
+        ],
+        guidance: 'Anchor on Shuddha Ma, reach up to Dhaivat, and execute the ornamental roll MP{D}P before settling gently on Shuddha Ga.'
+      },
+      {
+        phraseNumber: 7,
+        lyric: 'Jee bhar ke dekh lijiye,',
+        sargamNotes: "Sa Pa | M^PM^ | S'MM",
+        westernNotes: "C G | F#GF# | C'FF",
+        units: [
+          { lyric: 'Jee bhar ke', sargam: 'S P', western: 'C G' },
+          { lyric: 'dekh', sargam: 'M^PM^', western: 'F#GF#' },
+          { lyric: 'lijiye,', sargam: "S'MM", western: "C'FF" }
+        ],
+        guidance: "Second leap of the Antara. Sound Tivra Ma clearly on M^PM^, then soar up to high Taar Sa (S' / high C) before dropping directly back to middle Ma (MM)."
+      },
+      {
+        phraseNumber: 8,
+        lyric: 'Hum ko, qareeb se.',
+        sargamNotes: 'SMM | D MP{D}P MG—',
+        westernNotes: 'CFF | A FG(A)G FE—',
+        units: [
+          { lyric: 'Hum ko,', sargam: 'SMM', western: 'CFF' },
+          { lyric: 'qareeb se.', sargam: 'D MP{D}P MG—', western: 'A FG(A)G FE—' }
+        ],
+        guidance: 'Reiterate SMM and glide through Dhaivat and the MP{D}P ornament, sustaining Shuddh Gandhar (MG—) to set up the return to the main theme.'
+      },
+      {
+        phraseNumber: 9,
+        lyric: 'Phir aap ke naseeb mein.... (Reprise to Sthayi)',
+        sargamNotes: '.P.PG— RG G RG RG | GRG RG-S— SMGRR- R{G}R .N{S}.N .D{.N}.D .P',
+        westernNotes: '.G.GE— DE E DE DE | EDE DE-C— CFEDD- D(E)D .B(C).B .A(.B).A .G',
+        units: [
+          { lyric: 'Phir aap ke', sargam: '.P.PG— RG', western: '.G.GE— DE' },
+          { lyric: 'naseeb mein,', sargam: 'G RG RG', western: 'E DE DE' },
+          { lyric: 'ye baat', sargam: 'GRG RG-S—', western: 'EDE DE-C—' },
+          { lyric: 'ho.. na ho..', sargam: 'SMGRR- R{G}R .N{S}.N .D{.N}.D .P', western: 'CFEDD- D(E)D .B(C).B .A(.B).A .G' }
+        ],
+        guidance: 'Return to the timeless opening melody. Play with heartfelt expression, flowing through the lower octave gamak ornament down to resting Mandra Pa.'
+      }
+    ],
+    sargamPhrases: [
+      { phraseNumber: 1, notes: '.P.PG—   RG   G   RG RG (use gamak)', lyric: 'Lag jaa.. gale, ki phirr ye' },
+      { phraseNumber: 2, notes: 'GRG   RG-S—   SMGRR-   R{G}R .N{S}.N .D{.N}.D .P (use gamak)', lyric: 'Haseen raat, ho.. na ho.. ooo' },
+      { phraseNumber: 3, notes: '.P.D   .D.D.N   .NR .N{S}.N .D{.N}.D .P', lyric: 'Shaayad, phir is janam mein-' },
+      { phraseNumber: 4, notes: '.P.PPP—P{D}P   MP{D}P MG   MGR{G}RS', lyric: 'Mulaaqaat ho.. na ho.. oooo' },
+      { phraseNumber: 5, notes: 'Sa Pa   Ma^ Pa Ma^   D{P}M MM', lyric: 'Hum ko mili hain aaj ye-' },
+      { phraseNumber: 6, notes: 'SMM   D MP{D}P MG', lyric: 'Ghadiyaan naseeb se,' },
+      { phraseNumber: 7, notes: "Sa Pa   M^PM^   S'MM", lyric: 'Jee bhar ke dekh lijiye,' },
+      { phraseNumber: 8, notes: 'SMM   D MP{D}P MG—', lyric: 'Hum ko, qareeb se.' },
+      { phraseNumber: 9, notes: '.P.PG— RG G RG RG | GRG RG-S— SMGRR- R{G}R .N{S}.N .D{.N}.D .P', lyric: 'Phir aap ke naseeb mein.... (Reprise to Sthayi)' }
+    ],
+    westernPhrases: [
+      { phraseNumber: 1, notes: '.G.GE—   DE   E   DE DE (use gamak)', lyric: 'Lag jaa.. gale, ki phirr ye' },
+      { phraseNumber: 2, notes: 'EDE   DE-C—   CFEDD-   D(E)D .B(C).B .A(.B).A .G (use gamak)', lyric: 'Haseen raat, ho.. na ho.. ooo' },
+      { phraseNumber: 3, notes: '.G.A   .A.A.B   .BD .B(C).B .A(.B).A .G', lyric: 'Shaayad, phir is janam mein-' },
+      { phraseNumber: 4, notes: '.G.GGG—G(A)G   FG(A)G FE   FED(E)DC', lyric: 'Mulaaqaat ho.. na ho.. oooo' },
+      { phraseNumber: 5, notes: 'C G   F# G F#   A(G)F FF', lyric: 'Hum ko mili hain aaj ye-' },
+      { phraseNumber: 6, notes: 'CFF   A FG(A)G FE', lyric: 'Ghadiyaan naseeb se,' },
+      { phraseNumber: 7, notes: "C G   F#GF#   C'FF", lyric: 'Jee bhar ke dekh lijiye,' },
+      { phraseNumber: 8, notes: 'CFF   A FG(A)G FE—', lyric: 'Hum ko, qareeb se.' },
+      { phraseNumber: 9, notes: '.G.GE— DE E DE DE | EDE DE-C— CFEDD- D(E)D .B(C).B .A(.B).A .G', lyric: 'Phir aap ke naseeb mein.... (Reprise to Sthayi)' }
+    ],
+    phraseGuidance: [
+      { phraseNumber: 1, guidance: 'Open smoothly from lower Mandra Pa (.P) gliding with gentle breath into Ga (G—). Apply a subtle gamak oscillation on the repeated Gandhar notes.' },
+      { phraseNumber: 2, guidance: 'Flow gracefully from Ga down to Sa (GRG RG-S—). Rise to Ma and descend through SMGRR-, then execute the signature cascading gamak through Mandra Ni, Dha, and Pa with delicate finger touches.' },
+      { phraseNumber: 3, guidance: 'Stay anchored in the lower Mandra octave. Articulate .P.D and .D.D.N with warm, relaxed breath, resolving down through the ornamental kan swaras back to lower Pa.' },
+      { phraseNumber: 4, guidance: 'Transition from lower Pa to middle Pa with steady breath support. Touch Dhaivat with kan swar {D}, step down through MG, and resolve smoothly into home Sa (MGR{G}RS).' },
+      { phraseNumber: 5, guidance: 'Leap directly from Sa to middle Pa. Half-cover the Madhyam hole to sound pure Tivra Ma (M^ / F#), then grace through Dhaivat {P} into Shuddha Ma (MM).' },
+      { phraseNumber: 6, guidance: 'Anchor on Shuddha Ma, reach up to Dhaivat, and execute the ornamental roll MP{D}P before settling gently on Shuddha Ga.' },
+      { phraseNumber: 7, guidance: "Second leap of the Antara. Sound Tivra Ma clearly on M^PM^, then soar up to high Taar Sa (S' / high C) before dropping directly back to middle Ma (MM)." },
+      { phraseNumber: 8, guidance: 'Reiterate SMM and glide through Dhaivat and the MP{D}P ornament, sustaining Shuddh Gandhar (MG—) to set up the return to the main theme.' },
+      { phraseNumber: 9, guidance: 'Return to the timeless opening melody. Play with heartfelt expression, flowing through the lower octave gamak ornament down to resting Mandra Pa.' }
+    ],
+    practiceMethod: [
+      'Master the opening slide (.P.PG—) by dropping your breath pressure for Mandra Pa and gradually warming the airspeed as your finger glides to Shuddha Ga.',
+      'Practice the signature cascading gamak in Line 2 (R{G}R .N{S}.N .D{.N}.D .P) slowly, isolating each grace note pair before stringing them together.',
+      'For the lower octave passages in Line 3, maintain relaxed lips and roll the flute slightly inward to ensure a rich, resonant tone without octave cracking.',
+      'Accurately calibrate your half-hole fingering for Tivra Madhyam (M^ / F#) in the Antara (Lines 5 & 7) against a Tanpura drone.',
+      "Practice the octave leap to Taar Sa (S'MM) in Line 7 by narrowing your lip aperture rather than blowing forcefully.",
+      'Play the entire melody along with a steady Tanpura drone tuned to your flute root pitch (Sa) at 65-70 BPM to build expressive phrasing.'
+    ],
+    commonMistakes: [
+      'Blowing too hard on lower octave notes (.P, .D, .N), which causes them to squeak or jump to the middle octave',
+      'Rushing through the gamak descent in Line 2 instead of letting each grace note ring out expressively',
+      'Playing Tivra Madhyam (M^) flat or out of tune by uncovering too little of the Madhyam tone hole',
+      "Losing breath control during the octave leap to high Taar Sa (S') in Line 7, causing an abrupt volume spike",
+      'Playing the opening notes stiffly without the subtle breath pulsations and emotional slides characteristic of Lata ji’s singing'
+    ],
+    usefulTools: [
+      { name: 'Online Tanpura Drone', url: '/tools/tanpura', viewKey: 'tanpura' },
+      { name: 'Online Bansuri Pitch Tuner', url: '/tuner', viewKey: 'learn_tuner' },
+      { name: 'Interactive Bansuri Fingering Chart', url: '/learn/fingering-chart', viewKey: 'learn_fingering_chart' },
+      { name: 'Flute Note and Key Converter', url: '/tools/flute-note-key-converter', viewKey: 'note_key_converter' },
+      { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' },
+      { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
+    ]
   }
 ];
 

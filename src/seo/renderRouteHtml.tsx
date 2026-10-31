@@ -70,6 +70,7 @@ import { ShriKrishnaGovindHareMurariNotationView } from '../components/ShriKrish
 import { HothonSeChhuLoTumNotationView } from '../components/HothonSeChhuLoTumNotationView';
 import { KrrishThemeNotationView } from '../components/KrrishThemeNotationView';
 import { EnchantingFluteKrishnaAurKansNotationView } from '../components/EnchantingFluteKrishnaAurKansNotationView';
+import { LagJaGaleNotationView } from '../components/LagJaGaleNotationView';
 import { CommunityFeedView } from '../components/CommunityFeedView';
 import PostDetailView from '../components/PostDetailView';
 import NotFoundView from '../components/NotFoundView';
@@ -1974,6 +1975,71 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
             '@type': 'Article',
             '@id': `${canonicalUrl}#article`,
             'headline': 'Enchanting Flute (Krishna Aur Kans) Flute Notes – Sargam & Western Notes',
+            'description': description,
+            'mainEntityOfPage': canonicalUrl,
+            'author': {
+              '@type': 'Person',
+              'name': 'Aplut',
+              'url': `${DOMAIN}/founder`
+            },
+            'publisher': {
+              '@type': 'Organization',
+              'name': 'FluteSangam',
+              'url': DOMAIN,
+              'logo': {
+                '@type': 'ImageObject',
+                'url': `${DOMAIN}/flutesangam_logo.png`
+              }
+            },
+            'datePublished': '2026-10-31T00:00:00Z',
+            'dateModified': '2026-10-31T00:00:00Z'
+          }
+        ]
+      }
+    };
+  }
+
+  if (cleanPath === '/notations/lag-ja-gale-flute-notes') {
+    const title = 'Lag Ja Gale Flute Notes | Sargam & Western';
+    const description = "Learn Lag Ja Gale flute notes with Sargam and Western notation. Practice Lata Mangeshkar's timeless melody with octave markings and helpful flute-playing tips.";
+    const canonicalUrl = `${DOMAIN}/notations/lag-ja-gale-flute-notes`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: LagJaGaleNotationView,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          createWebPageSchema(canonicalUrl, title, description),
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': DOMAIN
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Song Notation',
+                'item': `${DOMAIN}/notations`
+              },
+              {
+                '@type': 'ListItem',
+                'position': 3,
+                'name': 'Lag Ja Gale Flute Notes',
+                'item': canonicalUrl
+              }
+            ]
+          },
+          {
+            '@type': 'Article',
+            '@id': `${canonicalUrl}#article`,
+            'headline': 'Lag Ja Gale Flute Notes – Sargam & Western Notes',
             'description': description,
             'mainEntityOfPage': canonicalUrl,
             'author': {
