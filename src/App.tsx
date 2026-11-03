@@ -89,6 +89,7 @@ const KrrishThemeNotationView = lazyWithRetry(() => import('./components/KrrishT
 const EnchantingFluteKrishnaAurKansNotationView = lazyWithRetry(() => import('./components/EnchantingFluteKrishnaAurKansNotationView').then(m => ({ default: m.EnchantingFluteKrishnaAurKansNotationView })));
 const LagJaGaleNotationView = lazyWithRetry(() => import('./components/LagJaGaleNotationView').then(m => ({ default: m.LagJaGaleNotationView })));
 const ChhuKarMereMannKoNotationView = lazyWithRetry(() => import('./components/ChhuKarMereMannKoNotationView').then(m => ({ default: m.ChhuKarMereMannKoNotationView })));
+const TujheDekhaToNotationView = lazyWithRetry(() => import('./components/TujheDekhaToNotationView').then(m => ({ default: m.TujheDekhaToNotationView })));
 const PrivacyPolicyView = lazyWithRetry(() => import('./components/PrivacyPolicyView'));
 const TermsOfServiceView = lazyWithRetry(() => import('./components/TermsOfServiceView'));
 const CopyrightPolicyView = lazyWithRetry(() => import('./components/CopyrightPolicyView'));
@@ -233,6 +234,8 @@ export default function App() {
     if (cleanPath === '/notations/krrish-theme-flute-notes') return 'notation_krrish_theme';
     if (cleanPath === '/notations/enchanting-flute-krishna-aur-kans-flute-notes') return 'notation_enchanting_flute_krishna_aur_kans';
     if (cleanPath === '/notations/lag-ja-gale-flute-notes') return 'notation_lag_ja_gale';
+    if (cleanPath === '/notations/chhu-kar-mere-mann-ko-flute-notes') return 'notation_chhu_kar_mere_mann_ko';
+    if (cleanPath === '/notations/tujhe-dekha-to-flute-notes') return 'notation_tujhe_dekha_to';
     if (cleanPath.startsWith('/post/')) return 'post-detail';
     if (cleanPath.startsWith('/profile/')) return 'user-profile';
     
@@ -524,6 +527,14 @@ export default function App() {
         title = 'Lag Ja Gale Flute Notes | Sargam & Western';
         description = "Learn Lag Ja Gale flute notes with Sargam and Western notation. Practice Lata Mangeshkar's timeless melody with octave markings and helpful flute-playing tips.";
         break;
+      case 'notation_chhu_kar_mere_mann_ko':
+        title = 'Chhu Kar Mere Mann Ko Flute Notes | Sargam & Western';
+        description = "Learn Chhu Kar Mere Mann Ko flute notes with Sargam and Western notation. Play Kishore Kumar's evergreen melody from Yaarana with octave markings and helpful flute-playing tips.";
+        break;
+      case 'notation_tujhe_dekha_to':
+        title = 'Tujhe Dekha To Flute Notes | Sargam & Western';
+        description = 'Learn Tujhe Dekha To Yeh Jaana Sanam flute notes with Sargam and Western notation. Play this iconic DDLJ melody with octave markings and practical flute-playing tips.';
+        break;
       case 'community_members':
         title = 'Community Members | FluteSangam';
         description = 'Meet flutists, learners, and contributors in the global FluteSangam community.';
@@ -592,7 +603,15 @@ export default function App() {
     let pubDate = '2026-07-26T00:00:00Z';
     let modDate = '2026-07-30T10:00:00Z';
 
-    if (currentView === 'raga_kafi' || currentView === 'raga_pahadi') {
+    if (
+      currentView === 'raga_kafi' || 
+      currentView === 'raga_pahadi' || 
+      currentView === 'notation_krrish_theme' || 
+      currentView === 'notation_enchanting_flute_krishna_aur_kans' || 
+      currentView === 'notation_lag_ja_gale' || 
+      currentView === 'notation_chhu_kar_mere_mann_ko' || 
+      currentView === 'notation_tujhe_dekha_to'
+    ) {
       modDate = '2026-10-31T00:00:00Z';
     } else if (currentView.startsWith('raga_') || currentView === 'learn_raagas' || currentView === 'learn_scales_octaves') {
       modDate = '2026-10-18T00:00:00Z';
@@ -606,10 +625,7 @@ export default function App() {
       currentView === 'community' ||
       currentView === 'home' ||
       currentView === 'learn_dashboard' ||
-      currentView === 'notation_hothon_se_chhoo_lo_tum' ||
-      currentView === 'notation_krrish_theme' ||
-      currentView === 'notation_enchanting_flute_krishna_aur_kans' ||
-      currentView === 'notation_lag_ja_gale'
+      currentView === 'notation_hothon_se_chhoo_lo_tum'
     ) {
       modDate = '2026-10-11T00:00:00Z';
     } else if (currentView === 'post-detail' && selectedPost) {
@@ -1444,6 +1460,8 @@ export default function App() {
                 handleViewChange('notation_lag_ja_gale');
               } else if (slug === 'chhu-kar-mere-mann-ko-flute-notes') {
                 handleViewChange('notation_chhu_kar_mere_mann_ko');
+              } else if (slug === 'tujhe-dekha-to-flute-notes') {
+                handleViewChange('notation_tujhe_dekha_to');
               }
             }}
           />
@@ -1477,6 +1495,8 @@ export default function App() {
           <LagJaGaleNotationView onViewChange={handleViewChange} />
         ) : currentView === 'notation_chhu_kar_mere_mann_ko' ? (
           <ChhuKarMereMannKoNotationView onViewChange={handleViewChange} />
+        ) : currentView === 'notation_tujhe_dekha_to' ? (
+          <TujheDekhaToNotationView onViewChange={handleViewChange} />
         ) : currentView === 'community_members' ? (
           <MembersView 
             currentUser={currentUser} 

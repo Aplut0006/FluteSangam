@@ -3209,6 +3209,273 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' },
       { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
     ]
+  },
+  {
+    id: 'tujhe-dekha-to-flute-notes',
+    slug: 'tujhe-dekha-to-flute-notes',
+    title: 'Tujhe Dekha To Flute Notes',
+    category: 'Hindi/Bollywood',
+    movie: 'Dilwale Dulhania Le Jayenge (1995)',
+    singer: 'Kumar Sanu & Lata Mangeshkar | Music: Jatin-Lalit',
+    type: 'Iconic Bollywood Romance',
+    difficulty: 'Intermediate',
+    suggestedFlute: 'C Natural Medium, D Medium, or E Bass bansuri',
+    startingSwar: 'Mandra Dha (.D)',
+    highestSwar: 'Mandhya Dha (D)',
+    mainChallenge: 'Smooth breath management transitioning from lower octave Mandra notes (.D, .N, .P) to middle octave, and half-hole intonation on Tivra Ma (M^)',
+    practiceSpeed: '65 - 75 BPM',
+    notationFormats: 'Indian Sargam (.D .N S R G M P) & Western (C D E F G A B)',
+    description: 'Complete flute notes for "Tujhe Dekha To Yeh Jaana Sanam" from Dilwale Dulhania Le Jayenge (DDLJ) featuring Kumar Sanu and Lata Mangeshkar. Includes phrase-by-phrase syllable breakdown, Indian Sargam, Western notation, and practical bansuri embellishment tips.',
+    status: 'published',
+    publishedDate: '2026-10-31',
+    updatedDate: '2026-10-31',
+    canonicalUrl: 'https://flutesangam.com/notations/tujhe-dekha-to-flute-notes',
+    h1: 'Tujhe Dekha To Flute Notes – Sargam & Western Notes',
+    metaTitle: 'Tujhe Dekha To Flute Notes | Sargam & Western',
+    metaDescription: 'Learn Tujhe Dekha To Yeh Jaana Sanam flute notes with Sargam and Western notation. Play this iconic DDLJ melody with octave markings and practical flute-playing tips.',
+    intro: 'Master the timeless romantic anthem "Tujhe Dekha To Yeh Jaana Sanam" from the iconic Bollywood film Dilwale Dulhania Le Jayenge (DDLJ, 1995), originally composed by Jatin-Lalit and rendered by Lata Mangeshkar and Kumar Sanu. This comprehensive lesson breaks down every phrase into clear syllable boxes with lower octave Mandra markings, Tivra Ma fingerings, Western note equivalents (relative Sa = C), and actionable bansuri practice tips for beginners and intermediate players.',
+    quickInfo: {
+      difficulty: 'Intermediate',
+      melodyType: 'Romantic Bollywood Evergreen',
+      suggestedFlute: 'Any bansuri; C Medium, D Medium, or E Bass recommended',
+      startingSwar: 'Mandra Dha (.D)',
+      highestSwar: 'Mandhya Dha (D)',
+      mainChallenge: 'Transitioning cleanly from Mandra octave to Madhya Saptak and mastering half-hole Tivra Ma (M^)',
+      practiceSpeed: '65 - 75 BPM'
+    },
+    legend: [
+      { symbol: '.D, .N, .P', meaning: 'Mandra Saptak (Lower Octave notes marked with a dot below/before)' },
+      { symbol: 'S, R, G, M, P, D', meaning: 'Madhya Saptak (Middle Octave natural Shuddha swaras)' },
+      { symbol: 'M^', meaning: 'Tivra Madhyam (Sharp 4th / half-hole opened Ma / F#)' },
+      { symbol: '—', meaning: 'Sustain / hold note duration' },
+      { symbol: 'Spaces', meaning: 'Rhythmic pauses and natural breath breaks between musical words' },
+      { symbol: 'Relative Sa = C', meaning: 'Western notes mapped with Sa = C, Re = D, Ga = E, Ma = F, Tivra Ma = F#, Pa = G, Dha = A, Ni = B' }
+    ],
+    phrases: [
+      {
+        phraseNumber: 1,
+        lyric: 'Tujhe dekha toh yeh jaana sanam',
+        sargamNotes: '.D.D | .DG | RG | SR MG',
+        westernNotes: '.A.A | .AE | DE | CD EF',
+        units: [
+          { lyric: 'Tujhe', sargam: '.D.D', western: '.A.A' },
+          { lyric: 'dekha', sargam: '.DG', western: '.AE' },
+          { lyric: 'toh yeh', sargam: 'RG', western: 'DE' },
+          { lyric: 'jaana sanam', sargam: 'SR MG', western: 'CD EF' }
+        ],
+        guidance: 'Blow gently with warm, relaxed air on Mandra Dha (.D.D), gently slide up into Madhya Ga (.DG), and keep the rhythm steady through RG and SR MG.'
+      },
+      {
+        phraseNumber: 2,
+        lyric: 'Pyar hota hai diwana sanam',
+        sargamNotes: '.D | .DGR | GSR | S.N',
+        westernNotes: '.A | .AED | EDC | C.B',
+        units: [
+          { lyric: 'Pyar', sargam: '.D', western: '.A' },
+          { lyric: 'hota hai', sargam: '.DGR', western: '.AED' },
+          { lyric: 'diwana', sargam: 'GSR', western: 'EDC' },
+          { lyric: 'sanam', sargam: 'S.N', western: 'C.B' }
+        ],
+        guidance: 'Drop back to lower Mandra Dha (.D), ascend briskly on .DGR, and descend softly through GSR down to Mandra Ni (S.N).'
+      },
+      {
+        phraseNumber: 3,
+        lyric: 'Ab yaha se kaha jaye ham',
+        sargamNotes: '.D.N.P | .D.N.P | .DS.N',
+        westernNotes: '.A.B.G | .A.B.G | .AC.B',
+        units: [
+          { lyric: 'Ab yaha', sargam: '.D.N.P', western: '.A.B.G' },
+          { lyric: 'se kaha', sargam: '.D.N.P', western: '.A.B.G' },
+          { lyric: 'jaye ham', sargam: '.DS.N', western: '.AC.B' }
+        ],
+        guidance: 'This phrase stays entirely in the rich Mandra Saptak (.D.N.P). Relax your embouchure, direct the airstream slightly downward, and let the lower resonance ring clearly.'
+      },
+      {
+        phraseNumber: 4,
+        lyric: 'Teri baho me mar jaye ham mmm',
+        sargamNotes: '.NSRM | GG | SRG | RS.ND',
+        westernNotes: '.BCDF | EE | CDE | DC.BA',
+        units: [
+          { lyric: 'Teri baho', sargam: '.NSRM', western: '.BCDF' },
+          { lyric: 'me mar', sargam: 'GG', western: 'EE' },
+          { lyric: 'jaye ham', sargam: 'SRG', western: 'CDE' },
+          { lyric: 'mmm', sargam: 'RS.ND', western: 'DC.BA' }
+        ],
+        guidance: 'Rise effortlessly from Mandra Ni (.N) into Madhya Ma (.NSRM), sustain the twin Ga notes (GG), and finish the romantic resolution gliding down RS.ND.'
+      },
+      {
+        phraseNumber: 5,
+        lyric: '(Repeat lines 1-4)',
+        sargamNotes: '(Repeat lines 1-4)',
+        westernNotes: '(Repeat lines 1-4)',
+        units: [
+          { lyric: 'Repeat lines 1-4', sargam: 'Lines 1-4', western: 'Lines 1-4' }
+        ],
+        guidance: 'Repeat the complete opening Mukhda (Lines 1 to 4) with added emotional expression and subtle meends.'
+      },
+      {
+        phraseNumber: 6,
+        lyric: 'Tujhe dekha toh yeh jaana sanam (Bridge Variation)',
+        sargamNotes: '.D.D | .DG | RG | SR P PDG—',
+        westernNotes: '.A.A | .AE | DE | CD G GAE—',
+        units: [
+          { lyric: 'Tujhe', sargam: '.D.D', western: '.A.A' },
+          { lyric: 'dekha', sargam: '.DG', western: '.AE' },
+          { lyric: 'toh yeh', sargam: 'RG', western: 'DE' },
+          { lyric: 'jaana sanam', sargam: 'SR P PDG—', western: 'CD G GAE—' }
+        ],
+        guidance: 'The bridge variation lifts the melody to Pa (SR P) and glides from Pa-Dha back down to Ga (PDG—) with a lingering hold.'
+      },
+      {
+        phraseNumber: 7,
+        lyric: 'Aankhe meri sapne tere,',
+        sargamNotes: 'GM DDG | GGM DDG',
+        westernNotes: 'EF AAE | EEF AAE',
+        units: [
+          { lyric: 'Aankhe meri', sargam: 'GM DDG', western: 'EF AAE' },
+          { lyric: 'sapne tere,', sargam: 'GGM DDG', western: 'EEF AAE' }
+        ],
+        guidance: 'Begin the Antara brightly on Ga-Ma (GM), accentuating the double Dhaivat (DDG). Keep the finger bounce crisp and light.'
+      },
+      {
+        phraseNumber: 8,
+        lyric: 'dil mera yade tere',
+        sargamNotes: 'RGM | .N.N MG',
+        westernNotes: 'DEF | .B.B EF',
+        units: [
+          { lyric: 'dil mera', sargam: 'RGM', western: 'DEF' },
+          { lyric: 'yade tere', sargam: '.N.N MG', western: '.B.B EF' }
+        ],
+        guidance: 'Step down smoothly on RGM, then drop cleanly to the lower octave Mandra Ni (.N.N) before springing back to MG.'
+      },
+      {
+        phraseNumber: 9,
+        lyric: 'Oo mera hai kya (lalala)',
+        sargamNotes: 'G GM | DDG | GMG',
+        westernNotes: 'E EF | AAE | EFE',
+        units: [
+          { lyric: 'Oo mera', sargam: 'G GM', western: 'E EF' },
+          { lyric: 'hai kya', sargam: 'DDG', western: 'AAE' },
+          { lyric: '(lalala)', sargam: 'GMG', western: 'EFE' }
+        ],
+        guidance: 'Play the vocalized "lalala" filler softly with a gentle Ga-Ma-Ga oscillation.'
+      },
+      {
+        phraseNumber: 10,
+        lyric: 'sab kuchh tera (lalala)',
+        sargamNotes: 'GM | DDG | GMG',
+        westernNotes: 'EF | AAE | EFE',
+        units: [
+          { lyric: 'sab kuchh', sargam: 'GM', western: 'EF' },
+          { lyric: 'tera', sargam: 'DDG', western: 'AAE' },
+          { lyric: '(lalala)', sargam: 'GMG', western: 'EFE' }
+        ],
+        guidance: 'Mirror Phrase 9 with balanced dynamics, keeping the playful tempo intact.'
+      },
+      {
+        phraseNumber: 11,
+        lyric: 'Jan teri sanse teri',
+        sargamNotes: 'RGM | .N.N MG',
+        westernNotes: 'DEF | .B.B EF',
+        units: [
+          { lyric: 'Jan teri', sargam: 'RGM', western: 'DEF' },
+          { lyric: 'sanse teri', sargam: '.N.N MG', western: '.B.B EF' }
+        ],
+        guidance: 'Reiterate the downward Mandra dip on .N.N with warm intonation, resolving back up to MG.'
+      },
+      {
+        phraseNumber: 12,
+        lyric: 'Meri aankho me aansu tere aa gaye',
+        sargamNotes: 'GR GRG | S.N.D GRG | .NSR',
+        westernNotes: 'ED EDE | C.B.A EDE | .BCD',
+        units: [
+          { lyric: 'Meri aankho', sargam: 'GR GRG', western: 'ED EDE' },
+          { lyric: 'me aansu tere', sargam: 'S.N.D GRG', western: 'C.B.A EDE' },
+          { lyric: 'aa gaye', sargam: '.NSR', western: '.BCD' }
+        ],
+        guidance: 'Expressive cascading movement: execute the graceful meend across S.N.D, leap up to GRG, and land smoothly via Mandra Ni on .NSR.'
+      },
+      {
+        phraseNumber: 13,
+        lyric: 'Muskurane lage sare gham mmm',
+        sargamNotes: 'RRRP | PM^ PM^ G | RS.N.D',
+        westernNotes: 'DDDG | GF# GF# E | DC.B.A',
+        units: [
+          { lyric: 'Muskurane', sargam: 'RRRP', western: 'DDDG' },
+          { lyric: 'lage sare gham', sargam: 'PM^ PM^ G', western: 'GF# GF# E' },
+          { lyric: 'mmm', sargam: 'RS.N.D', western: 'DC.B.A' }
+        ],
+        guidance: 'Crucial climax: on PM^ PM^ G, use half-hole fingering on Tivra Ma (M^ / F#). Keep pitch intonation pure without flattening, then resolve down RS.N.D into the main Mukhda.'
+      }
+    ],
+    sargamPhrases: [
+      { phraseNumber: 1, notes: '.D.D   .DG   RG   SR MG', lyric: 'Tujhe  dekha  toh yeh   jaana sanam' },
+      { phraseNumber: 2, notes: '.D   .DGR   GSR   S.N', lyric: 'Pyar  hota hai   diwana sanam' },
+      { phraseNumber: 3, notes: '.D.N.P   .D.N.P   .DS.N', lyric: 'Ab yaha   se kaha    jaye ham' },
+      { phraseNumber: 4, notes: '.NSRM   GG   SRG   RS.ND', lyric: 'Teri baho  me mar     jaye ham  mmm' },
+      { phraseNumber: 5, notes: '(Repeat lines 1-4)', lyric: 'Sthayi Repeat' },
+      { phraseNumber: 6, notes: '.D.D   .DG   RG   SR P PDG—', lyric: 'Tujhe dekha   toh yeh   jaana sanam' },
+      { phraseNumber: 7, notes: 'GM DDG   GGM DDG', lyric: 'Aankhe meri   sapne tere,' },
+      { phraseNumber: 8, notes: 'RGM   .N.N MG', lyric: 'dil mera  yade tere' },
+      { phraseNumber: 9, notes: 'G GM   DDG   GMG', lyric: 'Oo mera  hai kya  (lalala)' },
+      { phraseNumber: 10, notes: 'GM   DDG   GMG', lyric: 'sab kuchh   tera   (lalala)' },
+      { phraseNumber: 11, notes: 'RGM   .N.N MG', lyric: 'Jan teri    sanse teri' },
+      { phraseNumber: 12, notes: 'GR GRG   S.N.D GRG   .NSR', lyric: 'Meri aankho   me aansu tere   aa gaye' },
+      { phraseNumber: 13, notes: 'RRRP   PM^ PM^ G   RS.N.D', lyric: 'Muskurane  lage sare gham   mmm' }
+    ],
+    westernPhrases: [
+      { phraseNumber: 1, notes: '.A.A   .AE   DE   CD EF', lyric: 'Tujhe  dekha  toh yeh   jaana sanam' },
+      { phraseNumber: 2, notes: '.A   .AED   EDC   C.B', lyric: 'Pyar  hota hai   diwana sanam' },
+      { phraseNumber: 3, notes: '.A.B.G   .A.B.G   .AC.B', lyric: 'Ab yaha   se kaha    jaye ham' },
+      { phraseNumber: 4, notes: '.BCDF   EE   CDE   DC.BA', lyric: 'Teri baho  me mar     jaye ham  mmm' },
+      { phraseNumber: 5, notes: '(Repeat lines 1-4)', lyric: 'Sthayi Repeat' },
+      { phraseNumber: 6, notes: '.A.A   .AE   DE   CD G GAE—', lyric: 'Tujhe dekha   toh yeh   jaana sanam' },
+      { phraseNumber: 7, notes: 'EF AAE   EEF AAE', lyric: 'Aankhe meri   sapne tere,' },
+      { phraseNumber: 8, notes: 'DEF   .B.B EF', lyric: 'dil mera  yade tere' },
+      { phraseNumber: 9, notes: 'E EF   AAE   EFE', lyric: 'Oo mera  hai kya  (lalala)' },
+      { phraseNumber: 10, notes: 'EF   AAE   EFE', lyric: 'sab kuchh   tera   (lalala)' },
+      { phraseNumber: 11, notes: 'DEF   .B.B EF', lyric: 'Jan teri    sanse teri' },
+      { phraseNumber: 12, notes: 'ED EDE   C.B.A EDE   .BCD', lyric: 'Meri aankho   me aansu tere   aa gaye' },
+      { phraseNumber: 13, notes: 'DDDG   GF# GF# E   DC.B.A', lyric: 'Muskurane  lage sare gham   mmm' }
+    ],
+    phraseGuidance: [
+      { phraseNumber: 1, guidance: 'Blow gently with warm, relaxed air on Mandra Dha (.D.D), gently slide up into Madhya Ga (.DG), and keep the rhythm steady through RG and SR MG.' },
+      { phraseNumber: 2, guidance: 'Drop back to lower Mandra Dha (.D), ascend briskly on .DGR, and descend softly through GSR down to Mandra Ni (S.N).' },
+      { phraseNumber: 3, guidance: 'This phrase stays entirely in the rich Mandra Saptak (.D.N.P). Relax your embouchure, direct the airstream slightly downward, and let the lower resonance ring clearly.' },
+      { phraseNumber: 4, guidance: 'Rise effortlessly from Mandra Ni (.N) into Madhya Ma (.NSRM), sustain the twin Ga notes (GG), and finish the romantic resolution gliding down RS.ND.' },
+      { phraseNumber: 5, guidance: 'Repeat the complete opening Mukhda (Lines 1 to 4) with added emotional expression and subtle meends.' },
+      { phraseNumber: 6, guidance: 'The bridge variation lifts the melody to Pa (SR P) and glides from Pa-Dha back down to Ga (PDG—) with a lingering hold.' },
+      { phraseNumber: 7, guidance: 'Begin the Antara brightly on Ga-Ma (GM), accentuating the double Dhaivat (DDG). Keep the finger bounce crisp and light.' },
+      { phraseNumber: 8, guidance: 'Step down smoothly on RGM, then drop cleanly to the lower octave Mandra Ni (.N.N) before springing back to MG.' },
+      { phraseNumber: 9, guidance: 'Play the vocalized "lalala" filler softly with a gentle Ga-Ma-Ga oscillation.' },
+      { phraseNumber: 10, guidance: 'Mirror Phrase 9 with balanced dynamics, keeping the playful tempo intact.' },
+      { phraseNumber: 11, guidance: 'Reiterate the downward Mandra dip on .N.N with warm intonation, resolving back up to MG.' },
+      { phraseNumber: 12, guidance: 'Expressive cascading movement: execute the graceful meend across S.N.D, leap up to GRG, and land smoothly via Mandra Ni on .NSR.' },
+      { phraseNumber: 13, guidance: 'Crucial climax: on PM^ PM^ G, use half-hole fingering on Tivra Ma (M^ / F#). Keep pitch intonation pure without flattening, then resolve down RS.N.D into the main Mukhda.' }
+    ],
+    practiceMethod: [
+      'Master the Mandra octave notes (.D, .N, .P) with warm, relaxed breath and a slightly lowered blow angle before tackling the higher notes.',
+      'Work on the half-hole fingering for Tivra Madhyam (M^ / F#) in Line 13 with an online tuner to ensure it does not sound flat or sharp.',
+      'Practice the transition from Mandra Ni (.N) into Madhya Ma (.NSRM) in Line 4 slowly to develop finger agility without accidental squeaks.',
+      'Focus on the gentle meend glides in Line 6 (PDG—) and Line 12 (S.N.D GRG) to replicate the emotional vocal expression of Lata Mangeshkar and Kumar Sanu.',
+      'Play along with a steady Tanpura drone set to C or D at 65-70 BPM, maintaining rhythmic balance across the Antara phrases.',
+      'Pay close attention to breath control in the Antara lines (Lines 7-11) where quick phrasing and short pauses require efficient inhalation.'
+    ],
+    commonMistakes: [
+      'Blowing too forcefully on Mandra notes (.D, .N, .P), causing them to crack into the middle octave',
+      'Under-covering or over-covering the half hole for Tivra Ma (M^), leading to poor pitch accuracy in the Antara climax',
+      'Rushing the romantic pauses between "Tujhe dekha" and "toh yeh jaana sanam"',
+      'Losing breath control during the rapid Mandra-to-Madhya leap in Line 12 (S.N.D GRG)',
+      'Skipping the subtle grace glide on PDG— in Line 6, making the melody sound rigid instead of lyrical'
+    ],
+    usefulTools: [
+      { name: 'Online Tanpura Drone', url: '/tools/tanpura', viewKey: 'tanpura' },
+      { name: 'Online Bansuri Pitch Tuner', url: '/tuner', viewKey: 'learn_tuner' },
+      { name: 'Interactive Bansuri Fingering Chart', url: '/learn/fingering-chart', viewKey: 'learn_fingering_chart' },
+      { name: 'Flute Note and Key Converter', url: '/tools/flute-note-key-converter', viewKey: 'note_key_converter' },
+      { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' },
+      { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
+    ]
   }
 ];
 

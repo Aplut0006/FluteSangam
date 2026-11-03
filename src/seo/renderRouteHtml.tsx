@@ -72,6 +72,7 @@ import { KrrishThemeNotationView } from '../components/KrrishThemeNotationView';
 import { EnchantingFluteKrishnaAurKansNotationView } from '../components/EnchantingFluteKrishnaAurKansNotationView';
 import { LagJaGaleNotationView } from '../components/LagJaGaleNotationView';
 import { ChhuKarMereMannKoNotationView } from '../components/ChhuKarMereMannKoNotationView';
+import { TujheDekhaToNotationView } from '../components/TujheDekhaToNotationView';
 import { CommunityFeedView } from '../components/CommunityFeedView';
 import PostDetailView from '../components/PostDetailView';
 import NotFoundView from '../components/NotFoundView';
@@ -2106,6 +2107,71 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
             '@type': 'Article',
             '@id': `${canonicalUrl}#article`,
             'headline': 'Chhu Kar Mere Mann Ko Flute Notes – Sargam & Western Notes',
+            'description': description,
+            'mainEntityOfPage': canonicalUrl,
+            'author': {
+              '@type': 'Person',
+              'name': 'Aplut',
+              'url': `${DOMAIN}/founder`
+            },
+            'publisher': {
+              '@type': 'Organization',
+              'name': 'FluteSangam',
+              'url': DOMAIN,
+              'logo': {
+                '@type': 'ImageObject',
+                'url': `${DOMAIN}/flutesangam_logo.png`
+              }
+            },
+            'datePublished': '2026-10-31T00:00:00Z',
+            'dateModified': '2026-10-31T00:00:00Z'
+          }
+        ]
+      }
+    };
+  }
+
+  if (cleanPath === '/notations/tujhe-dekha-to-flute-notes') {
+    const title = 'Tujhe Dekha To Flute Notes | Sargam & Western';
+    const description = 'Learn Tujhe Dekha To Yeh Jaana Sanam flute notes with Sargam and Western notation. Play this iconic DDLJ melody with octave markings and practical flute-playing tips.';
+    const canonicalUrl = `${DOMAIN}/notations/tujhe-dekha-to-flute-notes`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: TujheDekhaToNotationView,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          createWebPageSchema(canonicalUrl, title, description),
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': DOMAIN
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Song Notation',
+                'item': `${DOMAIN}/notations`
+              },
+              {
+                '@type': 'ListItem',
+                'position': 3,
+                'name': 'Tujhe Dekha To Flute Notes',
+                'item': canonicalUrl
+              }
+            ]
+          },
+          {
+            '@type': 'Article',
+            '@id': `${canonicalUrl}#article`,
+            'headline': 'Tujhe Dekha To Flute Notes – Sargam & Western Notes',
             'description': description,
             'mainEntityOfPage': canonicalUrl,
             'author': {
