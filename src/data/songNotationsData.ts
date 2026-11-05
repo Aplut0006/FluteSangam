@@ -3559,28 +3559,28 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       {
         phraseNumber: 4,
         lyric: 'Door rahati hai tu, mere paas aati nahi',
-        sargamNotes: 'D— | MP DP | SS DD— | MPDP',
-        westernNotes: 'A— | FG AG | CC AA— | FGAG',
+        sargamNotes: 'D— | MP DP | SS D— | MP DP',
+        westernNotes: 'A— | FG AG | CC A— | FG AG',
         units: [
           { lyric: 'Door', sargam: 'D—', western: 'A—' },
           { lyric: 'rahati hai tu,', sargam: 'MP DP', western: 'FG AG' },
-          { lyric: 'mere pass', sargam: 'SS DD—', western: 'CC AA—' },
-          { lyric: 'aati nahi', sargam: 'MPDP', western: 'FGAG' }
+          { lyric: 'mere pass', sargam: 'SS D—', western: 'CC A—' },
+          { lyric: 'aati nahi', sargam: 'MP DP', western: 'FG AG' }
         ],
-        guidance: 'Sustain the opening Dha (D—) cleanly, step through MP DP, and anchor on SS DD— before resolving with crisp MPDP.'
+        guidance: 'Sustain the opening Dha (D—) cleanly, step through MP DP, and anchor on SS D— before resolving with crisp MP DP.'
       },
       {
         phraseNumber: 5,
         lyric: 'hoothon pe tere, kabhi pyaas aati nahi',
-        sargamNotes: 'SD— | MPDP | SS DD— | MPDP',
-        westernNotes: 'CA— | FGAG | CC AA— | FGAG',
+        sargamNotes: 'SD— | MP DP | SS D— | MP DP',
+        westernNotes: 'CA— | FG AG | CC A— | FG AG',
         units: [
           { lyric: 'hoothon', sargam: 'SD—', western: 'CA—' },
-          { lyric: 'pe tere,', sargam: 'MPDP', western: 'FGAG' },
-          { lyric: 'kabhi pyaas', sargam: 'SS DD—', western: 'CC AA—' },
-          { lyric: 'aati nahi', sargam: 'MPDP', western: 'FGAG' }
+          { lyric: 'pe tere,', sargam: 'MP DP', western: 'FG AG' },
+          { lyric: 'kabhi pyaas', sargam: 'SS D—', western: 'CC A—' },
+          { lyric: 'aati nahi', sargam: 'MP DP', western: 'FG AG' }
         ],
-        guidance: 'Mirror Phrase 4, gliding smoothly from Sa down to Dha (SD—) with a tender touch and sustaining DD—.'
+        guidance: 'Mirror Phrase 4, gliding smoothly from Sa down to Dha (SD—) with a tender touch and sustaining D—.'
       },
       {
         phraseNumber: 6,
@@ -3627,8 +3627,8 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       { phraseNumber: 1, notes: '.PS—   RS.D.P   .P.PS—   SR{S}RG', lyric: 'Ye shaam  mastaani, madahosh  kiye jaaye' },
       { phraseNumber: 2, notes: 'GG   GP—   PDP  MPM   MGGR   PP GRS', lyric: 'muje door    koi khinche,   teri or    liye jaaye' },
       { phraseNumber: 3, notes: '(Repeat Line 1 and 2 again)', lyric: 'Sthayi Repeat' },
-      { phraseNumber: 4, notes: 'D—   MP  DP   SS DD—   MPDP', lyric: 'Door  rahati hai tu,   mere paas     aati nahi' },
-      { phraseNumber: 5, notes: 'SD—   MPDP   SS DD—   MPDP', lyric: 'hoothon  pe tere, kabhi pyaas   aati nahi' },
+      { phraseNumber: 4, notes: 'D—   MP  DP   SS D—   MP DP', lyric: 'Door  rahati hai tu,   mere paas     aati nahi' },
+      { phraseNumber: 5, notes: 'SD—   MP DP   SS D—   MP DP', lyric: 'hoothon  pe tere, kabhi pyaas   aati nahi' },
       { phraseNumber: 6, notes: 'PND  PM   MD  PMG   RR  RM^   M^ P   M^ M^ GMG', lyric: 'aisa  lage   jaise ke tu,  has ke zahar   koi      piye jaaye' },
       { phraseNumber: 7, notes: '.PS—   RS.D.P   .P.PS—   SR{S}RG', lyric: 'Ye shaam  mastaani, madahosh  kiye jaaye' },
       { phraseNumber: 8, notes: 'GG   GP—   PDP  MPM   MGGR   PP GRS', lyric: 'muje door    koi khinche,   teri or    liye jaaye' }
@@ -3637,8 +3637,8 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       { phraseNumber: 1, notes: '.GC—   DC.A.G   .G.GC—   CD(C)DE', lyric: 'Ye shaam  mastaani, madahosh  kiye jaaye' },
       { phraseNumber: 2, notes: 'EE   EG—   GAG  FGF   FEED   GG EDC', lyric: 'muje door    koi khinche,   teri or    liye jaaye' },
       { phraseNumber: 3, notes: '(Repeat Line 1 and 2 again)', lyric: 'Sthayi Repeat' },
-      { phraseNumber: 4, notes: 'A—   FG  AG   CC AA—   FGAG', lyric: 'Door  rahati hai tu,   mere paas     aati nahi' },
-      { phraseNumber: 5, notes: 'CA—   FGAG   CC AA—   FGAG', lyric: 'hoothon  pe tere, kabhi pyaas   aati nahi' },
+      { phraseNumber: 4, notes: 'A—   FG  AG   CC A—   FG AG', lyric: 'Door  rahati hai tu,   mere paas     aati nahi' },
+      { phraseNumber: 5, notes: 'CA—   FG AG   CC A—   FG AG', lyric: 'hoothon  pe tere, kabhi pyaas   aati nahi' },
       { phraseNumber: 6, notes: 'GBA  GF   AF  GFE   DD  DF#   F# G   F# F# EFE', lyric: 'aisa  lage   jaise ke tu,  has ke zahar   koi      piye jaaye' },
       { phraseNumber: 7, notes: '.GC—   DC.A.G   .G.GC—   CD(C)DE', lyric: 'Ye shaam  mastaani, madahosh  kiye jaaye' },
       { phraseNumber: 8, notes: 'EE   EG—   GAG  FGF   FEED   GG EDC', lyric: 'muje door    koi khinche,   teri or    liye jaaye' }
