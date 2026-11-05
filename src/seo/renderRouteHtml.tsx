@@ -73,6 +73,7 @@ import { EnchantingFluteKrishnaAurKansNotationView } from '../components/Enchant
 import { LagJaGaleNotationView } from '../components/LagJaGaleNotationView';
 import { ChhuKarMereMannKoNotationView } from '../components/ChhuKarMereMannKoNotationView';
 import { TujheDekhaToNotationView } from '../components/TujheDekhaToNotationView';
+import { YehShaamMastaniNotationView } from '../components/YehShaamMastaniNotationView';
 import { CommunityFeedView } from '../components/CommunityFeedView';
 import PostDetailView from '../components/PostDetailView';
 import NotFoundView from '../components/NotFoundView';
@@ -2172,6 +2173,71 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
             '@type': 'Article',
             '@id': `${canonicalUrl}#article`,
             'headline': 'Tujhe Dekha To Flute Notes – Sargam & Western Notes',
+            'description': description,
+            'mainEntityOfPage': canonicalUrl,
+            'author': {
+              '@type': 'Person',
+              'name': 'Aplut',
+              'url': `${DOMAIN}/founder`
+            },
+            'publisher': {
+              '@type': 'Organization',
+              'name': 'FluteSangam',
+              'url': DOMAIN,
+              'logo': {
+                '@type': 'ImageObject',
+                'url': `${DOMAIN}/flutesangam_logo.png`
+              }
+            },
+            'datePublished': '2026-10-31T00:00:00Z',
+            'dateModified': '2026-10-31T00:00:00Z'
+          }
+        ]
+      }
+    };
+  }
+
+  if (cleanPath === '/notations/yeh-shaam-mastani-flute-notes') {
+    const title = 'Yeh Shaam Mastani Flute Notes | Sargam & Western';
+    const description = "Learn Yeh Shaam Mastani flute notes with Sargam and Western notation. Play Kishore Kumar's evergreen melody from Kati Patang with octave markings and practical flute-playing tips.";
+    const canonicalUrl = `${DOMAIN}/notations/yeh-shaam-mastani-flute-notes`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: YehShaamMastaniNotationView,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          createWebPageSchema(canonicalUrl, title, description),
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': DOMAIN
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Song Notation',
+                'item': `${DOMAIN}/notations`
+              },
+              {
+                '@type': 'ListItem',
+                'position': 3,
+                'name': 'Yeh Shaam Mastani Flute Notes',
+                'item': canonicalUrl
+              }
+            ]
+          },
+          {
+            '@type': 'Article',
+            '@id': `${canonicalUrl}#article`,
+            'headline': 'Yeh Shaam Mastani Flute Notes – Sargam & Western Notes',
             'description': description,
             'mainEntityOfPage': canonicalUrl,
             'author': {

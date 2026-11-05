@@ -90,6 +90,7 @@ const EnchantingFluteKrishnaAurKansNotationView = lazyWithRetry(() => import('./
 const LagJaGaleNotationView = lazyWithRetry(() => import('./components/LagJaGaleNotationView').then(m => ({ default: m.LagJaGaleNotationView })));
 const ChhuKarMereMannKoNotationView = lazyWithRetry(() => import('./components/ChhuKarMereMannKoNotationView').then(m => ({ default: m.ChhuKarMereMannKoNotationView })));
 const TujheDekhaToNotationView = lazyWithRetry(() => import('./components/TujheDekhaToNotationView').then(m => ({ default: m.TujheDekhaToNotationView })));
+const YehShaamMastaniNotationView = lazyWithRetry(() => import('./components/YehShaamMastaniNotationView').then(m => ({ default: m.YehShaamMastaniNotationView })));
 const PrivacyPolicyView = lazyWithRetry(() => import('./components/PrivacyPolicyView'));
 const TermsOfServiceView = lazyWithRetry(() => import('./components/TermsOfServiceView'));
 const CopyrightPolicyView = lazyWithRetry(() => import('./components/CopyrightPolicyView'));
@@ -236,6 +237,7 @@ export default function App() {
     if (cleanPath === '/notations/lag-ja-gale-flute-notes') return 'notation_lag_ja_gale';
     if (cleanPath === '/notations/chhu-kar-mere-mann-ko-flute-notes') return 'notation_chhu_kar_mere_mann_ko';
     if (cleanPath === '/notations/tujhe-dekha-to-flute-notes') return 'notation_tujhe_dekha_to';
+    if (cleanPath === '/notations/yeh-shaam-mastani-flute-notes') return 'notation_yeh_shaam_mastani';
     if (cleanPath.startsWith('/post/')) return 'post-detail';
     if (cleanPath.startsWith('/profile/')) return 'user-profile';
     
@@ -535,6 +537,10 @@ export default function App() {
         title = 'Tujhe Dekha To Flute Notes | Sargam & Western';
         description = 'Learn Tujhe Dekha To Yeh Jaana Sanam flute notes with Sargam and Western notation. Play this iconic DDLJ melody with octave markings and practical flute-playing tips.';
         break;
+      case 'notation_yeh_shaam_mastani':
+        title = 'Yeh Shaam Mastani Flute Notes | Sargam & Western';
+        description = "Learn Yeh Shaam Mastani flute notes with Sargam and Western notation. Play Kishore Kumar's evergreen melody from Kati Patang with octave markings and practical flute-playing tips.";
+        break;
       case 'community_members':
         title = 'Community Members | FluteSangam';
         description = 'Meet flutists, learners, and contributors in the global FluteSangam community.';
@@ -610,7 +616,8 @@ export default function App() {
       currentView === 'notation_enchanting_flute_krishna_aur_kans' || 
       currentView === 'notation_lag_ja_gale' || 
       currentView === 'notation_chhu_kar_mere_mann_ko' || 
-      currentView === 'notation_tujhe_dekha_to'
+      currentView === 'notation_tujhe_dekha_to' ||
+      currentView === 'notation_yeh_shaam_mastani'
     ) {
       modDate = '2026-10-31T00:00:00Z';
     } else if (currentView.startsWith('raga_') || currentView === 'learn_raagas' || currentView === 'learn_scales_octaves') {
@@ -1462,6 +1469,8 @@ export default function App() {
                 handleViewChange('notation_chhu_kar_mere_mann_ko');
               } else if (slug === 'tujhe-dekha-to-flute-notes') {
                 handleViewChange('notation_tujhe_dekha_to');
+              } else if (slug === 'yeh-shaam-mastani-flute-notes') {
+                handleViewChange('notation_yeh_shaam_mastani');
               }
             }}
           />
@@ -1497,6 +1506,8 @@ export default function App() {
           <ChhuKarMereMannKoNotationView onViewChange={handleViewChange} />
         ) : currentView === 'notation_tujhe_dekha_to' ? (
           <TujheDekhaToNotationView onViewChange={handleViewChange} />
+        ) : currentView === 'notation_yeh_shaam_mastani' ? (
+          <YehShaamMastaniNotationView onViewChange={handleViewChange} />
         ) : currentView === 'community_members' ? (
           <MembersView 
             currentUser={currentUser} 

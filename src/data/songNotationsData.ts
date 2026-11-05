@@ -3476,6 +3476,206 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' },
       { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
     ]
+  },
+  {
+    id: 'yeh-shaam-mastani-flute-notes',
+    slug: 'yeh-shaam-mastani-flute-notes',
+    title: 'Yeh Shaam Mastani Flute Notes',
+    category: 'Hindi/Bollywood',
+    movie: 'Kati Patang (1971)',
+    singer: 'Kishore Kumar | Music: R.D. Burman',
+    type: 'Evergreen Bollywood Classic',
+    difficulty: 'Intermediate',
+    suggestedFlute: 'C Natural Medium, D Medium, or E Bass bansuri',
+    startingSwar: 'Mandra Pa (.P)',
+    highestSwar: 'Middle Ni (N)',
+    mainChallenge: 'Mastering the playful grace touch {S}, the smooth leap from Mandra Pa to Madhya Sa (.PS—), and clean half-hole fingering for Tivra Ma (M^) in the Antara',
+    practiceSpeed: '70 - 80 BPM',
+    notationFormats: 'Indian Sargam (.P S R G M M^ P D N) & Western (C D E F F# G A B)',
+    description: "Complete flute notes for Kishore Kumar's evergreen classic 'Yeh Shaam Mastani' from Kati Patang (1971), composed by R.D. Burman. Includes phrase-by-phrase syllable breakdown, Indian Sargam with octave markings, Western notes, and practical bansuri embellishment tips.",
+    status: 'published',
+    publishedDate: '2026-10-31',
+    updatedDate: '2026-10-31',
+    canonicalUrl: 'https://flutesangam.com/notations/yeh-shaam-mastani-flute-notes',
+    h1: 'Yeh Shaam Mastani Flute Notes – Sargam & Western Notes',
+    metaTitle: 'Yeh Shaam Mastani Flute Notes | Sargam & Western',
+    metaDescription: "Learn Yeh Shaam Mastani flute notes with Sargam and Western notation. Play Kishore Kumar's evergreen melody from Kati Patang with octave markings and practical flute-playing tips.",
+    intro: "Learn to play the beloved Kishore Kumar and R.D. Burman romantic masterpiece 'Yeh Shaam Mastani' from Kati Patang (1971) on Indian bamboo flute (bansuri). This comprehensive lesson includes syllable-by-syllable note grids, Mandra saptak markers (.P), kan swara grace notes {S}, Tivra Ma (M^) fingerings, full Western note equivalents (relative Sa = C), and step-by-step riyaz guidance.",
+    quickInfo: {
+      difficulty: 'Intermediate',
+      melodyType: 'Romantic Evergreen Classic',
+      suggestedFlute: 'Any bansuri; C Medium, D Medium, or E Bass recommended',
+      startingSwar: 'Mandra Pa (.P)',
+      highestSwar: 'Middle Ni (N)',
+      mainChallenge: 'Gentle Mandra Pa to Madhya Sa leap (.PS—), kan swara {S}, and half-hole Tivra Ma (M^)',
+      practiceSpeed: '70 - 80 BPM'
+    },
+    legend: [
+      { symbol: '.P', meaning: 'Mandra Saptak (Lower Octave note marked with a dot before/below)' },
+      { symbol: 'S, R, G, M, P, D, N', meaning: 'Madhya Saptak (Middle Octave natural Shuddha swaras)' },
+      { symbol: 'M^', meaning: 'Tivra Madhyam (Sharp 4th / half-hole opened Ma / F#)' },
+      { symbol: '{S}', meaning: 'Kan Swara / Grace touch (quick ornament on Sa)' },
+      { symbol: '—', meaning: 'Sustain / hold note duration' },
+      { symbol: 'Spaces', meaning: 'Rhythmic pauses and natural breath breaks between musical words' },
+      { symbol: 'Relative Sa = C', meaning: 'Western notes mapped with Sa = C, Re = D, Ga = E, Ma = F, Tivra Ma = F#, Pa = G, Dha = A, Ni = B' }
+    ],
+    phrases: [
+      {
+        phraseNumber: 1,
+        lyric: 'Ye shaam mastaani, madahosh kiye jaaye',
+        sargamNotes: '.PS— | RS.D.P | .P.PS— | SR{S}RG',
+        westernNotes: '.GC— | DC.A.G | .G.GC— | CD(C)DE',
+        units: [
+          { lyric: 'Ye shaam', sargam: '.PS—', western: '.GC—' },
+          { lyric: 'mastaani,', sargam: 'RS.D.P', western: 'DC.A.G' },
+          { lyric: 'madahosh', sargam: '.P.PS—', western: '.G.GC—' },
+          { lyric: 'kiye jaaye', sargam: 'SR{S}RG', western: 'CD(C)DE' }
+        ],
+        guidance: 'Open with a warm, steady breath on Mandra Pa (.P) gliding cleanly up to Sa (.PS—). On kiye jaaye, execute {S} as a delicate grace touch without breaking the rhythm.'
+      },
+      {
+        phraseNumber: 2,
+        lyric: 'muje door koi khinche, teri or liye jaaye',
+        sargamNotes: 'GG GP— | PDP MPM | MGGR | PP GRS',
+        westernNotes: 'EE EG— | GAG FGF | FEED | GG EDC',
+        units: [
+          { lyric: 'muje door', sargam: 'GG GP—', western: 'EE EG—' },
+          { lyric: 'koi khinche,', sargam: 'PDP MPM', western: 'GAG FGF' },
+          { lyric: 'teri or', sargam: 'MGGR', western: 'FEED' },
+          { lyric: 'liye jaaye', sargam: 'PP GRS', western: 'GG EDC' }
+        ],
+        guidance: 'Ascend cheerfully on GG GP— and oscillate lightly on PDP MPM. Conclude the hook with a soft downward cascade on PP GRS.'
+      },
+      {
+        phraseNumber: 3,
+        lyric: '(Repeat Line 1 and 2 again)',
+        sargamNotes: '(Repeat Line 1 and 2 again)',
+        westernNotes: '(Repeat Line 1 and 2 again)',
+        units: [
+          { lyric: 'Repeat Lines 1 & 2', sargam: 'Lines 1 & 2', western: 'Lines 1 & 2' }
+        ],
+        guidance: 'Re-play the full opening Sthayi (Lines 1 & 2) with extra warmth and effortless breath support.'
+      },
+      {
+        phraseNumber: 4,
+        lyric: 'Door rahati hai tu, mere paas aati nahi',
+        sargamNotes: 'D— | MP DP | SS DD— | MPDP',
+        westernNotes: 'A— | FG AG | CC AA— | FGAG',
+        units: [
+          { lyric: 'Door', sargam: 'D—', western: 'A—' },
+          { lyric: 'rahati hai tu,', sargam: 'MP DP', western: 'FG AG' },
+          { lyric: 'mere pass', sargam: 'SS DD—', western: 'CC AA—' },
+          { lyric: 'aati nahi', sargam: 'MPDP', western: 'FGAG' }
+        ],
+        guidance: 'Sustain the opening Dha (D—) cleanly, step through MP DP, and anchor on SS DD— before resolving with crisp MPDP.'
+      },
+      {
+        phraseNumber: 5,
+        lyric: 'hoothon pe tere, kabhi pyaas aati nahi',
+        sargamNotes: 'SD— | MPDP | SS DD— | MPDP',
+        westernNotes: 'CA— | FGAG | CC AA— | FGAG',
+        units: [
+          { lyric: 'hoothon', sargam: 'SD—', western: 'CA—' },
+          { lyric: 'pe tere,', sargam: 'MPDP', western: 'FGAG' },
+          { lyric: 'kabhi pyaas', sargam: 'SS DD—', western: 'CC AA—' },
+          { lyric: 'aati nahi', sargam: 'MPDP', western: 'FGAG' }
+        ],
+        guidance: 'Mirror Phrase 4, gliding smoothly from Sa down to Dha (SD—) with a tender touch and sustaining DD—.'
+      },
+      {
+        phraseNumber: 6,
+        lyric: 'aisa lage jaise ke tu, has ke zahar koi piye jaaye',
+        sargamNotes: 'PND PM | MD PMG | RR RM^ | M^ P | M^ M^ GMG',
+        westernNotes: 'GBA GF | AF GFE | DD DF# | F# G | F# F# EFE',
+        units: [
+          { lyric: 'aisa lage', sargam: 'PND PM', western: 'GBA GF' },
+          { lyric: 'jaise ke tu,', sargam: 'MD PMG', western: 'AF GFE' },
+          { lyric: 'has ke zahar', sargam: 'RR RM^', western: 'DD DF#' },
+          { lyric: 'koi', sargam: 'M^ P', western: 'F# G' },
+          { lyric: 'piye jaaye', sargam: 'M^ M^ GMG', western: 'F# F# EFE' }
+        ],
+        guidance: 'Peak phrase of the Antara: play PND PM with Shuddha Ni (N), drop to MD PMG, then use precise half-hole fingering on Tivra Ma (M^ / F#) in RR RM^ M^ P M^ M^ GMG.'
+      },
+      {
+        phraseNumber: 7,
+        lyric: 'Ye shaam mastaani, madahosh kiye jaaye',
+        sargamNotes: '.PS— | RS.D.P | .P.PS— | SR{S}RG',
+        westernNotes: '.GC— | DC.A.G | .G.GC— | CD(C)DE',
+        units: [
+          { lyric: 'Ye shaam', sargam: '.PS—', western: '.GC—' },
+          { lyric: 'mastaani,', sargam: 'RS.D.P', western: 'DC.A.G' },
+          { lyric: 'madahosh', sargam: '.P.PS—', western: '.G.GC—' },
+          { lyric: 'kiye jaaye', sargam: 'SR{S}RG', western: 'CD(C)DE' }
+        ],
+        guidance: 'Return gracefully to the opening hook with warm, rounded flute tone on .PS—.'
+      },
+      {
+        phraseNumber: 8,
+        lyric: 'muje door koi khinche, teri or liye jaaye',
+        sargamNotes: 'GG GP— | PDP MPM | MGGR | PP GRS',
+        westernNotes: 'EE EG— | GAG FGF | FEED | GG EDC',
+        units: [
+          { lyric: 'muje door', sargam: 'GG GP—', western: 'EE EG—' },
+          { lyric: 'koi khinche,', sargam: 'PDP MPM', western: 'GAG FGF' },
+          { lyric: 'teri or', sargam: 'MGGR', western: 'FEED' },
+          { lyric: 'liye jaaye', sargam: 'PP GRS', western: 'GG EDC' }
+        ],
+        guidance: 'Conclude the cycle smoothly, landing peacefully on Sa (PP GRS).'
+      }
+    ],
+    sargamPhrases: [
+      { phraseNumber: 1, notes: '.PS—   RS.D.P   .P.PS—   SR{S}RG', lyric: 'Ye shaam  mastaani, madahosh  kiye jaaye' },
+      { phraseNumber: 2, notes: 'GG   GP—   PDP  MPM   MGGR   PP GRS', lyric: 'muje door    koi khinche,   teri or    liye jaaye' },
+      { phraseNumber: 3, notes: '(Repeat Line 1 and 2 again)', lyric: 'Sthayi Repeat' },
+      { phraseNumber: 4, notes: 'D—   MP  DP   SS DD—   MPDP', lyric: 'Door  rahati hai tu,   mere paas     aati nahi' },
+      { phraseNumber: 5, notes: 'SD—   MPDP   SS DD—   MPDP', lyric: 'hoothon  pe tere, kabhi pyaas   aati nahi' },
+      { phraseNumber: 6, notes: 'PND  PM   MD  PMG   RR  RM^   M^ P   M^ M^ GMG', lyric: 'aisa  lage   jaise ke tu,  has ke zahar   koi      piye jaaye' },
+      { phraseNumber: 7, notes: '.PS—   RS.D.P   .P.PS—   SR{S}RG', lyric: 'Ye shaam  mastaani, madahosh  kiye jaaye' },
+      { phraseNumber: 8, notes: 'GG   GP—   PDP  MPM   MGGR   PP GRS', lyric: 'muje door    koi khinche,   teri or    liye jaaye' }
+    ],
+    westernPhrases: [
+      { phraseNumber: 1, notes: '.GC—   DC.A.G   .G.GC—   CD(C)DE', lyric: 'Ye shaam  mastaani, madahosh  kiye jaaye' },
+      { phraseNumber: 2, notes: 'EE   EG—   GAG  FGF   FEED   GG EDC', lyric: 'muje door    koi khinche,   teri or    liye jaaye' },
+      { phraseNumber: 3, notes: '(Repeat Line 1 and 2 again)', lyric: 'Sthayi Repeat' },
+      { phraseNumber: 4, notes: 'A—   FG  AG   CC AA—   FGAG', lyric: 'Door  rahati hai tu,   mere paas     aati nahi' },
+      { phraseNumber: 5, notes: 'CA—   FGAG   CC AA—   FGAG', lyric: 'hoothon  pe tere, kabhi pyaas   aati nahi' },
+      { phraseNumber: 6, notes: 'GBA  GF   AF  GFE   DD  DF#   F# G   F# F# EFE', lyric: 'aisa  lage   jaise ke tu,  has ke zahar   koi      piye jaaye' },
+      { phraseNumber: 7, notes: '.GC—   DC.A.G   .G.GC—   CD(C)DE', lyric: 'Ye shaam  mastaani, madahosh  kiye jaaye' },
+      { phraseNumber: 8, notes: 'EE   EG—   GAG  FGF   FEED   GG EDC', lyric: 'muje door    koi khinche,   teri or    liye jaaye' }
+    ],
+    phraseGuidance: [
+      { phraseNumber: 1, guidance: 'Begin with a warm, steady breath on Mandra Pa (.P) into Sa (.PS—). On kiye jaaye, execute {S} as a quick grace touch.' },
+      { phraseNumber: 2, guidance: 'Maintain a lively, swinging rhythm on GG GP— and oscillate gently on PDP MPM, dropping softly to PP GRS.' },
+      { phraseNumber: 3, guidance: 'Repeat lines 1 & 2 to ground Kishore Kumar’s iconic whistling and vocal feel.' },
+      { phraseNumber: 4, guidance: 'Sustain Madhya Dha (D—) with relaxed breath and keep the rapid phrase MPDP rhythmically crisp.' },
+      { phraseNumber: 5, guidance: 'Connect Sa to Dha (SD—) with a smooth downward meend glide.' },
+      { phraseNumber: 6, guidance: 'Climactic Antara line: practice the half-hole opening for Tivra Ma (M^ / F#) alongside Shuddha Ni (N) on PND PM.' },
+      { phraseNumber: 7, guidance: 'Seamlessly return to the main Mukhda hook with sweet, resonant intonation.' },
+      { phraseNumber: 8, guidance: 'Resolve the melody peacefully on Madhya Sa (PP GRS).' }
+    ],
+    practiceMethod: [
+      'Begin by practicing the opening leap from Mandra Pa to Madhya Sa (.PS—) slowly to ensure the lower note speaks clearly without cracking.',
+      'Work on the light, bouncy phrasing of PDP MPM in Line 2, keeping your fingers relaxed and close to the holes.',
+      'Calibrate the half-hole fingering for Tivra Madhyam (M^ / F#) in Line 6 with an online tuner so it sounds crisp and in tune.',
+      'Practice the quick kan swara {S} in SR{S}RG as a fast finger tap on Sa rather than an elongated note.',
+      'Play along with an online Tanpura drone set to C or D at 70-75 BPM, ensuring the joyful romantic cadence remains steady throughout.',
+      'Record your rendition and check the pitch of Shuddha Ni (N) in PND PM and the subsequent descent back to the Mukhda.'
+    ],
+    commonMistakes: [
+      'Blowing too hard on Mandra Pa (.P), causing an unintended octave jump into middle Pa',
+      'Over-covering or under-covering the hole for Tivra Ma (M^) in Line 6, resulting in flat or sharp pitch',
+      'Playing the grace touch {S} as a heavy, separate note instead of a fleeting ornamentation',
+      'Losing the relaxed, swinging momentum during the rapid MPDP phrases in the Antara',
+      'Rushing the sustained holds on .PS—, GP—, and D—'
+    ],
+    usefulTools: [
+      { name: 'Online Tanpura Drone', url: '/tools/tanpura', viewKey: 'tanpura' },
+      { name: 'Online Bansuri Pitch Tuner', url: '/tuner', viewKey: 'learn_tuner' },
+      { name: 'Interactive Bansuri Fingering Chart', url: '/learn/fingering-chart', viewKey: 'learn_fingering_chart' },
+      { name: 'Flute Note and Key Converter', url: '/tools/flute-note-key-converter', viewKey: 'note_key_converter' },
+      { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' },
+      { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
+    ]
   }
 ];
 

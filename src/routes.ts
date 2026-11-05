@@ -60,6 +60,7 @@ export const VIEW_URLS: Record<string, string> = {
   'notation_lag_ja_gale': '/notations/lag-ja-gale-flute-notes',
   'notation_chhu_kar_mere_mann_ko': '/notations/chhu-kar-mere-mann-ko-flute-notes',
   'notation_tujhe_dekha_to': '/notations/tujhe-dekha-to-flute-notes',
+  'notation_yeh_shaam_mastani': '/notations/yeh-shaam-mastani-flute-notes',
   'privacy_policy': '/privacy-policy',
   'terms_of_service': '/terms-of-service',
   'copyright_policy': '/copyright-policy',
