@@ -4,6 +4,7 @@ import {
   Calendar, 
   CheckCircle2, 
   ChevronRight, 
+  ChevronDown,
   AlertTriangle, 
   Lightbulb, 
   Layers, 
@@ -14,7 +15,10 @@ import {
 import { Link } from 'react-router-dom';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
+import { RelatedSongsSection } from './RelatedSongsSection';
 import { PUBLISHED_SONG_NOTATIONS } from '../data/songNotationsData';
+import { NotationHeaderToolbar } from "./NotationHeaderToolbar";
+import { NotationLegendSection } from "./NotationLegendSection";
 
 interface EnchantingFluteKrishnaAurKansNotationViewProps {
   onViewChange?: (view: AppView) => void;
@@ -111,81 +115,15 @@ export const EnchantingFluteKrishnaAurKansNotationView: React.FC<EnchantingFlute
           </div>
         </header>
 
-        {/* 3. Quick Song Information Grid */}
-        <section className="bg-gradient-to-br from-amber-50/80 to-sand-100/60 rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-amber-200/70 shadow-2xs space-y-4 sm:space-y-6">
-          <div className="flex items-center gap-2 sm:gap-2.5">
-            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-amber-600/10 text-amber-800 flex items-center justify-center font-bold shrink-0">
-              <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-amber-700" />
-            </div>
-            <div>
-              <h2 className="text-base sm:text-xl font-bold text-amber-950 leading-tight">
-                Quick Song Information &amp; Flute Specifications
-              </h2>
-              <p className="text-[11px] sm:text-xs text-slate-600 mt-0.5">Essential details for playing the Enchanting Flute Krishna theme cleanly</p>
-            </div>
-          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4">
-            <div className="bg-white/90 p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-amber-200/60 space-y-0.5 sm:space-y-1">
-              <span className="text-[11px] sm:text-xs font-semibold text-slate-600 block">Difficulty Level</span>
-              <span className="text-sm sm:text-base font-bold text-amber-900">{song.quickInfo.difficulty}</span>
-            </div>
 
-            <div className="bg-white/90 p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-amber-200/60 space-y-0.5 sm:space-y-1">
-              <span className="text-[11px] sm:text-xs font-semibold text-slate-600 block">Melody Type</span>
-              <span className="text-sm sm:text-base font-bold text-amber-900">{song.quickInfo.melodyType}</span>
-            </div>
-
-            <div className="bg-white/90 p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-amber-200/60 space-y-0.5 sm:space-y-1">
-              <span className="text-[11px] sm:text-xs font-semibold text-slate-600 block">Suggested Bansuri / Flute</span>
-              <span className="text-sm sm:text-base font-bold text-amber-900">{song.quickInfo.suggestedFlute}</span>
-            </div>
-
-            <div className="bg-white/90 p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-amber-200/60 space-y-0.5 sm:space-y-1">
-              <span className="text-[11px] sm:text-xs font-semibold text-slate-600 block">Starting Note / Swara</span>
-              <span className="text-sm sm:text-base font-bold text-amber-900">{song.quickInfo.startingSwar}</span>
-            </div>
-
-            <div className="bg-white/90 p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-amber-200/60 space-y-0.5 sm:space-y-1">
-              <span className="text-[11px] sm:text-xs font-semibold text-slate-600 block">Highest Note / Swara</span>
-              <span className="text-sm sm:text-base font-bold text-amber-900">{song.quickInfo.highestSwar}</span>
-            </div>
-
-            <div className="bg-white/90 p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-amber-200/60 space-y-0.5 sm:space-y-1">
-              <span className="text-[11px] sm:text-xs font-semibold text-slate-600 block">Recommended Practice Speed</span>
-              <span className="text-sm sm:text-base font-bold text-amber-900">{song.quickInfo.practiceSpeed}</span>
-            </div>
-          </div>
-
-          <div className="bg-amber-100/60 p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-amber-200 flex items-start gap-2.5 sm:gap-3 text-xs sm:text-sm text-amber-950">
-            <Lightbulb className="w-4 h-4 sm:w-5 sm:h-5 text-amber-700 shrink-0 mt-0.5" />
-            <div>
-              <span className="font-bold">Main Practice Challenge:</span> {song.quickInfo.mainChallenge}
-            </div>
-          </div>
-        </section>
-
-        {/* 4. Notation Symbols Legend */}
-        <section className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-amber-200/80 shadow-2xs space-y-3 sm:space-y-4">
-          <div className="flex items-center gap-2">
-            <Music className="w-4 h-4 sm:w-5 sm:h-5 text-amber-700" />
-            <h2 className="text-base sm:text-xl font-bold text-amber-950">
-              Notation Symbols &amp; Reading Guide
-            </h2>
-          </div>
-          <p className="text-xs sm:text-sm text-slate-600">
-            Understand how note octaves, meends, grace notes, and holding dashes are represented:
-          </p>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-3 pt-1 sm:pt-2">
-            {song.legend.map((item, idx) => (
-              <div key={idx} className="bg-sand-50/80 border border-amber-200/60 p-2 sm:p-2.5 rounded-xl text-center">
-                <span className="font-mono font-bold text-amber-900 text-xs sm:text-sm block">{item.symbol}</span>
-                <span className="text-[10px] sm:text-[11px] text-slate-600 font-medium leading-tight block mt-0.5">{item.meaning}</span>
-              </div>
-            ))}
-          </div>
-        </section>
+                {/* Quick Action Toolbar: Quick Song Info Dropdown, Notation Guide jump button & Request Song */}
+        <NotationHeaderToolbar
+          quickInfo={song.quickInfo}
+          songTitle={song.title}
+          movieName={song.movie}
+          singerName={song.singer}
+        />
 
         {/* 5. Separate Section A: Complete Sargam Flute Notation */}
         <section aria-label="Sargam Flute Notes" className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-amber-200 shadow-sm space-y-4 sm:space-y-6">
@@ -194,9 +132,24 @@ export const EnchantingFluteKrishnaAurKansNotationView: React.FC<EnchantingFlute
               <Music className="w-4 h-4 sm:w-5 sm:h-5 text-amber-700 shrink-0" />
               <span>Enchanting Flute Sargam Notes</span>
             </h2>
-            <span className="text-[11px] sm:text-xs font-bold text-amber-900 bg-amber-100 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-amber-200">
-              Bansuri / Indian Flute
-            </span>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-[11px] sm:text-xs font-bold text-amber-900 bg-amber-100 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-amber-200">
+                Bansuri / Indian Flute
+              </span>
+              <button
+                type="button"
+                onClick={() => {
+                  const el = document.getElementById('western-notes');
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-amber-700 hover:bg-amber-800 text-white text-[11px] sm:text-xs font-bold shadow-xs transition cursor-pointer"
+              >
+                <span>View Western Notes</span>
+                <ChevronDown className="w-3.5 h-3.5" />
+              </button>
+            </div>
           </div>
 
           <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
@@ -261,8 +214,11 @@ export const EnchantingFluteKrishnaAurKansNotationView: React.FC<EnchantingFlute
           </div>
         </section>
 
+        {/* Related Songs Section */}
+        <RelatedSongsSection currentSlug={song.slug} onViewChange={onViewChange} />
+
         {/* 6. Separate Section B: Western Notes */}
-        <section aria-label="Western Notes" className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-slate-200 shadow-sm space-y-4 sm:space-y-6">
+        <section id="western-notes" aria-label="Western Notes" className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-slate-200 shadow-sm space-y-4 sm:space-y-6">
           <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3 border-b border-slate-200 pb-2.5 sm:pb-3">
             <h2 className="text-lg sm:text-2xl font-bold text-slate-900 flex items-center gap-1.5 sm:gap-2">
               <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-amber-700 shrink-0" />
@@ -377,7 +333,10 @@ export const EnchantingFluteKrishnaAurKansNotationView: React.FC<EnchantingFlute
         </section>
 
         {/* 9. Related Flute Tools & Learning Resources */}
-        <section className="bg-gradient-to-br from-amber-50/80 to-sand-100/60 rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-amber-200/70 shadow-2xs space-y-3 sm:space-y-4">
+                {/* Notation Symbols & Reading Guide (Positioned above Recommended Practice Tools) */}
+        <NotationLegendSection legend={song.legend} />
+
+<section className="bg-gradient-to-br from-amber-50/80 to-sand-100/60 rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-amber-200/70 shadow-2xs space-y-3 sm:space-y-4">
           <h2 className="text-base sm:text-xl font-bold text-amber-950">
             Recommended Practice Tools &amp; Guides
           </h2>

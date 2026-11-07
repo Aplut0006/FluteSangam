@@ -9,12 +9,27 @@ import {
   BookOpen,
   Sparkles,
   Award,
-  FileText
+  FileText,
+  Send,
+  Mail
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
 import { PUBLISHED_SONG_NOTATIONS } from '../data/songNotationsData';
+
+const REQUEST_SONG_SUBJECT = "Requesting Song Notation for:";
+const REQUEST_SONG_BODY = `Hi FluteSangam Team,
+
+Could you please help me with the song notation for <your song name>
+
+<Add more details like Movie/Album Name, Singer Name, tell us if you need notations for any particular part (e.g. intro, flute piece, mukhda, 1st antra, fast phrases etc.)>
+
+Thank you,
+<Your Name>
+<Phone/Address>`;
+
+export const REQUEST_SONG_MAILTO_URL = `mailto:flutesangam@gmail.com?subject=${encodeURIComponent(REQUEST_SONG_SUBJECT)}&body=${encodeURIComponent(REQUEST_SONG_BODY)}`;
 
 interface SongNotationsLibraryViewProps {
   onViewChange?: (view: AppView) => void;
@@ -103,6 +118,20 @@ export const SongNotationsLibraryView: React.FC<SongNotationsLibraryViewProps> =
           <p className="text-amber-100 text-xs sm:text-base leading-relaxed max-w-3xl font-normal">
             Explore FluteSangam’s song notations prepared for flute and bansuri learners. Each lesson includes song lyrics paired alongside Sargam notes, suggested flute scales, octave guidance, phrase breakdowns and practical playing tips.
           </p>
+
+          {/* Request Song Notation Action Button */}
+          <div className="pt-2 flex flex-wrap items-center gap-3">
+            <a
+              href={REQUEST_SONG_MAILTO_URL}
+              className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl bg-amber-400 hover:bg-amber-300 text-bamboo-950 font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition cursor-pointer"
+            >
+              <Send className="w-4 h-4 text-amber-900" />
+              <span>Request Song Notation</span>
+            </a>
+            <span className="text-amber-100/90 text-xs font-medium">
+              Need notes for a song not listed here? Click above to create a request.
+            </span>
+          </div>
         </header>
 
         {/* 3. Search Bar & Category Filter */}
@@ -200,17 +229,26 @@ export const SongNotationsLibraryView: React.FC<SongNotationsLibraryViewProps> =
               <Music className="w-10 h-10 text-gray-400 mx-auto" />
               <h3 className="text-base sm:text-lg font-bold text-gray-700">No songs match your search</h3>
               <p className="text-xs sm:text-sm text-gray-500 max-w-md mx-auto">
-                Try searching with a different term, or reset category filters.
+                Can&apos;t find notes for &quot;{searchQuery}&quot;? Click below to request our flute team to transcribe and publish the notation.
               </p>
-              <button
-                onClick={() => {
-                  setSearchQuery('');
-                  setSelectedCategory('All');
-                }}
-                className="mt-2 inline-flex items-center gap-1.5 px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl text-xs"
-              >
-                Reset Search Filters
-              </button>
+              <div className="pt-2 flex flex-wrap items-center justify-center gap-2.5">
+                <button
+                  onClick={() => {
+                    setSearchQuery('');
+                    setSelectedCategory('All');
+                  }}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl text-xs cursor-pointer"
+                >
+                  Reset Search Filters
+                </button>
+                <a
+                  href={REQUEST_SONG_MAILTO_URL}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl text-xs shadow-xs cursor-pointer"
+                >
+                  <Send className="w-3.5 h-3.5" />
+                  <span>Request Song Notation via Mail</span>
+                </a>
+              </div>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-6">

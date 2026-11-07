@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
       (function() {
+        function isAbortError(err, message) {
+          var str = '' + (message || (err && (err.message || err.name || '')) || '');
+          var name = '' + (err && err.name || '');
+          return str.indexOf('signal is aborted') !== -1 ||
+                 str.indexOf('The operation was aborted') !== -1 ||
+                 str.indexOf('user aborted a request') !== -1 ||
+                 str.indexOf('AbortError') !== -1 ||
+                 name === 'AbortError';
+        }
+
         // Global error interceptor to prevent iframe wrapper/proxy errors from halting execution
         window.addEventListener('error', function(e) {
           if (e && e.message && e.message.indexOf('fetch') !== -1 && e.message.indexOf('getter') !== -1) {
@@ -12,7 +22,39 @@
             e.stopImmediatePropagation && e.stopImmediatePropagation();
             return true;
           }
+          if (isAbortError(e && e.error, e && e.message)) {
+            e.preventDefault();
+            e.stopImmediatePropagation && e.stopImmediatePropagation();
+            return true;
+          }
         }, true);
+
+        // Intercept unhandled promise rejections (harmless Firestore/network aborts)
+        window.addEventListener('unhandledrejection', function(e) {
+          var reason = e ? e.reason : null;
+          if (isAbortError(reason, reason && (reason.message || reason.name))) {
+            e.preventDefault();
+            e.stopImmediatePropagation && e.stopImmediatePropagation();
+            return true;
+          }
+        }, true);
+
+        // Patch AbortController.prototype.abort so aborting never raises an uncaught exception
+        try {
+          if (typeof AbortController !== 'undefined' && AbortController.prototype && AbortController.prototype.abort) {
+            var origAbort = AbortController.prototype.abort;
+            AbortController.prototype.abort = function() {
+              try {
+                return origAbort.apply(this, arguments);
+              } catch (err) {
+                if (isAbortError(err, err && err.message)) {
+                  return;
+                }
+                throw err;
+              }
+            };
+          }
+        } catch (ex) {}
 
         // Ensure window.fetch is writable / configurable if an external script tries to assign to it
         try {

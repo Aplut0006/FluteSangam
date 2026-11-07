@@ -3,6 +3,7 @@ import {
   Music, 
   Calendar, 
   ChevronRight, 
+  ChevronDown,
   Layers, 
   FileText,
   AlertTriangle,
@@ -14,7 +15,10 @@ import {
 import { Link } from 'react-router-dom';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
+import { RelatedSongsSection } from './RelatedSongsSection';
 import { PUBLISHED_SONG_NOTATIONS } from '../data/songNotationsData';
+import { NotationHeaderToolbar } from "./NotationHeaderToolbar";
+import { NotationLegendSection } from "./NotationLegendSection";
 
 interface ChhuKarMereMannKoNotationViewProps {
   onViewChange?: (view: AppView) => void;
@@ -116,84 +120,13 @@ export const ChhuKarMereMannKoNotationView: React.FC<ChhuKarMereMannKoNotationVi
           </p>
         </section>
 
-        {/* 4. Quick Song Information */}
-        <section aria-label="Quick information" className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-amber-200 shadow-sm space-y-3 sm:space-y-4">
-          <h2 className="text-lg sm:text-2xl font-bold font-display text-bamboo-950 flex items-center gap-2">
-            <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600 shrink-0" />
-            Quick Song Information
-          </h2>
-
-          <div className="overflow-x-auto -mx-1 sm:mx-0">
-            <table className="w-full text-left text-[11px] sm:text-sm border-collapse">
-              <thead>
-                <tr className="border-b-2 border-amber-200 bg-amber-50/60 text-bamboo-950 font-bold">
-                  <th scope="col" className="py-2.5 sm:py-3 px-3 sm:px-4 w-1/3">Detail</th>
-                  <th scope="col" className="py-2.5 sm:py-3 px-3 sm:px-4">Information</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-amber-100 text-gray-700 font-sans">
-                <tr>
-                  <td className="py-2 sm:py-2.5 px-3 sm:px-4 font-semibold text-bamboo-900">Movie / Album</td>
-                  <td className="py-2 sm:py-2.5 px-3 sm:px-4 font-semibold">{song.movie}</td>
-                </tr>
-                <tr>
-                  <td className="py-2 sm:py-2.5 px-3 sm:px-4 font-semibold text-bamboo-900">Singer &amp; Composer</td>
-                  <td className="py-2 sm:py-2.5 px-3 sm:px-4 font-semibold">{song.singer}</td>
-                </tr>
-                <tr>
-                  <td className="py-2 sm:py-2.5 px-3 sm:px-4 font-semibold text-bamboo-900">Difficulty</td>
-                  <td className="py-2 sm:py-2.5 px-3 sm:px-4">{song.quickInfo.difficulty}</td>
-                </tr>
-                <tr>
-                  <td className="py-2 sm:py-2.5 px-3 sm:px-4 font-semibold text-bamboo-900">Suggested Flute</td>
-                  <td className="py-2 sm:py-2.5 px-3 sm:px-4">{song.quickInfo.suggestedFlute}</td>
-                </tr>
-                <tr>
-                  <td className="py-2 sm:py-2.5 px-3 sm:px-4 font-semibold text-bamboo-900">Starting Swar</td>
-                  <td className="py-2 sm:py-2.5 px-3 sm:px-4 font-mono font-bold text-amber-900">{song.quickInfo.startingSwar}</td>
-                </tr>
-                <tr>
-                  <td className="py-2 sm:py-2.5 px-3 sm:px-4 font-semibold text-bamboo-900">Highest Swar</td>
-                  <td className="py-2 sm:py-2.5 px-3 sm:px-4 font-mono font-bold text-amber-900">{song.quickInfo.highestSwar}</td>
-                </tr>
-                <tr>
-                  <td className="py-2 sm:py-2.5 px-3 sm:px-4 font-semibold text-bamboo-900">Main Challenge</td>
-                  <td className="py-2 sm:py-2.5 px-3 sm:px-4">{song.quickInfo.mainChallenge}</td>
-                </tr>
-                <tr>
-                  <td className="py-2 sm:py-2.5 px-3 sm:px-4 font-semibold text-bamboo-900">Practice Speed</td>
-                  <td className="py-2 sm:py-2.5 px-3 sm:px-4">{song.quickInfo.practiceSpeed}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <p className="text-[11px] sm:text-xs text-gray-500 italic pt-1">
-            Note: Indian bansuri uses movable Sa; you can practice this evergreen Kishore Kumar melody comfortably on any scale flute (C Medium, D Medium, E Bass, or G Bass).
-          </p>
-        </section>
-
-        {/* 4. Notation Symbols & Reading Guide */}
-        <section className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-amber-200/80 shadow-2xs space-y-3 sm:space-y-4">
-          <div className="flex items-center gap-2">
-            <Music className="w-4 h-4 sm:w-5 sm:h-5 text-amber-700" />
-            <h2 className="text-base sm:text-xl font-bold text-amber-950">
-              Notation Symbols &amp; Reading Guide
-            </h2>
-          </div>
-          <p className="text-xs sm:text-sm text-slate-600">
-            Understand the specific symbols, lower octave dots, Komal Nishad half-hole, and kan swara ornaments used in this notation:
-          </p>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3 pt-1 sm:pt-2">
-            {song.legend.map((item, idx) => (
-              <div key={idx} className="bg-sand-50/80 border border-amber-200/60 p-2 sm:p-2.5 rounded-xl text-center">
-                <span className="font-mono font-bold text-amber-900 text-xs sm:text-sm block">{item.symbol}</span>
-                <span className="text-[10px] sm:text-[11px] text-slate-600 font-medium leading-tight block mt-0.5">{item.meaning}</span>
-              </div>
-            ))}
-          </div>
-        </section>
+                {/* Quick Action Toolbar: Quick Song Info Dropdown, Notation Guide jump button & Request Song */}
+        <NotationHeaderToolbar
+          quickInfo={song.quickInfo}
+          songTitle={song.title}
+          movieName={song.movie}
+          singerName={song.singer}
+        />
 
         {/* 5. SEPARATE SECTION A: Complete Sargam Flute Notation */}
         <section aria-label="Sargam Flute Notes" className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-amber-200 shadow-sm space-y-4 sm:space-y-6">
@@ -202,9 +135,24 @@ export const ChhuKarMereMannKoNotationView: React.FC<ChhuKarMereMannKoNotationVi
               <Music className="w-4 h-4 sm:w-5 sm:h-5 text-amber-700 shrink-0" />
               <span>Chhu Kar Mere Mann Ko — Sargam Notes</span>
             </h2>
-            <span className="text-[11px] sm:text-xs font-bold text-amber-900 bg-amber-100 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-amber-200">
-              Bansuri / Indian Sargam
-            </span>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-[11px] sm:text-xs font-bold text-amber-900 bg-amber-100 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-amber-200">
+                Bansuri / Indian Sargam
+              </span>
+              <button
+                type="button"
+                onClick={() => {
+                  const el = document.getElementById('western-notes');
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-amber-700 hover:bg-amber-800 text-white text-[11px] sm:text-xs font-bold shadow-xs transition cursor-pointer"
+              >
+                <span>View Western Notes</span>
+                <ChevronDown className="w-3.5 h-3.5" />
+              </button>
+            </div>
           </div>
 
           <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
@@ -269,8 +217,11 @@ export const ChhuKarMereMannKoNotationView: React.FC<ChhuKarMereMannKoNotationVi
           </div>
         </section>
 
+        {/* Related Songs Section */}
+        <RelatedSongsSection currentSlug={song.slug} onViewChange={onViewChange} />
+
         {/* 6. SEPARATE SECTION B: Western Notes */}
-        <section aria-label="Western Notes" className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-slate-200 shadow-sm space-y-4 sm:space-y-6">
+        <section id="western-notes" aria-label="Western Notes" className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-slate-200 shadow-sm space-y-4 sm:space-y-6">
           <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3 border-b border-slate-200 pb-2.5 sm:pb-3">
             <h2 className="text-lg sm:text-2xl font-bold text-slate-900 flex items-center gap-1.5 sm:gap-2">
               <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-amber-700 shrink-0" />
@@ -384,7 +335,10 @@ export const ChhuKarMereMannKoNotationView: React.FC<ChhuKarMereMannKoNotationVi
           </div>
         </section>
 
-        {/* 9. Recommended Practice Tools */}
+                {/* Notation Symbols & Reading Guide (Positioned above Recommended Practice Tools) */}
+        <NotationLegendSection legend={song.legend} />
+
+{/* 9. Recommended Practice Tools */}
         <section className="bg-gradient-to-br from-amber-50/80 to-sand-100/60 rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-amber-200/70 shadow-2xs space-y-3 sm:space-y-4">
           <h2 className="text-base sm:text-xl font-bold text-amber-950">
             Recommended Practice Tools &amp; Guides

@@ -20,6 +20,19 @@ async function startServer() {
     res.json({ status: "ok" });
   });
 
+  app.post("/api/request-song", (req, res) => {
+    try {
+      const { movieName, songName, description, email, name } = req.body || {};
+      console.log(`[Song Request] Received request for "${songName}" (${movieName}) from ${email || name || 'Anonymous'}: ${description}`);
+      res.json({ 
+        success: true, 
+        message: "Your request has been submitted. You will receive a response from us within a few days." 
+      });
+    } catch {
+      res.status(500).json({ success: false, error: "Internal server error" });
+    }
+  });
+
   // 301/302 Redirects for legacy and alias URLs
   app.get(['/faq/music-theory-and-tuning', '/faq/music-theory-and-tuning/'], (req, res) => {
     res.redirect(301, '/faq/music-theory');

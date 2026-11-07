@@ -33,10 +33,8 @@ import {
   Sparkles,
   ChevronRight,
   Trash2,
-  Wind,
-  Plus
+  Wind
 } from 'lucide-react';
-import { SongRequestModal } from './SongRequestFAB';
 
 const DEFAULT_REQUESTS = [
   {
@@ -141,7 +139,6 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
   const [filter, setFilter] = useState<'all' | 'pending' | 'ready'>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(false);
-  const [isRequestModalOpen, setIsRequestModalOpen] = useState(false);
 
   // Modal / Detail state
   const [selectedRequest, setSelectedRequest] = useState<any | null>(null);
@@ -391,27 +388,8 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
             Browse requests, submit swaras/notations for songs requested by fellow flutists, and view notations shared by the community.
           </p>
         </div>
-        <div className="relative z-10 shrink-0">
-          <button
-            onClick={() => setIsRequestModalOpen(true)}
-            className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-2xl shadow-lg hover:shadow-xl transition flex items-center gap-2.5 cursor-pointer border border-amber-300/30 group"
-          >
-            <Plus className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:rotate-90" />
-            <span>Request Song Notation</span>
-          </button>
-        </div>
         <Music className="absolute -right-6 -bottom-6 w-48 h-48 text-white/5 pointer-events-none" />
       </div>
-
-      <div className="mb-6">
-      </div>
-
-      <SongRequestModal 
-        isOpen={isRequestModalOpen} 
-        onClose={() => setIsRequestModalOpen(false)} 
-        currentUser={currentUser} 
-        onOpenAuth={onOpenAuth} 
-      />
 
       {/* Controls Bar */}
       <div className="flex flex-col sm:flex-row gap-4 justify-between items-stretch sm:items-center mb-6">

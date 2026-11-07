@@ -15,7 +15,7 @@ const dbId = firebaseConfig.firestoreDatabaseId || '(default)';
 let firestoreDb: any;
 try {
   firestoreDb = initializeFirestore(app, {
-    experimentalAutoDetectLongPolling: true,
+    experimentalForceLongPolling: true,
     localCache: persistentLocalCache({
       tabManager: persistentMultipleTabManager()
     })
@@ -23,7 +23,7 @@ try {
 } catch (e) {
   // Fallback to memory cache if IndexedDB / multi-tab storage is restricted in iframe
   firestoreDb = initializeFirestore(app, {
-    experimentalAutoDetectLongPolling: true,
+    experimentalForceLongPolling: true,
     localCache: memoryLocalCache()
   }, dbId);
 }

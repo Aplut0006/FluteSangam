@@ -20,6 +20,7 @@ window.addEventListener('unhandledrejection', (event) => {
   ) {
     event.preventDefault();
     event.stopPropagation();
+    event.stopImmediatePropagation?.();
     return;
   }
 
@@ -35,7 +36,7 @@ window.addEventListener('unhandledrejection', (event) => {
       window.location.reload();
     }
   }
-});
+}, true);
 
 // Suppress harmless sandbox/iframe errors like getter-only fetch overrides and abort DOMExceptions
 window.addEventListener('error', (event) => {
@@ -52,9 +53,10 @@ window.addEventListener('error', (event) => {
   ) {
     event.preventDefault();
     event.stopPropagation();
+    event.stopImmediatePropagation?.();
     return false;
   }
-});
+}, true);
 
 const container = document.getElementById('root')!;
 

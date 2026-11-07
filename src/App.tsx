@@ -609,15 +609,11 @@ export default function App() {
     let pubDate = '2026-07-26T00:00:00Z';
     let modDate = '2026-07-30T10:00:00Z';
 
-    if (
+    if (currentView.startsWith('notation_') || currentView === 'notation_requests') {
+      modDate = '2026-11-07T00:00:00Z';
+    } else if (
       currentView === 'raga_kafi' || 
-      currentView === 'raga_pahadi' || 
-      currentView === 'notation_krrish_theme' || 
-      currentView === 'notation_enchanting_flute_krishna_aur_kans' || 
-      currentView === 'notation_lag_ja_gale' || 
-      currentView === 'notation_chhu_kar_mere_mann_ko' || 
-      currentView === 'notation_tujhe_dekha_to' ||
-      currentView === 'notation_yeh_shaam_mastani'
+      currentView === 'raga_pahadi'
     ) {
       modDate = '2026-10-31T00:00:00Z';
     } else if (currentView.startsWith('raga_') || currentView === 'learn_raagas' || currentView === 'learn_scales_octaves') {
@@ -631,8 +627,7 @@ export default function App() {
       currentView === 'tanpura' ||
       currentView === 'community' ||
       currentView === 'home' ||
-      currentView === 'learn_dashboard' ||
-      currentView === 'notation_hothon_se_chhoo_lo_tum'
+      currentView === 'learn_dashboard'
     ) {
       modDate = '2026-10-11T00:00:00Z';
     } else if (currentView === 'post-detail' && selectedPost) {
