@@ -236,35 +236,34 @@ export default function PostCard({
         </div>
       </div>
 
-      {/* Title & Description preview */}
-      <div className="space-y-1.5">
+      {/* Title & Full Discussion Content */}
+      <div className="space-y-2">
         <h3 className="font-display font-extrabold text-gray-900 text-base md:text-lg group-hover:text-bamboo-800 transition">
-          <a
-            href={`/post/${post.id}`}
+          <button
+            type="button"
             onClick={(e) => {
-              e.preventDefault();
+              e.stopPropagation();
               onPostClick(post);
             }}
-            className="hover:underline text-inherit"
+            className="hover:underline text-inherit text-left cursor-pointer"
           >
             {post.title}
-          </a>
+          </button>
         </h3>
-        <p className="text-gray-600 text-xs leading-relaxed whitespace-pre-line break-words">
-          {getTruncatedText()}
+        <p className="text-gray-700 text-xs sm:text-sm leading-relaxed whitespace-pre-line break-words">
+          {post.description}
         </p>
-        {isLongDescription && (
-          <a
-            href={`/post/${post.id}`}
-            onClick={(e) => {
-              e.preventDefault();
-              onPostClick(post);
-            }}
-            className="text-[11px] font-bold text-bamboo-700 inline-flex items-center gap-0.5 group-hover:translate-x-1 transition duration-150 mt-1 hover:underline cursor-pointer"
-          >
-            Read full post <ArrowRight className="w-3.5 h-3.5" />
-          </a>
-        )}
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            onPostClick(post);
+          }}
+          className="text-[11px] font-bold text-bamboo-700 inline-flex items-center gap-1 group-hover:translate-x-1 transition duration-150 mt-1 hover:underline cursor-pointer"
+        >
+          <span>View discussion &amp; replies</span>
+          <ArrowRight className="w-3.5 h-3.5" />
+        </button>
       </div>
 
       {/* Attached Image - Visible Directly in Community Feed Card */}

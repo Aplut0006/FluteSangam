@@ -253,59 +253,23 @@ export const CommunityFeedView: React.FC<CommunityFeedViewProps> = ({
                 ))}
               </div>
             ) : filteredPosts.length === 0 ? (
-              <div className="space-y-6">
-                <div className="bg-white rounded-2xl p-6 sm:p-8 text-center border border-amber-200/80 shadow-2xs space-y-4">
-                  <div className="w-14 h-14 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center mx-auto shadow-inner">
-                    <MessageSquare className="w-7 h-7 text-amber-700" />
-                  </div>
-                  <div className="space-y-1">
-                    <h3 className="font-display font-bold text-slate-800 text-lg">Community Discussions</h3>
-                    <p className="text-xs sm:text-sm text-slate-600 max-w-lg mx-auto leading-relaxed">
-                      Connect with fellow flute and bansuri practitioners. Share recitals, ask technical questions on lip placement, discuss classical ragas, and receive feedback from experienced players.
-                    </p>
-                  </div>
-                  <button
-                    onClick={currentUser ? onOpenCreatePost : onOpenAuth}
-                    className="px-5 py-2.5 bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold rounded-xl transition shadow-sm cursor-pointer inline-flex items-center gap-2"
-                  >
-                    <Plus className="w-4 h-4" />
-                    <span>Start a New Discussion</span>
-                  </button>
+              <div className="bg-white rounded-2xl p-6 sm:p-8 text-center border border-amber-200/80 shadow-2xs space-y-4">
+                <div className="w-14 h-14 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center mx-auto shadow-inner">
+                  <MessageSquare className="w-7 h-7 text-amber-700" />
                 </div>
-
-                {/* Educational Topics Overview */}
-                <div className="bg-sand-50/70 rounded-2xl p-6 border border-amber-200/60 space-y-4">
-                  <h4 className="font-bold text-bamboo-950 text-sm flex items-center gap-2">
-                    <BookOpen className="w-4 h-4 text-amber-700" />
-                    Popular Discussion &amp; Learning Categories
-                  </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                    <div className="p-3.5 bg-white rounded-xl border border-amber-200/70 space-y-1">
-                      <strong className="text-bamboo-900 font-bold block">1. Embouchure &amp; Tone Refinement</strong>
-                      <p className="text-slate-600 text-[11px] leading-relaxed">
-                        Tips for blowing angle, lips positioning on blowhole, producing clean upper octave notes, and eliminating airy or whistling sounds.
-                      </p>
-                    </div>
-                    <div className="p-3.5 bg-white rounded-xl border border-amber-200/70 space-y-1">
-                      <strong className="text-bamboo-900 font-bold block">2. Classical Raga Bandishes &amp; Sargam</strong>
-                      <p className="text-slate-600 text-[11px] leading-relaxed">
-                        Explore Aaroh, Avroh, Pakad, and Chalan for popular Ragas like Yaman, Bhoopali, Desh, Kafi, and Bhairav with fellow learners.
-                      </p>
-                    </div>
-                    <div className="p-3.5 bg-white rounded-xl border border-amber-200/70 space-y-1">
-                      <strong className="text-bamboo-900 font-bold block">3. Flute Scale Selection &amp; Maintenance</strong>
-                      <p className="text-slate-600 text-[11px] leading-relaxed">
-                        Advice on choosing C Medium vs. E/G Bass flutes, bamboo oiling routines, thread binding, and protecting instruments from temperature changes.
-                      </p>
-                    </div>
-                    <div className="p-3.5 bg-white rounded-xl border border-amber-200/70 space-y-1">
-                      <strong className="text-bamboo-900 font-bold block">4. Daily Sadhana &amp; Alankar Riyaz</strong>
-                      <p className="text-slate-600 text-[11px] leading-relaxed">
-                        Structuring daily practice sessions with long-note breath holding, metronome tempo progression, and finger speed drills.
-                      </p>
-                    </div>
-                  </div>
+                <div className="space-y-1">
+                  <h3 className="font-display font-bold text-slate-800 text-lg">No Matching Discussions Found</h3>
+                  <p className="text-xs sm:text-sm text-slate-600 max-w-lg mx-auto leading-relaxed">
+                    Connect with fellow flute and bansuri practitioners. Share recitals, ask technical questions on lip placement, discuss classical ragas, and receive feedback from experienced players.
+                  </p>
                 </div>
+                <button
+                  onClick={currentUser ? onOpenCreatePost : onOpenAuth}
+                  className="px-5 py-2.5 bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold rounded-xl transition shadow-sm cursor-pointer inline-flex items-center gap-2"
+                >
+                  <Plus className="w-4 h-4" />
+                  <span>Start a New Discussion</span>
+                </button>
               </div>
             ) : (
               <>
@@ -343,6 +307,97 @@ export const CommunityFeedView: React.FC<CommunityFeedViewProps> = ({
                 )}
               </>
             )}
+
+            {/* Always-Visible Educational Community & Practice Guide Section */}
+            <section className="bg-sand-50/80 rounded-2xl p-6 border border-amber-200/70 space-y-4 mt-6">
+              <div className="space-y-1">
+                <h2 className="font-display font-bold text-bamboo-950 text-base sm:text-lg flex items-center gap-2">
+                  <BookOpen className="w-5 h-5 text-amber-700" />
+                  <span>Bansuri Community Learning Pillars &amp; Discussion Guide</span>
+                </h2>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Our community brings together self-taught learners, classical practitioners, and flute enthusiasts to exchange practical insights across four foundational areas of bansuri sadhana:
+                </p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs">
+                <div className="p-4 bg-white rounded-xl border border-amber-200/70 space-y-1.5">
+                  <strong className="text-bamboo-900 font-bold block text-sm">1. Embouchure &amp; Tone Refinement</strong>
+                  <p className="text-slate-600 leading-relaxed">
+                    Learn how to calibrate your blowing angle, position the lower lip across the blowing hole (Mukharandhra), transition smoothly into the upper Taar Saptak without overblowing, and eliminate airy or whistling sounds during long-note Kharaj practice.
+                  </p>
+                  <Link
+                    to="/learn/basics"
+                    onClick={(e) => {
+                      if (!e.ctrlKey && !e.metaKey) {
+                        e.preventDefault();
+                        onViewChange('learn_basics');
+                      }
+                    }}
+                    className="inline-flex items-center gap-1 text-amber-800 font-bold hover:underline pt-1"
+                  >
+                    <span>Explore Bansuri Basics Guide</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </Link>
+                </div>
+                <div className="p-4 bg-white rounded-xl border border-amber-200/70 space-y-1.5">
+                  <strong className="text-bamboo-900 font-bold block text-sm">2. Classical Raga Bandishes &amp; Sargam</strong>
+                  <p className="text-slate-600 leading-relaxed">
+                    Discuss Aaroh, Avroh, Pakad, Vadi-Samvadi relationships, and slow Aalap phrasing for foundational and advanced Hindustani ragas including Yaman, Bhoopali, Bhimpalasi, Desh, Kafi, Malkauns, and Bhairav.
+                  </p>
+                  <Link
+                    to="/learn/raagas"
+                    onClick={(e) => {
+                      if (!e.ctrlKey && !e.metaKey) {
+                        e.preventDefault();
+                        onViewChange('learn_raagas');
+                      }
+                    }}
+                    className="inline-flex items-center gap-1 text-amber-800 font-bold hover:underline pt-1"
+                  >
+                    <span>Browse Classical Raaga Library</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </Link>
+                </div>
+                <div className="p-4 bg-white rounded-xl border border-amber-200/70 space-y-1.5">
+                  <strong className="text-bamboo-900 font-bold block text-sm">3. Flute Scale Selection &amp; Ergonomics</strong>
+                  <p className="text-slate-600 leading-relaxed">
+                    Compare C Natural Medium, G Base, and E Bass bamboo flutes, learn how to adopt the relaxed Piper&apos;s Grip for wide tone-hole stretches, and maintain seasonal bamboo humidity and tuning stability.
+                  </p>
+                  <Link
+                    to="/learn/choose-flute"
+                    onClick={(e) => {
+                      if (!e.ctrlKey && !e.metaKey) {
+                        e.preventDefault();
+                        onViewChange('learn_choose_flute');
+                      }
+                    }}
+                    className="inline-flex items-center gap-1 text-amber-800 font-bold hover:underline pt-1"
+                  >
+                    <span>Read Beginner Scale Guide</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </Link>
+                </div>
+                <div className="p-4 bg-white rounded-xl border border-amber-200/70 space-y-1.5">
+                  <strong className="text-bamboo-900 font-bold block text-sm">4. Daily Sadhana &amp; Alankar Riyaz</strong>
+                  <p className="text-slate-600 leading-relaxed">
+                    Structure your daily 30-minute riyaz around Tanpura drone intonation, progressive Ekgun and Dugun Alankar paltas, and delicate classical ornaments (Meend, Kan-swar, Gamak, and Khatka).
+                  </p>
+                  <Link
+                    to="/learn/alankaras"
+                    onClick={(e) => {
+                      if (!e.ctrlKey && !e.metaKey) {
+                        e.preventDefault();
+                        onViewChange('learn_alankaras');
+                      }
+                    }}
+                    className="inline-flex items-center gap-1 text-amber-800 font-bold hover:underline pt-1"
+                  >
+                    <span>Practice 60 Alankar Exercises</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </Link>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
 

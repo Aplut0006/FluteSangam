@@ -256,6 +256,8 @@ function createWebPageSchema(url: string, name: string, description: string) {
 }
 
 const AD_EXCLUDED_ROUTES = [
+  '/community',
+  '/feed',
   '/members',
   '/login',
   '/signup',
