@@ -9,7 +9,6 @@
 /ragas                          /learn/raagas        301!
 /notations/hothon-se-chhu-lo-tum-flute-notes /notations/hothon-se-chhoo-lo-tum-flute-notes 301!
 /notations/hothon-se-chhu-lo-tum-flute-notes/ /notations/hothon-se-chhoo-lo-tum-flute-notes 301!
-/community                      /#recent-discussions-section 302!
 
 # SPA fallback rule for Cloudflare Pages and Netlify
 /*                              /index.html          200

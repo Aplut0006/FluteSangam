@@ -276,6 +276,36 @@ export default function ContactUsView({
         )}
       </div>
 
+      {/* Editorial & Founder Transparency (E-E-A-T) */}
+      <div className="bg-gradient-to-br from-amber-50/90 via-white to-bamboo-50/60 rounded-3xl p-6 sm:p-8 border border-amber-200/80 shadow-sm mb-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="space-y-2 max-w-3xl">
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-800">
+            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+            <span>Editorial &amp; Founder Transparency</span>
+          </div>
+          <h3 className="text-xl font-display font-bold text-bamboo-950">
+            Maintained by Aplut — Founder of FluteSangam
+          </h3>
+          <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
+            FluteSangam is founded and maintained by <strong>Aplut</strong>, a software engineer (B.Tech in Computer Science) and self-taught bansuri practitioner in India practising since 2022. Every lesson, Raga guide, and Sargam notation is practice-tested for clarity. For editorial corrections, notation requests, or partnership inquiries, email <a href="mailto:flutesangam@gmail.com" className="text-amber-800 font-bold underline">flutesangam@gmail.com</a>.
+          </p>
+        </div>
+        <div className="flex flex-wrap items-center gap-3 shrink-0">
+          <Link
+            to="/founder"
+            className="px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-bamboo-950 font-extrabold text-xs transition shadow-2xs"
+          >
+            Founder&apos;s Story
+          </Link>
+          <Link
+            to="/about"
+            className="px-4 py-2.5 rounded-xl bg-white hover:bg-bamboo-50 text-bamboo-900 border border-bamboo-200 font-bold text-xs transition shadow-2xs"
+          >
+            About &amp; Editorial Standards
+          </Link>
+        </div>
+      </div>
+
       {/* Community Standards & Guidelines */}
       <div className="bg-white rounded-3xl p-6 sm:p-8 border border-bamboo-200 shadow-sm mb-12 space-y-4">
         <h3 className="text-xl font-display font-bold text-bamboo-950 flex items-center gap-2">
@@ -312,7 +342,7 @@ export default function ContactUsView({
           <div className="bg-white p-5 rounded-2xl border border-bamboo-100 shadow-2xs">
             <h4 className="text-sm font-bold text-bamboo-900 mb-2">How do I request a song Sargam notation?</h4>
             <p className="text-xs text-gray-600 leading-relaxed">
-              You can post directly on the <span className="font-semibold text-bamboo-800">Song Notation Board</span> using the "Request Notation" button on the main community feed!
+              Visit the <Link to="/notations" className="font-semibold text-bamboo-800 underline">Song Notations Library</Link> and click the <strong>Request Song Notation</strong> button, or email your request directly to <a href="mailto:flutesangam@gmail.com" className="font-semibold text-bamboo-800 underline">flutesangam@gmail.com</a>.
             </p>
           </div>
 

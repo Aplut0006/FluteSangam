@@ -110,19 +110,25 @@ export default function AboutUsView({ onViewChange }: AboutUsViewProps = {}) {
                 Meet the Founder
               </h2>
               <h3 className="text-xl sm:text-2xl font-semibold text-amber-300">
-                Aplut
+                Aplut — Founder &amp; Creator of FluteSangam
               </h3>
               <p className="text-bamboo-100 leading-relaxed text-base sm:text-lg max-w-3xl">
-                Written and practice-tested by <strong>Aplut</strong>, a self-taught bansuri learner practising since 2022. Driven by a deep appreciation for classical music and software craftsmanship, he built FluteSangam to provide structured lessons, interactive tools, and an encouraging space for fellow flute learners.
+                Written and practice-tested by <strong>Aplut</strong>, a software engineer (B.Tech in Computer Science) and self-taught bansuri learner in India practising since 2022. Driven by a deep appreciation for Hindustani classical music and software craftsmanship, he built FluteSangam to provide structured lessons, interactive tools, and an encouraging space for fellow flute learners worldwide.
               </p>
-              <div className="pt-2">
+              <div className="pt-2 flex flex-wrap items-center gap-3">
                 <a 
                   href="/founder"
                   onClick={handleNav('founder')}
                   className="inline-flex items-center gap-2.5 bg-amber-400 hover:bg-amber-300 text-bamboo-950 px-6 py-3 rounded-full font-extrabold text-sm transition-all shadow-md hover:shadow-lg cursor-pointer"
                 >
-                  <span>Read Aplut's Full Story</span>
+                  <span>Read Aplut&apos;s Full Story</span>
                   <ArrowRight className="w-4 h-4" />
+                </a>
+                <a 
+                  href="mailto:flutesangam@gmail.com"
+                  className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-5 py-3 rounded-full font-bold text-sm transition-all shadow-xs"
+                >
+                  <span>flutesangam@gmail.com</span>
                 </a>
               </div>
             </div>
@@ -164,7 +170,7 @@ export default function AboutUsView({ onViewChange }: AboutUsViewProps = {}) {
             <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/80 space-y-1.5">
               <h3 className="font-bold text-bamboo-950 text-base">Continuous Reader Corrections</h3>
               <p className="leading-relaxed">
-                We welcome community feedback. If you notice a typo in a swara sequence or have an alternative fingering to suggest, write to us directly at <a href="mailto:flutesangam@gmail.com" className="text-amber-800 font-bold underline">flutesangam@gmail.com</a>.
+                We welcome community feedback. If you notice a typo in a swara sequence or have an alternative fingering to suggest, reach us via our <a href="/contact" onClick={handleNav('contact_us')} className="text-amber-800 font-bold underline cursor-pointer">Contact Page</a> or write directly to <a href="mailto:flutesangam@gmail.com" className="text-amber-800 font-bold underline">flutesangam@gmail.com</a>.
               </p>
             </div>
           </div>

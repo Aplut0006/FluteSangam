@@ -80,6 +80,7 @@ import NotFoundView from '../components/NotFoundView';
 import { Post } from '../types';
 
 const postCache = new Map<string, RouteMetadata>();
+let communityPostsCache: { posts: Post[]; fetchedAt: number } | null = null;
 
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -88,6 +89,7 @@ import AboutAuthorSection from '../components/AboutAuthorSection';
 
 import { CATEGORY_SLUGS, FAQ_DATA } from '../data/allFaqData';
 import { FAQ_CATEGORY_METADATA } from '../data/faqCategoryMetadata';
+import { STATIC_INITIAL_POSTS } from '../data/mockPosts';
 
 export interface RouteMetadata {
   title: string;
@@ -102,6 +104,139 @@ export interface RouteMetadata {
 }
 
 const DOMAIN = 'https://flutesangam.com';
+const OFFICIAL_CONTACT_EMAIL = 'flutesangam@gmail.com';
+
+const FOUNDER_PERSON_SCHEMA = {
+  '@type': 'Person',
+  '@id': `${DOMAIN}/founder#aplut`,
+  'name': 'Aplut',
+  'jobTitle': 'Founder & Creator of FluteSangam',
+  'image': `${DOMAIN}/founder_photo.jpeg`,
+  'email': OFFICIAL_CONTACT_EMAIL,
+  'url': `${DOMAIN}/founder`,
+  'alumniOf': {
+    '@type': 'EducationalOrganization',
+    'name': 'B.Tech in Computer Science'
+  },
+  'homeLocation': {
+    '@type': 'Country',
+    'name': 'India'
+  },
+  'knowsAbout': [
+    'Indian Bamboo Flute (Bansuri)',
+    'Hindustani Classical Music',
+    'Sargam & Western Flute Notation',
+    'Alankar & Raga Riyaz',
+    'Software Engineering'
+  ],
+  'worksFor': {
+    '@type': 'Organization',
+    '@id': `${DOMAIN}/#organization`,
+    'name': 'FluteSangam',
+    'url': DOMAIN
+  },
+  'description': 'Founder of FluteSangam, software engineer (B.Tech in Computer Science), and self-taught bansuri practitioner in India practising since 2022, building structured educational lessons, interactive practice tools, and Sargam notations for flute learners worldwide.'
+};
+
+const ORGANIZATION_SCHEMA = {
+  '@type': 'Organization',
+  '@id': `${DOMAIN}/#organization`,
+  'name': 'FluteSangam',
+  'alternateName': 'Flute Sangam',
+  'url': DOMAIN,
+  'logo': `${DOMAIN}/flutesangam_icon_compressed.png`,
+  'email': OFFICIAL_CONTACT_EMAIL,
+  'founder': {
+    '@type': 'Person',
+    '@id': `${DOMAIN}/founder#aplut`,
+    'name': 'Aplut',
+    'url': `${DOMAIN}/founder`
+  },
+  'location': {
+    '@type': 'Country',
+    'name': 'India'
+  },
+  'contactPoint': {
+    '@type': 'ContactPoint',
+    'email': OFFICIAL_CONTACT_EMAIL,
+    'contactType': 'customer support',
+    'url': `${DOMAIN}/contact`,
+    'availableLanguage': ['English', 'Hindi']
+  },
+  'sameAs': [
+    'https://www.reddit.com/r/FluteSangam/',
+    'https://chat.whatsapp.com/HwfFf145b2A7ieIUrytve2'
+  ],
+  'description': 'Global community and open educational platform for Indian Bamboo Flute (Bansuri) practitioners, featuring structured lessons, Raga guides, Sargam song notations, and interactive practice tools.'
+};
+
+async function getCommunityFeedPosts(): Promise<Post[]> {
+  const now = Date.now();
+  if (communityPostsCache && now - communityPostsCache.fetchedAt < 5 * 60 * 1000) {
+    return communityPostsCache.posts;
+  }
+
+  const mergedById = new Map<string, Post>();
+  for (const staticPost of STATIC_INITIAL_POSTS) {
+    mergedById.set(staticPost.id, staticPost);
+  }
+
+  try {
+    const apiKey = 'AIzaSyA2N-RGtzr0j7RFL7O7i6c5ioj1UkuajAE';
+    const firestoreDb = 'ai-studio-flutesangam-1ddb0191-a147-4a93-8968-cf11ac1d554d';
+    const response = await fetch(
+      `https://firestore.googleapis.com/v1/projects/gen-lang-client-0699287191/databases/${firestoreDb}/documents/posts?key=${apiKey}&pageSize=50`
+    );
+
+    if (response.ok) {
+      const data = await response.json();
+      if (data && Array.isArray(data.documents)) {
+        for (const doc of data.documents) {
+          const parts = (doc.name || '').split('/');
+          const id = parts[parts.length - 1];
+          if (!id) continue;
+          const f = doc.fields || {};
+          const title = f.title?.stringValue;
+          const description = f.description?.stringValue;
+          if (!title || !description) continue;
+
+          const createdAtRaw = f.createdAt?.timestampValue;
+          const createdAt = createdAtRaw ? new Date(createdAtRaw) : new Date(1722000000000);
+          const post: Post = {
+            id,
+            authorId: f.authorId?.stringValue || 'system',
+            authorName: f.authorName?.stringValue || 'Flute Community Member',
+            authorUsername: f.authorUsername?.stringValue || 'musician',
+            authorPhoto: f.authorPhoto?.stringValue || 'https://api.dicebear.com/7.x/adventurer/svg?seed=Flute',
+            authorLevel: f.authorLevel?.stringValue || 'Beginner',
+            title,
+            description,
+            category: (f.category?.stringValue || 'Question') as any,
+            likes: [],
+            likeCount: parseInt(f.likeCount?.integerValue || '0', 10),
+            commentsCount: parseInt(f.commentsCount?.integerValue || '0', 10),
+            createdAt,
+            imageUrl: f.imageUrl?.stringValue,
+            videoUrl: f.videoUrl?.stringValue,
+            raga: f.raga?.stringValue
+          };
+          mergedById.set(id, post);
+        }
+      }
+    }
+  } catch (err) {
+    // Fallback cleanly to STATIC_INITIAL_POSTS if offline or unreachable
+  }
+
+  const posts = Array.from(mergedById.values()).sort((a, b) => {
+    const timeA = a.createdAt instanceof Date ? a.createdAt.getTime() : new Date(a.createdAt || 0).getTime();
+    const timeB = b.createdAt instanceof Date ? b.createdAt.getTime() : new Date(b.createdAt || 0).getTime();
+    return timeB - timeA;
+  });
+
+  communityPostsCache = { posts, fetchedAt: now };
+  return posts;
+}
 
 function createWebPageSchema(url: string, name: string, description: string) {
   return {
@@ -286,13 +421,14 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
     const title = 'Flute Community & Practice Discussions | FluteSangam';
     const description = 'Connect with flute and bansuri players worldwide. Share practice recordings, ask questions, discuss flute playing and classical ragas, and receive feedback.';
     const canonicalUrl = `${DOMAIN}/community`;
+    const communityPosts = await getCommunityFeedPosts();
     return {
       title,
       description,
       canonicalUrl,
       component: CommunityFeedView,
       componentProps: {
-        posts: [],
+        posts: communityPosts,
         loading: false,
         currentUser: null,
         searchQuery: '',
@@ -301,7 +437,7 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
         setActiveCategory: () => {},
         activeRagaFilter: null,
         setActiveRagaFilter: () => {},
-        visiblePostsCount: 10,
+        visiblePostsCount: Math.max(50, communityPosts.length),
         setVisiblePostsCount: () => {},
         onOpenAuth: () => {},
         onOpenCreatePost: () => {},
@@ -317,7 +453,40 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
       jsonLd: {
         '@context': 'https://schema.org',
         '@graph': [
-          createWebPageSchema(canonicalUrl, title, description),
+          {
+            '@type': 'CollectionPage',
+            '@id': `${canonicalUrl}#webpage`,
+            'url': canonicalUrl,
+            'name': title,
+            'description': description,
+            'datePublished': '2026-07-26T00:00:00Z',
+            'dateModified': '2026-11-07T00:00:00Z',
+            'isPartOf': {
+              '@type': 'WebSite',
+              '@id': `${DOMAIN}/#website`,
+              'name': 'FluteSangam',
+              'url': DOMAIN
+            },
+            'mainEntity': {
+              '@type': 'ItemList',
+              'itemListElement': communityPosts.slice(0, 20).map((post, idx) => ({
+                '@type': 'ListItem',
+                'position': idx + 1,
+                'item': {
+                  '@type': 'DiscussionForumPosting',
+                  '@id': `${DOMAIN}/post/${post.id}#posting`,
+                  'headline': post.title,
+                  'articleBody': post.description,
+                  'url': `${DOMAIN}/post/${post.id}`,
+                  'datePublished': (post.createdAt instanceof Date ? post.createdAt : new Date(post.createdAt || 1722000000000)).toISOString(),
+                  'author': {
+                    '@type': 'Person',
+                    'name': post.authorName || 'FluteSangam Member'
+                  }
+                }
+              }))
+            }
+          },
           {
             '@type': 'BreadcrumbList',
             '@id': `${canonicalUrl}#breadcrumb`,
@@ -385,45 +554,108 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
 
   // 4. Founder Story
   if (cleanPath === '/founder') {
+    const title = "Founder's Story - Aplut | FluteSangam";
+    const description = 'Meet Aplut, founder of FluteSangam, software engineer (B.Tech CS), and self-taught bansuri practitioner since 2022 building a global learning platform for flute enthusiasts.';
+    const canonicalUrl = `${DOMAIN}/founder`;
     return {
-      title: 'Founder\'s Story - Aplut | FluteSangam',
-      description: 'Meet Aplut, founder of FluteSangam. Discover the story behind creating a global, welcoming platform for Indian flute (Bansuri) enthusiasts.',
-      canonicalUrl: `${DOMAIN}/founder`,
+      title,
+      description,
+      canonicalUrl,
       component: FounderView,
       jsonLd: {
         '@context': 'https://schema.org',
-        '@type': 'Person',
-        '@id': `${DOMAIN}/founder#aplut`,
-        'name': 'Aplut',
-        'jobTitle': 'Founder of FluteSangam',
-        'worksFor': {
-          '@type': 'Organization',
-          '@id': `${DOMAIN}/#organization`,
-          'name': 'FluteSangam',
-          'url': DOMAIN
-        },
-        'description': 'Founder of FluteSangam, software professional and flute practitioner building a global platform for learning, practicing, and connecting through music.',
-        'email': 'aplut0006@gmail.com',
-        'url': `${DOMAIN}/founder`
+        '@graph': [
+          {
+            '@type': 'ProfilePage',
+            '@id': `${canonicalUrl}#webpage`,
+            'url': canonicalUrl,
+            'name': title,
+            'description': description,
+            'datePublished': '2026-07-26T00:00:00Z',
+            'dateModified': '2026-11-07T00:00:00Z',
+            'mainEntity': FOUNDER_PERSON_SCHEMA,
+            'isPartOf': {
+              '@type': 'WebSite',
+              '@id': `${DOMAIN}/#website`,
+              'name': 'FluteSangam',
+              'url': DOMAIN
+            }
+          },
+          FOUNDER_PERSON_SCHEMA,
+          ORGANIZATION_SCHEMA,
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': DOMAIN
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Founder Story (Aplut)',
+                'item': canonicalUrl
+              }
+            ]
+          }
+        ]
       }
     };
   }
 
   // 5. About Us
   if (cleanPath === '/about') {
+    const title = 'About FluteSangam - Mission, Editorial Standards & Community | FluteSangam';
+    const description = 'Learn about FluteSangam, founded by Aplut: our mission, editorial methodology, and open platform making Indian Bamboo Flute (Bansuri) education accessible worldwide.';
+    const canonicalUrl = `${DOMAIN}/about`;
     return {
-      title: 'About FluteSangam - Mission, Vision & Community | FluteSangam',
-      description: 'FluteSangam is dedicated to making Indian Bamboo Flute (Bansuri) education accessible, structured, and enjoyable for musicians worldwide.',
-      canonicalUrl: `${DOMAIN}/about`,
+      title,
+      description,
+      canonicalUrl,
       component: AboutUsView,
       jsonLd: {
         '@context': 'https://schema.org',
-        '@type': 'Organization',
-        '@id': `${DOMAIN}/#organization`,
-        'name': 'FluteSangam',
-        'url': DOMAIN,
-        'logo': `${DOMAIN}/flutesangam_icon_compressed.png`,
-        'description': 'Global community and learning platform for Indian Bamboo Flute (Bansuri) practitioners.'
+        '@graph': [
+          {
+            '@type': 'AboutPage',
+            '@id': `${canonicalUrl}#webpage`,
+            'url': canonicalUrl,
+            'name': title,
+            'description': description,
+            'datePublished': '2026-07-26T00:00:00Z',
+            'dateModified': '2026-11-07T00:00:00Z',
+            'mainEntity': ORGANIZATION_SCHEMA,
+            'isPartOf': {
+              '@type': 'WebSite',
+              '@id': `${DOMAIN}/#website`,
+              'name': 'FluteSangam',
+              'url': DOMAIN
+            }
+          },
+          ORGANIZATION_SCHEMA,
+          FOUNDER_PERSON_SCHEMA,
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': DOMAIN
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'About FluteSangam',
+                'item': canonicalUrl
+              }
+            ]
+          }
+        ]
       }
     };
   }
@@ -511,11 +743,12 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
       }));
     }
 
-    const canonicalUrl = slug ? `${DOMAIN}/faq/${slug}` : `${DOMAIN}/faq`;
+    const canonicalUrl = `${DOMAIN}/faq`;
     return {
       title,
       description,
       canonicalUrl,
+      robots: slug ? 'noindex, follow' : undefined,
       component: FluteFaqView,
       jsonLd: {
         '@context': 'https://schema.org',
@@ -1107,15 +1340,55 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
 
   // 10. Contact Us
   if (cleanPath === '/contact') {
-    const title = 'Contact Us & Support | FluteSangam';
-    const description = 'Get in touch with the FluteSangam team for platform support, feedback, questions, or community collaboration.';
+    const title = 'Contact Us & Editorial Support | FluteSangam';
+    const description = 'Contact FluteSangam and founder Aplut at flutesangam@gmail.com for bansuri learning questions, song Sargam notation requests, editorial corrections, or community collaboration.';
     const canonicalUrl = `${DOMAIN}/contact`;
     return {
       title,
       description,
       canonicalUrl,
       component: ContactUsView,
-      jsonLd: createWebPageSchema(canonicalUrl, title, description)
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'ContactPage',
+            '@id': `${canonicalUrl}#webpage`,
+            'url': canonicalUrl,
+            'name': title,
+            'description': description,
+            'datePublished': '2026-07-26T00:00:00Z',
+            'dateModified': '2026-11-07T00:00:00Z',
+            'mainEntity': ORGANIZATION_SCHEMA,
+            'isPartOf': {
+              '@type': 'WebSite',
+              '@id': `${DOMAIN}/#website`,
+              'name': 'FluteSangam',
+              'url': DOMAIN
+            }
+          },
+          ORGANIZATION_SCHEMA,
+          FOUNDER_PERSON_SCHEMA,
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': DOMAIN
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Contact FluteSangam',
+                'item': canonicalUrl
+              }
+            ]
+          }
+        ]
+      }
     };
   }
 
@@ -1215,7 +1488,7 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
               }
             },
             'datePublished': '2026-09-19T00:00:00Z',
-            'dateModified': '2026-09-19T00:00:00Z'
+            'dateModified': '2026-11-07T00:00:00Z'
           }
         ]
       }
@@ -1280,7 +1553,7 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
               }
             },
             'datePublished': '2026-09-19T00:00:00Z',
-            'dateModified': '2026-09-19T00:00:00Z'
+            'dateModified': '2026-11-07T00:00:00Z'
           }
         ]
       }
@@ -1345,7 +1618,7 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
               }
             },
             'datePublished': '2026-09-19T00:00:00Z',
-            'dateModified': '2026-09-19T00:00:00Z'
+            'dateModified': '2026-11-07T00:00:00Z'
           }
         ]
       }
@@ -1410,7 +1683,7 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
               }
             },
             'datePublished': '2026-09-19T00:00:00Z',
-            'dateModified': '2026-09-19T00:00:00Z'
+            'dateModified': '2026-11-07T00:00:00Z'
           }
         ]
       }
@@ -1475,7 +1748,7 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
               }
             },
             'datePublished': '2026-09-25T00:00:00Z',
-            'dateModified': '2026-09-25T00:00:00Z'
+            'dateModified': '2026-11-07T00:00:00Z'
           }
         ]
       }
@@ -1540,7 +1813,7 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
               }
             },
             'datePublished': '2026-09-21T00:00:00Z',
-            'dateModified': '2026-09-21T00:00:00Z'
+            'dateModified': '2026-11-07T00:00:00Z'
           }
         ]
       }
@@ -1605,7 +1878,7 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
               }
             },
             'datePublished': '2026-09-23T00:00:00Z',
-            'dateModified': '2026-09-23T00:00:00Z'
+            'dateModified': '2026-11-07T00:00:00Z'
           }
         ]
       }
@@ -1670,7 +1943,7 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
               }
             },
             'datePublished': '2026-09-24T00:00:00Z',
-            'dateModified': '2026-09-24T00:00:00Z'
+            'dateModified': '2026-11-07T00:00:00Z'
           }
         ]
       }
@@ -1735,7 +2008,7 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
               }
             },
             'datePublished': '2026-09-26T00:00:00Z',
-            'dateModified': '2026-09-26T00:00:00Z'
+            'dateModified': '2026-11-07T00:00:00Z'
           }
         ]
       }
@@ -1800,7 +2073,7 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
               }
             },
             'datePublished': '2026-09-27T00:00:00Z',
-            'dateModified': '2026-09-27T00:00:00Z'
+            'dateModified': '2026-11-07T00:00:00Z'
           }
         ]
       }
@@ -1865,7 +2138,7 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
               }
             },
             'datePublished': '2026-10-01T00:00:00Z',
-            'dateModified': '2026-10-11T00:00:00Z'
+            'dateModified': '2026-11-07T00:00:00Z'
           }
         ]
       }
@@ -1930,7 +2203,7 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
               }
             },
             'datePublished': '2026-10-25T00:00:00Z',
-            'dateModified': '2026-10-31T00:00:00Z'
+            'dateModified': '2026-11-07T00:00:00Z'
           }
         ]
       }
@@ -1995,7 +2268,7 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
               }
             },
             'datePublished': '2026-10-31T00:00:00Z',
-            'dateModified': '2026-10-31T00:00:00Z'
+            'dateModified': '2026-11-07T00:00:00Z'
           }
         ]
       }
@@ -2060,7 +2333,7 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
               }
             },
             'datePublished': '2026-10-31T00:00:00Z',
-            'dateModified': '2026-10-31T00:00:00Z'
+            'dateModified': '2026-11-07T00:00:00Z'
           }
         ]
       }
@@ -2125,7 +2398,7 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
               }
             },
             'datePublished': '2026-10-31T00:00:00Z',
-            'dateModified': '2026-10-31T00:00:00Z'
+            'dateModified': '2026-11-07T00:00:00Z'
           }
         ]
       }
@@ -2190,7 +2463,7 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
               }
             },
             'datePublished': '2026-10-31T00:00:00Z',
-            'dateModified': '2026-10-31T00:00:00Z'
+            'dateModified': '2026-11-07T00:00:00Z'
           }
         ]
       }
@@ -2255,7 +2528,7 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
               }
             },
             'datePublished': '2026-10-31T00:00:00Z',
-            'dateModified': '2026-10-31T00:00:00Z'
+            'dateModified': '2026-11-07T00:00:00Z'
           }
         ]
       }

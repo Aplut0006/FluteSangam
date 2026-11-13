@@ -1,17 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import { VIEW_URLS } from '../src/routes';
-import { CATEGORY_SLUGS } from '../src/data/allFaqData';
-
 
 const baseUrl = 'https://flutesangam.com';
 
 const baseRoutes = Object.values(VIEW_URLS)
   .filter(p => !p.startsWith('/post') && !p.startsWith('/profile') && !p.startsWith('/chats') && p !== '/404' && p !== '/members');
-
-const faqCategoryRoutes = Object.values(CATEGORY_SLUGS)
-  .filter(Boolean)
-  .map(slug => `/faq/${slug}`);
 
 const rankedAlankarRoutes = [
   '/learn/alankaras/beginner',
@@ -21,8 +15,8 @@ const rankedAlankarRoutes = [
 
 // Explicit historic publication / update dates
 const ROUTE_MOD_DATES: Record<string, string> = {
-  '/': '2026-10-18',
-  '/community': '2026-10-18',
+  '/': '2026-11-07',
+  '/community': '2026-11-07',
   '/learn/intro': '2026-10-18',
   '/learn/choose-flute': '2026-10-18',
   '/tuner': '2026-09-18',
@@ -60,28 +54,28 @@ const ROUTE_MOD_DATES: Record<string, string> = {
   '/learn/raga-tilang': '2026-10-18',
   '/learn/raga-shivranjani': '2026-10-18',
   '/learn/raga-jaunpuri': '2026-10-18',
-  '/about': '2026-09-18',
-  '/founder': '2026-09-18',
-  '/contact': '2026-09-18',
+  '/about': '2026-11-07',
+  '/founder': '2026-11-07',
+  '/contact': '2026-11-07',
   '/learn': '2026-10-18',
-  '/notations': '2026-10-18',
-  '/notations/happy-birthday-flute-notes': '2026-10-18',
-  '/notations/jingle-bells-flute-notes': '2026-10-18',
-  '/notations/my-heart-will-go-on-flute-notes': '2026-10-18',
-  '/notations/tum-hi-ho-flute-notes': '2026-10-18',
-  '/notations/kal-ho-naa-ho-flute-notes': '2026-10-18',
-  '/notations/achyutam-keshavam-flute-notes': '2026-10-18',
-  '/notations/radha-krishna-flute-notes': '2026-10-18',
-  '/notations/jana-gana-mana-flute-notes': '2026-10-18',
-  '/notations/mahabharat-krishna-theme-flute-notes': '2026-10-18',
-  '/notations/shri-krishna-govind-hare-murari-flute-notes': '2026-10-18',
-  '/notations/hothon-se-chhoo-lo-tum-flute-notes': '2026-10-18',
-  '/notations/krrish-theme-flute-notes': '2026-10-31',
-  '/notations/enchanting-flute-krishna-aur-kans-flute-notes': '2026-10-31',
-  '/notations/lag-ja-gale-flute-notes': '2026-10-31',
-  '/notations/chhu-kar-mere-mann-ko-flute-notes': '2026-10-31',
-  '/notations/tujhe-dekha-to-flute-notes': '2026-10-31',
-  '/notations/yeh-shaam-mastani-flute-notes': '2026-10-31',
+  '/notations': '2026-11-07',
+  '/notations/happy-birthday-flute-notes': '2026-11-07',
+  '/notations/jingle-bells-flute-notes': '2026-11-07',
+  '/notations/my-heart-will-go-on-flute-notes': '2026-11-07',
+  '/notations/tum-hi-ho-flute-notes': '2026-11-07',
+  '/notations/kal-ho-naa-ho-flute-notes': '2026-11-07',
+  '/notations/achyutam-keshavam-flute-notes': '2026-11-07',
+  '/notations/radha-krishna-flute-notes': '2026-11-07',
+  '/notations/jana-gana-mana-flute-notes': '2026-11-07',
+  '/notations/mahabharat-krishna-theme-flute-notes': '2026-11-07',
+  '/notations/shri-krishna-govind-hare-murari-flute-notes': '2026-11-07',
+  '/notations/hothon-se-chhoo-lo-tum-flute-notes': '2026-11-07',
+  '/notations/krrish-theme-flute-notes': '2026-11-07',
+  '/notations/enchanting-flute-krishna-aur-kans-flute-notes': '2026-11-07',
+  '/notations/lag-ja-gale-flute-notes': '2026-11-07',
+  '/notations/chhu-kar-mere-mann-ko-flute-notes': '2026-11-07',
+  '/notations/tujhe-dekha-to-flute-notes': '2026-11-07',
+  '/notations/yeh-shaam-mastani-flute-notes': '2026-11-07',
   '/privacy-policy': '2026-09-18',
   '/terms-of-service': '2026-09-18',
   '/copyright-policy': '2026-10-02',
@@ -89,28 +83,11 @@ const ROUTE_MOD_DATES: Record<string, string> = {
   '/tools/tanpura': '2026-10-18',
   '/tools/flute-note-key-converter': '2026-10-18',
   '/learn/how-to-find-scale-of-a-song-on-flute': '2026-10-18',
-  '/learn/how-to-read-bansuri-notation': '2026-10-18',
-  '/faq/getting-started': '2026-09-18',
-  '/faq/learning-the-flute': '2026-09-18',
-  '/faq/adult-learners': '2026-09-18',
-  '/faq/choosing-the-right-flute': '2026-09-25',
-  '/faq/playing-techniques': '2026-09-18',
-  '/faq/advanced-techniques': '2026-09-18',
-  '/faq/daily-practice': '2026-09-18',
-  '/faq/scales-and-alankars': '2026-09-18',
-  '/faq/raagas': '2026-10-18',
-  '/faq/flute-care-and-maintenance': '2026-09-18',
-  '/faq/health-and-breathing': '2026-09-18',
-  '/faq/children-and-beginners': '2026-09-25',
-  '/faq/music-theory': '2026-09-25',
-  '/faq/tuning-and-pitch': '2026-09-24',
-  '/faq/flute-accessories': '2026-09-18',
-  '/faq/flute-types': '2026-09-25',
-  '/faq/platform': '2026-09-18'
+  '/learn/how-to-read-bansuri-notation': '2026-10-18'
 };
 
-// Combine base routes, FAQ category routes, and ranked Alankar routes (post routes excluded from sitemap)
-const allRoutes = Array.from(new Set([...baseRoutes, ...faqCategoryRoutes, ...rankedAlankarRoutes]));
+// Combine base routes and ranked Alankar routes (thin /faq/* filter sub-routes and /post/* excluded)
+const allRoutes = Array.from(new Set([...baseRoutes, ...rankedAlankarRoutes]));
 
 const publicDir = path.join(process.cwd(), 'public');
 const sitemapPath = path.join(publicDir, 'sitemap.xml');
@@ -119,17 +96,53 @@ const getRouteLastMod = (route: string): string => {
   return ROUTE_MOD_DATES[route] || '2026-09-18';
 };
 
+const getRouteSeoConfig = (route: string): { changefreq: string; priority: string } => {
+  if (route === '/') {
+    return { changefreq: 'daily', priority: '1.0' };
+  }
+  if (route === '/community') {
+    return { changefreq: 'daily', priority: '0.9' };
+  }
+  if (
+    route === '/learn' ||
+    route === '/learn/raagas' ||
+    route === '/notations' ||
+    route === '/learn/alankaras' ||
+    route === '/tuner' ||
+    route === '/tools/tanpura' ||
+    route === '/tools/flute-note-key-converter' ||
+    route === '/alankar-generator' ||
+    route === '/faq'
+  ) {
+    return { changefreq: 'weekly', priority: '0.9' };
+  }
+  if (
+    route.startsWith('/notations/') ||
+    route.startsWith('/learn/')
+  ) {
+    return { changefreq: 'weekly', priority: '0.8' };
+  }
+  if (route === '/about' || route === '/founder' || route === '/contact') {
+    return { changefreq: 'monthly', priority: '0.7' };
+  }
+  if (route === '/privacy-policy' || route === '/terms-of-service' || route === '/copyright-policy') {
+    return { changefreq: 'yearly', priority: '0.4' };
+  }
+  return { changefreq: 'weekly', priority: '0.8' };
+};
+
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${allRoutes
-  .map(
-    route => `  <url>
+  .map(route => {
+    const { changefreq, priority } = getRouteSeoConfig(route);
+    return `  <url>
     <loc>${baseUrl}${route}</loc>
     <lastmod>${getRouteLastMod(route)}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>`
-  )
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+  </url>`;
+  })
   .join('\n')}
 </urlset>`;
 

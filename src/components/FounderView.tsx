@@ -302,10 +302,28 @@ export default function FounderView({ onViewChange }: FounderViewProps) {
         </div>
 
         <p className="text-sm sm:text-base text-bamboo-100 leading-relaxed">
-          I would love to connect with fellow flute players, learners, and enthusiasts. If you have questions, feedback, or ideas for FluteSangam, feel free to reach out or join our community:
+          I would love to connect with fellow flute players, learners, and enthusiasts. If you have questions, editorial feedback, song notation suggestions, or ideas for FluteSangam, feel free to reach out directly at <strong>flutesangam@gmail.com</strong> or join our community:
         </p>
 
         <div className="flex flex-wrap items-center gap-4 pt-2">
+          <a 
+            href="mailto:flutesangam@gmail.com"
+            className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-bamboo-950 px-5 py-3 rounded-2xl font-extrabold text-xs sm:text-sm transition shadow-md"
+          >
+            <Mail className="w-4 h-4" />
+            <span>flutesangam@gmail.com</span>
+          </a>
+
+          <a
+            href="/contact"
+            onClick={handleNav('contact_us')}
+            className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-5 py-3 rounded-2xl font-extrabold text-xs sm:text-sm transition shadow-md cursor-pointer"
+          >
+            <Mail className="w-4 h-4 text-amber-300" />
+            <span>Contact &amp; Editorial Support</span>
+            <ArrowRight className="w-3.5 h-3.5 text-amber-300" />
+          </a>
+
           <a 
             href="https://chat.whatsapp.com/HwfFf145b2A7ieIUrytve2"
             target="_blank"
@@ -315,14 +333,6 @@ export default function FounderView({ onViewChange }: FounderViewProps) {
             <MessageCircle className="w-4 h-4 fill-current" />
             <span>Join WhatsApp Community</span>
             <ExternalLink className="w-3.5 h-3.5 opacity-80" />
-          </a>
-
-          <a 
-            href="mailto:aplut0006@gmail.com"
-            className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-bamboo-950 px-5 py-3 rounded-2xl font-extrabold text-xs sm:text-sm transition shadow-md"
-          >
-            <Mail className="w-4 h-4" />
-            <span>aplut0006@gmail.com</span>
           </a>
         </div>
       </section>

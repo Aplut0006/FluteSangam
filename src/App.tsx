@@ -95,7 +95,7 @@ const PrivacyPolicyView = lazyWithRetry(() => import('./components/PrivacyPolicy
 const TermsOfServiceView = lazyWithRetry(() => import('./components/TermsOfServiceView'));
 const CopyrightPolicyView = lazyWithRetry(() => import('./components/CopyrightPolicyView'));
 const NotFoundView = lazyWithRetry(() => import('./components/NotFoundView'));
-const CommunityFeedView = lazyWithRetry(() => import('./components/CommunityFeedView').then(m => ({ default: m.CommunityFeedView })));
+import { CommunityFeedView } from './components/CommunityFeedView';
 import HomepageOverview from './components/HomepageOverview';
 
 const ViewFallbackLoader = () => (
@@ -291,8 +291,8 @@ export default function App() {
 
     switch (currentView) {
       case 'community':
-        title = 'FluteSangam | Learn Flute, Bansuri & Connect with Flutists';
-        description = 'Learn flute online with lessons, songs, ragas, techniques, practice guides, interactive tools, and Sargam notations for bamboo flute enthusiasts.';
+        title = 'Flute Community & Practice Discussions | FluteSangam';
+        description = 'Connect with flute and bansuri players worldwide. Share practice recordings, ask questions, discuss flute playing and classical ragas, and receive feedback.';
         break;
       case 'chats':
         title = 'Direct Messages & Chat | FluteSangam Community';
@@ -546,16 +546,16 @@ export default function App() {
         description = 'Meet flutists, learners, and contributors in the global FluteSangam community.';
         break;
       case 'about_us':
-        title = 'About FluteSangam - Mission, Vision & Community | FluteSangam';
-        description = 'FluteSangam is dedicated to making Indian Bamboo Flute (Bansuri) education accessible, structured, and enjoyable for musicians worldwide.';
+        title = 'About FluteSangam - Mission, Editorial Standards & Community | FluteSangam';
+        description = 'Learn about FluteSangam, founded by Aplut: our mission, editorial methodology, and open platform making Indian Bamboo Flute (Bansuri) education accessible worldwide.';
         break;
       case 'founder':
         title = "Founder's Story - Aplut | FluteSangam";
-        description = 'Meet Aplut, founder of FluteSangam. Discover the story behind creating a global, welcoming platform for Indian flute (Bansuri) enthusiasts.';
+        description = 'Meet Aplut, founder of FluteSangam, software engineer (B.Tech CS), and self-taught bansuri practitioner since 2022 building a global learning platform for flute enthusiasts.';
         break;
       case 'contact_us':
-        title = 'Contact Us & Support | FluteSangam';
-        description = 'Get in touch with the FluteSangam team for platform support, feedback, questions, or community collaboration.';
+        title = 'Contact Us & Editorial Support | FluteSangam';
+        description = 'Contact FluteSangam and founder Aplut at flutesangam@gmail.com for bansuri learning questions, song Sargam notation requests, editorial corrections, or community collaboration.';
         break;
       case 'privacy_policy':
         title = 'Privacy Policy | FluteSangam';
@@ -609,7 +609,15 @@ export default function App() {
     let pubDate = '2026-07-26T00:00:00Z';
     let modDate = '2026-07-30T10:00:00Z';
 
-    if (currentView.startsWith('notation_') || currentView === 'notation_requests') {
+    if (
+      currentView.startsWith('notation_') ||
+      currentView === 'notation_requests' ||
+      currentView === 'home' ||
+      currentView === 'community' ||
+      currentView === 'about_us' ||
+      currentView === 'founder' ||
+      currentView === 'contact_us'
+    ) {
       modDate = '2026-11-07T00:00:00Z';
     } else if (
       currentView === 'raga_kafi' || 
@@ -625,8 +633,6 @@ export default function App() {
       currentView === 'how_to_read_bansuri_notation' ||
       currentView === 'note_key_converter' ||
       currentView === 'tanpura' ||
-      currentView === 'community' ||
-      currentView === 'home' ||
       currentView === 'learn_dashboard'
     ) {
       modDate = '2026-10-11T00:00:00Z';
@@ -698,13 +704,45 @@ export default function App() {
       document.head.appendChild(jsonLdScript);
     }
 
+    const founderPersonSchema = {
+      '@type': 'Person',
+      '@id': 'https://flutesangam.com/founder#aplut',
+      'name': 'Aplut',
+      'jobTitle': 'Founder & Creator of FluteSangam',
+      'image': 'https://flutesangam.com/founder_photo.jpeg',
+      'email': 'flutesangam@gmail.com',
+      'url': 'https://flutesangam.com/founder',
+      'alumniOf': {
+        '@type': 'EducationalOrganization',
+        'name': 'B.Tech in Computer Science'
+      },
+      'homeLocation': {
+        '@type': 'Country',
+        'name': 'India'
+      },
+      'worksFor': {
+        '@id': 'https://flutesangam.com/#organization'
+      }
+    };
+
     const organizationSchema = {
       '@type': 'Organization',
       '@id': 'https://flutesangam.com/#organization',
       'name': 'FluteSangam',
       'alternateName': 'Flute Sangam',
       'url': 'https://flutesangam.com/',
-      'logo': 'https://flutesangam.com/flutesangam_logo.png'
+      'logo': 'https://flutesangam.com/flutesangam_icon_compressed.png',
+      'email': 'flutesangam@gmail.com',
+      'founder': {
+        '@id': 'https://flutesangam.com/founder#aplut'
+      },
+      'contactPoint': {
+        '@type': 'ContactPoint',
+        'email': 'flutesangam@gmail.com',
+        'contactType': 'customer support',
+        'url': 'https://flutesangam.com/contact',
+        'availableLanguage': ['English', 'Hindi']
+      }
     };
 
     let breadcrumbItems = [
@@ -712,7 +750,13 @@ export default function App() {
     ];
 
     if (currentView === 'community') {
-      breadcrumbItems.push({ '@type': 'ListItem', 'position': 2, 'name': 'Community', 'item': 'https://flutesangam.com/community' });
+      breadcrumbItems.push({ '@type': 'ListItem', 'position': 2, 'name': 'Flute Community', 'item': 'https://flutesangam.com/community' });
+    } else if (currentView === 'founder') {
+      breadcrumbItems.push({ '@type': 'ListItem', 'position': 2, 'name': 'Founder Story (Aplut)', 'item': 'https://flutesangam.com/founder' });
+    } else if (currentView === 'about_us') {
+      breadcrumbItems.push({ '@type': 'ListItem', 'position': 2, 'name': 'About FluteSangam', 'item': 'https://flutesangam.com/about' });
+    } else if (currentView === 'contact_us') {
+      breadcrumbItems.push({ '@type': 'ListItem', 'position': 2, 'name': 'Contact FluteSangam', 'item': 'https://flutesangam.com/contact' });
     } else if (currentView === 'post-detail' && selectedPost) {
       breadcrumbItems.push({ '@type': 'ListItem', 'position': 2, 'name': 'Community', 'item': 'https://flutesangam.com/community' });
       breadcrumbItems.push({ '@type': 'ListItem', 'position': 3, 'name': selectedPost.title, 'item': `https://flutesangam.com/post/${selectedPost.id}` });
@@ -756,6 +800,27 @@ export default function App() {
       if (selectedPost.imageUrl) {
         primarySchema['image'] = selectedPost.imageUrl;
       }
+    } else if (currentView === 'founder') {
+      primarySchema['@type'] = 'ProfilePage';
+      primarySchema['@id'] = 'https://flutesangam.com/founder#webpage';
+      primarySchema['name'] = title;
+      primarySchema['headline'] = title;
+      primarySchema['description'] = description;
+      primarySchema['mainEntity'] = { '@id': 'https://flutesangam.com/founder#aplut' };
+    } else if (currentView === 'about_us') {
+      primarySchema['@type'] = 'AboutPage';
+      primarySchema['@id'] = 'https://flutesangam.com/about#webpage';
+      primarySchema['name'] = title;
+      primarySchema['headline'] = title;
+      primarySchema['description'] = description;
+      primarySchema['mainEntity'] = { '@id': 'https://flutesangam.com/#organization' };
+    } else if (currentView === 'contact_us') {
+      primarySchema['@type'] = 'ContactPage';
+      primarySchema['@id'] = 'https://flutesangam.com/contact#webpage';
+      primarySchema['name'] = title;
+      primarySchema['headline'] = title;
+      primarySchema['description'] = description;
+      primarySchema['mainEntity'] = { '@id': 'https://flutesangam.com/#organization' };
     } else if (currentView.startsWith('learn_')) {
       primarySchema['@type'] = ['LearningResource', 'HowTo', 'Course'];
       primarySchema['@id'] = `https://flutesangam.com/learn#${currentView}`;
@@ -808,6 +873,7 @@ export default function App() {
       '@context': 'https://schema.org',
       '@graph': [
         organizationSchema,
+        founderPersonSchema,
         breadcrumbSchema,
         primarySchema
       ]
@@ -1111,9 +1177,18 @@ export default function App() {
       try {
         unsubscribePosts = subscribeToPosts((loadedPosts) => {
           if (loadedPosts && loadedPosts.length > 0) {
-            setPosts(loadedPosts);
+            const mergedMap = new Map<string, Post>();
+            for (const p of loadedPosts) {
+              mergedMap.set(p.id, p);
+            }
+            for (const sp of STATIC_INITIAL_POSTS) {
+              if (!mergedMap.has(sp.id)) {
+                mergedMap.set(sp.id, sp);
+              }
+            }
+            setPosts(Array.from(mergedMap.values()));
           } else {
-            // If empty, seed in background
+            // Keep STATIC_INITIAL_POSTS visible and seed in background
             seedDatabaseIfEmpty().catch(() => {});
           }
         });
