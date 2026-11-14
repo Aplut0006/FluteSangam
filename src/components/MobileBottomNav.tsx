@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Compass, BookOpen, Music, Radio } from 'lucide-react';
+import { Home, Compass, BookOpen, Music } from 'lucide-react';
 import { AppView, UserProfile } from '../types';
 import { VIEW_URLS } from '../routes';
 
@@ -25,22 +25,28 @@ export default function MobileBottomNav({
 
   const tabs = [
     { 
-      id: 'community' as AppView, 
-      label: 'Feed', 
-      icon: Compass,
-      isActive: currentView === 'community' || currentView === 'post-detail'
+      id: 'home' as AppView, 
+      label: 'Home', 
+      icon: Home,
+      isActive: currentView === 'home'
     },
     { 
       id: 'learn_dashboard' as AppView, 
       label: 'Learn', 
       icon: BookOpen,
-      isActive: currentView === 'learn_dashboard' || (currentView.startsWith('learn_') && currentView !== 'learn_tuner' && currentView !== 'learn_raagas' && !currentView.startsWith('raga_'))
+      isActive:
+        currentView === 'learn_dashboard' ||
+        ((currentView.startsWith('learn_') ||
+          currentView === 'how_to_read_bansuri_notation' ||
+          currentView === 'find_song_scale') &&
+          currentView !== 'learn_raagas' &&
+          !currentView.startsWith('raga_'))
     },
     { 
-      id: 'learn_tuner' as AppView, 
-      label: 'Tuner', 
-      icon: Radio,
-      isActive: currentView === 'learn_tuner'
+      id: 'community' as AppView, 
+      label: 'Community', 
+      icon: Compass,
+      isActive: currentView === 'community' || currentView === 'post-detail'
     },
     { 
       id: 'learn_raagas' as AppView, 
