@@ -3,7 +3,7 @@ import {
   Music, BookOpen, Clock, Sun, Calendar, CheckCircle2, Play, Pause, Square,
   Volume2, Copy, Check, ChevronDown, ChevronUp, 
   Compass, Zap, Share2, 
-  Sliders, Award, Sparkles, ShieldAlert, Lightbulb, ArrowLeft,
+  Sliders, Award, ShieldAlert, Lightbulb, ArrowLeft,
   RefreshCw, RotateCcw, Feather, Heart, HelpCircle
 } from 'lucide-react';
 import { AppView } from '../types';
@@ -360,7 +360,6 @@ export const RagaTilangView: React.FC<RagaTilangViewProps> = ({ onViewChange }) 
           <div className="relative z-10 space-y-4">
             <div className="flex flex-wrap items-center gap-2 text-xs font-extrabold uppercase tracking-wider">
               <span className="bg-amber-200/90 text-amber-950 border border-amber-300 px-3 py-1 rounded-full flex items-center gap-1.5 shadow-2xs">
-                <Sparkles className="w-3.5 h-3.5 text-amber-700" />
                 Hindustani Classical Raga Guide
               </span>
               <span className="bg-white/80 text-stone-700 border border-stone-200 px-3 py-1 rounded-full">
@@ -448,7 +447,6 @@ export const RagaTilangView: React.FC<RagaTilangViewProps> = ({ onViewChange }) 
           {/* Benefits Grid */}
           <div className="bg-amber-50/70 border border-amber-200/80 rounded-2xl p-5 space-y-3">
             <h3 className="text-sm font-bold text-amber-950 uppercase tracking-wider flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-amber-700" />
               For Flute Players, Tilang is Useful for Developing:
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-2">
@@ -954,7 +952,6 @@ export const RagaTilangView: React.FC<RagaTilangViewProps> = ({ onViewChange }) 
           {/* Meend Guidance */}
           <div className="bg-amber-50/70 border border-amber-200 rounded-2xl p-5 space-y-3">
             <h3 className="text-sm font-bold text-amber-950 uppercase tracking-wider flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-amber-700" />
               Meend (Graceful Glide) Practice for Bansuri
             </h3>
             <p className="text-xs sm:text-sm text-stone-700 leading-relaxed">
@@ -1048,7 +1045,6 @@ export const RagaTilangView: React.FC<RagaTilangViewProps> = ({ onViewChange }) 
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-amber-200/80 pb-5">
             <div className="space-y-1">
               <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-900 bg-amber-200/80 px-3 py-0.5 rounded-full">
-                <Sparkles className="w-3.5 h-3.5 text-amber-700" />
                 FluteSangam Original Composition
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold font-display text-bamboo-950">
@@ -1306,7 +1302,6 @@ G M P N | S' n P M | G M G S | S — — — ||`)}
 
           <div className="p-5 rounded-2xl bg-gradient-to-r from-amber-100/90 via-orange-100/60 to-amber-50 border border-amber-300 text-bamboo-950 space-y-2">
             <h4 className="text-sm font-bold font-display flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-amber-800" />
               FluteSangam Tip for Raag Tilang
             </h4>
             <p className="text-xs sm:text-sm leading-relaxed">

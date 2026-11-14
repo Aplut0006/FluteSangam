@@ -7,7 +7,6 @@ import {
   Layers, 
   FileText,
   AlertTriangle,
-  Sparkles,
   Film,
   Mic,
   CheckCircle2
@@ -107,7 +106,6 @@ export const ChhuKarMereMannKoNotationView: React.FC<ChhuKarMereMannKoNotationVi
               <span>Published: {song.publishedDate}</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-amber-300" />
               <span>Updated: {song.updatedDate}</span>
             </div>
           </div>

@@ -76,12 +76,11 @@ export const NotationHeaderToolbar: React.FC<NotationHeaderToolbarProps> = ({
         </button>
       </div>
 
-      {/* 2. Dropdown Panel for Quick Song Information (Shown only when toggled) */}
-      {showQuickInfo && (
-        <section 
-          aria-label="Quick song information"
-          className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-amber-200 shadow-sm space-y-3 sm:space-y-4 animate-fade-in"
-        >
+      {/* 2. Dropdown Panel for Quick Song Information (Always rendered in DOM for SSR, toggled via CSS) */}
+      <section 
+        aria-label="Quick song information"
+        className={`${showQuickInfo ? 'block' : 'hidden'} bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-amber-200 shadow-sm space-y-3 sm:space-y-4 animate-fade-in`}
+      >
           <div className="flex items-center justify-between border-b border-amber-100 pb-2.5">
             <h2 className="text-sm sm:text-base font-bold font-display text-bamboo-950 flex items-center gap-2">
               <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600 shrink-0" />
@@ -160,8 +159,7 @@ export const NotationHeaderToolbar: React.FC<NotationHeaderToolbarProps> = ({
           <p className="text-[11px] sm:text-xs text-gray-500 italic pt-1 border-t border-amber-100">
             {defaultNote}
           </p>
-        </section>
-      )}
+      </section>
     </div>
   );
 };

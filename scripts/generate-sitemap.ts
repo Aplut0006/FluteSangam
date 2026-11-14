@@ -27,10 +27,10 @@ const ROUTE_MOD_DATES: Record<string, string> = {
   '/learn/alankaras/intermediate': '2026-10-18',
   '/learn/alankaras/advanced': '2026-10-18',
   '/learn/daily-practice-guide': '2026-10-18',
-  '/learn/flute-scales-octaves': '2026-10-18',
-  '/learn/common-flute-mistakes': '2026-10-18',
+  '/learn/flute-scales-octaves': '2026-11-13',
+  '/learn/common-flute-mistakes': '2026-11-13',
   '/alankar-generator': '2026-10-18',
-  '/learn/raagas': '2026-10-18',
+  '/learn/raagas': '2026-11-13',
   '/learn/raga-bhoopali': '2026-11-13',
   '/learn/raga-durga': '2026-11-13',
   '/learn/raga-yaman': '2026-11-13',
@@ -79,10 +79,10 @@ const ROUTE_MOD_DATES: Record<string, string> = {
   '/privacy-policy': '2026-09-18',
   '/terms-of-service': '2026-09-18',
   '/copyright-policy': '2026-10-02',
-  '/faq': '2026-09-18',
-  '/tools/tanpura': '2026-10-18',
+  '/faq': '2026-11-13',
+  '/tools/tanpura': '2026-11-13',
   '/tools/flute-note-key-converter': '2026-10-18',
-  '/learn/how-to-find-scale-of-a-song-on-flute': '2026-10-18',
+  '/learn/how-to-find-scale-of-a-song-on-flute': '2026-11-13',
   '/learn/how-to-read-bansuri-notation': '2026-10-18'
 };
 

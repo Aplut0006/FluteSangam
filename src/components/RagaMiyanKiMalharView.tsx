@@ -8,7 +8,6 @@ import {
   Clock, 
   Award, 
   Music, 
-  Sparkles, 
   Copy, 
   Check, 
   RotateCcw, 
@@ -666,7 +665,6 @@ R M R S | S — — — ||`;
         {/* 5. CHARACTERISTICS OF RAAG MIYAN KI MALHAR */}
         <div className="bg-white rounded-3xl p-6 md:p-8 border border-stone-200/80 mb-8 shadow-sm">
           <h2 className="text-2xl font-bold text-amber-900 mb-6 flex items-center gap-2">
-            <Sparkles className="w-6 h-6 text-amber-700" />
             Characteristics of Raag Miyan Ki Malhar
           </h2>
 
@@ -840,7 +838,6 @@ R M R S | S — — — ||`;
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-6 border-b border-amber-700/50">
             <div>
               <div className="flex items-center gap-2 mb-1.5">
-                <Sparkles className="w-5 h-5 text-amber-300" />
                 <span className="text-xs font-bold text-amber-300 uppercase tracking-wider">FluteSangam Original Composition</span>
               </div>
               <h2 className="text-2xl md:text-3xl font-extrabold text-white">
@@ -1022,7 +1019,6 @@ R M R S | S — — — ||`;
         {/* 11. FLUTE PRACTICE TIPS FOR RAAG MIYAN KI MALHAR */}
         <div className="bg-white rounded-3xl p-6 md:p-8 border border-stone-200/80 mb-8 shadow-sm">
           <h2 className="text-2xl font-bold text-amber-900 mb-6 flex items-center gap-2">
-            <Sparkles className="w-6 h-6 text-amber-700" />
             Flute Practice Tips for Raag Miyan Ki Malhar
           </h2>
 

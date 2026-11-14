@@ -1,5 +1,5 @@
 import React from 'react';
-import { User, Sparkles, ArrowRight } from 'lucide-react';
+import { User, ArrowRight } from 'lucide-react';
 import { AppView } from '../types';
 
 interface AboutAuthorSectionProps {
@@ -47,7 +47,6 @@ export default function AboutAuthorSection({ onViewChange, className = '' }: Abo
             />
           </div>
           <div className="absolute -bottom-1 -right-1 bg-amber-500 text-bamboo-950 text-[8px] font-extrabold px-1.5 py-0.5 rounded-md shadow-2xs uppercase tracking-wider flex items-center gap-0.5 border border-amber-300">
-            <Sparkles className="w-2 h-2 text-bamboo-950" />
             Author
           </div>
         </div>
@@ -66,7 +65,6 @@ export default function AboutAuthorSection({ onViewChange, className = '' }: Abo
                 className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-bold text-bamboo-950 bg-amber-200/90 hover:bg-amber-300 px-2.5 py-1 rounded-lg border border-amber-400/80 transition cursor-pointer shadow-3xs"
                 title="Read Aplut's Founder story"
               >
-                <Sparkles className="w-3 h-3 text-amber-700" />
                 <span>Founder Story</span>
               </a>
               <a

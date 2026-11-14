@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { 
-  Wind, Music, BookOpen, Clock, Sparkles, ArrowRight, Play, CheckCircle2, 
+  Wind, Music, BookOpen, Clock, ArrowRight, Play, CheckCircle2, 
   Sliders, Radio, Award, Compass, MessageSquare, Plus, FileText, User, Users,
   Lightbulb, ShieldCheck, Calendar, Heart, HelpCircle, Search, Flame, ChevronRight,
   Volume2, Target, Mic, Layers, Activity
@@ -232,7 +232,7 @@ export default function HomepageOverview({
       title: 'Interactive Alankar Generator',
       description: 'Generate customized sargam exercises for any scale with audio playback and speed controls.',
       view: 'alankar_generator' as AppView,
-      icon: Sparkles,
+      icon: Music,
       badge: 'Practice Engine',
       features: ['Audio Playback', 'BPM Speed Slider', 'Custom Pattern Builder'],
       gradient: 'from-amber-500/15 via-amber-400/5 to-transparent',
@@ -397,7 +397,6 @@ export default function HomepageOverview({
       <section className="space-y-6 bg-linear-to-br from-amber-50/70 via-white to-bamboo-50/50 p-6 sm:p-8 rounded-3xl border border-amber-200/80 shadow-xs">
         <div className="max-w-3xl space-y-2">
           <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-900 bg-amber-100 px-3 py-1 rounded-full border border-amber-200/90 shadow-2xs">
-            <Sparkles className="w-3.5 h-3.5 text-amber-700" />
             The Art &amp; Science of Flute Playing
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold font-display text-bamboo-950 tracking-tight">
@@ -777,7 +776,6 @@ export default function HomepageOverview({
                   </div>
 
                   <p className="text-[11px] text-gray-600 flex items-center gap-1.5 pt-1">
-                    <Sparkles className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                     <span className="line-clamp-1">{song.tips}</span>
                   </p>
                 </div>
@@ -1018,7 +1016,6 @@ export default function HomepageOverview({
 
           <div className="p-4 bg-amber-50/50 rounded-2xl border border-amber-100 space-y-2">
             <h3 className="font-bold text-bamboo-900 text-sm flex items-center gap-1.5">
-              <Sparkles className="w-4 h-4 text-amber-600" />
               Free Interactive Tools
             </h3>
             <p className="text-gray-600 leading-relaxed">

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { 
-  Sparkles, 
   Heart, 
   Compass, 
   Music, 
@@ -56,14 +55,12 @@ export default function FounderView({ onViewChange }: FounderViewProps) {
               />
             </div>
             <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-amber-500 text-bamboo-950 text-[10px] sm:text-xs font-extrabold px-3 py-1 rounded-full shadow-md border border-amber-300 whitespace-nowrap uppercase tracking-wider flex items-center gap-1">
-              <Sparkles className="w-3 h-3 text-bamboo-950" />
               <span>Founder</span>
             </div>
           </div>
 
           <div className="space-y-4 flex-1 text-center md:text-left">
             <div className="inline-flex items-center gap-1.5 bg-amber-400/20 border border-amber-300/30 px-3 py-1 rounded-full text-amber-300 text-xs font-bold">
-              <Sparkles className="w-3.5 h-3.5" />
               <span>Founder &amp; Creator</span>
             </div>
 

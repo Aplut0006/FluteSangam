@@ -4,7 +4,7 @@ import {
   Music, BookOpen, Clock, Sun, Calendar, CheckCircle2, Play, Pause, 
   Volume2, VolumeX, Copy, Check, ChevronDown, ChevronUp, AlertCircle, 
   Heart, Compass, Zap, Repeat, HelpCircle, ArrowRight, Share2, Printer, 
-  Sliders, Radio, Award, Sparkles, Flame, ShieldAlert, Lightbulb
+  Sliders, Radio, Award, Flame, ShieldAlert, Lightbulb
 } from 'lucide-react';
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
@@ -147,8 +147,8 @@ export default function RagaBilawalView({ onViewChange }: RagaBilawalViewProps) 
     { label: 'Thaat', value: 'Bilawal (Parent Scale)', icon: <Compass className="w-4 h-4 text-amber-600" /> },
     { label: 'Jati', value: 'Sampurna – Sampurna (7 Notes)', icon: <Sliders className="w-4 h-4 text-amber-600" /> },
     { label: 'Time of Day', value: 'Morning (7 AM – 10 AM)', icon: <Sun className="w-4 h-4 text-amber-600" /> },
-    { label: 'Vadi (King Note)', value: 'Dha (Dhaivat)', icon: <Sparkles className="w-4 h-4 text-amber-600" /> },
-    { label: 'Samvadi (Queen Note)', value: 'Ga (Gandhar)', icon: <Sparkles className="w-4 h-4 text-amber-600" /> },
+    { label: 'Vadi (King Note)', value: 'Dha (Dhaivat)', icon: <Music className="w-4 h-4 text-amber-600" /> },
+    { label: 'Samvadi (Queen Note)', value: 'Ga (Gandhar)', icon: <Music className="w-4 h-4 text-amber-600" /> },
     { label: 'Nature', value: 'Bright, Peaceful, Joyful, Clear', icon: <Heart className="w-4 h-4 text-emerald-600" /> },
     { label: 'Rasa', value: 'Shanta (Peace), Hasya (Joy & Cheer)', icon: <Flame className="w-4 h-4 text-amber-600" /> },
     { label: 'Difficulty Level', value: 'Beginner to Intermediate', icon: <CheckCircle2 className="w-4 h-4 text-emerald-600" /> },
@@ -468,7 +468,6 @@ export default function RagaBilawalView({ onViewChange }: RagaBilawalViewProps) 
         {/* Characteristics */}
         <div className="bg-white p-4 sm:p-6 rounded-2xl sm:rounded-3xl border border-bamboo-100 shadow-sm space-y-3">
           <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold shrink-0">
-            <Sparkles className="w-5 h-5" />
           </div>
           <h3 className="text-base sm:text-lg font-bold font-display text-bamboo-950">Key Characteristics</h3>
           <ul className="space-y-2 text-xs text-gray-700 font-sans">
@@ -617,7 +616,6 @@ export default function RagaBilawalView({ onViewChange }: RagaBilawalViewProps) 
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-bamboo-800 pb-4">
           <div>
             <div className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-bold text-amber-300 bg-amber-400/20 px-3 py-1 rounded-full border border-amber-300/30 mb-2">
-              <Sparkles className="w-3.5 h-3.5 shrink-0" />
               FluteSangam Original Composition
             </div>
             <h2 className="text-xl sm:text-3xl font-display font-extrabold text-white">

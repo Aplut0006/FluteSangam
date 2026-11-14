@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Music, ChevronRight, Film, Mic, Sparkles, Layers, ArrowRight } from 'lucide-react';
+import { Music, ChevronRight, Film, Mic, Layers, ArrowRight } from 'lucide-react';
 import { AppView } from '../types';
 import { VIEW_URLS } from '../routes';
 import { PUBLISHED_SONG_NOTATIONS, SongNotationItem } from '../data/songNotationsData';

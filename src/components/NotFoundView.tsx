@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AppView } from '../types';
 import { 
   Wind, Search, Home, BookOpen, Music, Compass, 
-  Sparkles, ArrowRight, HelpCircle, Radio, Sliders, FileText
+  ArrowRight, HelpCircle, Radio, Sliders, FileText
 } from 'lucide-react';
 import { motion } from 'motion/react';
 

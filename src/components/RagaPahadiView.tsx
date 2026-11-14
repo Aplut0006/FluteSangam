@@ -3,7 +3,7 @@ import {
   Music, BookOpen, Clock, Sun, Calendar, CheckCircle2, Play, Pause, Square,
   Volume2, Copy, Check, ChevronDown, ChevronUp, 
   Compass, Zap, Share2, 
-  Sliders, Award, Sparkles, ShieldAlert, Lightbulb, ArrowLeft,
+  Sliders, Award, ShieldAlert, Lightbulb, ArrowLeft,
   RefreshCw, RotateCcw, Feather, Heart
 } from 'lucide-react';
 import { AppView } from '../types';
@@ -671,7 +671,6 @@ R G P G | R S — — ||
             {/* Classical Attributes & Characteristics */}
             <section className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-stone-200/80 space-y-6">
               <div className="flex items-center gap-3 border-b border-stone-200 pb-3">
-                <Sparkles className="w-6 h-6 text-emerald-800" />
                 <h2 className="text-xl sm:text-2xl font-bold text-stone-900 font-display">Raga Characteristics & Theoretical Framework</h2>
               </div>
 
@@ -884,7 +883,6 @@ R G P G | R S — — ||
               {/* Meend Practice Sub-block */}
               <div className="bg-stone-50 border border-stone-200 p-5 rounded-2xl space-y-3 pt-4">
                 <h3 className="font-bold text-stone-900 text-base flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-emerald-700" />
                   <span>Meend (Graceful Slide) Practice</span>
                 </h3>
                 <p className="text-xs sm:text-sm text-stone-700 leading-relaxed">

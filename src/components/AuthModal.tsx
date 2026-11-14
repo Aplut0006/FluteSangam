@@ -12,7 +12,7 @@ import {
 } from 'firebase/auth';
 import { createUserProfile, getUserProfile, getUserProfileByEmail, generateUniqueUsername } from '../lib/db';
 import { UserProfile } from '../types';
-import { Music, X, ShieldAlert, Sparkles, Check, Chrome, Mail, Camera, Upload, Wind, KeyRound, CheckCircle2, MailCheck, ArrowLeft } from 'lucide-react';
+import { Music, X, ShieldAlert, Check, Chrome, Mail, Camera, Upload, Wind, KeyRound, CheckCircle2, MailCheck, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CARTOON_AVATARS } from '../constants/avatars';
 export { CARTOON_AVATARS };
@@ -552,7 +552,6 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
               <div className="space-y-4">
                 <div className="text-center pb-2 border-b border-gray-100">
                   <span className="inline-flex items-center text-xs font-semibold text-bamboo-600 bg-bamboo-50 px-2.5 py-1 rounded-full">
-                    <Sparkles className="w-3.5 h-3.5 mr-1 text-amber-500" />
                     Step 2: Customize Your Flute Profile
                   </span>
                 </div>

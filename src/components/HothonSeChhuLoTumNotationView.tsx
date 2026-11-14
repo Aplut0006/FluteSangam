@@ -10,7 +10,6 @@ import {
   BookOpen,
   AlertTriangle,
   Lightbulb,
-  Sparkles,
   Film,
   Mic,
   ShieldCheck,

@@ -7,7 +7,6 @@ import {
   Music, 
   ChevronDown, 
   ChevronRight, 
-  Sparkles, 
   Flame, 
   MessageSquare,
   ShieldCheck,
@@ -128,7 +127,7 @@ export const CommunityFeedView: React.FC<CommunityFeedViewProps> = ({
           <div className="space-y-2 max-w-2xl">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-amber-400/20 text-amber-200 border border-amber-400/30">
               <Users className="w-3.5 h-3.5 text-amber-300" />
-              <span>Global Bansuri Community</span>
+              <span>Global Flute/Bansuri Community</span>
             </div>
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight font-display">
               Flute Community &amp; Practice Discussions
@@ -491,7 +490,6 @@ export const CommunityFeedView: React.FC<CommunityFeedViewProps> = ({
           {/* Community Guidelines & Riyaz Practice Resources */}
           <div className="bg-white rounded-2xl border border-bamboo-200/80 p-5 shadow-xs space-y-4">
             <div className="flex items-center gap-2 border-b border-bamboo-100 pb-3">
-              <Sparkles className="w-4 h-4 text-amber-600" />
               <h3 className="font-display font-bold text-slate-800 text-sm">Community Guidelines &amp; Riyaz Hub</h3>
             </div>
             

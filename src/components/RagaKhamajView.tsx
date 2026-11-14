@@ -4,7 +4,7 @@ import {
   Music, BookOpen, Clock, Sun, Moon, Calendar, CheckCircle2, Play, Pause, 
   Volume2, Copy, Check, ChevronDown, ChevronUp, 
   Heart, Compass, Zap, Repeat, HelpCircle, ArrowRight, Share2, 
-  Sliders, Radio, Award, Sparkles, Flame, ShieldAlert, Lightbulb, Printer, AlertCircle
+  Sliders, Radio, Award, Flame, ShieldAlert, Lightbulb, Printer, AlertCircle
 } from 'lucide-react';
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
@@ -454,7 +454,6 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
           <div className="bg-gradient-to-r from-amber-100/90 via-amber-50 to-amber-100/90 border border-amber-300/80 p-6 rounded-2xl space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-amber-800" />
                 <h3 className="text-lg font-black text-bamboo-950">Pakad (Catch Phrase)</h3>
               </div>
               <button
@@ -577,7 +576,6 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
                 'Tenderness & Grace'
               ].map((mood, idx) => (
                 <div key={idx} className="bg-amber-50 border border-amber-200/70 px-3.5 py-2.5 rounded-xl text-xs font-bold text-amber-950 flex items-center gap-2">
-                  <Sparkles className="w-3.5 h-3.5 text-amber-700 shrink-0" />
                   <span>{mood}</span>
                 </div>
               ))}
@@ -796,7 +794,6 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
           <section className="bg-emerald-50/90 border border-emerald-200 p-6 sm:p-8 rounded-3xl space-y-4">
             <div className="flex items-center gap-3">
               <div className="p-2.5 bg-emerald-200/80 text-emerald-900 rounded-2xl">
-                <Sparkles className="w-6 h-6" />
               </div>
               <h2 className="text-2xl font-black text-emerald-950 tracking-tight">Tips for Performance</h2>
             </div>
@@ -826,7 +823,6 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
         <section className="bg-gradient-to-br from-amber-950 via-bamboo-950 to-amber-950 text-amber-50 p-6 sm:p-8 rounded-3xl shadow-xl border border-amber-800 space-y-8">
           <div className="border-b border-amber-800/80 pb-6 space-y-2">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-900/80 text-amber-300 text-xs font-bold border border-amber-700/60 uppercase tracking-widest">
-              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
               <span>FluteSangam Original Learning Piece</span>
             </div>
 

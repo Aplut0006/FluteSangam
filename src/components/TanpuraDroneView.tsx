@@ -999,11 +999,9 @@ export const TanpuraDroneView: React.FC<TanpuraDroneViewProps> = ({ onViewChange
                     <span>{item.q}</span>
                     <ChevronDown className={`w-4 h-4 text-amber-700 shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
                   </button>
-                  {isOpen && (
-                    <div className="p-4 pt-0 text-xs text-slate-600 leading-relaxed border-t border-amber-100 bg-white">
-                      <p className="pt-3">{item.a}</p>
-                    </div>
-                  )}
+                  <div className={`${isOpen ? 'block' : 'hidden'} p-4 pt-0 text-xs text-slate-600 leading-relaxed border-t border-amber-100 bg-white`}>
+                    <p className="pt-3">{item.a}</p>
+                  </div>
                 </div>
               );
             })}

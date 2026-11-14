@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ShoppingBag, ArrowLeft, CheckCircle2, AlertTriangle, Lightbulb, Sparkles, User, Users, Baby, Music, Store, Check, ArrowRight, Radio, BookOpen, Calendar, Clock, Info } from 'lucide-react';
+import { ShoppingBag, ArrowLeft, CheckCircle2, AlertTriangle, Lightbulb, User, Users, Baby, Music, Store, Check, ArrowRight, Radio, BookOpen, Calendar, Clock, Info } from 'lucide-react';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
 
@@ -35,7 +35,6 @@ export default function LearnChooseFluteView({ onBackToLearn, onViewChange }: Le
         </button>
 
         <div className="flex items-center gap-2 text-xs text-bamboo-700 font-medium bg-amber-50 border border-amber-200/60 px-3 py-1 rounded-full">
-          <Sparkles className="w-3.5 h-3.5 text-amber-600" />
           Beginner's Buying Guide
         </div>
       </div>
@@ -230,7 +229,6 @@ export default function LearnChooseFluteView({ onBackToLearn, onViewChange }: Le
             {/* Section 3: Flutes Shown in the Image / Visual Comparison */}
             <section className="space-y-4">
               <div className="flex items-center gap-3 border-b border-bamboo-100 pb-3">
-                <Sparkles className="w-6 h-6 text-amber-600" />
                 <h2 className="text-xl sm:text-2xl font-bold text-bamboo-900 m-0">
                   📷 Comparing the Scales & Sizes
                 </h2>

@@ -139,7 +139,7 @@ const SidebarFallbackLoader = () => (
 
 // Icons
 import { 
-  Search, Plus, Sparkles, HelpCircle, Compass, ChevronDown,
+  Search, Plus, HelpCircle, Compass, ChevronDown,
   BookOpen, Video, Info, ArrowUpRight, Music, Filter, CheckCircle2, MessageSquare, Bell, X, Wind, ShieldCheck, User, Users, Globe, ArrowLeft, Home
 } from 'lucide-react';
 
@@ -888,17 +888,25 @@ export default function App() {
       currentView === 'not_found' ||
       currentView === 'community' ||
       currentView === 'post-detail' ||
-      currentView === 'notation_requests' ||
       currentView === 'community_members' ||
       currentView === 'user-profile' ||
       currentView === 'chats' ||
+      currentView === 'contact_us' ||
+      currentView === 'privacy_policy' ||
+      currentView === 'terms_of_service' ||
+      currentView === 'copyright_policy' ||
       pathname === '/community' ||
       pathname.startsWith('/community/') ||
       pathname === '/feed' ||
       pathname === '/post' ||
       pathname.startsWith('/post/') ||
-      pathname === '/notations' ||
-      pathname.startsWith('/notations/') ||
+      pathname.startsWith('/faq/') ||
+      pathname === '/contact' ||
+      pathname === '/privacy-policy' ||
+      pathname === '/privacy' ||
+      pathname === '/terms-of-service' ||
+      pathname === '/terms' ||
+      pathname === '/copyright-policy' ||
       pathname === '/members' ||
       pathname.startsWith('/members/') ||
       pathname === '/login' ||

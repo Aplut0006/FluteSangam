@@ -8,7 +8,6 @@ import {
   AlertTriangle, 
   Lightbulb, 
   Layers, 
-  Sparkles,
   Flower2,
   FileText
 } from 'lucide-react';
@@ -108,7 +107,6 @@ export const EnchantingFluteKrishnaAurKansNotationView: React.FC<EnchantingFlute
                 Published: {song.publishedDate}
               </span>
               <span className="flex items-center gap-1">
-                <Sparkles className="w-3.5 h-3.5 text-amber-700" />
                 Updated: {song.updatedDate}
               </span>
             </div>

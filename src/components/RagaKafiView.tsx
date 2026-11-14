@@ -4,7 +4,7 @@ import {
   Music, BookOpen, Clock, Moon, Calendar, CheckCircle2, Play, Pause, 
   Volume2, Copy, Check, ChevronDown, ChevronUp, 
   Heart, Compass, Zap, Repeat, HelpCircle, ArrowRight, Share2, 
-  Sliders, Radio, Award, Sparkles, Flame, ShieldAlert, Lightbulb
+  Sliders, Radio, Award, Flame, ShieldAlert, Lightbulb
 } from 'lucide-react';
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
@@ -437,7 +437,6 @@ S`;
 
           <div className="bg-indigo-50/70 border border-indigo-200/80 rounded-xl sm:rounded-2xl p-3.5 sm:p-4 text-xs sm:text-sm text-indigo-950 leading-relaxed mt-3 sm:mt-4">
             <p className="font-semibold text-indigo-900 mb-1 flex items-center gap-1.5">
-              <Sparkles className="w-4 h-4 text-indigo-600 shrink-0" />
               <span>Characteristic Note Usage</span>
             </p>
             <p className="text-gray-700">
@@ -667,7 +666,6 @@ S`;
           {/* FluteSangam Original Alankars */}
           <div className="space-y-4">
             <h3 className="text-base font-bold text-bamboo-950 flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-indigo-600" />
               <span>FluteSangam Original Alankars for Raag Kafi</span>
             </h3>
 

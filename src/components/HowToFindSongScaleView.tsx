@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
-  Music, BookOpen, Volume2, Play, Square, Activity, Sparkles, 
-  HelpCircle, Sliders, ChevronDown, ChevronUp, Layers, ArrowRight, 
+  Music, BookOpen, Volume2, Play, Square, Activity, HelpCircle, Sliders, ChevronDown, ChevronUp, Layers, ArrowRight, 
   CheckCircle2, Compass, Zap, Share2, Lightbulb, RotateCcw, 
   Target, Radio, AlertTriangle, Check, Copy, ArrowLeft, ArrowDown,
   FileText, Waves, Mic, Disc, Award, Info
@@ -842,7 +841,6 @@ export const HowToFindSongScaleView: React.FC<HowToFindSongScaleViewProps> = ({ 
         <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-xs border border-stone-200 space-y-6">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold">
-              <Sparkles className="w-5 h-5" />
             </div>
             <div>
               <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950">
@@ -995,7 +993,7 @@ export const HowToFindSongScaleView: React.FC<HowToFindSongScaleViewProps> = ({ 
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold uppercase tracking-wider mb-2">
-                <Sparkles className="w-3.5 h-3.5" /> FluteSangam Golden Formula
+                FluteSangam Golden Formula
               </div>
               <h2 className="text-xl sm:text-3xl font-bold font-display text-amber-50">
                 The Universal Flute Scale Formula
@@ -1068,11 +1066,9 @@ export const HowToFindSongScaleView: React.FC<HowToFindSongScaleViewProps> = ({ 
                   <span>{faq.q}</span>
                   {openFaq === idx ? <ChevronUp className="w-4 h-4 text-amber-700" /> : <ChevronDown className="w-4 h-4 text-stone-400" />}
                 </button>
-                {openFaq === idx && (
-                  <div className="p-4 bg-white text-xs sm:text-sm text-stone-700 leading-relaxed border-t border-stone-100">
-                    {faq.a}
-                  </div>
-                )}
+                <div className={`${openFaq === idx ? 'block' : 'hidden'} p-4 bg-white text-xs sm:text-sm text-stone-700 leading-relaxed border-t border-stone-100`}>
+                  {faq.a}
+                </div>
               </div>
             ))}
           </div>
@@ -1132,7 +1128,7 @@ export const HowToFindSongScaleView: React.FC<HowToFindSongScaleViewProps> = ({ 
                 id: 'learn_raagas' as AppView,
                 title: 'Classical Ragas Masterclass',
                 desc: 'Explore Aaroh, Avroh, Pakad, Vadi/Samvadi, and notations for 20+ classical Ragas.',
-                icon: Sparkles,
+                icon: Music,
                 badge: 'Classical Library',
                 color: 'text-amber-800 bg-amber-50 border-amber-200'
               },

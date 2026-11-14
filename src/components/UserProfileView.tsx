@@ -10,7 +10,6 @@ import {
   Award, 
   Mail, 
   Phone,
-  Sparkles,
   Lock,
   UserCheck
 } from 'lucide-react';
@@ -204,7 +203,6 @@ export default function UserProfileView({
             {isOwnProfile && (
               <div className="w-full p-3 bg-bamboo-50 rounded-xl text-center border border-bamboo-100">
                 <p className="text-[11px] text-bamboo-800 font-semibold flex items-center justify-center gap-1">
-                  <Sparkles className="w-3.5 h-3.5 text-amber-600" />
                   This is your public profile card
                 </p>
               </div>

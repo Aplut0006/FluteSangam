@@ -4,7 +4,7 @@ import {
   Music, BookOpen, Clock, Moon, Calendar, CheckCircle2, Play, Pause, 
   Volume2, Copy, Check, ChevronDown, ChevronUp, 
   Heart, Compass, Zap, Repeat, HelpCircle, ArrowRight, Share2, 
-  Sliders, Radio, Award, Sparkles, ShieldAlert, Lightbulb, RotateCcw, ArrowLeft
+  Sliders, Radio, Award, ShieldAlert, Lightbulb, RotateCcw, ArrowLeft
 } from 'lucide-react';
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
@@ -518,7 +518,6 @@ g M d | M g | S`;
         {/* Pakad & Chalan */}
         <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-bamboo-100 space-y-6">
           <div className="flex items-center gap-2.5 text-bamboo-900 font-display font-bold text-xl sm:text-2xl border-b border-bamboo-100 pb-3">
-            <Sparkles className="w-6 h-6 text-purple-700 shrink-0" />
             <h2>Pakad & Characteristic Chalan</h2>
           </div>
 
@@ -702,7 +701,7 @@ g M d | M g | S`;
             {/* FluteSangam Original Alankars */}
             <div className="space-y-4 pt-2">
               <h3 className="font-bold text-gray-900 text-base flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-purple-700" /> FluteSangam Original Alankars for Raag Malkauns
+                FluteSangam Original Alankars for Raag Malkauns
               </h3>
 
               {/* Alankar 1 */}
@@ -772,7 +771,6 @@ g M d | M g | S`;
           <div className="flex items-center justify-between border-b border-bamboo-100 pb-3 flex-wrap gap-3">
             <div className="space-y-1">
               <div className="flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-purple-700" />
                 <span className="text-xs font-bold text-purple-900 uppercase tracking-widest">FluteSangam Original Composition</span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-display font-bold text-gray-900">Nisha Dhyan</h2>

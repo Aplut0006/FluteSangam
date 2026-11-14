@@ -4,7 +4,7 @@ import {
   Music, BookOpen, Clock, Sun, Calendar, CheckCircle2, Play, Pause, 
   Volume2, Copy, Check, ChevronDown, ChevronUp, 
   Heart, Compass, Zap, Repeat, HelpCircle, ArrowRight, Share2, 
-  Sliders, Award, Sparkles, ShieldAlert, Lightbulb, User
+  Sliders, Award, ShieldAlert, Lightbulb, User
 } from 'lucide-react';
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
@@ -553,7 +553,7 @@ S`;
         <div className="bg-amber-50 rounded-2xl p-5 border border-amber-200 space-y-3">
           <div className="flex items-center justify-between">
             <h3 className="text-sm font-bold text-amber-950 uppercase tracking-wider flex items-center gap-1.5">
-              <Sparkles className="w-4 h-4 text-amber-600" /> Pakad (Key Identifying Phrases)
+              Pakad (Key Identifying Phrases)
             </h3>
             <button 
               onClick={() => copyToClipboard(`S r G M\nG M r S\nd N S'\nN d P\nM G r S`, 'Pakad')}
@@ -743,7 +743,7 @@ S`;
         {/* FluteSangam Original Alankars */}
         <div className="space-y-4 pt-2">
           <h3 className="text-base font-bold text-bamboo-950 flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-amber-600" /> FluteSangam Original Alankars for Raag Bhairav
+            FluteSangam Original Alankars for Raag Bhairav
           </h3>
 
           {/* Alankar 1 */}
@@ -884,7 +884,7 @@ S`;
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-amber-800/80 pb-5">
           <div>
             <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-300 bg-amber-900/60 px-3 py-1 rounded-full border border-amber-700/60 mb-2">
-              <Sparkles className="w-3.5 h-3.5 text-amber-400" /> FluteSangam Original Composition
+              FluteSangam Original Composition
             </div>
             <h2 className="text-2xl sm:text-3xl font-black font-display text-white tracking-tight">
               Original Practice Composition: <em className="text-amber-300 font-serif">"Pratah Dhyan"</em>

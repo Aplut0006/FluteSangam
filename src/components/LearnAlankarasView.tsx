@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Music, ArrowUpRight, ArrowDownRight, Lightbulb, Calendar, Clock, CheckCircle2, 
-  ArrowRight, Copy, Check, Play, Pause, Sparkles, Filter, Zap, Target, Gauge
+  ArrowRight, Copy, Check, Play, Pause, Filter, Zap, Target, Gauge
 } from 'lucide-react';
 import Metronome from './Metronome';
 import AboutAuthorSection from './AboutAuthorSection';
@@ -1671,7 +1671,6 @@ export default function LearnAlankarasView({ initialLevel, viewMode, onViewChang
           {/* HOW TO ADAPT ALANKARS ACROSS THE 10 THAATS */}
           <section className="bg-white border border-bamboo-200 rounded-3xl p-6 md:p-8 shadow-sm space-y-5">
             <div className="flex items-center gap-3">
-              <Sparkles className="w-6 h-6 text-amber-600" />
               <h2 className="text-2xl font-bold text-bamboo-900 m-0">Adapting Alankars Across the 10 Hindustani Thaats</h2>
             </div>
             <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
@@ -2189,7 +2188,6 @@ export default function LearnAlankarasView({ initialLevel, viewMode, onViewChang
                     {/* Practice Tip */}
                     {item.tips && (
                       <div className="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 text-xs text-slate-700 flex items-start gap-2">
-                        <Sparkles className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
                         <span><strong>Teacher's Tip:</strong> {item.tips}</span>
                       </div>
                     )}

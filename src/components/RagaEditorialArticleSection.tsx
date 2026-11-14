@@ -2,7 +2,6 @@ import React from 'react';
 import {
   BookOpen,
   History,
-  Sparkles,
   GitCompare,
   Disc3,
   Music,
@@ -148,7 +147,6 @@ export const RagaEditorialArticleSection: React.FC<RagaEditorialArticleSectionPr
           <section className="space-y-4 pt-2 border-t border-gray-100">
             <div className="space-y-1">
               <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950 flex items-center gap-2 leading-snug">
-                <Sparkles className={`w-5 h-5 sm:w-6 sm:h-6 ${theme.headingIcon} shrink-0`} />
                 <span>{entry.rasaHeading}</span>
               </h2>
               <p className="text-xs sm:text-sm text-gray-500 font-medium">

@@ -3,7 +3,7 @@ import {
   Music, BookOpen, Clock, Moon, Calendar, CheckCircle2, Play, Pause, 
   Volume2, VolumeX, Copy, Check, ChevronDown, ChevronUp, AlertCircle, 
   Heart, Compass, Zap, Repeat, HelpCircle, ArrowRight, Share2, Printer, 
-  Sliders, Radio, Award, Sparkles, Flame, ShieldAlert, Lightbulb, RotateCcw,
+  Sliders, Radio, Award, Flame, ShieldAlert, Lightbulb, RotateCcw,
   Sun, ListOrdered, FileText, CheckSquare, Layers
 } from 'lucide-react';
 import { AppView } from '../types';
@@ -142,8 +142,8 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
     { label: 'Thaat', value: 'Kalyan', icon: <Compass className="w-4 h-4 text-amber-600" /> },
     { label: 'Jati', value: 'Sampurna – Sampurna (Heptatonic)', icon: <Sliders className="w-4 h-4 text-amber-600" /> },
     { label: 'Time of Day', value: '1st quarter of night (6 PM – 9 PM)', icon: <Moon className="w-4 h-4 text-indigo-600" /> },
-    { label: 'Vadi (King Note)', value: 'Ga (Gandhar)', icon: <Sparkles className="w-4 h-4 text-amber-600" /> },
-    { label: 'Samvadi (Queen Note)', value: 'Ni (Nishad)', icon: <Sparkles className="w-4 h-4 text-amber-600" /> },
+    { label: 'Vadi (King Note)', value: 'Ga (Gandhar)', icon: <Music className="w-4 h-4 text-amber-600" /> },
+    { label: 'Samvadi (Queen Note)', value: 'Ni (Nishad)', icon: <Music className="w-4 h-4 text-amber-600" /> },
     { label: 'Nature', value: 'Peaceful, Devotional, Romantic', icon: <Heart className="w-4 h-4 text-rose-600" /> },
     { label: 'Rasa', value: 'Shanta (Peace), Bhakti (Devotion), Shringar (Romance)', icon: <Flame className="w-4 h-4 text-amber-600" /> },
     { label: 'Difficulty Level', value: 'Beginner to Intermediate', icon: <Award className="w-4 h-4 text-amber-600" /> },
@@ -242,7 +242,6 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6">
             <div className="space-y-2 sm:space-y-3 max-w-2xl">
               <div className="inline-flex items-center gap-1.5 bg-amber-500/20 border border-amber-400/30 text-amber-300 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold tracking-wide uppercase">
-                <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400 shrink-0" />
                 Hindustani Classical • Kalyan Thaat
               </div>
               <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold font-display tracking-tight text-amber-50 leading-tight" itemProp="headline">
@@ -477,7 +476,6 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
         <div className="bg-amber-50/80 border border-amber-200 rounded-2xl p-4 sm:p-6 space-y-3">
           <div className="flex items-center justify-between">
             <h3 className="font-bold text-amber-950 text-sm sm:text-base flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-amber-600" />
               Pakad (Signature Catchphrase)
             </h3>
             <button
@@ -578,7 +576,6 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
           <div className="flex flex-wrap gap-1.5 sm:gap-2">
             {['Peace (Shanta)', 'Devotion (Bhakti)', 'Romance (Shringar)', 'Hope', 'Spirituality', 'Elegance'].map((mood, idx) => (
               <span key={idx} className="bg-white border border-amber-300 text-amber-950 font-bold px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl text-[11px] sm:text-xs shadow-3xs flex items-center gap-1.5">
-                <Sparkles className="w-3 h-3 text-amber-500 shrink-0" />
                 {mood}
               </span>
             ))}
@@ -799,7 +796,6 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
       <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-sm border border-bamboo-100 space-y-6">
         <div className="space-y-2">
           <div className="inline-flex items-center gap-1.5 bg-amber-100 text-amber-900 border border-amber-300 font-bold text-[10px] sm:text-xs px-3 py-1 rounded-full uppercase tracking-wide">
-            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
             FluteSangam Original Educational Piece
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-bamboo-900 tracking-tight">
@@ -978,7 +974,6 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
           {/* Ending Phrase (Tihai) */}
           <div className="bg-rose-50/60 border border-rose-200 rounded-2xl p-4 sm:p-6 space-y-3">
             <h3 className="font-extrabold text-rose-950 text-base sm:text-lg flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-rose-600 shrink-0" />
               <span>Ending Phrase (Repeat 3 Times)</span>
             </h3>
             <p className="text-xs text-rose-900">
@@ -1147,7 +1142,6 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
       {/* Original Educational Content Copyright Banner */}
       <div className="bg-amber-950 text-amber-200/90 rounded-2xl p-4 sm:p-6 text-xs leading-relaxed space-y-2 border border-amber-800">
         <div className="flex items-center gap-2 text-amber-400 font-bold text-sm">
-          <Sparkles className="w-4 h-4 shrink-0" />
           <span>© FluteSangam Original Educational Content</span>
         </div>
         <p>

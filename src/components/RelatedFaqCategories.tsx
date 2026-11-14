@@ -5,7 +5,7 @@ import { FAQ_CATEGORY_METADATA } from '../data/faqCategoryMetadata';
 import { FAQ_DATA } from '../data/allFaqData';
 import { 
   HelpCircle, BookOpen, Users, Compass, Activity, Award, Calendar, 
-  Layers as LayersIcon, Music, Shield, Wind, Smile, Sparkles, Sliders, Package, MessageSquare 
+  Layers as LayersIcon, Music, Shield, Wind, Smile, Sliders, Package, MessageSquare 
 } from 'lucide-react';
 
 const CATEGORY_ICON_MAP: Record<string, any> = {
@@ -21,7 +21,7 @@ const CATEGORY_ICON_MAP: Record<string, any> = {
   'flute-care-and-maintenance': Shield,
   'health-and-breathing': Wind,
   'children-and-beginners': Smile,
-  'music-theory': Sparkles,
+  'music-theory': BookOpen,
   'tuning-and-pitch': Sliders,
   'flute-accessories': Package,
   'flute-types': Compass,

@@ -9,7 +9,6 @@ import {
   BookOpen,
   AlertTriangle,
   Lightbulb,
-  Sparkles,
   Film,
   Mic,
   CheckCircle2,
@@ -110,7 +109,6 @@ export const LagJaGaleNotationView: React.FC<LagJaGaleNotationViewProps> = ({
               <span>Published: {song.publishedDate}</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-amber-300" />
               <span>Updated: {song.updatedDate}</span>
             </div>
           </div>

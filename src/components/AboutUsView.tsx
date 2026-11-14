@@ -3,7 +3,6 @@ import { motion } from 'motion/react';
 import { 
   Compass, 
   Wind, 
-  Sparkles, 
   ArrowRight, 
   MessageCircle, 
   BookOpen, 
@@ -103,7 +102,6 @@ export default function AboutUsView({ onViewChange }: AboutUsViewProps = {}) {
 
             <div className="space-y-3 text-center md:text-left flex-1">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 text-xs font-semibold border border-amber-400/30">
-                <Sparkles className="w-3.5 h-3.5" />
                 <span>Leadership &amp; Vision</span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-display font-bold">
@@ -139,7 +137,6 @@ export default function AboutUsView({ onViewChange }: AboutUsViewProps = {}) {
         <section className="bg-white p-6 sm:p-10 rounded-3xl border border-bamboo-200/80 shadow-sm space-y-4">
           <div className="flex items-center gap-3">
             <div className="p-2.5 rounded-xl bg-bamboo-100 text-bamboo-800">
-              <Sparkles className="w-6 h-6" />
             </div>
             <h2 className="text-2xl sm:text-3xl font-display font-bold text-bamboo-950">
               Editorial Methodology &amp; Standards

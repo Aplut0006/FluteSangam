@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Music, Film, FileText, Mail, User, X, Send, CheckCircle2, Sparkles, Clock, Check } from 'lucide-react';
+import { Music, Film, FileText, Mail, User, X, Send, CheckCircle2, Clock, Check } from 'lucide-react';
 import { db } from '../lib/firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
@@ -172,7 +172,6 @@ export const RequestSongModal: React.FC<RequestSongModalProps> = ({
 
               <div className="bg-amber-50 border border-amber-200/80 rounded-2xl p-4 text-left text-xs text-amber-950 space-y-2">
                 <div className="flex items-center gap-1.5 font-bold text-amber-900">
-                  <Sparkles className="w-4 h-4 text-amber-600" />
                   <span>Request Details Recorded:</span>
                 </div>
                 <div className="space-y-1 text-slate-700 font-sans pl-1">

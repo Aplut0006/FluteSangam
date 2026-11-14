@@ -7,7 +7,6 @@ import {
   Filter, 
   ArrowRight,
   BookOpen,
-  Sparkles,
   Award,
   FileText,
   Send,

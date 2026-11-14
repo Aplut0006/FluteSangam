@@ -22,7 +22,6 @@ import {
   X, 
   Ban, 
   ChevronLeft, 
-  Sparkles,
   User,
   Check,
   CheckCheck,
@@ -552,7 +551,6 @@ export default function ChatSection({
               {currentChatMessages.length === 0 ? (
                 <div className="h-full flex flex-col items-center justify-center text-center p-8 text-gray-400 space-y-3">
                   <div className="p-4 bg-bamboo-50 rounded-full text-bamboo-600">
-                    <Sparkles className="w-8 h-8" />
                   </div>
                   <div>
                     <p className="text-xs font-bold text-gray-700">Start the Sadhana Dialogue</p>

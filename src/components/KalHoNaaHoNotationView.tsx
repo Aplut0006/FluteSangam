@@ -10,7 +10,6 @@ import {
   BookOpen,
   AlertTriangle,
   Lightbulb,
-  Sparkles,
   Film,
   Mic,
   ShieldCheck,
@@ -185,7 +184,6 @@ export const KalHoNaaHoNotationView: React.FC<KalHoNaaHoNotationViewProps> = ({
                 {/* Repeat indicator between Mukhda and Antara */}
                 {phrase.phraseNumber === 5 && (
                   <div className="p-3 sm:p-4 rounded-xl bg-amber-100/70 border border-amber-300 text-center text-amber-950 font-bold text-xs sm:text-sm flex items-center justify-center gap-2">
-                    <Sparkles className="w-4 h-4 text-amber-700 shrink-0" />
                     <span>(First 4 lines will repeat again) &bull; Then continue to Antara below:</span>
                   </div>
                 )}
@@ -272,7 +270,6 @@ export const KalHoNaaHoNotationView: React.FC<KalHoNaaHoNotationViewProps> = ({
                 {/* Repeat indicator between Mukhda and Antara */}
                 {phrase.phraseNumber === 5 && (
                   <div className="p-3 sm:p-4 rounded-xl bg-slate-200/80 border border-slate-300 text-center text-slate-900 font-bold text-xs sm:text-sm flex items-center justify-center gap-2">
-                    <Sparkles className="w-4 h-4 text-slate-700 shrink-0" />
                     <span>(First 4 lines will repeat again) &bull; Then continue to Antara below:</span>
                   </div>
                 )}

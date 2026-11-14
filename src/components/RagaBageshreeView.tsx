@@ -4,7 +4,7 @@ import {
   Music, BookOpen, Clock, Moon, Calendar, CheckCircle2, Play, Pause, 
   Volume2, Copy, Check, ChevronDown, ChevronUp, 
   Heart, Compass, Zap, Repeat, HelpCircle, ArrowRight, Share2, 
-  Sliders, Radio, Award, Sparkles, Flame, ShieldAlert, Lightbulb
+  Sliders, Radio, Award, Flame, ShieldAlert, Lightbulb
 } from 'lucide-react';
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
@@ -477,7 +477,6 @@ Finish on Sam: S`;
       {/* Important Characteristics */}
       <section className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-sm border border-bamboo-100 space-y-4">
         <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950 flex items-center gap-2">
-          <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-indigo-700 shrink-0" />
           <span>Important Characteristics</span>
         </h2>
 

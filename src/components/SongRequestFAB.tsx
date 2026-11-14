@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Music, X, Mic, Film, Sparkles, CheckCircle2, ShieldAlert, Send, FileText, Info, KeyRound } from 'lucide-react';
+import { Music, X, Mic, Film, CheckCircle2, ShieldAlert, Send, FileText, Info, KeyRound } from 'lucide-react';
 import { db } from '../lib/firebase';
 import { collection, addDoc } from 'firebase/firestore';
 
@@ -151,7 +151,6 @@ export const SongRequestModal: React.FC<SongRequestModalProps> = ({ isOpen, onCl
 
               <div className="bg-amber-50 border border-amber-200/80 rounded-2xl p-4 text-left text-xs text-amber-900 space-y-1">
                 <div className="flex items-center gap-1.5 font-bold text-amber-950">
-                  <Sparkles className="w-4 h-4 text-amber-600" />
                   <span>What happens next?</span>
                 </div>
                 <p className="text-[11px] text-amber-800/90 leading-relaxed">

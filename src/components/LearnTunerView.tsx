@@ -5,7 +5,6 @@ import {
   MicOff, 
   Volume2, 
   VolumeX, 
-  Sparkles, 
   ArrowRight, 
   ArrowLeft, 
   Info, 

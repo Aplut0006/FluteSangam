@@ -3,7 +3,7 @@ import {
   Music, BookOpen, Clock, Sun, Calendar, CheckCircle2, Play, Pause, Square,
   Volume2, Copy, Check, ChevronDown, ChevronUp, 
   Compass, Zap, Share2, 
-  Sliders, Award, Sparkles, ShieldAlert, Lightbulb, ArrowLeft,
+  Sliders, Award, ShieldAlert, Lightbulb, ArrowLeft,
   RefreshCw, RotateCcw, Feather, Heart
 } from 'lucide-react';
 import { AppView } from '../types';
@@ -436,7 +436,6 @@ N d P M^ | g r S — ||`;
         {/* Introduction */}
         <section className="bg-white rounded-2xl p-6 sm:p-8 border border-amber-200/80 shadow-xs space-y-4">
           <div className="flex items-center gap-2.5 text-amber-900 font-display font-bold text-xl sm:text-2xl border-b border-amber-100 pb-3">
-            <Sparkles className="w-6 h-6 text-amber-600" />
             <h2>Introduction</h2>
           </div>
           <p className="text-gray-700 leading-relaxed text-base">
@@ -942,7 +941,6 @@ N d P M^ | g r S — ||`;
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-amber-700/60 pb-4">
             <div>
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-700/60 text-amber-200 text-xs font-semibold mb-2">
-                <Sparkles className="w-3.5 h-3.5 text-amber-300" />
                 <span>100% Original Composition</span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-display font-bold text-amber-100">
@@ -1207,7 +1205,6 @@ N d P M^ | g r S — ||`;
             Raag Multani is a beautiful and demanding raga that rewards patience, careful listening, and precise swara control. Its combination of Komal Re, Komal Ga, Tivra Ma, and Komal Dha, together with its distinctive melodic movements, gives it a serious and introspective character.
           </p>
           <div className="p-4 bg-amber-800 text-amber-100 rounded-xl font-medium text-xs sm:text-sm flex items-start gap-2 shadow-sm">
-            <Sparkles className="w-4 h-4 text-amber-300 shrink-0 mt-0.5" />
             <span><strong>FluteSangam Tip:</strong> In Multani, let the phrases unfold slowly. Accurate pitch and thoughtful movement are more important than playing many notes.</span>
           </div>
         </section>

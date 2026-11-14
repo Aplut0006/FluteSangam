@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
-  Music, Sparkles, RefreshCw, Play, Pause, Copy, Download, Bookmark, 
+  Music, RefreshCw, Play, Pause, Copy, Download, Bookmark, 
   Share2, RotateCcw, Zap, Sliders, Check, Layers, Shuffle, 
   ArrowUpRight, ArrowDownRight, BookmarkCheck, Trash2, Wind, Binary, Cpu, ChevronDown
 } from 'lucide-react';
@@ -863,7 +863,6 @@ Learn & practice on https://flutesangam.com`;
       {/* Toast Feedback */}
       {toastMessage && (
         <div className="fixed top-20 right-4 z-50 bg-bamboo-900 text-white px-4 py-2.5 rounded-xl shadow-2xl border border-amber-400/40 text-xs font-bold flex items-center gap-2 animate-bounce">
-          <Sparkles className="w-4 h-4 text-amber-400" />
           <span>{toastMessage}</span>
         </div>
       )}
@@ -953,7 +952,6 @@ Learn & practice on https://flutesangam.com`;
                 onClick={() => setActiveTab('generator')}
                 className="px-4 py-2 bg-bamboo-700 hover:bg-bamboo-800 text-white text-xs font-bold rounded-xl transition mt-2 inline-flex items-center gap-1.5 cursor-pointer"
               >
-                <Sparkles className="w-3.5 h-3.5 text-amber-300" />
                 <span>Calculate New Alankars</span>
               </button>
             </div>

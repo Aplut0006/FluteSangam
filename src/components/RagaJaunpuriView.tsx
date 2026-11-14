@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { 
   Music, BookOpen, Clock, Sun, Calendar, CheckCircle2, Play, Pause, Square,
   Volume2, Copy, Check, ChevronDown, ChevronUp, AlertTriangle, AlertCircle,
-  Compass, Zap, Share2, Sliders, Award, Sparkles, ShieldAlert, 
+  Compass, Zap, Share2, Sliders, Award, ShieldAlert, 
   Lightbulb, ArrowLeft, RefreshCw, RotateCcw, Feather, Heart, Radio,
   HelpCircle, ArrowRight, Printer
 } from 'lucide-react';
@@ -308,7 +308,7 @@ export const RagaJaunpuriView: React.FC<RagaJaunpuriViewProps> = ({ onViewChange
     { label: 'Time of Day', value: 'Late Morning (2nd Quarter: 9 AM – 12 PM)', icon: <Sun className="w-4 h-4 text-amber-600" /> },
     { label: 'Key Swaras', value: 'Komal Ga (g), Komal Dha (d), Komal Ni (n)', icon: <Music className="w-4 h-4 text-rose-700" /> },
     { label: 'Vadi / Samvadi', value: 'Vadi: Komal Dha (d) | Samvadi: Komal Ga (g)', icon: <Award className="w-4 h-4 text-amber-700" /> },
-    { label: 'Characteristic Ascent', value: 'S R M P d n S\' (Ga omitted in straight Aaroh)', icon: <Sparkles className="w-4 h-4 text-amber-700" /> },
+    { label: 'Characteristic Ascent', value: 'S R M P d n S\' (Ga omitted in straight Aaroh)', icon: <Music className="w-4 h-4 text-amber-700" /> },
     { label: 'Sentiment (Rasa)', value: 'Serious, Introspective, Longing, Tender Melancholy', icon: <Heart className="w-4 h-4 text-rose-600" /> },
     { label: 'Difficulty Level', value: 'Intermediate (Nuanced Komal Notes & Meend)', icon: <CheckCircle2 className="w-4 h-4 text-emerald-600" /> },
   ];
@@ -497,7 +497,6 @@ export const RagaJaunpuriView: React.FC<RagaJaunpuriViewProps> = ({ onViewChange
           </p>
           <div className="p-4 rounded-xl bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-900/40">
             <h3 className="font-bold text-amber-900 dark:text-amber-300 text-sm mb-2 flex items-center gap-1.5">
-              <Sparkles className="w-4 h-4 text-amber-600" />
               <span>Skills Developed by Practicing Raag Jaunpuri:</span>
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-medium text-slate-800 dark:text-slate-200">
@@ -773,7 +772,6 @@ export const RagaJaunpuriView: React.FC<RagaJaunpuriViewProps> = ({ onViewChange
       <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-7 shadow-xs border border-amber-200/70 dark:border-slate-800 space-y-5">
         <div>
           <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-amber-600" />
             <span>Core Characteristics of Raag Jaunpuri on Flute</span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-500">6 essential nuances flute players must master to bring out the raga’s soul</p>
@@ -931,7 +929,6 @@ export const RagaJaunpuriView: React.FC<RagaJaunpuriViewProps> = ({ onViewChange
       <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-7 shadow-xs border border-amber-200/70 dark:border-slate-800 space-y-5">
         <div>
           <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-amber-600" />
             <span>Characteristic Phrase Practice</span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-500">Move beyond scales and develop authentic melodic vocabulary</p>

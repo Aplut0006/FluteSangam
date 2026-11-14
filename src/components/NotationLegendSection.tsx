@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { Music, BookOpen, Sparkles, Wind } from 'lucide-react';
+import { Music, BookOpen, Wind } from 'lucide-react';
 import { SONG_MUSICAL_ANALYSIS_DATA } from '../data/songMusicalAnalysisData';
 
 export interface LegendItem {
@@ -70,7 +70,6 @@ export const NotationLegendSection: React.FC<NotationLegendSectionProps> = ({
 
             <div className="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-bamboo-50/50 border border-bamboo-200/70 space-y-2">
               <h3 className="text-sm sm:text-base font-bold text-bamboo-950 font-display flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-amber-700 shrink-0" />
                 <span>2. {musicalAnalysis.ornamentationTitle}</span>
               </h3>
               <p className="text-slate-700 leading-relaxed">

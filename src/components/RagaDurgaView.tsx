@@ -3,7 +3,7 @@ import {
   Music, BookOpen, Clock, Moon, Calendar, CheckCircle2, Play, Pause, 
   Volume2, VolumeX, Copy, Check, ChevronDown, ChevronUp, AlertCircle, 
   Heart, Compass, Zap, Repeat, HelpCircle, ArrowRight, Share2, Printer, 
-  Sliders, Radio, Award, Sparkles, Flame, ShieldAlert, Lightbulb, RotateCcw
+  Sliders, Radio, Award, Flame, ShieldAlert, Lightbulb, RotateCcw
 } from 'lucide-react';
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
@@ -138,8 +138,8 @@ export default function RagaDurgaView({ onViewChange }: RagaDurgaViewProps) {
     { label: 'Thaat', value: 'Bilawal', icon: <Compass className="w-4 h-4 text-emerald-600" /> },
     { label: 'Jati', value: 'Audav – Audav (Pentatonic)', icon: <Sliders className="w-4 h-4 text-emerald-600" /> },
     { label: 'Time of Day', value: '2nd quarter of night (9 PM – 12 AM)', icon: <Moon className="w-4 h-4 text-indigo-600" /> },
-    { label: 'Vadi (King Note)', value: 'Ma (Madhyam)', icon: <Sparkles className="w-4 h-4 text-amber-600" /> },
-    { label: 'Samvadi (Queen Note)', value: 'Sa (Shadj)', icon: <Sparkles className="w-4 h-4 text-amber-600" /> },
+    { label: 'Vadi (King Note)', value: 'Ma (Madhyam)', icon: <Music className="w-4 h-4 text-amber-600" /> },
+    { label: 'Samvadi (Queen Note)', value: 'Sa (Shadj)', icon: <Music className="w-4 h-4 text-amber-600" /> },
     { label: 'Nature', value: 'Peaceful, Devotional, Majestic', icon: <Heart className="w-4 h-4 text-emerald-600" /> },
     { label: 'Rasa', value: 'Bhakti (Devotion), Veer (Courage), Shanta (Peace)', icon: <Flame className="w-4 h-4 text-amber-600" /> },
     { label: 'Difficulty Level', value: 'Beginner', icon: <CheckCircle2 className="w-4 h-4 text-emerald-600" /> },
@@ -229,7 +229,6 @@ export default function RagaDurgaView({ onViewChange }: RagaDurgaViewProps) {
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6">
             <div className="space-y-2 sm:space-y-3 max-w-2xl">
               <div className="inline-flex items-center gap-1.5 bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold tracking-wide uppercase">
-                <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400 shrink-0" />
                 Hindustani Classical • Audav-Audav
               </div>
               <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold font-display tracking-tight text-emerald-50 leading-tight" itemProp="headline">
@@ -463,7 +462,6 @@ export default function RagaDurgaView({ onViewChange }: RagaDurgaViewProps) {
         <div className="bg-amber-50/60 border border-amber-200 rounded-2xl p-4 sm:p-6 space-y-3">
           <div className="flex items-center justify-between">
             <h3 className="font-bold text-amber-950 text-sm sm:text-base flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-amber-600" />
               Pakad (Signature Catchphrase)
             </h3>
             <button
@@ -559,7 +557,6 @@ export default function RagaDurgaView({ onViewChange }: RagaDurgaViewProps) {
           <div className="flex flex-wrap gap-1.5 sm:gap-2">
             {['Peace', 'Devotion (Bhakti)', 'Strength', 'Serenity', 'Hope', 'Confidence'].map((mood, idx) => (
               <span key={idx} className="bg-white border border-emerald-300 text-emerald-950 font-bold px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl text-[11px] sm:text-xs shadow-3xs flex items-center gap-1.5">
-                <Sparkles className="w-3 h-3 text-amber-500 shrink-0" />
                 {mood}
               </span>
             ))}
@@ -780,7 +777,6 @@ export default function RagaDurgaView({ onViewChange }: RagaDurgaViewProps) {
       <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-sm border border-bamboo-100 space-y-6">
         <div className="space-y-2">
           <div className="inline-flex items-center gap-1.5 bg-emerald-100 text-emerald-900 border border-emerald-300 font-bold text-[10px] sm:text-xs px-3 py-1 rounded-full uppercase tracking-wide">
-            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
             FluteSangam Original Composition
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-bamboo-900 tracking-tight">
@@ -949,7 +945,6 @@ export default function RagaDurgaView({ onViewChange }: RagaDurgaViewProps) {
           {/* Ending (Tihai) */}
           <div className="bg-amber-50/60 border border-amber-200 rounded-2xl p-4 sm:p-6 space-y-3">
             <h3 className="font-bold text-amber-950 text-sm sm:text-base flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-amber-600" />
               <span>Ending (Tihai)</span>
             </h3>
             <p className="text-xs text-gray-700">

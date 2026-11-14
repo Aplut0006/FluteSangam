@@ -6,7 +6,6 @@ import {
   MessageSquare, 
   Share2, 
   Music, 
-  Sparkles, 
   Video,
   ArrowRight,
   Edit2,

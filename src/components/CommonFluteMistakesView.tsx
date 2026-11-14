@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { 
-  AlertTriangle, CheckCircle2, ShieldAlert, Sparkles, Wind, Clock, Calendar, 
+  AlertTriangle, CheckCircle2, ShieldAlert, Wind, Clock, Calendar, 
   HelpCircle, ArrowRight, UserCheck, Flame, Target, BookOpen, Music, Play, 
   ChevronDown, ChevronUp, RefreshCw, EyeOff, Activity, Sliders, Volume2, Heart,
   Compass, Radio, CircleDot, Feather, ExternalLink
@@ -210,7 +210,7 @@ export default function CommonFluteMistakesView({ onViewChange }: CommonFluteMis
       relatedAction: {
         targetView: 'alankar_generator',
         label: 'Generate Practice Alankars Engine',
-        icon: Sparkles
+        icon: Music
       }
     },
     {
@@ -320,7 +320,7 @@ export default function CommonFluteMistakesView({ onViewChange }: CommonFluteMis
     { view: 'learn_basics' as AppView, label: 'Flute Basics', icon: BookOpen },
     { view: 'learn_fingering_chart' as AppView, label: 'Fingering Chart', icon: CircleDot },
     { view: 'learn_alankaras' as AppView, label: 'Alankaras', icon: Feather },
-    { view: 'alankar_generator' as AppView, label: 'Alankar Generator', icon: Sparkles },
+    { view: 'alankar_generator' as AppView, label: 'Alankar Generator', icon: Music },
     { view: 'learn_tuner' as AppView, label: 'Flute Tuner', icon: Radio },
     { view: 'learn_daily_practice' as AppView, label: 'Daily Practice', icon: Target },
     { view: 'learn_raagas' as AppView, label: 'Ragas Guide', icon: Music },
@@ -432,7 +432,6 @@ export default function CommonFluteMistakesView({ onViewChange }: CommonFluteMis
 
         <div className="bg-amber-500/20 border border-amber-400/30 rounded-2xl p-4 text-xs md:text-sm text-amber-100 leading-relaxed flex flex-col sm:flex-row sm:items-center justify-between gap-3 mt-4">
           <div className="flex items-center gap-3">
-            <Sparkles className="w-6 h-6 text-amber-300 shrink-0" />
             <p>
               <strong>Remember:</strong> Every skilled flutist once faced these exact same challenges. Improvement comes through patience, mindful awareness, and consistent daily practice.
             </p>
@@ -696,7 +695,6 @@ export default function CommonFluteMistakesView({ onViewChange }: CommonFluteMis
       {/* Tips for Faster Improvement */}
       <section id="faster-tips" className="scroll-mt-20 md:scroll-mt-24 bg-amber-100/60 border border-amber-300 rounded-3xl p-6 md:p-8 space-y-4">
         <h2 className="text-xl md:text-2xl font-bold font-display text-bamboo-950 flex items-center gap-2">
-          <Sparkles className="w-6 h-6 text-amber-700" />
           Tips for Faster Improvement
         </h2>
 
@@ -743,20 +741,18 @@ export default function CommonFluteMistakesView({ onViewChange }: CommonFluteMis
                   <ChevronDown className="w-4 h-4 text-amber-800 shrink-0" />
                 )}
               </button>
-              {openFaq === idx && (
-                <div className="p-4 bg-white text-xs md:text-sm text-gray-700 leading-relaxed border-t border-amber-100 space-y-3">
-                  <p>{faq.a}</p>
-                  {faq.targetView && onViewChange && (
-                    <button
-                      onClick={() => onViewChange(faq.targetView)}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-100 text-amber-900 font-bold text-xs rounded-xl hover:bg-amber-200 transition cursor-pointer"
-                    >
-                      <span>{faq.targetLabel}</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
-                  )}
-                </div>
-              )}
+              <div className={`${openFaq === idx ? 'block' : 'hidden'} p-4 bg-white text-xs md:text-sm text-gray-700 leading-relaxed border-t border-amber-100 space-y-3`}>
+                <p>{faq.a}</p>
+                {faq.targetView && onViewChange && (
+                  <button
+                    onClick={() => onViewChange(faq.targetView)}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-100 text-amber-900 font-bold text-xs rounded-xl hover:bg-amber-200 transition cursor-pointer"
+                  >
+                    <span>{faq.targetLabel}</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                )}
+              </div>
             </div>
           ))}
         </div>

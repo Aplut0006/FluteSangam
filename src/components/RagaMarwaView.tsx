@@ -4,7 +4,7 @@ import {
   Music, BookOpen, Clock, Sunset, Calendar, CheckCircle2, Play, Pause, 
   Volume2, Copy, Check, ChevronDown, ChevronUp, 
   Heart, Compass, Zap, Repeat, HelpCircle, ArrowRight, Share2, 
-  Sliders, Radio, Award, Sparkles, ShieldAlert, Lightbulb, RotateCcw, ArrowLeft, Sun,
+  Sliders, Radio, Award, ShieldAlert, Lightbulb, RotateCcw, ArrowLeft, Sun,
   User, RefreshCw
 } from 'lucide-react';
 import { AppView } from '../types';
@@ -579,7 +579,6 @@ export default function RagaMarwaView({ onViewChange }: RagaMarwaViewProps) {
 
           <div className="bg-white rounded-3xl p-6 shadow-sm border border-amber-200/80 space-y-3">
             <div className="p-2.5 bg-purple-100 text-purple-800 rounded-2xl w-fit">
-              <Sparkles className="w-5 h-5" />
             </div>
             <h3 className="text-lg font-bold font-display text-gray-900">Emotional Rasa</h3>
             <p className="text-sm font-semibold text-purple-900">Contemplative, Restless & Deep</p>
@@ -958,7 +957,6 @@ export default function RagaMarwaView({ onViewChange }: RagaMarwaViewProps) {
         <section className="bg-gradient-to-r from-amber-900 via-rose-950 to-neutral-900 text-white rounded-3xl p-6 sm:p-8 shadow-lg space-y-4">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-amber-400/20 text-amber-300 rounded-xl">
-              <Sparkles className="w-5 h-5" />
             </div>
             <h2 className="text-xl font-bold font-display text-amber-100">Conclusion & FluteSangam Pro Tip</h2>
           </div>
@@ -969,7 +967,6 @@ export default function RagaMarwaView({ onViewChange }: RagaMarwaViewProps) {
 
           <div className="bg-black/30 border border-amber-500/30 rounded-2xl p-4 text-xs text-amber-200 leading-relaxed space-y-1">
             <p className="font-bold text-amber-300 flex items-center gap-1.5">
-              <Sparkles className="w-4 h-4 text-amber-400" />
               FluteSangam Tip:
             </p>
             <p>

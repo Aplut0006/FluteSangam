@@ -4,7 +4,7 @@ import {
   Music, BookOpen, Clock, Sun, Moon, Calendar, CheckCircle2, Play, Pause, 
   Volume2, Copy, Check, ChevronDown, ChevronUp, 
   Heart, Compass, Zap, Repeat, HelpCircle, ArrowRight, Share2, 
-  Sliders, Radio, Award, Sparkles, Flame, ShieldAlert, Lightbulb
+  Sliders, Radio, Award, Flame, ShieldAlert, Lightbulb
 } from 'lucide-react';
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
@@ -486,7 +486,6 @@ Finish on Sam: S`;
       {/* Important Characteristics */}
       <section className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-sm border border-bamboo-100 space-y-4">
         <div className="flex items-center gap-2.5 border-b border-gray-100 pb-3">
-          <Sparkles className="w-5 h-5 text-amber-700 shrink-0" />
           <h2 className="text-lg sm:text-2xl font-bold font-display text-bamboo-950">
             Important Characteristics of Raag Bhimpalasi
           </h2>
@@ -528,7 +527,7 @@ Finish on Sam: S`;
             {[
               { title: 'Devotion (Bhakti)', icon: Heart },
               { title: 'Peace (Shanti)', icon: Compass },
-              { title: 'Compassion (Karuna)', icon: Sparkles },
+              { title: 'Compassion (Karuna)', icon: Music },
               { title: 'Love (Shringar)', icon: Heart },
               { title: 'Longing (Viraha)', icon: Moon },
               { title: 'Reflection (Chintan)', icon: Sun },

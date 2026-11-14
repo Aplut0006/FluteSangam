@@ -16,7 +16,6 @@ import {
   Share2, 
   Send, 
   Music, 
-  Sparkles, 
   Video,
   ThumbsUp,
   ThumbsDown,
@@ -751,7 +750,6 @@ export default function PostDetailView({
             ) : (
               <div className="p-3 bg-amber-50/80 border border-amber-200/60 rounded-xl text-center space-y-2 pt-3 border-t border-gray-100">
                 <p className="text-[11px] text-amber-900 leading-normal flex items-center justify-center gap-1 font-semibold">
-                  <Sparkles className="w-3.5 h-3.5 text-amber-600 shrink-0 animate-pulse" />
                   Sign up or log in to join the discussion!
                 </p>
                 <button

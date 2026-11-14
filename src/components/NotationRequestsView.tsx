@@ -30,7 +30,6 @@ import {
   Check, 
   ExternalLink, 
   FileText,
-  Sparkles,
   ChevronRight,
   Trash2,
   Wind
@@ -518,7 +517,6 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
                   {/* Additional Notes / Specific Part preview if present */}
                   {(req.notes || req.additionalNotes) && (
                     <div className="text-xs text-amber-900 bg-amber-50/90 border border-amber-200/70 rounded-xl p-2.5 flex items-start gap-2 mt-1">
-                      <Sparkles className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
                       <div className="leading-relaxed">
                         <strong className="font-semibold text-amber-950">Notes / Scale / Specific Part: </strong>
                         <span className="text-gray-700">{req.notes || req.additionalNotes}</span>
@@ -890,7 +888,6 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
               <div className="bg-gradient-to-br from-amber-50/90 via-amber-50/40 to-bamboo-50/50 border border-amber-200/80 rounded-2xl p-4.5 space-y-3 shadow-2xs">
                 <div className="flex items-center justify-between pb-2.5 border-b border-amber-200/60">
                   <h3 className="font-bold text-amber-950 text-sm flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-amber-600" />
                     Request Details & Specifications
                   </h3>
                 </div>
@@ -946,7 +943,6 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
                   </div>
                 ) : notations.length === 0 ? (
                   <div className="bg-amber-50/50 border border-amber-200/60 rounded-2xl p-6 text-center">
-                    <Sparkles className="w-8 h-8 text-amber-500 mx-auto mb-2" />
                     <p className="text-sm font-bold text-amber-900 mb-1">No notation submitted yet!</p>
                     <p className="text-xs text-amber-700">
                       Be the first musician to share swaras for this song below. Once submitted, this request moves to <strong>Ready to View</strong>!
@@ -1053,7 +1049,6 @@ export const NotationRequestsView: React.FC<NotationRequestsViewProps> = ({ curr
                 {isRequesterOfSelectedRequest() ? (
                   <div className="bg-amber-50/80 border border-amber-200/90 rounded-2xl p-5 text-center space-y-2">
                     <div className="inline-flex items-center gap-1.5 text-amber-900 font-bold text-xs bg-amber-100/90 px-3 py-1 rounded-full border border-amber-300/60">
-                      <Sparkles className="w-3.5 h-3.5 text-amber-600" />
                       <span>You Requested This Notation</span>
                     </div>
                     <p className="text-xs text-amber-900 font-medium max-w-md mx-auto leading-relaxed">

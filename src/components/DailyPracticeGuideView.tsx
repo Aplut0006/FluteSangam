@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { 
   BookOpen, Wind, Clock, Calendar, CheckCircle2, 
-  Volume2, Copy, Check, Sparkles, Flame, ShieldAlert, Lightbulb, 
+  Volume2, Copy, Check, Flame, ShieldAlert, Lightbulb, 
   Target, Repeat, Headphones, Heart, ArrowRight, Share2, Compass,
   Activity, Sliders, Radio, AlertCircle, Award
 } from 'lucide-react';
@@ -107,7 +107,6 @@ export default function DailyPracticeGuideView({ onViewChange }: DailyPracticeGu
           <div className="border-b border-bamboo-800/80 pb-6">
             <div className="space-y-3 max-w-3xl">
               <div className="inline-flex items-center gap-2 bg-amber-500/20 text-amber-300 px-3 py-1 rounded-full text-xs font-semibold border border-amber-400/30">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
                 <span>Complete Practice Routine</span>
               </div>
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black font-display tracking-tight text-white leading-tight">
@@ -479,7 +478,6 @@ export default function DailyPracticeGuideView({ onViewChange }: DailyPracticeGu
                 <span className="text-xs text-amber-700 font-bold">Recommended Time: 10 Minutes</span>
               </div>
             </div>
-            <Sparkles className="w-6 h-6 text-amber-600" />
           </div>
 
           <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-sans">

@@ -36,7 +36,7 @@ export interface ChatCategory {
 }
 
 export const CHATBOT_CATEGORIES: ChatCategory[] = [
-  { id: 'Beginner', name: '🪈 Beginner', icon: 'Sparkles' },
+  { id: 'Beginner', name: '🪈 Beginner', icon: 'Music' },
   { id: 'Basics & Getting Started', name: '🌱 Basics', icon: 'Compass' },
   { id: 'Choosing a Flute', name: '🎵 Choosing Flute', icon: 'ShoppingBag' },
   { id: 'Blowing & Sound', name: '🌬️ Blowing & Sound', icon: 'Wind' },

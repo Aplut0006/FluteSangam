@@ -3,7 +3,7 @@ import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { 
   HelpCircle, Search, ChevronDown, BookOpen, Music, Wind, 
-  Sparkles, CheckCircle2, MessageSquare, ArrowRight, Shield, 
+  CheckCircle2, MessageSquare, ArrowRight, Shield, 
   Heart, ExternalLink, ThumbsUp, ThumbsDown, Copy, Check, 
   Calendar, Info, RefreshCw, Layers, CircleDot, Filter, AlertTriangle, LifeBuoy, Plus,
   Sliders, Package, Compass, Award, Activity, Users, Smile, ChevronRight, Home
@@ -103,7 +103,7 @@ const FAQ_HUB_TOPICS = [
     slug: 'music-theory',
     title: 'Music Theory & Notation',
     category: 'Music Theory & Notation',
-    icon: Sparkles,
+    icon: BookOpen,
     color: 'from-indigo-600 to-indigo-700',
     description: '12 Swaras, Bhatkhande notation scripts, Tanpura tuning, microtonal Shrutis, and Indian-Western scale equivalents.',
     questionCount: FAQ_DATA.filter(f => f.category === 'Music Theory & Notation' || f.category === 'Music Theory & Tuning' || f.category === 'Music Theory').length
@@ -338,8 +338,8 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
     }
     metaDescription.setAttribute('content', description);
 
-    // Set or update Canonical Link tag
-    const canonicalUrl = `https://flutesangam.com/faq${activeSlug ? '/' + activeSlug : ''}`;
+    // Set or update Canonical Link tag (always canonicalize to main /faq hub)
+    const canonicalUrl = 'https://flutesangam.com/faq';
     let canonicalLink = document.querySelector('link[rel="canonical"]');
     if (!canonicalLink) {
       canonicalLink = document.createElement('link');
@@ -538,15 +538,11 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
                 ((topic.category === 'Flute Types' || topic.category === 'Flute Types & Scales') && (selectedCategory === 'Flute Types' || selectedCategory === 'Flute Types & Scales'));
 
               return (
-                <Link
+                <button
                   key={topic.slug}
-                  to={`/faq/${topic.slug}`}
-                  onClick={(e) => {
-                    if (!e.ctrlKey && !e.metaKey) {
-                      handleCategorySelect(topic.category);
-                    }
-                  }}
-                  className={`group p-4 rounded-2xl border transition-all duration-200 flex flex-col justify-between space-y-3 ${
+                  type="button"
+                  onClick={() => handleCategorySelect(topic.category)}
+                  className={`group text-left p-4 rounded-2xl border transition-all duration-200 flex flex-col justify-between space-y-3 cursor-pointer ${
                     isSelected
                       ? 'bg-amber-50/90 border-amber-500 shadow-sm ring-2 ring-amber-400/30'
                       : 'bg-white hover:bg-amber-50/40 border-amber-200/80 hover:border-amber-400 hover:shadow-xs'
@@ -571,11 +567,11 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
                     </p>
                   </div>
 
-                  <div className="pt-2 border-t border-amber-100/70 flex items-center justify-between text-xs font-bold text-amber-700 group-hover:text-amber-900">
+                  <div className="pt-2 border-t border-amber-100/70 flex items-center justify-between text-xs font-bold text-amber-700 group-hover:text-amber-900 w-full">
                     <span>Browse Questions</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>
-                </Link>
+                </button>
               );
             })}
           </div>
@@ -657,18 +653,11 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
             const count = FAQ_DATA.filter(f => matchesCategory(f.category, cat)).length;
             const isActive = matchesCategory(selectedCategory, cat);
 
-            const catSlug = CATEGORY_SLUGS[cat] || '';
-            const catHref = catSlug ? `/faq/${catSlug}` : '/faq';
-
             return (
-              <Link
+              <button
                 key={cat}
-                to={catHref}
-                onClick={(e) => {
-                  if (!e.ctrlKey && !e.metaKey) {
-                    handleCategorySelect(cat);
-                  }
-                }}
+                type="button"
+                onClick={() => handleCategorySelect(cat)}
                 className={`px-3.5 py-1.5 rounded-xl font-bold whitespace-nowrap transition-all cursor-pointer flex items-center gap-1.5 shrink-0 ${
                   isActive
                     ? 'bg-amber-600 text-white shadow-xs border border-amber-700'
@@ -681,7 +670,7 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
                 }`}>
                   {count}
                 </span>
-              </Link>
+              </button>
             );
           })}
         </div>
@@ -840,27 +829,12 @@ export default function FluteFaqView({ onViewChange }: FluteFaqViewProps) {
                     }`}
                   >
                     <div className="p-4 sm:p-6 space-y-4 text-xs sm:text-sm text-gray-800 leading-relaxed font-sans">
-                      {/* Body Answer Text - only show if not in All Categories or if expanded */}
-                      {shouldShowFullAnswer ? (
-                        faq.answer.split('\n\n').map((paragraph, pIdx) => (
-                          <p key={pIdx} className="leading-relaxed">
-                            {paragraph}
-                          </p>
-                        ))
-                      ) : (
-                        <div className="flex items-center justify-between pt-2 border-t border-amber-100">
-                          <p className="text-xs text-gray-500 italic">
-                            {faq.answer.substring(0, 100)}...
-                          </p>
-                          <Link
-                            to={`/faq/${CATEGORY_SLUGS[faq.category] || ''}`}
-                            onClick={() => handleCategorySelect(faq.category)}
-                            className="text-xs font-bold text-amber-700 hover:text-amber-900"
-                          >
-                            View in {faq.category}
-                          </Link>
-                        </div>
-                      )}
+                      {/* Body Answer Text - always rendered in DOM for SSR & crawlers */}
+                      {faq.answer.split('\n\n').map((paragraph, pIdx) => (
+                        <p key={pIdx} className="leading-relaxed">
+                          {paragraph}
+                        </p>
+                      ))}
 
                       {/* Direct Action Link to Related App Tool */}
                       {faq.relatedLink && (

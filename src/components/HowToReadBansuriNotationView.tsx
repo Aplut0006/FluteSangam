@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
-  Music, BookOpen, Volume2, Play, Square, Sparkles, 
-  HelpCircle, ChevronDown, ChevronUp, ArrowRight, 
+  Music, BookOpen, Volume2, Play, Square, HelpCircle, ChevronDown, ChevronUp, ArrowRight, 
   CheckCircle2, Compass, Share2, Lightbulb, RotateCcw, 
   Target, Radio, AlertTriangle, Check, Copy, ArrowLeft,
   FileText, Award, Info, Printer, Calendar, Clock, Layers,
@@ -310,7 +309,6 @@ export default function HowToReadBansuriNotationView({ onViewChange }: HowToRead
               <span>Reading time: 8–10 minutes</span>
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-50 dark:bg-emerald-950/50 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/50">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
               <span>Interactive Audio Included</span>
             </span>
           </div>
@@ -1476,7 +1474,6 @@ Ṇ  = Lower Ni     N = Middle Ni     N' = Upper Ni
         {/* 15. Final Thoughts */}
         <section className="p-6 sm:p-8 rounded-3xl bg-amber-50/80 dark:bg-slate-900 border border-amber-200 dark:border-slate-800 space-y-4">
           <h2 className="text-xl sm:text-2xl font-display font-bold text-slate-900 dark:text-white flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-amber-600" />
             <span>Final Thoughts: The Five Questions</span>
           </h2>
           <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">

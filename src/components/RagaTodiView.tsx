@@ -3,7 +3,7 @@ import {
   Music, BookOpen, Clock, Sun, Calendar, CheckCircle2, Play, Pause, 
   Volume2, Copy, Check, ChevronDown, ChevronUp, 
   Compass, Zap, Share2, 
-  Sliders, Award, Sparkles, ShieldAlert, Lightbulb, ArrowLeft,
+  Sliders, Award, ShieldAlert, Lightbulb, ArrowLeft,
   RefreshCw, RotateCcw, HelpCircle
 } from 'lucide-react';
 import { AppView } from '../types';
@@ -516,7 +516,6 @@ r g M g | r S — — ||`;
           <div className="flex items-center justify-between border-b border-amber-100 pb-4 flex-wrap gap-2">
             <div className="flex items-center gap-3">
               <div className="p-2.5 bg-amber-100 rounded-2xl text-amber-900">
-                <Sparkles className="w-6 h-6" />
               </div>
               <div>
                 <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950">
@@ -1185,7 +1184,6 @@ r g M g | r S — — ||`;
         {/* SECTION 12: FINAL THOUGHTS & FLUTESANGAM PRO TIP */}
         <section className="bg-gradient-to-br from-amber-800 to-amber-950 text-white rounded-3xl p-6 sm:p-8 shadow-md border border-amber-700/60 mb-8 space-y-4">
           <div className="flex items-center gap-3">
-            <Sparkles className="w-6 h-6 text-amber-300 shrink-0" />
             <h3 className="text-xl font-bold font-display text-amber-100">Final Thoughts & FluteSangam Pro Tip</h3>
           </div>
           <p className="text-sm sm:text-base text-amber-100/90 leading-relaxed">

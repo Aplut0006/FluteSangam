@@ -4,7 +4,7 @@ import {
   Music, BookOpen, Clock, Sun, Moon, Calendar, CheckCircle2, Play, Pause, 
   Volume2, Copy, Check, ChevronDown, ChevronUp, 
   Heart, Compass, Zap, Repeat, HelpCircle, ArrowRight, Share2, 
-  Sliders, Radio, Award, Sparkles, Flame, ShieldAlert, Lightbulb, Printer, AlertCircle
+  Sliders, Radio, Award, Flame, ShieldAlert, Lightbulb, Printer, AlertCircle
 } from 'lucide-react';
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
@@ -164,8 +164,8 @@ Finish on: S`;
     { label: 'Thaat', value: 'Kafi', icon: <Compass className="w-4 h-4 text-amber-600" /> },
     { label: 'Jati', value: 'Audav – Audav (Pentatonic)', icon: <Sliders className="w-4 h-4 text-amber-600" /> },
     { label: 'Time of Day', value: 'Midday (12 PM – 3 PM)', icon: <Sun className="w-4 h-4 text-amber-500" /> },
-    { label: 'Vadi (King Note)', value: 'Re (R)', icon: <Sparkles className="w-4 h-4 text-amber-700" /> },
-    { label: 'Samvadi (Queen Note)', value: 'Pa (P)', icon: <Sparkles className="w-4 h-4 text-amber-700" /> },
+    { label: 'Vadi (King Note)', value: 'Re (R)', icon: <Music className="w-4 h-4 text-amber-700" /> },
+    { label: 'Samvadi (Queen Note)', value: 'Pa (P)', icon: <Music className="w-4 h-4 text-amber-700" /> },
     { label: 'Nature & Sentiment', value: 'Peaceful, Devotional, Bright', icon: <Heart className="w-4 h-4 text-emerald-600" /> },
     { label: 'Rasa', value: 'Bhakti (Devotion) & Shanta (Peace)', icon: <Flame className="w-4 h-4 text-amber-600" /> },
     { label: 'Difficulty', value: 'Beginner to Intermediate', icon: <Award className="w-4 h-4 text-blue-600" /> },
@@ -485,7 +485,6 @@ Finish on: S`;
         <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-bamboo-100 space-y-4">
           <div className="flex items-center gap-3 border-b border-bamboo-100 pb-3">
             <div className="p-2 bg-amber-50 rounded-xl text-amber-700">
-              <Sparkles className="w-5 h-5" />
             </div>
             <h2 className="text-xl font-bold text-bamboo-900 font-display">Important Characteristics</h2>
           </div>

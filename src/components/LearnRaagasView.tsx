@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   BookOpen, Filter, Music, Sun, Moon, Calendar, Clock, CheckCircle2, 
-  ArrowRight, Sparkles, Search, Volume2, Play, Compass, Feather, 
+  ArrowRight, Search, Volume2, Play, Compass, Feather, 
   Layers, Heart, Award, Check, RotateCcw
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -277,7 +277,7 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
               </div>
               <div>
                 <span className="text-amber-400 text-xs font-mono font-bold tracking-widest uppercase flex items-center gap-1.5 mb-1">
-                  <Sparkles className="w-3.5 h-3.5" /> Indian Classical Music Heritage
+                  Indian Classical Music Heritage
                 </span>
                 <h1 className="text-3xl md:text-5xl font-black font-display tracking-tight text-white" itemProp="headline">
                   Classical Raagas
@@ -546,7 +546,6 @@ export default function LearnRaagasView({ onViewChange }: LearnRaagasViewProps) 
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="p-1.5 rounded-lg bg-amber-500 text-white shadow-xs">
-                  <Sparkles className="w-4 h-4" />
                 </span>
                 <h3 className="text-lg font-black font-display text-slate-900 dark:text-white">
                   Featured Step-by-Step Raga Flute Guides

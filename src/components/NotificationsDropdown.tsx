@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { AppNotification, UserProfile } from '../types';
 import { subscribeToNotifications, markNotificationAsRead, markAllNotificationsAsRead } from '../lib/db';
-import { Bell, Heart, MessageSquare, CheckCheck, Sparkles, X } from 'lucide-react';
+import { Bell, Heart, MessageSquare, CheckCheck, X } from 'lucide-react';
 
 interface NotificationsDropdownProps {
   currentUser: UserProfile;
@@ -127,7 +127,6 @@ export default function NotificationsDropdown({ currentUser, onSelectPost }: Not
             {notifications.length === 0 ? (
               <div className="p-8 text-center space-y-2">
                 <div className="w-10 h-10 bg-bamboo-50 rounded-full flex items-center justify-center text-bamboo-600 mx-auto">
-                  <Sparkles className="w-5 h-5 text-amber-500" />
                 </div>
                 <p className="text-xs font-semibold text-gray-700">No notifications yet</p>
                 <p className="text-[11px] text-gray-400 max-w-xs mx-auto leading-relaxed">

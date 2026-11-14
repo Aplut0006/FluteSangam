@@ -10,7 +10,6 @@ import {
   BookOpen,
   AlertTriangle,
   Lightbulb,
-  Sparkles,
   Film,
   Mic,
   ShieldCheck,
@@ -90,7 +89,6 @@ export const KrrishThemeNotationView: React.FC<KrrishThemeNotationViewProps> = (
               Krrish (2006)
             </span>
             <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-amber-500/20 backdrop-blur-md border border-amber-300/20 text-amber-100 text-[11px] sm:text-xs font-bold flex items-center gap-1.5">
-              <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-300" />
               Rajesh Roshan
             </span>
             <span className="px-2 py-0.5 sm:px-2.5 rounded-full bg-amber-400/30 backdrop-blur-md border border-amber-300/30 text-amber-200 text-[11px] sm:text-xs font-bold uppercase tracking-wider flex items-center gap-1">

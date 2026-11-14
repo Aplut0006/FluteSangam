@@ -267,12 +267,20 @@ const AD_EXCLUDED_ROUTES = [
   '/404',
   '/post',
   '/chats',
-  '/search'
+  '/search',
+  '/contact',
+  '/privacy-policy',
+  '/privacy',
+  '/terms-of-service',
+  '/terms',
+  '/copyright-policy'
 ];
 
-export function isAdExcludedRoute(routePath: string, is404?: boolean): boolean {
+export function isAdExcludedRoute(routePath: string, is404?: boolean, robots?: string): boolean {
   if (is404) return true;
+  if (robots && robots.toLowerCase().includes('noindex')) return true;
   const clean = routePath.trim().split('?')[0].split('#')[0].replace(/\/+$/, '') || '/';
+  if (clean.startsWith('/faq/')) return true;
   return AD_EXCLUDED_ROUTES.some(p => clean === p || clean.startsWith(p + '/'));
 }
 
@@ -2766,7 +2774,7 @@ export async function renderRouteHtml(path: string, templateHtml: string): Promi
     finalHtml = finalHtml.replace('</head>', `  ${titleTag}\n</head>`);
   }
 
-  const isAdExcluded = isAdExcludedRoute(path, meta.is404);
+  const isAdExcluded = isAdExcludedRoute(path, meta.is404, meta.robots);
 
   // AdSense script handling: remove on non-content routes, ensure present on educational routes
   if (isAdExcluded) {

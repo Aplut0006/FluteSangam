@@ -1,5 +1,5 @@
 import React from 'react';
-import { Wind, Volume2, UserCheck, Move, Play, Music, Calendar, Clock, CheckCircle2, Sparkles, ChevronRight } from 'lucide-react';
+import { Wind, Volume2, UserCheck, Move, Play, Music, Calendar, Clock, CheckCircle2, ChevronRight } from 'lucide-react';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
 
@@ -327,7 +327,6 @@ export default function LearnBasicsView({ onViewChange }: LearnBasicsViewProps) 
                 <div className="bg-gradient-to-r from-amber-500 via-amber-600 to-bamboo-800 rounded-3xl p-6 sm:p-8 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-6 border border-amber-400/40">
                   <div className="space-y-1 text-center sm:text-left">
                     <div className="inline-flex items-center gap-1.5 bg-amber-300/20 text-amber-200 text-xs font-extrabold px-3 py-1 rounded-full border border-amber-300/30 uppercase tracking-wider">
-                      <Sparkles className="w-3.5 h-3.5 text-amber-300" />
                       Next Step In Learning
                     </div>
                     <h3 className="text-xl sm:text-2xl font-bold font-display text-white mt-2">

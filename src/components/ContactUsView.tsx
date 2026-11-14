@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Mail, Send, MessageSquare, HelpCircle, ArrowLeft, CheckCircle, Sparkles, MapPin, Globe } from 'lucide-react';
+import { Mail, Send, MessageSquare, HelpCircle, ArrowLeft, CheckCircle, MapPin, Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface ContactUsViewProps {
@@ -80,7 +80,6 @@ export default function ContactUsView({
         <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-white/5 pointer-events-none" />
         <div className="relative z-10 text-center max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 bg-amber-400/20 backdrop-blur-md px-4 py-1.5 rounded-full border border-amber-300/30 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-4">
-            <Sparkles className="w-4 h-4" />
             We'd Love to Hear From You
           </div>
           <h1 className="text-4xl sm:text-5xl font-display font-extrabold tracking-wide mb-4 text-white">
@@ -280,7 +279,6 @@ export default function ContactUsView({
       <div className="bg-gradient-to-br from-amber-50/90 via-white to-bamboo-50/60 rounded-3xl p-6 sm:p-8 border border-amber-200/80 shadow-sm mb-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div className="space-y-2 max-w-3xl">
           <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-800">
-            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
             <span>Editorial &amp; Founder Transparency</span>
           </div>
           <h3 className="text-xl font-display font-bold text-bamboo-950">
@@ -309,7 +307,6 @@ export default function ContactUsView({
       {/* Community Standards & Guidelines */}
       <div className="bg-white rounded-3xl p-6 sm:p-8 border border-bamboo-200 shadow-sm mb-12 space-y-4">
         <h3 className="text-xl font-display font-bold text-bamboo-950 flex items-center gap-2">
-          <Sparkles className="w-5 h-5 text-amber-600" />
           Community Standards &amp; Contribution Guidelines
         </h3>
         <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">

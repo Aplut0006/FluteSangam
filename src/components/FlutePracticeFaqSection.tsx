@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HelpCircle, ChevronDown, ChevronUp, Sparkles } from 'lucide-react';
+import { HelpCircle, ChevronDown, ChevronUp } from 'lucide-react';
 import { FAQ_DATA } from '../data/allFaqData';
 
 export interface FaqItem {
@@ -162,7 +162,6 @@ export default function FlutePracticeFaqSection({ onViewChange }: FlutePracticeF
             onClick={() => onViewChange('flute_faq')}
             className="w-full py-2.5 px-3 bg-amber-100 hover:bg-amber-200 text-amber-950 font-bold text-xs rounded-xl transition cursor-pointer flex items-center justify-center gap-1.5"
           >
-            <Sparkles className="w-3.5 h-3.5 text-amber-700" />
             <span>Explore All {FAQ_DATA.length}+ Flute FAQs &amp; Help Center &rarr;</span>
           </button>
         </div>

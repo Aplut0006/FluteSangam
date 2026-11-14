@@ -3,7 +3,7 @@ import {
   Music, BookOpen, Clock, Moon, Calendar, CheckCircle2, Play, Pause, 
   Volume2, Copy, Check, ChevronDown, ChevronUp, 
   Compass, Zap, Share2, 
-  Sliders, Award, Sparkles, ShieldAlert, Lightbulb, ArrowLeft,
+  Sliders, Award, ShieldAlert, Lightbulb, ArrowLeft,
   RefreshCw
 } from 'lucide-react';
 import { AppView } from '../types';
@@ -339,7 +339,6 @@ export const RagaJogView: React.FC<RagaJogViewProps> = ({ onViewChange }) => {
 
           <div className="bg-amber-50/80 border border-amber-200 rounded-xl p-4 mt-4">
             <h3 className="text-sm font-bold text-amber-950 mb-2 flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-amber-600" />
               What Flute Players Develop with Raag Jog:
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs text-slate-800 font-medium">
@@ -575,7 +574,6 @@ export const RagaJogView: React.FC<RagaJogViewProps> = ({ onViewChange }) => {
               <div key={i} className={`p-5 rounded-xl border ${card.color} space-y-2`}>
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-mono px-2.5 py-0.5 rounded bg-amber-200 text-amber-950 font-bold">{card.num}</span>
-                  <Sparkles className="w-4 h-4 text-amber-600" />
                 </div>
                 <h3 className="font-bold text-base text-slate-900">{card.title}</h3>
                 <p className="text-slate-700 text-xs leading-relaxed">{card.desc}</p>
@@ -802,7 +800,6 @@ export const RagaJogView: React.FC<RagaJogViewProps> = ({ onViewChange }) => {
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div>
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-200 border border-amber-400 text-amber-950 text-xs font-bold mb-2">
-                <Sparkles className="w-3.5 h-3.5 text-amber-700" />
                 100% Original Composition
               </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">

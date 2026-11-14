@@ -4,7 +4,7 @@ import {
   Music, BookOpen, Clock, Sun, Moon, Calendar, CheckCircle2, Play, Pause, 
   Volume2, Copy, Check, ChevronDown, ChevronUp, 
   Heart, Compass, Zap, Repeat, HelpCircle, ArrowRight, Share2, 
-  Sliders, Award, Sparkles, ShieldAlert, Lightbulb, RotateCcw
+  Sliders, Award, ShieldAlert, Lightbulb, RotateCcw
 } from 'lucide-react';
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
@@ -211,7 +211,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
               </div>
               <div>
                 <span className="text-amber-400 text-xs font-mono font-bold tracking-widest uppercase flex items-center gap-1.5 mb-1">
-                  <Sparkles className="w-3.5 h-3.5" /> Bilawal Thaat Raga Masterclass
+                  Bilawal Thaat Raga Masterclass
                 </span>
                 <h1 className="text-3xl sm:text-5xl font-black font-display tracking-tight text-white" itemProp="headline">
                   Raag Bihag
@@ -417,7 +417,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
 
           <div className="bg-amber-50/70 dark:bg-slate-800/50 p-4 rounded-2xl border border-amber-200 dark:border-slate-700 space-y-1.5">
             <h3 className="font-bold text-amber-900 dark:text-amber-300 flex items-center gap-1.5">
-              <Sparkles className="w-4 h-4 text-amber-600" /> Dual Madhyam Usage (M &amp; M#)
+              Dual Madhyam Usage (M &amp; M#)
             </h3>
             <p>
               The use of both Shuddha Ma and Tivra Ma is one of the key features that gives Bihag its distinctive, romantic color.
@@ -486,7 +486,6 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
         <div className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-5 border border-slate-200 dark:border-slate-700 space-y-3">
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-amber-600" />
               Pakad (Catch Phrase)
             </h3>
             <button

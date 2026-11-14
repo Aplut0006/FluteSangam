@@ -9,7 +9,6 @@ import {
   Music, 
   MessageSquare, 
   UserCheck, 
-  Sparkles,
   Filter,
   X,
   Lock

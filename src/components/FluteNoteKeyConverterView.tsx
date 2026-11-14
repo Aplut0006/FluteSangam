@@ -8,7 +8,6 @@ import {
   RotateCcw, 
   Volume2, 
   VolumeX, 
-  Sparkles, 
   HelpCircle, 
   BookOpen, 
   Layers, 
@@ -242,7 +241,6 @@ export const FluteNoteKeyConverterView: React.FC<Props> = ({ onNavigate }) => {
         
         <div className="max-w-6xl mx-auto relative z-10 text-center space-y-3">
           <div className="inline-flex items-center gap-2 bg-amber-500/20 text-amber-300 border border-amber-400/30 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider backdrop-blur-xs">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
             FluteSangam Interactive Musical Utility
           </div>
           
@@ -781,7 +779,6 @@ export const FluteNoteKeyConverterView: React.FC<Props> = ({ onNavigate }) => {
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
               <div>
                 <h3 className="text-lg font-bold font-display text-bamboo-950 flex items-center gap-2">
-                  <Sparkles className="w-5 h-5 text-amber-600" />
                   Conversion Result
                 </h3>
                 <p className="text-xs text-gray-500">

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
-  Wind, Volume2, Play, Square, Activity, Sparkles, Clock, 
+  Wind, Volume2, Play, Square, Activity, Clock, 
   Calendar, CheckCircle2, HelpCircle, Gauge, Music, Sliders, 
   ChevronDown, ChevronUp, Layers, ArrowRight, ListOrdered, AlertCircle
 } from 'lucide-react';
@@ -410,7 +410,6 @@ export default function LearnScalesOctavesView({ onViewChange }: LearnScalesOcta
                 <span className="font-mono bg-emerald-950 text-emerald-300 font-bold px-2 py-1 rounded border border-emerald-500/40">{metronomeBpm} BPM</span>
               </div>
               <div className="flex items-center gap-2 text-xs text-emerald-300/80">
-                <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
                 <span>Recommended: Start at 40–60 BPM for scale clarity</span>
               </div>
             </motion.div>
@@ -770,7 +769,6 @@ export default function LearnScalesOctavesView({ onViewChange }: LearnScalesOcta
         {/* Section 4: Why Should Flute Players Practice Scales? */}
         <section className="space-y-4">
           <div className="flex items-center gap-3 border-b border-bamboo-100 pb-2">
-            <Sparkles className="w-6 h-6 text-amber-600" />
             <h2 className="text-2xl font-bold text-bamboo-900 m-0">Why Should Flute Players Practice Scales?</h2>
           </div>
           <p className="text-gray-700 leading-relaxed">
@@ -1071,18 +1069,11 @@ export default function LearnScalesOctavesView({ onViewChange }: LearnScalesOcta
                     <span className="text-sm sm:text-base">{faq.q}</span>
                     {isOpen ? <ChevronUp className="w-5 h-5 text-amber-600 shrink-0" /> : <ChevronDown className="w-5 h-5 text-gray-400 shrink-0" />}
                   </button>
-                  <AnimatePresence>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="px-4 pb-4 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-bamboo-100 pt-3"
-                      >
-                        {faq.a}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  <div
+                    className={`${isOpen ? 'block' : 'hidden'} px-4 pb-4 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-bamboo-100 pt-3`}
+                  >
+                    {faq.a}
+                  </div>
                 </div>
               );
             })}

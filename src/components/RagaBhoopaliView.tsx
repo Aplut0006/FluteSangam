@@ -3,7 +3,7 @@ import {
   Music, BookOpen, Clock, Moon, Calendar, CheckCircle2, Play, Pause, 
   Volume2, VolumeX, Copy, Check, ChevronDown, ChevronUp, AlertCircle, 
   Heart, Compass, Zap, Repeat, HelpCircle, ArrowRight, Share2, Printer, 
-  Sliders, Radio, Award, Sparkles, Flame, ShieldAlert, Lightbulb
+  Sliders, Radio, Award, Flame, ShieldAlert, Lightbulb
 } from 'lucide-react';
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
@@ -140,7 +140,7 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
     { label: 'Jati', value: 'Audav – Audav (Pentatonic)', icon: <Sliders className="w-4 h-4 text-amber-600" /> },
     { label: 'Time of Day', value: 'First quarter of night (6 PM – 9 PM)', icon: <Moon className="w-4 h-4 text-indigo-600" /> },
     { label: 'Vadi (King Note)', value: 'Ga (G)', icon: <CrownIcon className="w-4 h-4 text-amber-700" /> },
-    { label: 'Samvadi (Queen Note)', value: 'Dha (D)', icon: <Sparkles className="w-4 h-4 text-amber-700" /> },
+    { label: 'Samvadi (Queen Note)', value: 'Dha (D)', icon: <Music className="w-4 h-4 text-amber-700" /> },
     { label: 'Nature & Sentiment', value: 'Peaceful, Devotional, Serene', icon: <Heart className="w-4 h-4 text-emerald-600" /> },
     { label: 'Rasa', value: 'Shanta (Peace) & Bhakti (Devotion)', icon: <Flame className="w-4 h-4 text-amber-600" /> },
     { label: 'Difficulty Level', value: 'Beginner', icon: <CheckCircle2 className="w-4 h-4 text-emerald-600" /> },
@@ -230,7 +230,6 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 sm:gap-6">
             <div className="space-y-2.5 sm:space-y-3 max-w-2xl">
               <div className="inline-flex items-center gap-1.5 bg-amber-500/20 border border-amber-400/30 text-amber-300 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold tracking-wide uppercase">
-                <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400" />
                 Hindustani Classical • Audav-Audav
               </div>
               <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold font-display tracking-tight text-amber-50 leading-tight" itemProp="headline">
@@ -547,7 +546,6 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
           <div className="flex flex-wrap gap-1.5 sm:gap-2">
             {['Peace (Shanti)', 'Devotion (Bhakti)', 'Positivity', 'Calmness', 'Meditation', 'Hope'].map((mood, idx) => (
               <span key={idx} className="bg-white border border-amber-300 text-amber-900 font-bold px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl text-[11px] sm:text-xs shadow-3xs flex items-center gap-1.5">
-                <Sparkles className="w-3 h-3 text-amber-500 shrink-0" />
                 {mood}
               </span>
             ))}

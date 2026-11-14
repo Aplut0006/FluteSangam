@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { UserProfile, Post } from '../types';
 import { POPULAR_RAGAS } from '../data/ragas';
 import { addPost, editPost } from '../lib/db';
-import { X, Sparkles, Music, Youtube, HelpCircle, FileText, Settings, Video, Image as ImageIcon, UploadCloud, Trash2 } from 'lucide-react';
+import { X, Music, Youtube, HelpCircle, FileText, Settings, Video, Image as ImageIcon, UploadCloud, Trash2 } from 'lucide-react';
 import { motion } from 'motion/react';
 
 interface CreatePostModalProps {
@@ -190,7 +190,6 @@ export default function CreatePostModal({ isOpen, onClose, currentUser, postToEd
         {/* Header */}
         <div className="bg-gradient-to-r from-bamboo-700 to-bamboo-800 px-5 sm:px-6 py-4 text-white flex justify-between items-center shrink-0">
           <div className="flex items-center space-x-2">
-            <Sparkles className="w-5 h-5 text-yellow-300" />
             <h3 className="font-display font-semibold tracking-wide text-base">
               {postToEdit ? "Edit Your Post" : "Share Your Musical Journey"}
             </h3>

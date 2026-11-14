@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { 
   Music, BookOpen, Clock, Moon, Calendar, CheckCircle2, Play, Pause, Square,
   Volume2, Copy, Check, ChevronDown, ChevronUp, AlertTriangle, AlertCircle,
-  Compass, Zap, Share2, Printer, Sliders, Award, Sparkles, ShieldAlert, 
+  Compass, Zap, Share2, Printer, Sliders, Award, ShieldAlert, 
   Lightbulb, ArrowLeft, RefreshCw, RotateCcw, Feather, Heart, Radio,
   Target, Layers, HelpCircle, ArrowRight
 } from 'lucide-react';
@@ -321,7 +321,7 @@ export const RagaShivranjaniView: React.FC<RagaShivranjaniViewProps> = ({ onView
     { label: 'Jati', value: 'Audav – Audav (5 notes in Ascent & Descent)', icon: <Sliders className="w-4 h-4 text-amber-700" /> },
     { label: 'Time of Day', value: 'Any Time / Calm & Expressive Practice', icon: <Moon className="w-4 h-4 text-indigo-600" /> },
     { label: 'Key Swaras', value: 'S R g P D (Komal Ga • Ma & Ni Omitted)', icon: <Music className="w-4 h-4 text-rose-700" /> },
-    { label: 'Characteristic Movement', value: 'Re → Komal Ga & Pa → Dha (Return: g R S)', icon: <Sparkles className="w-4 h-4 text-amber-700" /> },
+    { label: 'Characteristic Movement', value: 'Re → Komal Ga & Pa → Dha (Return: g R S)', icon: <Music className="w-4 h-4 text-amber-700" /> },
     { label: 'Sentiment (Rasa)', value: 'Karuna (Pathos), Shringara (Romantic), Devotional', icon: <Heart className="w-4 h-4 text-rose-600" /> },
     { label: 'Difficulty Level', value: 'Beginner to Intermediate Transition', icon: <CheckCircle2 className="w-4 h-4 text-emerald-600" /> },
   ];
@@ -401,7 +401,6 @@ export const RagaShivranjaniView: React.FC<RagaShivranjaniViewProps> = ({ onView
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 sm:gap-6">
             <div className="space-y-2.5 sm:space-y-3 max-w-2xl">
               <div className="inline-flex items-center gap-1.5 bg-rose-500/20 border border-rose-400/30 text-rose-300 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold tracking-wide uppercase">
-                <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-rose-400" />
                 Hindustani Classical • Audav-Audav • Soulful Pentatonic
               </div>
               <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold font-display tracking-tight text-rose-50 leading-tight" itemProp="headline">
@@ -492,7 +491,6 @@ export const RagaShivranjaniView: React.FC<RagaShivranjaniViewProps> = ({ onView
         </div>
 
         <div className="p-4 bg-rose-50 rounded-2xl border border-rose-200 text-xs sm:text-sm text-rose-950 flex items-start gap-3">
-          <Sparkles className="w-5 h-5 text-rose-700 shrink-0 mt-0.5" />
           <div>
             <strong className="block font-bold">FluteSangam Philosophy:</strong>
             Fewer notes mean more musical responsibility. With only five swaras, your tone quality, breath pacing, and delicate pitch inflections take center stage.
@@ -787,7 +785,6 @@ export const RagaShivranjaniView: React.FC<RagaShivranjaniViewProps> = ({ onView
       {/* SECTION 5: CHARACTERISTICS OF RAAG SHIVRANJANI */}
       <section className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xs border border-stone-200 space-y-5">
         <h2 className="text-xl sm:text-2xl font-bold text-bamboo-950 font-display flex items-center gap-2.5">
-          <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-rose-700 shrink-0" />
           <span>Characteristics of Raag Shivranjani</span>
         </h2>
 
@@ -1377,7 +1374,6 @@ export const RagaShivranjaniView: React.FC<RagaShivranjaniViewProps> = ({ onView
       {/* SECTION 13: FINAL THOUGHTS */}
       <section className="bg-gradient-to-br from-amber-50 to-rose-50 rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xs border border-rose-200 space-y-4">
         <h2 className="text-xl sm:text-2xl font-bold text-bamboo-950 font-display flex items-center gap-2.5">
-          <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-rose-700 shrink-0" />
           <span>Final Thoughts</span>
         </h2>
         <div className="text-stone-700 text-xs sm:text-sm leading-relaxed space-y-3">
