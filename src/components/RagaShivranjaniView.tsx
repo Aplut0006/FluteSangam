@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
+import RagaEditorialArticleSection from './RagaEditorialArticleSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 
@@ -366,7 +367,7 @@ export const RagaShivranjaniView: React.FC<RagaShivranjaniViewProps> = ({ onView
             "url": "https://flutesangam.com"
           },
           "datePublished": "2026-08-21T00:00:00Z",
-          "dateModified": "2026-10-18T10:00:00Z",
+          "dateModified": "2026-11-13T00:00:00Z",
           "inLanguage": "en",
           "keywords": ["Raag Shivranjani", "Shivranjani", "Learn Bansuri", "Komal Ga", "Flute Raga", "Hindustani Classical", "FluteSangam"]
         })}
@@ -420,7 +421,7 @@ export const RagaShivranjaniView: React.FC<RagaShivranjaniViewProps> = ({ onView
                 </div>
                 <div className="flex items-center gap-2 text-amber-200">
                   <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                  <span>Updated: <strong className="text-white">Aug 21, 2026</strong></span>
+                  <span>Updated: <strong className="text-white" itemProp="dateModified" content="2026-11-13">Nov 13, 2026</strong></span>
                 </div>
               </div>
 
@@ -498,6 +499,13 @@ export const RagaShivranjaniView: React.FC<RagaShivranjaniViewProps> = ({ onView
           </div>
         </div>
       </section>
+
+      {/* Deep Editorial Monograph: Bhoopali-Kafi Metamorphosis, Single-Semitone Shift & Karuna Rasa */}
+      <RagaEditorialArticleSection
+        ragaSlug="shivranjani"
+        part="origins-and-rasa"
+        onViewChange={onViewChange}
+      />
 
 
       {/* SECTION 2: NOTES & INTERACTIVE SWARA BOARD */}
@@ -1405,6 +1413,13 @@ export const RagaShivranjaniView: React.FC<RagaShivranjaniViewProps> = ({ onView
       </section>
 
 
+      {/* Deep Editorial Study: Samprakritic Raga Comparisons (Bhoopali & Bhupeshwari) & Iconic Repertoire */}
+      <RagaEditorialArticleSection
+        ragaSlug="shivranjani"
+        part="comparisons-and-repertoire"
+        onViewChange={onViewChange}
+      />
+
       {/* SECTION 14: FREQUENTLY ASKED QUESTIONS (FAQ) */}
       <section className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xs border border-stone-200 space-y-4">
         <div className="flex items-center justify-between">
@@ -1424,11 +1439,9 @@ export const RagaShivranjaniView: React.FC<RagaShivranjaniViewProps> = ({ onView
                 <span>{faq.q}</span>
                 {openFaq === idx ? <ChevronUp className="w-4 h-4 text-stone-500" /> : <ChevronDown className="w-4 h-4 text-stone-500" />}
               </button>
-              {openFaq === idx && (
-                <div className="p-4 bg-white text-xs sm:text-sm text-stone-600 leading-relaxed border-t border-stone-200">
-                  {faq.a}
-                </div>
-              )}
+              <div className={`${openFaq === idx ? 'block' : 'hidden'} p-4 bg-white text-xs sm:text-sm text-stone-600 leading-relaxed border-t border-stone-200`}>
+                {faq.a}
+              </div>
             </div>
           ))}
         </div>

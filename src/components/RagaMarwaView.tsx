@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
+import RagaEditorialArticleSection from './RagaEditorialArticleSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 
 interface RagaMarwaViewProps {
@@ -282,7 +283,7 @@ export default function RagaMarwaView({ onViewChange }: RagaMarwaViewProps) {
               </div>
               <div className="flex items-center gap-1.5 bg-white/90 border border-amber-200 px-3 py-1 rounded-lg shadow-2xs">
                 <RefreshCw className="w-3.5 h-3.5 text-rose-700" />
-                <span>Updated: <strong className="text-bamboo-950 font-semibold">October 18, 2026</strong></span>
+                <span>Updated: <strong className="text-bamboo-950 font-semibold" itemProp="dateModified" content="2026-11-13">November 13, 2026</strong></span>
               </div>
               <div className="flex items-center gap-1.5 bg-white/90 border border-amber-200 px-3 py-1 rounded-lg shadow-2xs">
                 <Clock className="w-3.5 h-3.5 text-amber-700" />
@@ -348,6 +349,13 @@ export default function RagaMarwaView({ onViewChange }: RagaMarwaViewProps) {
             </p>
           </div>
         </section>
+
+        {/* Deep Editorial Monograph: Historical Origins, Tonic Suspension & Sunset Rasa */}
+        <RagaEditorialArticleSection
+          ragaSlug="marwa"
+          part="origins-and-rasa"
+          onViewChange={onViewChange}
+        />
 
 
         {/* 2. Swaras & Notation Section */}
@@ -971,6 +979,13 @@ export default function RagaMarwaView({ onViewChange }: RagaMarwaViewProps) {
         </section>
 
 
+        {/* Deep Editorial Study: Samprakritic Raga Comparisons (Puriya & Sohini) & Iconic Repertoire */}
+        <RagaEditorialArticleSection
+          ragaSlug="marwa"
+          part="comparisons-and-repertoire"
+          onViewChange={onViewChange}
+        />
+
         {/* 12. FAQ Section */}
         <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-amber-200/80 space-y-6">
           <div className="flex items-center gap-3">
@@ -996,11 +1011,9 @@ export default function RagaMarwaView({ onViewChange }: RagaMarwaViewProps) {
                   <span>{faq.q}</span>
                   {activeFaq === index ? <ChevronUp className="w-4 h-4 text-amber-700 shrink-0" /> : <ChevronDown className="w-4 h-4 text-gray-400 shrink-0" />}
                 </button>
-                {activeFaq === index && (
-                  <div className="p-4 bg-white text-xs sm:text-sm text-gray-600 border-t border-stone-200 leading-relaxed">
-                    {faq.a}
-                  </div>
-                )}
+                <div className={`${activeFaq === index ? 'block' : 'hidden'} p-4 bg-white text-xs sm:text-sm text-gray-600 border-t border-stone-200 leading-relaxed`}>
+                  {faq.a}
+                </div>
               </div>
             ))}
           </div>

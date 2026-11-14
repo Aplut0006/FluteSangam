@@ -9,6 +9,7 @@ import {
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
+import RagaEditorialArticleSection from './RagaEditorialArticleSection';
 
 interface RagaBhimpalasiViewProps {
   onViewChange?: (view: AppView) => void;
@@ -224,7 +225,7 @@ Finish on Sam: S`;
             </div>
             <div className="flex items-center gap-1.5">
               <Clock className="w-3.5 h-3.5 text-amber-300 shrink-0" />
-              <span>Updated: <strong className="text-amber-100">October 18, 2026</strong></span>
+              <span>Updated: <strong className="text-amber-100" itemProp="dateModified" content="2026-11-13">November 13, 2026</strong></span>
             </div>
             <div className="flex items-center gap-1.5">
               <BookOpen className="w-3.5 h-3.5 text-amber-300 shrink-0" />
@@ -275,6 +276,13 @@ Finish on Sam: S`;
           </p>
         </div>
       </section>
+
+      {/* Deep Editorial Monograph: Historical Origins, Dhanashree Lineage & Afternoon Rasa */}
+      <RagaEditorialArticleSection
+        ragaSlug="bhimpalasi"
+        part="origins-and-rasa"
+        onViewChange={onViewChange}
+      />
 
 
       {/* Basic Information Table */}
@@ -981,6 +989,13 @@ Finish on Sam: S`;
       </section>
 
 
+      {/* Deep Editorial Study: Samprakritic Raga Comparisons & Iconic Classical/Film Repertoire */}
+      <RagaEditorialArticleSection
+        ragaSlug="bhimpalasi"
+        part="comparisons-and-repertoire"
+        onViewChange={onViewChange}
+      />
+
       {/* Frequently Asked Questions */}
       <section className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-sm border border-bamboo-100 space-y-4">
         <div className="flex items-center gap-2.5 border-b border-gray-100 pb-3">
@@ -1007,11 +1022,9 @@ Finish on Sam: S`;
                   <ChevronDown className="w-4 h-4 text-gray-400 shrink-0" />
                 )}
               </button>
-              {activeFaq === idx && (
-                <div className="p-4 bg-white text-xs sm:text-sm text-gray-700 leading-relaxed border-t border-gray-100">
-                  {faq.a}
-                </div>
-              )}
+              <div className={`${activeFaq === idx ? 'block' : 'hidden'} p-4 bg-white text-xs sm:text-sm text-gray-700 leading-relaxed border-t border-gray-100`}>
+                {faq.a}
+              </div>
             </div>
           ))}
         </div>

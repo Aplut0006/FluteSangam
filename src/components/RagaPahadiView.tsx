@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
+import RagaEditorialArticleSection from './RagaEditorialArticleSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 
@@ -418,7 +419,7 @@ R G P G | R S — — ||
                 </div>
                 <div className="flex items-center gap-1.5 bg-emerald-950/50 border border-emerald-700/60 px-3 py-1 rounded-lg">
                   <RefreshCw className="w-3.5 h-3.5 text-teal-300" />
-                  <span>Updated: <strong className="text-emerald-100 font-semibold" itemProp="dateModified" content="2026-10-31">2026-10-31</strong></span>
+                  <span>Updated: <strong className="text-emerald-100 font-semibold" itemProp="dateModified" content="2026-11-13">November 13, 2026</strong></span>
                 </div>
                 <div className="flex items-center gap-1.5 bg-emerald-950/50 border border-emerald-700/60 px-3 py-1 rounded-lg">
                   <Clock className="w-3.5 h-3.5 text-emerald-300" />
@@ -530,6 +531,13 @@ R G P G | R S — — ||
                 </p>
               </div>
             </section>
+
+            {/* Deep Editorial Monograph: Himalayan Pastoral Roots, Call of the Valley & Mandra Rasa */}
+            <RagaEditorialArticleSection
+              ragaSlug="pahadi"
+              part="origins-and-rasa"
+              onViewChange={onViewChange}
+            />
 
 
             {/* Notes Section & Interactive Swara Audio Explorer */}
@@ -1143,6 +1151,13 @@ R G P G | R S — — ||
             </section>
 
 
+            {/* Deep Editorial Study: Samprakritic Raga Comparisons (Bhoopali & Mand) & Iconic Repertoire */}
+            <RagaEditorialArticleSection
+              ragaSlug="pahadi"
+              part="comparisons-and-repertoire"
+              onViewChange={onViewChange}
+            />
+
             {/* FAQ Accordion */}
             <section className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-stone-200/80 space-y-4">
               <h2 className="text-xl sm:text-2xl font-bold text-stone-900 font-display">Frequently Asked Questions</h2>
@@ -1156,11 +1171,9 @@ R G P G | R S — — ||
                       <span>{faq.q}</span>
                       {openFaq === idx ? <ChevronUp className="w-4 h-4 text-stone-600" /> : <ChevronDown className="w-4 h-4 text-stone-600" />}
                     </button>
-                    {openFaq === idx && (
-                      <div className="p-4 bg-white text-xs sm:text-sm text-stone-700 border-t border-stone-200 leading-relaxed">
-                        {faq.a}
-                      </div>
-                    )}
+                    <div className={`${openFaq === idx ? 'block' : 'hidden'} p-4 bg-white text-xs sm:text-sm text-stone-700 border-t border-stone-200 leading-relaxed`}>
+                      {faq.a}
+                    </div>
                   </div>
                 ))}
               </div>

@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
+import RagaEditorialArticleSection from './RagaEditorialArticleSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 
@@ -380,7 +381,7 @@ N d P M^ | g r S — ||`;
                 </div>
                 <div className="flex items-center gap-1.5 bg-amber-950/50 border border-amber-700/60 px-3 py-1 rounded-lg">
                   <RefreshCw className="w-3.5 h-3.5 text-orange-300" />
-                  <span>Updated: <strong className="text-amber-100 font-semibold" itemProp="dateModified" content="2026-10-18">October 18, 2026</strong></span>
+                  <span>Updated: <strong className="text-amber-100 font-semibold" itemProp="dateModified" content="2026-11-13">November 13, 2026</strong></span>
                 </div>
                 <div className="flex items-center gap-1.5 bg-amber-950/50 border border-amber-700/60 px-3 py-1 rounded-lg">
                   <Clock className="w-3.5 h-3.5 text-amber-300" />
@@ -469,6 +470,13 @@ N d P M^ | g r S — ||`;
             <strong>Note for learners:</strong> Multani is generally better suited to <strong>intermediate-to-advanced and advanced players</strong> because its identity depends heavily on swara treatment and characteristic phrases.
           </p>
         </section>
+
+        {/* Deep Editorial Monograph: Historical Origins, Sufi Heartland of Multan & Afternoon Rasa */}
+        <RagaEditorialArticleSection
+          ragaSlug="multani"
+          part="origins-and-rasa"
+          onViewChange={onViewChange}
+        />
 
 
         {/* Interactive Swara Explorer */}
@@ -1290,6 +1298,13 @@ N d P M^ | g r S — ||`;
         </div>
 
 
+        {/* Deep Editorial Study: Samprakritic Raga Comparisons (Todi & Madhuvanti) & Iconic Repertoire */}
+        <RagaEditorialArticleSection
+          ragaSlug="multani"
+          part="comparisons-and-repertoire"
+          onViewChange={onViewChange}
+        />
+
         {/* FAQ Accordion Section */}
         <section className="bg-white rounded-2xl p-6 sm:p-8 border border-amber-200/80 shadow-xs space-y-4">
           <div className="flex items-center gap-2.5 text-amber-900 font-display font-bold text-xl border-b border-amber-100 pb-3">
@@ -1320,11 +1335,9 @@ N d P M^ | g r S — ||`;
                   <span>{faq.q}</span>
                   {openFaq === idx ? <ChevronUp className="w-4 h-4 text-amber-700" /> : <ChevronDown className="w-4 h-4 text-amber-700" />}
                 </button>
-                {openFaq === idx && (
-                  <div className="p-4 bg-white text-xs sm:text-sm text-gray-700 leading-relaxed border-t border-amber-100">
-                    {faq.a}
-                  </div>
-                )}
+                <div className={`${openFaq === idx ? 'block' : 'hidden'} p-4 bg-white text-xs sm:text-sm text-gray-700 leading-relaxed border-t border-amber-100`}>
+                  {faq.a}
+                </div>
               </div>
             ))}
           </div>

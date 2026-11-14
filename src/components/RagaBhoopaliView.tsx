@@ -8,6 +8,7 @@ import {
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
+import RagaEditorialArticleSection from './RagaEditorialArticleSection';
 
 interface RagaBhoopaliViewProps {
   onViewChange?: (view: AppView) => void;
@@ -195,7 +196,7 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
             "url": "https://flutesangam.com"
           },
           "datePublished": "2026-07-30T00:00:00Z",
-          "dateModified": "2026-10-18T10:00:00Z",
+          "dateModified": "2026-11-13T00:00:00Z",
           "inLanguage": "en",
           "keywords": ["Raag Bhoopali", "Bhupali", "Learn Bansuri", "Flute Raga", "Prabhat Prerna", "Hindustani Classical"]
         })}
@@ -249,7 +250,7 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
                 </div>
                 <div className="flex items-center gap-2 text-amber-200">
                   <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                  <span>Updated: <strong className="text-white">Jul 30, 2026</strong></span>
+                  <span>Updated: <strong className="text-white" itemProp="dateModified" content="2026-11-13">Nov 13, 2026</strong></span>
                 </div>
                 <div className="pt-1 border-t border-amber-800/60 flex items-center gap-1.5 text-emerald-400 font-bold text-[11px]">
                   <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
@@ -298,6 +299,13 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
           </p>
         </div>
       </div>
+
+      {/* Deep Editorial Monograph: Historical Origins, Treatise Lineage & Emotional Rasa */}
+      <RagaEditorialArticleSection
+        ragaSlug="bhoopali"
+        part="origins-and-rasa"
+        onViewChange={onViewChange}
+      />
 
 
       {/* Basic Information Cards Grid */}
@@ -965,6 +973,13 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
       </div>
 
 
+      {/* Deep Editorial Study: Samprakritic Raga Comparisons & Iconic Classical/Film Repertoire */}
+      <RagaEditorialArticleSection
+        ragaSlug="bhoopali"
+        part="comparisons-and-repertoire"
+        onViewChange={onViewChange}
+      />
+
       {/* Frequently Asked Questions */}
       <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-sm border border-bamboo-100 space-y-4 sm:space-y-6">
         <h2 className="text-xl sm:text-2xl font-bold text-bamboo-900 font-display flex items-center gap-2">
@@ -981,11 +996,9 @@ export default function RagaBhoopaliView({ onViewChange }: RagaBhoopaliViewProps
                 <span className="text-xs sm:text-base leading-snug">{faq.q}</span>
                 {activeFaq === idx ? <ChevronUp className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600 shrink-0" /> : <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 shrink-0" />}
               </button>
-              {activeFaq === idx && (
-                <div className="p-3.5 sm:p-4 bg-white border-t border-gray-100 text-xs sm:text-sm text-gray-700 leading-relaxed">
-                  {faq.a}
-                </div>
-              )}
+              <div className={`${activeFaq === idx ? 'block' : 'hidden'} p-3.5 sm:p-4 bg-white border-t border-gray-100 text-xs sm:text-sm text-gray-700 leading-relaxed`}>
+                {faq.a}
+              </div>
             </div>
           ))}
         </div>

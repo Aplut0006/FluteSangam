@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
+import RagaEditorialArticleSection from './RagaEditorialArticleSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 
@@ -392,7 +393,7 @@ export const RagaTilangView: React.FC<RagaTilangViewProps> = ({ onViewChange }) 
               <span className="text-stone-300 hidden sm:inline">•</span>
               <div className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-amber-700" />
-                <span>Last Updated: <strong className="text-bamboo-950 font-semibold" itemProp="dateModified" content="2026-10-18">October 18, 2026</strong></span>
+                <span>Last Updated: <strong className="text-bamboo-950 font-semibold" itemProp="dateModified" content="2026-11-13">November 13, 2026</strong></span>
               </div>
             </div>
 
@@ -474,6 +475,13 @@ export const RagaTilangView: React.FC<RagaTilangViewProps> = ({ onViewChange }) 
             <strong>Note:</strong> Tilang has been described and performed with some variations across musical traditions. The framework below is designed as a practical learning reference for flute players, while the characteristic phrase treatment remains more important than treating the raga as a rigid scale.
           </div>
         </section>
+
+        {/* Deep Editorial Monograph: Deccan-North Synthesis, Dual-Nishad Polarity & Rasa */}
+        <RagaEditorialArticleSection
+          ragaSlug="tilang"
+          part="origins-and-rasa"
+          onViewChange={onViewChange}
+        />
 
 
         {/* SECTION 2: NOTES & INTERACTIVE SWARA PAD */}
@@ -1308,6 +1316,13 @@ G M P N | S' n P M | G M G S | S — — — ||`)}
         </section>
 
 
+        {/* Deep Editorial Study: Samprakritic Raga Comparisons (Khamaj & Jog) & Iconic Repertoire */}
+        <RagaEditorialArticleSection
+          ragaSlug="tilang"
+          part="comparisons-and-repertoire"
+          onViewChange={onViewChange}
+        />
+
         {/* SECTION 12: FAQS */}
         <section className="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200 shadow-2xs space-y-6">
           <div className="flex items-center gap-3 border-b border-stone-100 pb-4">
@@ -1353,11 +1368,9 @@ G M P N | S' n P M | G M G S | S — — — ||`)}
                   <span>{faq.q}</span>
                   {openFaq === idx ? <ChevronUp className="w-4 h-4 text-amber-700" /> : <ChevronDown className="w-4 h-4 text-stone-400" />}
                 </button>
-                {openFaq === idx && (
-                  <div className="p-4 bg-white text-xs sm:text-sm text-stone-700 leading-relaxed border-t border-stone-100">
-                    {faq.a}
-                  </div>
-                )}
+                <div className={`${openFaq === idx ? 'block' : 'hidden'} p-4 bg-white text-xs sm:text-sm text-stone-700 leading-relaxed border-t border-stone-100`}>
+                  {faq.a}
+                </div>
               </div>
             ))}
           </div>

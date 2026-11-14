@@ -1319,7 +1319,7 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
           }
         },
         'datePublished': '2026-08-17T00:00:00Z',
-        'dateModified': (raagSlug === 'kafi' || raagSlug === 'pahadi') ? '2026-10-31T00:00:00Z' : '2026-10-18T00:00:00Z',
+        'dateModified': '2026-11-13T00:00:00Z',
         'url': `${DOMAIN}/learn/raga-${raagSlug}`
       }
     };

@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
+import RagaEditorialArticleSection from './RagaEditorialArticleSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 
@@ -340,7 +341,7 @@ r g M g | r S — — ||`;
               </div>
               <div className="flex items-center gap-1.5 bg-white/90 border border-amber-200 px-3 py-1.5 rounded-lg shadow-2xs">
                 <RefreshCw className="w-3.5 h-3.5 text-rose-700" />
-                <span>Updated: <strong className="text-bamboo-950 font-semibold">October 18, 2026</strong></span>
+                <span>Updated: <strong className="text-bamboo-950 font-semibold" itemProp="dateModified" content="2026-11-13">November 13, 2026</strong></span>
               </div>
               <div className="flex items-center gap-1.5 bg-white/90 border border-amber-200 px-3 py-1.5 rounded-lg shadow-2xs">
                 <Clock className="w-3.5 h-3.5 text-amber-700" />
@@ -376,6 +377,15 @@ r g M g | r S — — ||`;
             </p>
           </div>
         </section>
+
+        {/* Deep Editorial Monograph: Historical Origins, Mian Tansen's Transformation & Morning Rasa */}
+        <div className="mb-8">
+          <RagaEditorialArticleSection
+            ragaSlug="todi"
+            part="origins-and-rasa"
+            onViewChange={onViewChange}
+          />
+        </div>
 
         {/* SECTION 2: NOTES & SWARA NOTATION */}
         <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-xs border border-amber-200/80 mb-8 space-y-6">
@@ -1187,6 +1197,15 @@ r g M g | r S — — ||`;
         </section>
 
 
+        {/* Deep Editorial Study: Samprakritic Raga Comparisons (Multani & Gurjari Todi) & Iconic Repertoire */}
+        <div className="mb-8">
+          <RagaEditorialArticleSection
+            ragaSlug="todi"
+            part="comparisons-and-repertoire"
+            onViewChange={onViewChange}
+          />
+        </div>
+
         {/* SECTION 13: FREQUENTLY ASKED QUESTIONS */}
         <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200/80 mb-8 space-y-4">
           <div className="flex items-center gap-2.5 text-bamboo-950 font-display font-bold text-xl sm:text-2xl border-b border-stone-200 pb-3">
@@ -1228,11 +1247,9 @@ r g M g | r S — — ||`;
                   </span>
                   {openFaq === idx ? <ChevronUp className="w-4 h-4 text-amber-800 shrink-0" /> : <ChevronDown className="w-4 h-4 text-stone-400 shrink-0" />}
                 </button>
-                {openFaq === idx && (
-                  <div className="p-4 pt-0 text-xs sm:text-sm text-stone-700 leading-relaxed border-t border-stone-100 bg-stone-50/50">
-                    {faq.a}
-                  </div>
-                )}
+                <div className={`${openFaq === idx ? 'block' : 'hidden'} p-4 pt-0 text-xs sm:text-sm text-stone-700 leading-relaxed border-t border-stone-100 bg-stone-50/50`}>
+                  {faq.a}
+                </div>
               </div>
             ))}
           </div>

@@ -9,6 +9,7 @@ import {
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
+import RagaEditorialArticleSection from './RagaEditorialArticleSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 
 interface RagaBhairavViewProps {
@@ -217,7 +218,7 @@ S`;
         }
       },
       "datePublished": "2026-08-07",
-      "dateModified": "2026-10-18"
+      "dateModified": "2026-11-13"
     });
     document.head.appendChild(script);
 
@@ -299,7 +300,7 @@ S`;
               </span>
               <span className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-amber-400" />
-                <span>Updated: <strong className="text-white" itemProp="dateModified" content="2026-10-18">October 18, 2026</strong></span>
+                <span>Updated: <strong className="text-white" itemProp="dateModified" content="2026-11-13">November 13, 2026</strong></span>
               </span>
               <span className="flex items-center gap-1.5">
                 <BookOpen className="w-3.5 h-3.5 text-amber-400" />
@@ -375,6 +376,13 @@ S`;
           For bansuri players, Bhairav is an excellent intermediate raga because it develops pitch control, breath stability, Andolan, meend, and expressive note treatment. Although its basic swara structure is straightforward, playing it convincingly requires attention to the movement and weight given to individual notes.
         </p>
       </section>
+
+      {/* Deep Editorial Monograph: Historical Origins, Adi-Raga Mythology & Dawn Rasa */}
+      <RagaEditorialArticleSection
+        ragaSlug="bhairav"
+        part="origins-and-rasa"
+        onViewChange={onViewChange}
+      />
 
 
       {/* Basic Information Table */}
@@ -1095,6 +1103,13 @@ S`;
       </section>
 
 
+      {/* Deep Editorial Study: Samprakritic Raga Comparisons & Iconic Classical/Film Repertoire */}
+      <RagaEditorialArticleSection
+        ragaSlug="bhairav"
+        part="comparisons-and-repertoire"
+        onViewChange={onViewChange}
+      />
+
       {/* Frequently Asked Questions */}
       <section className="bg-white rounded-3xl p-6 sm:p-8 border border-amber-100 shadow-xs space-y-4">
         <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950 flex items-center gap-2">
@@ -1111,11 +1126,9 @@ S`;
                 <span>{faq.q}</span>
                 {activeFaq === idx ? <ChevronUp className="w-4 h-4 text-amber-700 shrink-0" /> : <ChevronDown className="w-4 h-4 text-amber-700 shrink-0" />}
               </button>
-              {activeFaq === idx && (
-                <div className="p-4 bg-white text-xs sm:text-sm text-gray-700 leading-relaxed border-t border-amber-100">
-                  {faq.a}
-                </div>
-              )}
+              <div className={`${activeFaq === idx ? 'block' : 'hidden'} p-4 bg-white text-xs sm:text-sm text-gray-700 leading-relaxed border-t border-amber-100`}>
+                {faq.a}
+              </div>
             </div>
           ))}
         </div>

@@ -9,6 +9,7 @@ import {
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
+import RagaEditorialArticleSection from './RagaEditorialArticleSection';
 
 interface RagaKafiViewProps {
   onViewChange?: (view: AppView) => void;
@@ -189,7 +190,7 @@ S`;
     'headline': 'Raag Kafi Notes for Flute – Aaroh, Avaroh, Pakad & Sargam',
     'description': 'Learn Raag Kafi notes for flute with Aaroh, Avaroh, Pakad, Komal Ga and Ni, Sargam notation, and practical alankars and flute exercises.',
     'datePublished': '2026-08-03T00:00:00Z',
-    'dateModified': '2026-10-31T00:00:00Z',
+    'dateModified': '2026-11-13T00:00:00Z',
     'author': {
       '@type': 'Person',
       'name': 'Aplut',
@@ -294,7 +295,7 @@ S`;
               </span>
               <span className="flex items-center gap-1.5 bg-indigo-900/60 px-2.5 sm:px-3 py-1 rounded-lg border border-indigo-800">
                 <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                <span>Updated: 2026-10-31</span>
+                <span>Updated: <strong className="text-white" itemProp="dateModified" content="2026-11-13">Nov 13, 2026</strong></span>
               </span>
               <span className="flex items-center gap-1.5 bg-indigo-900/60 px-2.5 sm:px-3 py-1 rounded-lg border border-indigo-800">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
@@ -330,6 +331,13 @@ S`;
           </p>
         </div>
       </section>
+
+      {/* Deep Editorial Monograph: Historical Origins, Ancient Shuddha Scale & Rasa */}
+      <RagaEditorialArticleSection
+        ragaSlug="kafi"
+        part="origins-and-rasa"
+        onViewChange={onViewChange}
+      />
 
 
       {/* Key Technical Matrix (Table) */}
@@ -963,6 +971,13 @@ S`;
       </section>
 
 
+      {/* Deep Editorial Study: Samprakritic Raga Comparisons & Iconic Classical/Film Repertoire */}
+      <RagaEditorialArticleSection
+        ragaSlug="kafi"
+        part="comparisons-and-repertoire"
+        onViewChange={onViewChange}
+      />
+
       {/* Frequently Asked Questions */}
       <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-bamboo-100 space-y-4">
         <h2 className="text-2xl font-bold font-display text-bamboo-950 flex items-center gap-2">
@@ -984,11 +999,9 @@ S`;
                   <ChevronDown className="w-5 h-5 text-gray-400 shrink-0" />
                 )}
               </button>
-              {activeFaq === idx && (
-                <div className="p-4 sm:p-5 text-xs sm:text-sm text-gray-700 bg-white border-t border-gray-100 leading-relaxed font-sans">
-                  {faq.a}
-                </div>
-              )}
+              <div className={`${activeFaq === idx ? 'block' : 'hidden'} p-4 sm:p-5 text-xs sm:text-sm text-gray-700 bg-white border-t border-gray-100 leading-relaxed font-sans`}>
+                {faq.a}
+              </div>
             </div>
           ))}
         </div>

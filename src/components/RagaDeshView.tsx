@@ -9,6 +9,7 @@ import {
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
+import RagaEditorialArticleSection from './RagaEditorialArticleSection';
 
 interface RagaDeshViewProps {
   onViewChange?: (view: AppView) => void;
@@ -186,7 +187,7 @@ S`;
     'headline': 'Raag Desh: Complete Guide, Notes, Aaroh, Avaroh & Practice',
     'description': 'Master Raag Desh on Indian Bamboo Flute (Bansuri). Complete guide with Swara playback, Pakad, Chalan, original Alankars, and the practice piece "Sandhya Vihar".',
     'datePublished': '2026-08-02T00:00:00Z',
-    'dateModified': '2026-10-18T00:00:00Z',
+    'dateModified': '2026-11-13T00:00:00Z',
     'author': {
       '@type': 'Person',
       'name': 'Aplut',
@@ -291,7 +292,7 @@ S`;
               </span>
               <span className="flex items-center gap-1.5 bg-indigo-900/60 px-2.5 py-1 rounded-lg border border-indigo-800">
                 <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                <span>Updated: Aug 2, 2026</span>
+                <span>Updated: <strong className="text-white" itemProp="dateModified" content="2026-11-13">Nov 13, 2026</strong></span>
               </span>
               <span className="flex items-center gap-1.5 bg-indigo-900/60 px-2.5 py-1 rounded-lg border border-indigo-800">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
@@ -327,6 +328,13 @@ S`;
           </p>
         </div>
       </section>
+
+      {/* Deep Editorial Monograph: Historical Origins, Pastoral Monsoon Roots & Rasa */}
+      <RagaEditorialArticleSection
+        ragaSlug="desh"
+        part="origins-and-rasa"
+        onViewChange={onViewChange}
+      />
 
 
       {/* Key Technical Matrix (Table) */}
@@ -971,6 +979,13 @@ S`;
       </section>
 
 
+      {/* Deep Editorial Study: Samprakritic Raga Comparisons & Iconic Classical/Film Repertoire */}
+      <RagaEditorialArticleSection
+        ragaSlug="desh"
+        part="comparisons-and-repertoire"
+        onViewChange={onViewChange}
+      />
+
       {/* Frequently Asked Questions */}
       <section className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-sm border border-bamboo-100 space-y-3 sm:space-y-4">
         <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950 flex items-center gap-2">
@@ -988,11 +1003,9 @@ S`;
                 <span>{faq.q}</span>
                 {activeFaq === idx ? <ChevronUp className="w-4 h-4 text-indigo-600 shrink-0" /> : <ChevronDown className="w-4 h-4 text-gray-400 shrink-0" />}
               </button>
-              {activeFaq === idx && (
-                <div className="p-3.5 sm:p-4 bg-white text-xs sm:text-sm text-gray-700 leading-relaxed border-t border-gray-100 font-sans">
-                  {faq.a}
-                </div>
-              )}
+              <div className={`${activeFaq === idx ? 'block' : 'hidden'} p-3.5 sm:p-4 bg-white text-xs sm:text-sm text-gray-700 leading-relaxed border-t border-gray-100 font-sans`}>
+                {faq.a}
+              </div>
             </div>
           ))}
         </div>

@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
+import RagaEditorialArticleSection from './RagaEditorialArticleSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 
 interface RagaJogViewProps {
@@ -284,7 +285,7 @@ export const RagaJogView: React.FC<RagaJogViewProps> = ({ onViewChange }) => {
               </div>
               <div className="flex items-center gap-1.5 bg-white/90 border border-amber-200 px-3 py-1.5 rounded-lg shadow-2xs">
                 <RefreshCw className="w-3.5 h-3.5 text-rose-700" />
-                <span>Updated: <strong className="text-bamboo-950 font-semibold">October 18, 2026</strong></span>
+                <span>Updated: <strong className="text-bamboo-950 font-semibold" itemProp="dateModified" content="2026-11-13">November 13, 2026</strong></span>
               </div>
               <div className="flex items-center gap-1.5 bg-white/90 border border-amber-200 px-3 py-1.5 rounded-lg shadow-2xs">
                 <Clock className="w-3.5 h-3.5 text-amber-700" />
@@ -352,6 +353,15 @@ export const RagaJogView: React.FC<RagaJogViewProps> = ({ onViewChange }) => {
               <div className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-amber-600" /> Raga improvisation</div>
             </div>
           </div>
+        </div>
+
+        {/* Deep Editorial Monograph: Historical Origins, Dual-Gandhar Modernity & Midnight Rasa */}
+        <div className="mb-8">
+          <RagaEditorialArticleSection
+            ragaSlug="jog"
+            part="origins-and-rasa"
+            onViewChange={onViewChange}
+          />
         </div>
 
 
@@ -970,6 +980,15 @@ m G m g | S — — — ||
         </div>
 
 
+        {/* Deep Editorial Study: Samprakritic Raga Comparisons & Iconic Classical/Film Repertoire */}
+        <div className="mb-8">
+          <RagaEditorialArticleSection
+            ragaSlug="jog"
+            part="comparisons-and-repertoire"
+            onViewChange={onViewChange}
+          />
+        </div>
+
         {/* FAQ ACCORDION SECTION */}
         <div className="bg-white border border-amber-200/80 rounded-2xl p-6 sm:p-8 mb-8 space-y-4 shadow-xs">
           <h2 className="text-2xl font-bold text-slate-900 flex items-center gap-3">
@@ -1004,11 +1023,9 @@ m G m g | S — — — ||
                   <span>{faq.q}</span>
                   {openFaq === idx ? <ChevronUp className="w-4 h-4 text-amber-700 shrink-0" /> : <ChevronDown className="w-4 h-4 text-slate-500 shrink-0" />}
                 </button>
-                {openFaq === idx && (
-                  <div className="p-4 text-xs text-slate-700 border-t border-amber-200 bg-white leading-relaxed">
-                    {faq.a}
-                  </div>
-                )}
+                <div className={`${openFaq === idx ? 'block' : 'hidden'} p-4 text-xs text-slate-700 border-t border-amber-200 bg-white leading-relaxed`}>
+                  {faq.a}
+                </div>
               </div>
             ))}
           </div>

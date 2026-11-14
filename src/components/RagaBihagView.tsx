@@ -9,6 +9,7 @@ import {
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
+import RagaEditorialArticleSection from './RagaEditorialArticleSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 
 interface RagaBihagViewProps {
@@ -185,7 +186,7 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
             "url": "https://flutesangam.com"
           },
           "datePublished": "2026-08-07",
-          "dateModified": "2026-10-18",
+          "dateModified": "2026-11-13",
           "mainEntityOfPage": "https://flutesangam.com/learn/raga-bihag"
         })}
       </script>
@@ -231,8 +232,8 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
               <div className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-amber-400" />
                 <span className="text-amber-200/80">Updated:</span>
-                <time itemProp="dateModified" dateTime="2026-10-18T00:00:00Z" className="font-semibold text-white">
-                  Oct 18, 2026
+                <time itemProp="dateModified" dateTime="2026-11-13T00:00:00Z" className="font-semibold text-white">
+                  Nov 13, 2026
                 </time>
               </div>
             </div>
@@ -291,6 +292,13 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
           </p>
         </div>
       </div>
+
+      {/* Deep Editorial Monograph: Historical Origins, Bilawal-Kalyan Synthesis & Midnight Rasa */}
+      <RagaEditorialArticleSection
+        ragaSlug="bihag"
+        part="origins-and-rasa"
+        onViewChange={onViewChange}
+      />
 
 
       {/* Basic Information Quick Reference Table */}
@@ -1014,6 +1022,13 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
       </div>
 
 
+      {/* Deep Editorial Study: Samprakritic Raga Comparisons & Iconic Classical/Film Repertoire */}
+      <RagaEditorialArticleSection
+        ragaSlug="bihag"
+        part="comparisons-and-repertoire"
+        onViewChange={onViewChange}
+      />
+
       {/* Frequently Asked Questions */}
       <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
         <div className="border-b border-slate-100 dark:border-slate-800 pb-4">
@@ -1065,11 +1080,9 @@ export default function RagaBihagView({ onViewChange }: RagaBihagViewProps) {
                 <span>{item.q}</span>
                 {activeFaq === idx ? <ChevronUp className="w-5 h-5 text-amber-600 shrink-0" /> : <ChevronDown className="w-5 h-5 text-slate-400 shrink-0" />}
               </button>
-              {activeFaq === idx && (
-                <div className="p-4 sm:p-5 pt-0 text-xs sm:text-sm text-slate-600 dark:text-slate-300 border-t border-slate-100 dark:border-slate-800/60 bg-slate-50/50 dark:bg-slate-800/30">
-                  {item.a}
-                </div>
-              )}
+              <div className={`${activeFaq === idx ? 'block' : 'hidden'} p-4 sm:p-5 pt-0 text-xs sm:text-sm text-slate-600 dark:text-slate-300 border-t border-slate-100 dark:border-slate-800/60 bg-slate-50/50 dark:bg-slate-800/30`}>
+                {item.a}
+              </div>
             </div>
           ))}
         </div>

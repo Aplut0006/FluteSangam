@@ -619,12 +619,9 @@ export default function App() {
       currentView === 'contact_us'
     ) {
       modDate = '2026-11-07T00:00:00Z';
-    } else if (
-      currentView === 'raga_kafi' || 
-      currentView === 'raga_pahadi'
-    ) {
-      modDate = '2026-10-31T00:00:00Z';
-    } else if (currentView.startsWith('raga_') || currentView === 'learn_raagas' || currentView === 'learn_scales_octaves') {
+    } else if (currentView.startsWith('raga_')) {
+      modDate = '2026-11-13T00:00:00Z';
+    } else if (currentView === 'learn_raagas' || currentView === 'learn_scales_octaves') {
       modDate = '2026-10-18T00:00:00Z';
     } else if (
       currentView === 'learn_basics' ||

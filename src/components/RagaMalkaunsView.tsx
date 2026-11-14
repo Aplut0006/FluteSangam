@@ -9,6 +9,7 @@ import {
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
+import RagaEditorialArticleSection from './RagaEditorialArticleSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 
 interface RagaMalkaunsViewProps {
@@ -315,8 +316,8 @@ g M d | M g | S`;
               <div className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-amber-700" />
                 <span className="text-stone-600">Updated:</span>
-                <time itemProp="dateModified" dateTime="2026-10-18T00:00:00Z" className="font-semibold text-bamboo-950">
-                  Oct 18, 2026
+                <time itemProp="dateModified" dateTime="2026-11-13T00:00:00Z" className="font-semibold text-bamboo-950">
+                  Nov 13, 2026
                 </time>
               </div>
             </div>
@@ -350,6 +351,13 @@ g M d | M g | S`;
             The beauty of Malkauns comes from slow development, careful note treatment, and the space between phrases rather than from fast note patterns.
           </p>
         </section>
+
+        {/* Deep Editorial Monograph: Historical Origins, Ancient Malavakaushika & Midnight Rasa */}
+        <RagaEditorialArticleSection
+          ragaSlug="malkauns"
+          part="origins-and-rasa"
+          onViewChange={onViewChange}
+        />
 
 
         {/* Basic Information Grid Table */}
@@ -893,6 +901,13 @@ g M d | M g | S`;
         </section>
 
 
+        {/* Deep Editorial Study: Samprakritic Raga Comparisons & Iconic Classical/Film Repertoire */}
+        <RagaEditorialArticleSection
+          ragaSlug="malkauns"
+          part="comparisons-and-repertoire"
+          onViewChange={onViewChange}
+        />
+
         {/* Frequently Asked Questions Accordion */}
         <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-bamboo-100 space-y-4">
           <div className="flex items-center gap-2.5 text-bamboo-900 font-display font-bold text-xl sm:text-2xl border-b border-bamboo-100 pb-3">
@@ -910,11 +925,9 @@ g M d | M g | S`;
                   <span>{faq.q}</span>
                   {activeFaq === idx ? <ChevronUp className="w-4 h-4 text-purple-700 shrink-0" /> : <ChevronDown className="w-4 h-4 text-purple-700 shrink-0" />}
                 </button>
-                {activeFaq === idx && (
-                  <div className="p-4 bg-white text-xs sm:text-sm text-gray-700 border-t border-purple-100 leading-relaxed">
-                    {faq.a}
-                  </div>
-                )}
+                <div className={`${activeFaq === idx ? 'block' : 'hidden'} p-4 bg-white text-xs sm:text-sm text-gray-700 border-t border-purple-100 leading-relaxed`}>
+                  {faq.a}
+                </div>
               </div>
             ))}
           </div>

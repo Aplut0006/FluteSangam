@@ -23,6 +23,7 @@ import {
 } from 'lucide-react';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
+import RagaEditorialArticleSection from './RagaEditorialArticleSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 
@@ -410,7 +411,7 @@ R M R S | S — — — ||`;
               <span className="text-sky-400/60">•</span>
               <div className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-sky-300" />
-                <span><strong>Last Updated:</strong> October 18, 2026</span>
+                <span><strong>Last Updated:</strong> <time itemProp="dateModified" dateTime="2026-11-13">November 13, 2026</time></span>
               </div>
             </div>
 
@@ -469,6 +470,15 @@ R M R S | S — — — ||`;
               Note: Miyan Ki Malhar belongs to the Malhar family, and different musical traditions may describe some of its swara movements slightly differently. The framework below is intended as a practical learning reference for flute players.
             </p>
           </div>
+        </div>
+
+        {/* Deep Editorial Monograph: Mian Tansen's Monsoon Miracle, Dual-Nishad Arch & Storm Rasa */}
+        <div className="mb-8">
+          <RagaEditorialArticleSection
+            ragaSlug="miyan-ki-malhar"
+            part="origins-and-rasa"
+            onViewChange={onViewChange}
+          />
         </div>
 
 
@@ -1125,6 +1135,15 @@ R M R S | S — — — ||`;
         </div>
 
 
+        {/* Deep Editorial Study: Samprakritic Raga Comparisons (Bahar & Megh Malhar) & Iconic Repertoire */}
+        <div className="mb-8">
+          <RagaEditorialArticleSection
+            ragaSlug="miyan-ki-malhar"
+            part="comparisons-and-repertoire"
+            onViewChange={onViewChange}
+          />
+        </div>
+
         {/* 14. FREQUENTLY ASKED QUESTIONS */}
         <div className="bg-white rounded-3xl p-6 md:p-8 border border-stone-200/80 mb-10 shadow-sm">
           <h2 className="text-2xl font-bold text-amber-900 mb-6 flex items-center gap-2">
@@ -1144,11 +1163,9 @@ R M R S | S — — — ||`;
                     <span>{faq.q}</span>
                     {isOpen ? <ChevronUp className="w-5 h-5 text-amber-800 shrink-0" /> : <ChevronDown className="w-5 h-5 text-stone-500 shrink-0" />}
                   </button>
-                  {isOpen && (
-                    <div className="p-4 bg-white text-stone-700 text-xs md:text-sm leading-relaxed border-t border-stone-200">
-                      {faq.a}
-                    </div>
-                  )}
+                  <div className={`${isOpen ? 'block' : 'hidden'} p-4 bg-white text-stone-700 text-xs md:text-sm leading-relaxed border-t border-stone-200`}>
+                    {faq.a}
+                  </div>
                 </div>
               );
             })}

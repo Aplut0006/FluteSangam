@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { AppView } from '../types';
 import AboutAuthorSection from './AboutAuthorSection';
+import RagaEditorialArticleSection from './RagaEditorialArticleSection';
 import { playBambooFluteTone } from '../utils/fluteSynth';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 
@@ -353,7 +354,7 @@ export const RagaJaunpuriView: React.FC<RagaJaunpuriViewProps> = ({ onViewChange
             "url": "https://flutesangam.com"
           },
           "datePublished": "2026-09-02T00:00:00Z",
-          "dateModified": "2026-10-18T10:00:00Z",
+          "dateModified": "2026-11-13T00:00:00Z",
           "inLanguage": "en",
           "keywords": ["Raag Jaunpuri", "Jaunpuri Bansuri", "Learn Bansuri", "Asavari Thaat", "Komal Ga", "Komal Dha", "Komal Ni", "Indian Flute Notations", "FluteSangam"]
         })}
@@ -407,7 +408,7 @@ export const RagaJaunpuriView: React.FC<RagaJaunpuriViewProps> = ({ onViewChange
                 </div>
                 <div className="flex items-center gap-2 text-amber-200">
                   <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                  <span>Updated: <strong className="text-white">Sep 2, 2026</strong></span>
+                  <span>Updated: <strong className="text-white" itemProp="dateModified" content="2026-11-13">Nov 13, 2026</strong></span>
                 </div>
               </div>
 
@@ -515,6 +516,13 @@ export const RagaJaunpuriView: React.FC<RagaJaunpuriViewProps> = ({ onViewChange
           </p>
         </div>
       </div>
+
+      {/* Deep Editorial Monograph: Sultan Hussain Shah Sharqi of Jaunpur, Asavari Lineage & Morning Rasa */}
+      <RagaEditorialArticleSection
+        ragaSlug="jaunpuri"
+        part="origins-and-rasa"
+        onViewChange={onViewChange}
+      />
 
 
       {/* Swaras, Interactive Notations, Aaroh, Avaroh, Pakad */}
@@ -1330,6 +1338,13 @@ export const RagaJaunpuriView: React.FC<RagaJaunpuriViewProps> = ({ onViewChange
       </div>
 
 
+      {/* Deep Editorial Study: Samprakritic Raga Comparisons (Asavari & Darbari Kanada) & Iconic Repertoire */}
+      <RagaEditorialArticleSection
+        ragaSlug="jaunpuri"
+        part="comparisons-and-repertoire"
+        onViewChange={onViewChange}
+      />
+
       {/* Frequently Asked Questions Accordion */}
       <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-7 shadow-xs border border-amber-200/70 dark:border-slate-800 space-y-4">
         <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -1347,11 +1362,9 @@ export const RagaJaunpuriView: React.FC<RagaJaunpuriViewProps> = ({ onViewChange
                 <span>{faq.q}</span>
                 {openFaq === idx ? <ChevronUp className="w-4 h-4 text-amber-600 shrink-0" /> : <ChevronDown className="w-4 h-4 text-slate-400 shrink-0" />}
               </button>
-              {openFaq === idx && (
-                <div className="p-4 bg-white dark:bg-slate-900 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-amber-100 dark:border-slate-800">
-                  {faq.a}
-                </div>
-              )}
+              <div className={`${openFaq === idx ? 'block' : 'hidden'} p-4 bg-white dark:bg-slate-900 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-amber-100 dark:border-slate-800`}>
+                {faq.a}
+              </div>
             </div>
           ))}
         </div>

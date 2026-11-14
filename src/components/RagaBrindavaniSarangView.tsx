@@ -9,6 +9,7 @@ import {
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
+import RagaEditorialArticleSection from './RagaEditorialArticleSection';
 
 interface RagaBrindavaniSarangViewProps {
   onViewChange?: (view: AppView) => void;
@@ -245,7 +246,7 @@ Finish on: S`;
             </div>
             <div className="flex items-center gap-1.5">
               <Clock className="w-3.5 h-3.5 text-amber-300 shrink-0" />
-              <span>Updated: <strong className="text-amber-100" itemProp="dateModified" content="2026-10-18">October 18, 2026</strong></span>
+              <span>Updated: <strong className="text-amber-100" itemProp="dateModified" content="2026-11-13">November 13, 2026</strong></span>
             </div>
             <div className="flex items-center gap-1.5">
               <BookOpen className="w-3.5 h-3.5 text-amber-300 shrink-0" />
@@ -332,6 +333,13 @@ Finish on: S`;
           </div>
         </div>
       </section>
+
+      {/* Deep Editorial Monograph: Historical Origins, Swami Haridas Lineage & Midday Rasa */}
+      <RagaEditorialArticleSection
+        ragaSlug="brindavani-sarang"
+        part="origins-and-rasa"
+        onViewChange={onViewChange}
+      />
 
       {/* Swara Notes & Audio Synthesizer */}
       <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-bamboo-100 space-y-6">
@@ -836,6 +844,13 @@ Finish on: S`;
       </section>
 
 
+      {/* Deep Editorial Study: Samprakritic Raga Comparisons & Iconic Classical/Film Repertoire */}
+      <RagaEditorialArticleSection
+        ragaSlug="brindavani-sarang"
+        part="comparisons-and-repertoire"
+        onViewChange={onViewChange}
+      />
+
       {/* Frequently Asked Questions */}
       <section className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-bamboo-100 space-y-6">
         <div className="flex items-center gap-3 border-b border-bamboo-100 pb-4">
@@ -858,11 +873,9 @@ Finish on: S`;
                 <span>{faq.q}</span>
                 {activeFaq === idx ? <ChevronUp className="w-4 h-4 text-amber-700" /> : <ChevronDown className="w-4 h-4 text-gray-400" />}
               </button>
-              {activeFaq === idx && (
-                <div className="p-4 bg-white text-xs sm:text-sm text-gray-700 leading-relaxed border-t border-bamboo-100">
-                  {faq.a}
-                </div>
-              )}
+              <div className={`${activeFaq === idx ? 'block' : 'hidden'} p-4 bg-white text-xs sm:text-sm text-gray-700 leading-relaxed border-t border-bamboo-100`}>
+                {faq.a}
+              </div>
             </div>
           ))}
         </div>

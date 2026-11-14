@@ -8,6 +8,7 @@ import {
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
+import RagaEditorialArticleSection from './RagaEditorialArticleSection';
 
 interface RagaDurgaViewProps {
   onViewChange?: (view: AppView) => void;
@@ -194,7 +195,7 @@ export default function RagaDurgaView({ onViewChange }: RagaDurgaViewProps) {
             "url": "https://flutesangam.com"
           },
           "datePublished": "2026-07-30T00:00:00Z",
-          "dateModified": "2026-10-18T10:00:00Z",
+          "dateModified": "2026-11-13T00:00:00Z",
           "inLanguage": "en",
           "keywords": ["Raag Durga", "Durga Raga", "Learn Bansuri", "Flute Raga", "Shant Dhara", "Hindustani Classical", "Sargam Notes"]
         })}
@@ -248,7 +249,7 @@ export default function RagaDurgaView({ onViewChange }: RagaDurgaViewProps) {
                 </div>
                 <div className="flex items-center gap-2 text-emerald-200">
                   <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                  <span>Updated: <strong className="text-white">Jul 30, 2026</strong></span>
+                  <span>Updated: <strong className="text-white" itemProp="dateModified" content="2026-11-13">Nov 13, 2026</strong></span>
                 </div>
                 <div className="pt-1 border-t border-emerald-800/60 flex items-center gap-1.5 text-emerald-400 font-bold text-[10px] sm:text-[11px]">
                   <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
@@ -297,6 +298,13 @@ export default function RagaDurgaView({ onViewChange }: RagaDurgaViewProps) {
           </p>
         </div>
       </div>
+
+      {/* Deep Editorial Monograph: Historical Origins, Shakti Aesthetics & Rasa */}
+      <RagaEditorialArticleSection
+        ragaSlug="durga"
+        part="origins-and-rasa"
+        onViewChange={onViewChange}
+      />
 
 
       {/* Basic Information Grid */}
@@ -1057,6 +1065,13 @@ export default function RagaDurgaView({ onViewChange }: RagaDurgaViewProps) {
       </div>
 
 
+      {/* Deep Editorial Study: Samprakritic Raga Comparisons & Iconic Classical/Film Repertoire */}
+      <RagaEditorialArticleSection
+        ragaSlug="durga"
+        part="comparisons-and-repertoire"
+        onViewChange={onViewChange}
+      />
+
       {/* Frequently Asked Questions */}
       <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-sm border border-bamboo-100 space-y-4 sm:space-y-6">
         <h2 className="text-xl sm:text-2xl font-bold text-bamboo-900 font-display flex items-center gap-2">
@@ -1073,11 +1088,9 @@ export default function RagaDurgaView({ onViewChange }: RagaDurgaViewProps) {
                 <span className="text-xs sm:text-base leading-snug">{faq.q}</span>
                 {activeFaq === idx ? <ChevronUp className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600 shrink-0" /> : <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 shrink-0" />}
               </button>
-              {activeFaq === idx && (
-                <div className="p-3.5 sm:p-4 bg-white border-t border-gray-100 text-xs sm:text-sm text-gray-700 leading-relaxed">
-                  {faq.a}
-                </div>
-              )}
+              <div className={`${activeFaq === idx ? 'block' : 'hidden'} p-3.5 sm:p-4 bg-white border-t border-gray-100 text-xs sm:text-sm text-gray-700 leading-relaxed`}>
+                {faq.a}
+              </div>
             </div>
           ))}
         </div>

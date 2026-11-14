@@ -9,6 +9,7 @@ import {
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
+import RagaEditorialArticleSection from './RagaEditorialArticleSection';
 
 interface RagaKhamajViewProps {
   onViewChange?: (view: AppView) => void;
@@ -177,7 +178,7 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
             </div>
             <div className="flex items-center gap-1.5">
               <Clock className="w-4 h-4 text-amber-300" />
-              <span>Updated: <strong className="text-amber-100" itemProp="dateModified" content="2026-10-18">October 18, 2026</strong></span>
+              <span>Updated: <strong className="text-amber-100" itemProp="dateModified" content="2026-11-13">November 13, 2026</strong></span>
             </div>
             <div className="flex items-center gap-1.5">
               <BookOpen className="w-4 h-4 text-amber-300" />
@@ -269,6 +270,13 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
             For a flute player, learning Khamaj helps develop the ability to distinguish between similar swaras and to understand how a raga's identity comes from its phrases and note treatment, rather than simply from its scale.
           </p>
         </section>
+
+        {/* Deep Editorial Monograph: Historical Origins, Nawabi Thumri Heritage & Rasa */}
+        <RagaEditorialArticleSection
+          ragaSlug="khamaj"
+          part="origins-and-rasa"
+          onViewChange={onViewChange}
+        />
 
 
         {/* Section 2: Basic Information Grid */}
@@ -1071,6 +1079,13 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
         </section>
 
 
+        {/* Deep Editorial Study: Samprakritic Raga Comparisons & Iconic Classical/Film Repertoire */}
+        <RagaEditorialArticleSection
+          ragaSlug="khamaj"
+          part="comparisons-and-repertoire"
+          onViewChange={onViewChange}
+        />
+
         {/* Section 11: Frequently Asked Questions */}
         <section className="bg-white p-6 sm:p-8 rounded-3xl border border-amber-200/80 shadow-xs space-y-6">
           <div className="flex items-center gap-3">
@@ -1121,11 +1136,9 @@ export default function RagaKhamajView({ onViewChange }: RagaKhamajViewProps) {
                   <span className="text-sm sm:text-base">{faq.q}</span>
                   {activeFaq === index ? <ChevronUp className="w-5 h-5 text-amber-700 shrink-0" /> : <ChevronDown className="w-5 h-5 text-amber-700 shrink-0" />}
                 </button>
-                {activeFaq === index && (
-                  <div className="p-4 bg-white text-xs sm:text-sm text-amber-900/90 leading-relaxed border-t border-amber-200/60">
-                    {faq.a}
-                  </div>
-                )}
+                <div className={`${activeFaq === index ? 'block' : 'hidden'} p-4 bg-white text-xs sm:text-sm text-amber-900/90 leading-relaxed border-t border-amber-200/60`}>
+                  {faq.a}
+                </div>
               </div>
             ))}
           </div>

@@ -9,6 +9,7 @@ import {
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
+import RagaEditorialArticleSection from './RagaEditorialArticleSection';
 
 interface RagaBilawalViewProps {
   onViewChange?: (view: AppView) => void;
@@ -190,7 +191,7 @@ export default function RagaBilawalView({ onViewChange }: RagaBilawalViewProps) 
     'headline': 'Raag Bilawal: Complete Guide, Notes, Aaroh, Avaroh & Practice',
     'description': 'Master Raag Bilawal on Indian Bamboo Flute (Bansuri). Step-by-step guide featuring Swara playback, Pakad, Chalan, original Alankars, and the practice piece "Pratah Sur".',
     'datePublished': '2026-08-01T00:00:00Z',
-    'dateModified': '2026-10-18T00:00:00Z',
+    'dateModified': '2026-11-13T00:00:00Z',
     'author': {
       '@type': 'Person',
       'name': 'Aplut',
@@ -271,7 +272,7 @@ export default function RagaBilawalView({ onViewChange }: RagaBilawalViewProps) 
                 </div>
                 <div className="flex items-center gap-2 text-amber-200">
                   <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                  <span>Updated: <strong className="text-white" itemProp="dateModified">Oct 18, 2026</strong></span>
+                  <span>Updated: <strong className="text-white" itemProp="dateModified" content="2026-11-13">Nov 13, 2026</strong></span>
                 </div>
                 <div className="pt-1.5 border-t border-amber-800/60 flex items-center gap-1.5 text-amber-400 font-bold text-[10px] sm:text-[11px]">
                   <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-400" />
@@ -304,6 +305,13 @@ export default function RagaBilawalView({ onViewChange }: RagaBilawalViewProps) 
           </p>
         </div>
       </section>
+
+      {/* Deep Editorial Monograph: Historical Origins, Shuddha Saptak Lineage & Morning Rasa */}
+      <RagaEditorialArticleSection
+        ragaSlug="bilawal"
+        part="origins-and-rasa"
+        onViewChange={onViewChange}
+      />
 
 
       {/* Basic Information Grid */}
@@ -840,6 +848,13 @@ export default function RagaBilawalView({ onViewChange }: RagaBilawalViewProps) 
       </section>
 
 
+      {/* Deep Editorial Study: Samprakritic Raga Comparisons & Iconic Classical/Film Repertoire */}
+      <RagaEditorialArticleSection
+        ragaSlug="bilawal"
+        part="comparisons-and-repertoire"
+        onViewChange={onViewChange}
+      />
+
       {/* Frequently Asked Questions (FAQ) */}
       <section className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-bamboo-100 shadow-sm space-y-4 sm:space-y-6">
         <h2 className="text-xl sm:text-2xl font-display font-bold text-bamboo-950 flex items-center gap-2">
@@ -857,11 +872,9 @@ export default function RagaBilawalView({ onViewChange }: RagaBilawalViewProps) 
                 <span>{faq.q}</span>
                 {activeFaq === idx ? <ChevronUp className="w-4 h-4 text-amber-600 shrink-0" /> : <ChevronDown className="w-4 h-4 text-gray-400 shrink-0" />}
               </button>
-              {activeFaq === idx && (
-                <div className="p-3.5 sm:p-4 bg-white text-xs sm:text-sm text-gray-700 leading-relaxed border-t border-gray-100 font-sans">
-                  {faq.a}
-                </div>
-              )}
+              <div className={`${activeFaq === idx ? 'block' : 'hidden'} p-3.5 sm:p-4 bg-white text-xs sm:text-sm text-gray-700 leading-relaxed border-t border-gray-100 font-sans`}>
+                {faq.a}
+              </div>
             </div>
           ))}
         </div>

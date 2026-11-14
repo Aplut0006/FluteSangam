@@ -9,6 +9,7 @@ import {
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
+import RagaEditorialArticleSection from './RagaEditorialArticleSection';
 
 interface RagaBageshreeViewProps {
   onViewChange?: (view: AppView) => void;
@@ -260,7 +261,10 @@ Finish on Sam: S`;
             <span>•</span>
             <div className="flex items-center gap-1">
               <Clock className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
-              <span>Classical Guide</span>
+              <span>Updated: </span>
+              <time itemProp="dateModified" dateTime="2026-11-13" className="font-bold text-gray-800">
+                Nov 13, 2026
+              </time>
             </div>
             <span>•</span>
             <span className="inline-flex items-center gap-1 bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-full text-[10px]">
@@ -287,6 +291,13 @@ Finish on Sam: S`;
           </p>
         </div>
       </section>
+
+      {/* Deep Editorial Monograph: Historical Origins, Midnight Rasa & Ma-Dha Axis */}
+      <RagaEditorialArticleSection
+        ragaSlug="bageshree"
+        part="origins-and-rasa"
+        onViewChange={onViewChange}
+      />
 
 
       {/* Basic Information Table Grid */}
@@ -849,6 +860,13 @@ Finish on Sam: S`;
       </section>
 
 
+      {/* Deep Editorial Study: Samprakritic Raga Comparisons & Iconic Classical/Film Repertoire */}
+      <RagaEditorialArticleSection
+        ragaSlug="bageshree"
+        part="comparisons-and-repertoire"
+        onViewChange={onViewChange}
+      />
+
       {/* Frequently Asked Questions */}
       <section className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-sm border border-bamboo-100 space-y-3 sm:space-y-4">
         <h2 className="text-xl sm:text-2xl font-bold font-display text-bamboo-950 flex items-center gap-2">
@@ -866,11 +884,9 @@ Finish on Sam: S`;
                 <span>{faq.q}</span>
                 {activeFaq === idx ? <ChevronUp className="w-4 h-4 text-indigo-600 shrink-0" /> : <ChevronDown className="w-4 h-4 text-gray-400 shrink-0" />}
               </button>
-              {activeFaq === idx && (
-                <div className="p-3.5 sm:p-4 bg-white text-xs sm:text-sm text-gray-700 leading-relaxed border-t border-gray-100 font-sans">
-                  {faq.a}
-                </div>
-              )}
+              <div className={`${activeFaq === idx ? 'block' : 'hidden'} p-3.5 sm:p-4 bg-white text-xs sm:text-sm text-gray-700 leading-relaxed border-t border-gray-100 font-sans`}>
+                {faq.a}
+              </div>
             </div>
           ))}
         </div>

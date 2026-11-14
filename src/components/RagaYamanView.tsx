@@ -9,6 +9,7 @@ import {
 import { AppView } from '../types';
 import { playTakMetronomeClick } from '../lib/audioUtils';
 import AboutAuthorSection from './AboutAuthorSection';
+import RagaEditorialArticleSection from './RagaEditorialArticleSection';
 
 interface RagaYamanViewProps {
   onViewChange?: (view: AppView) => void;
@@ -207,7 +208,7 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
             "url": "https://flutesangam.com"
           },
           "datePublished": "2026-07-30T00:00:00Z",
-          "dateModified": "2026-10-21T10:00:00Z",
+          "dateModified": "2026-11-13T00:00:00Z",
           "inLanguage": "en",
           "keywords": ["Raag Yaman", "Yaman Raga", "Tivra Madhyam", "Learn Bansuri", "Sandhya Prakash", "Hindustani Classical", "Flute Lessons"]
         })}
@@ -261,7 +262,7 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
                 </div>
                 <div className="flex items-center gap-2 text-amber-200">
                   <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                  <span>Updated: <strong className="text-white">Oct 21, 2026</strong></span>
+                  <span>Updated: <strong className="text-white" itemProp="dateModified" content="2026-11-13">Nov 13, 2026</strong></span>
                 </div>
                 <div className="pt-1 border-t border-amber-800/60 flex items-center gap-1.5 text-emerald-400 font-bold text-[10px] sm:text-[11px]">
                   <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
@@ -310,6 +311,13 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
           </p>
         </div>
       </div>
+
+      {/* Deep Editorial Monograph: Historical Origins, Kalyan Lineage & Emotional Rasa */}
+      <RagaEditorialArticleSection
+        ragaSlug="yaman"
+        part="origins-and-rasa"
+        onViewChange={onViewChange}
+      />
 
 
       {/* Basic Information Grid */}
@@ -1062,6 +1070,13 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
       </div>
 
 
+      {/* Deep Editorial Study: Samprakritic Raga Comparisons & Iconic Classical/Film Repertoire */}
+      <RagaEditorialArticleSection
+        ragaSlug="yaman"
+        part="comparisons-and-repertoire"
+        onViewChange={onViewChange}
+      />
+
       {/* Frequently Asked Questions Accordion */}
       <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-sm border border-bamboo-100 space-y-4">
         <h2 className="text-xl sm:text-2xl font-bold text-bamboo-900 font-display flex items-center gap-2">
@@ -1087,11 +1102,9 @@ export default function RagaYamanView({ onViewChange }: RagaYamanViewProps) {
                   </span>
                   {isOpen ? <ChevronUp className="w-4 h-4 text-amber-600 shrink-0" /> : <ChevronDown className="w-4 h-4 text-amber-600 shrink-0" />}
                 </button>
-                {isOpen && (
-                  <div className="p-4 pt-0 text-xs sm:text-sm text-gray-700 leading-relaxed border-t border-amber-100/60 bg-white">
-                    {faq.a}
-                  </div>
-                )}
+                <div className={`${isOpen ? 'block' : 'hidden'} p-4 pt-0 text-xs sm:text-sm text-gray-700 leading-relaxed border-t border-amber-100/60 bg-white`}>
+                  {faq.a}
+                </div>
               </div>
             );
           })}
