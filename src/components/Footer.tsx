@@ -43,12 +43,23 @@ export default function Footer({ onViewChange, onSadhanaFeedClick }: FooterProps
 
           <div className="flex flex-wrap items-center gap-3">
             <a
+              href="https://www.facebook.com/FluteSangam/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-[#1877F2] hover:bg-[#166FE5] text-white px-5 py-2 rounded-full font-semibold transition-all shadow-md hover:shadow-lg text-xs sm:text-sm tracking-wide hover:scale-105"
+            >
+              <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+              </svg>
+              <span>Follow Us on Facebook</span>
+            </a>
+            <a
               href="https://www.reddit.com/r/FluteSangam/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-500 text-white px-5 py-2 rounded-full font-semibold transition-all shadow-md hover:shadow-lg text-xs sm:text-sm tracking-wide hover:scale-105"
             >
-              Join Our Community on Reddit
+              <span>Join Our Community on Reddit</span>
             </a>
           </div>
         </div>
@@ -152,7 +163,7 @@ export default function Footer({ onViewChange, onSadhanaFeedClick }: FooterProps
           {/* Column 3: Community */}
           <div className="space-y-3">
             <h3 className="font-display font-bold text-amber-300 uppercase tracking-wider text-xs">
-              Community &amp; Hub
+              Community &amp; Guides
             </h3>
             <ul className="space-y-2 text-bamboo-200">
               <li>
@@ -165,29 +176,39 @@ export default function Footer({ onViewChange, onSadhanaFeedClick }: FooterProps
                 </Link>
               </li>
               <li>
-                <Link to="/faq/raagas" className="hover:text-amber-300 transition">
-                  Raagas FAQ
+                <Link to="/learn/how-to-read-bansuri-notation" onClick={(e) => handleLinkClick('how_to_read_bansuri_notation', e)} className="hover:text-amber-300 transition">
+                  How to Read Bansuri Notation
                 </Link>
               </li>
               <li>
-                <Link to="/faq/music-theory" className="hover:text-amber-300 transition">
-                  Music Theory FAQ
+                <Link to="/learn/how-to-find-scale-of-a-song-on-flute" onClick={(e) => handleLinkClick('find_song_scale', e)} className="hover:text-amber-300 transition">
+                  How to Find Song Scale
                 </Link>
               </li>
               <li>
-                <Link to="/faq/tuning-and-pitch" className="hover:text-amber-300 transition">
-                  Tuning &amp; Pitch FAQ
+                <Link to="/learn/common-flute-mistakes" onClick={(e) => handleLinkClick('learn_common_mistakes', e)} className="hover:text-amber-300 transition">
+                  Common Flute Mistakes
                 </Link>
               </li>
               <li>
-                <Link to="/faq/flute-types" className="hover:text-amber-300 transition">
-                  Flute Types FAQ
-                </Link>
+                <a
+                  href="https://www.facebook.com/FluteSangam/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-amber-300 transition text-amber-200 font-medium"
+                >
+                  Official Facebook Page
+                </a>
               </li>
               <li>
-                <Link to="/faq/flute-accessories" className="hover:text-amber-300 transition">
-                  Flute Accessories FAQ
-                </Link>
+                <a
+                  href="https://www.reddit.com/r/FluteSangam/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-amber-300 transition text-amber-200 font-medium"
+                >
+                  Reddit Community (r/FluteSangam)
+                </a>
               </li>
             </ul>
           </div>

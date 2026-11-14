@@ -164,6 +164,7 @@ const ORGANIZATION_SCHEMA = {
     'availableLanguage': ['English', 'Hindi']
   },
   'sameAs': [
+    'https://www.facebook.com/FluteSangam/',
     'https://www.reddit.com/r/FluteSangam/',
     'https://chat.whatsapp.com/HwfFf145b2A7ieIUrytve2'
   ],

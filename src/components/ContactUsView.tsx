@@ -131,20 +131,31 @@ export default function ContactUsView({
             <div className="w-12 h-12 bg-amber-100/80 text-amber-800 rounded-2xl flex items-center justify-center mb-4 border border-amber-200/60">
               <MessageSquare className="w-6 h-6" />
             </div>
-            <h2 className="text-lg font-display font-bold text-bamboo-900 mb-2">Reddit Community</h2>
+            <h2 className="text-lg font-display font-bold text-bamboo-900 mb-2">Social &amp; Community</h2>
             <p className="text-xs text-gray-600 leading-relaxed mb-4">
-              Join our subreddit to discuss bansuri techniques, share recordings, and interact with fellow flutists.
+              Follow our official Facebook page and join our subreddit to discuss bansuri techniques, share recordings, and interact with fellow flutists.
             </p>
           </div>
-          <a
-            href="https://www.reddit.com/r/FluteSangam/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full py-2 px-3 bg-amber-600 hover:bg-amber-500 text-white rounded-xl text-xs font-semibold transition text-center block shadow-2xs cursor-pointer"
-            id="contact-reddit-btn"
-          >
-            Visit r/FluteSangam
-          </a>
+          <div className="flex flex-col sm:flex-row gap-2">
+            <a
+              href="https://www.facebook.com/FluteSangam/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 py-2 px-3 bg-[#1877F2] hover:bg-[#166FE5] text-white rounded-xl text-xs font-semibold transition text-center block shadow-2xs cursor-pointer"
+              id="contact-facebook-btn"
+            >
+              Facebook Page
+            </a>
+            <a
+              href="https://www.reddit.com/r/FluteSangam/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 py-2 px-3 bg-amber-600 hover:bg-amber-500 text-white rounded-xl text-xs font-semibold transition text-center block shadow-2xs cursor-pointer"
+              id="contact-reddit-btn"
+            >
+              r/FluteSangam
+            </a>
+          </div>
         </motion.div>
 
         <motion.div 

@@ -323,19 +323,33 @@ export default function AboutUsView({ onViewChange }: AboutUsViewProps = {}) {
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 bg-white p-6 rounded-2xl border border-emerald-200 shadow-xs">
             <div className="flex-1">
-              <h3 className="font-bold text-bamboo-950 text-lg mb-1">Join Our WhatsApp Family</h3>
-              <p className="text-sm text-gray-600">Connect in real time with fellow flutists, ask questions, and share recordings.</p>
+              <h3 className="font-bold text-bamboo-950 text-lg mb-1">Connect on Social Media &amp; WhatsApp</h3>
+              <p className="text-sm text-gray-600">Follow our official Facebook page and connect in real time with fellow flutists in our WhatsApp group.</p>
             </div>
-            <a 
-              href="https://chat.whatsapp.com/HwfFf145b2A7ieIUrytve2"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3 rounded-full font-bold transition-all shadow-md text-sm shrink-0 cursor-pointer"
-            >
-              <MessageCircle className="w-4 h-4 fill-current" />
-              <span>Join WhatsApp Group</span>
-              <ExternalLink className="w-3.5 h-3.5 opacity-80" />
-            </a>
+            <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+              <a 
+                href="https://www.facebook.com/FluteSangam/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-[#1877F2] hover:bg-[#166FE5] text-white px-5 py-3 rounded-full font-bold transition-all shadow-md text-sm shrink-0 cursor-pointer"
+              >
+                <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+                </svg>
+                <span>Facebook Page</span>
+                <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+              </a>
+              <a 
+                href="https://chat.whatsapp.com/HwfFf145b2A7ieIUrytve2"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-3 rounded-full font-bold transition-all shadow-md text-sm shrink-0 cursor-pointer"
+              >
+                <MessageCircle className="w-4 h-4 fill-current" />
+                <span>Join WhatsApp Group</span>
+                <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+              </a>
+            </div>
           </div>
         </section>
 
