@@ -42,6 +42,7 @@ import RagaShivranjaniView from '../components/RagaShivranjaniView';
 import RagaJaunpuriView from '../components/RagaJaunpuriView';
 import FluteNoteKeyConverterView from '../components/FluteNoteKeyConverterView';
 import TanpuraDroneView from '../components/TanpuraDroneView';
+import MetronomeView from '../components/MetronomeView';
 import HowToFindSongScaleView from '../components/HowToFindSongScaleView';
 import HowToReadBansuriNotationView from '../components/HowToReadBansuriNotationView';
 
@@ -935,6 +936,99 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
                 '@type': 'ListItem',
                 'position': 3,
                 'name': 'Online Tanpura Drone',
+                'item': canonicalUrl
+              }
+            ]
+          }
+        ]
+      }
+    };
+  }
+
+  if (cleanPath === '/tools/metronome' || cleanPath === '/metronome') {
+    const title = 'Online Metronome for Flute, Bansuri & Riyaz | FluteSangam';
+    const description = 'Free online metronome for flute and bansuri practice (40–240 BPM). Set 1–12 beats, Sam accents, muted rests, Taal cycles, and Dugun/Chaugun speed for riyaz.';
+    const canonicalUrl = `${DOMAIN}/tools/metronome`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: MetronomeView,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          createWebPageSchema(canonicalUrl, title, description),
+          {
+            '@type': 'WebApplication',
+            '@id': `${canonicalUrl}#app`,
+            'name': 'FluteSangam Online Flute Metronome',
+            'applicationCategory': 'MusicApplication',
+            'operatingSystem': 'All',
+            'browserRequirements': 'Requires Web Audio API support',
+            'offers': {
+              '@type': 'Offer',
+              'price': '0',
+              'priceCurrency': 'USD'
+            },
+            'description': description,
+            'featureList': [
+              'Tempo control from 40 BPM to 240 BPM with Tap Tempo',
+              '1 to 12 Beats per cycle selector with Interactive Beat Accent & Mute Matrix',
+              'Clear accent tick on Beat 1 (Sam) and steady beat ticks matching the Alankar practice engine',
+              'Optional Western meters (2/4, 3/4, 4/4) and Hindustani Taal presets (Dadra, Rupak, Keherwa, Jhaptal, Ektaal)',
+              'Optional Alankar speed subdivisions: Barabar (1x), Dugun (2x), Tigun (3x), and Chaugun (4x)'
+            ]
+          },
+          {
+            '@type': 'FAQPage',
+            '@id': `${canonicalUrl}#faq`,
+            'mainEntity': [
+              {
+                '@type': 'Question',
+                'name': 'Why is practicing Bansuri with a metronome essential for beginners?',
+                'acceptedAnswer': {
+                  '@type': 'Answer',
+                  'text': 'When playing the bamboo flute, beginners naturally slow down on difficult finger transitions (such as moving from Ma to Pa, or jumping between octaves) and speed up on easy descending runs. Practicing with a steady metronome tick exposes these micro-hesitations immediately, training your fingers and breath to move with smooth, even timing.'
+                }
+              },
+              {
+                '@type': 'Question',
+                'name': 'What BPM and Beat count should a beginner choose first?',
+                'acceptedAnswer': {
+                  '@type': 'Answer',
+                  'text': 'Start with 4 Beats at 60 to 80 BPM. For Long Notes (Swar Sadhana), set the metronome to 60 BPM (1 tick = 1 second) and hold each note for 4, 8, or 12 beats on a single calm breath. For basic Sa Re Ga Ma Alankars, start around 75–85 BPM playing one note per tick.'
+                }
+              },
+              {
+                '@type': 'Question',
+                'name': 'How do the Beats from 1 to 12 work?',
+                'acceptedAnswer': {
+                  '@type': 'Answer',
+                  'text': 'The metronome counts repeatedly from Beat 1 up to your selected Beat number (between 1 and 12). Beat 1 plays a higher-pitched accent tick so you can always hear the start of each cycle without having to look at the screen while holding your flute.'
+                }
+              }
+            ]
+          },
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': DOMAIN
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Practice Tools',
+                'item': `${DOMAIN}/learn`
+              },
+              {
+                '@type': 'ListItem',
+                'position': 3,
+                'name': 'Online Flute Metronome',
                 'item': canonicalUrl
               }
             ]

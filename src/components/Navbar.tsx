@@ -3,7 +3,7 @@ import { UserProfile, AppView } from '../types';
 import { VIEW_URLS } from '../routes';
 import { auth } from '../lib/firebase';
 import { updateUserProfile, isEmailTaken, isPhoneTaken, isUsernameTaken, deleteUserAccount } from '../lib/db';
-import { Music, LogOut, User, Globe, Edit3, Check, X, ShieldAlert, MapPin, Feather, Phone, Mail, Camera, Upload, MessageSquare, Wind, BookOpen, ChevronDown, Users, Zap, Menu, Info, Radio, Trash2, Sliders, CircleDot, HelpCircle } from 'lucide-react';
+import { Music, LogOut, User, Globe, Edit3, Check, X, ShieldAlert, MapPin, Feather, Phone, Mail, Camera, Upload, MessageSquare, Wind, BookOpen, ChevronDown, Users, Zap, Menu, Info, Radio, Trash2, Sliders, CircleDot, HelpCircle, Clock } from 'lucide-react';
 import { CARTOON_AVATARS } from '../constants/avatars';
 import NotificationsDropdown from './NotificationsDropdown';
 
@@ -338,12 +338,12 @@ export default function Navbar({
             <button
               onClick={() => setShowToolsDropdown(!showToolsDropdown)}
               className={`px-2.5 xl:px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
-                currentView === 'learn_tuner' || currentView === 'tanpura' || currentView === 'alankar_generator' || currentView === 'note_key_converter'
+                currentView === 'learn_tuner' || currentView === 'tanpura' || currentView === 'metronome' || currentView === 'alankar_generator' || currentView === 'note_key_converter'
                   ? 'bg-amber-600 text-white shadow-xs'
                   : 'text-amber-950 bg-amber-100/70 hover:bg-amber-200/80 border border-amber-300/60'
               }`}
             >
-              <Radio className={`w-3.5 h-3.5 ${currentView === 'learn_tuner' || currentView === 'tanpura' || currentView === 'alankar_generator' || currentView === 'note_key_converter' ? 'text-white' : 'text-amber-700 animate-pulse'}`} />
+              <Radio className={`w-3.5 h-3.5 ${currentView === 'learn_tuner' || currentView === 'tanpura' || currentView === 'metronome' || currentView === 'alankar_generator' || currentView === 'note_key_converter' ? 'text-white' : 'text-amber-700 animate-pulse'}`} />
               <span>Practice Tools</span>
               <ChevronDown className="w-3.5 h-3.5 opacity-70" />
             </button>
@@ -399,11 +399,25 @@ export default function Navbar({
                     onViewChange?.('tanpura');
                     setShowToolsDropdown(false);
                   }}
-                  className="w-full text-left px-4 py-2.5 text-xs font-bold text-bamboo-900 hover:bg-bamboo-50 hover:text-amber-800 transition cursor-pointer flex items-center justify-between"
+                  className="w-full text-left px-4 py-2.5 text-xs font-bold text-bamboo-900 hover:bg-bamboo-50 hover:text-amber-800 transition cursor-pointer flex items-center justify-between border-b border-bamboo-100"
                 >
                   <span className="flex items-center gap-2">
                     <Radio className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
                     <span>Tanpura Drone</span>
+                  </span>
+                </a>
+                <a
+                  href={VIEW_URLS['metronome'] || '/tools/metronome'}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onViewChange?.('metronome');
+                    setShowToolsDropdown(false);
+                  }}
+                  className="w-full text-left px-4 py-2.5 text-xs font-bold text-bamboo-900 hover:bg-bamboo-50 hover:text-amber-800 transition cursor-pointer flex items-center justify-between"
+                >
+                  <span className="flex items-center gap-2">
+                    <Clock className="w-3.5 h-3.5 text-amber-600" />
+                    <span>Online Metronome</span>
                   </span>
                 </a>
               </div>
@@ -882,6 +896,30 @@ export default function Navbar({
                   </div>
                   <div className={`text-[9.5px] sm:text-[10px] leading-tight truncate mt-0.5 ${currentView === 'tanpura' ? 'text-amber-100' : 'text-gray-500'}`}>
                     Acoustic Swar
+                  </div>
+                </div>
+              </a>
+
+              <a
+                href={VIEW_URLS['metronome'] || '/tools/metronome'}
+                onClick={(e) => { e.preventDefault(); onViewChange?.('metronome'); setShowMobileMenu(false); }}
+                className={`w-full flex items-center gap-2 sm:gap-2.5 p-2 sm:p-2.5 min-h-[58px] sm:min-h-[62px] border rounded-xl transition cursor-pointer text-left ${
+                  currentView === 'metronome'
+                    ? 'bg-amber-600 text-white border-amber-700 shadow-xs'
+                    : 'bg-amber-50/70 border-amber-200/80 hover:bg-amber-100/80'
+                }`}
+              >
+                <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg shrink-0 flex items-center justify-center shadow-2xs ${
+                  currentView === 'metronome' ? 'bg-white/20 text-white' : 'bg-amber-600 text-white'
+                }`}>
+                  <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className={`text-[11.5px] sm:text-xs font-bold leading-tight whitespace-normal break-words ${currentView === 'metronome' ? 'text-white' : 'text-bamboo-950'}`}>
+                    Online Metronome
+                  </div>
+                  <div className={`text-[9.5px] sm:text-[10px] leading-tight truncate mt-0.5 ${currentView === 'metronome' ? 'text-amber-100' : 'text-gray-500'}`}>
+                    Taal &amp; BPM Click
                   </div>
                 </div>
               </a>

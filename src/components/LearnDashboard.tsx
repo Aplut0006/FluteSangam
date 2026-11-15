@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { BookOpen, Wind, Music, Feather, ShoppingBag, Radio, CircleDot, Target, AlertTriangle, HelpCircle, Layers, Compass, FileText } from 'lucide-react';
+import { BookOpen, Wind, Music, Feather, ShoppingBag, Radio, CircleDot, Target, AlertTriangle, HelpCircle, Layers, Compass, FileText, Clock } from 'lucide-react';
 import { AppView } from '../types';
 
 interface LearnDashboardProps {
@@ -22,6 +22,7 @@ export default function LearnDashboard({ onViewChange }: LearnDashboardProps) {
     { id: 'flute_faq', path: '/faq', label: 'Flute FAQ Center', icon: HelpCircle, color: 'text-amber-600', desc: 'Comprehensive Q&A knowledge base on flute, practice & raagas' },
     { id: 'note_key_converter', path: '/tools/flute-note-key-converter', label: 'Note & Key Converter', icon: Music, color: 'text-emerald-700', desc: 'Convert Swaras ⇄ Western Notes & explore cross-key relationships' },
     { id: 'tanpura', path: '/tools/tanpura', label: 'Online Tanpura Drone', icon: Radio, color: 'text-amber-700', desc: 'Acoustic Pa–Sa & Ma–Sa Tanpura drone for Swar Sadhana & Raga riyaz' },
+    { id: 'metronome', path: '/tools/metronome', label: 'Online Flute Metronome', icon: Clock, color: 'text-amber-700', desc: '30–240 BPM rhythm & Taal click engine with Barabar, Dugun & Chaugun subdivisions' },
     { id: 'find_song_scale', path: '/learn/how-to-find-scale-of-a-song-on-flute', label: 'Find Scale of a Song', icon: Compass, color: 'text-amber-700', desc: 'Ear training guide to identify key, tonic / Sa and melody on flute' },
     { id: 'learn_raagas', path: '/learn/raagas', label: 'Ragas', icon: Music, color: 'text-bamboo-800', desc: 'Classical Hindustani & Carnatic guides' },
     { id: 'learn_tuner', path: '/tuner', label: 'Flute Tuner', icon: Radio, color: 'text-amber-700', desc: 'Interactive live frequency & scale tuner (440Hz)' },

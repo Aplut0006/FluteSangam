@@ -229,6 +229,16 @@ export default function HomepageOverview({
       borderColor: 'border-amber-300'
     },
     {
+      title: 'Online Flute Metronome',
+      description: 'Precision rhythm and Taal click engine (30–240 BPM) with Barabar, Dugun, Tigun, and Chaugun subdivisions.',
+      view: 'metronome' as AppView,
+      icon: Clock,
+      badge: 'Laya & Taal',
+      features: ['30–240 BPM & Tap Tempo', 'Teental / Keherwa / Dadra', '1x, 2x, 3x, 4x Subdivisions'],
+      gradient: 'from-amber-500/15 via-bamboo-500/5 to-transparent',
+      borderColor: 'border-amber-200'
+    },
+    {
       title: 'Interactive Alankar Generator',
       description: 'Generate customized sargam exercises for any scale with audio playback and speed controls.',
       view: 'alankar_generator' as AppView,

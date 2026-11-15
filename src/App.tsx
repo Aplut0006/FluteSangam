@@ -65,6 +65,7 @@ const RagaShivranjaniView = lazyWithRetry(() => import('./components/RagaShivran
 const RagaJaunpuriView = lazyWithRetry(() => import('./components/RagaJaunpuriView'));
 const FluteNoteKeyConverterView = lazyWithRetry(() => import('./components/FluteNoteKeyConverterView'));
 const TanpuraDroneView = lazyWithRetry(() => import('./components/TanpuraDroneView'));
+const MetronomeView = lazyWithRetry(() => import('./components/MetronomeView'));
 const HowToFindSongScaleView = lazyWithRetry(() => import('./components/HowToFindSongScaleView'));
 const HowToReadBansuriNotationView = lazyWithRetry(() => import('./components/HowToReadBansuriNotationView'));
 const MembersView = lazyWithRetry(() => import('./components/MembersView'));
@@ -361,6 +362,10 @@ export default function App() {
         title = 'Online Tanpura for Riyaz & Flute | FluteSangam';
         description = "Use FluteSangam's online Tanpura for your daily flute and bansuri practice. Play a steady drone to master your sargam, alankars, and ragas.";
         break;
+      case 'metronome':
+        title = 'Online Metronome for Flute, Bansuri & Riyaz | FluteSangam';
+        description = 'Free online metronome for flute and bansuri practice (40–240 BPM). Set 1–12 beats, Sam accents, muted rests, Taal cycles, and Dugun/Chaugun speed for riyaz.';
+        break;
       case 'find_song_scale':
         title = 'How to Find the Scale or Key of a Song on Flute | FluteSangam';
         description = 'Learn how to find the scale or key of any song on flute, identify the tonic or Sa, test the melody, and choose a comfortable flute for playing by ear.';
@@ -630,6 +635,7 @@ export default function App() {
       currentView === 'how_to_read_bansuri_notation' ||
       currentView === 'note_key_converter' ||
       currentView === 'tanpura' ||
+      currentView === 'metronome' ||
       currentView === 'learn_dashboard'
     ) {
       modDate = '2026-10-11T00:00:00Z';
@@ -764,6 +770,8 @@ export default function App() {
       breadcrumbItems.push({ '@type': 'ListItem', 'position': 2, 'name': 'Bansuri Tuner', 'item': 'https://flutesangam.com/tuner' });
     } else if (currentView === 'tanpura') {
       breadcrumbItems.push({ '@type': 'ListItem', 'position': 2, 'name': 'Online Tanpura Drone', 'item': 'https://flutesangam.com/tools/tanpura' });
+    } else if (currentView === 'metronome') {
+      breadcrumbItems.push({ '@type': 'ListItem', 'position': 2, 'name': 'Online Flute Metronome', 'item': 'https://flutesangam.com/tools/metronome' });
     } else if (currentView === 'note_key_converter') {
       breadcrumbItems.push({ '@type': 'ListItem', 'position': 2, 'name': 'Flute Note & Key Converter', 'item': 'https://flutesangam.com/tools/flute-note-key-converter' });
     } else if (currentView === 'flute_faq') {
@@ -1426,6 +1434,8 @@ export default function App() {
           <LearnTunerView onViewChange={handleViewChange} />
         ) : currentView === 'tanpura' ? (
           <TanpuraDroneView onViewChange={handleViewChange} onBackToHomepage={() => handleViewChange('home')} />
+        ) : currentView === 'metronome' ? (
+          <MetronomeView onViewChange={handleViewChange} onBackToHomepage={() => handleViewChange('home')} />
         ) : currentView === 'learn_alankaras' ? (
           <LearnAlankarasView onViewChange={handleViewChange} />
         ) : currentView === 'learn_daily_practice' ? (
@@ -1724,12 +1734,12 @@ export default function App() {
 
           <FluteSangamChatbot 
             onViewChange={handleViewChange}
-            isHidden={isMobileMenuOpen || isChatbotSuppressedForMobileNav || authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost || currentView === 'learn_tuner' || currentView === 'tanpura' || currentView === 'notation_requests'}
+            isHidden={isMobileMenuOpen || isChatbotSuppressedForMobileNav || authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost || currentView === 'learn_tuner' || currentView === 'tanpura' || currentView === 'metronome' || currentView === 'notation_requests'}
             onOpenChange={setIsChatbotOpen}
           />
 
           <ScrollToTopButton 
-            isHidden={isMobileMenuOpen || isChatbotSuppressedForMobileNav || authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost || currentView === 'learn_tuner' || currentView === 'tanpura' || currentView === 'notation_requests' || isChatbotOpen}
+            isHidden={isMobileMenuOpen || isChatbotSuppressedForMobileNav || authModalOpen || createPostModalOpen || shareModalOpen || isNavbarEditingProfile || !!editingPost || currentView === 'learn_tuner' || currentView === 'tanpura' || currentView === 'metronome' || currentView === 'notation_requests' || isChatbotOpen}
           />
         </React.Suspense>
       </ErrorBoundary>

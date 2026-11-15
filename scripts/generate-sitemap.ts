@@ -81,6 +81,7 @@ const ROUTE_MOD_DATES: Record<string, string> = {
   '/copyright-policy': '2026-10-02',
   '/faq': '2026-11-13',
   '/tools/tanpura': '2026-11-15',
+  '/tools/metronome': '2026-11-15',
   '/tools/flute-note-key-converter': '2026-10-18',
   '/learn/how-to-find-scale-of-a-song-on-flute': '2026-11-13',
   '/learn/how-to-read-bansuri-notation': '2026-10-18'
@@ -110,6 +111,7 @@ const getRouteSeoConfig = (route: string): { changefreq: string; priority: strin
     route === '/learn/alankaras' ||
     route === '/tuner' ||
     route === '/tools/tanpura' ||
+    route === '/tools/metronome' ||
     route === '/tools/flute-note-key-converter' ||
     route === '/alankar-generator' ||
     route === '/faq'

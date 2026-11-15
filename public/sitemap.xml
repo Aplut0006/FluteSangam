@@ -379,6 +379,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://flutesangam.com/tools/metronome</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://flutesangam.com/tools/flute-note-key-converter</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
