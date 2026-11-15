@@ -369,6 +369,36 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
     });
   };
 
+  // Apply a recommended practice row preset cleanly
+  const applyPracticePreset = (targetBpm: number, targetBeats: number) => {
+    updateBpm(targetBpm);
+    handleBeatsChange(targetBeats, null);
+    setSubdivision(null);
+    subdivisionRef.current = 1;
+    if (isPlaying) {
+      buildAndStartLoop(targetBpm, 1);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Stop metronome automatically when user switches browser tabs or leaves page
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        stopMetronome();
+      }
+    };
+    const handlePageHide = () => {
+      stopMetronome();
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('pagehide', handlePageHide);
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('pagehide', handlePageHide);
+    };
+  }, [stopMetronome]);
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     return () => {
@@ -409,7 +439,7 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.2 }}
-      className="max-w-5xl mx-auto py-4 sm:py-10 px-3 sm:px-6 pb-52 sm:pb-52 md:pb-12"
+      className="max-w-5xl mx-auto py-4 sm:py-10 px-3 sm:px-6 pb-24 sm:pb-32 md:pb-12 overflow-x-hidden"
       id="metronome-practice-view"
     >
       {/* Top Back Navigation */}
@@ -433,16 +463,16 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
       </Link>
 
       {/* Hero Header */}
-      <div className="bg-gradient-to-br from-bamboo-950 via-bamboo-900 to-amber-950 rounded-2xl sm:rounded-3xl p-5 sm:p-8 text-white shadow-xl border border-amber-500/20 mb-6 sm:mb-8">
+      <div className="bg-gradient-to-br from-bamboo-950 via-bamboo-900 to-amber-950 rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-white shadow-xl border border-amber-500/20 mb-5 sm:mb-8">
         <div className="max-w-3xl space-y-2">
-          <div className="flex flex-wrap items-center gap-2 text-xs text-amber-300 font-semibold">
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] sm:text-xs text-amber-300 font-semibold">
             <span>Flute Practice Metronome</span>
             <span aria-hidden="true">·</span>
             <span>40–240 BPM</span>
             <span aria-hidden="true">·</span>
             <span>1 to 12 Beats</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-display font-extrabold tracking-tight text-white">
+          <h1 className="text-xl sm:text-3xl md:text-4xl font-display font-extrabold tracking-tight text-white leading-snug">
             Online Metronome for Flute &amp; Bansuri Practice
           </h1>
           <p className="text-xs sm:text-sm md:text-base text-bamboo-100/90 leading-relaxed">
@@ -452,25 +482,25 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
       </div>
 
       {/* Main Simple Metronome Card */}
-      <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-bamboo-200 shadow-sm space-y-6 mb-10">
+      <div className="bg-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-8 border border-bamboo-200 shadow-sm space-y-5 sm:space-y-6 mb-8 sm:mb-10">
         {/* Top Row: Status, Practice Timer & Reset All Button */}
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-bamboo-100 pb-4">
-          <div className="flex items-center gap-2">
-            <Zap className="w-5 h-5 text-amber-600" />
-            <div>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-bamboo-100 pb-4">
+          <div className="flex items-center gap-2.5 min-w-0">
+            <Zap className="w-5 h-5 text-amber-600 shrink-0" />
+            <div className="min-w-0">
               <h2 className="font-display font-bold text-base sm:text-lg text-bamboo-950 leading-tight">
                 Metronome &amp; Beat Counter
               </h2>
-              <p className="text-xs text-gray-500">
+              <p className="text-xs text-gray-500 truncate">
                 {getTempoLabel(bpm)} · {beatsPerMeasure} {beatsPerMeasure === 1 ? 'Beat' : 'Beats'} per cycle
               </p>
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2">
-            <div className="flex items-center gap-2 bg-bamboo-50 border border-bamboo-200 rounded-xl px-3 py-1.5">
-              <Clock className="w-3.5 h-3.5 text-amber-700" />
-              <span className="text-xs text-gray-600 font-medium">Practice Time:</span>
+          <div className="flex items-center justify-between sm:justify-end gap-2 w-full sm:w-auto">
+            <div className="flex items-center gap-1.5 sm:gap-2 bg-bamboo-50 border border-bamboo-200 rounded-xl px-2.5 sm:px-3 py-1.5 min-h-[38px]">
+              <Clock className="w-3.5 h-3.5 text-amber-700 shrink-0" />
+              <span className="text-[11px] sm:text-xs text-gray-600 font-medium whitespace-nowrap">Time:</span>
               <span className="font-mono tabular-nums text-xs font-extrabold text-bamboo-950">
                 {formatTimer(sessionSeconds)}
               </span>
@@ -479,7 +509,8 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
                   type="button"
                   onClick={() => setSessionSeconds(0)}
                   title="Reset timer"
-                  className="text-gray-400 hover:text-bamboo-900 transition cursor-pointer ml-1"
+                  aria-label="Reset practice timer"
+                  className="text-gray-400 hover:text-bamboo-900 transition cursor-pointer ml-0.5 p-0.5"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
                 </button>
@@ -490,8 +521,8 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
               type="button"
               onClick={handleResetAll}
               id="metronome-reset-all-btn"
-              title="Reset tempo, beats, accents, and optional selections to default"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white hover:bg-amber-50 border border-bamboo-200 text-xs font-bold text-bamboo-900 transition cursor-pointer active:scale-95 shadow-3xs"
+              title="Stop metronome and reset all selections to default"
+              className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 min-h-[38px] rounded-xl bg-white hover:bg-amber-50 border border-bamboo-200 text-xs font-bold text-bamboo-900 transition cursor-pointer active:scale-95 shadow-3xs whitespace-nowrap shrink-0"
             >
               <RotateCcw className="w-3.5 h-3.5 text-amber-700" />
               <span>Reset All</span>
@@ -500,14 +531,14 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
         </div>
 
         {/* 1. Large BPM Control & Slider */}
-        <div className="bg-amber-50/50 rounded-2xl p-4 sm:p-6 border border-amber-200/80 space-y-5">
+        <div className="bg-amber-50/50 rounded-2xl p-3.5 sm:p-6 border border-amber-200/80 space-y-4 sm:space-y-5">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            {/* BPM Readout & +/- Buttons */}
-            <div className="flex items-center gap-2.5 sm:gap-3">
+            {/* BPM Readout & +/- Buttons (Responsive width fits 320px+ smartphones without overflow) */}
+            <div className="w-full sm:w-auto flex items-center justify-between sm:justify-center gap-1.5 sm:gap-3">
               <button
                 type="button"
                 onClick={() => updateBpm(bpm - 5)}
-                className="px-3 py-2 rounded-xl bg-white hover:bg-amber-100 border border-amber-200 text-xs font-bold text-bamboo-900 transition cursor-pointer active:scale-95"
+                className="h-10 px-2.5 sm:px-3 min-w-[40px] rounded-xl bg-white hover:bg-amber-100 border border-amber-200 text-xs font-bold text-bamboo-900 transition cursor-pointer active:scale-95 shrink-0"
                 aria-label="Decrease tempo by 5 BPM"
               >
                 -5
@@ -515,17 +546,17 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
               <button
                 type="button"
                 onClick={() => updateBpm(bpm - 1)}
-                className="w-10 h-10 rounded-xl bg-white hover:bg-amber-100 border border-amber-200 flex items-center justify-center text-bamboo-900 transition cursor-pointer active:scale-95"
+                className="w-9 h-10 sm:w-10 sm:h-10 rounded-xl bg-white hover:bg-amber-100 border border-amber-200 flex items-center justify-center text-bamboo-900 transition cursor-pointer active:scale-95 shrink-0"
                 aria-label="Decrease tempo by 1 BPM"
               >
                 <Minus className="w-4 h-4" />
               </button>
 
-              <div className="text-center min-w-[115px] px-2">
-                <div className="text-4xl sm:text-5xl font-mono font-black tabular-nums text-bamboo-950 leading-none">
+              <div className="text-center min-w-[78px] sm:min-w-[115px] px-1">
+                <div className="text-3xl sm:text-5xl font-mono font-black tabular-nums text-bamboo-950 leading-none">
                   {bpm}
                 </div>
-                <div className="text-[11px] font-bold text-amber-800 mt-1">
+                <div className="text-[10px] sm:text-[11px] font-bold text-amber-800 mt-1 whitespace-nowrap">
                   BPM (Tempo)
                 </div>
               </div>
@@ -533,7 +564,7 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
               <button
                 type="button"
                 onClick={() => updateBpm(bpm + 1)}
-                className="w-10 h-10 rounded-xl bg-white hover:bg-amber-100 border border-amber-200 flex items-center justify-center text-bamboo-900 transition cursor-pointer active:scale-95"
+                className="w-9 h-10 sm:w-10 sm:h-10 rounded-xl bg-white hover:bg-amber-100 border border-amber-200 flex items-center justify-center text-bamboo-900 transition cursor-pointer active:scale-95 shrink-0"
                 aria-label="Increase tempo by 1 BPM"
               >
                 <Plus className="w-4 h-4" />
@@ -541,7 +572,7 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
               <button
                 type="button"
                 onClick={() => updateBpm(bpm + 5)}
-                className="px-3 py-2 rounded-xl bg-white hover:bg-amber-100 border border-amber-200 text-xs font-bold text-bamboo-900 transition cursor-pointer active:scale-95"
+                className="h-10 px-2.5 sm:px-3 min-w-[40px] rounded-xl bg-white hover:bg-amber-100 border border-amber-200 text-xs font-bold text-bamboo-900 transition cursor-pointer active:scale-95 shrink-0"
                 aria-label="Increase tempo by 5 BPM"
               >
                 +5
@@ -549,37 +580,37 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
             </div>
 
             {/* Start / Stop & Tap Tempo Buttons */}
-            <div className="flex items-center gap-2.5 w-full sm:w-auto">
+            <div className="grid grid-cols-5 sm:flex items-center gap-2 sm:gap-2.5 w-full sm:w-auto">
               <button
                 type="button"
                 onClick={toggleMetronome}
                 id="metronome-play-stop-btn"
-                className={`flex-1 sm:flex-initial px-6 py-3 min-h-[46px] rounded-xl font-display font-extrabold text-sm flex items-center justify-center gap-2 transition cursor-pointer shadow-sm ${
+                className={`col-span-3 sm:col-span-auto px-3 sm:px-6 py-3 min-h-[48px] rounded-xl font-display font-extrabold text-xs sm:text-sm flex items-center justify-center gap-1.5 sm:gap-2 transition cursor-pointer shadow-sm whitespace-nowrap ${
                   isPlaying
                     ? 'bg-amber-600 hover:bg-amber-700 text-white animate-pulse'
                     : 'bg-bamboo-800 hover:bg-bamboo-900 text-white'
                 }`}
               >
-                {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+                {isPlaying ? <Pause className="w-4 h-4 shrink-0" /> : <Play className="w-4 h-4 shrink-0" />}
                 <span>{isPlaying ? 'Stop Metronome' : 'Start Metronome'}</span>
               </button>
 
               <button
                 type="button"
                 onClick={handleTapTempo}
-                className="px-4 py-3 min-h-[46px] rounded-xl bg-white hover:bg-amber-100 border border-amber-300 text-bamboo-950 font-bold text-xs flex items-center justify-center gap-1.5 transition cursor-pointer active:scale-95 shrink-0"
+                className="col-span-2 sm:col-span-auto px-2.5 sm:px-4 py-3 min-h-[48px] rounded-xl bg-white hover:bg-amber-100 border border-amber-300 text-bamboo-950 font-bold text-xs flex items-center justify-center gap-1.5 transition cursor-pointer active:scale-95 whitespace-nowrap"
                 title="Tap repeatedly to set tempo"
               >
-                <Hand className="w-3.5 h-3.5 text-amber-700" />
+                <Hand className="w-3.5 h-3.5 text-amber-700 shrink-0" />
                 <span>Tap Tempo</span>
               </button>
             </div>
           </div>
 
           {/* Tempo Slider */}
-          <div className="space-y-1.5">
-            <div className="flex items-center gap-3">
-              <span className="text-[11px] font-mono font-bold text-gray-500 shrink-0">40 BPM</span>
+          <div className="space-y-2">
+            <div className="flex items-center gap-2.5 sm:gap-3">
+              <span className="text-[11px] font-mono font-bold text-gray-500 shrink-0">40</span>
               <input
                 id="metronome-bpm-slider"
                 type="range"
@@ -587,20 +618,20 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
                 max={240}
                 value={bpm}
                 onChange={(e) => updateBpm(parseInt(e.target.value, 10))}
-                className="w-full h-2 bg-bamboo-200 rounded-lg appearance-none cursor-pointer accent-amber-600"
+                className="w-full h-2.5 bg-bamboo-200 rounded-lg appearance-none cursor-pointer accent-amber-600"
                 aria-label="Metronome Tempo BPM"
               />
-              <span className="text-[11px] font-mono font-bold text-gray-500 shrink-0">240 BPM</span>
+              <span className="text-[11px] font-mono font-bold text-gray-500 shrink-0">240</span>
             </div>
 
-            {/* Quick BPM Buttons */}
-            <div className="flex flex-wrap items-center justify-center gap-1.5 pt-2">
+            {/* Quick BPM Buttons (Even 4x2 grid on smartphones) */}
+            <div className="grid grid-cols-4 sm:flex sm:flex-wrap sm:items-center sm:justify-center gap-1.5 pt-1">
               {[60, 72, 80, 90, 100, 120, 140, 160].map((val) => (
                 <button
                   key={val}
                   type="button"
                   onClick={() => updateBpm(val)}
-                  className={`px-3 py-1 rounded-lg text-xs font-mono font-bold border transition cursor-pointer ${
+                  className={`px-2 sm:px-3 py-1.5 sm:py-1 rounded-lg text-[11px] sm:text-xs font-mono font-bold border transition cursor-pointer text-center whitespace-nowrap ${
                     bpm === val
                       ? 'bg-bamboo-900 text-white border-bamboo-900'
                       : 'bg-white hover:bg-amber-100/70 text-bamboo-900 border-amber-200/80'
@@ -615,7 +646,7 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
 
         {/* 2. Simple Beats Selector (1 to 12) & Interactive Beat Accent/Mute Matrix */}
         <div className="space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2">
             <div>
               <h3 className="text-sm font-display font-bold text-bamboo-950">
                 Beats per Cycle (1 to 12)
@@ -625,20 +656,20 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
               </p>
             </div>
             {isPlaying && (
-              <span className="text-xs font-mono font-extrabold text-amber-700">
-                Playing: Beat {activeBeat + 1} of {beatsPerMeasure}
+              <span className="inline-flex items-center self-start sm:self-auto px-2.5 py-1 rounded-lg bg-amber-100 text-xs font-mono font-extrabold text-amber-800 whitespace-nowrap">
+                Beat {activeBeat + 1} / {beatsPerMeasure}
               </span>
             )}
           </div>
 
           {/* 1 to 12 Beat Number Buttons */}
-          <div className="grid grid-cols-6 sm:grid-cols-12 gap-2">
+          <div className="grid grid-cols-6 sm:grid-cols-12 gap-1.5 sm:gap-2">
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((num) => (
               <button
                 key={num}
                 type="button"
                 onClick={() => handleBeatsChange(num, null)}
-                className={`py-2.5 rounded-xl font-mono font-extrabold text-xs sm:text-sm border transition cursor-pointer ${
+                className={`py-2.5 min-h-[42px] rounded-xl font-mono font-extrabold text-xs sm:text-sm border transition cursor-pointer flex items-center justify-center ${
                   beatsPerMeasure === num
                     ? 'bg-amber-600 text-white border-amber-700 shadow-2xs'
                     : 'bg-bamboo-50/70 hover:bg-amber-50 text-bamboo-950 border-bamboo-200/80'
@@ -650,14 +681,14 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
           </div>
 
           {/* Interactive Beat Accent & Mute Matrix */}
-          <div className="bg-bamboo-50/40 rounded-2xl p-4 border border-bamboo-200/70 space-y-2.5">
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <div>
+          <div className="bg-bamboo-50/40 rounded-2xl p-3.5 sm:p-4 border border-bamboo-200/70 space-y-3">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div className="min-w-0">
                 <h4 className="text-xs sm:text-sm font-display font-bold text-bamboo-950">
                   Interactive Beat Accent &amp; Mute Matrix
                 </h4>
-                <p className="text-xs text-gray-600">
-                  Click any beat below to toggle it between <strong>Sam / Accent</strong> (High Tick), <strong>Normal Beat</strong>, and <strong>Muted Rest</strong> (Silent) for internal timing practice.
+                <p className="text-[11px] sm:text-xs text-gray-600 leading-relaxed">
+                  Tap any beat to switch between <strong>Sam / Accent</strong> (High Tick), <strong>Normal Beat</strong>, and <strong>Muted Rest</strong> (Silent).
                 </p>
               </div>
               <button
@@ -667,13 +698,13 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
                   setBeatStates(reset);
                   beatStatesRef.current = reset;
                 }}
-                className="px-2.5 py-1.5 rounded-lg bg-white hover:bg-amber-50 border border-bamboo-200 text-[11px] font-bold text-bamboo-900 transition cursor-pointer shrink-0"
+                className="self-start sm:self-auto px-3 py-1.5 rounded-lg bg-white hover:bg-amber-50 border border-bamboo-200 text-[11px] font-bold text-bamboo-900 transition cursor-pointer shrink-0 whitespace-nowrap"
               >
                 Reset Accents
               </button>
             </div>
 
-            <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 pt-1">
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 pt-0.5">
               {beatStates.map((state, idx) => {
                 const isCurrent = isPlaying && activeBeat === idx;
                 return (
@@ -681,18 +712,18 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
                     key={idx}
                     type="button"
                     onClick={() => cycleBeatState(idx)}
-                    className={`p-2.5 rounded-xl border text-center transition cursor-pointer select-none ${
+                    className={`py-2.5 px-1.5 sm:p-2.5 min-h-[54px] rounded-xl border text-center transition cursor-pointer select-none flex flex-col items-center justify-center ${
                       state === 'accent'
                         ? 'bg-amber-100 text-amber-950 border-amber-400 font-bold'
                         : state === 'mute'
                         ? 'bg-gray-100 text-gray-400 border-gray-200'
                         : 'bg-white text-bamboo-950 border-bamboo-200'
-                    } ${isCurrent ? 'ring-2 ring-amber-500 scale-105' : ''}`}
+                    } ${isCurrent ? 'ring-2 ring-amber-500 scale-[1.03] shadow-xs' : ''}`}
                   >
-                    <div className="font-mono text-xs font-black tabular-nums">
+                    <div className="font-mono text-xs font-black tabular-nums leading-tight">
                       Beat {idx + 1}
                     </div>
-                    <div className="text-[10px] font-semibold mt-0.5">
+                    <div className="text-[10px] font-semibold mt-0.5 leading-tight whitespace-nowrap">
                       {state === 'accent' ? 'Sam / Accent' : state === 'mute' ? 'Muted Rest' : 'Normal Beat'}
                     </div>
                   </button>
@@ -703,19 +734,24 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
         </div>
 
         {/* 3. Volume Control Row */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2 border-t border-bamboo-100">
-          <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => setIsMuted(!isMuted)}
-              className="p-2 rounded-xl bg-bamboo-100 hover:bg-bamboo-200 text-bamboo-900 transition cursor-pointer"
-              aria-label={isMuted ? 'Unmute metronome' : 'Mute metronome'}
-            >
-              {isMuted ? <VolumeX className="w-4 h-4 text-rose-600" /> : <Volume2 className="w-4 h-4" />}
-            </button>
-            <label htmlFor="metronome-volume-slider" className="text-xs font-bold text-bamboo-950">
-              Tick Volume ({isMuted ? 'Muted' : `${Math.round(volume * 100)}%`})
-            </label>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 pt-2 border-t border-bamboo-100">
+          <div className="flex items-center justify-between sm:justify-start gap-2 w-full sm:w-auto">
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => setIsMuted(!isMuted)}
+                className="p-2 rounded-xl bg-bamboo-100 hover:bg-bamboo-200 text-bamboo-900 transition cursor-pointer shrink-0"
+                aria-label={isMuted ? 'Unmute metronome' : 'Mute metronome'}
+              >
+                {isMuted ? <VolumeX className="w-4 h-4 text-rose-600" /> : <Volume2 className="w-4 h-4" />}
+              </button>
+              <label htmlFor="metronome-volume-slider" className="text-xs font-bold text-bamboo-950">
+                Tick Volume
+              </label>
+            </div>
+            <span className="text-xs font-mono font-bold text-amber-800 sm:ml-1">
+              {isMuted ? 'Muted' : `${Math.round(volume * 100)}%`}
+            </span>
           </div>
           <div className="w-full sm:w-64">
             <input
@@ -729,7 +765,7 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
                 setIsMuted(false);
                 setVolume(Number(e.target.value));
               }}
-              className="w-full h-2 bg-bamboo-200 rounded-lg appearance-none cursor-pointer accent-amber-600"
+              className="w-full h-2.5 bg-bamboo-200 rounded-lg appearance-none cursor-pointer accent-amber-600"
             />
           </div>
         </div>
@@ -739,16 +775,16 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
           <button
             type="button"
             onClick={() => setShowOptionalSettings(!showOptionalSettings)}
-            className="w-full flex items-center justify-between gap-3 py-2.5 px-4 rounded-xl bg-bamboo-50/80 hover:bg-bamboo-100/80 border border-bamboo-200/80 text-left transition cursor-pointer"
+            className="w-full flex items-center justify-between gap-2.5 py-3 px-3.5 sm:px-4 rounded-xl bg-bamboo-50/80 hover:bg-bamboo-100/80 border border-bamboo-200/80 text-left transition cursor-pointer"
           >
-            <div className="flex items-center gap-2">
-              <Sliders className="w-4 h-4 text-amber-700 shrink-0" />
-              <div>
-                <span className="text-xs sm:text-sm font-bold text-bamboo-950 block">
-                  Optional Rhythm &amp; Speed Settings (For Intermediate / Advanced Practice)
+            <div className="flex items-start sm:items-center gap-2.5 min-w-0 flex-1">
+              <Sliders className="w-4 h-4 text-amber-700 shrink-0 mt-0.5 sm:mt-0" />
+              <div className="min-w-0">
+                <span className="text-xs sm:text-sm font-bold text-bamboo-950 block leading-snug">
+                  Optional Rhythm &amp; Speed Settings (Intermediate / Advanced)
                 </span>
-                <span className="text-[11px] text-gray-500">
-                  Western Meters, Hindustani Taal Presets (Dadra, Rupak, Keherwa, Jhaptal, Ektaal) &amp; Alankar Subdivisions
+                <span className="text-[11px] text-gray-500 block leading-snug mt-0.5">
+                  Western Meters, Taal Presets (Dadra, Rupak, Keherwa, Jhaptal, Ektaal) &amp; Speed Subdivisions
                 </span>
               </div>
             </div>
@@ -760,30 +796,30 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
           </button>
 
           {showOptionalSettings && (
-            <div className="mt-4 p-4 sm:p-5 rounded-2xl bg-bamboo-50/40 border border-bamboo-200/70 space-y-6">
+            <div className="mt-3 sm:mt-4 p-3.5 sm:p-5 rounded-2xl bg-bamboo-50/40 border border-bamboo-200/70 space-y-5 sm:space-y-6">
               {/* Optional A: Alankar Speed Subdivisions */}
               <div className="space-y-2.5">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <div>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div className="min-w-0">
                     <h4 className="text-xs sm:text-sm font-display font-bold text-bamboo-950">
                       Alankar Speed Subdivisions (Optional)
                     </h4>
-                    <p className="text-xs text-gray-600">
-                      Subdivide each beat to practice Barabar (1x), Dugun (2x), Tigun (3x), or Chaugun (4x). Click a selected option again to unselect it.
+                    <p className="text-[11px] sm:text-xs text-gray-600 leading-relaxed">
+                      Subdivide each beat to practice Barabar (1x), Dugun (2x), Tigun (3x), or Chaugun (4x). Tap a selected option again to unselect it.
                     </p>
                   </div>
                   {subdivision !== null && (
                     <button
                       type="button"
                       onClick={() => handleSubdivisionChange(null)}
-                      className="px-2.5 py-1.5 rounded-lg bg-white hover:bg-amber-50 border border-bamboo-200 text-[11px] font-bold text-bamboo-900 transition cursor-pointer shrink-0"
+                      className="self-start sm:self-auto px-2.5 py-1.5 rounded-lg bg-white hover:bg-amber-50 border border-bamboo-200 text-[11px] font-bold text-bamboo-900 transition cursor-pointer shrink-0 whitespace-nowrap"
                     >
                       Unselect Subdivision
                     </button>
                   )}
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5">
                   {SUBDIVISIONS.map((sub) => {
                     const isSelected = subdivision === sub.value;
                     return (
@@ -791,14 +827,14 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
                         key={sub.value}
                         type="button"
                         onClick={() => handleSubdivisionChange(sub.value)}
-                        className={`p-3 rounded-xl border text-left transition cursor-pointer ${
+                        className={`p-2.5 sm:p-3 rounded-xl border text-left transition cursor-pointer min-w-0 ${
                           isSelected
                             ? 'bg-bamboo-900 text-white border-bamboo-950 shadow-2xs'
                             : 'bg-white hover:bg-amber-50/60 text-bamboo-950 border-bamboo-200'
                         }`}
                       >
-                        <div className="font-bold text-xs">{sub.name}</div>
-                        <div className={`text-[10px] font-semibold mt-0.5 ${isSelected ? 'text-amber-300' : 'text-gray-500'}`}>
+                        <div className="font-bold text-xs leading-tight">{sub.name}</div>
+                        <div className={`text-[10px] font-semibold mt-0.5 leading-snug ${isSelected ? 'text-amber-300' : 'text-gray-500'}`}>
                           {sub.indianName}
                         </div>
                       </button>
@@ -809,27 +845,27 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
 
               {/* Optional B: Western Meters & Hindustani Taal Presets (1 to 12 Beats) */}
               <div className="space-y-2.5 pt-3 border-t border-bamboo-200/60">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <div>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div className="min-w-0">
                     <h4 className="text-xs sm:text-sm font-display font-bold text-bamboo-950">
                       Western Meters &amp; Hindustani Taal Cycle Presets (Optional)
                     </h4>
-                    <p className="text-xs text-gray-600">
-                      Select any meter or Taal below to automatically set its beat count and traditional accent pattern. Click a selected preset again to unselect it.
+                    <p className="text-[11px] sm:text-xs text-gray-600 leading-relaxed">
+                      Select any meter or Taal below to automatically set its beat count and accent pattern. Tap a selected preset again to unselect it.
                     </p>
                   </div>
                   {selectedTaalId !== null && (
                     <button
                       type="button"
                       onClick={() => handleBeatsChange(beatsPerMeasure, null)}
-                      className="px-2.5 py-1.5 rounded-lg bg-white hover:bg-amber-50 border border-bamboo-200 text-[11px] font-bold text-bamboo-900 transition cursor-pointer shrink-0"
+                      className="self-start sm:self-auto px-2.5 py-1.5 rounded-lg bg-white hover:bg-amber-50 border border-bamboo-200 text-[11px] font-bold text-bamboo-900 transition cursor-pointer shrink-0 whitespace-nowrap"
                     >
                       Unselect Preset
                     </button>
                   )}
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5">
                   {OPTIONAL_TAAL_PRESETS.map((preset) => {
                     const isSelected = selectedTaalId === preset.id && beatsPerMeasure === preset.beats;
                     return (
@@ -837,14 +873,14 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
                         key={preset.id}
                         type="button"
                         onClick={() => handleBeatsChange(preset.beats, preset.id, preset.defaultPattern)}
-                        className={`p-3 rounded-xl border text-left transition cursor-pointer ${
+                        className={`p-2.5 sm:p-3 rounded-xl border text-left transition cursor-pointer min-w-0 ${
                           isSelected
                             ? 'bg-amber-600 text-white border-amber-700 shadow-2xs'
                             : 'bg-white hover:bg-amber-50/70 text-bamboo-950 border-bamboo-200'
                         }`}
                       >
-                        <div className="font-bold text-xs">{preset.label}</div>
-                        <div className={`text-[10px] mt-0.5 ${isSelected ? 'text-amber-100' : 'text-gray-500'}`}>
+                        <div className="font-bold text-xs leading-tight">{preset.label}</div>
+                        <div className={`text-[10px] mt-0.5 leading-snug ${isSelected ? 'text-amber-100' : 'text-gray-500'}`}>
                           {preset.sublabel}
                         </div>
                       </button>
@@ -853,7 +889,7 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
                 </div>
 
                 {selectedTaalId && (
-                  <p className="text-xs text-bamboo-900 bg-amber-50/80 border border-amber-200 rounded-xl p-3">
+                  <p className="text-xs text-bamboo-900 bg-amber-50/80 border border-amber-200 rounded-xl p-3 leading-relaxed">
                     <strong>{OPTIONAL_TAAL_PRESETS.find(p => p.id === selectedTaalId)?.label}:</strong>{' '}
                     {OPTIONAL_TAAL_PRESETS.find(p => p.id === selectedTaalId)?.usage}
                   </p>
@@ -911,7 +947,7 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
         </section>
 
         {/* Section 2: Bansuri Practice BPM Reference Table */}
-        <section className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 border border-bamboo-200/80 shadow-xs space-y-5">
+        <section className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 border border-bamboo-200/80 shadow-xs space-y-5">
           <div className="space-y-2">
             <span className="text-xs font-bold text-amber-700">
               Structured Tempo Progression
@@ -920,11 +956,86 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
               Recommended BPM Tempo Chart for Flute Practice
             </h2>
             <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-              Use this tempo guide during your daily Bansuri practice. Click any row&apos;s button to load those settings into the metronome above.
+              Use this tempo guide during your daily Bansuri practice. Tap any button below to load those settings into the metronome above.
             </p>
           </div>
 
-          <div className="overflow-x-auto rounded-2xl border border-bamboo-200">
+          {/* Smartphone Card Layout (Zero horizontal scroll, all fields & Apply buttons clearly visible) */}
+          <div className="grid grid-cols-1 gap-3 md:hidden">
+            {[
+              {
+                title: 'Long Notes (Swar Sadhana)',
+                bpmLabel: '60 BPM',
+                beatsLabel: '4 or 8 Beats',
+                goal: 'Hold each note steadily for 4, 8, or 12 ticks on one breath.',
+                btnLabel: 'Set 60 BPM',
+                targetBpm: 60,
+                targetBeats: 4
+              },
+              {
+                title: 'Beginner Sargam (Sa Re Ga Ma)',
+                bpmLabel: '75 – 85 BPM',
+                beatsLabel: '4 Beats',
+                goal: 'Play 1 note per tick with clean finger sealing and clear tone.',
+                btnLabel: 'Set 80 BPM',
+                targetBpm: 80,
+                targetBeats: 4
+              },
+              {
+                title: '3-Note Alankars (Sa Re Ga, Re Ga Ma)',
+                bpmLabel: '85 – 100 BPM',
+                beatsLabel: '3 or 6 Beats',
+                goal: 'Practice 3-note groupings smoothly across all octaves.',
+                btnLabel: 'Set 90 BPM (3 Beats)',
+                targetBpm: 90,
+                targetBeats: 3
+              },
+              {
+                title: '4-Note Alankars & Songs',
+                bpmLabel: '100 – 120 BPM',
+                beatsLabel: '4 or 8 Beats',
+                goal: 'Build steady medium-tempo rhythm for melodies and paltas.',
+                btnLabel: 'Set 110 BPM (8 Beats)',
+                targetBpm: 110,
+                targetBeats: 8
+              },
+              {
+                title: 'Fast Finger Agility Drills',
+                bpmLabel: '140 – 160 BPM',
+                beatsLabel: '4 or 12 Beats',
+                goal: 'Keep fingers light and relaxed close to the flute holes.',
+                btnLabel: 'Set 140 BPM',
+                targetBpm: 140,
+                targetBeats: 4
+              }
+            ].map((row) => (
+              <div
+                key={row.title}
+                className="rounded-2xl border border-bamboo-200 bg-bamboo-50/40 p-3.5 space-y-2.5"
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <h3 className="font-bold text-sm text-bamboo-950 leading-snug">{row.title}</h3>
+                  <span className="font-mono tabular-nums font-bold text-xs text-amber-900 bg-amber-100 px-2 py-0.5 rounded-md whitespace-nowrap shrink-0">
+                    {row.bpmLabel}
+                  </span>
+                </div>
+                <p className="text-xs text-gray-600 leading-relaxed">{row.goal}</p>
+                <div className="flex items-center justify-between gap-2 pt-1 border-t border-bamboo-100">
+                  <span className="text-[11px] font-semibold text-bamboo-800">{row.beatsLabel}</span>
+                  <button
+                    type="button"
+                    onClick={() => applyPracticePreset(row.targetBpm, row.targetBeats)}
+                    className="px-3 py-1.5 rounded-lg bg-amber-100 hover:bg-amber-200 text-amber-950 font-bold text-xs transition cursor-pointer whitespace-nowrap"
+                  >
+                    {row.btnLabel}
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop & Tablet Table Layout */}
+          <div className="hidden md:block overflow-x-auto rounded-2xl border border-bamboo-200">
             <table className="w-full text-left border-collapse text-xs sm:text-sm">
               <thead>
                 <tr className="bg-bamboo-900 text-white">
@@ -944,7 +1055,7 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
                   <td className="p-3.5 text-right">
                     <button
                       type="button"
-                      onClick={() => { updateBpm(60); handleBeatsChange(4); handleSubdivisionChange(1); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                      onClick={() => applyPracticePreset(60, 4)}
                       className="px-3 py-1.5 rounded-lg bg-amber-100 hover:bg-amber-200 text-amber-950 font-bold text-xs transition cursor-pointer whitespace-nowrap"
                     >
                       Set 60 BPM
@@ -959,7 +1070,7 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
                   <td className="p-3.5 text-right">
                     <button
                       type="button"
-                      onClick={() => { updateBpm(80); handleBeatsChange(4); handleSubdivisionChange(1); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                      onClick={() => applyPracticePreset(80, 4)}
                       className="px-3 py-1.5 rounded-lg bg-amber-100 hover:bg-amber-200 text-amber-950 font-bold text-xs transition cursor-pointer whitespace-nowrap"
                     >
                       Set 80 BPM
@@ -974,7 +1085,7 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
                   <td className="p-3.5 text-right">
                     <button
                       type="button"
-                      onClick={() => { updateBpm(90); handleBeatsChange(3); handleSubdivisionChange(1); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                      onClick={() => applyPracticePreset(90, 3)}
                       className="px-3 py-1.5 rounded-lg bg-amber-100 hover:bg-amber-200 text-amber-950 font-bold text-xs transition cursor-pointer whitespace-nowrap"
                     >
                       Set 90 BPM (3 Beats)
@@ -989,7 +1100,7 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
                   <td className="p-3.5 text-right">
                     <button
                       type="button"
-                      onClick={() => { updateBpm(110); handleBeatsChange(8); handleSubdivisionChange(1); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                      onClick={() => applyPracticePreset(110, 8)}
                       className="px-3 py-1.5 rounded-lg bg-amber-100 hover:bg-amber-200 text-amber-950 font-bold text-xs transition cursor-pointer whitespace-nowrap"
                     >
                       Set 110 BPM (8 Beats)
@@ -1004,7 +1115,7 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
                   <td className="p-3.5 text-right">
                     <button
                       type="button"
-                      onClick={() => { updateBpm(140); handleBeatsChange(4); handleSubdivisionChange(1); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                      onClick={() => applyPracticePreset(140, 4)}
                       className="px-3 py-1.5 rounded-lg bg-amber-100 hover:bg-amber-200 text-amber-950 font-bold text-xs transition cursor-pointer whitespace-nowrap"
                     >
                       Set 140 BPM
