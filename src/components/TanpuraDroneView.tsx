@@ -93,8 +93,8 @@ const FAQ_ITEMS = [
     a: 'As a rule of thumb: (1) Use Pa (Pancham) for ~85% of Hindustani and Carnatic ragas that contain a natural Pancham swara (Yaman, Bhoopali, Bhimpalasi, Bilawal, Desh, Kafi, Bhairav, Todi). (2) Use Ma (Shuddha Madhyam) when Pancham is omitted (varjit) or when Madhyam is the Vadi swara (Malkauns, Bageshree, Chandrakauns, Megh). (3) Use Ni (Shuddha Nishad) for ragas that omit Pa and have a strong Nishad that leans toward Komal Re (Marwa, Puriya, Sohini).'
   },
   {
-    q: 'What is the difference between Male (Octave 3) and Female (Octave 4) Tanpura registers?',
-    a: 'Male Tanpura (Octave 3, C3–B3, ~130 Hz) has a deeper Kharaj string and fuller lower body resonance, making it ideal for deep bass flutes such as E Bass (30 inch), F Bass, and C Medium bansuris. Female Tanpura (Octave 4, C4–B4, ~260 Hz) provides a higher tonic pitch and is well suited for medium and small high-pitch flutes like G Medium or A Base flutes.'
+    q: 'How do I match the Tanpura Root Pitch (Sa) and Pluck Tempo to my Bansuri?',
+    a: 'Select the Root Pitch (Sa) that matches the natural key stamped on your Bansuri (when the top three finger holes are closed)—for example, choose E for an E Bass flute, C for a C Medium flute, or G for a G Base flute. For Pluck Tempo, start around 56–60 BPM during slow long-note Swar Sadhana and Alankars so each string has ample time to bloom and overlap in the air.'
   },
   {
     q: 'Should I tune my Tanpura to 440 Hz or 432 Hz for flute practice?',
@@ -192,7 +192,7 @@ export const TanpuraDroneView: React.FC<TanpuraDroneViewProps> = ({ onViewChange
 
   const togglePlayback = () => {
     if (!engineRef.current) return;
-    if (isPlaying) {
+    if (engineRef.current.getIsPlaying()) {
       engineRef.current.stop();
       setIsPlaying(false);
       setActiveStringIndex(null);
@@ -280,7 +280,7 @@ export const TanpuraDroneView: React.FC<TanpuraDroneViewProps> = ({ onViewChange
             Online Tanpura
           </h1>
           <p className="text-bamboo-200 text-xs sm:text-sm max-w-2xl leading-relaxed">
-            Use FluteSangam&apos;s online tanpura for flute, bansuri and vocal practice. Play a steady drone for sargam, alankars, ragas and daily riyaz.
+            Use FluteSangam&apos;s online Tanpura for your daily flute and bansuri practice. Play a steady drone to master your sargam, alankars, and ragas.
           </p>
         </div>
       </div>
@@ -335,11 +335,7 @@ export const TanpuraDroneView: React.FC<TanpuraDroneViewProps> = ({ onViewChange
                 </div>
                 
                 <div className="text-lg sm:text-2xl font-display font-black text-bamboo-950 mt-1 truncate">
-                  Sa = {rootSa} <span className="text-xs font-sans font-normal text-slate-500">({currentSaFreq} Hz)</span>
-                </div>
-                
-                <div className="text-[11px] text-slate-600 truncate">
-                  {octave === 'low' ? 'Male / Bass (Octave 3)' : 'Female / Medium (Octave 4)'}
+                  Sa = {rootSa}
                 </div>
               </div>
             </div>
@@ -399,8 +395,8 @@ export const TanpuraDroneView: React.FC<TanpuraDroneViewProps> = ({ onViewChange
               String Pluck Resonance
             </div>
             {activeStringIndex !== null && (
-              <span className="text-[10px] sm:text-xs font-mono bg-amber-400/20 text-amber-200 border border-amber-300/30 px-2 py-0.5 rounded-full animate-pulse">
-                {activeStringName} • {activeFrequency} Hz
+              <span className="text-[10px] sm:text-xs font-mono bg-amber-400/20 text-amber-200 border border-amber-300/30 px-2.5 py-0.5 rounded-full animate-pulse">
+                {activeStringName}
               </span>
             )}
           </div>
@@ -486,7 +482,7 @@ export const TanpuraDroneView: React.FC<TanpuraDroneViewProps> = ({ onViewChange
             </div>
           </div>
 
-          {/* 2. First String Tuning Mode & Octave */}
+          {/* 2. First String Tuning & 3. Pluck Tempo */}
           <div className="grid sm:grid-cols-2 gap-4">
             
             {/* First String Selector */}
@@ -529,96 +525,12 @@ export const TanpuraDroneView: React.FC<TanpuraDroneViewProps> = ({ onViewChange
               </div>
             </div>
 
-            {/* Octave Register */}
-            <div className="bg-sand-50 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border border-amber-200 space-y-2">
-              <label className="text-xs font-bold text-bamboo-950 uppercase tracking-wider flex items-center justify-between">
-                <span className="flex items-center gap-1.5">
-                  <Wind className="w-3.5 h-3.5 text-amber-600" />
-                  3. Octave Register
-                </span>
-                <span className="text-[9px] text-bamboo-900 font-bold bg-bamboo-200/70 px-2 py-0.5 rounded-full">
-                  {octave === 'low' ? 'Octave 3' : 'Octave 4'}
-                </span>
-              </label>
-
-              <div className="grid grid-cols-2 gap-1.5">
-                <button
-                  onClick={() => setOctave('low')}
-                  className={`p-2.5 rounded-xl text-left transition-all border cursor-pointer active:scale-95 ${
-                    octave === 'low'
-                      ? 'bg-bamboo-800 text-white border-bamboo-900 shadow-sm'
-                      : 'bg-white hover:bg-amber-100/50 text-bamboo-950 border-amber-200'
-                  }`}
-                >
-                  <strong className="block text-xs font-display">Male / Bass (Oct 3)</strong>
-                  <span className={`text-[9px] block mt-0.5 ${octave === 'low' ? 'text-amber-200' : 'text-slate-500'}`}>
-                    For E Bass, C Medium
-                  </span>
-                </button>
-
-                <button
-                  onClick={() => setOctave('medium')}
-                  className={`p-2.5 rounded-xl text-left transition-all border cursor-pointer active:scale-95 ${
-                    octave === 'medium'
-                      ? 'bg-bamboo-800 text-white border-bamboo-900 shadow-sm'
-                      : 'bg-white hover:bg-amber-100/50 text-bamboo-950 border-amber-200'
-                  }`}
-                >
-                  <strong className="block text-xs font-display">Female / Med (Oct 4)</strong>
-                  <span className={`text-[9px] block mt-0.5 ${octave === 'medium' ? 'text-amber-200' : 'text-slate-500'}`}>
-                    For G Medium, A Base
-                  </span>
-                </button>
-              </div>
-            </div>
-
-          </div>
-
-          {/* 3. Tone Timber & Pluck Speed (Mobile Friendly) */}
-          <div className="grid sm:grid-cols-2 gap-4">
-            
-            {/* Tone Timber Style */}
-            <div className="bg-sand-50 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border border-amber-200 space-y-2">
-              <label className="text-xs font-bold text-bamboo-950 uppercase tracking-wider flex items-center justify-between">
-                <span>4. Tanpura Timber (Jawari)</span>
-                <span className="text-[9px] text-amber-900 font-bold bg-amber-200/70 px-2 py-0.5 rounded-full">
-                  {toneStyle === 'miraj' ? 'Miraj' : toneStyle === 'tanjore' ? 'Tanjore' : 'Meditative'}
-                </span>
-              </label>
-
-              <div className="grid grid-cols-3 gap-1.5">
-                {[
-                  { key: 'miraj' as TanpuraToneStyle, title: 'Miraj', desc: 'Rich Buzz' },
-                  { key: 'tanjore' as TanpuraToneStyle, title: 'Tanjore', desc: 'Crisp Wood' },
-                  { key: 'meditative' as TanpuraToneStyle, title: 'Warm', desc: 'Soft Calm' }
-                ].map((item) => {
-                  const isSelected = toneStyle === item.key;
-                  return (
-                    <button
-                      key={item.key}
-                      onClick={() => setToneStyle(item.key)}
-                      className={`p-2 rounded-xl text-center transition-all border cursor-pointer active:scale-95 ${
-                        isSelected
-                          ? 'bg-amber-700 text-white border-amber-800 shadow-xs'
-                          : 'bg-white hover:bg-amber-100/50 text-bamboo-950 border-amber-200'
-                      }`}
-                    >
-                      <strong className="block text-xs font-display">{item.title}</strong>
-                      <span className={`text-[8px] sm:text-[9px] block ${isSelected ? 'text-amber-200' : 'text-slate-500'}`}>
-                        {item.desc}
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
             {/* Tempo & Speed with +/- buttons for mobile */}
-            <div className="bg-sand-50 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border border-amber-200 space-y-2.5">
+            <div className="bg-sand-50 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border border-amber-200 space-y-2.5 flex flex-col justify-between">
               <div className="flex items-center justify-between text-xs font-bold text-bamboo-950">
                 <span className="flex items-center gap-1.5">
                   <Sliders className="w-3.5 h-3.5 text-amber-600" />
-                  5. Pluck Tempo
+                  3. Pluck Tempo
                 </span>
                 <span className="font-mono bg-white px-2 py-0.5 rounded-md border border-amber-200 text-amber-900 text-xs">
                   {tempoBpm} BPM
@@ -677,24 +589,7 @@ export const TanpuraDroneView: React.FC<TanpuraDroneViewProps> = ({ onViewChange
                   Fine-Tuning &amp; Pitch Calibration
                 </div>
 
-                <div className="grid sm:grid-cols-3 gap-4 text-xs">
-                  {/* Jawari Brilliance */}
-                  <div className="space-y-1.5">
-                    <div className="flex justify-between font-bold text-slate-800">
-                      <span>Jawari Buzz Brilliance</span>
-                      <span className="font-mono">{Math.round(jawariBrilliance * 100)}%</span>
-                    </div>
-                    <input
-                      type="range"
-                      min="0.2"
-                      max="1.0"
-                      step="0.05"
-                      value={jawariBrilliance}
-                      onChange={(e) => setJawariBrilliance(parseFloat(e.target.value))}
-                      className="w-full h-2 bg-amber-200 rounded-lg appearance-none cursor-pointer accent-amber-700"
-                      aria-label="Jawari Brilliance"
-                    />
-                  </div>
+                <div className="grid sm:grid-cols-2 gap-4 text-xs">
 
                   {/* Fine Tuning Cents */}
                   <div className="space-y-1.5">

@@ -853,7 +853,7 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
 
   if (cleanPath === '/tools/tanpura' || cleanPath === '/tanpura') {
     const title = 'Online Tanpura for Riyaz & Flute | FluteSangam';
-    const description = "Use FluteSangam's online tanpura for flute, bansuri and vocal practice. Play a steady drone for sargam, alankars, ragas and daily riyaz.";
+    const description = "Use FluteSangam's online Tanpura for your daily flute and bansuri practice. Play a steady drone to master your sargam, alankars, and ragas.";
     const canonicalUrl = `${DOMAIN}/tools/tanpura`;
     return {
       title,
@@ -880,9 +880,8 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
             'featureList': [
               '12-pitch root tonic (Sa) selection from C to B',
               'First string tuning modes: Pa (Pancham), Ma (Madhyam), Ni (Nishad), Pure Sa',
-              'Male / Low Bass (Octave 3) and Female / Medium (Octave 4) registers',
               '4-string visual vibration animation',
-              'Adjustable Jawari overtone buzz resonance',
+              'Adjustable pluck tempo from 40 BPM to 80 BPM',
               'Fine tuning in cents and concert pitch (432Hz, 440Hz, 444Hz)'
             ]
           },
@@ -908,10 +907,10 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
               },
               {
                 '@type': 'Question',
-                'name': 'What is the difference between Male (Octave 3) and Female (Octave 4) Tanpura registers?',
+                'name': 'How do I match the Tanpura Root Pitch (Sa) and Pluck Tempo to my Bansuri?',
                 'acceptedAnswer': {
                   '@type': 'Answer',
-                  'text': 'Male Tanpura (Octave 3, C3–B3, ~130 Hz) has a deeper Kharaj string and fuller lower body resonance for deep bass flutes (E Bass, F Bass, C Medium). Female Tanpura (Octave 4, C4–B4, ~260 Hz) provides a higher tonic pitch for medium and small high-pitch flutes (G Medium, A Base).'
+                  'text': 'Select the Root Pitch (Sa) that matches the natural key stamped on your Bansuri (when the top three finger holes are closed)—for example, choose E for an E Bass flute, C for a C Medium flute, or G for a G Base flute. For Pluck Tempo, start around 56–60 BPM during slow long-note Swar Sadhana and Alankars.'
                 }
               }
             ]

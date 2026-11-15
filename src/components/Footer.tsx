@@ -152,11 +152,6 @@ export default function Footer({ onViewChange, onSadhanaFeedClick }: FooterProps
                   Online Flute Tuner (440Hz)
                 </Link>
               </li>
-              <li>
-                <Link to="/notations" onClick={(e) => handleLinkClick('notation_requests', e)} className="hover:text-amber-300 transition">
-                  Song Notation
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -173,11 +168,6 @@ export default function Footer({ onViewChange, onSadhanaFeedClick }: FooterProps
                   className="hover:text-amber-300 transition cursor-pointer"
                 >
                   Community &amp; Recitals
-                </Link>
-              </li>
-              <li>
-                <Link to="/learn/how-to-read-bansuri-notation" onClick={(e) => handleLinkClick('how_to_read_bansuri_notation', e)} className="hover:text-amber-300 transition">
-                  How to Read Bansuri Notation
                 </Link>
               </li>
               <li>

@@ -359,7 +359,7 @@ export default function App() {
         break;
       case 'tanpura':
         title = 'Online Tanpura for Riyaz & Flute | FluteSangam';
-        description = "Use FluteSangam's online tanpura for flute, bansuri and vocal practice. Play a steady drone for sargam, alankars, ragas and daily riyaz.";
+        description = "Use FluteSangam's online Tanpura for your daily flute and bansuri practice. Play a steady drone to master your sargam, alankars, and ragas.";
         break;
       case 'find_song_scale':
         title = 'How to Find the Scale or Key of a Song on Flute | FluteSangam';

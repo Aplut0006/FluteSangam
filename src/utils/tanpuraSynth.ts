@@ -1,16 +1,17 @@
-// High-Fidelity Physical Model of 4-String Indian Tanpura
-// Simulates continuous circular plucking where each string is plucked in sequence,
-// rings out for 14-18 seconds, and layers in the air without gaps, pauses, or cuts.
+// Studio-Recorded Acoustic 4-String Tanpura Engine
+// Uses real recorded acoustic Tanpura string samples (sa_cs3.wav, pa_cs3.wav, ni_cs3.wav, kharaj_cs3.wav)
+// with the traditional Indian Tanpura cadence ([1200, 700, 700, 1100] ms) and full polyphonic ring-out
+// so all 4 strings overlap in a smooth, continuous, unbroken acoustic flow.
 
 export type FirstStringTuning = 'Pa' | 'Ma' | 'Ni' | 'Sa';
-export type OctaveStyle = 'low' | 'medium'; // 'low' = Male/Deep Bass (C3-B3), 'medium' = Female/Standard Flute (C4-B4)
+export type OctaveStyle = 'low' | 'medium'; // 'low' = Standard Concert Drone (C3-B3), 'medium' = Higher Register
 export type TanpuraToneStyle = 'miraj' | 'tanjore' | 'meditative';
 
 export interface TanpuraConfig {
   rootSa: string; // 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'
   octave: OctaveStyle;
   firstString: FirstStringTuning;
-  tempoBpm: number; // 40 - 75 BPM (pluck interval: ~0.8s to ~1.5s)
+  tempoBpm: number; // 40 - 80 BPM (60 BPM = 1.0x reference cadence)
   jawariBrilliance: number; // 0.0 - 1.0
   toneStyle: TanpuraToneStyle; // 'miraj' | 'tanjore' | 'meditative'
   fineTuneCents: number; // -50 to +50 cents
@@ -26,7 +27,37 @@ const SEMITONE_OFFSETS: Record<string, number> = {
   'Ab': -1, 'A': 0, 'A#': 1, 'Bb': 1, 'B': 2
 };
 
-export function calculateSaFrequency(rootSa: string, octave: OctaveStyle, fineTuneCents = 0, concertPitchHz = 440): number {
+// Reference frequency of the recorded C#3 Tanpura samples (A4 = 440 Hz)
+const SAMPLE_BASE_CS3_HZ = 138.5913;
+
+const SAMPLE_FILES = {
+  sa: '/audio/tanpura/fs_string_sa.wav?v=2',
+  pa: '/audio/tanpura/fs_string_pa.wav?v=2',
+  ni: '/audio/tanpura/fs_string_ni.wav?v=2',
+  kharaj: '/audio/tanpura/fs_string_kharaj.wav?v=2'
+} as const;
+
+type SampleKey = keyof typeof SAMPLE_FILES;
+
+// Traditional 4-string configuration
+const STRING_DEFINITIONS: Array<{
+  id: string;
+  role: 'first' | 'sa1' | 'sa2' | 'kharaj';
+  pan: number;
+  baseVolume: number;
+}> = [
+  { id: 'S1', role: 'first', pan: -0.06, baseVolume: 1.0 },
+  { id: 'S2', role: 'sa1', pan: 0.04, baseVolume: 1.0 },
+  { id: 'S3', role: 'sa2', pan: -0.03, baseVolume: 1.0 },
+  { id: 'S4', role: 'kharaj', pan: 0.06, baseVolume: 0.68 }
+];
+
+export function calculateSaFrequency(
+  rootSa: string,
+  octave: OctaveStyle,
+  fineTuneCents = 0,
+  concertPitchHz = 440
+): number {
   const semitonesFromA4 = SEMITONE_OFFSETS[rootSa] ?? -9;
   const standardFreqC4 = concertPitchHz * Math.pow(2, semitonesFromA4 / 12);
   const octaveMultiplier = octave === 'low' ? 0.5 : 1.0;
@@ -44,13 +75,20 @@ export interface StringPluckEvent {
 export class TanpuraEngine {
   private ctx: AudioContext | null = null;
   private isPlaying = false;
-  private timerId: number | null = null;
+  private playSessionId = 0;
+  private sequenceTimer: number | null = null;
+  private fadeRestoreTimer: number | null = null;
   private currentStringIndex = 0;
-  private nextPluckTime = 0;
+
+  private buffers: Partial<Record<SampleKey, AudioBuffer>> = {};
+  private loadingPromise: Promise<boolean> | null = null;
+
   private masterGain: GainNode | null = null;
-  private reverbConvolver: ConvolverNode | null = null;
-  private bodyFilterLow: BiquadFilterNode | null = null;
-  private bodyFilterMid: BiquadFilterNode | null = null;
+  private warmthFilter: BiquadFilterNode | null = null;
+  private brillianceFilter: BiquadFilterNode | null = null;
+  private stringPanners: Array<StereoPannerNode | GainNode | null> = [null, null, null, null];
+  private activeSources = new Set<AudioBufferSourceNode>();
+
   private config: TanpuraConfig;
   private onPluckCallback?: (event: StringPluckEvent) => void;
 
@@ -59,7 +97,7 @@ export class TanpuraEngine {
       rootSa: 'C',
       octave: 'low',
       firstString: 'Pa',
-      tempoBpm: 60, // Standard classical riyaz tempo (1.0s per pluck)
+      tempoBpm: 60,
       jawariBrilliance: 0.85,
       toneStyle: 'miraj',
       fineTuneCents: 0,
@@ -67,12 +105,20 @@ export class TanpuraEngine {
       masterVolume: 0.85,
       ...initialConfig
     };
+
+    if (typeof window !== 'undefined') {
+      this.preloadSamples();
+    }
   }
 
   public setConfig(newConfig: Partial<TanpuraConfig>) {
     this.config = { ...this.config, ...newConfig };
-    if (this.masterGain && this.ctx && newConfig.masterVolume !== undefined) {
-      this.masterGain.gain.setTargetAtTime(newConfig.masterVolume, this.ctx.currentTime, 0.05);
+    if (this.ctx && this.masterGain) {
+      const now = this.ctx.currentTime;
+      if (this.isPlaying) {
+        this.masterGain.gain.setTargetAtTime(this.config.masterVolume * 0.85, now, 0.04);
+      }
+      this.updateToneFilters(now);
     }
   }
 
@@ -84,96 +130,334 @@ export class TanpuraEngine {
     this.onPluckCallback = cb;
   }
 
-  private initAudio() {
-    if (!this.ctx) {
-      const AudioContextClass = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+  private getContext(): AudioContext {
+    if (!this.ctx || this.ctx.state === 'closed') {
+      const AudioContextClass =
+        window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
       this.ctx = new AudioContextClass();
     }
     if (this.ctx.state === 'suspended') {
-      this.ctx.resume();
+      this.ctx.resume().catch(() => {});
+    }
+    return this.ctx;
+  }
+
+  private ensureAudioGraph() {
+    const ctx = this.getContext();
+    if (this.masterGain && this.masterGain.context === ctx) {
+      return;
     }
 
-    if (!this.masterGain && this.ctx) {
-      this.masterGain = this.ctx.createGain();
-      this.masterGain.gain.setValueAtTime(this.config.masterVolume, this.ctx.currentTime);
+    this.masterGain = ctx.createGain();
+    this.masterGain.gain.value = this.config.masterVolume * 0.85;
 
-      // Acoustic Chamber Body Filters (Mimicking the hollow dried gourd - Toomba)
-      // 1. Low body resonance (135 Hz)
-      this.bodyFilterLow = this.ctx.createBiquadFilter();
-      this.bodyFilterLow.type = 'peaking';
-      this.bodyFilterLow.frequency.value = 135;
-      this.bodyFilterLow.Q.value = 2.0;
-      this.bodyFilterLow.gain.value = 4.0;
+    // Gentle wooden Toomba body warmth filter
+    this.warmthFilter = ctx.createBiquadFilter();
+    this.warmthFilter.type = 'lowshelf';
+    this.warmthFilter.frequency.value = 240;
 
-      // 2. Mid wood chamber resonance (520 Hz)
-      this.bodyFilterMid = this.ctx.createBiquadFilter();
-      this.bodyFilterMid.type = 'peaking';
-      this.bodyFilterMid.frequency.value = 520;
-      this.bodyFilterMid.Q.value = 1.6;
-      this.bodyFilterMid.gain.value = 3.0;
+    // High-shelf Jawari brilliance filter
+    this.brillianceFilter = ctx.createBiquadFilter();
+    this.brillianceFilter.type = 'highshelf';
+    this.brillianceFilter.frequency.value = 1800;
 
-      // 3. Acoustic Wooden Chamber Reverb (Lush, continuous 3.2-second acoustic hall sustain)
-      this.reverbConvolver = this.createAcousticRoomReverb(this.ctx);
+    this.updateToneFilters(ctx.currentTime);
 
-      const reverbGain = this.ctx.createGain();
-      reverbGain.gain.value = 0.35; // Rich acoustic resonance wash
+    this.warmthFilter.connect(this.brillianceFilter);
+    this.brillianceFilter.connect(this.masterGain);
+    this.masterGain.connect(ctx.destination);
 
-      const dryGain = this.ctx.createGain();
-      dryGain.gain.value = 0.88;
-
-      // Routing: MasterGain -> Body Filters -> (Dry + Reverb) -> Destination
-      this.masterGain.connect(this.bodyFilterLow);
-      this.bodyFilterLow.connect(this.bodyFilterMid);
-      
-      this.bodyFilterMid.connect(dryGain);
-      dryGain.connect(this.ctx.destination);
-
-      if (this.reverbConvolver) {
-        this.bodyFilterMid.connect(this.reverbConvolver);
-        this.reverbConvolver.connect(reverbGain);
-        reverbGain.connect(this.ctx.destination);
+    // Initialize stereo panners for the 4 strings
+    for (let i = 0; i < 4; i++) {
+      const def = STRING_DEFINITIONS[i];
+      if (ctx.createStereoPanner) {
+        const panner = ctx.createStereoPanner();
+        panner.pan.value = def.pan;
+        panner.connect(this.warmthFilter);
+        this.stringPanners[i] = panner;
+      } else {
+        const gain = ctx.createGain();
+        gain.connect(this.warmthFilter);
+        this.stringPanners[i] = gain;
       }
     }
   }
 
-  // Generates a lush acoustic wooden hall impulse response for Tanpura resonance
-  private createAcousticRoomReverb(ctx: AudioContext): ConvolverNode {
-    const convolver = ctx.createConvolver();
-    const rate = ctx.sampleRate;
-    const length = Math.floor(rate * 3.2); // 3.2 second decay
-    const impulse = ctx.createBuffer(2, length, rate);
-    const left = impulse.getChannelData(0);
-    const right = impulse.getChannelData(1);
+  private updateToneFilters(now: number) {
+    if (!this.warmthFilter || !this.brillianceFilter) return;
 
-    const decay = 1.9;
-    for (let i = 0; i < length; i++) {
-      const t = i / rate;
-      const env = Math.exp(-t * decay);
-      left[i] = (Math.random() * 2 - 1) * env * (0.85 + 0.15 * Math.sin(t * 26));
-      right[i] = (Math.random() * 2 - 1) * env * (0.85 + 0.15 * Math.cos(t * 26));
+    const jawari = Math.max(0, Math.min(1, this.config.jawariBrilliance));
+    const style = this.config.toneStyle;
+
+    const warmthDb = style === 'meditative' ? 2.5 : style === 'tanjore' ? 1.8 : 0.8;
+    const styleBrillianceOffset = style === 'meditative' ? -4.0 : style === 'tanjore' ? -1.2 : 0.0;
+    const brillianceDb = (jawari - 0.85) * 6.0 + styleBrillianceOffset;
+
+    this.warmthFilter.gain.setTargetAtTime(warmthDb, now, 0.08);
+    this.brillianceFilter.gain.setTargetAtTime(brillianceDb, now, 0.08);
+  }
+
+  private get samplesLoaded(): boolean {
+    return !!(this.buffers.sa && this.buffers.pa && this.buffers.ni && this.buffers.kharaj);
+  }
+
+  private preloadSamples(): Promise<boolean> {
+    if (this.samplesLoaded) {
+      return Promise.resolve(true);
+    }
+    if (this.loadingPromise) {
+      return this.loadingPromise;
     }
 
-    convolver.buffer = impulse;
-    return convolver;
+    const keys: SampleKey[] = ['sa', 'pa', 'ni', 'kharaj'];
+    this.loadingPromise = Promise.all(
+      keys.map(async (key) => {
+        try {
+          const response = await fetch(SAMPLE_FILES[key]);
+          if (!response.ok) return;
+          const arrayBuffer = await response.arrayBuffer();
+          const ctx = this.getContext();
+          const decoded = await ctx.decodeAudioData(arrayBuffer);
+          this.buffers[key] = decoded;
+        } catch {
+          // Ignore network/decode errors during preload
+        }
+      })
+    ).then(() => {
+      this.loadingPromise = null;
+      return this.samplesLoaded;
+    });
+
+    return this.loadingPromise;
   }
+
+  private randomBetween(min: number, max: number): number {
+    return min + Math.random() * (max - min);
+  }
+
+  /**
+   * Returns the sample key and playbackRate for a given string index (0..3)
+   */
+  private getStringSampleAndRate(stringIndex: number): {
+    sampleKey: SampleKey;
+    playbackRate: number;
+    stringLabel: string;
+    displayFreq: number;
+  } {
+    const baseSaFreq = calculateSaFrequency(
+      this.config.rootSa,
+      this.config.octave,
+      this.config.fineTuneCents,
+      this.config.concertPitchHz
+    );
+
+    // Ratio relative to the recorded C#3 (138.59 Hz) Tanpura sample set
+    let rate = baseSaFreq / SAMPLE_BASE_CS3_HZ;
+    let sampleKey: SampleKey = 'sa';
+    let stringLabel = "Sa'";
+    let displayFreq = baseSaFreq;
+
+    if (stringIndex === 0) {
+      // First String: Pa / Ma / Ni / Sa
+      if (this.config.firstString === 'Pa') {
+        sampleKey = 'pa';
+        stringLabel = 'Pa';
+        displayFreq = baseSaFreq * 0.75;
+      } else if (this.config.firstString === 'Ma') {
+        // Uses the Jodi Sa sample pitched down 7 semitones to Mandra Ma (4/3 above Kharaj Sa)
+        sampleKey = 'sa';
+        rate *= Math.pow(2, -7 / 12);
+        stringLabel = 'Ma';
+        displayFreq = baseSaFreq * (2 / 3);
+      } else if (this.config.firstString === 'Ni') {
+        sampleKey = 'ni';
+        stringLabel = 'Ni';
+        displayFreq = baseSaFreq * (15 / 16);
+      } else {
+        sampleKey = 'sa';
+        stringLabel = 'Sa';
+        displayFreq = baseSaFreq;
+      }
+    } else if (stringIndex === 1) {
+      sampleKey = 'sa';
+      stringLabel = "Sa' (1)";
+      displayFreq = baseSaFreq;
+    } else if (stringIndex === 2) {
+      sampleKey = 'sa';
+      stringLabel = "Sa' (2)";
+      displayFreq = baseSaFreq;
+    } else {
+      sampleKey = 'kharaj';
+      stringLabel = 'Sa (Kharaj)';
+      displayFreq = baseSaFreq * 0.5;
+    }
+
+    // Subtle ±1.8 cents organic humanization between plucks
+    rate *= Math.pow(2, this.randomBetween(-1.8, 1.8) / 1200);
+
+    return {
+      sampleKey,
+      playbackRate: rate,
+      stringLabel,
+      displayFreq
+    };
+  }
+
+  /**
+   * Computes the exact inter-string gap (in ms) for string `stringIndex`
+   * using the authentic [1200, 700, 700, 1100] ms Tanpura cadence scaled by pitch and tempo.
+   */
+  private getStepDelayMs(stringIndex: number): number {
+    const noteIndex = Math.max(0, NOTE_NAMES.indexOf(this.config.rootSa as typeof NOTE_NAMES[number]));
+    const pitchScale = noteIndex / 19;
+
+    // Base cadence: S1 (Pa/Ma/Ni) = 1200ms, S2 (Jodi 1) = 700ms, S3 (Jodi 2) = 700ms, S4 (Kharaj) = 1100ms
+    const baseGaps = [
+      Math.round(1200 - 200 * pitchScale),
+      Math.round(700 - 100 * pitchScale),
+      Math.round(700 - 100 * pitchScale),
+      Math.round(1100 - 200 * pitchScale)
+    ];
+
+    const octaveSpeed = this.config.octave === 'medium' ? 1.28 : 1.0;
+    const tempoSpeed = Math.max(0.65, Math.min(1.5, this.config.tempoBpm / 60)) * octaveSpeed;
+    const jitter = this.randomBetween(-12, 12);
+
+    return Math.max(120, baseGaps[stringIndex] / tempoSpeed + jitter);
+  }
+
+  private pluckString(stringIndex: number) {
+    if (!this.isPlaying) return;
+    this.ensureAudioGraph();
+    const ctx = this.getContext();
+    const targetNode = this.stringPanners[stringIndex];
+    if (!targetNode) return;
+
+    const { sampleKey, playbackRate, stringLabel, displayFreq } = this.getStringSampleAndRate(stringIndex);
+    const buffer = this.buffers[sampleKey];
+    if (!buffer) return;
+
+    const now = ctx.currentTime;
+    const def = STRING_DEFINITIONS[stringIndex];
+
+    const source = ctx.createBufferSource();
+    source.buffer = buffer;
+    source.playbackRate.setValueAtTime(playbackRate, now);
+
+    const voiceGain = ctx.createGain();
+    const peakGain = def.baseVolume * this.randomBetween(0.93, 1.0);
+    voiceGain.gain.setValueAtTime(0.0001, now);
+    voiceGain.gain.linearRampToValueAtTime(peakGain, now + 0.012);
+
+    source.connect(voiceGain);
+    voiceGain.connect(targetNode);
+
+    this.activeSources.add(source);
+    source.onended = () => {
+      this.activeSources.delete(source);
+      try {
+        source.disconnect();
+        voiceGain.disconnect();
+      } catch {
+        // Ignore cleanup errors
+      }
+    };
+
+    // Let every string pluck ring out its full natural acoustic tail without cutting off previous cycles
+    source.start(now);
+
+    if (this.onPluckCallback) {
+      this.onPluckCallback({
+        stringIndex,
+        stringName: stringLabel,
+        frequency: Math.round(displayFreq * 10) / 10,
+        time: now
+      });
+    }
+  }
+
+  private scheduleNext = () => {
+    if (!this.isPlaying) return;
+
+    const idx = this.currentStringIndex;
+    this.pluckString(idx);
+    this.currentStringIndex = (this.currentStringIndex + 1) % 4;
+
+    const delayMs = this.getStepDelayMs(idx);
+    this.sequenceTimer = window.setTimeout(this.scheduleNext, delayMs);
+  };
 
   public start() {
     if (this.isPlaying) return;
-    this.initAudio();
-    if (!this.ctx) return;
+    this.ensureAudioGraph();
+    const ctx = this.getContext();
+
+    if (this.sequenceTimer !== null) {
+      window.clearTimeout(this.sequenceTimer);
+      this.sequenceTimer = null;
+    }
+    if (this.fadeRestoreTimer !== null) {
+      window.clearTimeout(this.fadeRestoreTimer);
+      this.fadeRestoreTimer = null;
+    }
+
+    if (this.masterGain) {
+      this.masterGain.gain.cancelScheduledValues(ctx.currentTime);
+      this.masterGain.gain.setValueAtTime(this.config.masterVolume * 0.85, ctx.currentTime);
+    }
 
     this.isPlaying = true;
     this.currentStringIndex = 0;
-    this.nextPluckTime = this.ctx.currentTime + 0.05;
+    const currentSession = ++this.playSessionId;
 
-    this.schedulerLoop();
+    if (this.samplesLoaded) {
+      this.scheduleNext();
+    } else {
+      this.preloadSamples().then(() => {
+        if (this.isPlaying && this.playSessionId === currentSession) {
+          this.scheduleNext();
+        }
+      });
+    }
   }
 
   public stop() {
     this.isPlaying = false;
-    if (this.timerId !== null) {
-      window.clearTimeout(this.timerId);
-      this.timerId = null;
+    this.playSessionId++;
+
+    if (this.sequenceTimer !== null) {
+      window.clearTimeout(this.sequenceTimer);
+      this.sequenceTimer = null;
+    }
+
+    if (this.ctx && this.masterGain) {
+      const now = this.ctx.currentTime;
+      try {
+        this.masterGain.gain.cancelScheduledValues(now);
+        this.masterGain.gain.setValueAtTime(Math.max(0.0001, this.masterGain.gain.value), now);
+        this.masterGain.gain.linearRampToValueAtTime(0.0001, now + 0.22);
+      } catch {
+        // Ignore
+      }
+
+      if (this.fadeRestoreTimer !== null) {
+        window.clearTimeout(this.fadeRestoreTimer);
+      }
+      this.fadeRestoreTimer = window.setTimeout(() => {
+        this.activeSources.forEach((src) => {
+          try {
+            src.stop();
+            src.disconnect();
+          } catch {
+            // Ignore
+          }
+        });
+        this.activeSources.clear();
+        if (this.masterGain && !this.isPlaying && this.ctx) {
+          this.masterGain.gain.setValueAtTime(this.config.masterVolume * 0.85, this.ctx.currentTime);
+        }
+        this.fadeRestoreTimer = null;
+      }, 240);
     }
   }
 
@@ -181,257 +465,25 @@ export class TanpuraEngine {
     return this.isPlaying;
   }
 
-  /**
-   * Continuous, seamless circular lookahead scheduler.
-   * Plucks string 1, 2, 3, 4, 1, 2, 3, 4 in an endless unbroken chain.
-   * Every single interval is EXACTLY the same (60 / tempoBpm), with NO PAUSE or break.
-   */
-  private schedulerLoop = () => {
-    if (!this.isPlaying || !this.ctx) return;
-
-    const scheduleAheadTime = 0.45; // Look ahead 450ms
-    const interval = 60 / this.config.tempoBpm; // Exactly 1.25s at 48 BPM
-
-    while (this.nextPluckTime < this.ctx.currentTime + scheduleAheadTime) {
-      this.schedulePluck(this.currentStringIndex, this.nextPluckTime);
-      
-      // Step to the next string in the unbroken chain: 0 -> 1 -> 2 -> 3 -> 0 -> 1 -> 2 -> 3
-      this.nextPluckTime += interval;
-      this.currentStringIndex = (this.currentStringIndex + 1) % 4;
-    }
-
-    this.timerId = window.setTimeout(this.schedulerLoop, 35);
-  };
-
-  private schedulePluck(stringIndex: number, time: number) {
-    if (!this.ctx || !this.masterGain) return;
-
-    const baseSaFreq = calculateSaFrequency(
-      this.config.rootSa, 
-      this.config.octave, 
-      this.config.fineTuneCents, 
-      this.config.concertPitchHz
-    );
-
-    let stringFreq = baseSaFreq;
-    let stringLabel = "Sa'";
-    let panPosition = 0;
-    let stringRole: 'pa' | 'jodi1' | 'jodi2' | 'kharaj' = 'jodi1';
-
-    switch (stringIndex) {
-      case 0:
-        // First String: Pa / Ma / Ni / Sa
-        if (this.config.firstString === 'Pa') {
-          stringFreq = baseSaFreq * 0.75;
-          stringLabel = 'Pa';
-        } else if (this.config.firstString === 'Ma') {
-          stringFreq = baseSaFreq * (2 / 3);
-          stringLabel = 'Ma';
-        } else if (this.config.firstString === 'Ni') {
-          stringFreq = baseSaFreq * (15 / 16);
-          stringLabel = 'Ni';
-        } else {
-          stringFreq = baseSaFreq;
-          stringLabel = 'Sa';
-        }
-        stringRole = 'pa';
-        panPosition = -0.32; // Left side
-        break;
-
-      case 1:
-        // Jodi 1: Middle Sa
-        stringFreq = baseSaFreq;
-        stringLabel = "Sa' (1)";
-        stringRole = 'jodi1';
-        panPosition = -0.06;
-        break;
-
-      case 2:
-        // Jodi 2: Middle Sa with delicate micro-detune (+0.38 Hz) for shimmering acoustic chorus beating
-        stringFreq = baseSaFreq * 1.0028;
-        stringLabel = "Sa' (2)";
-        stringRole = 'jodi2';
-        panPosition = 0.06;
-        break;
-
-      case 3:
-        // Kharaj: Mandra Sa (Octave below baseSa) - Deep brass string
-        stringFreq = baseSaFreq * 0.5;
-        stringLabel = 'Sa (Kharaj)';
-        stringRole = 'kharaj';
-        panPosition = 0.32; // Right side
-        break;
-    }
-
-    this.synthesizeAcousticTanpuraPluck(stringFreq, time, stringRole, panPosition);
-
-    // Notify UI listener at scheduled pluck time
-    const delayMs = Math.max(0, (time - this.ctx.currentTime) * 1000);
-    window.setTimeout(() => {
-      if (this.isPlaying && this.onPluckCallback) {
-        this.onPluckCallback({
-          stringIndex,
-          stringName: stringLabel,
-          frequency: Math.round(stringFreq * 10) / 10,
-          time
-        });
-      }
-    }, delayMs);
-  }
-
-  /**
-   * Synthesizes an acoustic Tanpura string pluck with long (14 to 18 second) natural decay.
-   * Strings NEVER cut off or stop vibrating when subsequent strings are plucked.
-   * Plucking 1 -> 2 -> 3 -> 4 -> 1 causes all 4 strings to constantly overlap in the air.
-   */
-  private synthesizeAcousticTanpuraPluck(
-    freq: number, 
-    startTime: number, 
-    role: 'pa' | 'jodi1' | 'jodi2' | 'kharaj', 
-    pan: number
-  ) {
-    if (!this.ctx || !this.masterGain) return;
-    const ctx = this.ctx;
-
-    // Full natural ringing decay: 15.0 seconds for Jodi/First string; 18.0 seconds for Kharaj
-    const duration = role === 'kharaj' ? 18.0 : 15.0;
-    const jawariMultiplier = Math.max(0.25, Math.min(1.0, this.config.jawariBrilliance));
-
-    const toneStyle = this.config.toneStyle;
-    const highHarmonicDamping = toneStyle === 'meditative' ? 0.65 : toneStyle === 'tanjore' ? 0.95 : 1.18;
-    const jawariSwellAmount = toneStyle === 'meditative' ? 0.55 : 1.05;
-
-    // 1. Stereo Panner
-    const panner = ctx.createStereoPanner ? ctx.createStereoPanner() : null;
-    if (panner) {
-      panner.pan.setValueAtTime(pan, startTime);
-      panner.connect(this.masterGain);
-    }
-    const outputTarget: AudioNode = panner || this.masterGain;
-
-    // 2. String Master Gain Envelope
-    const stringGain = ctx.createGain();
-    stringGain.gain.setValueAtTime(0.0001, startTime);
-    // Tactile pluck attack (15ms)
-    stringGain.gain.linearRampToValueAtTime(role === 'kharaj' ? 0.52 : 0.44, startTime + 0.015);
-    // Jivari body bloom (reaches peak richness at 200ms)
-    stringGain.gain.exponentialRampToValueAtTime(0.38, startTime + 0.20);
-    // Extremely slow natural physical string decay across multiple cycles
-    stringGain.gain.exponentialRampToValueAtTime(0.16, startTime + 4.0);
-    stringGain.gain.exponentialRampToValueAtTime(0.05, startTime + 8.5);
-    stringGain.gain.exponentialRampToValueAtTime(0.008, startTime + duration * 0.85);
-    stringGain.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
-
-    stringGain.connect(outputTarget);
-
-    // 3. Dynamic Jawari Resonant Formant Filter
-    const jawariFilter = ctx.createBiquadFilter();
-    jawariFilter.type = 'lowpass';
-    jawariFilter.frequency.setValueAtTime(4200 * highHarmonicDamping, startTime);
-    jawariFilter.frequency.exponentialRampToValueAtTime(1500 * highHarmonicDamping, startTime + duration * 0.7);
-    jawariFilter.Q.setValueAtTime(2.0, startTime);
-    jawariFilter.connect(stringGain);
-
-    // 4. Multi-Harmonic Spectrum with Time-Varying Swells (Miraj Tanpura Overtone Structure)
-    const harmonics = [
-      { mult: 1, baseGain: 1.0, attackSec: 0.015, swellSec: 0.0, swellGain: 0.0, decaySec: duration },
-      { mult: 2, baseGain: 0.76, attackSec: 0.02, swellSec: 0.14, swellGain: 0.18, decaySec: duration * 0.95 },
-      { mult: 3, baseGain: 0.58 * jawariMultiplier, attackSec: 0.04, swellSec: 0.30, swellGain: 0.48 * jawariSwellAmount, decaySec: duration * 0.9 }, // Pancham overtone
-      { mult: 4, baseGain: 0.42 * jawariMultiplier, attackSec: 0.05, swellSec: 0.35, swellGain: 0.32 * jawariSwellAmount, decaySec: duration * 0.85 },
-      { mult: 5, baseGain: 0.36 * jawariMultiplier, attackSec: 0.06, swellSec: 0.48, swellGain: 0.44 * jawariSwellAmount, decaySec: duration * 0.8 }, // Sweet Gandhar bloom!
-      { mult: 6, baseGain: 0.26 * jawariMultiplier, attackSec: 0.07, swellSec: 0.40, swellGain: 0.30 * jawariSwellAmount, decaySec: duration * 0.75 },
-      { mult: 7, baseGain: 0.20 * jawariMultiplier, attackSec: 0.08, swellSec: 0.54, swellGain: 0.24 * jawariSwellAmount, decaySec: duration * 0.7 }, // Komal Ni
-      { mult: 8, baseGain: 0.15 * jawariMultiplier, attackSec: 0.09, swellSec: 0.45, swellGain: 0.19 * jawariSwellAmount, decaySec: duration * 0.65 },
-      { mult: 9, baseGain: 0.11 * jawariMultiplier, attackSec: 0.10, swellSec: 0.58, swellGain: 0.15 * jawariSwellAmount, decaySec: duration * 0.6 },
-      { mult: 10, baseGain: 0.09 * jawariMultiplier, attackSec: 0.11, swellSec: 0.50, swellGain: 0.12 * jawariSwellAmount, decaySec: duration * 0.55 },
-      { mult: 12, baseGain: 0.07 * jawariMultiplier, attackSec: 0.12, swellSec: 0.65, swellGain: 0.10 * jawariSwellAmount, decaySec: duration * 0.5 },
-    ];
-
-    harmonics.forEach((h, index) => {
-      const osc = ctx.createOscillator();
-      const hGain = ctx.createGain();
-
-      osc.type = index % 2 === 0 ? 'sine' : 'triangle';
-      
-      const inharmonicity = 1 + 0.00010 * Math.pow(h.mult, 2);
-      const targetFreq = freq * h.mult * inharmonicity;
-      osc.frequency.setValueAtTime(targetFreq, startTime);
-
-      // Micro-vibrato on upper harmonics for bridge buzz shimmer
-      if (h.mult >= 3) {
-        const buzzMod = ctx.createOscillator();
-        const buzzGainNode = ctx.createGain();
-        buzzMod.frequency.setValueAtTime(3.8 + (index * 0.5), startTime);
-        buzzGainNode.gain.setValueAtTime(targetFreq * 0.0020 * jawariMultiplier, startTime);
-        buzzMod.connect(buzzGainNode);
-        buzzGainNode.connect(osc.frequency);
-        buzzMod.start(startTime);
-        buzzMod.stop(startTime + h.decaySec);
-      }
-
-      // Dynamic envelope with slow, continuous ringing tail
-      hGain.gain.setValueAtTime(0.0001, startTime);
-      hGain.gain.linearRampToValueAtTime(h.baseGain, startTime + h.attackSec);
-      
-      if (h.swellSec > 0 && h.swellGain > 0) {
-        hGain.gain.linearRampToValueAtTime(h.baseGain + h.swellGain, startTime + h.swellSec);
-      }
-      
-      hGain.gain.exponentialRampToValueAtTime(0.0001, startTime + h.decaySec);
-
-      osc.connect(hGain);
-      hGain.connect(jawariFilter);
-
-      osc.start(startTime);
-      osc.stop(startTime + h.decaySec + 0.1);
-    });
-
-    // 5. Tactile Pluck Transient
-    this.synthesizePluckTransient(ctx, freq, startTime, role, jawariFilter);
-  }
-
-  private synthesizePluckTransient(
-    ctx: AudioContext, 
-    freq: number, 
-    startTime: number, 
-    role: 'pa' | 'jodi1' | 'jodi2' | 'kharaj', 
-    targetNode: AudioNode
-  ) {
-    try {
-      const bufferLength = Math.floor(ctx.sampleRate * 0.04);
-      const noiseBuffer = ctx.createBuffer(1, bufferLength, ctx.sampleRate);
-      const data = noiseBuffer.getChannelData(0);
-
-      for (let i = 0; i < bufferLength; i++) {
-        const t = i / ctx.sampleRate;
-        const decay = Math.exp(-t * 200);
-        data[i] = (Math.random() * 2 - 1) * decay;
-      }
-
-      const noiseSource = ctx.createBufferSource();
-      noiseSource.buffer = noiseBuffer;
-
-      const filter = ctx.createBiquadFilter();
-      filter.type = 'bandpass';
-      filter.frequency.setValueAtTime(role === 'kharaj' ? 340 : freq * 2.6, startTime);
-      filter.Q.setValueAtTime(2.2, startTime);
-
-      const gain = ctx.createGain();
-      gain.gain.setValueAtTime(0.10, startTime);
-      gain.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.036);
-
-      noiseSource.connect(filter);
-      filter.connect(gain);
-      gain.connect(targetNode);
-
-      noiseSource.start(startTime);
-    } catch {
-      // Fallback
-    }
-  }
-
   public destroy() {
     this.stop();
+    if (this.fadeRestoreTimer !== null) {
+      window.clearTimeout(this.fadeRestoreTimer);
+      this.fadeRestoreTimer = null;
+    }
+    this.activeSources.forEach((src) => {
+      try {
+        src.stop();
+        src.disconnect();
+      } catch {
+        // Ignore
+      }
+    });
+    this.activeSources.clear();
+    this.stringPanners = [null, null, null, null];
+    this.masterGain = null;
+    this.warmthFilter = null;
+    this.brillianceFilter = null;
     if (this.ctx && this.ctx.state !== 'closed') {
       try {
         this.ctx.close();
@@ -440,7 +492,5 @@ export class TanpuraEngine {
       }
     }
     this.ctx = null;
-    this.masterGain = null;
-    this.reverbConvolver = null;
   }
 }
