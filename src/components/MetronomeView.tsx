@@ -108,6 +108,14 @@ const OPTIONAL_TAAL_PRESETS: OptionalTaalPreset[] = [
     sublabel: '12 Beats (2+2+2+2+2+2)',
     defaultPattern: ['accent', 'normal', 'normal', 'normal', 'accent', 'normal', 'normal', 'normal', 'accent', 'normal', 'accent', 'normal'],
     usage: 'Classical 12-beat cycle for slow (Vilambit) and fast (Drut) Bansuri Gats.'
+  },
+  {
+    id: 'teental_16',
+    label: 'Teental (Tritaal)',
+    beats: 16,
+    sublabel: '16 Beats (4 + 4 + 4 + 4)',
+    defaultPattern: ['accent', 'normal', 'normal', 'normal', 'accent', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'accent', 'normal', 'normal', 'normal'],
+    usage: 'Most widely used 16-beat Hindustani classical cycle (Sam on 1, Taali on 5 & 13, Khali on 9) for Drut Gats, Alankars, and Bansuri solos.'
   }
 ];
 
@@ -140,7 +148,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'When should I use the optional Taal Cycles and Alankar Speed Subdivisions?',
-    a: 'Once you are comfortable playing basic Sargam and Alankars at 1 note per beat, you can open the Optional Rhythm & Speed Settings to practice Dugun (2 notes per beat) or Chaugun (4 notes per beat), or match your beat cycle to classical Taals like Dadra (6 beats), Rupak (7 beats), Keherwa (8 beats), Jhaptal (10 beats), or Ektaal (12 beats).'
+    a: 'Once you are comfortable playing basic Sargam and Alankars at 1 note per beat, you can open the Optional Rhythm & Speed Settings to practice Dugun (2 notes per beat) or Chaugun (4 notes per beat), or match your beat cycle to classical Taals like Dadra (6 beats), Rupak (7 beats), Keherwa (8 beats), Jhaptal (10 beats), Ektaal (12 beats), or Teental (16 beats).'
   },
   {
     q: 'Why does my rhythm drift whenever I take a breath on the flute?',
@@ -312,11 +320,14 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
     }
   };
 
-  // Update beats (1 to 12) or toggle optional Taal preset
+  // Update beats (1 to 12, or 16 via Teental preset) or toggle optional Taal preset
   const handleBeatsChange = (newBeats: number, presetId: string | null = null, customPattern?: BeatState[]) => {
-    // If clicking an already-selected Taal preset, unselect it and restore default accents for current beat count
+    // If clicking an already-selected Taal preset, unselect it and restore default accents (revert >12 beat presets like Teental back to 4 beats)
     if (presetId !== null && selectedTaalId === presetId && beatsPerMeasure === newBeats) {
-      const defaultPattern = createDefaultBeatPattern(newBeats);
+      const fallbackBeats = newBeats > 12 ? 4 : newBeats;
+      const defaultPattern = createDefaultBeatPattern(fallbackBeats);
+      setBeatsPerMeasure(fallbackBeats);
+      beatsPerMeasureRef.current = fallbackBeats;
       setBeatStates(defaultPattern);
       beatStatesRef.current = defaultPattern;
       setSelectedTaalId(null);
@@ -784,7 +795,7 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
                   Optional Rhythm &amp; Speed Settings (Intermediate / Advanced)
                 </span>
                 <span className="text-[11px] text-gray-500 block leading-snug mt-0.5">
-                  Western Meters, Taal Presets (Dadra, Rupak, Keherwa, Jhaptal, Ektaal) &amp; Speed Subdivisions
+                  Western Meters, Taal Presets (Dadra, Rupak, Keherwa, Jhaptal, Ektaal, Teental) &amp; Speed Subdivisions
                 </span>
               </div>
             </div>
@@ -843,7 +854,7 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
                 </div>
               </div>
 
-              {/* Optional B: Western Meters & Hindustani Taal Presets (1 to 12 Beats) */}
+              {/* Optional B: Western Meters & Hindustani Taal Presets */}
               <div className="space-y-2.5 pt-3 border-t border-bamboo-200/60">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                   <div className="min-w-0">
@@ -851,13 +862,13 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
                       Western Meters &amp; Hindustani Taal Cycle Presets (Optional)
                     </h4>
                     <p className="text-[11px] sm:text-xs text-gray-600 leading-relaxed">
-                      Select any meter or Taal below to automatically set its beat count and accent pattern. Tap a selected preset again to unselect it.
+                      Select any meter or Taal below (including 16-beat Teental) to automatically set its beat count and accent pattern. Tap a selected preset again to unselect it.
                     </p>
                   </div>
                   {selectedTaalId !== null && (
                     <button
                       type="button"
-                      onClick={() => handleBeatsChange(beatsPerMeasure, null)}
+                      onClick={() => handleBeatsChange(beatsPerMeasure > 12 ? 4 : beatsPerMeasure, null)}
                       className="self-start sm:self-auto px-2.5 py-1.5 rounded-lg bg-white hover:bg-amber-50 border border-bamboo-200 text-[11px] font-bold text-bamboo-900 transition cursor-pointer shrink-0 whitespace-nowrap"
                     >
                       Unselect Preset
@@ -865,15 +876,18 @@ export const MetronomeView: React.FC<MetronomeViewProps> = ({ onViewChange, onBa
                   )}
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5">
-                  {OPTIONAL_TAAL_PRESETS.map((preset) => {
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-2.5">
+                  {OPTIONAL_TAAL_PRESETS.map((preset, index) => {
                     const isSelected = selectedTaalId === preset.id && beatsPerMeasure === preset.beats;
+                    const isLastOddMobile = index === OPTIONAL_TAAL_PRESETS.length - 1 && OPTIONAL_TAAL_PRESETS.length % 2 === 1;
                     return (
                       <button
                         key={preset.id}
                         type="button"
                         onClick={() => handleBeatsChange(preset.beats, preset.id, preset.defaultPattern)}
                         className={`p-2.5 sm:p-3 rounded-xl border text-left transition cursor-pointer min-w-0 ${
+                          isLastOddMobile ? 'col-span-2 sm:col-span-1' : ''
+                        } ${
                           isSelected
                             ? 'bg-amber-600 text-white border-amber-700 shadow-2xs'
                             : 'bg-white hover:bg-amber-50/70 text-bamboo-950 border-bamboo-200'

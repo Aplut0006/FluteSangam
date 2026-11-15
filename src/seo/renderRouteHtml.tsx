@@ -975,7 +975,7 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
               'Tempo control from 40 BPM to 240 BPM with Tap Tempo',
               '1 to 12 Beats per cycle selector with Interactive Beat Accent & Mute Matrix',
               'Clear accent tick on Beat 1 (Sam) and steady beat ticks matching the Alankar practice engine',
-              'Optional Western meters (2/4, 3/4, 4/4) and Hindustani Taal presets (Dadra, Rupak, Keherwa, Jhaptal, Ektaal)',
+              'Optional Western meters (2/4, 3/4, 4/4) and Hindustani Taal presets (Dadra, Rupak, Keherwa, Jhaptal, Ektaal, Teental)',
               'Optional Alankar speed subdivisions: Barabar (1x), Dugun (2x), Tigun (3x), and Chaugun (4x)'
             ]
           },
