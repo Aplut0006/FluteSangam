@@ -117,6 +117,40 @@ function cleanUndefined<T extends Record<string, any>>(obj: T): T {
   return newObj;
 }
 
+// Format joining timestamp into "Member since Month Year"
+export function formatMemberSinceBio(joinedAt?: any): string {
+  try {
+    let date = new Date();
+    if (joinedAt) {
+      if (typeof joinedAt.toDate === 'function') {
+        date = joinedAt.toDate();
+      } else if (typeof joinedAt.seconds === 'number') {
+        date = new Date(joinedAt.seconds * 1000);
+      } else {
+        date = new Date(joinedAt);
+      }
+    }
+    if (isNaN(date.getTime())) {
+      date = new Date();
+    }
+    return `Member since ${date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`;
+  } catch {
+    return `Member since ${new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}`;
+  }
+}
+
+function normalizeUserProfileBio(data: UserProfile, docId?: string): UserProfile {
+  if (data.bio === 'Joined FluteSangam via Google Sign-In.') {
+    const updatedBio = formatMemberSinceBio(data.joinedAt);
+    const targetUid = docId || data.uid;
+    if (targetUid) {
+      updateDoc(doc(db, 'users', targetUid), { bio: updatedBio }).catch(() => {});
+    }
+    return { ...data, bio: updatedBio };
+  }
+  return data;
+}
+
 // User Profile management
 export async function getUserProfileByEmail(email: string): Promise<UserProfile | null> {
   if (!email || !email.trim()) return null;
@@ -126,12 +160,12 @@ export async function getUserProfileByEmail(email: string): Promise<UserProfile 
     const q = query(usersCol, where('email', '==', cleanEmail));
     const snap = await getDocs(q);
     if (!snap.empty) {
-      return snap.docs[0].data() as UserProfile;
+      return normalizeUserProfileBio(snap.docs[0].data() as UserProfile, snap.docs[0].id);
     }
     // Fallback: search with original casing
     const snapExact = await getDocs(query(usersCol, where('email', '==', email.trim())));
     if (!snapExact.empty) {
-      return snapExact.docs[0].data() as UserProfile;
+      return normalizeUserProfileBio(snapExact.docs[0].data() as UserProfile, snapExact.docs[0].id);
     }
   } catch (error) {
     console.warn("Error looking up profile by email:", error);
@@ -144,7 +178,7 @@ export async function getUserProfile(uid: string): Promise<UserProfile | null> {
     const docRef = doc(db, 'users', uid);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-      return docSnap.data() as UserProfile;
+      return normalizeUserProfileBio(docSnap.data() as UserProfile, docSnap.id);
     }
 
     // Fallback: Check if current auth user's email already has a profile in Firestore (e.g. Google vs Email/Password)
@@ -915,8 +949,9 @@ export function subscribeToAllUsers(callback: (users: UserProfile[]) => void) {
         return;
       }
       if (!data.isDeleted && data.status !== 'deleted') {
+        const normalized = normalizeUserProfileBio(data, docSnap.id);
         users.push({
-          ...data,
+          ...normalized,
           uid: docSnap.id
         });
       }

@@ -10,7 +10,7 @@ import {
   sendPasswordResetEmail,
   fetchSignInMethodsForEmail
 } from 'firebase/auth';
-import { createUserProfile, getUserProfile, getUserProfileByEmail, generateUniqueUsername } from '../lib/db';
+import { createUserProfile, getUserProfile, getUserProfileByEmail, generateUniqueUsername, formatMemberSinceBio } from '../lib/db';
 import { UserProfile } from '../types';
 import { Music, X, ShieldAlert, Check, Chrome, Mail, Camera, Upload, Wind, KeyRound, CheckCircle2, MailCheck, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -183,7 +183,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
           username: uniqueUsername,
           email: user.email || `${user.uid}@flutesangam-google.com`,
           photoURL: user.photoURL || CARTOON_AVATARS[0],
-          bio: "Joined FluteSangam via Google Sign-In.",
+          bio: formatMemberSinceBio(user.metadata?.creationTime || new Date()),
           level: "Beginner",
           bansuriType: "C Natural",
           location: "Global"
