@@ -75,6 +75,7 @@ import { LagJaGaleNotationView } from '../components/LagJaGaleNotationView';
 import { ChhuKarMereMannKoNotationView } from '../components/ChhuKarMereMannKoNotationView';
 import { TujheDekhaToNotationView } from '../components/TujheDekhaToNotationView';
 import { YehShaamMastaniNotationView } from '../components/YehShaamMastaniNotationView';
+import { Hero1983FluteThemeNotationView } from '../components/Hero1983FluteThemeNotationView';
 import { CommunityFeedView } from '../components/CommunityFeedView';
 import PostDetailView from '../components/PostDetailView';
 import NotFoundView from '../components/NotFoundView';
@@ -2633,6 +2634,71 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
             },
             'datePublished': '2026-10-31T00:00:00Z',
             'dateModified': '2026-11-07T00:00:00Z'
+          }
+        ]
+      }
+    };
+  }
+
+  if (cleanPath === '/notations/hero-1983-flute-theme-notes') {
+    const title = 'Hero Movie Flute Theme Notes | Sargam & Western';
+    const description = 'Learn the iconic Hero (1983) flute theme notes with Sargam and Western notation. Play the memorable Jackie Shroff movie melody with octave markings and practical bansuri tips.';
+    const canonicalUrl = `${DOMAIN}/notations/hero-1983-flute-theme-notes`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: Hero1983FluteThemeNotationView,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          createWebPageSchema(canonicalUrl, title, description),
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': DOMAIN
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Song Notation',
+                'item': `${DOMAIN}/notations`
+              },
+              {
+                '@type': 'ListItem',
+                'position': 3,
+                'name': 'Hero (1983) Flute Theme Notes',
+                'item': canonicalUrl
+              }
+            ]
+          },
+          {
+            '@type': 'Article',
+            '@id': `${canonicalUrl}#article`,
+            'headline': 'Hero (1983) Flute Theme Notes – Sargam & Western Notes',
+            'description': description,
+            'mainEntityOfPage': canonicalUrl,
+            'author': {
+              '@type': 'Person',
+              'name': 'Aplut',
+              'url': `${DOMAIN}/founder`
+            },
+            'publisher': {
+              '@type': 'Organization',
+              'name': 'FluteSangam',
+              'url': DOMAIN,
+              'logo': {
+                '@type': 'ImageObject',
+                'url': `${DOMAIN}/flutesangam_logo.png`
+              }
+            },
+            'datePublished': '2026-11-22T00:00:00Z',
+            'dateModified': '2026-11-22T00:00:00Z'
           }
         ]
       }

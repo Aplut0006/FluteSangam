@@ -230,5 +230,18 @@ export const SONG_MUSICAL_ANALYSIS_DATA: Record<string, SongMusicalAnalysis> = {
     rhythmAndBreathTitle: 'Swaying 4/4 / 8-Beat Groove & Smooth Register Crossing',
     rhythmAndBreathArchitecture:
       'Yeh Shaam Mastani glides along on R.D. Burman’s signature relaxed 8-beat groove. Keep your breathing unhurried and expansive during the long sustained openings, and maintain supple wrist posture as you cross repeatedly between lower Mandra Pa/Dha and middle Sa/Re/Ga so every phrase floats effortlessly.'
+  },
+  'hero-1983-flute-theme-notes': {
+    slug: 'hero-1983-flute-theme-notes',
+    heading: 'Pt. Hariprasad Chaurasia’s Legendary Cinematic Tone, Murkis & Bansuri Analysis: Hero (1983) Flute Theme',
+    ragaAndScaleTitle: 'Laxmikant–Pyarelal’s Haunting Chromatic Palette & Half-Hole Mastery',
+    ragaAndScaleContext:
+      'Composed by Laxmikant–Pyarelal and brought to immortal life by Bansuri Maestro Pandit Hariprasad Chaurasia for Subhash Ghai’s 1983 classic Hero starring Jackie Shroff, this theme is one of the most iconic flute solos ever recorded in Indian cinema. Its emotional magnetism comes from the striking blend of Komal Ga (g), Tivra Ma (M^), Shuddha Dha (D), and Komal Ni (n)—combining the yearning tenderness of minor-third phrasing with the soaring classical drama of sharp fourth (M^) resolutions up to Taar Sa (S\') and Taar Re (R\'). On an F# Bass/Middle or C Medium bansuri, these half-hole notes resonate with unmistakable warmth and cinematic grandeur.',
+    ornamentationTitle: 'Rapid nDnD Murkis, Expressive Komal Ga Meend & Fast SR Trills',
+    ornamentationAndArticulation:
+      'Three signature bansuri techniques define the authentic Hero flute sound: first, the crisp, lightning-fast nDnD murki anchored against Pa (SP nDnD P nDnD P); second, the soulful upward meend slide into the sustained Komal Ga (gS g—); and third, the cascading rapid trill on Sa–Re (SRSRSRSRSRS). Keep your fingers hovering close to the tone holes with minimal tension so the murkis and trills sound effortless rather than forced, and treat {S}, {R\'}, and (P) as feather-light grace touches.',
+    rhythmAndBreathTitle: 'Free-Flowing Expressive Alaap Cadence & Breath Placement',
+    rhythmAndBreathArchitecture:
+      'Unlike rigid dance tracks, the Hero (1983) flute theme breathes like a cinematic classical alaap—stretching held notes like g— and n— for emotional suspense while accelerating briskly through nDnD and SRSRSRSRSRS. Take deep, calm diaphragm breaths right after the sustained Komal Ga holds (g—) and after the dramatic descent (DP M^ gS) so every soaring phrase rings out with uninterrupted fullness.'
   }
 };

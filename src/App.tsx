@@ -92,6 +92,7 @@ const LagJaGaleNotationView = lazyWithRetry(() => import('./components/LagJaGale
 const ChhuKarMereMannKoNotationView = lazyWithRetry(() => import('./components/ChhuKarMereMannKoNotationView').then(m => ({ default: m.ChhuKarMereMannKoNotationView })));
 const TujheDekhaToNotationView = lazyWithRetry(() => import('./components/TujheDekhaToNotationView').then(m => ({ default: m.TujheDekhaToNotationView })));
 const YehShaamMastaniNotationView = lazyWithRetry(() => import('./components/YehShaamMastaniNotationView').then(m => ({ default: m.YehShaamMastaniNotationView })));
+const Hero1983FluteThemeNotationView = lazyWithRetry(() => import('./components/Hero1983FluteThemeNotationView').then(m => ({ default: m.Hero1983FluteThemeNotationView })));
 const PrivacyPolicyView = lazyWithRetry(() => import('./components/PrivacyPolicyView'));
 const TermsOfServiceView = lazyWithRetry(() => import('./components/TermsOfServiceView'));
 const CopyrightPolicyView = lazyWithRetry(() => import('./components/CopyrightPolicyView'));
@@ -239,6 +240,7 @@ export default function App() {
     if (cleanPath === '/notations/chhu-kar-mere-mann-ko-flute-notes') return 'notation_chhu_kar_mere_mann_ko';
     if (cleanPath === '/notations/tujhe-dekha-to-flute-notes') return 'notation_tujhe_dekha_to';
     if (cleanPath === '/notations/yeh-shaam-mastani-flute-notes') return 'notation_yeh_shaam_mastani';
+    if (cleanPath === '/notations/hero-1983-flute-theme-notes') return 'notation_hero_1983_flute_theme';
     if (cleanPath.startsWith('/post/')) return 'post-detail';
     if (cleanPath.startsWith('/profile/')) return 'user-profile';
     
@@ -545,6 +547,10 @@ export default function App() {
       case 'notation_yeh_shaam_mastani':
         title = 'Yeh Shaam Mastani Flute Notes | Sargam & Western';
         description = "Learn Yeh Shaam Mastani flute notes with Sargam and Western notation. Play Kishore Kumar's evergreen melody from Kati Patang with octave markings and practical flute-playing tips.";
+        break;
+      case 'notation_hero_1983_flute_theme':
+        title = 'Hero Movie Flute Theme Notes | Sargam & Western';
+        description = 'Learn the iconic Hero (1983) flute theme notes with Sargam and Western notation. Play the memorable Jackie Shroff movie melody with octave markings and practical bansuri tips.';
         break;
       case 'community_members':
         title = 'Community Members | FluteSangam';
@@ -1560,6 +1566,8 @@ export default function App() {
                 handleViewChange('notation_tujhe_dekha_to');
               } else if (slug === 'yeh-shaam-mastani-flute-notes') {
                 handleViewChange('notation_yeh_shaam_mastani');
+              } else if (slug === 'hero-1983-flute-theme-notes') {
+                handleViewChange('notation_hero_1983_flute_theme');
               }
             }}
           />
@@ -1597,6 +1605,8 @@ export default function App() {
           <TujheDekhaToNotationView onViewChange={handleViewChange} />
         ) : currentView === 'notation_yeh_shaam_mastani' ? (
           <YehShaamMastaniNotationView onViewChange={handleViewChange} />
+        ) : currentView === 'notation_hero_1983_flute_theme' ? (
+          <Hero1983FluteThemeNotationView onViewChange={handleViewChange} />
         ) : currentView === 'community_members' ? (
           <MembersView 
             currentUser={currentUser} 

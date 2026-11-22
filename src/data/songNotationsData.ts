@@ -3676,6 +3676,229 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' },
       { name: 'Daily Flute Practice Guide', url: '/learn/daily-practice-guide', viewKey: 'learn_daily_practice' }
     ]
+  },
+  {
+    id: 'hero-1983-flute-theme-notes',
+    slug: 'hero-1983-flute-theme-notes',
+    title: 'Hero (1983) Flute Theme Notes',
+    category: 'Hindi/Bollywood',
+    movie: 'Hero (1983)',
+    singer: 'Pt. Hariprasad Chaurasia | Music: Laxmikant–Pyarelal',
+    type: 'Iconic Bollywood Flute Theme',
+    difficulty: 'Intermediate',
+    suggestedFlute: 'F# Bass/Middle or C Medium',
+    startingSwar: 'Madhya Sa (S)',
+    highestSwar: "Taar Re (R')",
+    mainChallenge: 'Executing the rapid nDnD murki, fast SRSRSRSRSRS trill, expressive meend hold on Komal Ga (g—), and crisp half-hole fingerings for Komal Ga (g), Tivra Ma (M^), and Komal Ni (n)',
+    practiceSpeed: '75 - 95 BPM (Free-Flowing Expressive Alaap Feel)',
+    notationFormats: "Indian Sargam (S R g M^ P D n S' R') & Western (C D Eb F# G A Bb C' D')",
+    description: 'Complete flute notes for the legendary Hero (1983) flute theme composed by Laxmikant–Pyarelal and immortalized by Pt. Hariprasad Chaurasia for Jackie Shroff. Features phrase-by-phrase Sargam and Western notation grids, fast nDnD murki drills, SR trill guidance, and practical bansuri tips.',
+    status: 'published',
+    publishedDate: '2026-11-22',
+    updatedDate: '2026-11-22',
+    canonicalUrl: 'https://flutesangam.com/notations/hero-1983-flute-theme-notes',
+    h1: 'Hero (1983) Flute Theme Notes – Sargam & Western Notes',
+    metaTitle: 'Hero Movie Flute Theme Notes | Sargam & Western',
+    metaDescription: 'Learn the iconic Hero (1983) flute theme notes with Sargam and Western notation. Play the memorable Jackie Shroff movie melody with octave markings and practical bansuri tips.',
+    intro: 'The Hero (1983) flute theme—composed by Laxmikant–Pyarelal and performed by the legendary Maestro Pandit Hariprasad Chaurasia for Subhash Ghai’s blockbuster starring Jackie Shroff—is arguably the most celebrated bamboo flute tune in Indian cinema history. Blending dramatic leaps from Sa to Pa (SP), rapid Komal Ni–Dha murkis (nDnD), a cascading Sa–Re trill (SRSRSRSRSRS), and soulful Komal Ga (g) meend glides, this timeless instrumental piece is a dream milestone for every bansuri player. Below you will find phrase-by-phrase Sargam and Western notations along with step-by-step fingering and breath tips.',
+    quickInfo: {
+      difficulty: 'Intermediate',
+      melodyType: 'Iconic Bollywood Flute Instrumental Theme',
+      suggestedFlute: 'F# Bass/Middle or C Medium',
+      startingSwar: 'Madhya Sa (S)',
+      highestSwar: "Taar Re (R')",
+      mainChallenge: 'Fast nDnD murki, rapid SRSRSRSRSRS trill, Komal Ga (g) meend sustain, and half-hole Tivra Ma (M^) & Komal Ni (n)',
+      practiceSpeed: '75 - 95 BPM (Expressive Free-Flowing Tempo)'
+    },
+    legend: [
+      { symbol: 'S, R, P, D', meaning: 'Madhya Saptak (Middle Octave Shuddha / natural swaras)' },
+      { symbol: 'g, n', meaning: 'Komal Ga (Eb) and Komal Ni (Bb) — played with precise half-hole fingerings on bansuri' },
+      { symbol: 'M^', meaning: 'Tivra Madhyam (Sharp 4th / F# — top hole lifted/half-opened depending on flute grip)' },
+      { symbol: "S', R'", meaning: 'Taar Saptak (High Octave Sa and Re — focused air stream)' },
+      { symbol: "{S} / {R'} / (P)", meaning: 'Kan Swara / Grace touch (delicate fleeting finger tap ornament)' },
+      { symbol: '—', meaning: 'Sustain / hold the note with steady breath and subtle meend' },
+      { symbol: 'Relative Sa = C', meaning: "Western notes mapped with Sa = C, Re = D, g = Eb, M^ = F#, Pa = G, Dha = A, n = Bb, S' = C', R' = D'" }
+    ],
+    phrases: [
+      {
+        phraseNumber: 1,
+        lyric: 'Opening Signature Hook — Part 1 (play nDnD fast)',
+        sargamNotes: 'SP nDnD P nDnD P',
+        westernNotes: 'CG BbABbA G BbABbA G',
+        units: [
+          { lyric: '', sargam: 'SP', western: 'CG' },
+          { lyric: '', sargam: 'nDnD', western: 'BbABbA' },
+          { lyric: '', sargam: 'P', western: 'G' },
+          { lyric: '', sargam: 'nDnD', western: 'BbABbA' },
+          { lyric: '', sargam: 'P', western: 'G' }
+        ],
+        guidance: 'Leap cleanly from Madhya Sa to Pa (SP), then play nDnD fast with light, agile half-hole movement on Komal Ni (n) before settling firmly on Pa (P).'
+      },
+      {
+        phraseNumber: 2,
+        lyric: 'Komal Ga Meend & Fast SR Trill (play SR fast, use meend on second g and hold)',
+        sargamNotes: 'gS g— R SRSRSRSRSRS',
+        westernNotes: 'EbC Eb— D CDCDCDCDCDC',
+        units: [
+          { lyric: '', sargam: 'gS', western: 'EbC' },
+          { lyric: '', sargam: 'g—', western: 'Eb—' },
+          { lyric: '', sargam: 'R', western: 'D' },
+          { lyric: '', sargam: 'SRSRSRSRSRS', western: 'CDCDCDCDCDC' }
+        ],
+        guidance: 'Glide gently from Sa into the second Komal Ga (g—) using a smooth meend and hold it with soulful resonance. Then pivot cleanly through R and play SRSRSRSRSRS fast and evenly with relaxed fingers.'
+      },
+      {
+        phraseNumber: 3,
+        lyric: 'Signature Hook Resolution',
+        sargamNotes: 'SP nDnD P nDnD P gS g—',
+        westernNotes: 'CG BbABbA G BbABbA G EbC Eb—',
+        units: [
+          { lyric: '', sargam: 'SP', western: 'CG' },
+          { lyric: '', sargam: 'nDnD', western: 'BbABbA' },
+          { lyric: '', sargam: 'P', western: 'G' },
+          { lyric: '', sargam: 'nDnD', western: 'BbABbA' },
+          { lyric: '', sargam: 'P', western: 'G' },
+          { lyric: '', sargam: 'gS g—', western: 'EbC Eb—' }
+        ],
+        guidance: 'Combine the rapid nDnD P murki motif directly into the weeping gS g— resolution without breaking your breath flow.'
+      },
+      {
+        phraseNumber: 4,
+        lyric: 'Middle Variation — Komal Ga & Re Ornamentation',
+        sargamNotes: 'Sgg RgRgR{S}R',
+        westernNotes: 'CEbEb DEbDEbD(C)D',
+        units: [
+          { lyric: '', sargam: 'Sgg', western: 'CEbEb' },
+          { lyric: '', sargam: 'RgRgR{S}R', western: 'DEbDEbD(C)D' }
+        ],
+        guidance: 'Articulate Sgg gently and let RgRgR{S}R roll fluidly, tapping {S} as a crisp, fleeting kan swara before landing on Re (R).'
+      },
+      {
+        phraseNumber: 5,
+        lyric: 'Tivra Ma Ascent & Dha–Komal Ni Murki',
+        sargamNotes: 'M^ P DnDnD(P)D',
+        westernNotes: 'F# G ABbABbA(G)A',
+        units: [
+          { lyric: '', sargam: 'M^', western: 'F#' },
+          { lyric: '', sargam: 'P', western: 'G' },
+          { lyric: '', sargam: 'DnDnD(P)D', western: 'ABbABbA(G)A' }
+        ],
+        guidance: 'Open cleanly onto Tivra Madhyam (M^ / F#), step to Pa (P), and roll swiftly through DnDnD(P)D with a soft grace touch of Pa (P) anchoring the final Dha.'
+      },
+      {
+        phraseNumber: 6,
+        lyric: 'High Octave Taar Sa Peak & Dramatic Descent',
+        sargamNotes: "DS'{R'}S' n— DP M^ gS",
+        westernNotes: "AC'(D')C' Bb— AG F# EbC",
+        units: [
+          { lyric: '', sargam: "DS'{R'}S'", western: "AC'(D')C'" },
+          { lyric: '', sargam: 'n—', western: 'Bb—' },
+          { lyric: '', sargam: 'DP', western: 'AG' },
+          { lyric: '', sargam: 'M^', western: 'F#' },
+          { lyric: '', sargam: 'gS', western: 'EbC' }
+        ],
+        guidance: "Focus your airstream smoothly as you rise from Dha to Taar Sa (DS'{R'}S') with a light grace flick of Taar Re ({R'}). Sustain Komal Ni (n—) emotionally before descending seamlessly through DP M^ gS."
+      },
+      {
+        phraseNumber: 7,
+        lyric: 'Main Theme Return — Part 1',
+        sargamNotes: 'SP nDnD P nDnD P',
+        westernNotes: 'CG BbABbA G BbABbA G',
+        units: [
+          { lyric: '', sargam: 'SP', western: 'CG' },
+          { lyric: '', sargam: 'nDnD', western: 'BbABbA' },
+          { lyric: '', sargam: 'P', western: 'G' },
+          { lyric: '', sargam: 'nDnD', western: 'BbABbA' },
+          { lyric: '', sargam: 'P', western: 'G' }
+        ],
+        guidance: 'Return confidently to the main SP nDnD P motif with crisp finger precision and balanced volume.'
+      },
+      {
+        phraseNumber: 8,
+        lyric: 'Main Theme Return — Komal Ga Meend & Fast SR Trill',
+        sargamNotes: 'gS g— R SRSRSRSRSRS',
+        westernNotes: 'EbC Eb— D CDCDCDCDCDC',
+        units: [
+          { lyric: '', sargam: 'gS', western: 'EbC' },
+          { lyric: '', sargam: 'g—', western: 'Eb—' },
+          { lyric: '', sargam: 'R', western: 'D' },
+          { lyric: '', sargam: 'SRSRSRSRSRS', western: 'CDCDCDCDCDC' }
+        ],
+        guidance: 'Bring out the signature emotional meend on the second Komal Ga (g—), then execute the rapid SRSRSRSRSRS trill cleanly without tensing your wrist.'
+      },
+      {
+        phraseNumber: 9,
+        lyric: 'Grand Finale Resolution',
+        sargamNotes: 'SP nDnD P nDnD P gS g—',
+        westernNotes: 'CG BbABbA G BbABbA G EbC Eb—',
+        units: [
+          { lyric: '', sargam: 'SP', western: 'CG' },
+          { lyric: '', sargam: 'nDnD', western: 'BbABbA' },
+          { lyric: '', sargam: 'P', western: 'G' },
+          { lyric: '', sargam: 'nDnD', western: 'BbABbA' },
+          { lyric: '', sargam: 'P', western: 'G' },
+          { lyric: '', sargam: 'gS g—', western: 'EbC Eb—' }
+        ],
+        guidance: 'Conclude the Hero theme with full-bodied resonance on the final Komal Ga hold (g—), letting the breath fade away smoothly like the original cinema soundtrack.'
+      }
+    ],
+    sargamPhrases: [
+      { phraseNumber: 1, notes: 'SP nDnD P nDnD P', lyric: 'Play nDnD fast' },
+      { phraseNumber: 2, notes: 'gS g— R SRSRSRSRSRS', lyric: 'Play SR fast; use meend on second g and hold it' },
+      { phraseNumber: 3, notes: 'SP nDnD P nDnD P gS g—', lyric: 'Main Theme Resolution' },
+      { phraseNumber: 4, notes: 'Sgg RgRgR{S}R', lyric: 'Komal Ga & Re Ornamentation' },
+      { phraseNumber: 5, notes: 'M^ P DnDnD(P)D', lyric: 'Tivra Ma Ascent & Dha–Ni Murki' },
+      { phraseNumber: 6, notes: "DS'{R'}S' n— DP M^ gS", lyric: 'Taar Sa Climax & Descent' },
+      { phraseNumber: 7, notes: 'SP nDnD P nDnD P', lyric: 'Main Theme Return (Part 1)' },
+      { phraseNumber: 8, notes: 'gS g— R SRSRSRSRSRS', lyric: 'Komal Ga Meend & Fast SR Trill' },
+      { phraseNumber: 9, notes: 'SP nDnD P nDnD P gS g—', lyric: 'Finale Resolution' }
+    ],
+    westernPhrases: [
+      { phraseNumber: 1, notes: 'CG BbABbA G BbABbA G', lyric: 'Play BbABbA fast' },
+      { phraseNumber: 2, notes: 'EbC Eb— D CDCDCDCDCDC', lyric: 'Play CD fast; glide into second Eb and hold' },
+      { phraseNumber: 3, notes: 'CG BbABbA G BbABbA G EbC Eb—', lyric: 'Main Theme Resolution' },
+      { phraseNumber: 4, notes: 'CEbEb DEbDEbD(C)D', lyric: 'Eb & D Ornamentation' },
+      { phraseNumber: 5, notes: 'F# G ABbABbA(G)A', lyric: 'F# Ascent & A–Bb Murki' },
+      { phraseNumber: 6, notes: "AC'(D')C' Bb— AG F# EbC", lyric: "High C' Climax & Descent" },
+      { phraseNumber: 7, notes: 'CG BbABbA G BbABbA G', lyric: 'Main Theme Return (Part 1)' },
+      { phraseNumber: 8, notes: 'EbC Eb— D CDCDCDCDCDC', lyric: 'Eb Glide & Fast CD Trill' },
+      { phraseNumber: 9, notes: 'CG BbABbA G BbABbA G EbC Eb—', lyric: 'Finale Resolution' }
+    ],
+    phraseGuidance: [
+      { phraseNumber: 1, guidance: 'Nail the SP jump first, then practice nDnD slowly before building speed into a crisp, rapid murki.' },
+      { phraseNumber: 2, guidance: 'Use a smooth upward finger slide (meend) into the second Komal Ga (g—), hold it steadily, and keep the SRSRSRSRSRS trill light and even.' },
+      { phraseNumber: 3, guidance: 'Link the full SP nDnD P nDnD P phrase effortlessly into gS g— on a single supported breath.' },
+      { phraseNumber: 4, guidance: 'Keep the half-hole calibration steady on Komal Ga (g) during Sgg and RgRgR{S}R.' },
+      { phraseNumber: 5, guidance: 'Transition cleanly from Tivra Ma (M^) to Pa (P), then keep your wrist loose for the rapid DnDnD(P)D ornament.' },
+      { phraseNumber: 6, guidance: "Direct your air stream slightly narrower for Taar Sa (S'), apply a delicate Taar Re ({R'}) grace touch, and let n— sigh downwards through DP M^ gS." },
+      { phraseNumber: 7, guidance: 'Re-establish the iconic Hero theme hook with crisp articulation on nDnD.' },
+      { phraseNumber: 8, guidance: 'Maintain steady diaphragm support so the rapid SRSRSRSRSRS trill stays clear and rhythmic.' },
+      { phraseNumber: 9, guidance: 'Finish the theme by sustaining the final Komal Ga (g—) with a soft, cinematic fade-out.' }
+    ],
+    practiceMethod: [
+      'Start by tuning your half-hole positions for Komal Ga (g / Eb), Tivra Ma (M^ / F#), and Komal Ni (n / Bb) using our Online Bansuri Pitch Tuner so every chromatic shade rings pure.',
+      'Isolate the signature nDnD P murki in Line 1 at 60 BPM using the Online Metronome, gradually increasing speed until your finger alternates cleanly between Dha and Komal Ni without squeaking.',
+      'Practice the expressive meend on gS g— in Line 2: roll the finger smoothly off the hole from Sa into Komal Ga and hold g— for 3–4 full counts.',
+      'Drill the rapid SRSRSRSRSRS trill separately with a relaxed left ring finger—focus on light, bouncy finger taps rather than pressing hard onto the bamboo.',
+      'Work on Lines 4–6 (Sgg RgRgR{S}R → M^ P DnDnD(P)D → DS\'{R\'}S\' n— DP M^ gS) slowly to master the smooth transition up to Taar Sa (S\') with Taar Re ({R\'}) kan swara and back down through Tivra Ma (M^).',
+      'Once each section feels natural, play along with an Online Tanpura drone tuned to your flute’s Sa (F# Bass/Middle or C Medium recommended) to capture the haunting cinematic depth of Pt. Hariprasad Chaurasia’s rendition.'
+    ],
+    commonMistakes: [
+      'Playing Shuddha Ga (G) or Shuddha Ni (N) instead of half-hole Komal Ga (g) and Komal Ni (n), which loses the signature haunting mood of the Hero theme',
+      'Rushing the nDnD murki unevenly instead of practicing it slowly first for clean finger clarity',
+      'Skipping the smooth meend glide into the second Komal Ga (g—) in Line 2, making the phrase sound dry or mechanical',
+      'Tensing the hand during the fast SRSRSRSRSRS trill, causing stiff or uneven rhythmic speed',
+      'Over-blowing on DS\'{R\'}S\' in Line 6, resulting in a harsh or sharp Taar Sa / Taar Re tone',
+      'Forgetting to use Tivra Ma (M^ / F#) in Lines 5 and 6 and accidentally playing Shuddha Ma (M)'
+    ],
+    usefulTools: [
+      { name: 'Online Tanpura Drone', url: '/tools/tanpura', viewKey: 'tanpura' },
+      { name: 'Online Flute Metronome', url: '/tools/metronome', viewKey: 'metronome' },
+      { name: 'Online Bansuri Pitch Tuner', url: '/tuner', viewKey: 'learn_tuner' },
+      { name: 'Interactive Bansuri Fingering Chart', url: '/learn/fingering-chart', viewKey: 'learn_fingering_chart' },
+      { name: 'Flute Note and Key Converter', url: '/tools/flute-note-key-converter', viewKey: 'note_key_converter' },
+      { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' }
+    ]
   }
 ];
 
