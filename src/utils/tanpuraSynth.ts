@@ -1,6 +1,6 @@
 // Studio-Recorded Acoustic 4-String Tanpura Engine
 // Uses real recorded acoustic Tanpura string samples (fs_string_sa.wav, fs_string_pa.wav, fs_string_ni.wav, fs_string_kharaj.wav)
-// with mobile-safe AudioContext unlocking (iOS Safari, iOS Silent-Switch playback routing, Android Chrome),
+// with mobile-safe AudioContext unlocking for Android Chrome, iOS Safari, and iOS Chrome (WKWebView),
 // traditional Indian Tanpura cadence ([1200, 700, 700, 1100] ms), and full polyphonic ring-out.
 
 export type FirstStringTuning = 'Pa' | 'Ma' | 'Ni' | 'Sa';
@@ -30,6 +30,9 @@ const SEMITONE_OFFSETS: Record<string, number> = {
 // Reference frequency of the recorded C#3 Tanpura samples (A4 = 440 Hz)
 const SAMPLE_BASE_CS3_HZ = 138.5913;
 
+// Boost factor to bring quiet -22 dBFS acoustic WAV recordings up to clear smartphone speaker volume
+const MASTER_GAIN_SCALE = 1.65;
+
 const SAMPLE_FILES = {
   sa: '/audio/tanpura/fs_string_sa.wav?v=2',
   pa: '/audio/tanpura/fs_string_pa.wav?v=2',
@@ -38,11 +41,6 @@ const SAMPLE_FILES = {
 } as const;
 
 type SampleKey = keyof typeof SAMPLE_FILES;
-
-// Minimal valid 44-byte + 2-sample silent WAV data URI used to unlock iOS Media/Playback channel
-// so Web Audio can be heard on iPhones even when the physical Silent/Ringer switch is on.
-const SILENT_WAV_DATA_URI =
-  'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA';
 
 // Traditional 4-string configuration
 const STRING_DEFINITIONS: Array<{
@@ -54,8 +52,14 @@ const STRING_DEFINITIONS: Array<{
   { id: 'S1', role: 'first', pan: -0.06, baseVolume: 1.0 },
   { id: 'S2', role: 'sa1', pan: 0.04, baseVolume: 1.0 },
   { id: 'S3', role: 'sa2', pan: -0.03, baseVolume: 1.0 },
-  { id: 'S4', role: 'kharaj', pan: 0.06, baseVolume: 0.68 }
+  { id: 'S4', role: 'kharaj', pan: 0.06, baseVolume: 0.72 }
 ];
+
+function isIOSDevice(): boolean {
+  if (typeof navigator === 'undefined') return false;
+  const ua = navigator.userAgent || '';
+  return /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+}
 
 export function calculateSaFrequency(
   rootSa: string,
@@ -98,7 +102,10 @@ function decodeAudioBufferSafe(ctx: AudioContext, arrayBuffer: ArrayBuffer): Pro
 
 export class TanpuraEngine {
   private ctx: AudioContext | null = null;
-  private unlockAudioEl: HTMLAudioElement | null = null;
+  private iosMediaStreamDest: MediaStreamAudioDestinationNode | null = null;
+  private iosOutputAudioEl: HTMLAudioElement | null = null;
+  private routedViaIosMediaStream = false;
+
   private isPlaying = false;
   private playSessionId = 0;
   private sequenceTimer: number | null = null;
@@ -148,7 +155,7 @@ export class TanpuraEngine {
     if (this.ctx && this.masterGain) {
       const now = this.ctx.currentTime;
       if (this.isPlaying) {
-        this.masterGain.gain.setTargetAtTime(this.config.masterVolume * 1.05, now, 0.04);
+        this.masterGain.gain.setTargetAtTime(this.config.masterVolume * MASTER_GAIN_SCALE, now, 0.04);
       }
       this.updateToneFilters(now);
     }
@@ -162,45 +169,55 @@ export class TanpuraEngine {
     this.onPluckCallback = cb;
   }
 
+  private getOrCreateContext(): AudioContext {
+    if (!this.ctx || this.ctx.state === 'closed') {
+      const AudioContextClass =
+        window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+      this.ctx = new AudioContextClass();
+      this.buffers = {};
+      this.masterGain = null;
+      this.compressor = null;
+      this.warmthFilter = null;
+      this.brillianceFilter = null;
+      this.stringPanners = [null, null, null, null];
+      this.iosMediaStreamDest = null;
+      this.routedViaIosMediaStream = false;
+    }
+    return this.ctx;
+  }
+
   /**
-   * Unlocks smartphone audio channels synchronously inside a user tap/click gesture.
-   * Handles iOS 17+ audioSession, iOS hardware Silent-switch routing, and suspended/interrupted AudioContext.
+   * Unlocks smartphone audio synchronously inside a user tap/click gesture.
+   * - Android Chrome / Desktop: clean native AudioContext resume + 1-sample unlock (zero <audio> focus conflicts).
+   * - iOS Safari 17+: navigator.audioSession.type = 'playback' + AudioContext resume.
+   * - iOS Chrome (WKWebView) / older iOS: pipes AudioContext through MediaStreamDestination -> <audio playsinline>
+   *   so audio plays clearly on iPhones even when the physical Silent/Ringer switch is ON.
    */
-  private unlockMobileAudioSync(): AudioContext {
-    // 1. iOS 17+ Safari AudioSession API: route through Media/Playback instead of Ringer/Ambient
-    try {
-      const nav = navigator as unknown as { audioSession?: { type: string } };
-      if (nav && nav.audioSession && nav.audioSession.type !== 'playback') {
-        nav.audioSession.type = 'playback';
+  private unlockAudioInGesture(): { ctx: AudioContext; resumePromise: Promise<void> } {
+    const iOS = isIOSDevice();
+    let hasAudioSessionApi = false;
+
+    if (iOS) {
+      try {
+        const nav = navigator as unknown as { audioSession?: { type: string } };
+        if (nav && nav.audioSession) {
+          nav.audioSession.type = 'playback';
+          hasAudioSessionApi = true;
+        }
+      } catch {
+        // Ignore if unsupported
       }
-    } catch {
-      // Ignore if unsupported
     }
 
-    // 2. HTML5 <audio> silent WAV play inside gesture (switches iOS < 17 out of Ambient/Silent mute)
-    try {
-      if (typeof Audio !== 'undefined') {
-        if (!this.unlockAudioEl) {
-          const el = new Audio(SILENT_WAV_DATA_URI);
-          el.setAttribute('playsinline', 'true');
-          (el as unknown as { playsInline?: boolean }).playsInline = true;
-          el.preload = 'auto';
-          this.unlockAudioEl = el;
-        }
-        this.unlockAudioEl.currentTime = 0;
-        const playPromise = this.unlockAudioEl.play();
-        if (playPromise && typeof playPromise.catch === 'function') {
-          playPromise.catch(() => {});
-        }
-      }
-    } catch {
-      // Ignore if blocked
-    }
+    const ctx = this.getOrCreateContext();
 
-    // 3. Create or resume AudioContext synchronously inside user gesture
-    const ctx = this.getContext();
+    // Resume once inside the user gesture (handles both 'suspended' and Safari's 'interrupted')
+    const resumePromise =
+      ctx.state !== 'running'
+        ? ctx.resume().catch(() => {})
+        : Promise.resolve();
 
-    // 4. Play a 1-sample silent buffer synchronously to hardware-unlock Web Audio on iOS/Android
+    // Play a 1-sample silent buffer synchronously to hardware-unlock Web Audio on mobile
     try {
       const silentBuffer = ctx.createBuffer(1, 1, ctx.sampleRate || 44100);
       const silentSource = ctx.createBufferSource();
@@ -211,39 +228,51 @@ export class TanpuraEngine {
       // Ignore
     }
 
-    return ctx;
-  }
+    this.ensureAudioGraph(ctx, iOS && !hasAudioSessionApi);
 
-  private getContext(): AudioContext {
-    if (!this.ctx || this.ctx.state === 'closed') {
-      const AudioContextClass =
-        window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-      this.ctx = new AudioContextClass();
-      // Reset decoded buffers & audio graph if context had to be recreated
-      this.buffers = {};
-      this.masterGain = null;
-      this.compressor = null;
-      this.warmthFilter = null;
-      this.brillianceFilter = null;
-      this.stringPanners = [null, null, null, null];
+    // If routed via iOS MediaStream <audio> (Chrome on iPhone / WKWebView), call .play() inside the tap gesture
+    if (this.routedViaIosMediaStream && this.iosOutputAudioEl) {
+      try {
+        const p = this.iosOutputAudioEl.play();
+        if (p && typeof p.catch === 'function') {
+          p.catch(() => {
+            // If <audio> playback is rejected, fall back directly to ctx.destination
+            this.fallbackToDirectDestination(ctx);
+          });
+        }
+      } catch {
+        this.fallbackToDirectDestination(ctx);
+      }
     }
 
-    // Handle BOTH 'suspended' and Safari-specific 'interrupted' states
-    if (this.ctx.state !== 'running') {
-      this.ctx.resume().catch(() => {});
-    }
-
-    return this.ctx;
+    return { ctx, resumePromise };
   }
 
-  private ensureAudioGraph() {
-    const ctx = this.getContext();
+  private fallbackToDirectDestination(ctx: AudioContext) {
+    if (!this.routedViaIosMediaStream) return;
+    this.routedViaIosMediaStream = false;
+    const outputNode = this.compressor || this.masterGain;
+    if (outputNode) {
+      try {
+        outputNode.disconnect();
+      } catch {
+        // Ignore
+      }
+      try {
+        outputNode.connect(ctx.destination);
+      } catch {
+        // Ignore
+      }
+    }
+  }
+
+  private ensureAudioGraph(ctx: AudioContext, useIosMediaStreamRoute = false) {
     if (this.masterGain && this.masterGain.context === ctx) {
       return;
     }
 
     this.masterGain = ctx.createGain();
-    this.masterGain.gain.value = this.config.masterVolume * 1.05;
+    this.masterGain.gain.value = this.config.masterVolume * MASTER_GAIN_SCALE;
 
     // Gentle wooden Toomba body warmth filter
     this.warmthFilter = ctx.createBiquadFilter();
@@ -260,18 +289,45 @@ export class TanpuraEngine {
     this.warmthFilter.connect(this.brillianceFilter);
     this.brillianceFilter.connect(this.masterGain);
 
-    // Gentle limiter/compressor keeps audio clear on small smartphone speakers without clipping
+    // Gentle limiter/compressor keeps audio loud and clear on small smartphone speakers without clipping
+    let finalOutputNode: AudioNode = this.masterGain;
     if (typeof ctx.createDynamicsCompressor === 'function') {
       this.compressor = ctx.createDynamicsCompressor();
-      this.compressor.threshold.value = -10;
-      this.compressor.knee.value = 18;
-      this.compressor.ratio.value = 3;
+      this.compressor.threshold.value = -6;
+      this.compressor.knee.value = 12;
+      this.compressor.ratio.value = 6;
       this.compressor.attack.value = 0.005;
       this.compressor.release.value = 0.15;
       this.masterGain.connect(this.compressor);
-      this.compressor.connect(ctx.destination);
-    } else {
-      this.masterGain.connect(ctx.destination);
+      finalOutputNode = this.compressor;
+    }
+
+    // On iOS Chrome (WKWebView) where navigator.audioSession isn't exposed, pipe audio through
+    // MediaStreamAudioDestinationNode -> <audio playsinline> so it bypasses the iPhone Silent switch.
+    let routedViaStream = false;
+    if (
+      useIosMediaStreamRoute &&
+      typeof ctx.createMediaStreamDestination === 'function' &&
+      typeof Audio !== 'undefined'
+    ) {
+      try {
+        const streamDest = ctx.createMediaStreamDestination();
+        finalOutputNode.connect(streamDest);
+        const audioEl = this.iosOutputAudioEl || new Audio();
+        audioEl.setAttribute('playsinline', 'true');
+        (audioEl as unknown as { playsInline?: boolean }).playsInline = true;
+        audioEl.srcObject = streamDest.stream;
+        this.iosMediaStreamDest = streamDest;
+        this.iosOutputAudioEl = audioEl;
+        routedViaStream = true;
+      } catch {
+        routedViaStream = false;
+      }
+    }
+
+    this.routedViaIosMediaStream = routedViaStream;
+    if (!routedViaStream) {
+      finalOutputNode.connect(ctx.destination);
     }
 
     // Initialize stereo panners for the 4 strings
@@ -356,7 +412,6 @@ export class TanpuraEngine {
         keys.map(async (key) => {
           if (this.buffers[key]) return;
           try {
-            // Retry fetch if initial prefetch missed this sample
             if (!this.rawBuffers[key]) {
               const res = await fetch(SAMPLE_FILES[key]);
               if (res.ok) {
@@ -483,26 +538,26 @@ export class TanpuraEngine {
     targetNode: AudioNode,
     freq: number,
     baseVolume: number,
-    now: number
+    startAt: number
   ) {
     const duration = 3.8;
     const voiceGain = ctx.createGain();
-    voiceGain.gain.setValueAtTime(0.0001, now);
-    voiceGain.gain.linearRampToValueAtTime(baseVolume * 0.22, now + 0.08);
-    voiceGain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+    voiceGain.gain.setValueAtTime(0.0001, startAt);
+    voiceGain.gain.linearRampToValueAtTime(baseVolume * 0.28, startAt + 0.08);
+    voiceGain.gain.exponentialRampToValueAtTime(0.0001, startAt + duration);
 
     const filter = ctx.createBiquadFilter();
     filter.type = 'lowpass';
-    filter.frequency.setValueAtTime(Math.min(2600, freq * 8), now);
-    filter.frequency.exponentialRampToValueAtTime(Math.max(320, freq * 2.2), now + duration);
+    filter.frequency.setValueAtTime(Math.min(2800, freq * 9), startAt);
+    filter.frequency.exponentialRampToValueAtTime(Math.max(360, freq * 2.5), startAt + duration);
 
     const osc1 = ctx.createOscillator();
     osc1.type = 'sawtooth';
-    osc1.frequency.setValueAtTime(freq, now);
+    osc1.frequency.setValueAtTime(freq, startAt);
 
     const osc2 = ctx.createOscillator();
     osc2.type = 'triangle';
-    osc2.frequency.setValueAtTime(freq * 2, now);
+    osc2.frequency.setValueAtTime(freq * 2, startAt);
 
     osc1.connect(filter);
     osc2.connect(filter);
@@ -525,33 +580,36 @@ export class TanpuraEngine {
       }
     };
 
-    osc1.start(now);
-    osc2.start(now);
-    osc1.stop(now + duration);
-    osc2.stop(now + duration);
+    osc1.start(startAt);
+    osc2.start(startAt);
+    osc1.stop(startAt + duration);
+    osc2.stop(startAt + duration);
   }
 
   private pluckString(stringIndex: number) {
     if (!this.isPlaying) return;
-    this.ensureAudioGraph();
-    const ctx = this.getContext();
+    const ctx = this.getOrCreateContext();
+    if (ctx.state !== 'running') {
+      ctx.resume().catch(() => {});
+    }
+    this.ensureAudioGraph(ctx);
     const targetNode = this.stringPanners[stringIndex];
     if (!targetNode) return;
 
     const { sampleKey, playbackRate, stringLabel, displayFreq } = this.getStringSampleAndRate(stringIndex);
     const buffer = this.buffers[sampleKey];
-    const now = ctx.currentTime;
+    const startAt = ctx.currentTime + 0.008;
     const def = STRING_DEFINITIONS[stringIndex];
 
     if (buffer) {
       const source = ctx.createBufferSource();
       source.buffer = buffer;
-      source.playbackRate.setValueAtTime(playbackRate, now);
+      source.playbackRate.setValueAtTime(playbackRate, startAt);
 
       const voiceGain = ctx.createGain();
       const peakGain = def.baseVolume * this.randomBetween(0.93, 1.0);
-      voiceGain.gain.setValueAtTime(0.0001, now);
-      voiceGain.gain.linearRampToValueAtTime(peakGain, now + 0.012);
+      voiceGain.gain.setValueAtTime(0.0001, startAt);
+      voiceGain.gain.linearRampToValueAtTime(peakGain, startAt + 0.015);
 
       source.connect(voiceGain);
       voiceGain.connect(targetNode);
@@ -568,10 +626,10 @@ export class TanpuraEngine {
       };
 
       // Let every string pluck ring out its full natural acoustic tail without cutting off previous cycles
-      source.start(now);
+      source.start(startAt);
     } else {
       // Never stay silent if a sample failed to fetch/decode on mobile network
-      this.playSynthesizedFallback(ctx, targetNode, displayFreq, def.baseVolume, now);
+      this.playSynthesizedFallback(ctx, targetNode, displayFreq, def.baseVolume, startAt);
     }
 
     if (this.onPluckCallback) {
@@ -579,7 +637,7 @@ export class TanpuraEngine {
         stringIndex,
         stringName: stringLabel,
         frequency: Math.round(displayFreq * 10) / 10,
-        time: now
+        time: startAt
       });
     }
   }
@@ -599,8 +657,7 @@ export class TanpuraEngine {
     if (this.isPlaying) return;
 
     // Synchronously unlock mobile audio & iOS Silent-switch channel inside the user tap gesture
-    const ctx = this.unlockMobileAudioSync();
-    this.ensureAudioGraph();
+    const { ctx, resumePromise } = this.unlockAudioInGesture();
 
     if (this.sequenceTimer !== null) {
       window.clearTimeout(this.sequenceTimer);
@@ -609,7 +666,6 @@ export class TanpuraEngine {
     if (this.fadeRestoreTimer !== null) {
       window.clearTimeout(this.fadeRestoreTimer);
       this.fadeRestoreTimer = null;
-      // Stop any lingering fading-out sources from an immediate prior stop()
       this.activeSources.forEach((src) => {
         try {
           src.stop();
@@ -623,14 +679,12 @@ export class TanpuraEngine {
 
     if (this.masterGain) {
       this.masterGain.gain.cancelScheduledValues(ctx.currentTime);
-      this.masterGain.gain.setValueAtTime(this.config.masterVolume * 1.05, ctx.currentTime);
+      this.masterGain.gain.setValueAtTime(this.config.masterVolume * MASTER_GAIN_SCALE, ctx.currentTime);
     }
 
     this.isPlaying = true;
     this.currentStringIndex = 0;
     const currentSession = ++this.playSessionId;
-
-    const resumePromise = ctx.state !== 'running' ? ctx.resume().catch(() => {}) : Promise.resolve();
 
     if (this.samplesLoaded && ctx.state === 'running') {
       this.scheduleNext();
@@ -675,8 +729,15 @@ export class TanpuraEngine {
           }
         });
         this.activeSources.clear();
+        if (this.iosOutputAudioEl && !this.isPlaying) {
+          try {
+            this.iosOutputAudioEl.pause();
+          } catch {
+            // Ignore
+          }
+        }
         if (this.masterGain && !this.isPlaying && this.ctx) {
-          this.masterGain.gain.setValueAtTime(this.config.masterVolume * 1.05, this.ctx.currentTime);
+          this.masterGain.gain.setValueAtTime(this.config.masterVolume * MASTER_GAIN_SCALE, this.ctx.currentTime);
         }
         this.fadeRestoreTimer = null;
       }, 240);
@@ -686,6 +747,9 @@ export class TanpuraEngine {
   public resumeIfPlaying() {
     if (this.isPlaying && this.ctx && this.ctx.state !== 'running') {
       this.ctx.resume().catch(() => {});
+    }
+    if (this.isPlaying && this.routedViaIosMediaStream && this.iosOutputAudioEl && this.iosOutputAudioEl.paused) {
+      this.iosOutputAudioEl.play().catch(() => {});
     }
   }
 
@@ -713,7 +777,17 @@ export class TanpuraEngine {
     this.compressor = null;
     this.warmthFilter = null;
     this.brillianceFilter = null;
-    this.unlockAudioEl = null;
+    if (this.iosOutputAudioEl) {
+      try {
+        this.iosOutputAudioEl.pause();
+        this.iosOutputAudioEl.srcObject = null;
+      } catch {
+        // Ignore
+      }
+      this.iosOutputAudioEl = null;
+    }
+    this.iosMediaStreamDest = null;
+    this.routedViaIosMediaStream = false;
     if (this.ctx && this.ctx.state !== 'closed') {
       try {
         this.ctx.close();
