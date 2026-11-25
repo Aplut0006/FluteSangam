@@ -77,6 +77,7 @@ const ROUTE_MOD_DATES: Record<string, string> = {
   '/notations/tujhe-dekha-to-flute-notes': '2026-11-07',
   '/notations/yeh-shaam-mastani-flute-notes': '2026-11-07',
   '/notations/hero-1983-flute-theme-notes': '2026-11-22',
+  '/notations/bombay-theme-flute-notes': '2026-11-24',
   '/privacy-policy': '2026-09-18',
   '/terms-of-service': '2026-09-18',
   '/copyright-policy': '2026-10-02',

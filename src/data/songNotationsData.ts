@@ -3899,6 +3899,234 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       { name: 'Flute Note and Key Converter', url: '/tools/flute-note-key-converter', viewKey: 'note_key_converter' },
       { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' }
     ]
+  },
+  {
+    id: 'bombay-theme-flute-notes',
+    slug: 'bombay-theme-flute-notes',
+    title: 'Bombay Theme Flute Notes',
+    category: 'Hindi/Bollywood',
+    movie: 'Bombay (1995)',
+    singer: 'A.R. Rahman | Flute: Naveen Kumar',
+    type: 'Iconic Bollywood Flute Theme',
+    difficulty: 'Intermediate',
+    suggestedFlute: 'C Medium/Bass',
+    startingSwar: 'Madhya Dha (D)',
+    highestSwar: "Taar Re (R')",
+    mainChallenge: "Slow expressive meend descents (DP and R' down to P), rapid DNS'N, PDP, and DSD ornaments, soulful Ma–Ga trills (MGMGMGM / GMGMGMGM), and smooth register shifts from Mandra Ni (.N) up to Taar Re (R')",
+    practiceSpeed: '65 - 80 BPM (Slow, Emotional & Expressive Feel)',
+    notationFormats: "Indian Sargam (.N S R G M M^ P D N S' R') & Western (.B C D E F F# G A B C' D')",
+    description: 'Learn to play the beautiful Bombay Theme by A.R. Rahman on flute. Features phrase-by-phrase Sargam and Western notation grids, slow meend guidance, fast murki tips (DNS\'N, PDP, DSD), and practical bansuri practice steps.',
+    status: 'published',
+    publishedDate: '2026-11-24',
+    updatedDate: '2026-11-24',
+    canonicalUrl: 'https://flutesangam.com/notations/bombay-theme-flute-notes',
+    h1: 'Bombay Theme Flute Notes – Sargam & Western Notes',
+    metaTitle: 'Bombay Theme Flute Notes | Sargam & Western',
+    metaDescription: 'Learn to play the beautiful Bombay Theme by A.R. Rahman on flute. Explore easy bansuri notes and musical notation to practice this iconic melody.',
+    intro: 'Composed by A.R. Rahman and brought to life on bamboo flute by Naveen Kumar for Mani Ratnam’s 1995 classic Bombay, the Bombay Theme is one of the most hauntingly emotional flute melodies ever composed in Indian cinema. Weaving slow, weeping descents into Pa (P) with rapid finger flourishes (DNS\'N, PDP, DSD), tender Ma–Ga trills (MGMGMGM), and a poignant dip down to lower octave Mandra Ni (.N) before rising through Tivra Ma (M^), this timeless instrumental theme is an unforgettable piece for every bansuri player. Below you will find phrase-by-phrase Sargam and Western notations along with step-by-step fingering and breath tips.',
+    quickInfo: {
+      difficulty: 'Intermediate',
+      melodyType: 'Iconic Film Instrumental Flute Theme',
+      suggestedFlute: 'C Medium/Bass',
+      startingSwar: 'Madhya Dha (D)',
+      highestSwar: "Taar Re (R')",
+      mainChallenge: "Slow meend slides to Pa, fast DNS'N / PDP / DSD flourishes, Ma–Ga trills, Tivra Ma (M^), and Mandra .N to Taar R' range",
+      practiceSpeed: '65 - 80 BPM (Slow & Soulful Tempo)'
+    },
+    legend: [
+      { symbol: '.N', meaning: 'Mandra Saptak (Lower Octave Shuddha Ni / .B — gentle, warm airflow)' },
+      { symbol: 'S, R, G, M, P, D, N', meaning: 'Madhya Saptak (Middle Octave Shuddha / natural swaras)' },
+      { symbol: 'M^', meaning: 'Tivra Madhyam (Sharp 4th / F# — top hole lifted/half-opened depending on flute grip)' },
+      { symbol: "S', R'", meaning: 'Taar Saptak (High Octave Sa and Re — focused, controlled air stream)' },
+      { symbol: '—', meaning: 'Sustain / hold the note smoothly with steady diaphragm breath' },
+      { symbol: 'Relative Sa = C', meaning: "Western notes mapped with .N = .B, Sa = C, Re = D, Ga = E, Ma = F, M^ = F#, Pa = G, Dha = A, Ni = B, S' = C', R' = D'" }
+    ],
+    phrases: [
+      {
+        phraseNumber: 1,
+        lyric: 'Opening Emotional Call (for DP, come to Pa slowly after Dha)',
+        sargamNotes: 'D DD D DP',
+        westernNotes: 'A AA A AG',
+        units: [
+          { lyric: '', sargam: 'D', western: 'A' },
+          { lyric: '', sargam: 'DD', western: 'AA' },
+          { lyric: '', sargam: 'D', western: 'A' },
+          { lyric: '', sargam: 'DP', western: 'AG' }
+        ],
+        guidance: 'Play the repeated Madhya Dha (D) notes with gentle, expressive breath swells. On DP, slide slowly and smoothly down from Dha to Pa (meend) rather than snapping directly onto Pa.'
+      },
+      {
+        phraseNumber: 2,
+        lyric: "Soaring High Octave Phrase (play DNS'N fast)",
+        sargamNotes: "PDN DNS'N—",
+        westernNotes: "GAB ABC'B—",
+        units: [
+          { lyric: '', sargam: 'PDN', western: 'GAB' },
+          { lyric: '', sargam: "DNS'N—", western: "ABC'B—" }
+        ],
+        guidance: "Ascend smoothly through PDN, then execute DNS'N fast with light finger agility before settling into a resonant, sustained Shuddha Ni (N—)."
+      },
+      {
+        phraseNumber: 3,
+        lyric: 'Expressive Murki & Descent (play PDP fast)',
+        sargamNotes: 'D PDP MGMR',
+        westernNotes: 'A GAG FEFD',
+        units: [
+          { lyric: '', sargam: 'D', western: 'A' },
+          { lyric: '', sargam: 'PDP', western: 'GAG' },
+          { lyric: '', sargam: 'MGMR', western: 'FEFD' }
+        ],
+        guidance: 'Touch Dha cleanly, play PDP fast as a crisp murki ornament, and glide warmly downwards through Shuddha Ma and Ga (MGMR) to rest softly on Re.'
+      },
+      {
+        phraseNumber: 4,
+        lyric: "Ascending Leap to Taar Re (come down to Pa slowly after Re')",
+        sargamNotes: "RG GD DD NR'",
+        westernNotes: "DE EA AA BD'",
+        units: [
+          { lyric: '', sargam: 'RG', western: 'DE' },
+          { lyric: '', sargam: 'GD', western: 'EA' },
+          { lyric: '', sargam: 'DD', western: 'AA' },
+          { lyric: '', sargam: "NR'", western: "BD'" }
+        ],
+        guidance: "Build intensity gradually across RG GD DD and focus your air stream cleanly as you reach Taar Re (R'). After holding R', come down to Pa (P) slowly with a weeping, vocal-like descent leading into Line 5."
+      },
+      {
+        phraseNumber: 5,
+        lyric: "Soaring High Octave Repeat (play DNS'N fast)",
+        sargamNotes: "PDN DNS'N—",
+        westernNotes: "GAB ABC'B—",
+        units: [
+          { lyric: '', sargam: 'PDN', western: 'GAB' },
+          { lyric: '', sargam: "DNS'N—", western: "ABC'B—" }
+        ],
+        guidance: "Flow seamlessly out of the slow slide into Pa (P), play DNS'N fast and cleanly, and let the final N— ring out with controlled warmth."
+      },
+      {
+        phraseNumber: 6,
+        lyric: 'Expressive Murki & Descent Repeat (play PDP fast)',
+        sargamNotes: 'D PDP MGMR',
+        westernNotes: 'A GAG FEFD',
+        units: [
+          { lyric: '', sargam: 'D', western: 'A' },
+          { lyric: '', sargam: 'PDP', western: 'GAG' },
+          { lyric: '', sargam: 'MGMR', western: 'FEFD' }
+        ],
+        guidance: 'Keep the PDP flourish brisk and effortless, then relax your breath slightly through MGMR so the phrase sounds lyrical and unhurried.'
+      },
+      {
+        phraseNumber: 7,
+        lyric: 'Lyrical Middle-Octave Turn (play DSD fast)',
+        sargamNotes: 'G DSD P MG MR—',
+        westernNotes: 'E ACA G FE FD—',
+        units: [
+          { lyric: '', sargam: 'G', western: 'E' },
+          { lyric: '', sargam: 'DSD', western: 'ACA' },
+          { lyric: '', sargam: 'P', western: 'G' },
+          { lyric: '', sargam: 'MG', western: 'FE' },
+          { lyric: '', sargam: 'MR—', western: 'FD—' }
+        ],
+        guidance: 'Open tenderly on Ga (G), play DSD fast as a crisp upward flourish before resting on Pa (P), and conclude by sustaining Re (MR—) gently.'
+      },
+      {
+        phraseNumber: 8,
+        lyric: 'Soulful Ma–Ga Trill & Lower Octave Dip',
+        sargamNotes: 'G— MGMGMGM— MGRS.N',
+        westernNotes: 'E— FEFEFEF— FEDC.B',
+        units: [
+          { lyric: '', sargam: 'G—', western: 'E—' },
+          { lyric: '', sargam: 'MGMGMGM—', western: 'FEFEFEF—' },
+          { lyric: '', sargam: 'MGRS.N', western: 'FEDC.B' }
+        ],
+        guidance: 'Hold Ga (G—) with emotional poise, ripple smoothly through the MGMGMGM— trill using relaxed fingers on the Shuddha Ma half-hole, and descend gently down to Mandra Ni (.N) with soft breath pressure.'
+      },
+      {
+        phraseNumber: 9,
+        lyric: 'Tivra Ma Ascent & Ornamented Pa (play DSD fast)',
+        sargamNotes: '.N— SRG M^ PM^ P DSD P',
+        westernNotes: '.B— CDE F# GF# G ACA G',
+        units: [
+          { lyric: '', sargam: '.N—', western: '.B—' },
+          { lyric: '', sargam: 'SRG', western: 'CDE' },
+          { lyric: '', sargam: 'M^ PM^ P', western: 'F# GF# G' },
+          { lyric: '', sargam: 'DSD', western: 'ACA' },
+          { lyric: '', sargam: 'P', western: 'G' }
+        ],
+        guidance: 'Sustain the deep Mandra Ni (.N—), rise smoothly through SRG into bright Tivra Ma (M^ / F#), weave through PM^ P, and play DSD fast before resolving firmly onto Pa (P).'
+      },
+      {
+        phraseNumber: 10,
+        lyric: 'Poignant Finale Trill & Resolution',
+        sargamNotes: 'G— GMGMGMGM R—',
+        westernNotes: 'E— EFEFEFEF D—',
+        units: [
+          { lyric: '', sargam: 'G—', western: 'E—' },
+          { lyric: '', sargam: 'GMGMGMGM', western: 'EFEFEFEF' },
+          { lyric: '', sargam: 'R—', western: 'D—' }
+        ],
+        guidance: 'Hold Ga (G—) softly, let the GMGMGMGM trill shimmer evenly like a vocal vibrato, and fade out smoothly on the final sustained Re (R—).'
+      }
+    ],
+    sargamPhrases: [
+      { phraseNumber: 1, notes: 'D DD D DP', lyric: 'For DP, come to Pa slowly after Dha' },
+      { phraseNumber: 2, notes: "PDN DNS'N—", lyric: "Play DNS'N fast" },
+      { phraseNumber: 3, notes: 'D PDP MGMR', lyric: 'Play PDP fast' },
+      { phraseNumber: 4, notes: "RG GD DD NR'", lyric: "Come down to Pa slowly after Re'" },
+      { phraseNumber: 5, notes: "PDN DNS'N—", lyric: "Play DNS'N fast" },
+      { phraseNumber: 6, notes: 'D PDP MGMR', lyric: 'Play PDP fast' },
+      { phraseNumber: 7, notes: 'G DSD P MG MR—', lyric: 'Play DSD fast' },
+      { phraseNumber: 8, notes: 'G— MGMGMGM— MGRS.N', lyric: 'Soulful Ma–Ga trill & descent to .N' },
+      { phraseNumber: 9, notes: '.N— SRG M^ PM^ P DSD P', lyric: 'Play DSD fast' },
+      { phraseNumber: 10, notes: 'G— GMGMGMGM R—', lyric: 'Poignant finale trill & resolution' }
+    ],
+    westernPhrases: [
+      { phraseNumber: 1, notes: 'A AA A AG', lyric: 'For AG, come to G slowly after A' },
+      { phraseNumber: 2, notes: "GAB ABC'B—", lyric: "Play ABC'B fast" },
+      { phraseNumber: 3, notes: 'A GAG FEFD', lyric: 'Play GAG fast' },
+      { phraseNumber: 4, notes: "DE EA AA BD'", lyric: "Come down to G slowly after D'" },
+      { phraseNumber: 5, notes: "GAB ABC'B—", lyric: "Play ABC'B fast" },
+      { phraseNumber: 6, notes: 'A GAG FEFD', lyric: 'Play GAG fast' },
+      { phraseNumber: 7, notes: 'E ACA G FE FD—', lyric: 'Play ACA fast' },
+      { phraseNumber: 8, notes: 'E— FEFEFEF— FEDC.B', lyric: 'Soulful F–E trill & descent to .B' },
+      { phraseNumber: 9, notes: '.B— CDE F# GF# G ACA G', lyric: 'Play ACA fast' },
+      { phraseNumber: 10, notes: 'E— EFEFEFEF D—', lyric: 'Poignant finale trill & resolution' }
+    ],
+    phraseGuidance: [
+      { phraseNumber: 1, guidance: 'Begin with gentle, warm breath on Madhya Dha (D) and slide slowly from Dha to Pa on DP.' },
+      { phraseNumber: 2, guidance: "Keep DNS'N nimble and light so it ornaments the sustained high Ni (N—) seamlessly." },
+      { phraseNumber: 3, guidance: 'Play PDP fast with crisp finger movement, then relax smoothly through MGMR.' },
+      { phraseNumber: 4, guidance: "Focus your airstream cleanly for NR', then descend slowly and expressively back down to Pa." },
+      { phraseNumber: 5, guidance: "Match the agility of DNS'N— with a steady, singing sustain on N—." },
+      { phraseNumber: 6, guidance: 'Articulate PDP swiftly while keeping Shuddha Ma (M) cleanly half-covered in MGMR.' },
+      { phraseNumber: 7, guidance: 'Execute DSD fast between G and P, then hold MR— with calm breath support.' },
+      { phraseNumber: 8, guidance: 'Keep your finger relaxed during the MGMGMGM— trill and soften your blowing angle as you land on Mandra Ni (.N).' },
+      { phraseNumber: 9, guidance: 'Open cleanly onto Tivra Ma (M^) after SRG, and deliver a swift, crisp DSD before resting on Pa.' },
+      { phraseNumber: 10, guidance: 'Let the closing GMGMGMGM shimmer smoothly and taper your breath gently on the final R—.' }
+    ],
+    practiceMethod: [
+      'Warm up on Madhya Dha (D), Pa (P), Shuddha Ma (M), and Tivra Ma (M^) with our Online Bansuri Pitch Tuner so the switch between Shuddha Ma (Lines 3, 6, 7, 8, 10) and Tivra Ma (Line 9) stays dead in tune.',
+      'Practice the slow, vocal-like slides in Line 1 (DP: slowly gliding down from Dha to Pa) and Line 4 (coming down slowly to Pa after Taar Re R\') without breaking your breath stream.',
+      'Isolate the three fast ornaments separately at 60 BPM using the Online Metronome: DNS\'N (Lines 2 & 5), PDP (Lines 3 & 6), and DSD (Lines 7 & 9). Build speed only once every note speaks clearly.',
+      'Drill the rapid Ma–Ga trills in Line 8 (MGMGMGM—) and Line 10 (GMGMGMGM) with a loose, relaxed finger so the trill sounds liquid and expressive rather than stiff.',
+      'Practice the lower-octave dip in Line 8–9 (MGRS.N → .N— SRG M^): gently lower your air speed on Mandra Ni (.N—) so it resonates warmly without jumping up an octave.',
+      'Play the entire 10-line Bombay Theme alongside an Online Tanpura drone tuned to your bansuri’s Sa (C Medium/Bass recommended) to bring out A.R. Rahman’s timeless cinematic emotion.'
+    ],
+    commonMistakes: [
+      'Dropping abruptly from Dha to Pa in Line 1 (DP) or from R\' to Pa after Line 4 instead of sliding down slowly with an expressive meend',
+      'Confusing Shuddha Ma (M / half-hole) used throughout the melody with Tivra Ma (M^ / open hole) required specifically in Line 9 (M^ PM^)',
+      'Over-blowing on lower-octave Mandra Ni (.N—) in Lines 8 and 9, causing the tone to break or jump into the middle octave',
+      'Forcing stiff finger movements during fast ornaments (DNS\'N, PDP, DSD) instead of keeping fingers light and close to the holes',
+      'Playing the MGMGMGM— and GMGMGMGM trills too aggressively, which loses the gentle, tearful softness of the Bombay Theme',
+      'Rushing the overall tempo instead of allowing sustained notes (N—, MR—, G—, .N—, R—) to breathe emotionally'
+    ],
+    usefulTools: [
+      { name: 'Online Tanpura Drone', url: '/tools/tanpura', viewKey: 'tanpura' },
+      { name: 'Online Flute Metronome', url: '/tools/metronome', viewKey: 'metronome' },
+      { name: 'Online Bansuri Pitch Tuner', url: '/tuner', viewKey: 'learn_tuner' },
+      { name: 'Interactive Bansuri Fingering Chart', url: '/learn/fingering-chart', viewKey: 'learn_fingering_chart' },
+      { name: 'Flute Note and Key Converter', url: '/tools/flute-note-key-converter', viewKey: 'note_key_converter' },
+      { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' }
+    ]
   }
 ];
 

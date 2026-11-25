@@ -76,6 +76,7 @@ import { ChhuKarMereMannKoNotationView } from '../components/ChhuKarMereMannKoNo
 import { TujheDekhaToNotationView } from '../components/TujheDekhaToNotationView';
 import { YehShaamMastaniNotationView } from '../components/YehShaamMastaniNotationView';
 import { Hero1983FluteThemeNotationView } from '../components/Hero1983FluteThemeNotationView';
+import { BombayThemeFluteNotationView } from '../components/BombayThemeFluteNotationView';
 import { CommunityFeedView } from '../components/CommunityFeedView';
 import PostDetailView from '../components/PostDetailView';
 import NotFoundView from '../components/NotFoundView';
@@ -2699,6 +2700,71 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
             },
             'datePublished': '2026-11-22T00:00:00Z',
             'dateModified': '2026-11-22T00:00:00Z'
+          }
+        ]
+      }
+    };
+  }
+
+  if (cleanPath === '/notations/bombay-theme-flute-notes') {
+    const title = 'Bombay Theme Flute Notes | Sargam & Western';
+    const description = 'Learn to play the beautiful Bombay Theme by A.R. Rahman on flute. Explore easy bansuri notes and musical notation to practice this iconic melody.';
+    const canonicalUrl = `${DOMAIN}/notations/bombay-theme-flute-notes`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: BombayThemeFluteNotationView,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          createWebPageSchema(canonicalUrl, title, description),
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': DOMAIN
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Song Notation',
+                'item': `${DOMAIN}/notations`
+              },
+              {
+                '@type': 'ListItem',
+                'position': 3,
+                'name': 'Bombay Theme Flute Notes',
+                'item': canonicalUrl
+              }
+            ]
+          },
+          {
+            '@type': 'Article',
+            '@id': `${canonicalUrl}#article`,
+            'headline': 'Bombay Theme Flute Notes – Sargam & Western Notes',
+            'description': description,
+            'mainEntityOfPage': canonicalUrl,
+            'author': {
+              '@type': 'Person',
+              'name': 'Aplut',
+              'url': `${DOMAIN}/founder`
+            },
+            'publisher': {
+              '@type': 'Organization',
+              'name': 'FluteSangam',
+              'url': DOMAIN,
+              'logo': {
+                '@type': 'ImageObject',
+                'url': `${DOMAIN}/flutesangam_logo.png`
+              }
+            },
+            'datePublished': '2026-11-24T00:00:00Z',
+            'dateModified': '2026-11-24T00:00:00Z'
           }
         ]
       }

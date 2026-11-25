@@ -243,5 +243,18 @@ export const SONG_MUSICAL_ANALYSIS_DATA: Record<string, SongMusicalAnalysis> = {
     rhythmAndBreathTitle: 'Free-Flowing Expressive Alaap Cadence & Breath Placement',
     rhythmAndBreathArchitecture:
       'Unlike rigid dance tracks, the Hero (1983) flute theme breathes like a cinematic classical alaap—stretching held notes like g— and n— for emotional suspense while accelerating briskly through nDnD and SRSRSRSRSRS. Take deep, calm diaphragm breaths right after the sustained Komal Ga holds (g—) and after the dramatic descent (DP M^ gS) so every soaring phrase rings out with uninterrupted fullness.'
+  },
+  'bombay-theme-flute-notes': {
+    slug: 'bombay-theme-flute-notes',
+    heading: 'A.R. Rahman’s Soulful Composition, Expressive Meends & Bansuri Analysis: Bombay Theme',
+    ragaAndScaleTitle: 'Haunting Melodic Beauty & Blending Shuddha Ma with Tivra Ma',
+    ragaAndScaleContext:
+      'Composed by Academy Award winner A.R. Rahman and famously performed on flute by Naveen Kumar for Mani Ratnam’s 1995 film Bombay, the Bombay Theme is one of the most moving instrumental pieces in Indian cinema. Its poignant emotional depth flows from the tender dialogue between Madhya Dha (D), Pa (P), Ga (G), and deep Mandra Ni (.N), accented by soaring climbs to Taar Sa (S\') and Taar Re (R\') and a dramatic flash of Tivra Madhyam (M^) in the closing ascent. Played on a C Medium/Bass bansuri, the theme projects rich, meditative warmth.',
+    ornamentationTitle: 'Slow Descending Meends & Rapid Murki Bursts (DNS\'N, PDP, DSD)',
+    ornamentationAndArticulation:
+      'The magic of the Bombay Theme lies in balancing patient, vocal-like glides with sudden crisp ornaments. On the opening DP and after Taar Re (R\'), slide slowly and gently down to Pa (P) without breaking the air stream. Contrast those languid meends with light, swift finger articulation on DNS\'N—, PDP, DSD, and the rippling Ma–Ga trills (MGMGMGM— and GMGMGMGM) so every phrase sounds heartfelt and expressive.',
+    rhythmAndBreathTitle: 'Slow Emotional Pacing & Seamless Octave Control',
+    rhythmAndBreathArchitecture:
+      'Rather than rushing through the notes, let the Bombay Theme breathe at a calm 65–80 BPM pace. Sustain long holds like DNS\'N—, MR—, G—, and .N— with steady diaphragm support, soften your embouchure slightly when dipping down to Mandra Ni (.N), and focus your air stream cleanly when lifting to Taar Sa (S\') and Taar Re (R\').'
   }
 };
