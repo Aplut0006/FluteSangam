@@ -77,6 +77,7 @@ import { TujheDekhaToNotationView } from '../components/TujheDekhaToNotationView
 import { YehShaamMastaniNotationView } from '../components/YehShaamMastaniNotationView';
 import { Hero1983FluteThemeNotationView } from '../components/Hero1983FluteThemeNotationView';
 import { BombayThemeFluteNotationView } from '../components/BombayThemeFluteNotationView';
+import { ZaraZaraNotationView } from '../components/ZaraZaraNotationView';
 import { CommunityFeedView } from '../components/CommunityFeedView';
 import PostDetailView from '../components/PostDetailView';
 import NotFoundView from '../components/NotFoundView';
@@ -2765,6 +2766,71 @@ export async function getRouteMetadata(path: string): Promise<RouteMetadata> {
             },
             'datePublished': '2026-11-24T00:00:00Z',
             'dateModified': '2026-11-24T00:00:00Z'
+          }
+        ]
+      }
+    };
+  }
+
+  if (cleanPath === '/notations/zara-zara-flute-notes') {
+    const title = 'Zara Zara Flute Notes | Sargam & Western Notation';
+    const description = "Learn Zara Zara flute notes from Rehnaa Hai Terre Dil Mein with Sargam and Western notation. Practice Bombay Jayashri's beautiful melody with octave markings and helpful flute-playing tips.";
+    const canonicalUrl = `${DOMAIN}/notations/zara-zara-flute-notes`;
+    return {
+      title,
+      description,
+      canonicalUrl,
+      component: ZaraZaraNotationView,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          createWebPageSchema(canonicalUrl, title, description),
+          {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': DOMAIN
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Song Notation',
+                'item': `${DOMAIN}/notations`
+              },
+              {
+                '@type': 'ListItem',
+                'position': 3,
+                'name': 'Zara Zara Flute Notes',
+                'item': canonicalUrl
+              }
+            ]
+          },
+          {
+            '@type': 'Article',
+            '@id': `${canonicalUrl}#article`,
+            'headline': 'Zara Zara Flute Notes – Sargam & Western Notes',
+            'description': description,
+            'mainEntityOfPage': canonicalUrl,
+            'author': {
+              '@type': 'Person',
+              'name': 'Aplut',
+              'url': `${DOMAIN}/founder`
+            },
+            'publisher': {
+              '@type': 'Organization',
+              'name': 'FluteSangam',
+              'url': DOMAIN,
+              'logo': {
+                '@type': 'ImageObject',
+                'url': `${DOMAIN}/flutesangam_logo.png`
+              }
+            },
+            'datePublished': '2026-11-25T00:00:00Z',
+            'dateModified': '2026-11-25T00:00:00Z'
           }
         ]
       }

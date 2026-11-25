@@ -256,5 +256,18 @@ export const SONG_MUSICAL_ANALYSIS_DATA: Record<string, SongMusicalAnalysis> = {
     rhythmAndBreathTitle: 'Slow Emotional Pacing & Seamless Octave Control',
     rhythmAndBreathArchitecture:
       'Rather than rushing through the notes, let the Bombay Theme breathe at a calm 65–80 BPM pace. Sustain long holds like DNS\'N—, MR—, G—, and .N— with steady diaphragm support, soften your embouchure slightly when dipping down to Mandra Ni (.N), and focus your air stream cleanly when lifting to Taar Sa (S\') and Taar Re (R\').'
+  },
+  'zara-zara-flute-notes': {
+    slug: 'zara-zara-flute-notes',
+    heading: 'Harris Jayaraj’s Sultry Rain Melody, Iconic Flute Solo & Bansuri Analysis: Zara Zara',
+    ragaAndScaleTitle: 'Classical Shades of Raga Yaman & Bilawal with Iconic Monsoon Mood',
+    ragaAndScaleContext:
+      'Composed by Harris Jayaraj and rendered memorably by Carnatic vocalist Bombay Jayashri for Rehnaa Hai Terre Dil Mein (2001), Zara Zara is famous among flutists worldwide for both its hauntingly romantic vocal lines and its unforgettable bamboo flute interlude. Opening intimately in the lower octave (.N S, .D .P) before blossoming upwards to Taar Sa (S\') with dramatic touches of Tivra Madhyam (M^) on "Sanam" and "Door Kahin Na Jaa", the song feels tailor-made for a warm G Bass or C Medium bansuri.',
+    ornamentationTitle: 'Finger-Tapping Khatka on Flute Music (GGG & SSSS) & Expressive Kan Swaras',
+    ornamentationAndArticulation:
+      'What makes Zara Zara truly come alive on bamboo flute is crisp finger-tapping articulation during the famous flute interlude: gently tap Re while sustaining GGG, and lightly tap Mandra Ni (.N) while playing SSSS to recreate the original studio bansuri shimmer. In the vocal verses, weave soft kan swara grace notes—{.D} on "Baahon", {N} and {D} on "Kasam" and "Sanam", and {R} on "Mein"—to mirror Bombay Jayashri’s silky vocal glides.',
+    rhythmAndBreathTitle: 'Swaying Rain Rhythm & Low-to-High Octave Transition',
+    rhythmAndBreathArchitecture:
+      'Zara Zara flows on a hypnotic, swaying rhythm that contrasts hushed lower-octave intimacy (.P, .D, .N) in the Sthayi with passionate soaring lines up to Taar Sa (S\') in "Hai Meri Kasam" and "Hum Soye Rahe". Use a relaxed, open embouchure for the Mandra phrases so .P and .D resonate warmly, then narrow your air column smoothly as you lift into D S\' without forcing volume.'
   }
 };

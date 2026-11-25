@@ -94,6 +94,7 @@ const TujheDekhaToNotationView = lazyWithRetry(() => import('./components/TujheD
 const YehShaamMastaniNotationView = lazyWithRetry(() => import('./components/YehShaamMastaniNotationView').then(m => ({ default: m.YehShaamMastaniNotationView })));
 const Hero1983FluteThemeNotationView = lazyWithRetry(() => import('./components/Hero1983FluteThemeNotationView').then(m => ({ default: m.Hero1983FluteThemeNotationView })));
 const BombayThemeFluteNotationView = lazyWithRetry(() => import('./components/BombayThemeFluteNotationView').then(m => ({ default: m.BombayThemeFluteNotationView })));
+const ZaraZaraNotationView = lazyWithRetry(() => import('./components/ZaraZaraNotationView').then(m => ({ default: m.ZaraZaraNotationView })));
 const PrivacyPolicyView = lazyWithRetry(() => import('./components/PrivacyPolicyView'));
 const TermsOfServiceView = lazyWithRetry(() => import('./components/TermsOfServiceView'));
 const CopyrightPolicyView = lazyWithRetry(() => import('./components/CopyrightPolicyView'));
@@ -243,6 +244,7 @@ export default function App() {
     if (cleanPath === '/notations/yeh-shaam-mastani-flute-notes') return 'notation_yeh_shaam_mastani';
     if (cleanPath === '/notations/hero-1983-flute-theme-notes') return 'notation_hero_1983_flute_theme';
     if (cleanPath === '/notations/bombay-theme-flute-notes') return 'notation_bombay_theme';
+    if (cleanPath === '/notations/zara-zara-flute-notes') return 'notation_zara_zara';
     if (cleanPath.startsWith('/post/')) return 'post-detail';
     if (cleanPath.startsWith('/profile/')) return 'user-profile';
     
@@ -557,6 +559,10 @@ export default function App() {
       case 'notation_bombay_theme':
         title = 'Bombay Theme Flute Notes | Sargam & Western';
         description = 'Learn to play the beautiful Bombay Theme by A.R. Rahman on flute. Explore easy bansuri notes and musical notation to practice this iconic melody.';
+        break;
+      case 'notation_zara_zara':
+        title = 'Zara Zara Flute Notes | Sargam & Western Notation';
+        description = "Learn Zara Zara flute notes from Rehnaa Hai Terre Dil Mein with Sargam and Western notation. Practice Bombay Jayashri's beautiful melody with octave markings and helpful flute-playing tips.";
         break;
       case 'community_members':
         title = 'Community Members | FluteSangam';
@@ -1576,6 +1582,8 @@ export default function App() {
                 handleViewChange('notation_hero_1983_flute_theme');
               } else if (slug === 'bombay-theme-flute-notes') {
                 handleViewChange('notation_bombay_theme');
+              } else if (slug === 'zara-zara-flute-notes') {
+                handleViewChange('notation_zara_zara');
               }
             }}
           />
@@ -1617,6 +1625,8 @@ export default function App() {
           <Hero1983FluteThemeNotationView onViewChange={handleViewChange} />
         ) : currentView === 'notation_bombay_theme' ? (
           <BombayThemeFluteNotationView onViewChange={handleViewChange} />
+        ) : currentView === 'notation_zara_zara' ? (
+          <ZaraZaraNotationView onViewChange={handleViewChange} />
         ) : currentView === 'community_members' ? (
           <MembersView 
             currentUser={currentUser} 

@@ -4127,6 +4127,460 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       { name: 'Flute Note and Key Converter', url: '/tools/flute-note-key-converter', viewKey: 'note_key_converter' },
       { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' }
     ]
+  },
+  {
+    id: 'zara-zara-flute-notes',
+    slug: 'zara-zara-flute-notes',
+    title: 'Zara Zara Flute Notes',
+    category: 'Hindi/Bollywood',
+    movie: 'Rehnaa Hai Terre Dil Mein (2001)',
+    singer: 'Bombay Jayashri | Music: Harris Jayaraj',
+    type: 'Romantic Bollywood Melody & Iconic Flute Solo',
+    difficulty: 'Intermediate',
+    suggestedFlute: 'G Bass / C Medium',
+    startingSwar: 'Mandra Ni (.N)',
+    highestSwar: "Taar Sa (S')",
+    mainChallenge: 'Deep lower-octave control (.P, .D, .N), seamless switching between Shuddha Ma (M) and Tivra Ma (M^), kan swara touches ({.D}, {N}, {D}, {R}), and authentic finger-tapping articulation during the famous flute interlude (GGG & SSSS)',
+    practiceSpeed: '72 - 86 BPM (Flowing Romantic Tempo)',
+    notationFormats: "Indian Sargam (.P .D .N S R G M M^ P D N S') & Western (.G .A .B C D E F F# G A B C')",
+    description: "Learn Zara Zara flute notes from Rehnaa Hai Terre Dil Mein with Sargam and Western notation. Includes the full vocal melody, the iconic flute music interlude with finger-tapping tips, octave markings, and step-by-step bansuri guidance.",
+    status: 'published',
+    publishedDate: '2026-11-25',
+    updatedDate: '2026-11-25',
+    canonicalUrl: 'https://flutesangam.com/notations/zara-zara-flute-notes',
+    h1: 'Zara Zara Flute Notes – Sargam & Western Notes',
+    metaTitle: 'Zara Zara Flute Notes | Sargam & Western Notation',
+    metaDescription: "Learn Zara Zara flute notes from Rehnaa Hai Terre Dil Mein with Sargam and Western notation. Practice Bombay Jayashri's beautiful melody with octave markings and helpful flute-playing tips.",
+    intro: 'Zara Zara from Rehnaa Hai Terre Dil Mein (2001)—composed by Harris Jayaraj and sung with mesmerizing grace by Bombay Jayashri—is one of the most beloved Bollywood melodies ever written for the bamboo flute. Opening softly in the lower Mandra octave (.NS .NS) before soaring emotionally to Taar Sa (S\') with shimmering touches of Tivra Ma (M^) and featuring one of Indian cinema’s most iconic flute interludes, this rain-drenched classic is a must-learn piece for bansuri players. Below you will find phrase-by-phrase Sargam and Western notations along with step-by-step fingering and breath tips.',
+    quickInfo: {
+      difficulty: 'Intermediate',
+      melodyType: 'Romantic Bollywood Song & Iconic Flute Interlude',
+      suggestedFlute: 'G Bass / C Medium',
+      startingSwar: 'Mandra Ni (.N)',
+      highestSwar: "Taar Sa (S')",
+      mainChallenge: 'Mandra .P/.D/.N breath control, Shuddha Ma (M) vs Tivra Ma (M^), kan swaras ({.D}, {N}, {D}, {R}), and Re/.N finger-tapping in the flute solo',
+      practiceSpeed: '72 - 86 BPM (Smooth Romantic Sway)'
+    },
+    legend: [
+      { symbol: '.P, .D, .N', meaning: 'Mandra Saptak (Lower Octave Pa, Dha, Ni — soft, warm airflow)' },
+      { symbol: 'S, R, G, M, P, D, N', meaning: 'Madhya Saptak (Middle Octave Shuddha / natural swaras)' },
+      { symbol: 'M^', meaning: 'Tivra Madhyam (Sharp 4th / F# — top hole lifted/half-opened depending on flute grip)' },
+      { symbol: "S'", meaning: 'Taar Saptak (High Octave Sa — focused, steady air stream)' },
+      { symbol: '{.D} / {N} / {D} / {R}', meaning: 'Kan Swara / Grace touch (quick, delicate finger tap ornament)' },
+      { symbol: '—', meaning: 'Sustain / hold the note smoothly with steady breath' },
+      { symbol: 'Relative Sa = C', meaning: "Western notes mapped with .P = .G, .D = .A, .N = .B, Sa = C, Re = D, Ga = E, Ma = F, M^ = F#, Pa = G, Dha = A, Ni = B, S' = C'" }
+    ],
+    phrases: [
+      {
+        phraseNumber: 1,
+        lyric: 'Zara Zara Behekta Hai Mehekta Hai',
+        sargamNotes: '.NS .NS | S.NS R.NS | S.NS R.NS',
+        westernNotes: '.BC .BC | C.BC D.BC | C.BC D.BC',
+        units: [
+          { lyric: 'Zara Zara', sargam: '.NS .NS', western: '.BC .BC' },
+          { lyric: 'Behekta Hai', sargam: 'S.NS R.NS', western: 'C.BC D.BC' },
+          { lyric: 'Mehekta Hai', sargam: 'S.NS R.NS', western: 'C.BC D.BC' }
+        ],
+        guidance: 'Begin gently on Mandra Ni (.N) moving smoothly into Madhya Sa (S). Keep your breath hushed and silky across the undulating S.NS R.NS motifs.'
+      },
+      {
+        phraseNumber: 2,
+        lyric: 'Aaj To Mera Tan Badan',
+        sargamNotes: '.NG RG | S.N | S.NS',
+        westernNotes: '.BE DE | C.B | C.BC',
+        units: [
+          { lyric: 'Aaj To', sargam: '.NG RG', western: '.BE DE' },
+          { lyric: 'Mera', sargam: 'S.N', western: 'C.B' },
+          { lyric: 'Tan Badan', sargam: 'S.NS', western: 'C.BC' }
+        ],
+        guidance: 'Glide smoothly from Mandra Ni (.N) up to Madhya Ga (.NG) without cracking the tone, then relax back through RG S.N S.NS.'
+      },
+      {
+        phraseNumber: 3,
+        lyric: 'Main Pyasi Hoon Mujhe Bhar Le',
+        sargamNotes: 'S.NS R.NS | S.NS R.NS',
+        westernNotes: 'C.BC D.BC | C.BC D.BC',
+        units: [
+          { lyric: 'Main Pyasi Hoon', sargam: 'S.NS R.NS', western: 'C.BC D.BC' },
+          { lyric: 'Mujhe Bhar Le', sargam: 'S.NS R.NS', western: 'C.BC D.BC' }
+        ],
+        guidance: 'Mirror the tender swaying rhythm of Line 1 with soft legato phrasing and minimal finger lifting.'
+      },
+      {
+        phraseNumber: 4,
+        lyric: 'Apni Baahon Mein',
+        sargamNotes: '.D.D | S.N{.D}N | .D.P',
+        westernNotes: '.A.A | C.B(.A)B | .A.G',
+        units: [
+          { lyric: 'Apni', sargam: '.D.D', western: '.A.A' },
+          { lyric: 'Baahon', sargam: 'S.N{.D}N', western: 'C.B(.A)B' },
+          { lyric: 'Mein', sargam: '.D.P', western: '.A.G' }
+        ],
+        guidance: 'Soften your air stream for deep Mandra Dha (.D) and Mandra Pa (.P). Apply a delicate {.D} kan swara grace flick on "Baahon" before landing warmly on .D.P.'
+      },
+      {
+        phraseNumber: 5,
+        lyric: '(Repeat First 4 Lines Again)',
+        sargamNotes: '(Repeat Lines 1 to 4 again)',
+        westernNotes: '(Repeat Lines 1 to 4 again)',
+        units: [
+          { lyric: 'Repeat Lines 1–4', sargam: 'Lines 1–4', western: 'Lines 1–4' }
+        ],
+        guidance: 'Repeat the entire opening Sthayi (Lines 1–4) with extra warmth and seamless breath flow before lifting into the high-register chorus.'
+      },
+      {
+        phraseNumber: 6,
+        lyric: 'Hai Meri Kasam Tujhko Sanam',
+        sargamNotes: "D DS' | ND{N}DP | PPN | D P{D}P M^",
+        westernNotes: "A AC' | BA(B)AG | GGB | A G(A)G F#",
+        units: [
+          { lyric: 'Hai', sargam: 'D', western: 'A' },
+          { lyric: 'Meri', sargam: "DS'", western: "AC'" },
+          { lyric: 'Kasam', sargam: 'ND{N}DP', western: 'BA(B)AG' },
+          { lyric: 'Tujhko', sargam: 'PPN', western: 'GGB' },
+          { lyric: 'Sanam', sargam: 'D P{D}P M^', western: 'A G(A)G F#' }
+        ],
+        guidance: "Focus your airstream cleanly for the expressive leap up to Taar Sa (DS'). Keep {N} and {D} as feather-light grace touches and land cleanly on Tivra Ma (M^ / F#) on 'Sanam'."
+      },
+      {
+        phraseNumber: 7,
+        lyric: 'Door Kahin Na Jaa',
+        sargamNotes: 'M^ P M^ G | N— D',
+        westernNotes: 'F# G F# E | B— A',
+        units: [
+          { lyric: 'Door Kahin', sargam: 'M^ P M^ G', western: 'F# G F# E' },
+          { lyric: 'Na Jaa', sargam: 'N— D', western: 'B— A' }
+        ],
+        guidance: 'Highlight the luminous Tivra Ma (M^) phrasing in M^ P M^ G, then sustain Shuddha Ni (N—) with gentle emotional vibrato before resolving onto Dha (D).'
+      },
+      {
+        phraseNumber: 8,
+        lyric: 'Yeh Doori Kehti Hai',
+        sargamNotes: "D | S' ND{N}DP | PPND | P{D}P M^",
+        westernNotes: "A | C' BA(B)AG | GGBA | G(A)G F#",
+        units: [
+          { lyric: 'Yeh', sargam: 'D', western: 'A' },
+          { lyric: 'Doori', sargam: "S' ND{N}DP", western: "C' BA(B)AG" },
+          { lyric: 'Kehti', sargam: 'PPND', western: 'GGBA' },
+          { lyric: 'Hai', sargam: 'P{D}P M^', western: 'G(A)G F#' }
+        ],
+        guidance: "Float cleanly up to Taar Sa (S') on 'Doori' and keep the descending ornaments ND{N}DP and P{D}P M^ fluid and vocal-like."
+      },
+      {
+        phraseNumber: 9,
+        lyric: 'Paas Mere Aaja Re',
+        sargamNotes: "M^ P M^ G | N— S'N D",
+        westernNotes: "F# G F# E | B— C'B A",
+        units: [
+          { lyric: 'Paas Mere', sargam: 'M^ P M^ G', western: 'F# G F# E' },
+          { lyric: 'Aaja Re', sargam: "N— S'N D", western: "B— C'B A" }
+        ],
+        guidance: "Hold N— expressively and roll smoothly through S'N D to close the chorus hook with graceful poise."
+      },
+      {
+        phraseNumber: 10,
+        lyric: 'Flute Music — Part 1 (while playing GGG keep tapping Re)',
+        sargamNotes: 'GGG RS.N .NSR S.N.D',
+        westernNotes: 'EEE DC.B .BCD C.B.A',
+        units: [
+          { lyric: '', sargam: 'GGG', western: 'EEE' },
+          { lyric: '', sargam: 'RS.N', western: 'DC.B' },
+          { lyric: '', sargam: '.NSR', western: '.BCD' },
+          { lyric: '', sargam: 'S.N.D', western: 'C.B.A' }
+        ],
+        guidance: 'While playing GGG, lightly tap the Re finger hole rapidly to articulate each Ga cleanly without harsh tonguing, then flow seamlessly through RS.N .NSR S.N.D.'
+      },
+      {
+        phraseNumber: 11,
+        lyric: 'Flute Music — Part 2',
+        sargamNotes: 'SR GGG PG RS.N .NSR S.N.D',
+        westernNotes: 'CD EEE GE DC.B .BCD C.B.A',
+        units: [
+          { lyric: '', sargam: 'SR', western: 'CD' },
+          { lyric: '', sargam: 'GGG', western: 'EEE' },
+          { lyric: '', sargam: 'PG', western: 'GE' },
+          { lyric: '', sargam: 'RS.N', western: 'DC.B' },
+          { lyric: '', sargam: '.NSR', western: '.BCD' },
+          { lyric: '', sargam: 'S.N.D', western: 'C.B.A' }
+        ],
+        guidance: 'Lead in with a brisk SR pickup, keep the Re-tapping sparkle on GGG, touch Pa cleanly on PG, and descend warmly to Mandra Dha (.D).'
+      },
+      {
+        phraseNumber: 12,
+        lyric: 'Flute Music — Part 3 (while playing SSSS keep tapping Ni (.N))',
+        sargamNotes: '.D SSSS RRRR G— PD',
+        westernNotes: '.A CCCC DDDD E— GA',
+        units: [
+          { lyric: '', sargam: '.D', western: '.A' },
+          { lyric: '', sargam: 'SSSS', western: 'CCCC' },
+          { lyric: '', sargam: 'RRRR', western: 'DDDD' },
+          { lyric: '', sargam: 'G—', western: 'E—' },
+          { lyric: '', sargam: 'PD', western: 'GA' }
+        ],
+        guidance: 'While playing SSSS, keep tapping the Mandra Ni (.N) finger hole softly for authentic bansuri articulation. Repeat the bouncy light taps across RRRR, hold G— warmly, and lift into PD.'
+      },
+      {
+        phraseNumber: 13,
+        lyric: 'Flute Music — Part 4',
+        sargamNotes: 'N D PMG MGRM RS.N',
+        westernNotes: 'B A GFE FEDF DC.B',
+        units: [
+          { lyric: '', sargam: 'N', western: 'B' },
+          { lyric: '', sargam: 'D', western: 'A' },
+          { lyric: '', sargam: 'PMG', western: 'GFE' },
+          { lyric: '', sargam: 'MGRM', western: 'FEDF' },
+          { lyric: '', sargam: 'RS.N', western: 'DC.B' }
+        ],
+        guidance: 'Use Shuddha Ma (M / half-hole) cleanly through PMG and MGRM, keeping the cascading descent smooth and unhurried down to .N.'
+      },
+      {
+        phraseNumber: 14,
+        lyric: 'Yuhi Baras Baras Kaali Ghata Barse',
+        sargamNotes: '.DS RG RG RG RMG S.N',
+        westernNotes: '.AC DE DE DE DFE C.B',
+        units: [
+          { lyric: 'Yuhi', sargam: '.DS', western: '.AC' },
+          { lyric: 'Baras', sargam: 'RG', western: 'DE' },
+          { lyric: 'Baras', sargam: 'RG', western: 'DE' },
+          { lyric: 'Kaali', sargam: 'RG', western: 'DE' },
+          { lyric: 'Ghata', sargam: 'RMG', western: 'DFE' },
+          { lyric: 'Barse', sargam: 'S.N', western: 'C.B' }
+        ],
+        guidance: 'Keep the repeated RG pulses light and rhythmic like falling raindrops, touching Shuddha Ma smoothly on "Ghata" (RMG).'
+      },
+      {
+        phraseNumber: 15,
+        lyric: 'Hum Yaar Bheeg Jaaye',
+        sargamNotes: '.NR RG SS .NS.N.D',
+        westernNotes: '.BD DE CC .BC.B.A',
+        units: [
+          { lyric: 'Hum', sargam: '.NR', western: '.BD' },
+          { lyric: 'Yaar', sargam: 'RG', western: 'DE' },
+          { lyric: 'Bheeg', sargam: 'SS', western: 'CC' },
+          { lyric: 'Jaaye', sargam: '.NS.N.D', western: '.BC.B.A' }
+        ],
+        guidance: 'Articulate SS gently and let the closing .NS.N.D curl softly down into Mandra Dha (.D).'
+      },
+      {
+        phraseNumber: 16,
+        lyric: 'Is Chahat Ki Baarish Mein',
+        sargamNotes: '.DR RRRR .N .NRGM {R}G',
+        westernNotes: '.AD DDDD .B .BDEF (D)E',
+        units: [
+          { lyric: 'Is', sargam: '.DR', western: '.AD' },
+          { lyric: 'Chahat', sargam: 'RRRR', western: 'DDDD' },
+          { lyric: 'Ki', sargam: '.N', western: '.B' },
+          { lyric: 'Baarish', sargam: '.NRGM', western: '.BDEF' },
+          { lyric: 'Mein', sargam: '{R}G', western: '(D)E' }
+        ],
+        guidance: 'Articulate RRRR cleanly with light finger taps, rise smoothly across .NRGM, and finish with a soft {R} grace note landing on Ga.'
+      },
+      {
+        phraseNumber: 17,
+        lyric: 'Meri Khuli Khuli Laton Ko Suljhaaye',
+        sargamNotes: '.DS RG RG RG RPG S.N',
+        westernNotes: '.AC DE DE DE DGE C.B',
+        units: [
+          { lyric: 'Meri', sargam: '.DS', western: '.AC' },
+          { lyric: 'Khuli', sargam: 'RG', western: 'DE' },
+          { lyric: 'Khuli', sargam: 'RG', western: 'DE' },
+          { lyric: 'Laton', sargam: 'RG', western: 'DE' },
+          { lyric: 'Ko', sargam: 'RPG', western: 'DGE' },
+          { lyric: 'Suljhaaye', sargam: 'S.N', western: 'C.B' }
+        ],
+        guidance: 'Notice the bright leap to Pa on "Ko" (RPG) compared to Line 14—keep the jump crisp and resonant before settling onto S.N.'
+      },
+      {
+        phraseNumber: 18,
+        lyric: 'Tu Apni Ungliyon Se',
+        sargamNotes: '.NR RRRG SS .NS.N.D',
+        westernNotes: '.BD DDDE CC .BC.B.A',
+        units: [
+          { lyric: 'Tu', sargam: '.NR', western: '.BD' },
+          { lyric: 'Apni', sargam: 'RRRG', western: 'DDDE' },
+          { lyric: 'Ungliyon', sargam: 'SS', western: 'CC' },
+          { lyric: 'Se', sargam: '.NS.N.D', western: '.BC.B.A' }
+        ],
+        guidance: 'Keep RRRG even and gentle, then glide smoothly down through SS .NS.N.D.'
+      },
+      {
+        phraseNumber: 19,
+        lyric: 'Main To Hoon Isi Khwaayish Mein',
+        sargamNotes: '.DR RRR R .N .NRGM {R}G',
+        westernNotes: '.AD DDD D .B .BDEF (D)E',
+        units: [
+          { lyric: 'Main To', sargam: '.DR', western: '.AD' },
+          { lyric: 'Hoon', sargam: 'RRR', western: 'DDD' },
+          { lyric: 'Isi', sargam: 'R .N', western: 'D .B' },
+          { lyric: 'Khwaayish', sargam: '.NRGM', western: '.BDEF' },
+          { lyric: 'Mein', sargam: '{R}G', western: '(D)E' }
+        ],
+        guidance: 'Match the expressive phrasing of Line 16, letting the {R}G ornament ring softly before opening into the soaring climax.'
+      },
+      {
+        phraseNumber: 20,
+        lyric: 'Sardi Ki Raaton Mein',
+        sargamNotes: 'GDD GG | GNN GG',
+        westernNotes: 'EAA EE | EBB EE',
+        units: [
+          { lyric: 'Sardi Ki', sargam: 'GDD GG', western: 'EAA EE' },
+          { lyric: 'Raaton Mein', sargam: 'GNN GG', western: 'EBB EE' }
+        ],
+        guidance: 'Play the wide expressive leaps from Ga up to Dha (GDD) and Ga up to Ni (GNN) with steady, warm breath so the jumps sound velvety rather than abrupt.'
+      },
+      {
+        phraseNumber: 21,
+        lyric: 'Hum Soye Rahe Ek Chaadar Mein',
+        sargamNotes: "G S'S' S'N | ND DP DP DG",
+        westernNotes: "E C'C' C'B | BA AG AG AE",
+        units: [
+          { lyric: 'Hum', sargam: 'G', western: 'E' },
+          { lyric: 'Soye', sargam: "S'S'", western: "C'C'" },
+          { lyric: 'Rahe', sargam: "S'N", western: "C'B" },
+          { lyric: 'Ek', sargam: 'ND', western: 'BA' },
+          { lyric: 'Chaadar', sargam: 'DP DP', western: 'AG AG' },
+          { lyric: 'Mein', sargam: 'DG', western: 'AE' }
+        ],
+        guidance: "Focus your embouchure slightly narrower for the leap from Ga to Taar Sa (G S'S'), then cascade warmly through S'N ND DP DP DG."
+      },
+      {
+        phraseNumber: 22,
+        lyric: 'Hum Dono Tanha Ho',
+        sargamNotes: 'GDD GG | GPP R',
+        westernNotes: 'EAA EE | EGG D',
+        units: [
+          { lyric: 'Hum Dono', sargam: 'GDD GG', western: 'EAA EE' },
+          { lyric: 'Tanha', sargam: 'GPP', western: 'EGG' },
+          { lyric: 'Ho', sargam: 'R', western: 'D' }
+        ],
+        guidance: 'Keep the GDD GG and GPP leaps smooth and resonant, landing delicately on Re (R).'
+      },
+      {
+        phraseNumber: 23,
+        lyric: 'Na Koi Bhi Rahe Is Ghar Mein',
+        sargamNotes: 'R MMG GS | .N.NSR.N',
+        westernNotes: 'D FFE EC | .B.BCD.B',
+        units: [
+          { lyric: 'Na', sargam: 'R', western: 'D' },
+          { lyric: 'Koi Bhi', sargam: 'MMG', western: 'FFE' },
+          { lyric: 'Rahe', sargam: 'GS', western: 'EC' },
+          { lyric: 'Is Ghar Mein', sargam: '.N.NSR.N', western: '.B.BCD.B' }
+        ],
+        guidance: 'Use Shuddha Ma (M) cleanly on "Koi Bhi" (MMG) and wind down gracefully through .N.NSR.N directly back into the opening Sthayi.'
+      },
+      {
+        phraseNumber: 24,
+        lyric: '(Again Repeat Lines 1 to 4)',
+        sargamNotes: '(Repeat Lines 1 to 4 again)',
+        westernNotes: '(Repeat Lines 1 to 4 again)',
+        units: [
+          { lyric: 'Repeat Lines 1–4', sargam: 'Lines 1–4', western: 'Lines 1–4' }
+        ],
+        guidance: 'Return smoothly to "Zara Zara Behekta Hai..." (Lines 1–4) and conclude on the hushed Mandra .D.P resolution.'
+      }
+    ],
+    sargamPhrases: [
+      { phraseNumber: 1, notes: '.NS .NS | S.NS R.NS | S.NS R.NS', lyric: 'Zara Zara Behekta Hai Mehekta Hai' },
+      { phraseNumber: 2, notes: '.NG RG | S.N | S.NS', lyric: 'Aaj To Mera Tan Badan' },
+      { phraseNumber: 3, notes: 'S.NS R.NS | S.NS R.NS', lyric: 'Main Pyasi Hoon Mujhe Bhar Le' },
+      { phraseNumber: 4, notes: '.D.D | S.N{.D}N | .D.P', lyric: 'Apni Baahon Mein' },
+      { phraseNumber: 5, notes: '(Repeat Lines 1 to 4 again)', lyric: 'Repeat First 4 Lines' },
+      { phraseNumber: 6, notes: "D DS' | ND{N}DP | PPN | D P{D}P M^", lyric: 'Hai Meri Kasam Tujhko Sanam' },
+      { phraseNumber: 7, notes: 'M^ P M^ G | N— D', lyric: 'Door Kahin Na Jaa' },
+      { phraseNumber: 8, notes: "D | S' ND{N}DP | PPND | P{D}P M^", lyric: 'Yeh Doori Kehti Hai' },
+      { phraseNumber: 9, notes: "M^ P M^ G | N— S'N D", lyric: 'Paas Mere Aaja Re' },
+      { phraseNumber: 10, notes: 'GGG RS.N .NSR S.N.D', lyric: 'Flute Music 1 (keep tapping Re on GGG)' },
+      { phraseNumber: 11, notes: 'SR GGG PG RS.N .NSR S.N.D', lyric: 'Flute Music 2' },
+      { phraseNumber: 12, notes: '.D SSSS RRRR G— PD', lyric: 'Flute Music 3 (keep tapping .N on SSSS)' },
+      { phraseNumber: 13, notes: 'N D PMG MGRM RS.N', lyric: 'Flute Music 4' },
+      { phraseNumber: 14, notes: '.DS RG RG RG RMG S.N', lyric: 'Yuhi Baras Baras Kaali Ghata Barse' },
+      { phraseNumber: 15, notes: '.NR RG SS .NS.N.D', lyric: 'Hum Yaar Bheeg Jaaye' },
+      { phraseNumber: 16, notes: '.DR RRRR .N .NRGM {R}G', lyric: 'Is Chahat Ki Baarish Mein' },
+      { phraseNumber: 17, notes: '.DS RG RG RG RPG S.N', lyric: 'Meri Khuli Khuli Laton Ko Suljhaaye' },
+      { phraseNumber: 18, notes: '.NR RRRG SS .NS.N.D', lyric: 'Tu Apni Ungliyon Se' },
+      { phraseNumber: 19, notes: '.DR RRR R .N .NRGM {R}G', lyric: 'Main To Hoon Isi Khwaayish Mein' },
+      { phraseNumber: 20, notes: 'GDD GG | GNN GG', lyric: 'Sardi Ki Raaton Mein' },
+      { phraseNumber: 21, notes: "G S'S' S'N | ND DP DP DG", lyric: 'Hum Soye Rahe Ek Chaadar Mein' },
+      { phraseNumber: 22, notes: 'GDD GG | GPP R', lyric: 'Hum Dono Tanha Ho' },
+      { phraseNumber: 23, notes: 'R MMG GS | .N.NSR.N', lyric: 'Na Koi Bhi Rahe Is Ghar Mein' },
+      { phraseNumber: 24, notes: '(Repeat Lines 1 to 4 again)', lyric: 'Again Repeat Lines 1–4' }
+    ],
+    westernPhrases: [
+      { phraseNumber: 1, notes: '.BC .BC | C.BC D.BC | C.BC D.BC', lyric: 'Zara Zara Behekta Hai Mehekta Hai' },
+      { phraseNumber: 2, notes: '.BE DE | C.B | C.BC', lyric: 'Aaj To Mera Tan Badan' },
+      { phraseNumber: 3, notes: 'C.BC D.BC | C.BC D.BC', lyric: 'Main Pyasi Hoon Mujhe Bhar Le' },
+      { phraseNumber: 4, notes: '.A.A | C.B(.A)B | .A.G', lyric: 'Apni Baahon Mein' },
+      { phraseNumber: 5, notes: '(Repeat Lines 1 to 4 again)', lyric: 'Repeat First 4 Lines' },
+      { phraseNumber: 6, notes: "A AC' | BA(B)AG | GGB | A G(A)G F#", lyric: 'Hai Meri Kasam Tujhko Sanam' },
+      { phraseNumber: 7, notes: 'F# G F# E | B— A', lyric: 'Door Kahin Na Jaa' },
+      { phraseNumber: 8, notes: "A | C' BA(B)AG | GGBA | G(A)G F#", lyric: 'Yeh Doori Kehti Hai' },
+      { phraseNumber: 9, notes: "F# G F# E | B— C'B A", lyric: 'Paas Mere Aaja Re' },
+      { phraseNumber: 10, notes: 'EEE DC.B .BCD C.B.A', lyric: 'Flute Music 1 (tap D while playing EEE)' },
+      { phraseNumber: 11, notes: 'CD EEE GE DC.B .BCD C.B.A', lyric: 'Flute Music 2' },
+      { phraseNumber: 12, notes: '.A CCCC DDDD E— GA', lyric: 'Flute Music 3 (tap .B while playing CCCC)' },
+      { phraseNumber: 13, notes: 'B A GFE FEDF DC.B', lyric: 'Flute Music 4' },
+      { phraseNumber: 14, notes: '.AC DE DE DE DFE C.B', lyric: 'Yuhi Baras Baras Kaali Ghata Barse' },
+      { phraseNumber: 15, notes: '.BD DE CC .BC.B.A', lyric: 'Hum Yaar Bheeg Jaaye' },
+      { phraseNumber: 16, notes: '.AD DDDD .B .BDEF (D)E', lyric: 'Is Chahat Ki Baarish Mein' },
+      { phraseNumber: 17, notes: '.AC DE DE DE DGE C.B', lyric: 'Meri Khuli Khuli Laton Ko Suljhaaye' },
+      { phraseNumber: 18, notes: '.BD DDDE CC .BC.B.A', lyric: 'Tu Apni Ungliyon Se' },
+      { phraseNumber: 19, notes: '.AD DDD D .B .BDEF (D)E', lyric: 'Main To Hoon Isi Khwaayish Mein' },
+      { phraseNumber: 20, notes: 'EAA EE | EBB EE', lyric: 'Sardi Ki Raaton Mein' },
+      { phraseNumber: 21, notes: "E C'C' C'B | BA AG AG AE", lyric: 'Hum Soye Rahe Ek Chaadar Mein' },
+      { phraseNumber: 22, notes: 'EAA EE | EGG D', lyric: 'Hum Dono Tanha Ho' },
+      { phraseNumber: 23, notes: 'D FFE EC | .B.BCD.B', lyric: 'Na Koi Bhi Rahe Is Ghar Mein' },
+      { phraseNumber: 24, notes: '(Repeat Lines 1 to 4 again)', lyric: 'Again Repeat Lines 1–4' }
+    ],
+    phraseGuidance: [
+      { phraseNumber: 1, guidance: 'Keep the opening .NS .NS S.NS R.NS phrasing soft, warm, and unhurried.' },
+      { phraseNumber: 2, guidance: 'Step smoothly from Mandra Ni (.N) up to Ga (.NG) without over-blowing.' },
+      { phraseNumber: 3, guidance: 'Maintain steady diaphragm support across the flowing S.NS R.NS oscillations.' },
+      { phraseNumber: 4, guidance: 'Use a gentle {.D} kan swara on "Baahon" and relax your embouchure for .D.P.' },
+      { phraseNumber: 5, guidance: 'Repeat Lines 1–4 cleanly to establish the hypnotic opening groove.' },
+      { phraseNumber: 6, guidance: "Focus air cleanly for DS', weave {N} and {D} lightly, and land accurately on Tivra Ma (M^)." },
+      { phraseNumber: 7, guidance: 'Highlight M^ P M^ G and hold N— warmly before descending to D.' },
+      { phraseNumber: 8, guidance: "Mirror the delicate high-register grace touches from Line 6 on S' ND{N}DP." },
+      { phraseNumber: 9, guidance: "Hold N— expressively and resolve smoothly through S'N D." },
+      { phraseNumber: 10, guidance: 'Keep tapping the Re hole lightly while sustaining GGG to capture the signature flute solo texture.' },
+      { phraseNumber: 11, guidance: 'Connect SR GGG PG fluidly into the downward cascade RS.N .NSR S.N.D.' },
+      { phraseNumber: 12, guidance: 'Tap the Mandra Ni (.N) hole briskly while playing SSSS, then step cleanly through RRRR G— PD.' },
+      { phraseNumber: 13, guidance: 'Play Shuddha Ma (M) accurately in PMG and MGRM to close the flute solo smoothly.' },
+      { phraseNumber: 14, guidance: 'Keep the repeated RG motifs light and rhythmic like steady monsoon rain.' },
+      { phraseNumber: 15, guidance: 'Soften your breath as you descend into .NS.N.D.' },
+      { phraseNumber: 16, guidance: 'Tap RRRR cleanly and add a silky {R} kan swara landing onto Ga.' },
+      { phraseNumber: 17, guidance: 'Bring out the bright RPG ornament on "Ko" before resolving to S.N.' },
+      { phraseNumber: 18, guidance: 'Keep RRRG smooth and unhurried before settling onto .NS.N.D.' },
+      { phraseNumber: 19, guidance: 'Balance the rhythm of RRR R .N and finish gently on {R}G.' },
+      { phraseNumber: 20, guidance: 'Use smooth breath transitions on the wide GDD and GNN leaps.' },
+      { phraseNumber: 21, guidance: "Lift cleanly to Taar Sa (S'S') on 'Soye' without straining your tone." },
+      { phraseNumber: 22, guidance: 'Keep GDD GG and GPP resonant before resting gently on Re (R).' },
+      { phraseNumber: 23, guidance: 'Play Shuddha Ma (M) cleanly on MMG and glide softly back down to .N.' },
+      { phraseNumber: 24, guidance: 'Conclude by re-playing Lines 1–4 with a soft, romantic fade on .D.P.' }
+    ],
+    practiceMethod: [
+      'Begin with long-note warmups on Mandra Pa (.P), Mandra Dha (.D), and Mandra Ni (.N) against our Online Tanpura Drone (G Bass or C Medium recommended) so the hushed Sthayi opens with velvety resonance.',
+      'Practice the switch between Tivra Ma (M^ / F# in Lines 6–9) and Shuddha Ma (M / F in Lines 13, 14, 16, 19, 23) using our Online Bansuri Pitch Tuner so both Madhyam positions stay crystal clear.',
+      'Isolate the iconic Flute Music Interlude (Lines 10–13) slowly at 65 BPM: practice tapping the Re hole lightly while blowing GGG (Line 10–11) and tapping the Mandra Ni (.N) hole while blowing SSSS (Line 12) instead of hard tonguing.',
+      'Drill the kan swara ornaments—S.N{.D}N (Line 4), ND{N}DP and P{D}P M^ (Lines 6 & 8), and {R}G (Lines 16 & 19)—slowly until the grace notes sound effortless and vocal.',
+      'Work on the wide emotional leaps in the Antara climax (GDD GG, GNN GG, and G S\'S\' S\'N in Lines 20–22) with calm diaphragm support so Taar Sa (S\') sings sweetly without sounding shrill.',
+      'Combine all sections—Sthayi, Chorus, Flute Music, Antara, and Final Sthayi Repeat—with our Online Metronome at 75–82 BPM to master the complete cinematic flow of Zara Zara.'
+    ],
+    commonMistakes: [
+      'Blowing too forcefully on the opening Mandra notes (.P, .D, .N), which breaks the intimate, hushed mood of "Zara Zara Behekta Hai"',
+      'Playing Shuddha Ma (M) instead of Tivra Ma (M^) in "Sanam" and "Door Kahin Na Jaa" (Lines 6–9), or accidentally using Tivra Ma during the Shuddha Ma Antara lines',
+      'Using harsh tonguing on GGG and SSSS in the Flute Music interlude instead of light Re and .N finger tapping',
+      'Skipping the delicate kan swaras ({.D}, {N}, {D}, {R}), making the vocal melody sound flat or mechanical',
+      'Tensing the lips during the upward jumps to Taar Sa (DS\' in Line 6 and G S\'S\' in Line 21), causing pitch sharpness',
+      'Rushing the repeated RG and RRRR phrases in "Yuhi Baras Baras" instead of keeping a steady, swaying rain-like pulse'
+    ],
+    usefulTools: [
+      { name: 'Online Tanpura Drone', url: '/tools/tanpura', viewKey: 'tanpura' },
+      { name: 'Online Flute Metronome', url: '/tools/metronome', viewKey: 'metronome' },
+      { name: 'Online Bansuri Pitch Tuner', url: '/tuner', viewKey: 'learn_tuner' },
+      { name: 'Interactive Bansuri Fingering Chart', url: '/learn/fingering-chart', viewKey: 'learn_fingering_chart' },
+      { name: 'Flute Note and Key Converter', url: '/tools/flute-note-key-converter', viewKey: 'note_key_converter' },
+      { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' }
+    ]
   }
 ];
 
