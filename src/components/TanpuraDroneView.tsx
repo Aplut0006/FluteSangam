@@ -157,6 +157,14 @@ export const TanpuraDroneView: React.FC<TanpuraDroneViewProps> = ({ onViewChange
 
     engineRef.current = engine;
 
+    // Recover AudioContext cleanly if mobile OS interrupted audio while returning to tab
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        engine.resumeIfPlaying();
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
     // Keyboard Spacebar listener to toggle Tanpura
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.code === 'Space' && (e.target as HTMLElement).tagName !== 'INPUT' && (e.target as HTMLElement).tagName !== 'TEXTAREA') {
@@ -167,6 +175,7 @@ export const TanpuraDroneView: React.FC<TanpuraDroneViewProps> = ({ onViewChange
     window.addEventListener('keydown', handleKeyDown);
 
     return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
       window.removeEventListener('keydown', handleKeyDown);
       engine.destroy();
       engineRef.current = null;

@@ -1,7 +1,7 @@
 // Studio-Recorded Acoustic 4-String Tanpura Engine
-// Uses real recorded acoustic Tanpura string samples (sa_cs3.wav, pa_cs3.wav, ni_cs3.wav, kharaj_cs3.wav)
-// with the traditional Indian Tanpura cadence ([1200, 700, 700, 1100] ms) and full polyphonic ring-out
-// so all 4 strings overlap in a smooth, continuous, unbroken acoustic flow.
+// Uses real recorded acoustic Tanpura string samples (fs_string_sa.wav, fs_string_pa.wav, fs_string_ni.wav, fs_string_kharaj.wav)
+// with mobile-safe AudioContext unlocking (iOS Safari, iOS Silent-Switch playback routing, Android Chrome),
+// traditional Indian Tanpura cadence ([1200, 700, 700, 1100] ms), and full polyphonic ring-out.
 
 export type FirstStringTuning = 'Pa' | 'Ma' | 'Ni' | 'Sa';
 export type OctaveStyle = 'low' | 'medium'; // 'low' = Standard Concert Drone (C3-B3), 'medium' = Higher Register
@@ -39,6 +39,11 @@ const SAMPLE_FILES = {
 
 type SampleKey = keyof typeof SAMPLE_FILES;
 
+// Minimal valid 44-byte + 2-sample silent WAV data URI used to unlock iOS Media/Playback channel
+// so Web Audio can be heard on iPhones even when the physical Silent/Ringer switch is on.
+const SILENT_WAV_DATA_URI =
+  'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA';
+
 // Traditional 4-string configuration
 const STRING_DEFINITIONS: Array<{
   id: string;
@@ -72,22 +77,48 @@ export interface StringPluckEvent {
   time: number;
 }
 
+function decodeAudioBufferSafe(ctx: AudioContext, arrayBuffer: ArrayBuffer): Promise<AudioBuffer> {
+  // Always clone the ArrayBuffer so retries never fail on a detached buffer
+  const copy = arrayBuffer.slice(0);
+  return new Promise<AudioBuffer>((resolve, reject) => {
+    try {
+      const maybePromise = ctx.decodeAudioData(
+        copy,
+        (decoded) => resolve(decoded),
+        (err) => reject(err || new Error('decodeAudioData failed'))
+      );
+      if (maybePromise && typeof maybePromise.then === 'function') {
+        maybePromise.then(resolve, reject);
+      }
+    } catch (err) {
+      reject(err);
+    }
+  });
+}
+
 export class TanpuraEngine {
   private ctx: AudioContext | null = null;
+  private unlockAudioEl: HTMLAudioElement | null = null;
   private isPlaying = false;
   private playSessionId = 0;
   private sequenceTimer: number | null = null;
   private fadeRestoreTimer: number | null = null;
   private currentStringIndex = 0;
 
+  // Store raw WAV bytes fetched before user gesture (no AudioContext created on mount!)
+  private rawBuffers: Partial<Record<SampleKey, ArrayBuffer>> = {};
+  private rawFetchPromise: Promise<void> | null = null;
+
+  // Decoded AudioBuffers bound to the active AudioContext
   private buffers: Partial<Record<SampleKey, AudioBuffer>> = {};
-  private loadingPromise: Promise<boolean> | null = null;
+  private decodePromise: Promise<boolean> | null = null;
 
   private masterGain: GainNode | null = null;
+  private compressor: DynamicsCompressorNode | null = null;
   private warmthFilter: BiquadFilterNode | null = null;
   private brillianceFilter: BiquadFilterNode | null = null;
   private stringPanners: Array<StereoPannerNode | GainNode | null> = [null, null, null, null];
-  private activeSources = new Set<AudioBufferSourceNode>();
+  private activeSources = new Set<AudioScheduledSourceNode>();
 
   private config: TanpuraConfig;
   private onPluckCallback?: (event: StringPluckEvent) => void;
@@ -106,8 +137,9 @@ export class TanpuraEngine {
       ...initialConfig
     };
 
+    // Only pre-fetch raw WAV bytes on mount; NEVER instantiate AudioContext before a user gesture
     if (typeof window !== 'undefined') {
-      this.preloadSamples();
+      this.prefetchRawSamples();
     }
   }
 
@@ -116,7 +148,7 @@ export class TanpuraEngine {
     if (this.ctx && this.masterGain) {
       const now = this.ctx.currentTime;
       if (this.isPlaying) {
-        this.masterGain.gain.setTargetAtTime(this.config.masterVolume * 0.85, now, 0.04);
+        this.masterGain.gain.setTargetAtTime(this.config.masterVolume * 1.05, now, 0.04);
       }
       this.updateToneFilters(now);
     }
@@ -130,15 +162,77 @@ export class TanpuraEngine {
     this.onPluckCallback = cb;
   }
 
+  /**
+   * Unlocks smartphone audio channels synchronously inside a user tap/click gesture.
+   * Handles iOS 17+ audioSession, iOS hardware Silent-switch routing, and suspended/interrupted AudioContext.
+   */
+  private unlockMobileAudioSync(): AudioContext {
+    // 1. iOS 17+ Safari AudioSession API: route through Media/Playback instead of Ringer/Ambient
+    try {
+      const nav = navigator as unknown as { audioSession?: { type: string } };
+      if (nav && nav.audioSession && nav.audioSession.type !== 'playback') {
+        nav.audioSession.type = 'playback';
+      }
+    } catch {
+      // Ignore if unsupported
+    }
+
+    // 2. HTML5 <audio> silent WAV play inside gesture (switches iOS < 17 out of Ambient/Silent mute)
+    try {
+      if (typeof Audio !== 'undefined') {
+        if (!this.unlockAudioEl) {
+          const el = new Audio(SILENT_WAV_DATA_URI);
+          el.setAttribute('playsinline', 'true');
+          (el as unknown as { playsInline?: boolean }).playsInline = true;
+          el.preload = 'auto';
+          this.unlockAudioEl = el;
+        }
+        this.unlockAudioEl.currentTime = 0;
+        const playPromise = this.unlockAudioEl.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(() => {});
+        }
+      }
+    } catch {
+      // Ignore if blocked
+    }
+
+    // 3. Create or resume AudioContext synchronously inside user gesture
+    const ctx = this.getContext();
+
+    // 4. Play a 1-sample silent buffer synchronously to hardware-unlock Web Audio on iOS/Android
+    try {
+      const silentBuffer = ctx.createBuffer(1, 1, ctx.sampleRate || 44100);
+      const silentSource = ctx.createBufferSource();
+      silentSource.buffer = silentBuffer;
+      silentSource.connect(ctx.destination);
+      silentSource.start(0);
+    } catch {
+      // Ignore
+    }
+
+    return ctx;
+  }
+
   private getContext(): AudioContext {
     if (!this.ctx || this.ctx.state === 'closed') {
       const AudioContextClass =
         window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
       this.ctx = new AudioContextClass();
+      // Reset decoded buffers & audio graph if context had to be recreated
+      this.buffers = {};
+      this.masterGain = null;
+      this.compressor = null;
+      this.warmthFilter = null;
+      this.brillianceFilter = null;
+      this.stringPanners = [null, null, null, null];
     }
-    if (this.ctx.state === 'suspended') {
+
+    // Handle BOTH 'suspended' and Safari-specific 'interrupted' states
+    if (this.ctx.state !== 'running') {
       this.ctx.resume().catch(() => {});
     }
+
     return this.ctx;
   }
 
@@ -149,7 +243,7 @@ export class TanpuraEngine {
     }
 
     this.masterGain = ctx.createGain();
-    this.masterGain.gain.value = this.config.masterVolume * 0.85;
+    this.masterGain.gain.value = this.config.masterVolume * 1.05;
 
     // Gentle wooden Toomba body warmth filter
     this.warmthFilter = ctx.createBiquadFilter();
@@ -165,21 +259,38 @@ export class TanpuraEngine {
 
     this.warmthFilter.connect(this.brillianceFilter);
     this.brillianceFilter.connect(this.masterGain);
-    this.masterGain.connect(ctx.destination);
+
+    // Gentle limiter/compressor keeps audio clear on small smartphone speakers without clipping
+    if (typeof ctx.createDynamicsCompressor === 'function') {
+      this.compressor = ctx.createDynamicsCompressor();
+      this.compressor.threshold.value = -10;
+      this.compressor.knee.value = 18;
+      this.compressor.ratio.value = 3;
+      this.compressor.attack.value = 0.005;
+      this.compressor.release.value = 0.15;
+      this.masterGain.connect(this.compressor);
+      this.compressor.connect(ctx.destination);
+    } else {
+      this.masterGain.connect(ctx.destination);
+    }
 
     // Initialize stereo panners for the 4 strings
     for (let i = 0; i < 4; i++) {
       const def = STRING_DEFINITIONS[i];
-      if (ctx.createStereoPanner) {
-        const panner = ctx.createStereoPanner();
-        panner.pan.value = def.pan;
-        panner.connect(this.warmthFilter);
-        this.stringPanners[i] = panner;
-      } else {
-        const gain = ctx.createGain();
-        gain.connect(this.warmthFilter);
-        this.stringPanners[i] = gain;
+      if (typeof ctx.createStereoPanner === 'function') {
+        try {
+          const panner = ctx.createStereoPanner();
+          panner.pan.value = def.pan;
+          panner.connect(this.warmthFilter);
+          this.stringPanners[i] = panner;
+          continue;
+        } catch {
+          // Fallback to GainNode below
+        }
       }
+      const gain = ctx.createGain();
+      gain.connect(this.warmthFilter);
+      this.stringPanners[i] = gain;
     }
   }
 
@@ -201,34 +312,72 @@ export class TanpuraEngine {
     return !!(this.buffers.sa && this.buffers.pa && this.buffers.ni && this.buffers.kharaj);
   }
 
-  private preloadSamples(): Promise<boolean> {
-    if (this.samplesLoaded) {
-      return Promise.resolve(true);
+  private prefetchRawSamples(): Promise<void> {
+    const keys: SampleKey[] = ['sa', 'pa', 'ni', 'kharaj'];
+    const allRawLoaded = keys.every((k) => !!this.rawBuffers[k]);
+    if (allRawLoaded) {
+      return Promise.resolve();
     }
-    if (this.loadingPromise) {
-      return this.loadingPromise;
+    if (this.rawFetchPromise) {
+      return this.rawFetchPromise;
     }
 
-    const keys: SampleKey[] = ['sa', 'pa', 'ni', 'kharaj'];
-    this.loadingPromise = Promise.all(
+    this.rawFetchPromise = Promise.all(
       keys.map(async (key) => {
+        if (this.rawBuffers[key]) return;
         try {
           const response = await fetch(SAMPLE_FILES[key]);
           if (!response.ok) return;
-          const arrayBuffer = await response.arrayBuffer();
-          const ctx = this.getContext();
-          const decoded = await ctx.decodeAudioData(arrayBuffer);
-          this.buffers[key] = decoded;
+          this.rawBuffers[key] = await response.arrayBuffer();
         } catch {
-          // Ignore network/decode errors during preload
+          // Will retry on start() if network was briefly unavailable
         }
       })
     ).then(() => {
-      this.loadingPromise = null;
-      return this.samplesLoaded;
+      this.rawFetchPromise = null;
     });
 
-    return this.loadingPromise;
+    return this.rawFetchPromise;
+  }
+
+  private async ensureSamplesDecoded(ctx: AudioContext): Promise<boolean> {
+    if (this.samplesLoaded) {
+      return true;
+    }
+    if (this.decodePromise) {
+      return this.decodePromise;
+    }
+
+    const keys: SampleKey[] = ['sa', 'pa', 'ni', 'kharaj'];
+    this.decodePromise = (async () => {
+      await this.prefetchRawSamples();
+
+      await Promise.all(
+        keys.map(async (key) => {
+          if (this.buffers[key]) return;
+          try {
+            // Retry fetch if initial prefetch missed this sample
+            if (!this.rawBuffers[key]) {
+              const res = await fetch(SAMPLE_FILES[key]);
+              if (res.ok) {
+                this.rawBuffers[key] = await res.arrayBuffer();
+              }
+            }
+            const raw = this.rawBuffers[key];
+            if (!raw) return;
+            const decoded = await decodeAudioBufferSafe(ctx, raw);
+            this.buffers[key] = decoded;
+          } catch {
+            // Fallback synth will handle any undecodable sample gracefully
+          }
+        })
+      );
+
+      this.decodePromise = null;
+      return this.samplesLoaded;
+    })();
+
+    return this.decodePromise;
   }
 
   private randomBetween(min: number, max: number): number {
@@ -326,6 +475,62 @@ export class TanpuraEngine {
     return Math.max(120, baseGaps[stringIndex] / tempoSpeed + jitter);
   }
 
+  /**
+   * Resilient synthesized tanpura fallback if a WAV sample cannot be loaded/decoded (e.g. offline)
+   */
+  private playSynthesizedFallback(
+    ctx: AudioContext,
+    targetNode: AudioNode,
+    freq: number,
+    baseVolume: number,
+    now: number
+  ) {
+    const duration = 3.8;
+    const voiceGain = ctx.createGain();
+    voiceGain.gain.setValueAtTime(0.0001, now);
+    voiceGain.gain.linearRampToValueAtTime(baseVolume * 0.22, now + 0.08);
+    voiceGain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+    const filter = ctx.createBiquadFilter();
+    filter.type = 'lowpass';
+    filter.frequency.setValueAtTime(Math.min(2600, freq * 8), now);
+    filter.frequency.exponentialRampToValueAtTime(Math.max(320, freq * 2.2), now + duration);
+
+    const osc1 = ctx.createOscillator();
+    osc1.type = 'sawtooth';
+    osc1.frequency.setValueAtTime(freq, now);
+
+    const osc2 = ctx.createOscillator();
+    osc2.type = 'triangle';
+    osc2.frequency.setValueAtTime(freq * 2, now);
+
+    osc1.connect(filter);
+    osc2.connect(filter);
+    filter.connect(voiceGain);
+    voiceGain.connect(targetNode);
+
+    this.activeSources.add(osc1);
+    this.activeSources.add(osc2);
+
+    osc1.onended = () => {
+      this.activeSources.delete(osc1);
+      this.activeSources.delete(osc2);
+      try {
+        osc1.disconnect();
+        osc2.disconnect();
+        filter.disconnect();
+        voiceGain.disconnect();
+      } catch {
+        // Ignore cleanup errors
+      }
+    };
+
+    osc1.start(now);
+    osc2.start(now);
+    osc1.stop(now + duration);
+    osc2.stop(now + duration);
+  }
+
   private pluckString(stringIndex: number) {
     if (!this.isPlaying) return;
     this.ensureAudioGraph();
@@ -335,36 +540,39 @@ export class TanpuraEngine {
 
     const { sampleKey, playbackRate, stringLabel, displayFreq } = this.getStringSampleAndRate(stringIndex);
     const buffer = this.buffers[sampleKey];
-    if (!buffer) return;
-
     const now = ctx.currentTime;
     const def = STRING_DEFINITIONS[stringIndex];
 
-    const source = ctx.createBufferSource();
-    source.buffer = buffer;
-    source.playbackRate.setValueAtTime(playbackRate, now);
+    if (buffer) {
+      const source = ctx.createBufferSource();
+      source.buffer = buffer;
+      source.playbackRate.setValueAtTime(playbackRate, now);
 
-    const voiceGain = ctx.createGain();
-    const peakGain = def.baseVolume * this.randomBetween(0.93, 1.0);
-    voiceGain.gain.setValueAtTime(0.0001, now);
-    voiceGain.gain.linearRampToValueAtTime(peakGain, now + 0.012);
+      const voiceGain = ctx.createGain();
+      const peakGain = def.baseVolume * this.randomBetween(0.93, 1.0);
+      voiceGain.gain.setValueAtTime(0.0001, now);
+      voiceGain.gain.linearRampToValueAtTime(peakGain, now + 0.012);
 
-    source.connect(voiceGain);
-    voiceGain.connect(targetNode);
+      source.connect(voiceGain);
+      voiceGain.connect(targetNode);
 
-    this.activeSources.add(source);
-    source.onended = () => {
-      this.activeSources.delete(source);
-      try {
-        source.disconnect();
-        voiceGain.disconnect();
-      } catch {
-        // Ignore cleanup errors
-      }
-    };
+      this.activeSources.add(source);
+      source.onended = () => {
+        this.activeSources.delete(source);
+        try {
+          source.disconnect();
+          voiceGain.disconnect();
+        } catch {
+          // Ignore cleanup errors
+        }
+      };
 
-    // Let every string pluck ring out its full natural acoustic tail without cutting off previous cycles
-    source.start(now);
+      // Let every string pluck ring out its full natural acoustic tail without cutting off previous cycles
+      source.start(now);
+    } else {
+      // Never stay silent if a sample failed to fetch/decode on mobile network
+      this.playSynthesizedFallback(ctx, targetNode, displayFreq, def.baseVolume, now);
+    }
 
     if (this.onPluckCallback) {
       this.onPluckCallback({
@@ -389,8 +597,10 @@ export class TanpuraEngine {
 
   public start() {
     if (this.isPlaying) return;
+
+    // Synchronously unlock mobile audio & iOS Silent-switch channel inside the user tap gesture
+    const ctx = this.unlockMobileAudioSync();
     this.ensureAudioGraph();
-    const ctx = this.getContext();
 
     if (this.sequenceTimer !== null) {
       window.clearTimeout(this.sequenceTimer);
@@ -399,21 +609,33 @@ export class TanpuraEngine {
     if (this.fadeRestoreTimer !== null) {
       window.clearTimeout(this.fadeRestoreTimer);
       this.fadeRestoreTimer = null;
+      // Stop any lingering fading-out sources from an immediate prior stop()
+      this.activeSources.forEach((src) => {
+        try {
+          src.stop();
+          src.disconnect();
+        } catch {
+          // Ignore
+        }
+      });
+      this.activeSources.clear();
     }
 
     if (this.masterGain) {
       this.masterGain.gain.cancelScheduledValues(ctx.currentTime);
-      this.masterGain.gain.setValueAtTime(this.config.masterVolume * 0.85, ctx.currentTime);
+      this.masterGain.gain.setValueAtTime(this.config.masterVolume * 1.05, ctx.currentTime);
     }
 
     this.isPlaying = true;
     this.currentStringIndex = 0;
     const currentSession = ++this.playSessionId;
 
-    if (this.samplesLoaded) {
+    const resumePromise = ctx.state !== 'running' ? ctx.resume().catch(() => {}) : Promise.resolve();
+
+    if (this.samplesLoaded && ctx.state === 'running') {
       this.scheduleNext();
     } else {
-      this.preloadSamples().then(() => {
+      Promise.all([resumePromise, this.ensureSamplesDecoded(ctx)]).then(() => {
         if (this.isPlaying && this.playSessionId === currentSession) {
           this.scheduleNext();
         }
@@ -454,10 +676,16 @@ export class TanpuraEngine {
         });
         this.activeSources.clear();
         if (this.masterGain && !this.isPlaying && this.ctx) {
-          this.masterGain.gain.setValueAtTime(this.config.masterVolume * 0.85, this.ctx.currentTime);
+          this.masterGain.gain.setValueAtTime(this.config.masterVolume * 1.05, this.ctx.currentTime);
         }
         this.fadeRestoreTimer = null;
       }, 240);
+    }
+  }
+
+  public resumeIfPlaying() {
+    if (this.isPlaying && this.ctx && this.ctx.state !== 'running') {
+      this.ctx.resume().catch(() => {});
     }
   }
 
@@ -482,8 +710,10 @@ export class TanpuraEngine {
     this.activeSources.clear();
     this.stringPanners = [null, null, null, null];
     this.masterGain = null;
+    this.compressor = null;
     this.warmthFilter = null;
     this.brillianceFilter = null;
+    this.unlockAudioEl = null;
     if (this.ctx && this.ctx.state !== 'closed') {
       try {
         this.ctx.close();
