@@ -4581,6 +4581,261 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       { name: 'Flute Note and Key Converter', url: '/tools/flute-note-key-converter', viewKey: 'note_key_converter' },
       { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' }
     ]
+  },
+  {
+    id: 'pehla-nasha-flute-notes',
+    slug: 'pehla-nasha-flute-notes',
+    title: 'Pehla Nasha Flute Notes',
+    category: 'Hindi/Bollywood',
+    movie: 'Jo Jeeta Wohi Sikandar (1992)',
+    singer: 'Udit Narayan & Sadhana Sargam (Music: Jatin–Lalit)',
+    type: 'Bollywood Romantic Classic / 90s Melody',
+    difficulty: 'Intermediate',
+    suggestedFlute: 'F Medium/Bass or G Bass bansuri',
+    startingSwar: 'Madhya Ga (G)',
+    highestSwar: "Taar Sa (S')",
+    mainChallenge: 'Switching cleanly between Shuddha Ni (N) and Komal Ni (n) in the Antara, smooth Mandra dips (.D, .N), and clean leaps from Taar Sa (S\') down to Pa and Ma',
+    practiceSpeed: '80 – 90 BPM (Dreamy, swaying romantic flow)',
+    notationFormats: "Sargam (.D .N S R G M P D n N S') & Western (.A .B C D E F G A Bb B C')",
+    description: 'Learn Pehla Nasha flute notes from Jo Jeeta Wohi Sikandar with Sargam and Western notation. Play this timeless romantic melody with octave markings and practical flute-playing tips.',
+    status: 'Song Notation',
+    publishedDate: '2026-11-27',
+    updatedDate: '2026-11-27',
+    canonicalUrl: 'https://flutesangam.com/notations/pehla-nasha-flute-notes',
+    h1: 'Pehla Nasha Flute Notes – Sargam & Western Notes',
+    metaTitle: 'Pehla Nasha Flute Notes | Sargam & Western',
+    metaDescription: 'Learn Pehla Nasha flute notes from Jo Jeeta Wohi Sikandar with Sargam and Western notation. Play this timeless romantic melody with octave markings and practical flute-playing tips.',
+    intro: 'Pehla Nasha from Jo Jeeta Wohi Sikandar (1992), composed by Jatin–Lalit and sung by Udit Narayan and Sadhana Sargam, is one of the most iconic romantic melodies in Indian cinema. Its nostalgic Sthayi glides warmly through Shuddha Swaras with gentle dips into Mandra Dha (.D) and Mandra Ni (.N), while the soaring Antara ("Udta Hi Firoon") climbs up to Taar Sa (S\') and introduces tender touches of Komal Ni (n). Below you will find phrase-by-phrase Sargam and Western notations along with octave markings and practical flute-playing tips.',
+    quickInfo: {
+      difficulty: 'Intermediate',
+      melodyType: 'Bollywood Romantic Classic / 90s Melody',
+      suggestedFlute: 'F Medium/Bass or G Bass bansuri',
+      startingSwar: 'Madhya Ga (G)',
+      highestSwar: "Taar Sa (S')",
+      mainChallenge: 'Distinguishing Shuddha Ni (N) vs. Komal Ni (n) in the Antara and smooth low-octave transitions (.D, .N)',
+      practiceSpeed: '80 – 90 BPM (Dreamy, swaying romantic flow)'
+    },
+    legend: [
+      { symbol: '.D, .N', meaning: 'Lower octave notes (Mandra Saptak — dot before note)' },
+      { symbol: 'S R G M P D N', meaning: 'Middle octave Shuddha swaras (Madhya Saptak)' },
+      { symbol: 'n', meaning: 'Komal Nishad / flat Ni (Bb in Key of C — half-hole / cross-fingering)' },
+      { symbol: "S'", meaning: 'Higher octave Sa (Taar Saptak — apostrophe after note)' },
+      { symbol: '— (dash)', meaning: 'Sustain / hold the preceding note warmly' },
+      { symbol: '|', meaning: 'Phrase division for clean breathing and phrasing' }
+    ],
+    phrases: [
+      {
+        phraseNumber: 1,
+        lyric: 'Pehla nasha Pehla khumar',
+        sargamNotes: 'GGP PD | GSR PP',
+        westernNotes: 'EEG GA | ECD GG',
+        units: [
+          { lyric: 'Pehla', sargam: 'GGP', western: 'EEG' },
+          { lyric: 'nasha', sargam: 'PD', western: 'GA' },
+          { lyric: 'Pehla', sargam: 'GSR', western: 'ECD' },
+          { lyric: 'khumar', sargam: 'PP', western: 'GG' }
+        ],
+        guidance: 'Open brightly on Madhya Ga (GGP) with a light, joyful breath, step smoothly up to Dha (PD), and resolve cleanly on Pa (PP) after GSR.'
+      },
+      {
+        phraseNumber: 2,
+        lyric: 'Naya pyaar hai naya intezaar',
+        sargamNotes: 'GG PP PDP— | MG RRR',
+        westernNotes: 'EE GG GAG— | FE DDD',
+        units: [
+          { lyric: 'Naya', sargam: 'GG', western: 'EE' },
+          { lyric: 'pyaar', sargam: 'PP', western: 'GG' },
+          { lyric: 'hai', sargam: 'PDP—', western: 'GAG—' },
+          { lyric: 'naya', sargam: 'MG', western: 'FE' },
+          { lyric: 'intezaar', sargam: 'RRR', western: 'DDD' }
+        ],
+        guidance: 'Give a smooth, singing sustain to PDP— on "hai", then step down cleanly through Shuddha Ma (MG) into three gentle Re pulses (RRR).'
+      },
+      {
+        phraseNumber: 3,
+        lyric: 'Kar loon main kya apna haal',
+        sargamNotes: 'S.N.D .NS | MG RR',
+        westernNotes: 'C.B.A .BC | FE DD',
+        units: [
+          { lyric: 'Kar loon', sargam: 'S.N.D', western: 'C.B.A' },
+          { lyric: 'main kya', sargam: '.NS', western: '.BC' },
+          { lyric: 'apna', sargam: 'MG', western: 'FE' },
+          { lyric: 'haal', sargam: 'RR', western: 'DD' }
+        ],
+        guidance: 'Relax your embouchure as you dip into Mandra Ni and Dha (S.N.D .NS) so the lower octave sounds warm and full, then lift gently to MG RR.'
+      },
+      {
+        phraseNumber: 4,
+        lyric: 'Aye dil-e-bekaraar',
+        sargamNotes: '.D.NS GRR',
+        westernNotes: '.A.BC EDD',
+        units: [
+          { lyric: 'Aye dil-e-', sargam: '.D.NS', western: '.A.BC' },
+          { lyric: 'bekaraar', sargam: 'GRR', western: 'EDD' }
+        ],
+        guidance: 'Ascend softly from Mandra Dha (.D.NS) with steady breath support and settle warmly onto GRR.'
+      },
+      {
+        phraseNumber: 5,
+        lyric: 'Mere dil-e-bekaraar Tu hi bata',
+        sargamNotes: 'S.N.D | .NS GRR— | SRGSR',
+        westernNotes: 'C.B.A | .BC EDD— | CDEDC',
+        units: [
+          { lyric: 'Mere', sargam: 'S.N.D', western: 'C.B.A' },
+          { lyric: 'dil-e-', sargam: '.NS', western: '.BC' },
+          { lyric: 'bekaraar', sargam: 'GRR—', western: 'EDD—' },
+          { lyric: 'Tu hi bata', sargam: 'SRGSR', western: 'CDEDC' }
+        ],
+        guidance: 'Sustain the second Re (GRR—) on "bekaraar", then play the playful turn SRGSR on "Tu hi bata" smoothly as a bridge back into the hook.'
+      },
+      {
+        phraseNumber: 6,
+        lyric: 'Pehla nasha Pehla khumar',
+        sargamNotes: 'GGP PD | GSR D PDP—',
+        westernNotes: 'EEG GA | ECD A GAG—',
+        units: [
+          { lyric: 'Pehla', sargam: 'GGP', western: 'EEG' },
+          { lyric: 'nasha', sargam: 'PD', western: 'GA' },
+          { lyric: 'Pehla', sargam: 'GSR', western: 'ECD' },
+          { lyric: 'khumar', sargam: 'D PDP—', western: 'A GAG—' }
+        ],
+        guidance: 'Notice the expressive resolution on "khumar": lift to Dha (D) and settle into the flowing sustained cadence PDP—.'
+      },
+      {
+        phraseNumber: 7,
+        lyric: 'Udta hi firoon in hawaon mein kahin',
+        sargamNotes: "S'NS'P DnD | DPMR DPP",
+        westernNotes: "C'BC'G ABbA | AGFD AGG",
+        units: [
+          { lyric: 'Udta', sargam: "S'NS'P", western: "C'BC'G" },
+          { lyric: 'hi firoon', sargam: 'DnD', western: 'ABbA' },
+          { lyric: 'in hawaon', sargam: 'DPMR', western: 'AGFD' },
+          { lyric: 'mein kahin', sargam: 'DPP', western: 'AGG' }
+        ],
+        guidance: "Focus your air stream cleanly for Taar Sa with Shuddha Ni in S'NS'P, then immediately shift to Komal Ni (n) on DnD before gliding down through DPMR DPP."
+      },
+      {
+        phraseNumber: 8,
+        lyric: 'Ya main jhool jaoon in ghataon mein kahin',
+        sargamNotes: "S'NS'P DnDD | DPMR DPP",
+        westernNotes: "C'BC'G ABbAA | AGFD AGG",
+        units: [
+          { lyric: 'Ya main', sargam: "S'NS'P", western: "C'BC'G" },
+          { lyric: 'jhool jaoon', sargam: 'DnDD', western: 'ABbAA' },
+          { lyric: 'in ghataon', sargam: 'DPMR', western: 'AGFD' },
+          { lyric: 'mein kahin', sargam: 'DPP', western: 'AGG' }
+        ],
+        guidance: "Echo Line 7 with an extra rhythmic pulse on Dha (DnDD) for 'jhool jaoon', keeping the drop from Pa to Re (DPMR) silky and unhurried."
+      },
+      {
+        phraseNumber: 9,
+        lyric: '(Repeat Lines 7 and 8)',
+        sargamNotes: '(Repeat Lines 7 and 8)',
+        westernNotes: '(Repeat Lines 7 and 8)',
+        units: [
+          { lyric: 'Repeat Lines 7–8', sargam: 'Lines 7–8', western: 'Lines 7–8' }
+        ],
+        guidance: 'Repeat "Udta hi firoon..." and "Ya main jhool jaoon..." (Lines 7 and 8) smoothly with buoyant, carefree breath.'
+      },
+      {
+        phraseNumber: 10,
+        lyric: 'Ek kar doon aasmaan zameen',
+        sargamNotes: 'PMPD nDP— MP',
+        westernNotes: 'GFGA BbAG— FG',
+        units: [
+          { lyric: 'Ek kar doon', sargam: 'PMPD', western: 'GFGA' },
+          { lyric: 'aasmaan', sargam: 'nDP—', western: 'BbAG—' },
+          { lyric: 'zameen', sargam: 'MP', western: 'FG' }
+        ],
+        guidance: 'Play PMPD crisply, step onto Komal Ni (n) cleanly for "aasmaan" (nDP—) with sustained Pa, and finish tenderly on MP.'
+      },
+      {
+        phraseNumber: 11,
+        lyric: 'Kaho yaaron kya karoon kya nahin',
+        sargamNotes: "PMPD nS'S'M— MPGM",
+        westernNotes: "GFGA BbC'C'F— FGEF",
+        units: [
+          { lyric: 'Kaho yaaron', sargam: 'PMPD', western: 'GFGA' },
+          { lyric: 'kya karoon', sargam: "nS'S'M—", western: "BbC'C'F—" },
+          { lyric: 'kya nahin', sargam: 'MPGM', western: 'FGEF' }
+        ],
+        guidance: "The expressive Antara climax: rise from Komal Ni (n) to Taar Sa (S'S'), then drop smoothly to sustained Shuddha Ma (M—) before weaving MPGM back toward the Sthayi."
+      },
+      {
+        phraseNumber: 12,
+        lyric: '(Repeat from Line 1)',
+        sargamNotes: '(Repeat from Line 1)',
+        westernNotes: '(Repeat from Line 1)',
+        units: [
+          { lyric: 'Repeat from Line 1', sargam: 'Lines 1–6', western: 'Lines 1–6' }
+        ],
+        guidance: 'Glide right back into "Pehla nasha Pehla khumar" (Line 1) and play through the Sthayi to close on the warm PDP— cadence.'
+      }
+    ],
+    sargamPhrases: [
+      { phraseNumber: 1, notes: 'GGP PD | GSR PP', lyric: 'Pehla nasha Pehla khumar' },
+      { phraseNumber: 2, notes: 'GG PP PDP— | MG RRR', lyric: 'Naya pyaar hai naya intezaar' },
+      { phraseNumber: 3, notes: 'S.N.D .NS | MG RR', lyric: 'Kar loon main kya apna haal' },
+      { phraseNumber: 4, notes: '.D.NS GRR', lyric: 'Aye dil-e-bekaraar' },
+      { phraseNumber: 5, notes: 'S.N.D | .NS GRR— | SRGSR', lyric: 'Mere dil-e-bekaraar Tu hi bata' },
+      { phraseNumber: 6, notes: 'GGP PD | GSR D PDP—', lyric: 'Pehla nasha Pehla khumar' },
+      { phraseNumber: 7, notes: "S'NS'P DnD | DPMR DPP", lyric: 'Udta hi firoon in hawaon mein kahin' },
+      { phraseNumber: 8, notes: "S'NS'P DnDD | DPMR DPP", lyric: 'Ya main jhool jaoon in ghataon mein kahin' },
+      { phraseNumber: 9, notes: '(Repeat Lines 7 and 8)', lyric: 'Repeat Line 7 and 8' },
+      { phraseNumber: 10, notes: 'PMPD nDP— MP', lyric: 'Ek kar doon aasmaan zameen' },
+      { phraseNumber: 11, notes: "PMPD nS'S'M— MPGM", lyric: 'Kaho yaaron kya karoon kya nahin' },
+      { phraseNumber: 12, notes: '(Repeat from Line 1)', lyric: 'Repeat from Line 1' }
+    ],
+    westernPhrases: [
+      { phraseNumber: 1, notes: 'EEG GA | ECD GG', lyric: 'Pehla nasha Pehla khumar' },
+      { phraseNumber: 2, notes: 'EE GG GAG— | FE DDD', lyric: 'Naya pyaar hai naya intezaar' },
+      { phraseNumber: 3, notes: 'C.B.A .BC | FE DD', lyric: 'Kar loon main kya apna haal' },
+      { phraseNumber: 4, notes: '.A.BC EDD', lyric: 'Aye dil-e-bekaraar' },
+      { phraseNumber: 5, notes: 'C.B.A | .BC EDD— | CDEDC', lyric: 'Mere dil-e-bekaraar Tu hi bata' },
+      { phraseNumber: 6, notes: 'EEG GA | ECD A GAG—', lyric: 'Pehla nasha Pehla khumar' },
+      { phraseNumber: 7, notes: "C'BC'G ABbA | AGFD AGG", lyric: 'Udta hi firoon in hawaon mein kahin' },
+      { phraseNumber: 8, notes: "C'BC'G ABbAA | AGFD AGG", lyric: 'Ya main jhool jaoon in ghataon mein kahin' },
+      { phraseNumber: 9, notes: '(Repeat Lines 7 and 8)', lyric: 'Repeat Line 7 and 8' },
+      { phraseNumber: 10, notes: 'GFGA BbAG— FG', lyric: 'Ek kar doon aasmaan zameen' },
+      { phraseNumber: 11, notes: "GFGA BbC'C'F— FGEF", lyric: 'Kaho yaaron kya karoon kya nahin' },
+      { phraseNumber: 12, notes: '(Repeat from Line 1)', lyric: 'Repeat from Line 1' }
+    ],
+    phraseGuidance: [
+      { phraseNumber: 1, guidance: 'Play GGP PD GSR PP brightly with relaxed fingers and steady air.' },
+      { phraseNumber: 2, guidance: 'Sustain PDP— warmly on "hai" before descending smoothly through MG RRR.' },
+      { phraseNumber: 3, guidance: 'Soften your blowing angle for Mandra Ni (.N) and Dha (.D) in S.N.D .NS.' },
+      { phraseNumber: 4, guidance: 'Keep .D.NS resonant and unhurried before resting on GRR.' },
+      { phraseNumber: 5, guidance: 'Hold GRR— expressively and keep the turn SRGSR light and lyrical.' },
+      { phraseNumber: 6, guidance: 'Highlight the D PDP— cadence on "khumar" with a warm sustain.' },
+      { phraseNumber: 7, guidance: "Keep Shuddha Ni (N) clear in S'NS'P and switch accurately to Komal Ni (n) in DnD." },
+      { phraseNumber: 8, guidance: 'Articulate the double Dha (DnDD) gently and glide down through DPMR DPP.' },
+      { phraseNumber: 9, guidance: 'Repeat Lines 7 and 8 with buoyant, dreamy phrasing.' },
+      { phraseNumber: 10, guidance: 'Pitch Komal Ni (n) cleanly on "aasmaan" (nDP—) and resolve gently on MP.' },
+      { phraseNumber: 11, guidance: "Focus breath on nS'S'M— so the jump from Taar Sa down to Ma sounds effortless." },
+      { phraseNumber: 12, guidance: 'Flow directly from MPGM back to Line 1 ("Pehla nasha Pehla khumar").' }
+    ],
+    practiceMethod: [
+      'Warm up with long steady notes on Mandra Dha (.D), Mandra Ni (.N), Sa, Pa, and Taar Sa (S\') against our Online Tanpura Drone (F Medium/Bass or G Bass bansuri recommended) to lock in pitch across octaves.',
+      'Practice the Sthayi (Lines 1–6) slowly at 70 BPM, focusing on clean, relaxed transitions into Mandra Ni and Dha on "Kar loon main kya" (S.N.D .NS) and "Aye dil-e-bekaraar" (.D.NS GRR).',
+      'Use our Online Bansuri Pitch Tuner to check both Shuddha Ni (N) and Komal Ni (n) side by side—the Antara switches right from Shuddha Ni in S\'NS\'P to Komal Ni in DnD.',
+      'Isolate the wide descending leap in Line 11 (nS\'S\'M—): practice stepping gently from Taar Sa (S\') straight down to Shuddha Ma (M—) with a soft, open embouchure so Ma speaks immediately without squeaking.',
+      'Play along with our Online Metronome at 80–90 BPM, observing the repeats (Lines 7–8 twice, then returning to Line 1) to capture the iconic slow-motion romantic feel of Pehla Nasha.'
+    ],
+    commonMistakes: [
+      'Playing Shuddha Ni (N) instead of Komal Ni (n) in DnD, nDP—, and nS\'S\'M—, which loses the signature dreamy flavor of the Antara',
+      'Overblowing on the lower-octave notes .D and .N in Lines 3–5, causing the pitch to jump up into the middle octave',
+      'Pinching the lips too tightly on S\'NS\'P (Lines 7–8), making Taar Sa sound sharp or shrill',
+      'Cracking the tone on the sudden drop from Taar Sa to Shuddha Ma in nS\'S\'M— (Line 11) by failing to relax airspeed quickly enough',
+      'Rushing through the sustained holds (PDP—, GRR—, nDP—, M—) instead of letting the melody float'
+    ],
+    usefulTools: [
+      { name: 'Online Tanpura Drone', url: '/tools/tanpura', viewKey: 'tanpura' },
+      { name: 'Online Flute Metronome', url: '/tools/metronome', viewKey: 'metronome' },
+      { name: 'Online Bansuri Pitch Tuner', url: '/tuner', viewKey: 'learn_tuner' },
+      { name: 'Interactive Bansuri Fingering Chart', url: '/learn/fingering-chart', viewKey: 'learn_fingering_chart' },
+      { name: 'Flute Note and Key Converter', url: '/tools/flute-note-key-converter', viewKey: 'note_key_converter' },
+      { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' }
+    ]
   }
 ];
 

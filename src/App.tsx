@@ -95,6 +95,7 @@ const YehShaamMastaniNotationView = lazyWithRetry(() => import('./components/Yeh
 const Hero1983FluteThemeNotationView = lazyWithRetry(() => import('./components/Hero1983FluteThemeNotationView').then(m => ({ default: m.Hero1983FluteThemeNotationView })));
 const BombayThemeFluteNotationView = lazyWithRetry(() => import('./components/BombayThemeFluteNotationView').then(m => ({ default: m.BombayThemeFluteNotationView })));
 const ZaraZaraNotationView = lazyWithRetry(() => import('./components/ZaraZaraNotationView').then(m => ({ default: m.ZaraZaraNotationView })));
+const PehlaNashaNotationView = lazyWithRetry(() => import('./components/PehlaNashaNotationView').then(m => ({ default: m.PehlaNashaNotationView })));
 const PrivacyPolicyView = lazyWithRetry(() => import('./components/PrivacyPolicyView'));
 const TermsOfServiceView = lazyWithRetry(() => import('./components/TermsOfServiceView'));
 const CopyrightPolicyView = lazyWithRetry(() => import('./components/CopyrightPolicyView'));
@@ -245,6 +246,7 @@ export default function App() {
     if (cleanPath === '/notations/hero-1983-flute-theme-notes') return 'notation_hero_1983_flute_theme';
     if (cleanPath === '/notations/bombay-theme-flute-notes') return 'notation_bombay_theme';
     if (cleanPath === '/notations/zara-zara-flute-notes') return 'notation_zara_zara';
+    if (cleanPath === '/notations/pehla-nasha-flute-notes') return 'notation_pehla_nasha';
     if (cleanPath.startsWith('/post/')) return 'post-detail';
     if (cleanPath.startsWith('/profile/')) return 'user-profile';
     
@@ -563,6 +565,10 @@ export default function App() {
       case 'notation_zara_zara':
         title = 'Zara Zara Flute Notes | Sargam & Western Notation';
         description = "Learn Zara Zara flute notes from Rehnaa Hai Terre Dil Mein with Sargam and Western notation. Practice Bombay Jayashri's beautiful melody with octave markings and helpful flute-playing tips.";
+        break;
+      case 'notation_pehla_nasha':
+        title = 'Pehla Nasha Flute Notes | Sargam & Western';
+        description = 'Learn Pehla Nasha flute notes from Jo Jeeta Wohi Sikandar with Sargam and Western notation. Play this timeless romantic melody with octave markings and practical flute-playing tips.';
         break;
       case 'community_members':
         title = 'Community Members | FluteSangam';
@@ -1584,6 +1590,8 @@ export default function App() {
                 handleViewChange('notation_bombay_theme');
               } else if (slug === 'zara-zara-flute-notes') {
                 handleViewChange('notation_zara_zara');
+              } else if (slug === 'pehla-nasha-flute-notes') {
+                handleViewChange('notation_pehla_nasha');
               }
             }}
           />
@@ -1627,6 +1635,8 @@ export default function App() {
           <BombayThemeFluteNotationView onViewChange={handleViewChange} />
         ) : currentView === 'notation_zara_zara' ? (
           <ZaraZaraNotationView onViewChange={handleViewChange} />
+        ) : currentView === 'notation_pehla_nasha' ? (
+          <PehlaNashaNotationView onViewChange={handleViewChange} />
         ) : currentView === 'community_members' ? (
           <MembersView 
             currentUser={currentUser} 

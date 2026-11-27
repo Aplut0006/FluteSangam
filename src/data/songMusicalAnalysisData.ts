@@ -269,5 +269,18 @@ export const SONG_MUSICAL_ANALYSIS_DATA: Record<string, SongMusicalAnalysis> = {
     rhythmAndBreathTitle: 'Swaying Rain Rhythm & Low-to-High Octave Transition',
     rhythmAndBreathArchitecture:
       'Zara Zara flows on a hypnotic, swaying rhythm that contrasts hushed lower-octave intimacy (.P, .D, .N) in the Sthayi with passionate soaring lines up to Taar Sa (S\') in "Hai Meri Kasam" and "Hum Soye Rahe". Use a relaxed, open embouchure for the Mandra phrases so .P and .D resonate warmly, then narrow your air column smoothly as you lift into D S\' without forcing volume.'
+  },
+  'pehla-nasha-flute-notes': {
+    slug: 'pehla-nasha-flute-notes',
+    heading: 'Jatin–Lalit’s Dreamy Slow-Motion Romance, Komal Ni Shade & Bansuri Analysis: Pehla Nasha',
+    ragaAndScaleTitle: 'Radiant Bilawal Foundation with Expressive Komal Ni (n) Antara Color',
+    ragaAndScaleContext:
+      'Composed by Jatin–Lalit and immortalized by Udit Narayan and Sadhana Sargam in Mansoor Khan’s Jo Jeeta Wohi Sikandar (1992), Pehla Nasha is one of Hindi cinema’s most beloved romantic anthems. Its joyful Sthayi ("Pehla Nasha Pehla Khumar") stays warmly within Shuddha Swaras—dipping softly down to Mandra Dha (.D) and Ni (.N) on "Kar Loon Main Kya Apna Haal" and "Aye Dil-e-Bekaraar"—before the soaring Antara ("Udta Hi Firoon") introduces a tender, dreamlike contrast between Shuddha Ni (N) on S\'NS\'P and Komal Ni (n) on DnD, nDP—, and nS\'S\'M—.',
+    ornamentationTitle: 'Smooth Octave Leaps (S\'NS\'P), Gentle Half-Hole Komal Ni (n) & Sustained Holds',
+    ornamentationAndArticulation:
+      'The charm of Pehla Nasha on bamboo flute lies in effortless phrasing rather than fast runs. Keep the opening GGP PD GSR PP bright and lyrical, then soften your air stream as you step down into .D.NS GRR. In the Antara, focus your embouchure cleanly for Taar Sa (S\') in S\'NS\'P, immediately roll half-open for Komal Ni (n) in DnD and nDP—, and glide smoothly across the wide leap from Taar Sa down to Shuddha Ma in nS\'S\'M— without cracking the tone.',
+    rhythmAndBreathTitle: 'Floaty Dream-Waltz Flow & Breath Control Across Long Phrases',
+    rhythmAndBreathArchitecture:
+      'Famous for its iconic slow-motion feel, Pehla Nasha breathes at an unhurried, swaying tempo (around 82–90 BPM). Give sustained notes like PDP—, GRR—, nDP—, and nS\'S\'M— their full romantic ring, and take quiet diaphragm breaths between lyric clauses so every phrase floats with youthful warmth.'
   }
 };

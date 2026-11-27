@@ -64,6 +64,7 @@ export const VIEW_URLS: Record<string, string> = {
   'notation_hero_1983_flute_theme': '/notations/hero-1983-flute-theme-notes',
   'notation_bombay_theme': '/notations/bombay-theme-flute-notes',
   'notation_zara_zara': '/notations/zara-zara-flute-notes',
+  'notation_pehla_nasha': '/notations/pehla-nasha-flute-notes',
   'privacy_policy': '/privacy-policy',
   'terms_of_service': '/terms-of-service',
   'copyright_policy': '/copyright-policy',
