@@ -282,5 +282,18 @@ export const SONG_MUSICAL_ANALYSIS_DATA: Record<string, SongMusicalAnalysis> = {
     rhythmAndBreathTitle: 'Floaty Dream-Waltz Flow & Breath Control Across Long Phrases',
     rhythmAndBreathArchitecture:
       'Famous for its iconic slow-motion feel, Pehla Nasha breathes at an unhurried, swaying tempo (around 82–90 BPM). Give sustained notes like PDP—, GRR—, nDP—, and nS\'S\'M— their full romantic ring, and take quiet diaphragm breaths between lyric clauses so every phrase floats with youthful warmth.'
+  },
+  'we-wish-you-a-merry-christmas-flute-notes': {
+    slug: 'we-wish-you-a-merry-christmas-flute-notes',
+    heading: 'Festive 3/4 Waltz Rhythm, Lower-Octave Stability & Flute Analysis: We Wish You a Merry Christmas',
+    ragaAndScaleTitle: 'Bright Major Scale (Bilawal Thaat) Across Pure Shuddha Swaras',
+    ragaAndScaleContext:
+      'Originating in 16th-century West Country England, We Wish You a Merry Christmas is one of the world’s most joyful holiday carols—and an ideal beginner flute piece. Built entirely on natural major-scale notes (Bilawal Thaat / Key of C Major) from lower Mandra Pa (.P / .G) up to middle Pa (P / G), it requires zero half-hole fingerings while training smooth octave bridging between .P, .D, .N and middle S, R, G, M, P.',
+    ornamentationTitle: 'Crisp Tonguing on Repeated Notes & Clean Ascending Leaps',
+    ornamentationAndArticulation:
+      'The carol’s cheerful bounce comes from bright, gentle tonguing ("tu-tu") on repeated syllables like "wish you" (SS, RR, GG, MM) and "Christmas" (PP), paired with clean ascending leaps from the lower octave pickup (.P -> S, .D -> R, .P -> G, and .D -> M). Keep your fingers relaxed and close to the tone holes so every step from Mandra to Madhya speaks cleanly without breathiness.',
+    rhythmAndBreathTitle: 'Lively 3/4 Waltz Pulse & Pickup Beat Phrasing',
+    rhythmAndBreathArchitecture:
+      'We Wish You a Merry Christmas dances in an upbeat 3/4 waltz meter (ONE-two-three), opening each line on beat 3 (the pickup word "We" or "Good"). Practice with a 3/4 metronome around 110–125 BPM (or slower at 90 BPM while learning), taking quick, natural breaths right after each "Christmas" and "Year!" so the festive momentum never drags.'
   }
 };

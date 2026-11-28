@@ -80,6 +80,7 @@ const ROUTE_MOD_DATES: Record<string, string> = {
   '/notations/bombay-theme-flute-notes': '2026-11-24',
   '/notations/zara-zara-flute-notes': '2026-11-25',
   '/notations/pehla-nasha-flute-notes': '2026-11-27',
+  '/notations/we-wish-you-a-merry-christmas-flute-notes': '2026-11-28',
   '/privacy-policy': '2026-09-18',
   '/terms-of-service': '2026-09-18',
   '/copyright-policy': '2026-10-02',

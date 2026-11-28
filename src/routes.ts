@@ -65,6 +65,7 @@ export const VIEW_URLS: Record<string, string> = {
   'notation_bombay_theme': '/notations/bombay-theme-flute-notes',
   'notation_zara_zara': '/notations/zara-zara-flute-notes',
   'notation_pehla_nasha': '/notations/pehla-nasha-flute-notes',
+  'notation_we_wish_you_a_merry_christmas': '/notations/we-wish-you-a-merry-christmas-flute-notes',
   'privacy_policy': '/privacy-policy',
   'terms_of_service': '/terms-of-service',
   'copyright_policy': '/copyright-policy',

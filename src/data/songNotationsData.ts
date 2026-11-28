@@ -4836,6 +4836,177 @@ export const PUBLISHED_SONG_NOTATIONS: SongNotationItem[] = [
       { name: 'Flute Note and Key Converter', url: '/tools/flute-note-key-converter', viewKey: 'note_key_converter' },
       { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' }
     ]
+  },
+  {
+    id: 'we-wish-you-a-merry-christmas-flute-notes',
+    slug: 'we-wish-you-a-merry-christmas-flute-notes',
+    title: 'We Wish You a Merry Christmas Flute Notes',
+    category: 'English',
+    movie: 'Traditional English Christmas Carol',
+    singer: 'Traditional Holiday Folk Carol',
+    type: 'English Holiday & Christmas Carol',
+    difficulty: 'Beginner',
+    suggestedFlute: 'C Medium bansuri or any standard C / Western concert flute',
+    startingSwar: 'Mandra Pa (.P)',
+    highestSwar: 'Madhya Pa (P)',
+    mainChallenge: 'Warm breath control on lower octave pickup notes (.P, .D, .N) and lively 3/4 waltz rhythm across upward leaps',
+    practiceSpeed: '95 – 120 BPM (Cheerful 3/4 waltz rhythm)',
+    notationFormats: 'Sargam (.P .D .N S R G M P) & Western (.G .A .B C D E F G)',
+    description: 'Learn We Wish You a Merry Christmas flute notes with Western letter notes and Indian Sargam notation. Play this popular Christmas carol on flute with octave markings and helpful practice tips.',
+    status: 'Song Notation',
+    publishedDate: '2026-11-28',
+    updatedDate: '2026-11-28',
+    canonicalUrl: 'https://flutesangam.com/notations/we-wish-you-a-merry-christmas-flute-notes',
+    h1: 'We Wish You a Merry Christmas Flute Notes – Sargam & Western Notes',
+    metaTitle: 'We Wish You a Merry Christmas Flute Notes | Sargam & Western',
+    metaDescription: 'Learn We Wish You a Merry Christmas flute notes with Western letter notes and Indian Sargam notation. Play this popular Christmas carol on flute with octave markings and helpful practice tips.',
+    intro: 'We Wish You a Merry Christmas is one of the most cheerful and beloved English holiday carols to learn on bamboo flute (bansuri) or Western flute. Played entirely on pure natural notes from Mandra Pa (.P) up to Madhya Pa (P) with no half-hole accidentals, it is an ideal seasonal tune for beginners practicing lower-octave stability. Below you will find phrase-by-phrase Sargam and Western letter notations along with octave markings and practical practice tips.',
+    quickInfo: {
+      difficulty: 'Beginner',
+      melodyType: 'English Holiday & Christmas Carol',
+      suggestedFlute: 'C Medium bansuri or any standard C / Western concert flute',
+      startingSwar: 'Mandra Pa (.P)',
+      highestSwar: 'Madhya Pa (P)',
+      mainChallenge: 'Clean lower-octave pickup notes (.P, .D, .N) and upbeat 3/4 waltz rhythm',
+      practiceSpeed: '95 – 120 BPM (Cheerful 3/4 waltz rhythm)'
+    },
+    legend: [
+      { symbol: '.P, .D, .N', meaning: 'Lower octave notes (Mandra Saptak — dot before note; Western .G, .A, .B)' },
+      { symbol: 'S R G M P', meaning: 'Middle octave Shuddha swaras (Madhya Saptak; Western C D E F G)' },
+      { symbol: '|', meaning: 'Phrase division for clean breathing and waltz grouping' }
+    ],
+    phrases: [
+      {
+        phraseNumber: 1,
+        lyric: 'We wish you a Merry Christmas,',
+        sargamNotes: '.P S S R S.N .D.D',
+        westernNotes: '.G C C D C.B .A.A',
+        units: [
+          { lyric: 'We', sargam: '.P', western: '.G' },
+          { lyric: 'wish', sargam: 'S', western: 'C' },
+          { lyric: 'you', sargam: 'S', western: 'C' },
+          { lyric: 'a', sargam: 'R', western: 'D' },
+          { lyric: 'Merry', sargam: 'S.N', western: 'C.B' },
+          { lyric: 'Christmas,', sargam: '.D.D', western: '.A.A' }
+        ],
+        guidance: 'Start gently on Mandra Pa (.P) with a warm, relaxed breath, bounce cleanly up to Sa (S S R), and descend smoothly to Mandra Dha (.D.D).'
+      },
+      {
+        phraseNumber: 2,
+        lyric: 'We wish you a Merry Christmas,',
+        sargamNotes: '.D R R G RS .N.P',
+        westernNotes: '.A D D E DC .B.G',
+        units: [
+          { lyric: 'We', sargam: '.D', western: '.A' },
+          { lyric: 'wish', sargam: 'R', western: 'D' },
+          { lyric: 'you', sargam: 'R', western: 'D' },
+          { lyric: 'a', sargam: 'G', western: 'E' },
+          { lyric: 'Merry', sargam: 'RS', western: 'DC' },
+          { lyric: 'Christmas,', sargam: '.N.P', western: '.B.G' }
+        ],
+        guidance: 'Lift one scale step higher than Line 1: open on Mandra Dha (.D), articulate "wish you" cleanly on R R, and drop softly back to Mandra Pa (.N.P).'
+      },
+      {
+        phraseNumber: 3,
+        lyric: 'We wish you a Merry Christmas, and a Happy New Year!',
+        sargamNotes: '.P G G M GR S.D | .D .D .DR .N S',
+        westernNotes: '.G E E F ED C.A | .A .A .AD .B C',
+        units: [
+          { lyric: 'We', sargam: '.P', western: '.G' },
+          { lyric: 'wish', sargam: 'G', western: 'E' },
+          { lyric: 'you', sargam: 'G', western: 'E' },
+          { lyric: 'a', sargam: 'M', western: 'F' },
+          { lyric: 'Merry', sargam: 'GR', western: 'ED' },
+          { lyric: 'Christmas,', sargam: 'S.D', western: 'C.A' },
+          { lyric: 'and', sargam: '.D', western: '.A' },
+          { lyric: 'a', sargam: '.D', western: '.A' },
+          { lyric: 'Happy', sargam: '.DR', western: '.AD' },
+          { lyric: 'New', sargam: '.N', western: '.B' },
+          { lyric: 'Year!', sargam: 'S', western: 'C' }
+        ],
+        guidance: 'Make the bright leap from .P up to Ga (G G M) smoothly without overblowing, then keep "and a Happy New Year!" crisp and joyful landing squarely on middle Sa (S).'
+      },
+      {
+        phraseNumber: 4,
+        lyric: 'Good tidings we bring to you and your kin,',
+        sargamNotes: '.P SS S .N | .N S .N .D .P',
+        westernNotes: '.G CC C .B | .B C .B .A .G',
+        units: [
+          { lyric: 'Good', sargam: '.P', western: '.G' },
+          { lyric: 'tidings', sargam: 'SS', western: 'CC' },
+          { lyric: 'we', sargam: 'S', western: 'C' },
+          { lyric: 'bring', sargam: '.N', western: '.B' },
+          { lyric: 'to', sargam: '.N', western: '.B' },
+          { lyric: 'you', sargam: 'S', western: 'C' },
+          { lyric: 'and', sargam: '.N', western: '.B' },
+          { lyric: 'your', sargam: '.D', western: '.A' },
+          { lyric: 'kin,', sargam: '.P', western: '.G' }
+        ],
+        guidance: 'Use light, even tonguing on "tidings we" (SS S) and glide gently down the lower octave (.N S .N .D .P) with warm diaphragm support.'
+      },
+      {
+        phraseNumber: 5,
+        lyric: 'We wish you a Merry Christmas and a Happy New Year!',
+        sargamNotes: '.D M M G RR PP | M G RG .N S',
+        westernNotes: '.A F F E DD GG | F E DE .B C',
+        units: [
+          { lyric: 'We', sargam: '.D', western: '.A' },
+          { lyric: 'wish', sargam: 'M', western: 'F' },
+          { lyric: 'you', sargam: 'M', western: 'F' },
+          { lyric: 'a', sargam: 'G', western: 'E' },
+          { lyric: 'Merry', sargam: 'RR', western: 'DD' },
+          { lyric: 'Christmas', sargam: 'PP', western: 'GG' },
+          { lyric: 'and', sargam: 'M', western: 'F' },
+          { lyric: 'a', sargam: 'G', western: 'E' },
+          { lyric: 'Happy', sargam: 'RG', western: 'DE' },
+          { lyric: 'New', sargam: '.N', western: '.B' },
+          { lyric: 'Year!', sargam: 'S', western: 'C' }
+        ],
+        guidance: 'For the festive finale, keep Shuddha Ma (M M) bright and clear, hit middle Pa (PP) cleanly on "Christmas", and finish triumphantly through RG .N S.'
+      }
+    ],
+    sargamPhrases: [
+      { phraseNumber: 1, notes: '.P S S R S.N .D.D', lyric: 'We wish you a Merry Christmas,' },
+      { phraseNumber: 2, notes: '.D R R G RS .N.P', lyric: 'We wish you a Merry Christmas,' },
+      { phraseNumber: 3, notes: '.P G G M GR S.D | .D .D .DR .N S', lyric: 'We wish you a Merry Christmas, and a Happy New Year!' },
+      { phraseNumber: 4, notes: '.P SS S .N | .N S .N .D .P', lyric: 'Good tidings we bring to you and your kin,' },
+      { phraseNumber: 5, notes: '.D M M G RR PP | M G RG .N S', lyric: 'We wish you a Merry Christmas and a Happy New Year!' }
+    ],
+    westernPhrases: [
+      { phraseNumber: 1, notes: '.G C C D C.B .A.A', lyric: 'We wish you a Merry Christmas,' },
+      { phraseNumber: 2, notes: '.A D D E DC .B.G', lyric: 'We wish you a Merry Christmas,' },
+      { phraseNumber: 3, notes: '.G E E F ED C.A | .A .A .AD .B C', lyric: 'We wish you a Merry Christmas, and a Happy New Year!' },
+      { phraseNumber: 4, notes: '.G CC C .B | .B C .B .A .G', lyric: 'Good tidings we bring to you and your kin,' },
+      { phraseNumber: 5, notes: '.A F F E DD GG | F E DE .B C', lyric: 'We wish you a Merry Christmas and a Happy New Year!' }
+    ],
+    phraseGuidance: [
+      { phraseNumber: 1, guidance: 'Open gently on Mandra Pa (.P), tongue S S cleanly, and settle down on .D.D.' },
+      { phraseNumber: 2, guidance: 'Climb cleanly from .D to R R G and resolve smoothly down to .N.P.' },
+      { phraseNumber: 3, guidance: 'Keep the upward leap .P -> G relaxed and land clearly on Sa (S) for "Year!".' },
+      { phraseNumber: 4, guidance: 'Articulate SS S lightly and keep the lower-octave descent .N .D .P warm and steady.' },
+      { phraseNumber: 5, guidance: 'Keep the finale joyful through M M G RR PP and close firmly on .N S.' }
+    ],
+    practiceMethod: [
+      'Start with long, warm breaths on the three lower-octave notes (.P, .D, .N) using our Online Bansuri Pitch Tuner so every pickup note ("We", "Good") rings out without breaking into the middle octave.',
+      'Practice the ascending jumps from the lower octave slowly: .P -> S (Line 1), .D -> R (Line 2), .P -> G (Line 3), and .D -> M (Line 5) until your finger seal feels effortless.',
+      'Use light "tu-tu" tonguing on repeated notes (SS, RR, GG, MM, PP) so the carol sounds crisp and celebratory rather than slurred.',
+      'Set our Online Flute Metronome to a 3/4 waltz pulse starting at 85–90 BPM, counting "one-two-THREE" where "We" lands on beat 3, then gradually speed up to 115–120 BPM.',
+      'Play all five lines continuously twice through to perform the full festive carol smoothly from start to finish.'
+    ],
+    commonMistakes: [
+      'Blowing too hard on the opening Mandra Pa (.P) and Mandra Dha (.D) pickup notes, causing them to jump up an octave',
+      'Slurring repeated notes on "wish you" (SS, RR, GG, MM) instead of using light, clear tonguing',
+      'Leaking air on the lower three holes when dropping down to .D and .P at the end of "Christmas" and "kin"',
+      'Losing the buoyant 3/4 waltz rhythm by rushing through the "and a Happy New Year!" cadence'
+    ],
+    usefulTools: [
+      { name: 'Online Flute Metronome', url: '/tools/metronome', viewKey: 'metronome' },
+      { name: 'Online Bansuri Pitch Tuner', url: '/tuner', viewKey: 'learn_tuner' },
+      { name: 'Online Tanpura Drone', url: '/tools/tanpura', viewKey: 'tanpura' },
+      { name: 'Interactive Bansuri Fingering Chart', url: '/learn/fingering-chart', viewKey: 'learn_fingering_chart' },
+      { name: 'Flute Note and Key Converter', url: '/tools/flute-note-key-converter', viewKey: 'note_key_converter' },
+      { name: 'How to Read Bansuri Notation', url: '/learn/how-to-read-bansuri-notation', viewKey: 'how_to_read_bansuri_notation' }
+    ]
   }
 ];
 

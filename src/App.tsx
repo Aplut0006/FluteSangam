@@ -96,6 +96,7 @@ const Hero1983FluteThemeNotationView = lazyWithRetry(() => import('./components/
 const BombayThemeFluteNotationView = lazyWithRetry(() => import('./components/BombayThemeFluteNotationView').then(m => ({ default: m.BombayThemeFluteNotationView })));
 const ZaraZaraNotationView = lazyWithRetry(() => import('./components/ZaraZaraNotationView').then(m => ({ default: m.ZaraZaraNotationView })));
 const PehlaNashaNotationView = lazyWithRetry(() => import('./components/PehlaNashaNotationView').then(m => ({ default: m.PehlaNashaNotationView })));
+const WeWishYouAMerryChristmasNotationView = lazyWithRetry(() => import('./components/WeWishYouAMerryChristmasNotationView').then(m => ({ default: m.WeWishYouAMerryChristmasNotationView })));
 const PrivacyPolicyView = lazyWithRetry(() => import('./components/PrivacyPolicyView'));
 const TermsOfServiceView = lazyWithRetry(() => import('./components/TermsOfServiceView'));
 const CopyrightPolicyView = lazyWithRetry(() => import('./components/CopyrightPolicyView'));
@@ -247,6 +248,7 @@ export default function App() {
     if (cleanPath === '/notations/bombay-theme-flute-notes') return 'notation_bombay_theme';
     if (cleanPath === '/notations/zara-zara-flute-notes') return 'notation_zara_zara';
     if (cleanPath === '/notations/pehla-nasha-flute-notes') return 'notation_pehla_nasha';
+    if (cleanPath === '/notations/we-wish-you-a-merry-christmas-flute-notes') return 'notation_we_wish_you_a_merry_christmas';
     if (cleanPath.startsWith('/post/')) return 'post-detail';
     if (cleanPath.startsWith('/profile/')) return 'user-profile';
     
@@ -569,6 +571,10 @@ export default function App() {
       case 'notation_pehla_nasha':
         title = 'Pehla Nasha Flute Notes | Sargam & Western';
         description = 'Learn Pehla Nasha flute notes from Jo Jeeta Wohi Sikandar with Sargam and Western notation. Play this timeless romantic melody with octave markings and practical flute-playing tips.';
+        break;
+      case 'notation_we_wish_you_a_merry_christmas':
+        title = 'We Wish You a Merry Christmas Flute Notes | Sargam & Western';
+        description = 'Learn We Wish You a Merry Christmas flute notes with Western letter notes and Indian Sargam notation. Play this popular Christmas carol on flute with octave markings and helpful practice tips.';
         break;
       case 'community_members':
         title = 'Community Members | FluteSangam';
@@ -1592,6 +1598,8 @@ export default function App() {
                 handleViewChange('notation_zara_zara');
               } else if (slug === 'pehla-nasha-flute-notes') {
                 handleViewChange('notation_pehla_nasha');
+              } else if (slug === 'we-wish-you-a-merry-christmas-flute-notes') {
+                handleViewChange('notation_we_wish_you_a_merry_christmas');
               }
             }}
           />
@@ -1637,6 +1645,8 @@ export default function App() {
           <ZaraZaraNotationView onViewChange={handleViewChange} />
         ) : currentView === 'notation_pehla_nasha' ? (
           <PehlaNashaNotationView onViewChange={handleViewChange} />
+        ) : currentView === 'notation_we_wish_you_a_merry_christmas' ? (
+          <WeWishYouAMerryChristmasNotationView onViewChange={handleViewChange} />
         ) : currentView === 'community_members' ? (
           <MembersView 
             currentUser={currentUser} 
